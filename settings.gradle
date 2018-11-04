@@ -1,0 +1,3 @@
+rootProject.name = 'framework-repositories'
+include 'spring-boot'
+
