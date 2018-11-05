@@ -19,6 +19,7 @@ Spring Bean的生命周期：
 - 当要销毁Bean的时候，如果Bean在配置文件中的定义包含`destroy-method`属性，执行指定的方法。
 
 ## Results
+- `BeanLifeCycleServiceTest`
 ```
 Spring容器初始化
 =====================================

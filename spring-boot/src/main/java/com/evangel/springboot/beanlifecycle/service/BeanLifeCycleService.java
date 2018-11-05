@@ -25,6 +25,10 @@ public class BeanLifeCycleService implements InitializingBean, DisposableBean,
 		EnvironmentAware, ImportAware, ResourceLoaderAware {
 	private String name;
 
+	public BeanLifeCycleService() {
+		System.out.println("调用BeanLifeCycleService无参构造函数");
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -35,13 +39,70 @@ public class BeanLifeCycleService implements InitializingBean, DisposableBean,
 		return this;
 	}
 
-	public BeanLifeCycleService() {
-		System.out.println("调用BeanLifeCycleService无参构造函数");
+	@Override
+	public void setBeanName(String s) {
+		System.out.println("调用setBeanName:: Bean Name defined in context=" + s);
+	}
+
+	@Override
+	public void setBeanClassLoader(ClassLoader classLoader) {
+		System.out.println("调用setBeanClassLoader,ClassLoader Name = "
+				+ classLoader.getClass().getName());
+	}
+
+	@Override
+	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+		System.out
+				.println("调用setBeanFactory,setBeanFactory:: BeanLifeCycle bean singleton="
+						+ beanFactory.isSingleton("beanLifeCycleService"));
+	}
+
+	@Override
+	public void setEnvironment(Environment environment) {
+		System.out.println("调用setEnvironment");
+	}
+
+	@Override
+	public void setResourceLoader(ResourceLoader resourceLoader) {
+		Resource resource = resourceLoader
+				.getResource("classpath:application.properties");
+		System.out.println("调用setResourceLoader:: Resource File Name="
+				+ resource.getFilename());
+	}
+
+	@Override
+	public void setApplicationEventPublisher(
+			ApplicationEventPublisher applicationEventPublisher) {
+		System.out.println("调用setApplicationEventPublisher");
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+			throws BeansException {
+		System.out.println("调用setApplicationContext:: Bean Definition Names="
+				+ Arrays.toString(applicationContext.getBeanDefinitionNames()));
+	}
+
+	@PostConstruct
+	public void initPostConstruct() {
+		System.out.println("调用PostConstruct注解标注的方法");
 	}
 
 	@Override
 	public void afterPropertiesSet() {
 		System.out.println("执行InitializingBean接口的afterPropertiesSet方法");
+	}
+
+	/**
+	 * 通过<bean>的init-method属性指定的初始化方法
+	 */
+	public void initMethod() {
+		System.out.println("执行配置的init-method");
+	}
+
+	@Override
+	public void setImportMetadata(AnnotationMetadata annotationMetadata) {
+		System.out.println("调用setImportMetadata");
 	}
 
 	@PreDestroy
@@ -59,66 +120,5 @@ public class BeanLifeCycleService implements InitializingBean, DisposableBean,
 	 */
 	public void destroyMethod() {
 		System.out.println("执行配置的destroy-method");
-	}
-
-	/**
-	 * 通过<bean>的init-method属性指定的初始化方法
-	 */
-	public void initMethod() {
-		System.out.println("执行配置的init-method");
-	}
-
-	@PostConstruct
-	public void initPostConstruct() {
-		System.out.println("调用PostConstruct注解标注的方法");
-	}
-
-	@Override
-	public void setBeanClassLoader(ClassLoader classLoader) {
-		System.out.println("调用setBeanClassLoader,ClassLoader Name = "
-				+ classLoader.getClass().getName());
-	}
-
-	@Override
-	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-		System.out
-				.println("调用setBeanFactory,setBeanFactory:: BeanLifeCycle bean singleton="
-						+ beanFactory.isSingleton("beanLifeCycleService"));
-	}
-
-	@Override
-	public void setBeanName(String s) {
-		System.out.println("调用setBeanName:: Bean Name defined in context=" + s);
-	}
-
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext)
-			throws BeansException {
-		System.out.println("调用setApplicationContext:: Bean Definition Names="
-				+ Arrays.toString(applicationContext.getBeanDefinitionNames()));
-	}
-
-	@Override
-	public void setApplicationEventPublisher(
-			ApplicationEventPublisher applicationEventPublisher) {
-		System.out.println("调用setApplicationEventPublisher");
-	}
-
-	@Override
-	public void setEnvironment(Environment environment) {
-		System.out.println("调用setEnvironment");
-	}
-
-	@Override
-	public void setResourceLoader(ResourceLoader resourceLoader) {
-		Resource resource = resourceLoader
-				.getResource("classpath:application.properties");
-		System.out.println("调用setResourceLoader:: Resource File Name="
-				+ resource.getFilename());
-	}
-
-	@Override
-	public void setImportMetadata(AnnotationMetadata annotationMetadata) {
-		System.out.println("调用setImportMetadata");
 	}
 }

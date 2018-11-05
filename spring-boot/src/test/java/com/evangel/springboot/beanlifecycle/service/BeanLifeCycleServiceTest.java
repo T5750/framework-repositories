@@ -22,6 +22,5 @@ public class BeanLifeCycleServiceTest {
 		System.out.println("从容器中获取Bean");
 		System.out.println("BeanLifeCycle Name="
 				+ beanLifeCycleService.getName());
-		System.out.println("=====================================");
 	}
 }

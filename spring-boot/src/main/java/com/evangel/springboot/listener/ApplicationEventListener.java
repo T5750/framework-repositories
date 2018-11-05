@@ -54,6 +54,7 @@ public class ApplicationEventListener implements
 		// 应用关闭，当ApplicationContext被关闭时触发该事件。容器被关闭时，其管理的所有单例Bean都被销毁。
 		if (event instanceof ContextClosedEvent) {
 			logger.info("应用关闭");
+			System.out.println("=====================================");
 			System.out.println("Spring容器关闭");
 		} else {
 		}
