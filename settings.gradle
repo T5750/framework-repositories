@@ -1,3 +1,8 @@
 rootProject.name = 'framework-repositories'
 include 'spring-boot'
+include 'activemq'
+include 'activemq:activemq-provider'
+findProject(':activemq:activemq-provider')?.name = 'activemq-provider'
+include 'activemq:activemq-consumer'
+findProject(':activemq:activemq-consumer')?.name = 'activemq-consumer'
 
