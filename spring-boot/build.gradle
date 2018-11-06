@@ -12,19 +12,8 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-
-group = 'com.evangel'
-version = '1.0-SNAPSHOT'
-sourceCompatibility = 1.6
-
-repositories {
-    mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')

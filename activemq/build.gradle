@@ -1,14 +1,23 @@
-group 'com.evangel'
-version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+subprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter')
+        compile('org.springframework.boot:spring-boot-starter-activemq')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
 }
