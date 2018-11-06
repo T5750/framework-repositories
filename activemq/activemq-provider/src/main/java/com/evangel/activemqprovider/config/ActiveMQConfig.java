@@ -43,6 +43,9 @@ public class ActiveMQConfig {
 		return new ActiveMQConnectionFactory(usrName, password, brokerUrl);
 	}
 
+	/**
+	 * queue模式的ListenerContainer
+	 */
 	@Bean
 	public JmsListenerContainerFactory<?> jmsListenerContainerQueue(
 			ActiveMQConnectionFactory connectionFactory) {
@@ -51,6 +54,9 @@ public class ActiveMQConfig {
 		return bean;
 	}
 
+	/**
+	 * topic模式的ListenerContainer
+	 */
 	@Bean
 	public JmsListenerContainerFactory<?> jmsListenerContainerTopic(
 			ActiveMQConnectionFactory connectionFactory) {

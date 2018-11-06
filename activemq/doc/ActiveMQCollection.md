@@ -1,20 +1,33 @@
-package com.evangel.activemqconsumer.config;
+# ActiveMQ网摘笔记
 
-import javax.jms.Queue;
-import javax.jms.Topic;
+## Spring Boot与ActiveMQ整合
+ActiveMQ管控台：[http://localhost:8161/admin/](http://localhost:8161/admin/)
 
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.command.ActiveMQQueue;
-import org.apache.activemq.command.ActiveMQTopic;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
-import org.springframework.jms.config.JmsListenerContainerFactory;
+`build.gradle`：
+```
+compile('org.springframework.boot:spring-boot-starter-activemq')
+```
 
-/**
- * 配置文件 ActiveMQConfig
- */
+`application.yml`修改`port`和`context-path`：
+```
+server:
+  port: 8080
+  context-path: /activemq-provider
+spring:
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://localhost:61616
+    pool:
+      enabled: true
+      max-connections: 10
+
+queueName: publish.queue
+topicName: publish.topic
+```
+
+`ActiveMQConfig`：
+```
 @Configuration
 public class ActiveMQConfig {
 	@Value("${queueName}")
@@ -43,9 +56,6 @@ public class ActiveMQConfig {
 		return new ActiveMQConnectionFactory(usrName, password, brokerUrl);
 	}
 
-	/**
-	 * queue模式的ListenerContainer
-	 */
 	@Bean
 	public JmsListenerContainerFactory<?> jmsListenerContainerQueue(
 			ActiveMQConnectionFactory connectionFactory) {
@@ -54,9 +64,6 @@ public class ActiveMQConfig {
 		return bean;
 	}
 
-	/**
-	 * topic模式的ListenerContainer
-	 */
 	@Bean
 	public JmsListenerContainerFactory<?> jmsListenerContainerTopic(
 			ActiveMQConnectionFactory connectionFactory) {
@@ -67,3 +74,12 @@ public class ActiveMQConfig {
 		return bean;
 	}
 }
+```
+
+### Results
+- 示例：`ActiveMQProviderApplication`，`ActiveMQConsumerApplication`
+- queue测试：[http://localhost:8080/activemq-provider/publish/queue](http://localhost:8080/activemq-provider/publish/queue)
+- topic测试：[http://localhost:8080/activemq-provider/publish/topic](http://localhost:8080/activemq-provider/publish/topic)
+
+## References
+- [springboot与ActiveMQ整合](https://www.cnblogs.com/elvinle/p/8457596.html)

@@ -5,8 +5,7 @@
 - [ActiveMQ笔记](doc/ActiveMQNote.md)
 
 ### ActiveMQ网摘笔记
-- 示例：`ActiveMQProviderApplication`，`ActiveMQConsumerApplication`
-- [springboot与ActiveMQ整合](https://www.cnblogs.com/elvinle/p/8457596.html)
+- [Spring Boot与ActiveMQ整合](doc/ActiveMQCollection.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
