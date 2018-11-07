@@ -9,6 +9,18 @@ spring:
     pool:
       enabled: true
       max-connections: 10
+  mail:
+    host: smtp.163.com
+    username: username@163.com
+    password: password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 queueName: publish.queue
 topicName: publish.topic
+queueNameMail: mailqueue

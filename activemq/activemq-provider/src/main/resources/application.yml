@@ -12,3 +12,4 @@ spring:
 
 queueName: publish.queue
 topicName: publish.topic
+queueNameMail: mailqueue

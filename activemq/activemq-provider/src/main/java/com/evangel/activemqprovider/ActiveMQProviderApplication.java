@@ -14,3 +14,4 @@ public class ActiveMQProviderApplication {
 }
 // http://localhost:8080/activemq-provider/publish/queue
 // http://localhost:8080/activemq-provider/publish/topic
+// http://localhost:8080/activemq-provider/mail/send

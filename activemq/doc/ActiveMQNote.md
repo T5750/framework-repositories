@@ -66,5 +66,11 @@ JMS实现JMS接口的消息中间件
 
 ## 4.x 高级主题（两种经典的消息模式、与Spring整合、集群、监控、配置优化等）
 
+## Results
+- 示例：`ActiveMQProviderApplication`，`ActiveMQConsumerApplication`，`TestMQProducer`
+- activemq-provider中，`MailUtil`设置`username`
+- activemq-consumer中，`application.yml`设置`username`，`password`
+- 发送邮件：[http://localhost:8080/activemq-provider/mail/send](http://localhost:8080/activemq-provider/mail/send)
+
 ## References
 - ActiveMQ
