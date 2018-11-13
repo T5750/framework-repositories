@@ -13,9 +13,9 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
 ### 集群部署
 主机 | 集群端口 | 消息端口 | 管控台端口 | 节点安装目录
 ---- | --- | --- | --- | -----
-192.168.2.10 | 62621 | 51511 | 8161 | /home/lenovo/install/activemq-8161
-192.168.2.30 | 62622 | 51512 | 8162 | /home/lenovo/install/activemq-8162
-192.168.2.40 | 62623 | 51513 | 8163 | /home/lenovo/install/activemq-8163
+192.168.100.163 | 62621 | 51511 | 8161 | /usr/local/apache-activemq-5.11.1
+192.168.100.164 | 62622 | 51512 | 8162 | /usr/local/apache-activemq-5.11.1
+192.168.100.165 | 62623 | 51513 | 8163 | /usr/local/apache-activemq-5.11.1
 
 1. 防火墙打开对应端口
 1. 在3台虚拟机中部署好单节点的mq
@@ -52,8 +52,8 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
         directory="${activemq.data}/leveldb"
         replicas="3"
         bind="tcp://0.0.0.0:62621"
-        zkAddress="192.168.2.10:2181,192.168.2.30:2182,192.168.2.40:2183"
-        hostname="lenovo1" zkPath="/activemq/leveldb-stores"/>
+        zkAddress="192.168.100.163:2181,192.168.100.164:2182,192.168.100.165:2183"
+        hostname="192.168.100.163" zkPath="/activemq/leveldb-stores"/>
     </persistenceAdapter>
     
     #activemq-8162
@@ -63,8 +63,8 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
         directory="${activemq.data}/leveldb"
         replicas="3"
         bind="tcp://0.0.0.0:62622"
-        zkAddress="192.168.2.10:2181,192.168.2.30:2182,192.168.2.40:2183"
-        hostname="lenovo3" zkPath="/activemq/leveldb-stores"/>
+        zkAddress="192.168.100.163:2181,192.168.100.164:2182,192.168.100.165:2183"
+        hostname="192.168.100.164" zkPath="/activemq/leveldb-stores"/>
     </persistenceAdapter>
     
     #activemq-8163
@@ -74,8 +74,8 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
         directory="${activemq.data}/leveldb"
         replicas="3"
         bind="tcp://0.0.0.0:62623"
-        zkAddress="192.168.2.10:2181,192.168.2.30:2182,192.168.2.40:2183"
-        hostname="lenovo4" zkPath="/activemq/leveldb-stores"/>
+        zkAddress="192.168.100.163:2181,192.168.100.164:2182,192.168.100.165:2183"
+        hostname="192.168.100.165" zkPath="/activemq/leveldb-stores"/>
     </persistenceAdapter>
     ```
     - 修改各节点的消息端口（注意：避免端口冲突）
@@ -112,17 +112,17 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
     ```
 1. 启动服务并监听日志（需先启动ZooKeeper集群服务）
     ```
-    activemq-8161/bin/activemq start
-    activemq-8162/bin/activemq start
-    activemq-8163/bin/activemq start
+    bin/activemq start
+    bin/activemq start
+    bin/activemq start
     
-    tail -f activemq-8161/data/activemq.log
-    tail -f activemq-8162/data/activemq.log
-    tail -f activemq-8163/data/activemq.log
+    tail -f data/activemq.log
+    tail -f data/activemq.log
+    tail -f data/activemq.log
     ```
 
 ### Results
-- `application.yml`配置：```broker-url: failover:(tcp://localhost:51511,tcp://localhost:51512,tcp://localhost:51513)```
+- `application.yml`配置：```broker-url: failover:(tcp://192.168.100.163:51511,tcp://192.168.100.164:51512,tcp://192.168.100.165:51513)```
 - 示例：`ActiveMQProviderApplication`，`ActiveMQConsumerApplication`
 - queue测试：[http://localhost:8080/activemq-provider/publish/queue](http://localhost:8080/activemq-provider/publish/queue)
 - topic测试：[http://localhost:8080/activemq-provider/publish/topic](http://localhost:8080/activemq-provider/publish/topic)
