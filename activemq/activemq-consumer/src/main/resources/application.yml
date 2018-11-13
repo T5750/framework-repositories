@@ -5,7 +5,8 @@ spring:
   activemq:
     user: admin
     password: admin
-    broker-url: tcp://localhost:61616
+    #broker-url: tcp://localhost:61616
+    broker-url: failover:(tcp://localhost:51511,tcp://localhost:51512,tcp://localhost:51513)
     pool:
       enabled: true
       max-connections: 10
