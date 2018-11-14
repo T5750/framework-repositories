@@ -55,7 +55,7 @@ ActiveMQ是一个完全支持JMS1.1和J2EE 1.4规范的JMS Provider实现，尽�
     - 第一点：Kafka ===> 性能吞吐量非常高的 ---- RabbitMQ（*）性能上还不错，数据高可靠，支持天然的集群
     - 空中接力：pageCache 生产 p ----> memeory <---- c 消费
     - 设计原则：Kafka并不是使用持久化方式（数据落地方式、刷盘方式）来保证数据的可靠性的，而是使用replicate的方式来保证高可用的，可能会产生少量数据的丢失
-3. ActiveMQ（io：随机读写，顺序读写），满足80%以上的场景，kadb、leveldb、MySQL
+3. ActiveMQ（io：随机读写，顺序读写），满足80%以上的场景，kahadb、leveldb、MySQL
 
 ## 2.2 ActiveMQ使用
 官方网站下载：[http://activemq.apache.org/](http://activemq.apache.org/)，`apache-activemq-5.11.1-bin.zip`。下载好进行解压缩，目录如下：
@@ -89,9 +89,27 @@ README.txt
     - ActiveMQ管控台使用jetty部署，所以需要修改密码则需要到相应的配置文件
     - `C:\devsoftware\apache-activemq-5.11.1\conf\jetty-realm.properties`
 - ActiveMQ应该设置有安全机制，只有符合认证的用户才能进行发送和获取消息，所以我们也可以在`activemq.xml`里去添加安全验证配置
-    - `C:\devsoftware\apache-activemq-5.11.1\conf\activemq.xml`，在第123行之后添加配置（添加一个插件配置即可）
+    - `C:\devsoftware\apache-activemq-5.11.1\conf\activemq.xml`，添加配置（添加一个插件配置即可）
+    ```
+    <tempUsage>
+        <tempUsage limit="1 gb"/>
+    </tempUsage>
+    
+    <persistenceAdapter>
+        <jdbcPersistenceAdapter dataSource="#mysql-ds"/>
+    </persistenceAdapter>
+    
+    <bean id="mysql-ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?relaxAutoCommit=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="maxActive" value="200"/>
+        <property name="poolPreparedStatements" value="true"/>
+    </bean>
+    ```
 - 5.13.3版本：
-- ActiveMQ持久化存储：可以切换不同的存储技术（默认是kadb、leveldb、MySQL、Oracle）
+- ActiveMQ持久化存储：可以切换不同的存储技术（默认是kahadb、leveldb、MySQL、Oracle）
 - 引入三个jar包：`mysql-connector-java-5.1.21.jar`，`commons-dbcp-1.4.jar`，`commons-pool-1.6.jar`
 
 ## 3.1 Connection方法使用
