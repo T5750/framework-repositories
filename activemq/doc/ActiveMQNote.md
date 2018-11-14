@@ -219,7 +219,9 @@ p2p的过程理解起来更加简单。它好比是两个人打电话，这两�
 - 步骤：详细见ActiveMQ集群使用文档
 
 ## Results
-- 示例：`ActiveMQProviderApplication`，`ActiveMQConsumerApplication`，`TestMQProducer`
+- 示例：
+    - `ActiveMQProviderApplication`，`ActiveMQConsumerApplication`，`TestMQProducer`
+    - 使用`messageSelector`：`Producer`，`ConsumerA`，`ConsumerB`
 - activemq-provider中，`MailUtil`设置`username`
 - activemq-consumer中，`application.yml`设置`username`，`password`
 - 发送邮件：[http://localhost:8080/activemq-provider/mail/send](http://localhost:8080/activemq-provider/mail/send)
