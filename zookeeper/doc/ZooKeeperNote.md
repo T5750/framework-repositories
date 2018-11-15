@@ -260,17 +260,87 @@ CREATE、DELETE、READ、WRITE、ADMIN
 
 我们要完成多个应用服务器注册`watcher`，实时观察数据的变化，然后，反馈给每个服务器变更的数据信息，观察ZooKeeper节点
 
-## 5.1 zkClient使用
+## 5.1 ZkClient使用
+ZkClient是由Datameer的工程师StefanGroschupf和Peter Voss一起开发的。在原生API接口基础上进行了封装，简化了ZK的复杂性。
+1. 创建客户端方法：`ZkClient(Arguments)`
+    - 参数1：`zkServers`ZooKeeper服务器的地址，用","分割。
+    - 参数2：`sessionTimeout`超时会话，为毫秒，默认为30000ms
+    - 参数3：`connectionTimeout`连接超时会话。
+    - 参数4：`IZkConnection`接口的实现类。
+    - 参数5：`zkSerializer`自定义序列化实现。
+1. 创建节点方法：`create`、`createEphemeral`、`createEphemeralSequential`、`createPersistent`、`createPersistentSequential`
+    - 参数1：`path`，路径
+    - 参数2：`data`，数据内容，可以传入`null`
+    - 参数3：`mode`，节点类型，为一个枚举类型，4种形式
+    - 参数4：`acl`策略
+    - 参数5：`callback`回调函数
+    - 参数6：`context`上下文对象
+    - 参数7：`createParents`是否创建父节点
+1. 删除节点方法：`delete`、`deleteRecursive`
+    - 参数1：`path`路径
+    - 参数2：`callback`回调函数
+    - 参数3：`context`上下文对象
+1. 读取子节点数据方法：`getChildren`
+    - 参数1：`path`路径
+1. 读取节点数据方法：`readData`
+    - 参数1：`path`路径
+    - 参数2：`returnNullfPathNotExists`(避免为空节点抛出异常，直接返回`null`)
+    - 参数3：节点状态
+1. 更新数据方法：`writeData`
+    - 参数1：`path`路径
+    - 参数2：`data`数据信息
+    - 参数3：`version`版本号
+1. 检测节点是否存在方法：`exists`
+    - 参数1：`path`路径
 
+## 5.2 ZkClient使用Listener
+ZkClient里并没有类似的`watcher`、`watch`参数，无需关心反复注册`watcher`的问题，ZkClient提供了一套监听方式，可以使用监听节点的方式进行操作，剔除了繁琐的反复`wather`操作，减化了代码的复杂程度。
+1. `subscribeChildChanges`方法
+    - 参数1：`path`路径
+    - 参数2：实现了`IZkChildListener`接口的类(如：实例化`IZkChildListener`类)只需要重写`handleChildChange(String parentPath, List<String>currentChilds)`方法。其中参数`parentPath`为所监听节点全路径，`currentChilds`为最新的子节点列表(相对路径)
+    - `IZkChildListener`事件说明针对于下面三个事件触发：新增子节点、减少子节点、删除节点
+    - `IZkChildListener`有以下特点：
+        1. 客户端可以对一个不存在的节点进行变更的监听。
+        1. 一旦客户端对一个节点注册了子节点列表变更监听后，那么，当前节点的子节点列表发送变更时，服务器端都会通知客户端，并将最新的子节点列表发送给客户端。
+        1. 该节点本身创建或删除也会通知到客户端。
+        1. 另外，最重要的是这个监听是一直存在的，不是单次监听，相比较原生API提供的要简单的多了。
+1. `IZkDataListener`接口，需重写两个方法：
+    - `handleDataChange(String dataPath, Object data)`：节点变更事件
+    - `handleDataDeleted(String dataPath)`：节点删除事件
 
 ## 6.1 Curator框架
-
+为了更好的实现Java操作ZooKeeper服务器，后来出现Curator框架，非常的强大，目前已经是Apache的顶级项目，里面提供了更多丰富的操作，例如：session超时重连、主从选举、分布式计数器、分布式锁等，适用于各种复杂的ZooKeeper场景的API封装。
+```
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>2.12.0</version>
+</dependency>
+```
+相关资料地址：[http://curator.apache.org/curator-recipes/index.html](http://curator.apache.org/curator-recipes/index.html)
 
 ## 6.2 Curator框架使用
+Curator框架中使用链式编程风格，易读性更强，使用工程方法创建连接对象。
+1. 使用`CuratorFrameworkFactory`的两个静态工厂方法(参数不同)来实现：
+    - 参数1：`connectString`，连接串
+    - 参数2：`retryPolicy`，重试连接策略。有四种实现分别为：`ExponentialBackoffRetry`、`RetryNTimes`、`RetryOneTimes`、`RetryUntilElapsed`
+    - 参数3：`sessionTimeoutMs`会话超时时间默认为60000ms
+    - 参数4：`connectionTimeoutMs`连接超时时间，默认为15000ms
 
+注意：对于`retryPolicy`策略通过一个接口来让用户自定义实现。
 
 ## 6.3 Curator的监听
-
+如果要使用类似`wather`的监听功能Curator必须依赖一个jar包，Maven依赖：
+```
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-recipes</artifactId>
+    <version>2.12.0</version>
+</dependency>
+```
+使用`NodeCache`的方式去客户端实例中注册一个监听缓存，然后实现对应的监听方法即可，这里主要有两种监听方式：
+- `NodeCacheListener`：监听节点的新增、修改操作。
+- `PathChildrenCacheListener`：监听子节点的新增、修改、删除操作。
 
 ## References
 - ZooKeeper
