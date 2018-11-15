@@ -25,8 +25,6 @@ public class ZooKeeperWatcher implements Watcher {
 	private static final String PARENT_PATH = "/testWatch";
 	/** zk子路径设置 */
 	private static final String CHILDREN_PATH = "/testWatch/children";
-	/** 进入标识 */
-	private static final String LOG_PREFIX_OF_MAIN = "【Main】";
 	/** zk变量 */
 	private ZooKeeper zk = null;
 	/** 信号量设置，用于等待zookeeper连接建立之后 通知阻塞程序继续向下执行 */
@@ -44,7 +42,7 @@ public class ZooKeeperWatcher implements Watcher {
 		this.releaseConnection();
 		try {
 			zk = new ZooKeeper(connectAddr, sessionTimeout, this);
-			System.out.println(LOG_PREFIX_OF_MAIN + "开始连接ZK服务器");
+			System.out.println(ZkUtil.LOG_PREFIX_OF_MAIN + "开始连接ZK服务器");
 			connectedSemaphore.await();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,7 +75,7 @@ public class ZooKeeperWatcher implements Watcher {
 		try {
 			// 设置监控(由于zookeeper的监控都是一次性的所以 每次必须设置监控)
 			this.zk.exists(path, true);
-			System.out.println(LOG_PREFIX_OF_MAIN + "节点创建成功, Path: "
+			System.out.println(ZkUtil.LOG_PREFIX_OF_MAIN + "节点创建成功, Path: "
 					+ this.zk.create( /** 路径 */
 					path,
 					/** 数据 */
@@ -120,8 +118,9 @@ public class ZooKeeperWatcher implements Watcher {
 	 */
 	public boolean writeData(String path, String data) {
 		try {
-			System.out.println(LOG_PREFIX_OF_MAIN + "更新数据成功，path：" + path
-					+ ", stat: " + this.zk.setData(path, data.getBytes(), -1));
+			System.out.println(ZkUtil.LOG_PREFIX_OF_MAIN + "更新数据成功，path："
+					+ path + ", stat: "
+					+ this.zk.setData(path, data.getBytes(), -1));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -137,7 +136,8 @@ public class ZooKeeperWatcher implements Watcher {
 	public void deleteNode(String path) {
 		try {
 			this.zk.delete(path, -1);
-			System.out.println(LOG_PREFIX_OF_MAIN + "删除节点成功，path：" + path);
+			System.out.println(ZkUtil.LOG_PREFIX_OF_MAIN + "删除节点成功，path："
+					+ path);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

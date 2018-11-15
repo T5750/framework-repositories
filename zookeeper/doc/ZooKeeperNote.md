@@ -124,22 +124,141 @@ ZooKeeper使用场景非常广泛：如Hadoop、Storm。消息中间件、RPC服
     - D表示万一集群中的leader服务器挂了，需要一个端口来重新进行选举，选出一个新的leader
 
 ## 3.1 Java操作ZooKeeper
+ZooKeeper的javaclient使我们更轻松地进行ZooKeeper各种操作，引入`zookeeper-3.3.4.jar`和`zkclient-0.1.jar`即可。
+- `zookeeper-3.3.4.jar`为官方提供的javaAPI
+- `zkclient-0.1.jar`为在原生api基础之上进行扩展的开源Java客户端
 
+### 3.1.1 创建会话
+创建会话方法：客户端可以通过创建一个ZooKeeper实例来连接ZooKeeper服务器。`ZooKeeper(Arguments)`方法（4个构造方法），参数说明如下：
+- `connectString`：连接服务器列表，已","分割。
+- `sessionTimeout`：心跳检测时间周期（毫秒）
+- `wather`：事件处理通知器。
+- `canBeReadOnly`：标识当前会话是否支持只读。
+- `sessionId`和`sessionPasswd`：提供连接ZooKeeper的`sessionId`和密码，通过这两个确定唯一台客户端，目的是可以提供重复会话。
+
+注意：ZooKeeper客户端和服务器端会话的建立是一个异步的过程，也就是说在程序中，我们程序方法在处理完客户端初始化后立即返回（也就是说程序往下执行代码，这样，大多数情况下我们并没有真正构建好一个可用会话，在会话的生命周期处于`CONNECTING`时才算真正建立完毕）
+
+### 3.1.2 创建节点
+创建节点（znode）方法：`create`
+- 同步方式：
+    - 参数1，节点路径（名称）：/nodeName（不允许递归创建节点，也就是说在父节点不存在的情况下，不允许创建子节点）
+    - 参数2，节点内容：要求类型是字节数组（不支持序列化方式，如果需要实现序列化，可使用Java相关序列化框架，如Hessian、Kryo框架）
+    - 参数3，节点权限：使用`Ids.OPEN_ACL_UNSAFE`开放权限即可。（这个参数一般在权限没有太高要求的场景下，没必要关注）
+    - 参数4，节点类型：创建节点的类型：`CreateMode.*`，提供四种节点类型
+        - `PERSISTENT`（持久节点）
+        - `PERSISTENT_SEQUENTIAL`（持久顺序节点）
+        - `EPHEMERAL`（临时节点）
+        - `EPHEMERAL_SEQUENTIAL`（临时顺序节点）
+- 异步方式：（在同步参数基础上增加两个参数）
+    - 参数5，注册一个异步回调函数，要实现`AsynCallBack.StringCallBack`接口，重写`processResult(int rc, string path, Object ctx, String name)`方法，当节点创建完毕后执行此方法。
+        - `rc`：为服务端响应码，`0`表示调用成功、`-4`表示端口连接、`-110`表示指定节点存在、`-112`表示会话已经过期。
+        - `path`：接口调用时传入API的数据节点的路径参数
+        - `ctx`：为调用接口传入API的`ctx`值
+        - `name`：实际在服务器端创建节点的名称
+    - 参数6，传递给回调函数的参数，一般为上下文（Context）信息
+
+### 3.1.3 删除节点
+删除节点：`delete`方法
+- 同步方式：
+    - 参数1，节点名称/deletePath
+    - 参数2，版本号，即表明本次删除操作是针对该数据的某个版本进行的操作。
+- 异步方式：（和`create`方法一致）
+    - 参数3：一个异步回调函数
+    - 参数4：用于传递上下文信息的对象。
+
+注意：在ZooKeeper中，只允许删除叶子节点信息，也就是说如果当前节点不是叶子节点则无法删除，或必须先删除其下所有子节点。
+
+### 3.1.4 读取数据
+`getChildren`读取数据方法：包括子节点列表的获取和子节点数据的获取。
+- 参数1，`path`：获取指定节点的下的数据（获取子节点列表）
+- 参数2，`watcher`：注册的`watcher`，一旦在本次子节点获取后，子节点列表发生变更的话，那么就会向客户端发送通知。该参数允许为`null`。
+- 参数3，`watch`：表明是否需要注册一个`watcher`；如果为`true`，则会使用默认`watcher`。如果为`false`，则表明不需要注册`watcher`。
+- 参数4，`cb`：回调函数。
+- 参数5，`ctx`：上下文信息对象。
+- 参数6，`stat`：指定数据节点的节点状态信息。
+
+注意：当我们获取指定节点的子节点列表后，还需要订阅这个子节点列表的变化通知，这时候就可以通过注册一个`watcher`来实现
+- 当子节点被添加或删除时，服务器端就会触发一个`NodeChildrenChanged`类型的事件通知，需要注意的是服务器端发送给客户端的事件通知中，是不包含最新的节点列表的，客户端必须主动从新进行获取，通常在客户端收到这个事件通知后，就可以再次主动获取最新的子节点列表了。
+- 也就是说，ZooKeeper服务端在向客户端发送`NodeChildrenChanged`事件通知的时候，仅仅只发了一个通知，不会把节点变化情况发给客户端，需要客户端自己重新获取。
+- 另外，`watcher`通知是一次性的，即触发后失效，因此客户端需要反复注册`watcher`才行。
+
+`getData`方法：获取指定节点的数据内容。
+- 参数1，`path`：路径
+- 参数2，`watcher`：注册的`watcher`对象。一旦之后节点内容有变更，则会向客户端发送通知，该参数允许为`null`。
+- 参数3，`stat`：指定节点的状态信息。
+- 参数4，`watch`：是否使用`watcher`，如果为`true`则使用默认`watcher`，`false`则不使用`watcher`。
+- 参数5，`cb`：回调函数。
+- 参数6，`ctx`：用于传递的下文信息对象。
+
+注意：该方法和`getChildren`方法基本相同，主要是注册的`watcher`有所不同，客户端在获取一个阶段数据内容时，是可以进行`watcher`注册的，一旦节点发生变更，则服务器端会发送给客户端一个`NodeDataChanged`的事件通知。
+
+### 3.1.5 修改数据
+`setData`方法：修改指定节点的数据内容。
+- 参数1，`path`：路径。
+- 参数2，`data`：数据内容。
+- 参数3，版本号（`-1`：覆盖之前所有的版本）
+- 参数4，`cb`：回调函数。
+- 参数5，`ctx`：用于传递的下文信息对象。
+
+### 3.1.6 是否存在
+`exists`方法：检测节点是否存在。
+- 参数1，`path`：路径
+- 参数2，`watcher`：注册的`watcher`对象。一旦之后节点内容有变更，则会像客户端发送通知，该参数允许为`null`。（用于三类事件监听：节点的创建、删除、更新）
+- 参数3，`watch`：是否使用`watcher`，如果为`true`则使用默认`watcher`，`false`则不使用`watcher`。
+- 参数4，`cb`：回调函数。
+- 参数5，`ctx`：用于传递的下文信息对象。
+
+注意：`exists`方法意义在于无论节点是否存在，都可以进行注册`watcher`，能够对节点的创建、删除和修改进行监听，但是其子节点发送各种变化，都不会通知客户端。
 
 ## 3.2 Watcher、ZK状态、事件类型
+ZooKeeper有`watch`事件，是一次性触发的，当`watch`监视的数据发生变化时，通知设置了该`watch`的client，即`watcher`。同样，其`watcher`是监听数据发送了某些变化，那就一定会有对应的事件类型和状态类型。
 
+事件类型：（znode节点相关的）
+- `EventType.NodeCreated`
+- `EventType.NodeDataChanged`
+- `EventType.NodeChildrenChanged`
+- `EventType.NodeDeleted`
+
+状态类型：（跟客户端实例相关的）
+- `KeeperState.Disconnected`
+- `KeeperState.SyncConnected`
+- `KeeperState.AuthFailed`
+- `KeeperState.Expired`
 
 ## 3.3 ZooKeeper的Watcher
+`watcher`的特性：一次性、客户端串行执行、轻量。
+- **一次性**：对于ZK的`watcher`，只需记住一点：ZooKeeper有`watch`事件，是一次性触发的，当`watch`监视的数据发生变化时，通知设置了该`watch`的client，即`watcher`，由于ZooKeeper的监控都是一次性的，所以每次必须设置监控。
+- **客户端串行执行**：客户端`watcher`回调的过程是一个串行同步的过程，这为我们保证了顺序，同时需要开发人员注意一点，千万不要因为一个`watcher`的处理逻辑影响了整个客户端的`watcher`回调。
+- **轻量**：`WatchedEvent`是ZooKeeper整个`watcher`通知机制的最小通知单元，整个数据结构只包含三部分：通知状态、事件类型和节点路径。也就是说`watcher`通知非常的简单，只会告诉客户端发生了事件，而不会告知其具体内容，需要客户自己去进行获取。比如`NodeDataChanged`事件，ZooKeeper只会通知客户端指定节点的数据发生了变更，而不会直接提供具体的数据内容。
 
+示例：`ZooKeeperWatcher`
 
 ## 3.4 ZooKeeper的ACL（AUTH）
+ACL（Access Control List），ZooKeeper作为一个分布式协调框架，其内部存储的都是一些关乎分布式系统运行时状态的元数据，尤其是设计到一些分布式锁、Master选举和协调等应用场景。我们需要有效地保障ZooKeeper中的数据安全，ZooKeeper提供一套完善的ACL权限控制机制来保障数据的安全。ZK提供了三种模式。权限模式、授权对象、权限。
 
+权限模式：Scheme，开发人员最多使用的如下四种权限模式：
+- IP：ip模式通过ip地址粒度来进行控制权限，例如配置ip：`192.168.1.107`即表示权限控制都是针对这个ip地址的，同时也支持按网段分配，比如`192.168.1.*`
+- Digest：digest是最常用的权限控制模式，也更符合我们对权限控制的认识，其类似于"username:password"形式的权限标识进行权限配置。ZK会对形成的权限标识先后进行两次编码处理，分别是SHA-1加密算法、BASE64编码。
+- World：World是一直最开放的权限控制模式。这种模式可以看做为特殊的Digest，它仅仅是一个标识而已。
+- Super：超级用户模式，在超级用户模式下可以对ZK任意进行操作。
+
+权限对象：指的是权限赋予的用户或者一个指定的实体，例如ip地址或机器等。在不同的模式下，授权对象是不同的。这种模式和权限对象一一对应。
+
+权限：权限就是指那些通过权限检测后可以被允许执行的操作，在ZK中，对数据的操作权限分为以下五大类：
+```
+CREATE、DELETE、READ、WRITE、ADMIN
+```
+示例：`ZooKeeperAuth`
 
 ## 4.1 查看ZooKeeper及管理工具
+与eclipse集成的管理ZooKeeper工具：zookeeperBrowser
 
+[http://www.massedynamic.org/eclipse/updates/](http://www.massedynamic.org/eclipse/updates/)
 
 ## 4.2 实际应用场景
+我们希望ZooKeeper对分布式系统的配置文件进行管理，也就是说多个服务器进行`watcher`，ZooKeeper节点发送变化，则我们实时更新配置文件。
 
+我们要完成多个应用服务器注册`watcher`，实时观察数据的变化，然后，反馈给每个服务器变更的数据信息，观察ZooKeeper节点
 
 ## 5.1 zkClient使用
 
