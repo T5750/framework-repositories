@@ -15,7 +15,7 @@ import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.data.ACL;
 import org.apache.zookeeper.data.Stat;
 
-import com.evangel.zookeeper.util.ZkUtil;
+import com.evangel.util.ZkUtil;
 
 /**
  * Zookeeper 节点授权

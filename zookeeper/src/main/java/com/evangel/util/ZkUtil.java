@@ -1,4 +1,4 @@
-package com.evangel.zookeeper.util;
+package com.evangel.util;
 
 /**
  *

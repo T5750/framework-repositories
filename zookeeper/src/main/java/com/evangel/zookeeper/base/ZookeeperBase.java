@@ -7,7 +7,7 @@ import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.data.Stat;
 
-import com.evangel.zookeeper.util.ZkUtil;
+import com.evangel.util.ZkUtil;
 
 /**
  * Zookeeper base学习笔记
