@@ -9,6 +9,10 @@
     - [Leader选举](doc/ZooKeeperCollection.md#Leader选举)
     - [Curator框架应用](doc/ZooKeeperCollection.md#Curator框架应用)
     - [Curator扩展库](doc/ZooKeeperCollection.md#Curator扩展库)
+    - [ZooKeeper典型的应用场景](doc/ZooKeeperScenes.md)
+
+## Examples
+- [curator-examples](https://github.com/apache/curator/tree/master/curator-examples/src/main/java)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
