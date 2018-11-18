@@ -15,7 +15,7 @@
 ## 1.3 nginx优点
 - nginx可以在大多数Unix like OS上编译运行，并有Windows移植版。一般情况下，对于新建站点，建议使用最新稳定版作为生产版本，已有站点的升级急迫性不高。nginx的源代码使用2-clause BSD-like license。
 - nginx是一个很强大的高性能Web和反向代理服务器，它具有很多非常优越的特性。
-- 在高连接并发的情况下，nginx是Apache服务器不错的替代品。nginx在美国是做虚拟主机生意的老板们经常选择的软件平台之一。能够支持高达50,000个并发连接数的响应，感谢nginx为我们选择了epoll andkqueue作为开发模型。
+- 在高连接并发的情况下，nginx是Apache服务器不错的替代品。nginx在美国是做虚拟主机生意的老板们经常选择的软件平台之一。能够支持高达50,000个并发连接数的响应，感谢nginx为我们选择了epoll and kqueue作为开发模型。
 
 ## 2.1 nginx环境搭建
 1. wget下载：[http://nginx.org/download/nginx-1.6.2.tar.gz](http://nginx.org/download/nginx-1.6.2.tar.gz)
@@ -43,26 +43,25 @@ server {
     location / {
         root bm.com;
         index index.html;
+    }
 }
 ```
 
 ### 2.2.2 nginx日志管理
-nginx访问日志放在`logs/host.access.log`下，并且使用main格式（还可以自定义格式）
-
-对于main格式如下定义：
+nginx访问日志放在`logs/host.access.log`下，并使用main格式（可自定义格式）。对于main格式如下定义：
 ```
-#日志文件输出格式这个位置相于全局设置
-#log_format main '$remote_addr - $remote_user [$time_local] "$request"'
-#    '$status $body_bytes_sent "$http_referer"'
-#    "$http_user_agent" "$http_x_forwarded_for'";
+    #日志文件输出格式这个位置相于全局设置
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
 ```
 查看日志内容命令：`tail -n 100 -f nginx/logs/access.log`
 
-我们在日常生活中，对nginx日志的分析非常的重要，通常需要运维去对nginx的日志进行切割和分析处理。比如实现一个定时任务，去处理nginx日志等。
+现实中对nginx日志的分析非常的重要，通常需要运维去对nginx的日志进行切割和分析处理。比如实现一个定时任务，去处理nginx日志等。
 1. 分析如何去实现日志切分，编写shell脚本。
 1. 定时任务对脚本进行调度：`crontab -e`
     ```
-    */1****sh /usr/local/nginx/sbinlog.sh
+    */1 * * * * sh /usr/local/nginx/sbin/log.sh
     ```
 
 ### 2.2.3 location语法
@@ -75,18 +74,20 @@ location语法：表示uri方式定位。基础语法有三种：
 - `if(条件为：=~~*)`、`return`、`break`、`rewrite`
 - `-f`是否为文件、`-d`是否为目录、`-e`是否存在
 
-nginx可以对数据进行压缩，对一些图片、html、cass、js等文件进行缓存，从而实现动静分离等优化功能，在网站做优化时非常有用
+nginx可以对数据进行压缩，对一些图片、html、css、js等文件进行缓存，从而实现动静分离等优化功能，在网站做优化时非常有用
 
 ### 2.2.5 nginx反向代理proxy与负载均衡upstream
 - 配置反向代理proxy：`proxy_pass url地址`
 - 配置负载均衡upstream：`upstream`
 - 官方配置：[http://nginx.org/en/docs](http://nginx.org/en/docs)
 
-注意：反向代理之后获取客户端IP地址为nginx服务器地址，这里需要nginx进行forward，设置真实的ip地址：
+注意：反向代理后，获取客户端ip地址为nginx服务器地址，这里需要nginx进行forward，设置真实的ip地址：
 ```
 #设置客户端真实ip地址
 proxy_set_header X-real-ip $remote_addr;
 ```
+
+## 3.x nginx+Keepalived实现高可用
 
 ## Results
 设置host：`192.168.56.1 bm.com`
@@ -94,6 +95,17 @@ proxy_set_header X-real-ip $remote_addr;
 - [http://bm.com:1234/test.html](http://bm.com:1234/test.html)
 - [http://bm.com:1234/firefox.html](http://bm.com:1234/firefox.html)
 - [http://bm.com:1234/goods-123.html](http://bm.com:1234/goods-123.html)
+- [http://localhost/test.jsp](http://localhost/test.jsp)
+
+## Tips
+1. 在Firefox的地址栏上输入`about:config`回车
+1. 找到`browser.cache.check_doc_frequency`选项，双击将`3`改成`1`保存即可。选项含义：
+    - 0：Once per session，每个进程一次，每次启动Firefox时检查
+    - 1：Each time，开发人员强烈建议开这个，每次访问此页时检查
+    - 2：Never
+    - 3：When appropriate/automatically
+
+telnet测试端口号：`telnet bm.com 1234`
 
 ## References
 - nginx
