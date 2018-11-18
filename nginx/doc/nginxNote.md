@@ -45,6 +45,7 @@ server {
         index index.html;
 }
 ```
+
 ### 2.2.2 nginx日志管理
 nginx访问日志放在`logs/host.access.log`下，并且使用main格式（还可以自定义格式）
 
@@ -58,12 +59,11 @@ nginx访问日志放在`logs/host.access.log`下，并且使用main格式（还�
 查看日志内容命令：`tail -n 100 -f nginx/logs/access.log`
 
 我们在日常生活中，对nginx日志的分析非常的重要，通常需要运维去对nginx的日志进行切割和分析处理。比如实现一个定时任务，去处理nginx日志等。
-
-第一步：分析如何去实现日志切分，编写shell脚本。
-第二步：定时任务对脚本进行调度：`crontab -e`
-```
-*/1****sh /usr/local/nginx/sbinlog.sh
-```
+1. 分析如何去实现日志切分，编写shell脚本。
+1. 定时任务对脚本进行调度：`crontab -e`
+    ```
+    */1****sh /usr/local/nginx/sbinlog.sh
+    ```
 
 ### 2.2.3 location语法
 location语法：表示uri方式定位。基础语法有三种：
@@ -78,8 +78,8 @@ location语法：表示uri方式定位。基础语法有三种：
 nginx可以对数据进行压缩，对一些图片、html、cass、js等文件进行缓存，从而实现动静分离等优化功能，在网站做优化时非常有用
 
 ### 2.2.5 nginx反向代理proxy与负载均衡upstream
-- 配置反向代理proxy：proxy_pass url地址
-- 配置负载均衡upstream：upstream
+- 配置反向代理proxy：`proxy_pass url地址`
+- 配置负载均衡upstream：`upstream`
 - 官方配置：[http://nginx.org/en/docs](http://nginx.org/en/docs)
 
 注意：反向代理之后获取客户端IP地址为nginx服务器地址，这里需要nginx进行forward，设置真实的ip地址：
@@ -88,6 +88,12 @@ nginx可以对数据进行压缩，对一些图片、html、cass、js等文件�
 proxy_set_header X-real-ip $remote_addr;
 ```
 
+## Results
+设置host：`192.168.56.1 bm.com`
+- [http://bm.com:1234/](http://bm.com:1234/)
+- [http://bm.com:1234/test.html](http://bm.com:1234/test.html)
+- [http://bm.com:1234/firefox.html](http://bm.com:1234/firefox.html)
+- [http://bm.com:1234/goods-123.html](http://bm.com:1234/goods-123.html)
 
 ## References
 - nginx
