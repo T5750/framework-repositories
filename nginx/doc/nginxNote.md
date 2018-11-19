@@ -87,15 +87,133 @@ nginx可以对数据进行压缩，对一些图片、html、css、js等文件进
 proxy_set_header X-real-ip $remote_addr;
 ```
 
-## 3.x nginx+Keepalived实现高可用
+## 3.1 nginx+Keepalived实现高可用
+### 3.1.1
+下载Keepalived地址：[http://www.keepalived.org/download.html](http://www.keepalived.org/download.html)。解压安装：
+```
+tar -zxvf keepalived-1.2.24.tar.gz -C /usr/local/
+yum install -y openssl openssl-devel（需要安装一个软件包）
+cd keepalived-1.2.24/ && ./configure --prefix=/usr/local/keepalived
+make && make install
+```
+
+### 3.1.2
+将Keepalived安装成Linux系统服务，因为没有使用Keepalived的默认安装路径（默认路径：`/usr/local`），安装完成后，需要做一些修改工作：
+- 首先，创建文件夹，将Keepalived配置文件进行复制：
+	```
+	mkdir /etc/keepalived
+	cp /usr/local/keepalived/etc/keepalived/keepalived.conf /etc/keepalived/
+	```
+- 然后，复制Keepalived脚本文件：
+	```
+	cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/init.d/
+	cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig/
+	ln -s /usr/local/sbin/keepalived /usr/sbin/
+	ln -s /usr/local/keepalived/sbin/keepalived /sbin/
+	```
+- 可以设置开机启动：`chkconfig keepalived on`
+
+### 3.1.3
+对配置文件进行修改：`vim /etc/keepalived/keepalived.conf`
+1. master
+	```
+	! Configuration File for keepalived
+	global_defs {
+	   router_id LVS_DEVEL ##标识节点的字符串，通常为hostname
+	}
+	## keepalived会定时执行脚本并且对脚本的执行结果进行分析，动态调整vrrp_instance的优先级。这里的权重weight是与下面的优先级priority有关，如果执行了一次检查脚本成功，则权重会-20，也就是由100-20变成了80，Master的优先级为80就低于了Backup的优先级90，那么会进行自动的主备切换。
+	如果脚本执行结果为0并且weight配置的值大于0，则优先级会相应增加。
+	如果脚本执行结果不为0并且weight配置的值小于0，则优先级会相应减少。
+	vrrp_script chk_nginx {
+		script "/etc/keepalived/nginx_check.sh" ##执行脚本位置
+		interval 2 ##检测时间间隔
+		weight -20 ## 如果条件成立则权重减20（-20）
+	}
+	## 定义虚拟路由 VI_1为自定义标识。
+	vrrp_instance VI_1 {
+	state MASTER   ## 主节点为MASTER，备份节点为BACKUP
+		## 绑定虚拟IP的网络接口（网卡），与本机IP地址所在的网络接口相同（我这里是enp0s3）
+		interface enp0s3  
+		virtual_router_id 51  ## 虚拟路由ID号
+		mcast_src_ip 192.168.100.165  ## 本机ip地址
+		priority 100  ##优先级配置（0-254的值）
+		Nopreempt  ## 
+		advert_int 1 ## 组播信息发送间隔，两个节点必须配置一致，默认1s
+		authentication {  
+			auth_type PASS
+			auth_pass 1111 ## 真实生产环境下对密码进行匹配
+		}
+		track_script {
+			chk_nginx
+		}
+		virtual_ipaddress {
+			192.168.100.166 ## 虚拟ip(vip)，可以指定多个
+		}
+	}
+	```
+1. backup
+	```
+	! Configuration File for keepalived
+	global_defs {
+	   router_id LVS_DEVEL
+	}
+	vrrp_script chk_nginx {
+		script "/etc/keepalived/nginx_check.sh"
+		interval 2
+		weight -20
+	}
+	vrrp_instance VI_1 {
+		state BACKUP
+		interface enp0s3
+		virtual_router_id 51
+		mcast_src_ip 192.168.100.164
+		priority 90 ##优先级配置
+		advert_int 1
+		authentication {
+			auth_type PASS
+			auth_pass 1111
+		}
+		track_script {
+			chk_nginx
+		}
+		virtual_ipaddress {
+			192.168.100.166
+		}
+	}
+	```
+1. `nginx_check.sh`脚本：
+	```
+	#!/bin/bash
+	A=`ps -C nginx --no-header |wc -l`
+	if [ $A -eq 0 ];then
+		/usr/local/nginx/sbin/nginx
+		sleep 2
+		if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then
+			killall keepalived
+		fi
+	fi
+	```
+1. 把master的Keepalived配置文件copy到master机器（165）的`/etc/keepalived/`文件夹下，在把backup的Keepalived配置文件copy到backup机器（164）的`/etc/keepalived/`文件夹下。最后，把`nginx_check.sh`脚本分别copy到两台机器的`/etc/keepalived/`文件夹下。
+1. `nginx_check.sh`脚本授权。赋予可执行权限：`chmod +x /etc/keepalived/nginx_check.sh`
+1. 启动2台机器的nginx后，启动两台机器的Keepalived
+	```
+	/usr/local/nginx/sbin/nginx
+	service keepalived start
+	service keepalived status
+	ps -ef | grep nginx 
+	ps -ef | grep keepalived
+	```
+    - 可以进行测试，首先看一下两台机器的`ip a`命令下都会出现一个虚拟ip，我们可以停掉一个机器的Keepalived，然后测试，命令：`service keepalived stop`。结果发现当前停掉的机器已经不可用，Keepalived会自动切换到另一台机器上。
+1. 可以测试在nginx出现问题的情况下，实现切换，这时只需要把nginx的配置文件进行修改，让其变得不可用，然后强杀掉nginx进程即可，发现也会实现自动切换服务器节点。
 
 ## Results
-设置host：`192.168.56.1 bm.com`
+设置host：`127.0.0.1 bm.com`
 - [http://bm.com:1234/](http://bm.com:1234/)
 - [http://bm.com:1234/test.html](http://bm.com:1234/test.html)
 - [http://bm.com:1234/firefox.html](http://bm.com:1234/firefox.html)
 - [http://bm.com:1234/goods-123.html](http://bm.com:1234/goods-123.html)
-- [http://localhost/test.jsp](http://localhost/test.jsp)
+- [http://bm.com/test.jsp](http://bm.com/test.jsp)
+- [http://192.168.100.166/test.jsp](http://192.168.100.166/test.jsp)
 
 ## Tips
 1. 在Firefox的地址栏上输入`about:config`回车
