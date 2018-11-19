@@ -133,7 +133,7 @@ make && make install
 	vrrp_instance VI_1 {
 	state MASTER   ## 主节点为MASTER，备份节点为BACKUP
 		## 绑定虚拟IP的网络接口（网卡），与本机IP地址所在的网络接口相同（我这里是enp0s3）
-		interface enp0s3  
+		interface enp0s3  #ifconfig确定
 		virtual_router_id 51  ## 虚拟路由ID号
 		mcast_src_ip 192.168.100.165  ## 本机ip地址
 		priority 100  ##优先级配置（0-254的值）
