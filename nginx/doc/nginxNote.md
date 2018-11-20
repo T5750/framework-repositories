@@ -88,6 +88,15 @@ proxy_set_header X-real-ip $remote_addr;
 ```
 
 ## 3.1 nginx+Keepalived实现高可用
+集群规划清单
+
+虚拟机 | IP | 说明
+-----|---|-----
+Keepalived+nginx[Master] | 192.168.100.165 | nginx Server 01
+Keepalived+nginx[Backup]+Tomcat164 | 192.168.100.164 | nginx Server 02 + Tomcat Web Server164
+Tomcat163 | 192.168.100.163 | Tomcat Web Server163
+VIP | 192.168.100.166 | 虚拟漂移IP
+
 ### 3.1.1
 下载Keepalived地址：[http://www.keepalived.org/download.html](http://www.keepalived.org/download.html)。解压安装：
 ```
@@ -147,7 +156,7 @@ make && make install
 			chk_nginx
 		}
 		virtual_ipaddress {
-			192.168.100.166 ## 虚拟ip(vip)，可以指定多个
+			192.168.100.166 ## 虚拟ip(VIP)，可以指定多个
 		}
 	}
 	```
