@@ -1,0 +1,13 @@
+server:
+  port: 8081
+  context-path: /dubbo-provider
+spring:
+  dubbo:
+    application:
+      name: dubbo-provider
+    registry:
+      address: zookeeper://192.168.100.163:2181?backup=192.168.100.164:2182,192.168.100.165:2183
+    protocol:
+      name: dubbo
+      port: 20880
+    scan: t5750.dubbo.service

@@ -6,7 +6,7 @@
 
 ### Solr网摘笔记
 - [Solr网摘笔记](doc/SolrSpringBoot.md)
-    - [Spring Boot整合Solr](doc/SolrSpringBoot.md#Spring Boot整合Solr)
+    - [Spring Boot整合Solr](doc/SolrSpringBoot.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
