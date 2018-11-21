@@ -146,7 +146,7 @@ make && make install
 		virtual_router_id 51  ## 虚拟路由ID号
 		mcast_src_ip 192.168.100.165  ## 本机ip地址
 		priority 100  ##优先级配置（0-254的值）
-		Nopreempt  ## 
+		nopreempt  ## 
 		advert_int 1 ## 组播信息发送间隔，两个节点必须配置一致，默认1s
 		authentication {  
 			auth_type PASS
