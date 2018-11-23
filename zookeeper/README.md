@@ -11,6 +11,10 @@
     - [Curator扩展库](doc/ZooKeeperCollection.md#Curator扩展库)
     - [ZooKeeper典型的应用场景](doc/ZooKeeperScenes.md)
 
+### ZooKeeper异常笔记
+- [ZooKeeper异常笔记](doc/ZooKeeperException.md)
+    - [java.net.ConnectException:拒绝连接](doc/ZooKeeperException.md)
+
 ## Examples
 - [curator-examples](https://github.com/apache/curator/tree/master/curator-examples/src/main/java)
 
