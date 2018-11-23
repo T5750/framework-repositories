@@ -50,30 +50,111 @@ Object result = jedis.eval(script, Collections.singletonList(lockKey), Collectio
 ### 示例
 - `RedisTool`
 
-## zookeeper分布式锁
-zookeeper中几个关于节点的有趣的性质：
-1. 有序节点：假如当前有一个父节点为/lock，我们可以在这个父节点下面创建子节点；zookeeper提供了一个可选的有序特性，例如我们可以创建子节点“/lock/node-”并且指明有序，那么zookeeper在生成子节点时会根据当前的子节点数量自动添加整数序号，也就是说如果是第一个创建的子节点，那么生成的子节点为/lock/node-0000000000，下一个节点则为/lock/node-0000000001，依次类推。
-1. 临时节点：客户端可以建立一个临时节点，在会话结束或者会话超时后，zookeeper会自动删除该节点。
-1. 事件监听：在读取数据时，我们可以同时对节点设置事件监听，当节点数据或结构变化时，zookeeper会通知客户端。当前zookeeper有如下四种事件：1）节点创建；2）节点删除；3）节点数据修改；4）子节点变更。
+## ZooKeeper分布式锁
+ZooKeeper中几个关于节点的有趣的性质：
+1. 有序节点：假如当前有一个父节点为/lock，我们可以在这个父节点下面创建子节点；ZooKeeper提供了一个可选的有序特性，例如我们可以创建子节点“/lock/node-”并且指明有序，那么ZooKeeper在生成子节点时会根据当前的子节点数量自动添加整数序号，也就是说如果是第一个创建的子节点，那么生成的子节点为/lock/node-0000000000，下一个节点则为/lock/node-0000000001，依次类推。
+1. 临时节点：客户端可以建立一个临时节点，在会话结束或者会话超时后，ZooKeeper会自动删除该节点。
+1. 事件监听：在读取数据时，我们可以同时对节点设置事件监听，当节点数据或结构变化时，ZooKeeper会通知客户端。当前ZooKeeper有如下四种事件：1）节点创建；2）节点删除；3）节点数据修改；4）子节点变更。
 
-使用zookeeper实现分布式锁的算法流程，假设锁空间的根节点为/lock：
-1. 客户端连接zookeeper，并在/lock下创建**临时的**且**有序的**子节点，第一个客户端对应的子节点为/lock/lock-0000000000，第二个为/lock/lock-0000000001，以此类推。
+使用ZooKeeper实现分布式锁的算法流程，假设锁空间的根节点为/lock：
+1. 客户端连接ZooKeeper，并在/lock下创建**临时的**且**有序的**子节点，第一个客户端对应的子节点为/lock/lock-0000000000，第二个为/lock/lock-0000000001，以此类推。
 1. 客户端获取/lock下的子节点列表，判断自己创建的子节点是否为当前子节点列表中**序号最小**的子节点，如果是则认为获得锁，否则监听/lock的子节点变更消息，获得子节点变更通知后重复此步骤直至获得锁；
 1. 执行业务代码；
 1. 完成业务流程后，删除对应的子节点释放锁。
 
 调整后的分布式锁算法流程如下：
-1. 客户端连接zookeeper，并在/lock下创建临时的且有序的子节点，第一个客户端对应的子节点为/lock/lock-0000000000，第二个为/lock/lock-0000000001，以此类推。
+1. 客户端连接ZooKeeper，并在/lock下创建临时的且有序的子节点，第一个客户端对应的子节点为/lock/lock-0000000000，第二个为/lock/lock-0000000001，以此类推。
 1. 客户端获取/lock下的子节点列表，判断自己创建的子节点是否为当前子节点列表中序号最小的子节点，如果是则认为获得锁，否则监听刚好在自己之前一位的子节点删除消息，获得子节点变更通知后重复此步骤直至获得锁；
 1. 执行业务代码；
 1. 完成业务流程后，删除对应的子节点释放锁。
 
->zookeeper提供的API中设置监听器的操作与读操作是**原子执行**的，也就是说在读子节点列表时同时设置监听器，保证不会丢失事件。
+>ZooKeeper提供的API中设置监听器的操作与读操作是**原子执行**的，也就是说在读子节点列表时同时设置监听器，保证不会丢失事件。
 
 ### 示例
-- `ZookeeperTest`
+- `ZooKeeperTest`
+
+## 从RDB持久化切换到AOF持久化
+1. 为最新的`dump.rdb`文件创建一个备份。
+1. 将备份放到一个安全的地方。
+1. 执行以下两条命令：
+	```
+	redis-cli> CONFIG SET appendonly yes
+	redis-cli> CONFIG SET save ""
+	```
+1. 确保命令执行之后，数据库的键的数量没有改变。
+1. 确保写命令会被正确地追加到AOF文件的末尾。
+
+### AOF配置
+`redis.conf`
+```
+appendonly yes #aof方式默认关闭
+appendfilename "appendonly.aof" #文件名
+appendfsync always #同步模式(可选no always everysec)
+no-appendfsync-on-rewrite no
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+aof-load-truncated yes
+```
+
+## Redis数据备份方案
+### 数据备份方案
+1. 写一个crontab定时去调度脚本去做数据备份。
+1. 每小时都copy一份当时的RDB文件，到一个目录中。仅仅保留48小时的备份。
+1. 每天都备份一份当天的RDB文件，到一个目录中。仅仅保留最近一个月的备份。
+1. 每次copy备份之前都把太久的备份删掉。
+1. 每天将当前服务器的备份保存下来，例如保存到阿里云。
+
+### 每小时备份
+`redis-rdb-hour.sh`
+```
+#!/bin/sh
+cur_date=`date +%Y%m%d%k`   #当前时间精确到小时
+rm -rf /usr/local/bin/redis/snapshotting/$cur_date   #删除当前时间的目录
+mkdir /usr/local/bin/redis/snapshotting/$cur_date  #新建当前时间的目录
+cp /usr/local/bin/dump.rdb /usr/local/bin/redis/snapshotting/$cur_date   #将rdb文件copy到当前时间创建的目录
+del_date=`date -d -48hour +%Y%m%d%k`   #48小时之前的时间
+rm -rf /usr/local/bin/redis/snapshotting/$del_date   #删除48小时之前的目录
+```
+`chmod 777 redis-rdb-day.sh`
+
+执行命令：`crontab -e`
+```
+* */1 * * * sh /usr/local/bin/redis-rdb-hour.sh #每小时执行脚本
+```
+
+### 每天备份
+`redis-rdb-day.sh`
+```
+#!/bin/sh
+cur_date=`date +%Y%m%d`  #当前时间精确到天
+rm -rf /usr/local/bin/redis/snapshotting/$cur_date   #删除当前时间的目录
+mkdir /usr/local/bin/redis/snapshotting/$cur_date  #新建当前时间的目录
+cp /usr/local/bin/dump.rdb /usr/local/bin/redis/snapshotting/$cur_date   #将rdb文件copy到当前时间创建的目录
+del_date=`date -d -1month +%Y%m%d`  #一个月之前的时间
+rm -rf /usr/local/bin/redis/snapshotting/$del_date   #删除一个月之前的目录
+```
+`chmod 777 redis-rdb-day.sh`
+
+执行命令：`crontab -e`
+```
+0 0 * * * sh /usr/local/bin/redis-rdb-day.sh #每天0点执行脚本
+```
+
+### 数据恢复方案
+1. 如果Redis进程挂掉，那么重启Redis即可，直接基于AOF日志文件恢复数据
+1. 如果Redis中的RDB和AOF文件都丢失（可能认为原因）
+
+- 停止Redis进程
+- 找到最新一小时RDB文件copy到Redis存入RDB文件目录
+- 并且将`redis.conf`中的`appendonly yes`改为`no`
+- 重启Redis，数据恢复。
+- 这个时候使用Redis的热修改将`appendonly no`改为`yes`
+- 停掉Redis，将`redis.conf`中的`appendonly no`改为`yes`
+- 重启Redis数据彻底恢复。
 
 ## References
-- [redis学习笔记（三）redis数据淘汰策略](https://blog.csdn.net/liubenlong007/article/details/53690103)
+- [Redis学习笔记（三）Redis数据淘汰策略](https://blog.csdn.net/liubenlong007/article/details/53690103)
 - [Redis分布式锁正确的实现方法](https://www.w3cschool.cn/redis/redis-yj3f2p0c.html)
 - [基于Zookeeper的分布式锁](http://www.dengshenyu.com/java/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2017/10/23/zookeeper-distributed-lock.html)
+- [持久化（persistence）](http://doc.redisfans.com/topic/persistence.html)
+- [Redis数据备份方案](https://www.jianshu.com/p/0233d476bb14)

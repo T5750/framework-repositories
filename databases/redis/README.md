@@ -34,7 +34,9 @@
 - [Redis网摘笔记](doc/RedisCollection.md)
     - [数据淘汰策略](doc/RedisCollection.md#数据淘汰策略)
     - [Redis分布式锁](doc/RedisCollection.md#Redis分布式锁)
-    - [zookeeper分布式锁](doc/RedisCollection.md#zookeeper分布式锁)
+    - [ZooKeeper分布式锁](doc/RedisCollection.md#ZooKeeper分布式锁)
+    - [从RDB持久化切换到AOF持久化](doc/RedisCollection.md#从RDB持久化切换到AOF持久化)
+    - [Redis数据备份方案](doc/RedisCollection.md#Redis数据备份方案)
 
 ### Hystrix网摘笔记
 - [Hystrix网摘笔记](doc/Hystrix.md)

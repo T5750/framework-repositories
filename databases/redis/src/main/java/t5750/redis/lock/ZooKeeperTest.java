@@ -11,7 +11,7 @@ import t5750.redis.util.ZkUtil;
 /**
  * 直接使用curator这个开源项目提供的zookeeper分布式锁实现
  */
-public class ZookeeperTest {
+public class ZooKeeperTest {
 	public static void main(String[] args) throws Exception {
 		// 创建zookeeper的客户端
 		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
