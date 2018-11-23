@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import redis.clients.jedis.Jedis;
+import t5750.redis.util.JedisUtil;
 
 /**
  * Java 使用 Redis<br/>
@@ -14,7 +15,7 @@ public class RedisToolTest {
 	public static final String PONG = "PONG";
 
 	public static void main(String[] args) {
-		Jedis jedis = new Jedis("127.0.0.1", 6379);
+		Jedis jedis = JedisUtil.getJedis();
 		String ping = jedis.ping();
 		System.out.println("服务器正在运行: " + ping);
 		if (PONG.equals(ping)) {

@@ -1,4 +1,4 @@
-package t5750.redis.jedis;
+package t5750.redis.util;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
@@ -9,6 +9,13 @@ import redis.clients.jedis.JedisPool;
  * Jedis连接池
  */
 public class JedisUtil {
+	/**
+	 * src/redis-server redis.conf &
+	 */
+	public static final String REDIS_HOST = "192.168.100.163";
+	public static final int REDIS_PORT = 6379;
+	public static final String REDIS_PASSWORD = "123456";
+
 	public static GenericObjectPoolConfig setupPoolConfig() {
 		GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
 		// 设置最大连接数为默认值的5倍
@@ -29,9 +36,10 @@ public class JedisUtil {
 		// GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
 		GenericObjectPoolConfig poolConfig = setupPoolConfig();
 		// 初始化Jedis连接池
-		JedisPool jedisPool = new JedisPool(poolConfig, "127.0.0.1", 6379);
+		JedisPool jedisPool = new JedisPool(poolConfig, REDIS_HOST, REDIS_PORT);
 		Jedis jedis = null;
 		jedis = jedisPool.getResource();
+		jedis.auth(REDIS_PASSWORD);
 		return jedis;
 	}
 }

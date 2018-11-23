@@ -3,6 +3,7 @@ package t5750.redis.jedis;
 import org.apache.log4j.Logger;
 
 import redis.clients.jedis.Jedis;
+import t5750.redis.util.JedisUtil;
 
 /**
  * Jedis的基本使用方法
@@ -16,7 +17,7 @@ public class JedisSimpleTest {
 	public static void main(String[] args) {
 		Jedis jedis = null;
 		try {
-			jedis = new Jedis("127.0.0.1", 6379);
+			jedis = JedisUtil.getJedis();
 			// 1.string
 			// 输出结果：OK
 			jedis.set("hello", "world");

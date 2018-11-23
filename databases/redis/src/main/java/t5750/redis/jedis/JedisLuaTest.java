@@ -3,6 +3,7 @@ package t5750.redis.jedis;
 import org.apache.log4j.Logger;
 
 import redis.clients.jedis.Jedis;
+import t5750.redis.util.JedisUtil;
 
 /**
  * Jedis的Lua脚本

@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
+import t5750.redis.util.JedisUtil;
 
 /**
  * Redis中Pipeline的使用方法
