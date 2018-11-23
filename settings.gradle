@@ -13,4 +13,7 @@ include 'dubbo:dubbo-provider'
 findProject(':dubbo:dubbo-provider')?.name = 'dubbo-provider'
 include 'dubbo:dubbo-consumer'
 findProject(':dubbo:dubbo-consumer')?.name = 'dubbo-consumer'
+include 'databases'
+include 'databases:redis'
+findProject(':databases:redis')?.name = 'redis'
 
