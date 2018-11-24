@@ -1,0 +1,15 @@
+server:
+  port: 8081
+  context-path: /dubbox-provider
+spring:
+  dubbo:
+    application:
+      name: dubbox-provider
+      owner: programmer
+      organization: dubbox
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    protocol:
+      name: dubbo
+      port: 20880
+    scan: t5750.dubbox.service

@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  context-path: /dubbox-consumer
+spring:
+  dubbo:
+    application:
+      name: dubbox-consumer
+      owner: programmer
+      organization: dubbox
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: t5750.dubbox.controller

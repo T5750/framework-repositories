@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationContextInitializer=\
+t5750.dubbox.config.DubboConfigurationApplicationContextInitializer
+org.springframework.context.ApplicationListener=\
+t5750.dubbox.config.DubboHolderListener
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+t5750.dubbox.config.DubboAutoConfiguration
