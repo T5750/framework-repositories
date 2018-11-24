@@ -1,4 +1,4 @@
-package t5750.dubbox.config;
+package t5750.dubbox.boot;
 
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.context.ApplicationEvent;

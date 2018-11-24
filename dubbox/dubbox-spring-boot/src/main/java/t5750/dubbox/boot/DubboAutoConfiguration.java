@@ -1,4 +1,4 @@
-package t5750.dubbox.config;
+package t5750.dubbox.boot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
