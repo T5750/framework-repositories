@@ -1,11 +1,11 @@
-package t5750.dubbox.service.impl;
+package t5750.dubbox.service.impl.user;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
 
-import t5750.dubbox.domain.User;
-import t5750.dubbox.service.UserService;
+import t5750.dubbox.service.user.User;
+import t5750.dubbox.service.user.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -1,6 +1,4 @@
-package t5750.dubbox.service;
-
-import t5750.dubbox.domain.User;
+package t5750.dubbox.service.user;
 
 public interface UserService {
 	User getUser(Long id);

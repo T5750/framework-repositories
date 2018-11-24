@@ -23,8 +23,15 @@
 * [Dubbox Wiki](https://github.com/dangdangdotcom/dubbox/wiki) （由社区志愿者自由编辑的）
 
 ## Results
-- [http://localhost:8080/dubbox-consumer/hello?name=world](http://localhost:8080/dubbox-consumer/hello?name=world)
-- [http://localhost:8080/dubbox-consumer/getUser?id=1](http://localhost:8080/dubbox-consumer/getUser?id=1)
+- dubbox-provider
+    - GET: [http://localhost:8083/services/hello/world](http://localhost:8083/services/hello/world)
+    - GET: [http://localhost:8083/services/users/1001](http://localhost:8083/services/users/1001)
+    - GET: [http://localhost:8083/services/users/1001.xml](http://localhost:8083/services/users/1001.xml)
+    - POST: [http://localhost:8083/services/users/register](http://localhost:8083/services/users/register)
+    - JSON: `{"id":1001,"username":"hello"}`
+- dubbox-consumer
+    - GET: [http://localhost:8080/dubbox-consumer/hello?name=world](http://localhost:8080/dubbox-consumer/hello?name=world)
+    - GET: [http://localhost:8080/dubbox-consumer/users/getUser?id=1](http://localhost:8080/dubbox-consumer/users/getUser?id=1)
 
 ## References
 - [Dubbox](https://github.com/dangdangdotcom/dubbox)

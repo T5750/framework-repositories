@@ -1,17 +1,14 @@
 package t5750.dubbox.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.dubbo.config.annotation.Reference;
+import t5750.dubbox.service.user.User;
+import t5750.dubbox.service.user.UserService;
 
-import t5750.dubbox.domain.User;
-import t5750.dubbox.service.UserService;
-
-@Controller
+//@Controller
 public class UserController {
-	@Reference
+	// @Reference
 	private UserService userService;
 
 	@RequestMapping("/getUser")

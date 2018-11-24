@@ -1,6 +1,4 @@
-package t5750.dubbox.domain;
-
-import java.io.Serializable;
+package t5750.dubbox.service.user;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -14,7 +12,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class User implements Serializable {
+public class User {
 	@NotNull
 	@Min(1L)
 	private Long id;

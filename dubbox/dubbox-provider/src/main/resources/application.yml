@@ -10,6 +10,12 @@ spring:
     registry:
       address: zookeeper://127.0.0.1:2181
     protocol:
-      name: dubbo
-      port: 20880
+#      name: dubbo
+#      port: 20880
+      name: rest
+      port: 8083
+      serialization: fastjson
+      contextpath: services
+      server: tomcat
+      accepts: 500
     scan: t5750.dubbox.service
