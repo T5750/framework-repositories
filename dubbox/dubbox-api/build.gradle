@@ -1,3 +1,11 @@
 dependencies {
     compile project(':dubbox:dubbox-spring-boot')
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: '3.0.7.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.0.7.Final'
+    compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version: '3.0.7.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.0.7.Final'
+    // Jackson序列化
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
 }

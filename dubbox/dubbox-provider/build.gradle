@@ -3,4 +3,5 @@ apply plugin: 'war'
 dependencies {
     compile project(':dubbox:dubbox-api')
     compile group: 'com.101tec', name: 'zkclient', version: '0.10'
+    compile('org.springframework.boot:spring-boot-starter-web')
 }

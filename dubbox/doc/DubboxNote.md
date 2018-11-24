@@ -24,6 +24,7 @@
 
 ## Results
 - [http://localhost:8080/dubbox-consumer/hello?name=world](http://localhost:8080/dubbox-consumer/hello?name=world)
+- [http://localhost:8080/dubbox-consumer/getUser?id=1](http://localhost:8080/dubbox-consumer/getUser?id=1)
 
 ## References
 - [Dubbox](https://github.com/dangdangdotcom/dubbox)
