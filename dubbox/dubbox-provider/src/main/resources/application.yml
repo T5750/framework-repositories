@@ -10,8 +10,11 @@ spring:
     registry:
       address: zookeeper://127.0.0.1:2181
     protocol:
-#      name: dubbo
-#      port: 20880
+      name: dubbo
+      port: 20880
+      serialization: kryo
+      optimizer: t5750.dubbox.service.SerializationOptimizerImpl
+    protocolrest:
       name: rest
       port: 8083
       serialization: fastjson

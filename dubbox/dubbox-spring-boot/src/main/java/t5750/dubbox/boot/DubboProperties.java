@@ -12,6 +12,7 @@ public class DubboProperties {
 	private ApplicationConfig application;
 	private RegistryConfig registry;
 	private ProtocolConfig protocol;
+	private ProtocolConfig protocolrest;
 
 	public String getScan() {
 		return scan;
@@ -43,5 +44,13 @@ public class DubboProperties {
 
 	public void setProtocol(ProtocolConfig protocol) {
 		this.protocol = protocol;
+	}
+
+	public ProtocolConfig getProtocolrest() {
+		return protocolrest;
+	}
+
+	public void setProtocolrest(ProtocolConfig protocolrest) {
+		this.protocolrest = protocolrest;
 	}
 }

@@ -29,4 +29,9 @@ public class DubboAutoConfiguration {
 	public ProtocolConfig requestProtocolConfig() {
 		return dubboProperties.getProtocol();
 	}
+
+	@Bean
+	public ProtocolConfig requestProtocolrestConfig() {
+		return dubboProperties.getProtocolrest();
+	}
 }

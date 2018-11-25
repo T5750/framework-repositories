@@ -31,7 +31,9 @@
     - JSON: `{"id":1001,"username":"hello"}`
 - dubbox-consumer
     - GET: [http://localhost:8080/dubbox-consumer/hello?name=world](http://localhost:8080/dubbox-consumer/hello?name=world)
+    - GET: [http://localhost:8080/dubbox-consumer/hello.json?name=world](http://localhost:8080/dubbox-consumer/hello.json?name=world)
     - GET: [http://localhost:8080/dubbox-consumer/users/getUser?id=1](http://localhost:8080/dubbox-consumer/users/getUser?id=1)
+    - GET: [http://localhost:8080/dubbox-consumer/users/getUser.json?id=1](http://localhost:8080/dubbox-consumer/users/getUser.json?id=1)
 
 ## References
 - [Dubbox](https://github.com/dangdangdotcom/dubbox)
