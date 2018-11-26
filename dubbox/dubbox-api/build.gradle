@@ -5,7 +5,7 @@ dependencies {
     compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
     compile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version: '3.0.7.Final'
     compile group: 'org.jboss.resteasy', name: 'resteasy-jaxb-provider', version: '3.0.7.Final'
-    // Kyro序列化
+    // Kryo序列化
     compile group: 'com.esotericsoftware.kryo', name: 'kryo', version: '2.24.0'
     compile group: 'de.javakaffee', name: 'kryo-serializers', version: '0.26'
     // FST序列化
