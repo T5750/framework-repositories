@@ -10,5 +10,7 @@ public class SerializationTest {
 		JavaSerializationTest.main(args);
 		Hessian2SerializationTest.main(args);
 		KryoSerializationTest.main(args);
+		FstSerializationTest.main(args);
+		JacksonSerializationTest.main(args);
 	}
 }

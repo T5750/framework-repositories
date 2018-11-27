@@ -9,7 +9,7 @@ dependencies {
     compile group: 'com.esotericsoftware.kryo', name: 'kryo', version: '2.24.0'
     compile group: 'de.javakaffee', name: 'kryo-serializers', version: '0.26'
     // FST序列化
-    // compile group: 'de.ruedigermoeller', name: 'fst', version: '1.55'
+    compile group: 'de.ruedigermoeller', name: 'fst', version: '1.55'
     // Jackson序列化
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
