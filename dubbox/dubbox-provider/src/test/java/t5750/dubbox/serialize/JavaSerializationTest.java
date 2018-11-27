@@ -1,4 +1,4 @@
-package t5750.dubbox;
+package t5750.dubbox.serialize;
 
 import java.io.*;
 
@@ -8,7 +8,7 @@ import t5750.dubbox.util.SerialUtil;
 /**
  * Java序列化
  */
-public class MyJavaSer {
+public class JavaSerializationTest {
 	public static final String PATH_JAVA = "D:/fileJava.bin";
 
 	public static void main(String[] args) throws IOException {

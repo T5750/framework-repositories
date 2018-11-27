@@ -11,7 +11,7 @@ import t5750.activemqprovider.mail.util.MailUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ActiveMQProviderApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TestMQProducer {
+public class MQProducerTest {
 	@Autowired
 	private MQProducer mqProducer;
 

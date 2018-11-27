@@ -15,6 +15,12 @@
 * [Dubbox@InfoQ](http://www.infoq.com/cn/news/2014/10/dubbox-open-source)
 * [Dubbox Wiki](https://github.com/dangdangdotcom/dubbox/wiki) （由社区志愿者自由编辑的）
 
+## 步骤
+- `git clone https://github.com/dangdangdotcom/dubbox`
+- dubbox目录执行`mvn install -Dmaven.test.skip=true`来尝试编译一下dubbo
+- 将dubbo的jar安装到本地maven库`mvn install:install-file -Dfile=C:\Users\Administrator\.m2\repository\com\alibaba\dubbo\2.8.4\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar`
+- gradle使用maven本地缓存库`mavenLocal()`
+
 ## Results
 - dubbox-provider
     - GET: [http://localhost:8083/services/hello/world](http://localhost:8083/services/hello/world)
@@ -31,6 +37,7 @@
     - POST: [http://localhost:8080/dubbox-consumer/u/registerUser](http://localhost:8080/dubbox-consumer/u/registerUser)
     - GET: [http://localhost:8080/dubbox-consumer/bid/start](http://localhost:8080/dubbox-consumer/bid/start)
     - GET: [http://localhost:8080/dubbox-consumer/bid/throwNPE](http://localhost:8080/dubbox-consumer/bid/throwNPE)
+- 序列化测试：`SerializationTest`
 
 ## References
 - [Dubbox](https://github.com/dangdangdotcom/dubbox)

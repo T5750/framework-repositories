@@ -1,4 +1,4 @@
-package t5750.dubbox;
+package t5750.dubbox.serialize;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ import com.esotericsoftware.kryo.io.Output;
 /**
  * JKryo序列化
  */
-public class MyKryoSer {
+public class KryoSerializationTest {
 	public static final String PATH_KRYO = "D:/fileKryo.bin";
 
 	public static void main(String[] args) throws IOException {
