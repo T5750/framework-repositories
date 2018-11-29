@@ -11,18 +11,20 @@ import com.alibaba.dubbo.config.annotation.Reference;
 @Component
 public class SampleDubboConsumerService {
 	@Reference(version = "1.0.0")
-	SampleService sampleService;
+	private SampleService sampleService;
 
-	public void printHello() {
+	public String printHello() {
 		String hello = sampleService.sayHello("tom");
 		System.out.println(hello);
+		return hello;
 	}
 
-	public void printUsers() {
+	public List<User> printUsers() {
 		List<User> list = sampleService.getUsers();
 		for (User user : list) {
 			System.out.println("name=" + user.getName() + ", age="
 					+ user.getAge() + ", sex=" + user.getSex());
 		}
+		return list;
 	}
 }

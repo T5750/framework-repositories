@@ -7,10 +7,11 @@ import com.alibaba.dubbo.config.annotation.Reference;
 @Component
 public class DependencyDubboConsumerService {
 	@Reference(version = "1.0.0")
-	DependencyService dependencyService;
+	private DependencyService dependencyService;
 
-	public void printDependency() {
+	public String printDependency() {
 		String result = dependencyService.dependency();
 		System.out.println(result);
+		return result;
 	}
 }

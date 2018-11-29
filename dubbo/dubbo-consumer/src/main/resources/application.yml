@@ -1,10 +1,21 @@
-server:
-  port: 8080
-  context-path: /dubbo-consumer
 spring:
-  dubbo:
-    application:
-      name: dubbo-consumer
-    registry:
-      address: zookeeper://192.168.100.163:2181?backup=192.168.100.164:2182,192.168.100.165:2183
-    scan: t5750.dubbo.service
+  application:
+    name: dubbo-consumer
+server:
+  port: 8082
+  context-path: /dubbo-consumer
+management:
+  port: 9092
+dubbo:
+  scan:
+    basePackages: t5750.dubbo.service
+  application:
+    id: dubbo-consumer
+    name: dubbo-consumer
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.100.163:2181?backup=192.168.100.164:2182,192.168.100.165:2183
+    id: zookeeper-registry
