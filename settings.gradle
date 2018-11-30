@@ -25,4 +25,7 @@ include 'dubbox:dubbox-api'
 findProject(':dubbox:dubbox-api')?.name = 'dubbox-api'
 include 'dubbox:dubbox-spring-boot'
 findProject(':dubbox:dubbox-spring-boot')?.name = 'dubbox-spring-boot'
+include 'socket'
+include 'socket:netty'
+findProject(':socket:netty')?.name = 'netty'
 
