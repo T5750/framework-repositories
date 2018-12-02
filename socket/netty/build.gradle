@@ -1,3 +1,4 @@
 dependencies {
     compile group: 'io.netty', name: 'netty-all', version: '4.1.31.Final'
+    compile group: 'org.jboss.marshalling', name: 'jboss-marshalling', version: '1.4.11.Final'
 }
