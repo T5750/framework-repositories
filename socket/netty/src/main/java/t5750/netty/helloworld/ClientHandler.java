@@ -8,6 +8,7 @@ import io.netty.util.ReferenceCountUtil;
 public class ClientHandler extends SimpleChannelInboundHandler<Object> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		System.out.println("激活...");
 	}
 
 	@Override
@@ -31,7 +32,9 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object> {
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+	public void channelReadComplete(ChannelHandlerContext ctx)
+			throws Exception {
+		System.out.println("读完毕...");
 	}
 
 	@Override
