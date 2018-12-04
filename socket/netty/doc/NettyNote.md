@@ -104,6 +104,19 @@ WS特点：
 - 通过`ping/pong`帧保持链路激活
 - 服务器可主动传递消息给客户端，不再需要客户端轮询
 
+## 7.1 最佳实践（数据通信）
+
+
+## 7.2 最佳实践（心跳监控）
+- 安装到本地maven库`mvn install:install-file -Dfile=C:\Users\Administrator\.m2\repository\org\hyperic\sigar\1.6.4\sigar.jar -DgroupId=org.hyperic -DartifactId=sigar -Dversion=1.6.4 -Dpackaging=jar`
+- gradle使用maven本地缓存库`mavenLocal()`
+- `hyperic-sigar-1.6.4\sigar-bin\lib\sigar-x86-winnt.dll`
+
+## 8.1 Http协议
+
+
+## 8.2 Netty Http文件服务器开发
+
 
 ## References
 - Netty

@@ -1,4 +1,13 @@
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    mavenLocal()
+}
 dependencies {
     compile group: 'io.netty', name: 'netty-all', version: '4.1.31.Final'
     compile group: 'org.jboss.marshalling', name: 'jboss-marshalling', version: '1.4.11.Final'
+    // testCompile group: 'org.jboss.marshalling', name: 'jboss-marshalling-serial', version: '1.4.11.Final'
+    compile group: 'org.jboss.marshalling', name: 'jboss-marshalling-serial', version: '1.4.11.Final'
+    compile group: 'org.hyperic', name: 'sigar', version: '1.6.4'
 }
