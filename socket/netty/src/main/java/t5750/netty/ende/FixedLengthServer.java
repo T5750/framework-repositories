@@ -1,4 +1,4 @@
-package t5750.netty.ende2;
+package t5750.netty.ende;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -10,10 +10,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
-import t5750.netty.ende1.ServerHandler;
 import t5750.netty.util.NettyUtil;
 
-public class Server {
+public class FixedLengthServer {
 	public static void main(String[] args) throws Exception {
 		// 1 创建2个线程，一个是负责接收客户端的连接。一个是负责进行数据传输的
 		EventLoopGroup pGroup = new NioEventLoopGroup();
@@ -33,7 +32,7 @@ public class Server {
 								NettyUtil.FIXED_LENGTH_FRAME_DECODER));
 						// 设置字符串形式的解码
 						sc.pipeline().addLast(new StringDecoder());
-						sc.pipeline().addLast(new ServerHandler());
+						sc.pipeline().addLast(new FixedLengthServerHandler());
 					}
 				});
 		// 4 绑定连接

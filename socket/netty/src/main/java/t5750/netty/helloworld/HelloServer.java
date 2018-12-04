@@ -1,6 +1,5 @@
 package t5750.netty.helloworld;
 
-import t5750.netty.util.NettyUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -9,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import t5750.netty.util.NettyUtil;
 
 public class HelloServer {
 	public static void main(String[] args) throws Exception {
@@ -35,10 +35,11 @@ public class HelloServer {
 				});
 		// 4 进行绑定
 		ChannelFuture cf1 = b.bind(NettyUtil.PORT_8765).sync();
-		// ChannelFuture cf2 = b.bind(8764).sync();
+		ChannelFuture cf2 = b.bind(NettyUtil.PORT_8764).sync();
+		System.out.println("Server connected...");
 		// 5 等待关闭
 		cf1.channel().closeFuture().sync();
-		// cf2.channel().closeFuture().sync();
+		cf2.channel().closeFuture().sync();
 		pGroup.shutdownGracefully();
 		cGroup.shutdownGracefully();
 	}

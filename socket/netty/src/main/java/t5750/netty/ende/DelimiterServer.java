@@ -1,4 +1,4 @@
-package t5750.netty.ende1;
+package t5750.netty.ende;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -14,7 +14,7 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import t5750.netty.util.NettyUtil;
 
-public class Server {
+public class DelimiterServer {
 	public static void main(String[] args) throws Exception {
 		// 1 创建2个线程，一个是负责接收客户端的连接。一个是负责进行数据传输的
 		EventLoopGroup pGroup = new NioEventLoopGroup();
@@ -35,7 +35,7 @@ public class Server {
 								new DelimiterBasedFrameDecoder(1024, buf));
 						// 设置字符串形式的解码
 						sc.pipeline().addLast(new StringDecoder());
-						sc.pipeline().addLast(new ServerHandler());
+						sc.pipeline().addLast(new DelimiterServerHandler());
 					}
 				});
 		// 4 绑定连接

@@ -37,6 +37,7 @@ NIO通信步骤：
 
 ## 2.2 Helloworld
 安装JDK7，下载地址：[http://www.oracle.com/technetwork/java/javase/archive-139210.html](http://www.oracle.com/technetwork/java/javase/archive-139210.html)
+
 下载Netty包，下载地址：[http://netty.io](http://netty.io)
 
 Netty实现通信的步骤：
@@ -68,6 +69,40 @@ TCP是一个“流”协议，所谓流就是没有界限的遗传数据。大�
 ## 3.3 Netty如何去解决粘包、拆包问题
 1. 分隔符类`DelimiterBasedFrameDecoder`（自定义分隔符）
 1. `FixedLengthFrameDecoder`（定长）
+
+## 4.1 Netty编解码技术
+编解码技术，说白了就是Java序列化技术，序列化目的就两个：第一进行网络传输，第二对象持久化。
+
+虽然可以使用Java进行对象序列化，Netty去传输，但是Java序列化的硬伤太多，比如Java序列化没法跨语言、序列化后码流太大、序列化性能太低等
+
+主流的编解码框架：
+- JBoss的Marshalling包
+- Google的Protobuf
+- 基于Protobuf的Kryo
+- MessagePack框架
+
+## 4.2 JBoss Marshalling
+- JBoss Marshalling是一个Java对象序列化包，对JDK默认的序列化框架进行了优化，但又保持跟`java.io.Serializable`接口的兼容，同是增加了一些可调的参数和附加特性
+- 类库：`jboss-marshalling-1.3.0`、`jboss-marshalling-serial-1.3.0`
+- 下载地址：[https://www.jboss.org/jbossmarshalling/downloads](https://www.jboss.org/jbossmarshalling/downloads)
+
+## 5.x Netty的UDP协议
+UDP是User Datagram Protocol的简称，中文名是用户数据报协议，是OSI（Open System Interconnection，开放式系统互联）参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。
+
+UDP协议全称是用户数据报协议，在网络中它与TCP协议一样用于处理数据包，是一种无连接的协议。在OSI模型中，在第四层——传输层，处于IP协议的上一层。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。
+
+UDP用来支持那些需要在计算机之间传输数据的网络应用。包括网络视频会议系统在内的众多的客户/服务器模式的网络应用都需要使用UDP协议。UDP协议从问世至今已经被使用了很多年，虽然其最初的光彩已经被一些类似协议所掩盖，但是即使是在今天UDP仍然不失为一项非常实用和可行的网络传输层协议。
+
+## 6.x Netty的WebSocket
+WebSocket将网络套接字引入到客户端和服务端，众所周知，之前实现聊天功能，可能需要古老的Socket技术，亦或者是古老的DWR框架，反向Ajax技术，再有可能就是Comet服务器推技术。H5的WebSocket很轻松地实现聊天功能，Netty和H5的WebSocket结合非常的简单，Netty们封装了其协议类，我们可以很方便地进行使用。
+
+WS特点：
+- 单一的TCP连接，双方可通信
+- 对代理、防火墙和路由器透明
+- 无头部信息、Cookie和身份验证
+- 无安全开销
+- 通过`ping/pong`帧保持链路激活
+- 服务器可主动传递消息给客户端，不再需要客户端轮询
 
 
 ## References

@@ -1,4 +1,4 @@
-package t5750.netty.ende1;
+package t5750.netty.ende;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

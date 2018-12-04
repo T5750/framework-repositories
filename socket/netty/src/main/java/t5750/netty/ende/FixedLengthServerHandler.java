@@ -1,10 +1,11 @@
-package t5750.netty.ende1;
+package t5750.netty.ende;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class ServerHandler extends SimpleChannelInboundHandler<Object> {
+public class FixedLengthServerHandler
+		extends SimpleChannelInboundHandler<Object> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("---------------------------------------");
@@ -15,8 +16,8 @@ public class ServerHandler extends SimpleChannelInboundHandler<Object> {
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
 		String request = (String) msg;
-		System.out.println("Server: " + msg);
-		String response = "服务器响应：" + msg + "$_";
+		System.out.println("Server: " + request);
+		String response = request;
 		ctx.writeAndFlush(Unpooled.copiedBuffer(response.getBytes()));
 	}
 
