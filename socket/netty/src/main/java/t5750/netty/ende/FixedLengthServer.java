@@ -1,5 +1,6 @@
 package t5750.netty.ende;
 
+import t5750.netty.util.NettyUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -10,7 +11,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
-import t5750.netty.util.NettyUtil;
 
 public class FixedLengthServer {
 	public static void main(String[] args) throws Exception {
@@ -28,8 +28,9 @@ public class FixedLengthServer {
 					protected void initChannel(SocketChannel sc)
 							throws Exception {
 						// 设置定长字符串接收
-						sc.pipeline().addLast(new FixedLengthFrameDecoder(
-								NettyUtil.FIXED_LENGTH_FRAME_DECODER));
+						sc.pipeline().addLast(
+								new FixedLengthFrameDecoder(
+										NettyUtil.FIXED_LENGTH_FRAME_DECODER));
 						// 设置字符串形式的解码
 						sc.pipeline().addLast(new StringDecoder());
 						sc.pipeline().addLast(new FixedLengthServerHandler());

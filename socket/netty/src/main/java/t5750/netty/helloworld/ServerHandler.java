@@ -28,8 +28,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx)
-			throws Exception {
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("读完了");
 		ctx.flush();
 	}

@@ -11,8 +11,8 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 /**
  * 服务端 ChannelInitializer
  */
-public class WebSocketChatServerInitializer
-		extends ChannelInitializer<SocketChannel> { // 1
+public class WebSocketChatServerInitializer extends
+		ChannelInitializer<SocketChannel> { // 1
 	@Override
 	public void initChannel(SocketChannel ch) throws Exception {// 2
 		ChannelPipeline pipeline = ch.pipeline();

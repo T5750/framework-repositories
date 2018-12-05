@@ -1,5 +1,7 @@
 package t5750.netty.heartbeat;
 
+import t5750.netty.util.MarshallingCodeCFactory;
+import t5750.netty.util.NettyUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -10,7 +12,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import t5750.netty.util.NettyUtil;
 
 public class HeartBeatServer {
 	public static void main(String[] args) throws Exception {
@@ -22,12 +23,15 @@ public class HeartBeatServer {
 				// 设置日志
 				.handler(new LoggingHandler(LogLevel.INFO))
 				.childHandler(new ChannelInitializer<SocketChannel>() {
+					@Override
 					protected void initChannel(SocketChannel sc)
 							throws Exception {
-						sc.pipeline().addLast(MarshallingCodeCFactory
-								.buildMarshallingDecoder());
-						sc.pipeline().addLast(MarshallingCodeCFactory
-								.buildMarshallingEncoder());
+						sc.pipeline().addLast(
+								MarshallingCodeCFactory
+										.buildMarshallingDecoder());
+						sc.pipeline().addLast(
+								MarshallingCodeCFactory
+										.buildMarshallingEncoder());
 						sc.pipeline().addLast(new ServerHeartBeatHandler());
 					}
 				});

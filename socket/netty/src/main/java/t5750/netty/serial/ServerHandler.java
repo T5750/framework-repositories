@@ -3,9 +3,9 @@ package t5750.netty.serial;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import t5750.util.GzipUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import t5750.util.GzipUtils;
 
 public class ServerHandler extends SimpleChannelInboundHandler<Object> {
 	@Override
@@ -39,8 +39,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<Object> {
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx)
-			throws Exception {
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 	}
 
 	@Override

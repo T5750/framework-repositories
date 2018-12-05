@@ -1,5 +1,6 @@
 package t5750.netty.helloworld;
 
+import t5750.netty.util.NettyUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -8,7 +9,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import t5750.netty.util.NettyUtil;
 
 public class HelloClient {
 	public static final String CHANNEL_FUTURE1 = "cf1-";

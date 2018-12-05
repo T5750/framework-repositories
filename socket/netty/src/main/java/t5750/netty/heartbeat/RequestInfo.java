@@ -7,8 +7,8 @@ public class RequestInfo implements Serializable {
 	private String ip;
 	private HashMap<String, Object> cpuPercMap;
 	private HashMap<String, Object> memoryMap;
-	// .. other field
 
+	// .. other field
 	public String getIp() {
 		return ip;
 	}

@@ -11,8 +11,8 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 /**
  * 处理TextWebSocketFrame
  */
-public class TextWebSocketFrameHandler
-		extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+public class TextWebSocketFrameHandler extends
+		SimpleChannelInboundHandler<TextWebSocketFrame> {
 	public static ChannelGroup channels = new DefaultChannelGroup(
 			GlobalEventExecutor.INSTANCE);
 
@@ -22,11 +22,11 @@ public class TextWebSocketFrameHandler
 		Channel incoming = ctx.channel();
 		for (Channel channel : channels) {
 			if (channel != incoming) {
-				channel.writeAndFlush(new TextWebSocketFrame(
-						"[" + incoming.remoteAddress() + "]" + msg.text()));
+				channel.writeAndFlush(new TextWebSocketFrame("["
+						+ incoming.remoteAddress() + "]" + msg.text()));
 			} else {
-				channel.writeAndFlush(
-						new TextWebSocketFrame("[you]" + msg.text()));
+				channel.writeAndFlush(new TextWebSocketFrame("[you]"
+						+ msg.text()));
 			}
 		}
 	}
@@ -35,8 +35,8 @@ public class TextWebSocketFrameHandler
 	public void handlerAdded(ChannelHandlerContext ctx) throws Exception { // (2)
 		Channel incoming = ctx.channel();
 		// Broadcast a message to multiple Channels
-		channels.writeAndFlush(new TextWebSocketFrame(
-				"[SERVER] - " + incoming.remoteAddress() + " 加入"));
+		channels.writeAndFlush(new TextWebSocketFrame("[SERVER] - "
+				+ incoming.remoteAddress() + " 加入"));
 		channels.add(incoming);
 		System.out.println("Client:" + incoming.remoteAddress() + "加入");
 	}
@@ -45,8 +45,8 @@ public class TextWebSocketFrameHandler
 	public void handlerRemoved(ChannelHandlerContext ctx) throws Exception { // (3)
 		Channel incoming = ctx.channel();
 		// Broadcast a message to multiple Channels
-		channels.writeAndFlush(new TextWebSocketFrame(
-				"[SERVER] - " + incoming.remoteAddress() + " 离开"));
+		channels.writeAndFlush(new TextWebSocketFrame("[SERVER] - "
+				+ incoming.remoteAddress() + " 离开"));
 		System.out.println("Client:" + incoming.remoteAddress() + "离开");
 		// A closed Channel is automatically removed from ChannelGroup,
 		// so there is no need to do "channels.remove(ctx.channel());"

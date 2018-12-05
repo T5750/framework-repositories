@@ -13,16 +13,18 @@ import io.netty.handler.stream.ChunkedNioFile;
 /**
  * 处理 Http 请求
  */
-public class HttpRequestHandler
-		extends SimpleChannelInboundHandler<FullHttpRequest> { // 1
+public class HttpRequestHandler extends
+		SimpleChannelInboundHandler<FullHttpRequest> { // 1
 	private final String wsUri;
 	private static final File INDEX;
 	static {
 		URL location = HttpRequestHandler.class.getProtectionDomain()
 				.getCodeSource().getLocation();
 		try {
-			String path = location.toURI().toString().replace("classes",
-					"resources") + "templates" + File.separatorChar
+			String path = location.toURI().toString()
+					.replace("classes", "resources")
+					+ "templates"
+					+ File.separatorChar
 					+ "websocketChatClient.html";
 			path = !path.contains("file:") ? path : path.substring(5);
 			INDEX = new File(path);
@@ -59,8 +61,8 @@ public class HttpRequestHandler
 			}
 			ctx.write(response); // 6
 			if (ctx.pipeline().get(SslHandler.class) == null) { // 7
-				ctx.write(new DefaultFileRegion(file.getChannel(), 0,
-						file.length()));
+				ctx.write(new DefaultFileRegion(file.getChannel(), 0, file
+						.length()));
 			} else {
 				ctx.write(new ChunkedNioFile(file.getChannel()));
 			}

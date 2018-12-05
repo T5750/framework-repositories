@@ -1,23 +1,24 @@
-package t5750.netty.ende;
+package t5750.netty.runtime;
 
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.ReferenceCountUtil;
 
-public class DelimiterServerHandler extends SimpleChannelInboundHandler<Object> {
+public class ClientHandler extends SimpleChannelInboundHandler<Object> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("---------------------------------------");
-		System.out.println("Server channel active... ");
 	}
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
-		String request = (String) msg;
-		System.out.println("Server: " + request);
-		String response = "服务器响应：" + request + "$_";
-		ctx.writeAndFlush(Unpooled.copiedBuffer(response.getBytes()));
+		try {
+			Response resp = (Response) msg;
+			System.out.println("Client : " + resp.getId() + ", "
+					+ resp.getName() + ", " + resp.getResponseMessage());
+		} finally {
+			ReferenceCountUtil.release(msg);
+		}
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class DelimiterServerHandler extends SimpleChannelInboundHandler<Object> 
 	}
 
 	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, Throwable t)
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
 			throws Exception {
 		ctx.close();
 	}

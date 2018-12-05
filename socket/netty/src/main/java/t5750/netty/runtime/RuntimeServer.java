@@ -1,4 +1,4 @@
-package t5750.netty.serial;
+package t5750.netty.runtime;
 
 import t5750.netty.util.MarshallingCodeCFactory;
 import t5750.netty.util.NettyUtil;
@@ -12,8 +12,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.ReadTimeoutHandler;
 
-public class SerialServer {
+public class RuntimeServer {
 	public static void main(String[] args) throws Exception {
 		EventLoopGroup pGroup = new NioEventLoopGroup();
 		EventLoopGroup cGroup = new NioEventLoopGroup();
@@ -32,6 +33,7 @@ public class SerialServer {
 						sc.pipeline().addLast(
 								MarshallingCodeCFactory
 										.buildMarshallingEncoder());
+						sc.pipeline().addLast(new ReadTimeoutHandler(5));
 						sc.pipeline().addLast(new ServerHandler());
 					}
 				});

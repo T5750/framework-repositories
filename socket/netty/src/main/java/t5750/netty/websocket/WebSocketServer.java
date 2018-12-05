@@ -1,5 +1,6 @@
 package t5750.netty.websocket;
 
+import t5750.netty.util.NettyUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -11,7 +12,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.stream.ChunkedWriteHandler;
-import t5750.netty.util.NettyUtil;
 
 public class WebSocketServer {
 	public void run(int port) throws Exception {
@@ -37,11 +37,11 @@ public class WebSocketServer {
 						}
 					});
 			Channel ch = b.bind(port).sync().channel();
+			System.out.println("Web socket server started at port " + port
+					+ '.');
 			System.out
-					.println("Web socket server started at port " + port + '.');
-			System.out.println(
-					"Open your browser and navigate to http://localhost:" + port
-							+ '/');
+					.println("Open your browser and navigate to http://localhost:"
+							+ port + '/');
 			ch.closeFuture().sync();
 		} finally {
 			bossGroup.shutdownGracefully();

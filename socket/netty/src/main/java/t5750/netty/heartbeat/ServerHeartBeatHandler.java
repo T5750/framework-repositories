@@ -2,10 +2,10 @@ package t5750.netty.heartbeat;
 
 import java.util.HashMap;
 
+import t5750.netty.util.NettyUtil;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import t5750.netty.util.NettyUtil;
 
 public class ServerHeartBeatHandler extends ChannelInboundHandlerAdapter {
 	/** key:ip value:auth */
@@ -23,8 +23,8 @@ public class ServerHeartBeatHandler extends ChannelInboundHandlerAdapter {
 			ctx.writeAndFlush(SUCCESS_KEY);
 			return true;
 		} else {
-			ctx.writeAndFlush("auth failure !")
-					.addListener(ChannelFutureListener.CLOSE);
+			ctx.writeAndFlush("auth failure !").addListener(
+					ChannelFutureListener.CLOSE);
 			return false;
 		}
 	}
@@ -53,8 +53,8 @@ public class ServerHeartBeatHandler extends ChannelInboundHandlerAdapter {
 			System.out.println("--------------------------------------------");
 			ctx.writeAndFlush("info received!");
 		} else {
-			ctx.writeAndFlush("connect failure!")
-					.addListener(ChannelFutureListener.CLOSE);
+			ctx.writeAndFlush("connect failure!").addListener(
+					ChannelFutureListener.CLOSE);
 		}
 	}
 }

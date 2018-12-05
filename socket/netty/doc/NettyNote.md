@@ -110,7 +110,7 @@ WS特点：
 ## 7.2 最佳实践（心跳监控）
 - 安装到本地maven库`mvn install:install-file -Dfile=C:\Users\Administrator\.m2\repository\org\hyperic\sigar\1.6.4\sigar.jar -DgroupId=org.hyperic -DartifactId=sigar -Dversion=1.6.4 -Dpackaging=jar`
 - gradle使用maven本地缓存库`mavenLocal()`
-- `hyperic-sigar-1.6.4\sigar-bin\lib\sigar-x86-winnt.dll`
+- 复制`hyperic-sigar-1.6.4\sigar-bin\lib\sigar-x86-winnt.dll`到`C:\Program Files\Java\jdk1.8.0_131\bin`
 
 ## 8.1 Http协议
 

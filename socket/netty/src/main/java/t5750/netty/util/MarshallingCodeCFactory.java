@@ -1,4 +1,4 @@
-package t5750.netty.serial;
+package t5750.netty.util;
 
 import org.jboss.marshalling.MarshallerFactory;
 import org.jboss.marshalling.Marshalling;

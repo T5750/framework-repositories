@@ -4,8 +4,8 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class FixedLengthServerHandler
-		extends SimpleChannelInboundHandler<Object> {
+public class FixedLengthServerHandler extends
+		SimpleChannelInboundHandler<Object> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("---------------------------------------");
@@ -27,8 +27,7 @@ public class FixedLengthServerHandler
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx)
-			throws Exception {
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 	}
 
 	@Override

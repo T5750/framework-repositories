@@ -16,8 +16,8 @@ public final class HttpHeaderUtil {
 	 * {@link HttpVersion#isKeepAliveDefault()}.
 	 */
 	public static boolean isKeepAlive(HttpMessage message) {
-		CharSequence connection = message.headers()
-				.get(HttpHeaderNames.CONNECTION);
+		CharSequence connection = message.headers().get(
+				HttpHeaderNames.CONNECTION);
 		if (connection != null && HttpHeaderValues.CLOSE.equals(connection)) {
 			return false;
 		}

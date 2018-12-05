@@ -27,8 +27,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object> {
 	}
 
 	@Override
-	public void channelReadComplete(ChannelHandlerContext ctx)
-			throws Exception {
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 	}
 
 	@Override
