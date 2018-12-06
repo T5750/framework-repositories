@@ -6,18 +6,22 @@ import java.util.zip.GZIPOutputStream;
 
 public class GzipUtils {
 	/**
+	 * Netty Path
+	 */
+	public static final String NETTY_PATH = System.getProperty("user.dir")
+			+ File.separatorChar + "socket" + File.separatorChar + "netty"
+			+ File.separatorChar;
+	/**
 	 * 读取文件
 	 */
-	public static final String READ_PATH = System.getProperty("user.dir")
-			+ File.separatorChar + "socket" + File.separatorChar + "netty"
-			+ File.separatorChar + "src" + File.separatorChar + "main"
-			+ File.separatorChar + "resources" + File.separatorChar + "static"
-			+ File.separatorChar + "001.jpg";
+	public static final String READ_PATH = NETTY_PATH + "src"
+			+ File.separatorChar + "main" + File.separatorChar + "resources"
+			+ File.separatorChar + "static" + File.separatorChar + "001.jpg";
 	/**
 	 * 写出文件
 	 */
-	public static final String WRITE_PATH = System.getProperty("user.dir")
-			+ File.separatorChar + "classes" + File.separatorChar + "001.jpg";
+	public static final String WRITE_PATH = NETTY_PATH + "out"
+			+ File.separatorChar + "001.jpg";
 
 	public static byte[] gzip(byte[] data) throws Exception {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
