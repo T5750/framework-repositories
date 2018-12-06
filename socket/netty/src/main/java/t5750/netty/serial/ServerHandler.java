@@ -1,6 +1,5 @@
 package t5750.netty.serial;
 
-import java.io.File;
 import java.io.FileOutputStream;
 
 import t5750.util.GzipUtils;
@@ -21,8 +20,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<Object> {
 		System.out.println("Server : " + req.getId() + ", " + req.getName()
 				+ ", " + req.getRequestMessage());
 		byte[] attachment = GzipUtils.ungzip(req.getAttachment());
-		String path = System.getProperty("user.dir") + File.separatorChar
-				+ "receive" + File.separatorChar + "001.jpg";
+		String path = GzipUtils.WRITE_PATH;
 		FileOutputStream fos = new FileOutputStream(path);
 		fos.write(attachment);
 		fos.close();
