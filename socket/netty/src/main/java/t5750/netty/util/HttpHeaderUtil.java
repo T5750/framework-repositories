@@ -64,6 +64,19 @@ public final class HttpHeaderUtil {
 				HttpHeaderValues.CONTINUE, true);
 	}
 
+	/**
+	 * Checks to see if the transfer encoding in a specified {@link HttpMessage}
+	 * is chunked
+	 *
+	 * @param message
+	 *            The message to check
+	 * @return True if transfer encoding is chunked, otherwise false
+	 */
+	public static boolean isTransferEncodingChunked(HttpMessage message) {
+		return message.headers().contains(HttpHeaderNames.TRANSFER_ENCODING,
+				HttpHeaderValues.CHUNKED, true);
+	}
+
 	private HttpHeaderUtil() {
 	}
 }
