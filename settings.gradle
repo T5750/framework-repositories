@@ -28,4 +28,6 @@ findProject(':dubbox:dubbox-spring-boot')?.name = 'dubbox-spring-boot'
 include 'socket'
 include 'socket:netty'
 findProject(':socket:netty')?.name = 'netty'
+include 'socket:mina'
+findProject(':socket:mina')?.name = 'mina'
 
