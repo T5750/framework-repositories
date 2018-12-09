@@ -21,6 +21,16 @@
 - 将dubbo的jar安装到本地maven库`mvn install:install-file -Dfile=C:\Users\Administrator\.m2\repository\com\alibaba\dubbo\2.8.4\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar`
 - gradle使用maven本地缓存库`mavenLocal()`
 
+## Tips
+Dubbox支持多种远程调用方式：
+- Dubbo RPC（二进制序列化 + tcp协议）
+- http invoker（二进制序列化 + http协议，至少在开源版本没发现对文本序列化的支持）
+- hessian（二进制序列化 + http协议）
+- WebServices（文本序列化 + http协议）
+- REST风格远程调用（文本序列化 + http协议）
+
+![rest-min](https://www.wailian.work/images/2018/12/09/rest-min.jpg)
+
 ## Results
 - dubbox-provider
     - GET: [http://localhost:8083/services/hello/world](http://localhost:8083/services/hello/world)
