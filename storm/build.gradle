@@ -1,0 +1,5 @@
+dependencies {
+    // provided group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
+    compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+}
