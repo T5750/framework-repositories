@@ -24,7 +24,7 @@ storm.zookeeper.port: 2181
 #     - "server2"
 # 
 # nimbus.seeds: ["host1", "host2", "host3"]
-nimbus.seeds: ["192.168.100.163"]
+nimbus.seeds: ["192.168.100.163", "192.168.100.164", "192.168.100.165"]
 # 
 # 
 # ##### These may optionally be filled in:
