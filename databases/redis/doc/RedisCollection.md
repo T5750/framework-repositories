@@ -108,18 +108,18 @@ aof-load-truncated yes
 `redis-rdb-hour.sh`
 ```
 #!/bin/sh
-cur_date=`date +%Y%m%d%k`   #当前时间精确到小时
+cur_date=`date +%Y%m%d%H`   #当前时间精确到小时
 rm -rf /usr/local/bin/redis/snapshotting/$cur_date   #删除当前时间的目录
 mkdir /usr/local/bin/redis/snapshotting/$cur_date  #新建当前时间的目录
 cp /usr/local/bin/dump.rdb /usr/local/bin/redis/snapshotting/$cur_date   #将rdb文件copy到当前时间创建的目录
-del_date=`date -d -48hour +%Y%m%d%k`   #48小时之前的时间
+del_date=`date -d -48hour +%Y%m%d%H`   #48小时之前的时间
 rm -rf /usr/local/bin/redis/snapshotting/$del_date   #删除48小时之前的目录
 ```
 `chmod 777 redis-rdb-day.sh`
 
 执行命令：`crontab -e`
 ```
-* */1 * * * sh /usr/local/bin/redis-rdb-hour.sh #每小时执行脚本
+5 * * * * sh /usr/local/bin/redis-rdb-hour.sh #每小时执行脚本
 ```
 
 ### 每天备份
@@ -137,7 +137,7 @@ rm -rf /usr/local/bin/redis/snapshotting/$del_date   #删除一个月之前的�
 
 执行命令：`crontab -e`
 ```
-0 0 * * * sh /usr/local/bin/redis-rdb-day.sh #每天0点执行脚本
+5 0 * * * sh /usr/local/bin/redis-rdb-day.sh #每天0点执行脚本
 ```
 
 ### 数据恢复方案
