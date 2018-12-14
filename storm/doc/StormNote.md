@@ -49,5 +49,34 @@ Topology（拓扑）
 
 ![storm-flow-min](http://www.wailian.work/images/2018/12/13/storm-flow-min.png)
 
+## 3.1 Storm集群环境搭建
+- [Storm集群安装配置](StormCluster.md)
+
+## 4.1 Storm Hello World
+引入gradle依赖：
+```
+compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
+```
+
+![storm-process-min](http://www.wailian.work/images/2018/12/14/storm-process-min.png)
+
+- 首先，编写数据源类：Spout。可以使用2种方式：
+    - 继承`BaseRichSpout`类
+    - 实现`IRichSpout`接口
+    - 重点需要几个方法进行重写或实现：`open`、`nextTuple`、`declareOutputFields`
+- 继续编写数据处理类：Bolt。可以使用2种方式：
+    - 继承`BaseBasicBolt`类
+    - 实现`IRichBolt`接口
+    - 重点需要几个方法进行重写或实现：`execute`、`declareOutputFields`
+- 最后，编写主函数（Topology）去进行提交一个任务。
+    - 在使用Topology的时候，Storm框架为我们提供了2种模式：本地模式和集群模式
+    - 本地模式：（无需Storm集群，直接在java中即可运行，一般用于测试和开发阶段）执行运行main函数即可。
+    - 集群模式：（需要Storm集群，把实现的java程序打包，然后Topology进行提交）需要把应用打成jar，使用storm命令把Topology提交到集群中去。
+- 提交topology命令：`storm jar storm-1.0.jar t5750.storm.topology.PWTopologyCluster`
+- 查看任务命令：`storm list`
+- 另外，2个supervisor节点`jps`显示：`Supervisor`
+- 最后，看2个工作节点的`/usr/local/temp/`下的文件信息是否有内容
+
+
 ## References
 - Storm

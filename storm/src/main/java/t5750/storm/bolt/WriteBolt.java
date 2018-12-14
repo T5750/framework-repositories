@@ -2,8 +2,7 @@ package t5750.storm.bolt;
 
 import java.io.FileWriter;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseBasicBolt;
@@ -13,7 +12,8 @@ import t5750.storm.util.StormUtil;
 
 public class WriteBolt extends BaseBasicBolt {
 	private static final long serialVersionUID = 1L;
-	private static final Log log = LogFactory.getLog(WriteBolt.class);
+	// private static final Log log = LogFactory.getLog(WriteBolt.class);
+	private static Logger logger = Logger.getRootLogger();
 	private FileWriter writer;
 
 	@Override
@@ -33,7 +33,7 @@ public class WriteBolt extends BaseBasicBolt {
 					writer = new FileWriter("/usr/local/temp/" + this);
 				}
 			}
-			log.info("【write】： 写入文件");
+			logger.info("【write】： 写入文件");
 			writer.write(text);
 			writer.write("\n");
 			writer.flush();

@@ -24,7 +24,7 @@ storm.zookeeper.port: 2181
 #     - "server2"
 # 
 # nimbus.seeds: ["host1", "host2", "host3"]
-nimbus.seeds: ["192.168.100.163", "192.168.100.164", "192.168.100.165"]
+nimbus.seeds: ["bm-163"]
 # 
 # 
 # ##### These may optionally be filled in:
@@ -109,7 +109,7 @@ nimbus.seeds: ["192.168.100.163", "192.168.100.164", "192.168.100.165"]
 #        class: "org.apache.storm.metrics2.filters.RegexFilter"
 #        expression: ".*my_component.*emitted.*"
 storm.local.dir: "/usr/local/apache-storm-1.2.2/data"
-nimbus.host: "192.168.100.165"
+#nimbus.host: "192.168.100.165"
 ui.port: 18080
 supervisor.slots.ports:
 - 6700
