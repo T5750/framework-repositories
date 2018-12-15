@@ -77,6 +77,57 @@ compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 - 另外，2个supervisor节点`jps`显示：`Supervisor`
 - 最后，看2个工作节点的`/usr/local/temp/`下的文件信息是否有内容
 
+## 5.1 Storm API
+- Topology：拓扑
+- Stream Groupings：流分组、数据的分发方式
+- Spout：喷口、消息源
+- Bolt：螺栓、处理器
+- Worker：工作进程JVM
+- Executor：执行器、Task的线程
+- Task：具体的执行任务
+- Configuration：配置
+
+## 5.2 Storm拓扑
+- 拓扑是一个有向图的计算。（也就是说在计算的过程中，是有流向地去处理业务逻辑，节点之间的连接显示数据该如何进入下一个节点，它们是进行连接传递的）
+- 拓扑运行很简单，只需要使用storm命令，把一个jar提交给nimbus节点，nimbus就会把任务分配给具体的子节点（supervisor）去工作。
+
+创建拓扑非常简单：
+1. 构建`TopologyBuilder`对象
+1. 设置Spout（喷口）数据源对象（可以设置多个）
+1. 设置Bolt（螺栓）数据处理对象（可以设置多个）
+1. 构建`Config`对象
+1. 提交拓扑
+
+## 5.3 Storm拓扑配置
+- 工作进程、并行度、任务数设置：
+	```
+	Config cfg = new Config();
+	cfg.setNumWorkers(2);
+	cfg.setDebug(false);
+	TopologyBuilder builder = new TopologyBuilder();
+	builder.setSpout("spout", new PWSpout(), 2);
+	builder.setBolt("print-bolt", new PrintBolt(), 2).shuffleGrouping("spout").setNumTasks(4);
+	builder.setBolt("write-bolt", new WriteBolt(), 6).shuffleGrouping("print-bolt");
+	```
+- 首先，设置2个工作进程（也就是2个JVM）
+- 然后，设置spout的并行度为2 （产生2个执行器和2个任务）
+- 第一个bolt的并行度为2，并且指定任务数为4 （产生2个执行器和4个任务）
+- 第二个bolt的并行度为6（产生6个执行器和6个任务）
+- 因此，该拓扑程序共有2个工作进程（worker），`2+2+6=10`个执行器（executor），`2+4+6=12`个任务（task）。每个工作进程可以领取到`12/2=6`个任务。默认情况下一个执行器执行一个任务，但如果指定了任务的数目，则任务会平均分配到执行器中。
+
+## 5.4 Storm流分组
+Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分组定义了如何在bolt的任务直接进行分发。
+
+![storm-stream-groupings](https://www.wailian.work/images/2018/12/15/storm-stream-groupings.jpg)
+
+- Shuffle Grouping随机分组：保证每个bolt接收到的tuple数目相同。
+- Fields Grouping按字段分组：比如按userid来分组，具有同样userid的tuple会被分到相同的Bolts，而不同的userid则会被分配到不同的Bolts。
+- All Grouping广播发送：对于每一个tuple，所有的Bolts都会收到。
+- Global Grouping全局分组：这个tuple被分配到storm中的一个bolt的其中一个task。再具体一点就是分配给id值最低的那个task。
+- Non Grouping无分组：假设你不关心流式如何分组的煤科院使用这种方式，目前这种分组和随机分组是一样的效果，不同的是Storm会把这个Bolt放到Bolt的订阅者的同一个线程中执行。
+- Direct Grouping直接分组：这种分组意味着消息的发送者指定由消息接收者的哪个task处理这个消息。只有被声明为Direct Stream的消息流可以声明这种分组方法。而且这种消息tuple必须使用`emitDirect`方法来发射。消息处理者可以通过`TopologyContext`来获取处理它的消息的taskid（`OutputCollector.emit`方法也会返回taskid）
+- 本地分组：如果目标bolt在同一工作进程存在一个或多个任务，会随机分配给执行任务，否则该分组方式与随机分组方式是一样的。
+
 
 ## References
-- Storm
+- [Storm](http://storm.apache.org/)
