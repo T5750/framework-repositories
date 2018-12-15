@@ -1,19 +1,19 @@
-package t5750.storm.topology;
+package t5750.storm.printwrite.topology;
 
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
 
-import t5750.storm.bolt.PrintBolt;
-import t5750.storm.bolt.WriteBolt;
-import t5750.storm.spout.PWSpout;
+import t5750.storm.printwrite.bolt.PrintBolt;
+import t5750.storm.printwrite.bolt.WriteBolt;
+import t5750.storm.printwrite.spout.PWSpout;
 import t5750.storm.util.StormUtil;
 
 public class PWTopologyLocal {
 	public static void main(String[] args) throws Exception {
 		StormUtil.hasDirectory();
 		Config cfg = new Config();
-		cfg.setNumWorkers(2);
+		cfg.setNumWorkers(1);
 		cfg.setDebug(true);
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("spout", new PWSpout());

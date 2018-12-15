@@ -1,12 +1,12 @@
-package t5750.storm.topology;
+package t5750.storm.printwrite.topology;
 
 import org.apache.storm.Config;
 import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 
-import t5750.storm.bolt.PrintBolt;
-import t5750.storm.bolt.WriteBolt;
-import t5750.storm.spout.PWSpout;
+import t5750.storm.printwrite.bolt.PrintBolt;
+import t5750.storm.printwrite.bolt.WriteBolt;
+import t5750.storm.printwrite.spout.PWSpout;
 
 public class PWTopologyCluster {
 	public static void main(String[] args) throws Exception {

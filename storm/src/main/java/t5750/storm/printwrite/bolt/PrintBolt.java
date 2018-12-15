@@ -1,4 +1,4 @@
-package t5750.storm.bolt;
+package t5750.storm.printwrite.bolt;
 
 import org.apache.log4j.Logger;
 import org.apache.storm.topology.BasicOutputCollector;
