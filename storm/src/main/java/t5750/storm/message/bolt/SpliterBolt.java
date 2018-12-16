@@ -24,7 +24,8 @@ public class SpliterBolt implements IRichBolt {
 	@Override
 	public void execute(Tuple tuple) {
 		try {
-			String subjects = tuple.getStringByField("subjects");
+			// String subjects = tuple.getStringByField("subjects");
+			String subjects = String.valueOf(tuple.getValueByField("subjects"));
 			// if (!flag && subjects.equals("flume,activiti")) {
 			// flag = true;
 			// int a = 1 / 0;

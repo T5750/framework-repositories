@@ -171,6 +171,37 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 
 ### 示例
 - `MessageTopology`
+- `SpliterBolt`: Success, `WriterBolt`: Success
+	```
+	【消息发送成功！！！】（msgId = 0）
+	【消息发送成功！！！】（msgId = 1）
+	【消息发送成功！！！】（msgId = 2）
+	【消息发送成功！！！】（msgId = 3）
+	【消息发送成功！！！】（msgId = 4）
+	```
+- `SpliterBolt`: Exception, `WriterBolt`: Success
+	```
+	【消息发送失败！！！】（msgId = 2）
+	【重发进行中...】
+	【重发成功！！！】
+	【消息发送成功！！！】（msgId = 0）
+	【消息发送成功！！！】（msgId = 1）
+	【消息发送成功！！！】（msgId = 3）
+	【消息发送成功！！！】（msgId = 4）
+	【消息发送成功！！！】（msgId = 2）
+	```
+- `SpliterBolt`: Success, `WriterBolt`: Exception
+	```
+	【消息发送成功！！！】（msgId = 0）
+	【消息发送成功！！！】（msgId = 1）
+	【消息发送成功！！！】（msgId = 2）
+	【消息发送失败！！！】（msgId = 3）
+	【重发进行中...】
+	【重发成功！！！】
+	【消息发送成功！！！】（msgId = 4）
+	【消息发送成功！！！】（msgId = 3）
+	```
+
 
 
 ## References

@@ -48,7 +48,12 @@ public class MessageSpout implements IRichSpout {
 		System.out.println("【消息发送失败！！！】（msgId = " + msgId + "）");
 		System.out.println("【重发进行中...】");
 		collector.emit(new Values((Integer) msgId), msgId);
+		// int msgIdIndex = Integer.valueOf(msgId.toString());
+		// if (msgIdIndex < subjects.length) {
+		// String sub = subjects[msgIdIndex];
+		// collector.emit(new Values(sub), msgIdIndex);
 		System.out.println("【重发成功！！！】");
+		// }
 	}
 
 	@Override
