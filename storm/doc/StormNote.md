@@ -77,6 +77,11 @@ compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 - 另外，2个supervisor节点`jps`显示：`Supervisor`
 - 最后，看2个工作节点的`/usr/local/temp/`下的文件信息是否有内容
 
+### 示例
+- `PWTopologyLocal`, `PWTopologyCluster`
+
+![storm-topology-execution-min](https://www.wailian.work/images/2018/12/16/storm-topology-execution-min.png)
+
 ## 5.1 Storm API
 - Topology：拓扑
 - Stream Groupings：流分组、数据的分发方式
@@ -115,6 +120,9 @@ compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 - 第二个bolt的并行度为6（产生6个执行器和6个任务）
 - 因此，该拓扑程序共有2个工作进程（worker），`2+2+6=10`个执行器（executor），`2+4+6=12`个任务（task）。每个工作进程可以领取到`12/2=6`个任务。默认情况下一个执行器执行一个任务，但如果指定了任务的数目，则任务会平均分配到执行器中。
 
+### 示例
+- `PWTopologyLocalMulti`, `PWTopologyClusterMulti`
+
 ## 5.4 Storm流分组
 Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分组定义了如何在bolt的任务直接进行分发。
 
@@ -127,6 +135,42 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 - Non Grouping无分组：假设你不关心流式如何分组的煤科院使用这种方式，目前这种分组和随机分组是一样的效果，不同的是Storm会把这个Bolt放到Bolt的订阅者的同一个线程中执行。
 - Direct Grouping直接分组：这种分组意味着消息的发送者指定由消息接收者的哪个task处理这个消息。只有被声明为Direct Stream的消息流可以声明这种分组方法。而且这种消息tuple必须使用`emitDirect`方法来发射。消息处理者可以通过`TopologyContext`来获取处理它的消息的taskid（`OutputCollector.emit`方法也会返回taskid）
 - 本地分组：如果目标bolt在同一工作进程存在一个或多个任务，会随机分配给执行任务，否则该分组方式与随机分组方式是一样的。
+
+常见的流分组：
+
+![storm-grouping-min](https://www.wailian.work/images/2018/12/16/storm-grouping-min.png)
+
+### 示例
+- `PWTopologyLocalFieldsGrouping`, `PWTopologyLocalAllGrouping`, `PWTopologyLocalGlobalGrouping`
+
+## 5.5 Storm WordCount
+以一个统计单词的小程序来说明问题
+
+![storm-word-count-topology-min](https://www.wailian.work/images/2018/12/16/storm-word-count-topology-min.png)
+
+上面的示意图中有4个组件，分别为一个spout和3个bolt，当数据源spout取得数据（可以是一个句子，里面包含多个单词）以后，发送给SolitBolt进行切分，然后由CountBolt进行统计结果，最终由ReportBolt记录结果。
+
+### 示例
+- `WordTopology`
+
+## 5.6 Storm Spout的可靠性
+- Spout是Storm数据流的入口，在设计拓扑时，一件很重要的事情就是需要考虑消息的可靠性，如果消息不能被处理而丢失是很严重的问题。
+- 我们继续做实验，以一个传递消息并且实时处理的例子，来说明这个问题。
+- 新建maven项目
+- 通过示例，如果在第一个bolt处理的时候出现异常，我们可以让整个数据进行重发，但是如果在第二个bolt处理的时候出现了异常，那么也会让对应的spout里的数据重发，这样就会出现事务的问题，我们就需要进行判断或者是进行记录。
+- 如果是数据入库的话，可以与原ID进行比对。
+- 如果是事务的话在编写代码时，尽量就不要进行拆分tuple。
+- 或者使用storm的Trident框架
+- Storm系统中有一组叫做“acker”的特殊的任务，它们负责跟踪DAG（有向无环图）中的每个消息。
+- acker任务保存了spout消息id到一对值的映射。第一个值就是spout的任务id，通过这个id，acker就知道消息处理完成时该通知哪个spout任务。第二个值是一个64bit的数字，我们称之为“ack val”，它是树中所有消息的随机id的异或结果。ack val表示了整棵树的的状态，无论这棵树多大，另需要这个固定大小的数字就可以跟踪整棵树。当消息被创建和被应答的时候都会有相同的消息id发送过来做异或。
+- 每当acker发现一棵树的ack val值为0的时候，它就知道这棵树已经被完全处理了。因为消息的随机ID是一个64bit的值，因此ack val在树处理完之前被置为0的概率非常小。假设你每秒钟发送一万个消息，从概率上说，至少需要50,000,000年才会有机会发生一次错误。即使如此，也另有在这个消息确实处理失败的情况下才会有数据的丢失！
+
+下图是spout处理可靠性的示意图：当spout发送一个消息时，分配给2个bolt分别处理，那么在最后一个bolt接受的时候会做**异或运算**。
+
+![storm-message-min](https://www.wailian.work/images/2018/12/16/storm-message-min.jpg)
+
+### 示例
+- `MessageTopology`
 
 
 ## References
