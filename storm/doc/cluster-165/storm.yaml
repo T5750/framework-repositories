@@ -39,7 +39,9 @@ nimbus.seeds: ["bm-163"]
 #     - org.mycompany.MyDecorator
 #
 ## Locations of the drpc servers
-# drpc.servers:
+drpc.servers:
+- "192.168.100.163"
+storm.thrift.transport: "org.apache.storm.security.auth.plain.PlainSaslTransportPlugin"
 #     - "server1"
 #     - "server2"
 
