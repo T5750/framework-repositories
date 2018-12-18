@@ -1,7 +1,5 @@
 package t5750.storm.word.topology;
 
-import org.apache.storm.Config;
-import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 
@@ -18,7 +16,7 @@ public class WordTopology {
 	private static final String REPORT_BOLT_ID = "report-bolt";
 	private static final String TOPOLOGY_NAME = "word-count-topology";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// 实例化对象
 		WordSpout spout = new WordSpout();
 		WordSplitBolt splitBolt = new WordSplitBolt();
@@ -36,13 +34,6 @@ public class WordTopology {
 		// WordCountBolt-->WordReportBolt
 		builder.setBolt(REPORT_BOLT_ID, reportBolt, 10)
 				.shuffleGrouping(COUNT_BOLT_ID);
-		// 本地模式
-		Config config = new Config();
-		config.setDebug(false);
-		LocalCluster cluster = new LocalCluster();
-		cluster.submitTopology(TOPOLOGY_NAME, config, builder.createTopology());
-		StormUtil.waitForSeconds(10);
-		cluster.killTopology(TOPOLOGY_NAME);
-		cluster.shutdown();
+		StormUtil.submitTopology(args, builder, TOPOLOGY_NAME);
 	}
 }

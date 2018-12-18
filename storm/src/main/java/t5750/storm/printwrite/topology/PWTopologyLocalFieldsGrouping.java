@@ -1,19 +1,17 @@
 package t5750.storm.printwrite.topology;
 
-import org.apache.storm.Config;
-import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 
 import t5750.storm.printwrite.bolt.PrintBolt;
 import t5750.storm.printwrite.bolt.WriteBolt;
 import t5750.storm.printwrite.spout.PWSpout;
+import t5750.storm.util.StormUtil;
 
 public class PWTopologyLocalFieldsGrouping {
+	private static final String TOPOLOGY_NAME = "top3";
+
 	public static void main(String[] args) throws Exception {
-		Config cfg = new Config();
-		cfg.setNumWorkers(2);
-		cfg.setDebug(true);
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("spout", new PWSpout(), 4);
 		builder.setBolt("print-bolt", new PrintBolt(), 4)
@@ -27,14 +25,6 @@ public class PWTopologyLocalFieldsGrouping {
 		// 设置全局分组
 		// builder.setBolt("write-bolt", new WriteBolt(),
 		// 4).globalGrouping("print-bolt");
-		// 1 本地模式
-		cfg.setDebug(false);
-		LocalCluster cluster = new LocalCluster();
-		cluster.submitTopology("top3", cfg, builder.createTopology());
-		Thread.sleep(10000);
-		cluster.killTopology("top3");
-		cluster.shutdown();
-		// 2 集群模式
-		// StormSubmitter.submitTopology("top3", cfg, builder.createTopology());
+		StormUtil.submitTopology(args, builder, TOPOLOGY_NAME);
 	}
 }
