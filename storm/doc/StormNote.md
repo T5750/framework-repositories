@@ -243,6 +243,9 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 	```
 4. 在本地调用远程topology即可
 
+### 示例
+- `BasicDRPCTopology`, `DrpcExclam`
+
 ## 6.4 Storm DRPC实例场景
 - 主要使用storm的并行计算能力来进行，我们在微博、论坛进行转发帖子的时候，是对url进行转发，分享给粉丝（关注我的人），那么每一个人的粉丝（关注者可能会有重复的情况），这个例子就是统计一下帖子（url）的转发人数
 - 相关代码地址：[https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/ReachTopology.java](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/ReachTopology.java)
@@ -253,6 +256,8 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 1. 统计人数
 1. 最后使用drpc远程调用topology返回执行结果
 
+### 示例
+- `ReachTopology`
 
 
 ## References

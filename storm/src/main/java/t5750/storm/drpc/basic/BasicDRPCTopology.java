@@ -35,8 +35,10 @@ public class BasicDRPCTopology {
 	}
 
 	public static void main(String[] args) throws Exception {
+		// 创建drpc实例
 		LinearDRPCTopologyBuilder builder = new LinearDRPCTopologyBuilder(
 				"exclamation");
+		// 添加bolt
 		builder.addBolt(new ExclaimBolt(), 3);
 		Config conf = new Config();
 		if (args == null || args.length == 0) {
@@ -51,7 +53,7 @@ public class BasicDRPCTopology {
 			cluster.shutdown();
 			drpc.shutdown();
 		} else {
-			conf.setNumWorkers(3);
+			conf.setNumWorkers(2);
 			StormSubmitter.submitTopology(args[0], conf,
 					builder.createRemoteTopology());
 		}
