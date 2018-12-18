@@ -202,6 +202,57 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 	【消息发送成功！！！】（msgId = 3）
 	```
 
+## 6.1 RPC介绍
+- 调用客户端句柄，执行传送参数
+- 调用本地系统内核发送网络消息
+- 消息传送到远程主机
+- 服务器句柄得到消息并取得参数
+- 执行远程过程
+- 执行的过程将结果返回服务器句柄
+- 服务器句柄返回结果，调用远程系统内核
+- 消息传回本地主机
+- 客户句柄由内核接收消息
+- 客户接收句柄返回的数据
+
+## 6.2 Storm DRPC介绍
+- 分布式RPC（Distributed RPC，DRPC）
+- Storm里面引入DRPC主要是利用storm的实时计算能力来并行化CPU密集型（CPU intensive）的计算任务。DRPC的storm topology以函数的参数流作为输入，而把这些函数调用的返回值作为topology的输出流。
+- DRPC其实不能算是storm本身的一个特性，它是通过组合storm的元素stream、spout、bolt、topology而成的一种模式（pattern）。本来应该把DRPC单独打成一个包的，但是DRPC实在是太有用了，所以把它和storm捆绑在一起。
+- Distributed RPC是通过一个”DRPC Server”来实现
+- DRPC Server的整体工作过程如下：
+1. 接收一个RPC请求
+1. 发送请求到storm topology
+1. 从storm topology接收结果
+1. 把结果发回给等待的客户端
+
+## 6.3 Storm DRPC配置和示例
+- Storm提供了一个称作`LinearDRPCTopologyBuilder`的topology builder，它把实现DRPC的几乎所有步骤都简化了
+- 相关代码地址：[https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/BasicDRPCTopology.java](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/BasicDRPCTopology.java)
+- 实现DRPC步骤：
+1. 需要修改配置文件内容为（分別修改每台机器配置）：
+	```
+	vim /usr/local/apache-storm-1.2.2/conf/storm.yaml
+
+	drpc.servers:
+		- "192.168.100.163"
+	```
+2. 需要启动storm的drpc：服务，命令：`storm drpc &`
+3. 把相关的topology代码上传到storm服务器上
+	```
+	storm jar storm-1.0.jar t5750.storm.drpc.basic.BasicDRPCTopology exc
+	```
+4. 在本地调用远程topology即可
+
+## 6.4 Storm DRPC实例场景
+- 主要使用storm的并行计算能力来进行，我们在微博、论坛进行转发帖子的时候，是对url进行转发，分享给粉丝（关注我的人），那么每一个人的粉丝（关注者可能会有重复的情况），这个例子就是统计一下帖子（url）的转发人数
+- 相关代码地址：[https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/ReachTopology.java](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/ReachTopology.java)
+- 实现步骤如下：
+1. 获取当前转发帖子的人
+1. 获取当前人的粉丝（关注者）
+1. 进行粉丝去重
+1. 统计人数
+1. 最后使用drpc远程调用topology返回执行结果
+
 
 
 ## References
