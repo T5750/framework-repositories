@@ -259,6 +259,97 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 ### 示例
 - `ReachTopology`
 
+## 7.1 Storm Trident介绍
+- Trident是在Storm基础上，一个以实时计算为目标的高度抽象。它在提供处理大吞吐量数据能力（每秒百万次消息）的同时，也提供了低延时分布式查询和有状态流式处理的能力。如果你对Pig和Cascading这种高级批处理工具很了解的话，那么应该很容易理解Trident，因为它们之间很多的概念和思想都是类似的。Tident提供了joins，aggregations，grouping，functions，以及filters等能力。除此之外，Trident还提供了一些与门的原语，从而在基于数据库或者其它存储的前提下来应付有状态的递增式处理。Trident也提供一致性（consistent）、有且仅有一次（exactly-once）等语义，这使得我们在使用trident toplogy时变得容易。
+- "Stream"是Trident中的核心数据模型，它被当做一系列的batch来处理。在Storm集群的节点之间，一个stream被划分成很多partition（分区），对流的操作（operation）是在每个partition上并行执行的。
+- 对每个partition的局部操作包括：function、filter、partitionAggregate、stateQuery、partitionPersist、project等。
+
+## 7.2 Storm Trident functions
+Trident's function contain the logic to modify the original tuple. A function gets a set of fields of a tuple as input and emits one or more tuples as output. The output fields of the tuple are merged with the input fields of a tuple to form the complete tuple, which will pass to the next action in the topology. If the function emits a zero tuple that corresponds to the input tuple, then that tuple is removed from the stream.
+
+We can write a custom Trident function by extending the `storm.trident.operation.BaseFunction` class and implementing the `execute(TridentTuple tuple, TridentCollector collector)` method.
+
+Let's write a sample Trident function that will calculate the sum of first two fields and emit the new `sum` field. The following is the code of the `SumFunction` class:
+
+```
+public class SumFunction extends BaseFunction {
+ private static final long serialVersionUID = 5L;
+ public void execute(TridentTuple tuple, TridentCollector
+ collector) {
+ int number1 = tuple.getInteger(0);
+ int number2 = tuple.getInteger(1);
+ int sum = number1+number2;
+ // emit the sum of first two fields
+ collector.emit(new Values(sum));
+ }
+}
+```
+Suppose we are getting the `dummyStream` stream as an input that contains four fields, a, b, c, and d, and only the a and b fields are passed as input fields to the `SumFunction` class. The `SumFunction` class emits the new `sum` field. The `sum` field emitted by the execute method of the `SumFunction` class is merged with the input tuple to form the complete tuple. Hence, the total number of fields in the output tuple is 5 (a, b, c, d, and `sum`). The following is a sample piece of code that shows how we can pass the input fields and the name of a new field to the Trident function:
+
+```
+dummyStream.each(new Fields("a","b"), new SumFunction (), new Fields("sum"))
+```
+执行的结果如下：
+
+![trident-sum-function-min](https://www.wailian.work/images/2018/12/19/trident-sum-function-min.png)
+
+## 7.3 Storm Trident filters
+A Trident filter gets a set of fields as input and returns either `true` or `false` depending on whether certain conditions are satisfied or not. If `true` is returned, then the tuple is kept in the output stream; otherwise, the tuple is removed from the stream.
+
+We can write a custom Trident filter by extending the `storm.trident.operation.BaseFilter` class and implementing the `isKeep(TridentTuple tuple)` method.
+
+Let's write a sample Trident filter that will check whether the sum of the input fields is even or odd. If the sum is even, then the Trident filter emits `true`; otherwise, it emits `false`. The following is the code of the `CheckEvenSumFilter` class:
+
+```
+public static class CheckEvenSumFilter extends BaseFilter{
+ private static final long serialVersionUID = 7L;
+ public boolean isKeep(TridentTuple tuple) {
+ int number1 = tuple.getInteger(0);
+ int number2 = tuple.getInteger(1);
+ int sum = number1+number2;
+ if(sum % 2 == 0) {
+ return true;
+ }
+ return false;
+ }
+}
+```
+
+## 7.4 Storm Trident projections
+Trident projections keep only those fields in the stream that are specified in the projection operation. Suppose an input stream contains three fields, x, y, and z, and we are passing the x field in the projection operation. Then, the output stream will contain tuples with the single `field x`. The following is the piece of code that shows how we can use the projection operation:
+
+```
+mystream.project(new Fields("x"))
+```
+The following diagram shows the projection operation:
+
+![trident-projection-min](https://www.wailian.work/images/2018/12/19/trident-projection-min.png)
+
+## 7.5 Trident repartitioning operations
+### The shuffle operation
+The `shuffle` repartitioning operation partitions the tuples in a uniform, random way across multiple tasks. This repartitioning operation is generally used when we want to distribute our processing load uniformly across tasks. The following diagram shows how the input tuples are repartitioned using the `shuffle` operation:
+
+![trident-shuffle-min](https://www.wailian.work/images/2018/12/19/trident-shuffle-min.png)
+
+The following piece of code shows how we can use the `shuffle` operation:
+```
+mystream.shuffle().each(new Fields("a","b"), new
+myFilter()).parallelismHint(2)
+```
+
+### The partitionBy operation
+
+### The global operation
+
+### The broadcast operation
+
+### The batchGlobal operation
+
+### The partition operation
+
+## 7.6 Trident Partition aggregate
+
 
 ## References
 - [Storm](http://storm.apache.org/)
+- Learning Storm
