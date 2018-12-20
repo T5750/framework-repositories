@@ -257,7 +257,7 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 1. 最后使用drpc远程调用topology返回执行结果
 
 ### 示例
-- `ReachTopology`
+- `ReachTopology`, `DrpcReach`
 
 ## 7.1 Storm Trident介绍
 - Trident是在Storm基础上，一个以实时计算为目标的高度抽象。它在提供处理大吞吐量数据能力（每秒百万次消息）的同时，也提供了低延时分布式查询和有状态流式处理的能力。如果你对Pig和Cascading这种高级批处理工具很了解的话，那么应该很容易理解Trident，因为它们之间很多的概念和思想都是类似的。Tident提供了joins，aggregations，grouping，functions，以及filters等能力。除此之外，Trident还提供了一些与门的原语，从而在基于数据库或者其它存储的前提下来应付有状态的递增式处理。Trident也提供一致性（consistent）、有且仅有一次（exactly-once）等语义，这使得我们在使用trident toplogy时变得容易。
@@ -333,19 +333,72 @@ The `shuffle` repartitioning operation partitions the tuples in a uniform, rando
 
 The following piece of code shows how we can use the `shuffle` operation:
 ```
-mystream.shuffle().each(new Fields("a","b"), new
-myFilter()).parallelismHint(2)
+mystream.shuffle().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
 ```
 
 ### The partitionBy operation
+The `partitionBy` repartitioning operation enables you to partition a stream on the basis of some fields in the tuples. For example, if you want all tweets from a particular user to be delivered to the same target partition, then you can partition the tweet stream by applying the `partitionBy` operation on the `username` field in the following manner:
+```
+mystream.partitionBy(new Fields("username")).each(new Fields("username","text"), new myFilter()).parallelismHint(2)
+```
+The `partitionBy` operation applies the `target partition = hash (fields) % (number of target partition)` formula to decide the target partition. As the preceding formula shows, the `partitionBy` operation calculates the hash of input fields to decide the target partition. Hence, it does not guarantee that all the tasks will get tuples to process. For example, if you have applied a `partitionBy` operation on a field, say X, with only two possible values, A and B, and created two tasks for the `myFilter` filter, then it is possible that both `hash (A) % 2` and `hash (B) % 2` are equal. This will result in all the tuples being routed to a single task and the other being completely idle. The following diagram shows how the input tuples are repartitioned using the `partitionBy` operation:
+
+![trident-partition-by-min](http://www.wailian.work/images/2018/12/20/trident-partition-by-min.png)
 
 ### The global operation
+The `global` repartitioning operation routes all tuples to the same partition. Hence, the same target partition is selected for all the batches in the stream. The following diagram shows how the tuples are repartitioned using the `global` operation:
+
+![trident-global-min](http://www.wailian.work/images/2018/12/20/trident-global-min.png)
+
+The following piece of code shows how we can use the `global` operation:
+```
+mystream.global().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
+```
 
 ### The broadcast operation
+The `broadcast` operation is a special repartitioning operation that does not partition the tuples but replicates them to all partitions. The following is a diagram that shows how the tuples are sent over the network:
+
+![trident-global-min](http://www.wailian.work/images/2018/12/20/trident-global-min.png)
+
+The following piece of code shows how we can use the `broadcast` operation:
+```
+mystream.broadcast().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
+```
 
 ### The batchGlobal operation
+This repartitioning operation routes all tuples that belong to one batch to the same target partition. The other batches of the same stream may go to a different partition. As the name suggests, this repartition is global at the batch level. The following diagram shows how the tuples are repartitioned using the `batchGlobal` operation:
+
+![trident-batch-global-min](http://www.wailian.work/images/2018/12/20/trident-batch-global-min.png)
+
+The following piece of code shows how we can use the `batchGlobal` operation:
+```
+mystream.batchGlobal().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
+```
 
 ### The partition operation
+If none of the preceding repartitioning operations fit your use case, you can define your own custom repartition function by implementing the `backtype.storm.grouping.CustomStreamGrouping` interface. The following is a sample custom repartition that partitions the stream on the basis of the values of the `country` field:
+```
+public class CountryRepartition implements CustomStreamGrouping, Serializable {
+	private static final long serialVersionUID = 1L;
+	private static final Map<String, Integer> countries =
+	ImmutableMap.of(
+		"India", 0,
+		"Japan", 1,
+		"United State", 2,
+		"China", 3,
+		"Brazil", 4
+	);
+	private int tasks = 0;
+	public void prepare(WorkerTopologyContext context, GlobalStreamId stream, List<Integer> targetTasks){
+		tasks = targetTasks.size();
+	}
+	public List<Integer> chooseTasks(int taskId, List<Object> values) {
+		String country = (String) values.get(0);
+		return ImmutableList.of(countries.get(country) % tasks);
+	}
+}
+```
+The `CountryRepartition` class implements the `backtype.storm.grouping.CustomStreamGrouping` interface. The `chooseTasks()` method contains the repartitioning logic to identify the next task in the topology for the input tuple. The `prepare()` method calls at the start and performs the initialization activity.
 
 ## 7.6 Trident Partition aggregate
 
