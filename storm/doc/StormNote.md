@@ -293,6 +293,9 @@ dummyStream.each(new Fields("a","b"), new SumFunction (), new Fields("sum"))
 
 ![trident-sum-function-min](https://www.wailian.work/images/2018/12/19/trident-sum-function-min.png)
 
+### 示例
+- `TridentFunction`
+
 ## 7.3 Storm Trident filters
 A Trident filter gets a set of fields as input and returns either `true` or `false` depending on whether certain conditions are satisfied or not. If `true` is returned, then the tuple is kept in the output stream; otherwise, the tuple is removed from the stream.
 
@@ -314,6 +317,9 @@ public static class CheckEvenSumFilter extends BaseFilter{
  }
 }
 ```
+
+### 示例
+- `TridentFilter`
 
 ## 7.4 Storm Trident projections
 Trident projections keep only those fields in the stream that are specified in the projection operation. Suppose an input stream contains three fields, x, y, and z, and we are passing the x field in the projection operation. Then, the output stream will contain tuples with the single `field x`. The following is the piece of code that shows how we can use the projection operation:

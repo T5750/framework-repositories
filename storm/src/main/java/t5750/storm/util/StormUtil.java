@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.StormTopology;
 import org.apache.storm.topology.TopologyBuilder;
 
 public class StormUtil {
@@ -52,6 +53,25 @@ public class StormUtil {
 			config.setNumWorkers(2);
 			StormSubmitter.submitTopology(topologyName, config,
 					builder.createTopology());
+		}
+	}
+
+	/**
+	 * for Trident
+	 */
+	public static void submitTopology(String[] args, StormTopology topology,
+			String topologyName) throws Exception {
+		Config conf = new Config();
+		// 设置batch最大处理
+		conf.setNumWorkers(2);
+		conf.setMaxSpoutPending(20);
+		if (args.length == 0) {
+			LocalCluster cluster = new LocalCluster();
+			cluster.submitTopology(topologyName, conf, topology);
+			StormUtil.waitForSeconds(10);
+			cluster.shutdown();
+		} else {
+			StormSubmitter.submitTopology(args[0], conf, topology);
 		}
 	}
 }
