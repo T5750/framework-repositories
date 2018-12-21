@@ -7,7 +7,6 @@ import org.apache.storm.trident.operation.BaseFilter;
 import org.apache.storm.trident.testing.FixedBatchSpout;
 import org.apache.storm.trident.tuple.TridentTuple;
 import org.apache.storm.tuple.Fields;
-import org.apache.storm.tuple.Values;
 
 import t5750.storm.util.StormUtil;
 
@@ -41,16 +40,7 @@ public class TridentFilter {
 	public static StormTopology buildTopology() {
 		TridentTopology topology = new TridentTopology();
 		// 设置数据源
-		FixedBatchSpout spout = new FixedBatchSpout(
-		// 声明输入的域字段为"a", "b", "c", "d"
-				new Fields("a", "b", "c", "d"),
-				// 设置批处理大小
-				4,
-				// 设置数据源内容，测试数据
-				new Values(1, 4, 7, 10), new Values(1, 1, 3, 11), new Values(2,
-						2, 7, 1), new Values(2, 5, 7, 2));
-		// 指定是否循环
-		spout.setCycle(false);
+		FixedBatchSpout spout = StormUtil.getSpout();
 		// 指定输入源spout
 		Stream inputStream = topology.newStream("spout", spout);
 		/**

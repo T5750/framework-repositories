@@ -335,7 +335,7 @@ The following diagram shows the projection operation:
 ### The shuffle operation
 The `shuffle` repartitioning operation partitions the tuples in a uniform, random way across multiple tasks. This repartitioning operation is generally used when we want to distribute our processing load uniformly across tasks. The following diagram shows how the input tuples are repartitioned using the `shuffle` operation:
 
-![trident-shuffle-min](https://www.wailian.work/images/2018/12/19/trident-shuffle-min.png)
+![trident-shuffle-min](https://www.wailian.work/images/2018/12/20/trident-shuffle-min.png)
 
 The following piece of code shows how we can use the `shuffle` operation:
 ```
