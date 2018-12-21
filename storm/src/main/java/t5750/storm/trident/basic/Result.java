@@ -1,4 +1,4 @@
-package t5750.storm.trident;
+package t5750.storm.trident.basic;
 
 import org.apache.storm.trident.operation.BaseFunction;
 import org.apache.storm.trident.operation.TridentCollector;

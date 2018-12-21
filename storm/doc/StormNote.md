@@ -406,7 +406,21 @@ public class CountryRepartition implements CustomStreamGrouping, Serializable {
 ```
 The `CountryRepartition` class implements the `backtype.storm.grouping.CustomStreamGrouping` interface. The `chooseTasks()` method contains the repartitioning logic to identify the next task in the topology for the input tuple. The `prepare()` method calls at the start and performs the initialization activity.
 
+### 示例
+- `StrategyTopology`
+
 ## 7.6 Trident Partition aggregate
+### The partition aggregate
+As the name suggests, the partition aggregate works on each partition instead of the entire batch. The output of the partition aggregate completely replaces the input tuple. Also, the output of the partition aggregate contains a single field tuple. The following is the piece of code that shows how we can use the `partitionAggregate` method:
+```
+mystream.partitionAggregate(new Fields("x"), new Count(), new Fields("count"))
+```
+For example, we have an input stream that contains the x and y fields, and we will apply a `partitionAggregate` function on each partition; the output tuples contain a single field called count. The count field represents the number of tuples present in the input partition. The following is a diagram that shows the working of the `partitionAggregate` function:
+
+![trident-count-partition-aggregate-min](https://www.wailian.work/images/2018/12/21/trident-count-partition-aggregate-min.png)
+
+### 示例
+- `WordCountTopology`, `TridentWordCount`
 
 
 ## References

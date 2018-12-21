@@ -1,7 +1,9 @@
 package t5750.storm.util;
 
 import java.io.File;
+import java.io.FileWriter;
 
+import org.apache.log4j.Logger;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
@@ -91,5 +93,35 @@ public class StormUtil {
 		// 指定是否循环
 		spout.setCycle(false);
 		return spout;
+	}
+
+	public static FileWriter writeFile(FileWriter writer, Logger logger,
+			String text, Object object) {
+		try {
+			if (writer == null) {
+				if (System.getProperty("os.name").equals("Windows 10")) {
+					writer = new FileWriter(
+							StormUtil.WINDOWS_FILE_DIR + object);
+				} else if (System.getProperty("os.name")
+						.equals("Windows 8.1")) {
+					writer = new FileWriter(
+							StormUtil.WINDOWS_FILE_DIR + object);
+				} else if (System.getProperty("os.name").equals("Windows 7")) {
+					writer = new FileWriter(
+							StormUtil.WINDOWS_FILE_DIR + object);
+				} else if (System.getProperty("os.name").equals("Linux")) {
+					System.out.println("----:" + System.getProperty("os.name"));
+					writer = new FileWriter("/usr/local/temp/" + object);
+				}
+			}
+			logger.info("【write】： 写入文件");
+			writer.write(text);
+			writer.write("\n");
+			writer.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			return writer;
+		}
 	}
 }
