@@ -422,7 +422,16 @@ For example, we have an input stream that contains the x and y fields, and we wi
 ### 示例
 - `WordCountTopology`, `TridentWordCount`
 
+## 7.7 Batch和Spout与Transactional
+- 实现`ITridentSpout`接口：最通用的API可以支持transactional or opaque transactional语义
+- 实现`IBatchSpout`接口：一个non-transactional spout
+- 实现`IPartitionedTridentSpout`接口：一个transactional spout
+- 实现`IOpaquePartitionedTridentSpout`接口：一个opaque transactional spout
+
+## 9.1 Storm与Redis
+### 示例
+- `RedisTopology`
 
 ## References
 - [Storm](http://storm.apache.org/)
-- Learning Storm
+- [Learning Storm](https://www.packtpub.com/big-data-and-business-intelligence/learning-storm)
