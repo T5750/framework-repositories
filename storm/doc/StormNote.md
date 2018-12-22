@@ -428,6 +428,46 @@ For example, we have an input stream that contains the x and y fields, and we wi
 - 实现`IPartitionedTridentSpout`接口：一个transactional spout
 - 实现`IOpaquePartitionedTridentSpout`接口：一个opaque transactional spout
 
+## 8.1 Storm与Kafka
+Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。这种动作（网页浏览，搜索和其他用户的行动）是在现代网络上的许多社会功能的一个关键因素。这些数据通常是由于吞吐量的要求而通过处理日志和日志聚合来解决。对于像Hadoop的一样的日志数据和离线分析系统，但又要求实时处理的限制，这是一个可行的解决方案。
+
+Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消息处理，也是为了通过集群机来提供实时的消费。
+
+## 8.2 Kafka相关术语介绍
+- Broker：Kafka集群包含一个或多个服务器，这种服务器被称为broker
+- Topic：每条发布到Kafka集群的消息都有一个类别，这个类别被称为Topic。（物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存于一个或多个broker上，但用户只需指定消息的Topic即可，生产或消费数据而不必关心数据存于何处）
+- Partition：Partition是物理上的概念，每个Topic包含一个或多个Partition
+- Producer：负责发布消息到Kafka broker
+- Consumer：消息消费者，向Kafka broker读取消息的客户端
+- Consumer Group：每个Consumer属于一个特定的Consumer Group（可为每个Consumer指定group name，若不指定group name则属于默认的group）
+
+## 8.3 Kafka安装与使用
+- kafka下载地址：[http://kafka.apache.org/downloads.html](http://kafka.apache.org/downloads.html)
+- 解压命令：`tar zxvf kafka_2.12-2.1.0 C /usr/local`
+- 改名命令：`mv kafka_2.12-2.1.0/ kafka`
+- 进入解压后的目录，修改`server.properties`文件：`vim /usr/local/kafka/config/server.properties`
+	```
+	broker.id=0
+	port=9092
+	host.name=192.168.100.163
+	advertised.host.name=192.168.100.163
+	log.dirs=/usr/local/kafka/kafka-logs
+	num.partitions=2
+	zookeeper.connect=192.168.100.163:2181,192.168.100.164:2181,192.168.100.165:2181
+	```
+- 建立日志文件夹：`mkdir /usr/local/kafka/kafka-logs`
+- 启动kafka：`/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties &`
+
+## 8.4 Kafka-Manager-Console安装
+- 下载：[kafka-manager](https://github.com/yahoo/kafka-manager)
+- 解压：`unzip kafka-manager-1.3.3.18.zip -d /usr/local/`
+- 编辑文件：`vim /usr/local/kafka-manager-1.3.3.18/conf/application.conf`
+	```
+	kafka-manager.zkhosts="192.168.100.163:2181,192.168.100.164:2181,192.168.100.165:2181"
+	```
+- 启动kafka-manager：`nohup /usr/local/kafka-manager-1.3.3.18/bin/kafka-manager -Dconfig.file=/usr/local/kafka-manager-1.3.3.18/conf/application.conf >/dev/null 2>&1 &`
+- 默认端口为：`9000`
+
 ## 9.1 Storm与Redis
 ### 示例
 - `RedisTopology`
