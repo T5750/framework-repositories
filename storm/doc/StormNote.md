@@ -468,6 +468,9 @@ Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消
 - 启动kafka-manager：`nohup /usr/local/kafka-manager-1.3.3.18/bin/kafka-manager -Dconfig.file=/usr/local/kafka-manager-1.3.3.18/conf/application.conf >/dev/null 2>&1 &`
 - 默认端口为：`9000`
 
+### 示例
+- `KafkaProducer`, `KafkaConsumer`
+
 ## 9.1 Storm与Redis
 ### 示例
 - `RedisTopology`
