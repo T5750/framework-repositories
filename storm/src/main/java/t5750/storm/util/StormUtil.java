@@ -50,7 +50,7 @@ public class StormUtil {
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology(topologyName, config,
 					builder.createTopology());
-			StormUtil.waitForSeconds(10);
+			waitForSeconds(10);
 			cluster.killTopology(topologyName);
 			cluster.shutdown();
 		} else {
@@ -73,7 +73,7 @@ public class StormUtil {
 		if (args.length == 0) {
 			LocalCluster cluster = new LocalCluster();
 			cluster.submitTopology(topologyName, conf, topology);
-			StormUtil.waitForSeconds(10);
+			waitForSeconds(10);
 			cluster.shutdown();
 		} else {
 			StormSubmitter.submitTopology(args[0], conf, topology);
@@ -83,13 +83,13 @@ public class StormUtil {
 	public static FixedBatchSpout getSpout() {
 		// 设置数据源
 		FixedBatchSpout spout = new FixedBatchSpout(
-		// 声明输入的域字段为"a", "b", "c", "d"
+				// 声明输入的域字段为"a", "b", "c", "d"
 				new Fields("a", "b", "c", "d"),
 				// 设置批处理大小
 				4,
 				// 设置数据源内容，测试数据
-				new Values(1, 4, 7, 10), new Values(1, 1, 3, 11), new Values(2,
-						2, 7, 1), new Values(2, 5, 7, 2));
+				new Values(1, 4, 7, 10), new Values(1, 1, 3, 11),
+				new Values(2, 2, 7, 1), new Values(2, 5, 7, 2));
 		// 指定是否循环
 		spout.setCycle(false);
 		return spout;
@@ -100,15 +100,12 @@ public class StormUtil {
 		try {
 			if (writer == null) {
 				if (System.getProperty("os.name").equals("Windows 10")) {
-					writer = new FileWriter(
-							StormUtil.WINDOWS_FILE_DIR + object);
+					writer = new FileWriter(WINDOWS_FILE_DIR + object);
 				} else if (System.getProperty("os.name")
 						.equals("Windows 8.1")) {
-					writer = new FileWriter(
-							StormUtil.WINDOWS_FILE_DIR + object);
+					writer = new FileWriter(WINDOWS_FILE_DIR + object);
 				} else if (System.getProperty("os.name").equals("Windows 7")) {
-					writer = new FileWriter(
-							StormUtil.WINDOWS_FILE_DIR + object);
+					writer = new FileWriter(WINDOWS_FILE_DIR + object);
 				} else if (System.getProperty("os.name").equals("Linux")) {
 					System.out.println("----:" + System.getProperty("os.name"));
 					writer = new FileWriter("/usr/local/temp/" + object);

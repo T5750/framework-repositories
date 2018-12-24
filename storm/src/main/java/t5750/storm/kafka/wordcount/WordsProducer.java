@@ -18,8 +18,7 @@ public class WordsProducer {
 		// the brokers. Change this to suit your deployment.
 		props.put("metadata.broker.list", KafkaUtil.CONNECT_ADDR);
 		// Serializer used for sending data to kafka. Since we are sending
-		// string,
-		// we are using StringEncoder.
+		// string, we are using StringEncoder.
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		// We want acks from Kafka that messages are properly received.
 		props.put("request.required.acks", "1");

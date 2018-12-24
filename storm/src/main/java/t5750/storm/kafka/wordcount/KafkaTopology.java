@@ -2,15 +2,12 @@ package t5750.storm.kafka.wordcount;
 
 import java.util.UUID;
 
-import org.apache.storm.Config;
-import org.apache.storm.LocalCluster;
-import org.apache.storm.generated.AlreadyAliveException;
-import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.kafka.*;
 import org.apache.storm.spout.SchemeAsMultiScheme;
 import org.apache.storm.topology.TopologyBuilder;
 
 import t5750.storm.util.KafkaUtil;
+import t5750.storm.util.StormUtil;
 import t5750.storm.util.ZkUtil;
 
 /**
@@ -18,8 +15,9 @@ import t5750.storm.util.ZkUtil;
  * http://storm.apache.org/releases/1.2.2/storm-kafka.html
  */
 public class KafkaTopology {
-	public static void main(String[] args)
-			throws AlreadyAliveException, InvalidTopologyException {
+	private static final String TOPOLOGY_NAME = "KafkaToplogy";
+
+	public static void main(String[] args) throws Exception {
 		// zookeeper hosts for the Kafka clustere
 		// ZkHosts zkHosts = new ZkHosts("192.168.100.142:2181");
 		// 注意这里的Spout的来源是kafka(kafka数据流入storm)
@@ -45,22 +43,6 @@ public class KafkaTopology {
 				.globalGrouping("KafkaSpout");
 		builder.setBolt("PrinterBolt", new PrinterBolt(), 1)
 				.globalGrouping("SentenceBolt");
-		// create an instance of LocalCluster class for executing topology in
-		// local mode.
-		LocalCluster cluster = new LocalCluster();
-		Config conf = new Config();
-		// Submit topology for execution
-		cluster.submitTopology("KafkaToplogy", conf, builder.createTopology());
-		try {
-			// Wait for some time before exiting
-			System.out.println("Waiting to consume from kafka");
-			Thread.sleep(10000);
-		} catch (Exception exception) {
-			System.out.println("Thread interrupted exception : " + exception);
-		}
-		// kill the KafkaTopology
-		cluster.killTopology("KafkaToplogy");
-		// shut down the storm test cluster
-		cluster.shutdown();
+		StormUtil.submitTopology(args, builder, TOPOLOGY_NAME);
 	}
 }

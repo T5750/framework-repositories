@@ -13,19 +13,23 @@ bin/kafka-server-start.sh config/server.properties
 ```
 
 ## 3.Create a topic
+创建名为test的topic，1个分区分别存放数据，数据备份总共1份：
 ```
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 ```
+查看topic列表：
 ```
 bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
 ## 4.Send some messages
+kafka命令发送数据：
 ```
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 ```
 
 ## 5.Start a consumer
+kafka命令接收数据：
 ```
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
