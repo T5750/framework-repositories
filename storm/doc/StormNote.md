@@ -470,6 +470,7 @@ Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消
 
 ### 示例
 - `KafkaProducer`, `KafkaConsumer`
+- `WordsProducer`, `KafkaTopology`
 
 ## 9.1 Storm与Redis
 ### 示例
@@ -478,3 +479,4 @@ Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消
 ## References
 - [Storm](http://storm.apache.org/)
 - [Learning Storm](https://www.packtpub.com/big-data-and-business-intelligence/learning-storm)
+- [Storm Kafka Integration (0.8.x)](http://storm.apache.org/releases/1.2.2/storm-kafka.html)
