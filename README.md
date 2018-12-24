@@ -12,6 +12,7 @@
 - [Netty](socket/netty/README.md)
 - [Mina](socket/mina/README.md)
 - [Storm](storm/README.md)
+- [Kafka](kafka/README.md)
 
 ## License
 Java Repositories is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).

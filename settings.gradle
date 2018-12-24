@@ -31,4 +31,5 @@ findProject(':socket:netty')?.name = 'netty'
 include 'socket:mina'
 findProject(':socket:mina')?.name = 'mina'
 include 'storm'
+include 'kafka'
 

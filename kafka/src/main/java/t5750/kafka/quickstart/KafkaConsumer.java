@@ -1,4 +1,4 @@
-package t5750.storm.kafka;
+package t5750.kafka.quickstart;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +12,8 @@ import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 import kafka.serializer.StringDecoder;
 import kafka.utils.VerifiableProperties;
-import t5750.storm.util.KafkaUtil;
-import t5750.storm.util.ZkUtil;
+import t5750.kafka.util.KafkaUtil;
+import t5750.kafka.util.ZkUtil;
 
 public class KafkaConsumer {
 	public static void main(String[] args) {
