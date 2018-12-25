@@ -1,7 +1,7 @@
 # Kafka Quickstart
 ## 1.Download the code
 ```
-tar -xzf kafka_2.11-2.1.0.tgz
+tar -xzf kafka_2.11-0.9.0.0.tgz
 ```
 
 ## 2.Start the server
@@ -31,7 +31,7 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 ## 5.Start a consumer
 kafka命令接收数据：
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ```
 
 ## 6.Setting up a multi-broker cluster
@@ -66,7 +66,7 @@ bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic test
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic my-replicated-topic
 ```
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic my-replicated-topic
 ```
 ```
 ps aux | grep server-1.properties
@@ -76,7 +76,24 @@ kill -9 7564
 bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
 ```
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic my-replicated-topic
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic my-replicated-topic
+```
+
+## 7.Use Kafka Connect to import/export data
+```
+echo -e "foo\nbar" > test.txt
+```
+```
+bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+```
+```
+cat test.sink.txt
+```
+```
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic connect-test --from-beginning
+```
+```
+echo "Another line" >> test.txt
 ```
 
 ## Windows
@@ -124,6 +141,5 @@ bin\windows\kafka-topics.bat --describe --zookeeper localhost:2181 --topic my-re
 bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic my-replicated-topic
 ```
 
-
 ## References
-- [Quickstart](http://kafka.apache.org/quickstart)
+- [Kafka 0.9.0 Quickstart](http://kafka.apache.org/090/documentation.html#quickstart)
