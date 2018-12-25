@@ -12,5 +12,5 @@
 - [Storm 1.2.2](http://storm.apache.org/downloads.html)
 - [ZooKeeper 3.4.10](https://zookeeper.apache.org/)
 - [Kafka 0.9.0.1](http://kafka.apache.org/downloads.html)
-- [Kafka Manager 1.3.3.18](https://github.com/yahoo/kafka-manager)
+- [Kafka Manager 1.3.3.22](https://github.com/yahoo/kafka-manager)
 - [Redis 3.2.9](https://redis.io/download)
