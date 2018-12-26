@@ -9,7 +9,7 @@ tar -xzf kafka_2.11-0.9.0.0.tgz
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 ```
-bin/kafka-server-start.sh config/server.properties
+bin/kafka-server-start.sh config/server.properties &
 ```
 
 ## 3.Create a topic

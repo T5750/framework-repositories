@@ -460,12 +460,12 @@ Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消
 
 ## 8.4 Kafka-Manager-Console安装
 - 下载：[kafka-manager](https://github.com/yahoo/kafka-manager)
-- 解压：`unzip kafka-manager-1.3.3.18.zip -d /usr/local/`
-- 编辑文件：`vim /usr/local/kafka-manager-1.3.3.18/conf/application.conf`
+- 解压：`unzip kafka-manager-1.3.3.22.zip -d /usr/local/`
+- 编辑文件：`vim /usr/local/kafka-manager-1.3.3.22/conf/application.conf`
 	```
 	kafka-manager.zkhosts="192.168.100.163:2181,192.168.100.164:2181,192.168.100.165:2181"
 	```
-- 启动kafka-manager：`nohup /usr/local/kafka-manager-1.3.3.18/bin/kafka-manager -Dconfig.file=/usr/local/kafka-manager-1.3.3.18/conf/application.conf >/dev/null 2>&1 &`
+- 启动kafka-manager：`nohup /usr/local/kafka-manager-1.3.3.22/bin/kafka-manager -Dconfig.file=/usr/local/kafka-manager-1.3.3.22/conf/application.conf >/dev/null 2>&1 &`
 - 默认端口为：`9000`
 
 ### 示例
