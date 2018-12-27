@@ -3,6 +3,7 @@
 ## Contents
 ### Storm笔记
 - [Storm笔记](doc/StormNote.md)
+- [Storm官方文档](doc/StormDocumentation.md)
 
 ### Storm网摘笔记
 - [Storm集群安装配置](doc/StormCluster.md)

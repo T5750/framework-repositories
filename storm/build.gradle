@@ -19,4 +19,5 @@ dependencies {
     compile group: 'org.apache.storm', name: 'storm-kafka', version: '1.2.2'
     // compile group: 'org.apache.storm', name: 'storm-kafka-client', version: '1.2.2'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.1'
 }
