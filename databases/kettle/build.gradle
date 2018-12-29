@@ -1,8 +1,11 @@
 dependencies {
-    compile files('libs/kettle-core-6.0.1.0-386.jar')
-    compile files('libs/kettle-dbdialog-6.0.1.0-386.jar')
-    compile files('libs/kettle-engine-6.0.1.0-386.jar')
-    compile files('libs/metastore-6.0.1.0-386.jar')
+    compile files('libs/kettle-core-8.2.0.0-342.jar')
+    compile files('libs/kettle-engine-8.2.0.0-342.jar')
+    compile files('libs/metastore-8.2.0.0-342.jar')
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
     compile group: 'org.apache.commons', name: 'commons-vfs2', version: '2.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
+    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.7'
+    compile group: 'commons-io', name: 'commons-io', version: '2.2'
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
 }
