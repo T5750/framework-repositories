@@ -27,3 +27,5 @@
 
 gradle
 classes
+**/build
+.idea*.zip
