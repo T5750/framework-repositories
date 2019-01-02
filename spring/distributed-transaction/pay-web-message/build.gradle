@@ -1,0 +1,9 @@
+apply plugin: 'war'
+
+dependencies {
+    compile project(':spring:distributed-transaction:pay-common-config')
+    compile project(':spring:distributed-transaction:pay-common-core')
+    compile project(':spring:distributed-transaction:pay-service-message-api')
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
+}
