@@ -51,4 +51,8 @@ include 'spring:distributed-transaction:pay-app-message'
 findProject(':spring:distributed-transaction:pay-app-message')?.name = 'pay-app-message'
 include 'spring:distributed-transaction:pay-service-trade-api'
 findProject(':spring:distributed-transaction:pay-service-trade-api')?.name = 'pay-service-trade-api'
+include 'spring:distributed-transaction:pay-service-accounting-api'
+findProject(':spring:distributed-transaction:pay-service-accounting-api')?.name = 'pay-service-accounting-api'
+include 'spring:distributed-transaction:pay-app-queue'
+findProject(':spring:distributed-transaction:pay-app-queue')?.name = 'pay-app-queue'
 

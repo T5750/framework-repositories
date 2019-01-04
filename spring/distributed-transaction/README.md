@@ -7,7 +7,7 @@
 - `public_system.properties`
 
 ## pay-service-message
-- `DubboProvider`
+- `PayServiceMessageDubboProvider`
 
 ## pay-web-message
 Optimized files:
@@ -18,7 +18,10 @@ distributed-transaction\pay-web-message\src\main\webapp\dwz
 ```
 
 ## pay-app-message
-- `MessageTask`
+- `PayAppMessageTask`
+
+## pay-app-queue
+- `PayAppQueue`
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -28,6 +31,7 @@ distributed-transaction\pay-web-message\src\main\webapp\dwz
 - [ZkClient 0.10](https://github.com/sgroschupf/zkclient)
 - [Curator 4.0.1](http://curator.apache.org/)
 - [DWZ 1.5.2](https://gitee.com/dwzteam/dwz_jui/tree/v1.5.2)
+- [ActiveMQ 5.14.5 Release](http://activemq.apache.org/download.html)
 
 ## References
 - [微服务架构的分布式事务解决方案](https://www.roncoo.com/view/20)

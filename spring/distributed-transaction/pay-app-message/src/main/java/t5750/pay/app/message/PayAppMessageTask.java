@@ -13,10 +13,10 @@ import t5750.pay.app.message.scheduled.MessageScheduled;
  * 1.处理状态为“待确认”但已超时的消息 <br/>
  * 2.处理状态为“发送中”但超时没有被成功消费确认的消息
  */
-public class MessageTask {
-	private static final Log log = LogFactory.getLog(MessageTask.class);
+public class PayAppMessageTask {
+	private static final Log log = LogFactory.getLog(PayAppMessageTask.class);
 
-	private MessageTask() {
+	private PayAppMessageTask() {
 	}
 
 	public static void main(String[] args) {
