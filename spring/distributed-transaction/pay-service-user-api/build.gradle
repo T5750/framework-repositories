@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':spring:distributed-transaction:pay-common-core')
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+}

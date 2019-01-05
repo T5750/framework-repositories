@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':spring:distributed-transaction:pay-common-config')
+    compile project(':spring:distributed-transaction:pay-common-core')
+    compile project(':spring:distributed-transaction:pay-service-notify-api')
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+}

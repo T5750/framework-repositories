@@ -6,9 +6,6 @@ import java.io.Serializable;
  * @类功能说明： 分页参数传递工具类 . @版本：V1.0
  */
 public class PageParam implements Serializable {
-	/**
-	* 
-	*/
 	private static final long serialVersionUID = 6297178964005032338L;
 	/**
 	 * 默认为第一页.

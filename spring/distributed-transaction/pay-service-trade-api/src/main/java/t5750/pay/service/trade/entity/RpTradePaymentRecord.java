@@ -11,9 +11,6 @@ import t5750.pay.common.core.entity.BaseEntity;
  * @版本:V1.0
  */
 public class RpTradePaymentRecord extends BaseEntity implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3813172234738866188L;
 	/** 商品名称 **/
 	private String productName;

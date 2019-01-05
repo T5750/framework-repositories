@@ -9,9 +9,6 @@ import t5750.pay.common.core.utils.StringUtil;
  * @类功能说明： 基类. @版本：V1.0
  */
 public class BaseEntity implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String id = StringUtil.get32UUID();// 主键ID.
 	private Integer version = 0;// 版本号默认为0

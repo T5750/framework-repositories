@@ -10,9 +10,6 @@ import t5750.pay.common.core.exception.BizException;
  * @版本:V1.0
  */
 public class TradeBizException extends BizException {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3536909333010163563L;
 	/** 支付订单号重复 **/
 	public static final int TRADE_ORDER_NO_REPEAT_ERROR = 101;

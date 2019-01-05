@@ -12,9 +12,6 @@ import t5750.pay.common.core.enums.PublicEnum;
  * @版本:V1.0
  */
 public class RpTradePaymentOrder extends BaseEntity implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7350571920098973424L;
 	/** 商品名称 **/
 	private String productName;

@@ -9,9 +9,6 @@ import java.util.Map;
  * @类功能说明： 分页组件. @版本：V1.0
  */
 public class PageBean<T> implements Serializable {
-	/**
-	* 
-	*/
 	private static final long serialVersionUID = 8470697978259453214L;
 	// 指定的或是页面参数
 	private int currentPage; // 当前页

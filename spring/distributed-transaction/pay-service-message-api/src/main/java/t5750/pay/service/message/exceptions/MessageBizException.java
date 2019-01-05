@@ -9,9 +9,6 @@ import t5750.pay.common.core.exception.BizException;
  * 消息模块业务异常类
  */
 public class MessageBizException extends BizException {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3536909333010163563L;
 	/** 保存的消息为空 **/
 	public static final int SAVA_MESSAGE_IS_NULL = 8001;
