@@ -66,15 +66,15 @@ public class PayServiceTradeDubboProvider {
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:", e);
 		}
-		// synchronized (DubboProvider.class) {
-		// while (true) {
-		// try {
-		// DubboProvider.class.wait();
-		// } catch (InterruptedException e) {
-		// log.error("== synchronized error:", e);
-		// }
-		// }
-		// }
+		synchronized (PayServiceTradeDubboProvider.class) {
+			while (true) {
+				try {
+					PayServiceTradeDubboProvider.class.wait();
+				} catch (InterruptedException e) {
+					log.error("== synchronized error:", e);
+				}
+			}
+		}
 	}
 
 	static class IntClass {
