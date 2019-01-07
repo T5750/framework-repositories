@@ -59,6 +59,6 @@
 	<!-- 静态资源问题，不需要进行拦截过滤，主要是针对css，js，image等资源 -->
 	<mvc:resources mapping="/common/**" location="/common/" cache-period="31536000"/>
 	<mvc:resources mapping="/dwz/**" location="/dwz/" cache-period="31536000"/>
-	<mvc:resources mapping="/favicon.ico" location="/favicon.ico"/>
+	<!--<mvc:resources mapping="/favicon.ico" location="/favicon.ico"/>-->
 
 </beans>
