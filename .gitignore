@@ -29,4 +29,5 @@ gradle
 classes
 **/build
 .idea*.zip
-*.log
+### *.log & *.log.* ###
+*.log*
