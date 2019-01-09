@@ -1,4 +1,4 @@
-package t5750.pay.service.notify;
+package t5750.pay.service.user;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -8,9 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @描述: 启动Dubbo服务用的MainClass.
  * @版本: 1.0 .
  */
-public class PayServiceNotifyDubboProvider {
-	private static final Log log = LogFactory
-			.getLog(PayServiceNotifyDubboProvider.class);
+public class PayServiceUser {
+	private static final Log log = LogFactory.getLog(PayServiceUser.class);
 
 	public static void main(String[] args) {
 		try {
@@ -20,10 +19,10 @@ public class PayServiceNotifyDubboProvider {
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:", e);
 		}
-		synchronized (PayServiceNotifyDubboProvider.class) {
+		synchronized (PayServiceUser.class) {
 			while (true) {
 				try {
-					PayServiceNotifyDubboProvider.class.wait();
+					PayServiceUser.class.wait();
 				} catch (InterruptedException e) {
 					log.error("== synchronized error:", e);
 				}

@@ -11,8 +11,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.alibaba.fastjson.JSONObject;
-
 import t5750.pay.common.core.enums.NotifyDestinationNameEnum;
 import t5750.pay.common.core.enums.PayTypeEnum;
 import t5750.pay.common.core.enums.PayWayEnum;
@@ -28,13 +26,14 @@ import t5750.pay.service.trade.entity.RpTradePaymentRecord;
 import t5750.pay.service.trade.enums.OrderFromEnum;
 import t5750.pay.service.trade.enums.TradeStatusEnum;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * @描述: 启动Dubbo服务用的MainClass.
  * @版本: 1.0 .
  */
-public class PayServiceTradeDubboProvider {
-	private static final Log log = LogFactory
-			.getLog(PayServiceTradeDubboProvider.class);
+public class PayServiceTrade {
+	private static final Log log = LogFactory.getLog(PayServiceTrade.class);
 
 	public static void main(String[] args) {
 		try {
@@ -66,10 +65,10 @@ public class PayServiceTradeDubboProvider {
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:", e);
 		}
-		synchronized (PayServiceTradeDubboProvider.class) {
+		synchronized (PayServiceTrade.class) {
 			while (true) {
 				try {
-					PayServiceTradeDubboProvider.class.wait();
+					PayServiceTrade.class.wait();
 				} catch (InterruptedException e) {
 					log.error("== synchronized error:", e);
 				}
@@ -101,8 +100,8 @@ public class PayServiceTradeDubboProvider {
 			// step1: 创建支付订单和支付记录
 			RpTradePaymentOrder rpTradePaymentOrder = new RpTradePaymentOrder();
 			rpTradePaymentOrder.setProductName("测试商品：" + (i + 1));// 商品名称
-			rpTradePaymentOrder.setMerchantOrderNo(
-					"pt" + threadID + sdf.format(new Date()) + 000 + i);// 订单号
+			rpTradePaymentOrder.setMerchantOrderNo("pt" + threadID
+					+ sdf.format(new Date()) + 000 + i);// 订单号
 			rpTradePaymentOrder.setOrderAmount(new BigDecimal(10));// 订单金额
 			rpTradePaymentOrder.setMerchantName("bankmessage");// 商户名称
 			rpTradePaymentOrder.setMerchantNo("88882019010500000003");// 商户编号
@@ -117,41 +116,41 @@ public class PayServiceTradeDubboProvider {
 			rpTradePaymentOrder.setExpireTime(expireTime);// 订单过期时间
 			rpTradePaymentOrder.setPayWayCode(PayWayEnum.WEIXIN.name());// 支付通道编码
 			rpTradePaymentOrder.setPayWayName(PayWayEnum.WEIXIN.getDesc());// 支付通道名称
-			rpTradePaymentOrder
-					.setStatus(TradeStatusEnum.WAITING_PAYMENT.name());// 订单状态
+			rpTradePaymentOrder.setStatus(TradeStatusEnum.WAITING_PAYMENT
+					.name());// 订单状态
 			rpTradePaymentOrder.setPayTypeCode(PayTypeEnum.SCANPAY.name());// 支付类型
 			rpTradePaymentOrder.setPayTypeName(PayTypeEnum.SCANPAY.getDesc());// 支付方式
 			rpTradePaymentOrder.setFundIntoType("PLAT_RECEIVES");// 资金流入方向
 			rpTradePaymentOrderDao.insert(rpTradePaymentOrder);
 			// step2:创建支付记录
 			RpTradePaymentRecord rpTradePaymentRecord = new RpTradePaymentRecord();
-			rpTradePaymentRecord
-					.setProductName(rpTradePaymentOrder.getProductName());// 产品名称
-			rpTradePaymentRecord.setMerchantOrderNo(
-					rpTradePaymentOrder.getMerchantOrderNo());// 产品编号
+			rpTradePaymentRecord.setProductName(rpTradePaymentOrder
+					.getProductName());// 产品名称
+			rpTradePaymentRecord.setMerchantOrderNo(rpTradePaymentOrder
+					.getMerchantOrderNo());// 产品编号
 			String trxNo = rpTradePaymentRecordDao.buildTrxNo();
 			rpTradePaymentRecord.setTrxNo(trxNo);// 支付流水号
 			String bankOrderNo = rpTradePaymentRecordDao.buildBankOrderNo();
 			rpTradePaymentRecord.setBankOrderNo(bankOrderNo);// 银行订单号
-			rpTradePaymentRecord
-					.setMerchantName(rpTradePaymentOrder.getMerchantName());
-			rpTradePaymentRecord
-					.setMerchantNo(rpTradePaymentOrder.getMerchantNo());// 商户编号
+			rpTradePaymentRecord.setMerchantName(rpTradePaymentOrder
+					.getMerchantName());
+			rpTradePaymentRecord.setMerchantNo(rpTradePaymentOrder
+					.getMerchantNo());// 商户编号
 			rpTradePaymentRecord.setOrderIp("127.0.0.1");// 下单IP
 			rpTradePaymentRecord.setOrderRefererUrl("");// 下单前页面
 			rpTradePaymentRecord.setReturnUrl("https://t5750.github.io");// 页面通知地址
 			rpTradePaymentRecord.setNotifyUrl("https://t5750.github.io");// 后台通知地址
-			rpTradePaymentRecord
-					.setPayWayCode(rpTradePaymentOrder.getPayWayCode());// 支付通道编码
-			rpTradePaymentRecord
-					.setPayWayName(rpTradePaymentOrder.getPayWayName());// 支付通道名称
+			rpTradePaymentRecord.setPayWayCode(rpTradePaymentOrder
+					.getPayWayCode());// 支付通道编码
+			rpTradePaymentRecord.setPayWayName(rpTradePaymentOrder
+					.getPayWayName());// 支付通道名称
 			rpTradePaymentRecord.setTrxType(TrxTypeEnum.EXPENSE.name());// 交易类型
 			rpTradePaymentRecord
 					.setOrderFrom(OrderFromEnum.USER_EXPENSE.name());// 订单来源
-			rpTradePaymentRecord
-					.setOrderAmount(rpTradePaymentOrder.getOrderAmount());// 订单金额
-			rpTradePaymentRecord
-					.setStatus(TradeStatusEnum.WAITING_PAYMENT.name());// 订单状态
+			rpTradePaymentRecord.setOrderAmount(rpTradePaymentOrder
+					.getOrderAmount());// 订单金额
+			rpTradePaymentRecord.setStatus(TradeStatusEnum.WAITING_PAYMENT
+					.name());// 订单状态
 			rpTradePaymentRecord.setPayTypeCode(PayTypeEnum.SCANPAY.name());// 支付类型
 			rpTradePaymentRecord.setPayTypeName(PayTypeEnum.SCANPAY.getDesc());// 支付方式
 			rpTradePaymentRecord.setFundIntoType("PLAT_RECEIVES");// 资金流入方向

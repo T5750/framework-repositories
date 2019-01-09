@@ -8,9 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @描述: 启动Dubbo服务用的MainClass.
  * @版本: 1.0 .
  */
-public class PayServiceMessageDubboProvider {
-	private static final Log log = LogFactory
-			.getLog(PayServiceMessageDubboProvider.class);
+public class PayServiceMessage {
+	private static final Log log = LogFactory.getLog(PayServiceMessage.class);
 
 	public static void main(String[] args) {
 		try {
@@ -38,10 +37,10 @@ public class PayServiceMessageDubboProvider {
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:", e);
 		}
-		synchronized (PayServiceMessageDubboProvider.class) {
+		synchronized (PayServiceMessage.class) {
 			while (true) {
 				try {
-					PayServiceMessageDubboProvider.class.wait();
+					PayServiceMessage.class.wait();
 				} catch (InterruptedException e) {
 					log.error("== synchronized error:", e);
 				}
