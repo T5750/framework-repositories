@@ -14,3 +14,7 @@
 - [Curator 4.0.1](http://curator.apache.org/)
 - [DWZ 1.5.2](https://gitee.com/dwzteam/dwz_jui/tree/v1.5.2)
 - [ActiveMQ 5.14.5 Release](http://activemq.apache.org/download.html)
+- [MyBatis 3.4.0](http://www.mybatis.org/mybatis-3/)
+- [Druid 1.1.10](https://github.com/alibaba/druid)
+- [MySQL 5.6](http://www.mysql.com/)
+- [Tomcat 7](http://tomcat.apache.org/)

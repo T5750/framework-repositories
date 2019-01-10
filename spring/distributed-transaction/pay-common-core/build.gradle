@@ -1,23 +1,24 @@
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile group: 'org.springframework', name: 'spring-core', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-aop', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-context', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-expression', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-instrument', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-instrument-tomcat', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-jms', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-oxm', version: '4.3.8.RELEASE'
-    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-tx', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.8.RELEASE'
-    compile group: 'org.springframework', name: 'spring-webmvc-portlet', version: '4.3.8.RELEASE'
+    def springVersion = "4.3.8.RELEASE"
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.springframework', name: 'spring-core', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-aop', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-aspects', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-beans', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-context-support', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-expression', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-instrument', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-instrument-tomcat', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-jdbc', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-jms', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-orm', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-oxm', version: "$springVersion"
+//    testCompile group: 'org.springframework', name: 'spring-test', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-tx', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-web', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-webmvc', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-webmvc-portlet', version: "$springVersion"
     compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
     compile group: 'org.mybatis', name: 'mybatis', version: '3.4.0'
@@ -27,7 +28,7 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
     compile group: 'org.apache.shiro', name: 'shiro-core', version: '1.2.5'
-    //provided group: 'javax', name: 'javaee-api', version: '7.0'
+//    provided group: 'javax', name: 'javaee-api', version: '7.0'
     compile group: 'cglib', name: 'cglib', version: '3.2.2'
     compile group: 'jstl', name: 'jstl', version: '1.2'
     compile group: 'com.alibaba', name: 'druid', version: '1.1.10'
@@ -36,7 +37,7 @@ dependencies {
     compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
     compile group: 'jaxen', name: 'jaxen', version: '1.1.6'
-    compile group: 'org.jdom', name: 'jdom', version: '2.0.2'
+//    compile group: 'org.jdom', name: 'jdom', version: '2.0.2'
     compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
     compile('com.alibaba:dubbo:2.6.2') {
         exclude group: 'org.springframework'

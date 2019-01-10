@@ -11,7 +11,5 @@ dependencies {
     // }
     // http://activemq.apache.org/version-5-initial-configuration.html
     compile group: 'org.apache.activemq', name: 'activemq-client', version: '5.14.5'
-    compile group: 'org.apache.activemq', name: 'activemq-jms-pool', version: '5.14.5'
-    compile group: 'org.apache.activemq', name: 'activemq-pool', version: '5.14.5'
     providedCompile 'org.apache.tomcat:tomcat-catalina:7.0.77'
 }
