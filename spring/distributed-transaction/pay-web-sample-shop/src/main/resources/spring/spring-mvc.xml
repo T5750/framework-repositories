@@ -23,7 +23,7 @@
 	</bean>
 
 	<!-- 静态资源问题，不需要进行拦截过滤，主要是针对css，js，image等资源 -->
-	<mvc:resources mapping="/js/**" location="/js/" cache-period="31536000"/>
+	<!--<mvc:resources mapping="/js/**" location="/js/" cache-period="31536000"/>-->
 	<mvc:resources mapping="/pay_files/**" location="/pay_files/" cache-period="31536000"/>
 	<mvc:resources mapping="/images/**" location="/images/" cache-period="31536000"/>
 

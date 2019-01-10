@@ -11,12 +11,14 @@
 - `weixinpay_config.properties`
 
 ## service
-- `PayServiceAccount`
-- `PayServiceAccounting`
-- `PayServiceMessage`
-- `PayServiceNotify`
-- `PayServiceTrade`
-- `PayServiceUser`
+Service | Dubbo Port 
+----|----
+`PayServiceAccount` | 20881
+`PayServiceAccounting` | 20882
+`PayServiceMessage` | 20888
+`PayServiceNotify` | 20883
+`PayServiceTrade` | 20886
+`PayServiceUser` | 20887
 
 ## app
 - `PayAppMessageTask`

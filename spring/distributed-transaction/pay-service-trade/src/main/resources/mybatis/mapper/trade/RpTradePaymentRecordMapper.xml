@@ -686,7 +686,6 @@
 
 	</sql>
 
-
 	<select id="listBy" parameterType="java.util.Map" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List"/>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="t5750.pay.service.accounting.dao.impl.RpAccountingVoucherDaoImpl">
 	<!-- 表名 -->
-	<sql id="table"> rp_accounting_voucher </sql>
+	<sql id="table">rp_accounting_voucher</sql>
 
 	<resultMap id="beanMap" type="t5750.pay.service.accounting.entity.RpAccountingVoucher">
 		<id column="ID" property="id"/>
@@ -12,7 +12,6 @@
 		<result column="from_system" property="fromSystem"/>
 		<result column="voucher_no" property="voucherNo"/>
 		<result column="accounting_date" property="accountingDate"/>
-
 
 		<result column="bank_change_amount" property="bankChangeAmount"/>
 		<result column="payer_account_no" property="payerAccountNo"/>

@@ -18,7 +18,6 @@
 	<dubbo:provider timeout="30000" threadpool="fixed" threads="500" accepts="1000"/>
 
 	<!-- 声明需要暴露的账户服务接口 -->
-
 	<dubbo:service retries="0" interface="t5750.pay.service.notify.aip.RpNotifyService" ref="rpNotifyService"/>
 
 </beans>  

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="t5750.pay.service.message.dao.impl.RpTransactionMessageDaoImpl">
-
-	<sql id="table_name"> rp_transaction_message </sql>
+	<sql id="table_name">rp_transaction_message</sql>
 
 	<resultMap id="BaseResultMap" type="t5750.pay.service.message.entity.RpTransactionMessage">
 		<id column="id" property="id" jdbcType="VARCHAR"/>
@@ -28,7 +27,6 @@
 		id, version, create_time, editor, creater, edit_time, status,remark,
 		message_id,message_body,message_data_type,consumer_queue,message_send_times,areadly_dead,
 		field1,field2,field3
-
 	</sql>
 
 	<insert id="insert" parameterType="t5750.pay.service.message.entity.RpTransactionMessage">
@@ -140,6 +138,5 @@
 		<![CDATA[ order by edit_time asc limit #{pageFirst}, #{pageSize}]]>
 	</select>
 	-->
-
 
 </mapper>

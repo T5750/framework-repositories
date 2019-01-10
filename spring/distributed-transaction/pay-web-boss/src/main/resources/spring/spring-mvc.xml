@@ -23,15 +23,12 @@
 	</bean>
 
 	<!-- 处理在类级别上的@RequestMapping注解 -->
-	<bean
-			class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	<!-- 处理在方法级别上的@RequestMapping注解 -->
-	<bean
-			class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<bean
-						class="org.springframework.http.converter.StringHttpMessageConverter">
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<!-- 默认是ISO-88859-1，避免乱码这里设置为UTF-8 -->
