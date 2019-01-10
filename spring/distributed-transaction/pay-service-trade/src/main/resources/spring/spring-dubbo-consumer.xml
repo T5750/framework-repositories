@@ -6,7 +6,7 @@
             http://code.alibabatech.com/schema/dubbo  
             http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	<!-- 通知 -->
-	<dubbo:reference interface="t5750.pay.service.notify.aip.RpNotifyService" id="rpNotifyService" check="false"/>
+	<dubbo:reference interface="t5750.pay.service.notify.api.RpNotifyService" id="rpNotifyService" check="false"/>
 
 	<!-- 用户 -->
 	<dubbo:reference interface="t5750.pay.service.user.api.RpUserInfoService" id="rpUserInfoService"

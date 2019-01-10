@@ -1,4 +1,4 @@
-package t5750.pay.service.account.aip.impl;
+package t5750.pay.service.account.api.impl;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -28,8 +28,8 @@ import t5750.pay.service.account.exceptions.AccountBizException;
  * @类功能说明： 账户操作service实现类 @版本：V1.0
  */
 @Service("rpAccountTransactionService")
-public class RpAccountTransactionServiceImpl
-		implements RpAccountTransactionService {
+public class RpAccountTransactionServiceImpl implements
+		RpAccountTransactionService {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RpAccountTransactionServiceImpl.class);
 	@Autowired
@@ -46,8 +46,7 @@ public class RpAccountTransactionServiceImpl
 	 *            是否加行锁
 	 * @return
 	 */
-	private RpAccount getByUserNo_IsPessimist(String userNo,
-			boolean isPessimist) {
+	private RpAccount getByUserNo_IsPessimist(String userNo, boolean isPessimist) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userNo", userNo);
 		map.put("isPessimist", isPessimist);
@@ -68,6 +67,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param remark
 	 *            备注
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount creditToAccount(String userNo, BigDecimal amount,
 			String requestNo, String trxType, String remark) {
@@ -89,6 +89,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param remark
 	 *            备注
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount creditToAccount(String userNo, BigDecimal amount,
 			String requestNo, String bankTrxNo, String trxType, String remark) {
@@ -131,8 +132,8 @@ public class RpAccountTransactionServiceImpl
 		accountHistoryEntity.setBankTrxNo(bankTrxNo);
 		accountHistoryEntity.setIsCompleteSett(completeSett);
 		accountHistoryEntity.setRemark(remark);
-		accountHistoryEntity
-				.setFundDirection(AccountFundDirectionEnum.ADD.name());
+		accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.ADD
+				.name());
 		accountHistoryEntity.setAccountNo(account.getAccountNo());
 		accountHistoryEntity.setTrxType(trxType);
 		accountHistoryEntity.setId(StringUtil.get32UUID());
@@ -158,6 +159,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param remark
 	 *            备注
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount debitToAccount(String userNo, BigDecimal amount,
 			String requestNo, String trxType, String remark) {
@@ -179,6 +181,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param remark
 	 *            备注
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount debitToAccount(String userNo, BigDecimal amount,
 			String requestNo, String bankTrxNo, String trxType, String remark) {
@@ -217,8 +220,8 @@ public class RpAccountTransactionServiceImpl
 		accountHistoryEntity.setBankTrxNo(bankTrxNo);
 		accountHistoryEntity.setIsCompleteSett(completeSett);
 		accountHistoryEntity.setRemark(remark);
-		accountHistoryEntity
-				.setFundDirection(AccountFundDirectionEnum.SUB.name());
+		accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.SUB
+				.name());
 		accountHistoryEntity.setAccountNo(account.getAccountNo());
 		accountHistoryEntity.setTrxType(trxType);
 		accountHistoryEntity.setId(StringUtil.get32UUID());
@@ -236,6 +239,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param freezeAmount
 	 *            冻结金额
 	 **/
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount freezeAmount(String userNo, BigDecimal freezeAmount) {
 		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);
@@ -267,6 +271,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param remark
 	 *            备注
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount unFreezeAmount(String userNo, BigDecimal amount,
 			String requestNo, String trxType, String remark) {
@@ -285,8 +290,7 @@ public class RpAccountTransactionServiceImpl
 		}
 		account.setTotalExpend(account.getTodayExpend().add(amount));
 		// 判断解冻金额是否充足
-		if (account.getUnbalance().subtract(amount)
-				.compareTo(BigDecimal.ZERO) == -1) {
+		if (account.getUnbalance().subtract(amount).compareTo(BigDecimal.ZERO) == -1) {
 			// 解冻金额超限
 			throw AccountBizException.ACCOUNT_UN_FROZEN_AMOUNT_OUTLIMIT;
 		}
@@ -306,8 +310,8 @@ public class RpAccountTransactionServiceImpl
 		accountHistoryEntity.setRequestNo(requestNo);
 		accountHistoryEntity.setIsCompleteSett(completeSett);
 		accountHistoryEntity.setRemark(remark);
-		accountHistoryEntity
-				.setFundDirection(AccountFundDirectionEnum.SUB.name());
+		accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.SUB
+				.name());
 		accountHistoryEntity.setAccountNo(account.getAccountNo());
 		accountHistoryEntity.setTrxType(trxType);
 		accountHistoryEntity.setUserNo(userNo);
@@ -324,6 +328,7 @@ public class RpAccountTransactionServiceImpl
 	 * @param amount
 	 *            解冻和减款金额
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount unFreezeSettAmount(String userNo, BigDecimal amount) {
 		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);
@@ -337,8 +342,7 @@ public class RpAccountTransactionServiceImpl
 			account.setTodayIncome(BigDecimal.ZERO);
 		}
 		// 判断解冻金额是否充足
-		if (account.getUnbalance().subtract(amount)
-				.compareTo(BigDecimal.ZERO) == -1) {
+		if (account.getUnbalance().subtract(amount).compareTo(BigDecimal.ZERO) == -1) {
 			// 解冻金额超限
 			throw AccountBizException.ACCOUNT_UN_FROZEN_AMOUNT_OUTLIMIT;
 		}
@@ -359,8 +363,8 @@ public class RpAccountTransactionServiceImpl
 	 *            风险预存期
 	 * @param totalAmount
 	 *            可结算金额累计
-	 * 
 	 */
+	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public void settCollectSuccess(String userNo, String collectDate,
 			int riskDay, BigDecimal totalAmount) {
@@ -369,8 +373,8 @@ public class RpAccountTransactionServiceImpl
 				userNo, collectDate, riskDay));
 		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);
 		if (account == null) {
-			throw AccountBizException.ACCOUNT_NOT_EXIT
-					.newInstance("账户不存在,用户编号{%s}", userNo).print();
+			throw AccountBizException.ACCOUNT_NOT_EXIT.newInstance(
+					"账户不存在,用户编号{%s}", userNo).print();
 		}
 		// 更新账户历史状态
 		Map<String, Object> params = new HashMap<String, Object>();

@@ -16,7 +16,7 @@ import t5750.pay.app.notify.core.NotifyQueue;
 import t5750.pay.app.notify.core.NotifyTask;
 import t5750.pay.common.core.page.PageBean;
 import t5750.pay.common.core.page.PageParam;
-import t5750.pay.service.notify.aip.RpNotifyService;
+import t5750.pay.service.notify.api.RpNotifyService;
 import t5750.pay.service.notify.entity.RpNotifyRecord;
 
 /**

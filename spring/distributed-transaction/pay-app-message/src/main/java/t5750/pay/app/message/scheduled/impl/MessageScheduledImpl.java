@@ -33,6 +33,7 @@ public class MessageScheduledImpl implements MessageScheduled {
 	/**
 	 * 处理状态为“待确认”但已超时的消息.
 	 */
+	@Override
 	public void handleWaitingConfirmTimeOutMessages() {
 		try {
 			int numPerPage = 2000; // 每页条数
@@ -55,6 +56,7 @@ public class MessageScheduledImpl implements MessageScheduled {
 	/**
 	 * 处理状态为“发送中”但超时没有被成功消费确认的消息
 	 */
+	@Override
 	public void handleSendingTimeOutMessage() {
 		try {
 			int numPerPage = 2000; // 每页条数

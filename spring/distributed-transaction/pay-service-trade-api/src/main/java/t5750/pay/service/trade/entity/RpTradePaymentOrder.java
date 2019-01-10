@@ -212,10 +212,12 @@ public class RpTradePaymentOrder extends BaseEntity implements Serializable {
 		this.payWayName = payWayName == null ? null : payWayName.trim();
 	}
 
+	@Override
 	public String getRemark() {
 		return remark;
 	}
 
+	@Override
 	public void setRemark(String remark) {
 		this.remark = remark == null ? null : remark.trim();
 	}

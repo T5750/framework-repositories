@@ -17,10 +17,12 @@ import t5750.pay.service.account.vo.DailyCollectAccountHistoryVo;
 @Repository
 public class RpAccountHistoryDaoImpl extends BaseDaoImpl<RpAccountHistory>
 		implements RpAccountHistoryDao {
+	@Override
 	public List<RpAccountHistory> listPageByParams(Map<String, Object> params) {
 		return this.listBy(params);
 	}
 
+	@Override
 	public List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(
 			Map<String, Object> params) {
 		return this.getSessionTemplate().selectList(
@@ -35,8 +37,9 @@ public class RpAccountHistoryDaoImpl extends BaseDaoImpl<RpAccountHistory>
 	}
 
 	/** 更新账户风险预存期外的账户历史记录记为结算完成 **/
+	@Override
 	public void updateCompleteSettTo100(Map<String, Object> params) {
-		this.getSessionTemplate()
-				.update(getStatement("updateCompleteSettTo100"), params);
+		this.getSessionTemplate().update(
+				getStatement("updateCompleteSettTo100"), params);
 	}
 }

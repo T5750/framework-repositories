@@ -17,7 +17,7 @@ import t5750.pay.app.notify.core.NotifyPersist;
 import t5750.pay.app.notify.core.NotifyQueue;
 import t5750.pay.common.core.exception.BizException;
 import t5750.pay.common.core.utils.StringUtil;
-import t5750.pay.service.notify.aip.RpNotifyService;
+import t5750.pay.service.notify.api.RpNotifyService;
 import t5750.pay.service.notify.entity.RpNotifyRecord;
 import t5750.pay.service.notify.enums.NotifyStatusEnum;
 
@@ -36,6 +36,7 @@ public class ConsumerSessionAwareMessageListener implements MessageListener {
 	private NotifyPersist notifyPersist;
 
 	@SuppressWarnings("static-access")
+	@Override
 	public void onMessage(Message message) {
 		try {
 			ActiveMQTextMessage msg = (ActiveMQTextMessage) message;

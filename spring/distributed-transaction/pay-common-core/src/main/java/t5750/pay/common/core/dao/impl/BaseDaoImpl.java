@@ -21,8 +21,8 @@ import t5750.pay.common.core.page.PageParam;
 /**
  * @类功能说明： 数据访问层基础支撑类. @版本：V1.0
  */
-public abstract class BaseDaoImpl<T extends BaseEntity>
-		extends SqlSessionDaoSupport implements BaseDao<T> {
+public abstract class BaseDaoImpl<T extends BaseEntity> extends
+		SqlSessionDaoSupport implements BaseDao<T> {
 	protected static final Log LOG = LogFactory.getLog(BaseDaoImpl.class);
 	public static final String SQL_INSERT = "insert";
 	public static final String SQL_BATCH_INSERT = "batchInsert";
@@ -38,7 +38,10 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	public static final String SQL_LIST_PAGE = "listPage";
 	public static final String SQL_LIST_BY = "listBy";
 	public static final String SQL_LIST_PAGE_COUNT = "listPageCount";
-	public static final String SQL_COUNT_BY_PAGE_PARAM = "countByPageParam"; // 根据当前分页参数进行统计
+	/**
+	 * 根据当前分页参数进行统计
+	 */
+	public static final String SQL_COUNT_BY_PAGE_PARAM = "countByPageParam";
 	/**
 	 * 注入SqlSessionTemplate实例(要求Spring中进行SqlSessionTemplate的配置).
 	 * 可以调用sessionTemplate完成数据库操作.
@@ -46,6 +49,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
 
+	@Override
 	public SqlSessionTemplate getSessionTemplate() {
 		return sessionTemplate;
 	}
@@ -54,6 +58,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 		this.sessionTemplate = sessionTemplate;
 	}
 
+	@Override
 	public SqlSession getSqlSession() {
 		return super.getSqlSession();
 	}
@@ -61,6 +66,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 单条插入数据.
 	 */
+	@Override
 	public int insert(T entity) {
 		int result = sessionTemplate.insert(getStatement(SQL_INSERT), entity);
 		if (result <= 0) {
@@ -73,6 +79,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 批量插入数据.
 	 */
+	@Override
 	public int insert(List<T> list) {
 		if (list.isEmpty() || list.size() <= 0) {
 			return 0;
@@ -80,9 +87,9 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 		int result = sessionTemplate.insert(getStatement(SQL_BATCH_INSERT),
 				list);
 		if (result <= 0) {
-			throw BizException.DB_INSERT_RESULT_0.newInstance(
-					"数据库操作,batchInsert返回0.{%s}",
-					getStatement(SQL_BATCH_INSERT));
+			throw BizException.DB_INSERT_RESULT_0
+					.newInstance("数据库操作,batchInsert返回0.{%s}",
+							getStatement(SQL_BATCH_INSERT));
 		}
 		return result;
 	}
@@ -90,6 +97,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据id单条更新数据.
 	 */
+	@Override
 	public int update(T entity) {
 		entity.setEditTime(new Date());
 		int result = sessionTemplate.update(getStatement(SQL_UPDATE_BY_ID),
@@ -105,12 +113,13 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据id批量更新数据.
 	 */
+	@Override
 	public int update(List<T> list) {
 		if (list.isEmpty() || list.size() <= 0) {
 			return 0;
 		}
-		int result = sessionTemplate
-				.update(getStatement(SQL_BATCH_UPDATE_BY_IDS), list);
+		int result = sessionTemplate.update(
+				getStatement(SQL_BATCH_UPDATE_BY_IDS), list);
 		if (result <= 0) {
 			throw BizException.DB_UPDATE_RESULT_0.newInstance(
 					"数据库操作,batchUpdateByIds返回0.{%s}",
@@ -122,12 +131,13 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据column批量更新数据.
 	 */
+	@Override
 	public int update(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return 0;
 		}
-		int result = sessionTemplate
-				.update(getStatement(SQL_BATCH_UPDATE_BY_COLUMN), paramMap);
+		int result = sessionTemplate.update(
+				getStatement(SQL_BATCH_UPDATE_BY_COLUMN), paramMap);
 		if (result <= 0) {
 			throw BizException.DB_UPDATE_RESULT_0.newInstance(
 					"数据库操作,batchUpdateByColumn返回0.{%s}",
@@ -139,6 +149,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据id查询数据.
 	 */
+	@Override
 	public T getById(String id) {
 		return sessionTemplate.selectOne(getStatement(SQL_SELECT_BY_ID), id);
 	}
@@ -146,6 +157,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据column查询数据.
 	 */
+	@Override
 	public T getByColumn(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return null;
@@ -160,6 +172,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	 * @param paramMap
 	 * @return
 	 */
+	@Override
 	public T getBy(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return null;
@@ -170,6 +183,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据条件查询列表数据.
 	 */
+	@Override
 	public List<T> listBy(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return null;
@@ -180,6 +194,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据column查询列表数据.
 	 */
+	@Override
 	public List<T> listByColumn(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return null;
@@ -191,6 +206,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据column查询记录数.
 	 */
+	@Override
 	public Long getCountByColumn(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return null;
@@ -202,6 +218,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据id删除数据.
 	 */
+	@Override
 	public int delete(String id) {
 		return (int) sessionTemplate.delete(getStatement(SQL_DELETE_BY_ID), id);
 	}
@@ -209,38 +226,40 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 	/**
 	 * 根据id批量删除数据.
 	 */
+	@Override
 	public int delete(List<T> list) {
 		if (list.isEmpty() || list.size() <= 0) {
 			return 0;
 		} else {
-			return (int) sessionTemplate
-					.delete(getStatement(SQL_BATCH_DELETE_BY_IDS), list);
+			return (int) sessionTemplate.delete(
+					getStatement(SQL_BATCH_DELETE_BY_IDS), list);
 		}
 	}
 
 	/**
 	 * 根据column批量删除数据.
 	 */
+	@Override
 	public int delete(Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			return 0;
 		} else {
-			return (int) sessionTemplate
-					.delete(getStatement(SQL_BATCH_DELETE_BY_COLUMN), paramMap);
+			return (int) sessionTemplate.delete(
+					getStatement(SQL_BATCH_DELETE_BY_COLUMN), paramMap);
 		}
 	}
 
 	/**
 	 * 分页查询数据 .
 	 */
-	public PageBean listPage(PageParam pageParam,
-			Map<String, Object> paramMap) {
+	@Override
+	public PageBean listPage(PageParam pageParam, Map<String, Object> paramMap) {
 		if (paramMap == null) {
 			paramMap = new HashMap<String, Object>();
 		}
 		// 统计总记录数
-		Long totalCount = sessionTemplate
-				.selectOne(getStatement(SQL_LIST_PAGE_COUNT), paramMap);
+		Long totalCount = sessionTemplate.selectOne(
+				getStatement(SQL_LIST_PAGE_COUNT), paramMap);
 		// 校验当前页数
 		int currentPage = PageBean.checkCurrentPage(totalCount.intValue(),
 				pageParam.getNumPerPage(), pageParam.getPageNum());
@@ -257,12 +276,12 @@ public abstract class BaseDaoImpl<T extends BaseEntity>
 		paramMap.put("endRowNum",
 				pageParam.getPageNum() * pageParam.getNumPerPage());
 		// 获取分页数据集
-		List<Object> list = sessionTemplate
-				.selectList(getStatement(SQL_LIST_PAGE), paramMap);
+		List<Object> list = sessionTemplate.selectList(
+				getStatement(SQL_LIST_PAGE), paramMap);
 		Object isCount = paramMap.get("isCount"); // 是否统计当前分页条件下的数据：1:是，其他为否
 		if (isCount != null && "1".equals(isCount.toString())) {
-			Map<String, Object> countResultMap = sessionTemplate
-					.selectOne(getStatement(SQL_COUNT_BY_PAGE_PARAM), paramMap);
+			Map<String, Object> countResultMap = sessionTemplate.selectOne(
+					getStatement(SQL_COUNT_BY_PAGE_PARAM), paramMap);
 			return new PageBean(pageParam.getPageNum(),
 					pageParam.getNumPerPage(), totalCount.intValue(), list,
 					countResultMap);

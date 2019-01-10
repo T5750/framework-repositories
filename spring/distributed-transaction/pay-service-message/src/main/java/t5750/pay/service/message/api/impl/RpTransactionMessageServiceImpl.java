@@ -28,8 +28,8 @@ import t5750.pay.service.message.exceptions.MessageBizException;
  * <b>功能说明: </b>
  */
 @Service("rpTransactionMessageService")
-public class RpTransactionMessageServiceImpl
-		implements RpTransactionMessageService {
+public class RpTransactionMessageServiceImpl implements
+		RpTransactionMessageService {
 	private static final Log log = LogFactory
 			.getLog(RpTransactionMessageServiceImpl.class);
 	@Autowired
@@ -37,6 +37,7 @@ public class RpTransactionMessageServiceImpl
 	@Autowired
 	private JmsTemplate notifyJmsTemplate;
 
+	@Override
 	public int saveMessageWaitingConfirm(RpTransactionMessage message) {
 		if (message == null) {
 			throw new MessageBizException(
@@ -54,6 +55,7 @@ public class RpTransactionMessageServiceImpl
 		return rpTransactionMessageDao.insert(message);
 	}
 
+	@Override
 	public void confirmAndSendMessage(String messageId) {
 		final RpTransactionMessage message = getMessageByMessageId(messageId);
 		if (message == null) {
@@ -65,12 +67,14 @@ public class RpTransactionMessageServiceImpl
 		rpTransactionMessageDao.update(message);
 		notifyJmsTemplate.setDefaultDestinationName(message.getConsumerQueue());
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message.getMessageBody());
 			}
 		});
 	}
 
+	@Override
 	public int saveAndSendMessage(final RpTransactionMessage message) {
 		if (message == null) {
 			throw new MessageBizException(
@@ -88,6 +92,7 @@ public class RpTransactionMessageServiceImpl
 		int result = rpTransactionMessageDao.insert(message);
 		notifyJmsTemplate.setDefaultDestinationName(message.getConsumerQueue());
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message.getMessageBody());
 			}
@@ -95,6 +100,7 @@ public class RpTransactionMessageServiceImpl
 		return result;
 	}
 
+	@Override
 	public void directSendMessage(final RpTransactionMessage message) {
 		if (message == null) {
 			throw new MessageBizException(
@@ -107,12 +113,14 @@ public class RpTransactionMessageServiceImpl
 		}
 		notifyJmsTemplate.setDefaultDestinationName(message.getConsumerQueue());
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message.getMessageBody());
 			}
 		});
 	}
 
+	@Override
 	public void reSendMessage(final RpTransactionMessage message) {
 		if (message == null) {
 			throw new MessageBizException(
@@ -128,20 +136,22 @@ public class RpTransactionMessageServiceImpl
 		rpTransactionMessageDao.update(message);
 		notifyJmsTemplate.setDefaultDestinationName(message.getConsumerQueue());
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message.getMessageBody());
 			}
 		});
 	}
 
+	@Override
 	public void reSendMessageByMessageId(String messageId) {
 		final RpTransactionMessage message = getMessageByMessageId(messageId);
 		if (message == null) {
 			throw new MessageBizException(
 					MessageBizException.SAVA_MESSAGE_IS_NULL, "根据消息id查找的消息为空");
 		}
-		int maxTimes = Integer
-				.valueOf(PublicConfigUtil.readConfig("message.max.send.times"));
+		int maxTimes = Integer.valueOf(PublicConfigUtil
+				.readConfig("message.max.send.times"));
 		if (message.getMessageSendTimes() >= maxTimes) {
 			message.setAreadlyDead(PublicEnum.YES.name());
 		}
@@ -150,12 +160,14 @@ public class RpTransactionMessageServiceImpl
 		rpTransactionMessageDao.update(message);
 		notifyJmsTemplate.setDefaultDestinationName(message.getConsumerQueue());
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(message.getMessageBody());
 			}
 		});
 	}
 
+	@Override
 	public void setMessageToAreadlyDead(String messageId) {
 		RpTransactionMessage message = getMessageByMessageId(messageId);
 		if (message == null) {
@@ -167,12 +179,14 @@ public class RpTransactionMessageServiceImpl
 		rpTransactionMessageDao.update(message);
 	}
 
+	@Override
 	public RpTransactionMessage getMessageByMessageId(String messageId) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("messageId", messageId);
 		return rpTransactionMessageDao.getBy(paramMap);
 	}
 
+	@Override
 	public void deleteMessageByMessageId(String messageId) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("messageId", messageId);
@@ -180,8 +194,8 @@ public class RpTransactionMessageServiceImpl
 	}
 
 	@SuppressWarnings("unchecked")
-	public void reSendAllDeadMessageByQueueName(String queueName,
-			int batchSize) {
+	@Override
+	public void reSendAllDeadMessageByQueueName(String queueName, int batchSize) {
 		log.info("==>reSendAllDeadMessageByQueueName");
 		int numPerPage = 1000;
 		if (batchSize > 0 && batchSize < 100) {
@@ -201,8 +215,8 @@ public class RpTransactionMessageServiceImpl
 		Map<String, RpTransactionMessage> messageMap = new HashMap<String, RpTransactionMessage>();
 		List<Object> recordList = new ArrayList<Object>();
 		int pageCount = 1;
-		PageBean pageBean = rpTransactionMessageDao
-				.listPage(new PageParam(pageNum, numPerPage), paramMap);
+		PageBean pageBean = rpTransactionMessageDao.listPage(new PageParam(
+				pageNum, numPerPage), paramMap);
 		recordList = pageBean.getRecordList();
 		if (recordList == null || recordList.isEmpty()) {
 			log.info("==>recordList is empty");
@@ -214,8 +228,8 @@ public class RpTransactionMessageServiceImpl
 			messageMap.put(message.getMessageId(), message);
 		}
 		for (pageNum = 2; pageNum <= pageCount; pageNum++) {
-			pageBean = rpTransactionMessageDao
-					.listPage(new PageParam(pageNum, numPerPage), paramMap);
+			pageBean = rpTransactionMessageDao.listPage(new PageParam(pageNum,
+					numPerPage), paramMap);
 			recordList = pageBean.getRecordList();
 			if (recordList == null || recordList.isEmpty()) {
 				break;
@@ -233,9 +247,10 @@ public class RpTransactionMessageServiceImpl
 			message.setEditTime(new Date());
 			message.setMessageSendTimes(message.getMessageSendTimes() + 1);
 			rpTransactionMessageDao.update(message);
-			notifyJmsTemplate
-					.setDefaultDestinationName(message.getConsumerQueue());
+			notifyJmsTemplate.setDefaultDestinationName(message
+					.getConsumerQueue());
 			notifyJmsTemplate.send(new MessageCreator() {
+				@Override
 				public Message createMessage(Session session)
 						throws JMSException {
 					return session.createTextMessage(message.getMessageBody());
@@ -245,6 +260,7 @@ public class RpTransactionMessageServiceImpl
 	}
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public PageBean<RpTransactionMessage> listPage(PageParam pageParam,
 			Map<String, Object> paramMap) {
 		return rpTransactionMessageDao.listPage(pageParam, paramMap);

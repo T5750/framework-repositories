@@ -33,6 +33,7 @@ public class BankMessageListener implements
 	//
 	// @Autowired
 	// private RpTransactionMessageService rpTransactionMessageService;
+	@Override
 	public synchronized void onMessage(Message message, Session session) {
 		Map<String, String> param = null;
 		String strMessage = null;

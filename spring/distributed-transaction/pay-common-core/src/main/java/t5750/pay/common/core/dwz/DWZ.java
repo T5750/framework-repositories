@@ -1,9 +1,7 @@
 package t5750.pay.common.core.dwz;
 
 /**
- * 
  * @类功能说明：封装DWZ框架ajax请求及响应的参数. . @版本：V1.0
- *
  */
 public final class DWZ {
 	/**

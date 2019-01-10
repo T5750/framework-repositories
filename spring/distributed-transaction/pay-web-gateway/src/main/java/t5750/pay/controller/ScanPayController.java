@@ -28,7 +28,6 @@ import t5750.pay.service.trade.utils.MerchantApiUtil;
 import t5750.pay.service.trade.vo.OrderPayResultVo;
 import t5750.pay.service.trade.vo.RpPayGateWayPageShowVo;
 import t5750.pay.service.trade.vo.ScanPayResultVo;
-import t5750.pay.service.user.api.RpPayWayService;
 import t5750.pay.service.user.api.RpUserPayConfigService;
 import t5750.pay.service.user.entity.RpUserPayConfig;
 import t5750.pay.service.user.exceptions.UserBizException;
@@ -48,8 +47,6 @@ public class ScanPayController extends BaseController {
 	private RpTradePaymentQueryService rpTradePaymentQueryService;
 	@Autowired
 	private RpUserPayConfigService rpUserPayConfigService;
-	@Autowired
-	private RpPayWayService rpPayWayService;
 
 	/**
 	 * 扫码支付,预支付页面 用户进行扫码支付时,商户后台调用该接口 支付平台根据商户传入的参数是否包含支付通道,决定需要跳转的页面
@@ -113,8 +110,8 @@ public class ScanPayController extends BaseController {
 			throw new TradeBizException(TradeBizException.TRADE_ORDER_ERROR,
 					"订单签名异常");
 		}
-		BigDecimal orderPrice = BigDecimal
-				.valueOf(Double.valueOf(orderPriceStr));
+		BigDecimal orderPrice = BigDecimal.valueOf(Double
+				.valueOf(orderPriceStr));
 		if (StringUtil.isEmpty(payWayCode)) {// 非直连方式
 			RpPayGateWayPageShowVo payGateWayPageShowVo = rpTradePaymentManagerService
 					.initNonDirectScanPay(payKey, productName, orderNo,
@@ -125,10 +122,10 @@ public class ScanPayController extends BaseController {
 			return "gateway";
 		} else {// 直连方式
 			if (PayWayEnum.TEST_PAY.name().equals(payWayCode)) {
-				return toTestPay(model, payKey, productName, orderNo, orderDate,
-						orderTime, orderPrice, payWayCode, orderIp, orderPeriod,
-						returnUrl, notifyUrl, remark, field1, field2, field3,
-						field4, field5);
+				return toTestPay(model, payKey, productName, orderNo,
+						orderDate, orderTime, orderPrice, payWayCode, orderIp,
+						orderPeriod, returnUrl, notifyUrl, remark, field1,
+						field2, field3, field4, field5);
 			} else {
 				// TEST_PAY_HTTP_CLIENT
 				ScanPayResultVo scanPayResultVo = rpTradePaymentManagerService
@@ -137,8 +134,8 @@ public class ScanPayController extends BaseController {
 								orderIp, orderPeriod, returnUrl, notifyUrl,
 								remark, field1, field2, field3, field4, field5);
 				model.addAttribute("codeUrl", scanPayResultVo.getCodeUrl());// 支付二维码
-				if (PayWayEnum.WEIXIN.name()
-						.equals(scanPayResultVo.getPayWayCode())) {
+				if (PayWayEnum.WEIXIN.name().equals(
+						scanPayResultVo.getPayWayCode())) {
 					model.addAttribute("queryUrl",
 							WeixinConfigUtil.readConfig("order_query_url")
 									+ "?orderNO=" + orderNo + "&payKey="
@@ -146,11 +143,11 @@ public class ScanPayController extends BaseController {
 					model.addAttribute("productName", productName);// 产品名称
 					model.addAttribute("orderPrice", orderPrice);// 订单价格
 					return "weixinPayScanPay";
-				} else if (PayWayEnum.ALIPAY.name()
-						.equals(scanPayResultVo.getPayWayCode())) {
+				} else if (PayWayEnum.ALIPAY.name().equals(
+						scanPayResultVo.getPayWayCode())) {
 					return "alipayDirectPay";
-				} else if (PayWayEnum.TEST_PAY_HTTP_CLIENT.name()
-						.equals(scanPayResultVo.getPayWayCode())) {
+				} else if (PayWayEnum.TEST_PAY_HTTP_CLIENT.name().equals(
+						scanPayResultVo.getPayWayCode())) {
 					return "weixinPayScanPay";
 				}
 			}
@@ -167,13 +164,13 @@ public class ScanPayController extends BaseController {
 		model.addAttribute("codeUrl", scanPayResultVo.getCodeUrl());// 支付二维码
 		if (PayWayEnum.WEIXIN.name().equals(scanPayResultVo.getPayWayCode())) {
 			model.addAttribute("queryUrl",
-					WeixinConfigUtil.readConfig("order_query_url") + "?orderNO="
-							+ orderNo + "&payKey=" + payKey);
+					WeixinConfigUtil.readConfig("order_query_url")
+							+ "?orderNO=" + orderNo + "&payKey=" + payKey);
 			model.addAttribute("productName", scanPayResultVo.getProductName());// 产品名称
 			model.addAttribute("orderPrice", scanPayResultVo.getOrderAmount());// 订单价格
 			return "weixinPayScanPay";
-		} else if (PayWayEnum.ALIPAY.name()
-				.equals(scanPayResultVo.getPayWayCode())) {
+		} else if (PayWayEnum.ALIPAY.name().equals(
+				scanPayResultVo.getPayWayCode())) {
 			return "alipayDirectPay";
 		}
 		return null;
@@ -189,8 +186,8 @@ public class ScanPayController extends BaseController {
 			throws IOException {
 		String payKey = getString_UrlDecode_UTF8("payKey"); // 企业支付KEY
 		String orderNO = getString_UrlDecode_UTF8("orderNO"); // 订单号
-		OrderPayResultVo payResult = rpTradePaymentQueryService
-				.getPayResult(payKey, orderNO);
+		OrderPayResultVo payResult = rpTradePaymentQueryService.getPayResult(
+				payKey, orderNO);
 		JsonUtils.responseJson(httpServletResponse, payResult);
 	}
 
@@ -238,9 +235,9 @@ public class ScanPayController extends BaseController {
 		}
 		OrderPayResultVo scanPayByResult = rpTradePaymentManagerService
 				.completeTestPay(payKey, productName, orderNo, orderDate,
-						orderTime, orderPrice, payWayCode, orderIp, orderPeriod,
-						returnUrl, notifyUrl, remark, field1, field2, field3,
-						field4, field5);
+						orderTime, orderPrice, payWayCode, orderIp,
+						orderPeriod, returnUrl, notifyUrl, remark, field1,
+						field2, field3, field4, field5);
 		model.addAttribute("scanPayByResult", scanPayByResult);
 		return "PayResult";
 	}

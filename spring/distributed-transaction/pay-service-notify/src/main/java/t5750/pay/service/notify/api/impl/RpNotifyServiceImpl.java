@@ -11,17 +11,17 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSONObject;
-
 import t5750.pay.common.core.page.PageBean;
 import t5750.pay.common.core.page.PageParam;
-import t5750.pay.service.notify.aip.RpNotifyService;
+import t5750.pay.service.notify.api.RpNotifyService;
 import t5750.pay.service.notify.dao.RpNotifyRecordDao;
 import t5750.pay.service.notify.dao.RpNotifyRecordLogDao;
 import t5750.pay.service.notify.entity.RpNotifyRecord;
 import t5750.pay.service.notify.entity.RpNotifyRecordLog;
 import t5750.pay.service.notify.enums.NotifyStatusEnum;
 import t5750.pay.service.notify.enums.NotifyTypeEnum;
+
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @功能说明:
@@ -60,6 +60,7 @@ public class RpNotifyServiceImpl implements RpNotifyService {
 		Object toJSON = JSONObject.toJSON(record);
 		final String str = toJSON.toString();
 		notifyJmsTemplate.send(new MessageCreator() {
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(str);
 			}

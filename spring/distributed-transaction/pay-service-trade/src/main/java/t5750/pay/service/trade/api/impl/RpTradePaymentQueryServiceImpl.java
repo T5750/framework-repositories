@@ -1,4 +1,4 @@
-package t5750.pay.service.trade.aip.impl;
+package t5750.pay.service.trade.api.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +43,7 @@ public class RpTradePaymentQueryServiceImpl
 	 * @param paramMap
 	 * @return
 	 */
+	@Override
 	public List<RpTradePaymentRecord> listPaymentRecord(
 			Map<String, Object> paramMap) {
 		return rpTradePaymentRecordDao.listByColumn(paramMap);
@@ -87,6 +88,7 @@ public class RpTradePaymentQueryServiceImpl
 	 * @param bankOrderNo
 	 * @return
 	 */
+	@Override
 	public RpTradePaymentRecord getRecordByBankOrderNo(String bankOrderNo) {
 		return rpTradePaymentRecordDao.getByBankOrderNo(bankOrderNo);
 	}
@@ -97,6 +99,7 @@ public class RpTradePaymentQueryServiceImpl
 	 * @param trxNo
 	 * @return
 	 */
+	@Override
 	public RpTradePaymentRecord getRecordByTrxNo(String trxNo) {
 		return rpTradePaymentRecordDao.getByTrxNo(trxNo);
 	}

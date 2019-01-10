@@ -1,4 +1,4 @@
-package t5750.pay.service.account.aip.impl;
+package t5750.pay.service.account.api.impl;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -44,6 +44,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 *            账户编号
 	 * @return
 	 */
+	@Override
 	public RpAccount getAccountByAccountNo(String accountNo) {
 		LOG.info("根据账户编号查询账户信息");
 		RpAccount account = this.rpAccountDao.getByAccountNo(accountNo);
@@ -64,6 +65,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 *            用户编号
 	 * @return
 	 */
+	@Override
 	public RpAccount getAccountByUserNo(String userNo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userNo", userNo);
@@ -85,6 +87,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	/**
 	 * 分页查询账户历史单用户
 	 */
+	@Override
 	public PageBean queryAccountHistoryListPage(PageParam pageParam,
 			String accountNo) {
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -95,6 +98,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	/**
 	 * 分页查询账户历史单角色
 	 */
+	@Override
 	public PageBean queryAccountHistoryListPageByRole(PageParam pageParam,
 			Map<String, Object> params) {
 		String accountType = (String) params.get("accountType");
@@ -115,6 +119,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 *            业务类型
 	 * @return AccountHistory
 	 */
+	@Override
 	public RpAccountHistory getAccountHistoryByAccountNo_requestNo_trxType(
 			String accountNo, String requestNo, Integer trxType) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -137,6 +142,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 *            资金流向
 	 * @return
 	 */
+	@Override
 	public List<DailyCollectAccountHistoryVo> listDailyCollectAccountHistoryVo(
 			String accountNo, String statDate, Integer riskDay,
 			Integer fundDirection) {
@@ -158,6 +164,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 * @return AccountList.
 	 * @throws BizException
 	 */
+	@Override
 	public PageBean queryAccountListPage(PageParam pageParam,
 			Map<String, Object> params) {
 		return rpAccountDao.listPage(pageParam, params);
@@ -173,6 +180,7 @@ public class RpAccountQueryServiceImpl implements RpAccountQueryService {
 	 * @return AccountHistoryList.
 	 * @throws BizException
 	 */
+	@Override
 	public PageBean queryAccountHistoryListPage(PageParam pageParam,
 			Map<String, Object> params) {
 		return rpAccountHistoryDao.listPage(pageParam, params);

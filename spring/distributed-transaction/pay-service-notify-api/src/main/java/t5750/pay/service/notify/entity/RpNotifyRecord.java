@@ -74,10 +74,12 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 		this.notifyTimes = notifyTimes;
 	}
 
+	@Override
 	public Date getCreateTime() {
 		return createTime;
 	}
 
+	@Override
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -119,8 +121,8 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 
 	/** 商户订单号 **/
 	public void setMerchantOrderNo(String merchantOrderNo) {
-		this.merchantOrderNo = merchantOrderNo == null ? null
-				: merchantOrderNo.trim();
+		this.merchantOrderNo = merchantOrderNo == null ? null : merchantOrderNo
+				.trim();
 	}
 
 	public String getNotifyType() {

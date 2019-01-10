@@ -25,10 +25,12 @@ public class RpNotifyRecordLog extends BaseEntity implements Serializable {
 	private Integer httpStatus;
 	private Date createTime;
 
+	@Override
 	public Date getCreateTime() {
 		return createTime;
 	}
 
+	@Override
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -97,8 +99,8 @@ public class RpNotifyRecordLog extends BaseEntity implements Serializable {
 
 	/** 商户订单号 **/
 	public void setMerchantOrderNo(String merchantOrderNo) {
-		this.merchantOrderNo = merchantOrderNo == null ? null
-				: merchantOrderNo.trim();
+		this.merchantOrderNo = merchantOrderNo == null ? null : merchantOrderNo
+				.trim();
 	}
 
 	/** HTTP状态 **/

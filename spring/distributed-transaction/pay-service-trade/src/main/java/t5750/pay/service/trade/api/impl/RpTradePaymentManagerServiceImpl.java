@@ -1,4 +1,4 @@
-package t5750.pay.service.trade.aip.impl;
+package t5750.pay.service.trade.api.impl;
 
 import java.math.BigDecimal;
 import java.util.Date;

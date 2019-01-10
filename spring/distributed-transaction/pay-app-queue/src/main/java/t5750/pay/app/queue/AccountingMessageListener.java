@@ -31,6 +31,7 @@ public class AccountingMessageListener implements
 	@Autowired
 	private RpTransactionMessageService rpTransactionMessageService;
 
+	@Override
 	public synchronized void onMessage(Message message, Session session) {
 		RpAccountingVoucher param = null;
 		String strMessage = null;

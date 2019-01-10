@@ -1,4 +1,4 @@
-package t5750.pay.service.user.aip.impl;
+package t5750.pay.service.user.api.impl;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -348,6 +348,7 @@ public class RpUserPayConfigServiceImpl implements RpUserPayConfigService {
 	 * @param payKey
 	 * @return
 	 */
+	@Override
 	public RpUserPayConfig getByPayKey(String payKey) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("payKey", payKey);

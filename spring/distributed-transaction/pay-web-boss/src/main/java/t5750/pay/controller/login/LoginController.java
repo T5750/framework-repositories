@@ -32,7 +32,7 @@ public class LoginController {
 	}
 
 	/**
-	 * 函数功能说明 ： 登陆后台管理系统. 修改者名字： 修改日期： 修改内容：
+	 * 函数功能说明 ： 登陆后台管理系统.
 	 * 
 	 * @参数： @param request @参数： @param model @参数： @return @return String @throws
 	 */
@@ -64,7 +64,7 @@ public class LoginController {
 	}
 
 	/**
-	 * 函数功能说明 ：进入退出系统确认页面. 修改者名字： 修改日期： 修改内容：
+	 * 函数功能说明 ：进入退出系统确认页面.
 	 * 
 	 * @参数： @return @return String @throws
 	 */
@@ -74,7 +74,7 @@ public class LoginController {
 	}
 
 	/**
-	 * 函数功能说明 ： 退出系统. 修改者名字： 修改日期： 修改内容：
+	 * 函数功能说明 ： 退出系统.
 	 * 
 	 * @参数： @return @return String @throws
 	 */

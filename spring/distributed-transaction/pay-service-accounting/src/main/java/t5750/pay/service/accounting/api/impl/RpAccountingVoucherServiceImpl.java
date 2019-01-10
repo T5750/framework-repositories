@@ -1,4 +1,4 @@
-package t5750.pay.service.accounting.aip.impl;
+package t5750.pay.service.accounting.api.impl;
 
 import java.util.Map;
 
@@ -18,8 +18,8 @@ import t5750.pay.service.accounting.entity.RpAccountingVoucher;
  * 会计原始凭证服务.
  */
 @Component("rpAccountingVoucherService")
-public class RpAccountingVoucherServiceImpl
-		implements RpAccountingVoucherService {
+public class RpAccountingVoucherServiceImpl implements
+		RpAccountingVoucherService {
 	private static final Log LOG = LogFactory
 			.getLog(RpAccountingVoucherServiceImpl.class);
 	@Autowired
@@ -71,6 +71,7 @@ public class RpAccountingVoucherServiceImpl
 	 * @param receiverFee
 	 *            收款方手续费.
 	 */
+	@Override
 	public void createAccountingVoucher(int entryType, String voucherNo,
 			String payerAccountNo, String receiverAccountNo,
 			double payerChangeAmount, double receiverChangeAmount,
@@ -115,6 +116,7 @@ public class RpAccountingVoucherServiceImpl
 	 * @param map
 	 * @return
 	 */
+	@Override
 	public RpAccountingVoucher getBy(Map<String, Object> map) {
 		RpAccountingVoucher note = rpAccountingVoucherDao.getBy(map);
 		return note;
@@ -127,13 +129,13 @@ public class RpAccountingVoucherServiceImpl
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
+	@Override
 	public Map getMapBy(Map<String, Object> searchMap) {
 		return rpAccountingVoucherDao.getMapBy(searchMap);
 	}
 
 	@Override
-	public PageBean listPage(PageParam pageParam,
-			Map<String, Object> paramMap) {
+	public PageBean listPage(PageParam pageParam, Map<String, Object> paramMap) {
 		return rpAccountingVoucherDao.listPage(pageParam, paramMap);
 	}
 
@@ -142,8 +144,8 @@ public class RpAccountingVoucherServiceImpl
 	 * 
 	 * @param requestNo
 	 */
-	public RpAccountingVoucher getAccountingVoucherByRequestNo(
-			String requestNo) {
+	@Override
+	public RpAccountingVoucher getAccountingVoucherByRequestNo(String requestNo) {
 		RpAccountingVoucher entity = rpAccountingVoucherDao
 				.findByRequestNo(requestNo);
 		return entity;
@@ -154,6 +156,7 @@ public class RpAccountingVoucherServiceImpl
 	 * 
 	 * @param param
 	 */
+	@Override
 	public void updateAccountingVoucher(RpAccountingVoucher entity) {
 		rpAccountingVoucherDao.update(entity);
 	}

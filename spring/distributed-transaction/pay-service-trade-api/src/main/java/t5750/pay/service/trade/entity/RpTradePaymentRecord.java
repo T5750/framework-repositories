@@ -396,10 +396,12 @@ public class RpTradePaymentRecord extends BaseEntity implements Serializable {
 		this.fundIntoType = fundIntoType == null ? null : fundIntoType.trim();
 	}
 
+	@Override
 	public String getRemark() {
 		return remark;
 	}
 
+	@Override
 	public void setRemark(String remark) {
 		this.remark = remark == null ? null : remark.trim();
 	}

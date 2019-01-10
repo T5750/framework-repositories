@@ -1,4 +1,4 @@
-package t5750.pay.service.account.aip.impl;
+package t5750.pay.service.account.api.impl;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package t5750.pay.service.notify.aip;
+package t5750.pay.service.notify.api;
 
 import java.util.Map;
 

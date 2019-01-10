@@ -133,6 +133,7 @@ public class RpTradePaymentRecordDaoImpl extends
 	 * @param trxNo
 	 * @return
 	 */
+	@Override
 	public RpTradePaymentRecord getByTrxNo(String trxNo) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("trxNo", trxNo);

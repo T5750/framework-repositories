@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import t5750.pay.service.notify.aip.RpNotifyService;
+import t5750.pay.service.notify.api.RpNotifyService;
 import t5750.pay.service.notify.entity.RpNotifyRecord;
 import t5750.pay.service.notify.entity.RpNotifyRecordLog;
 

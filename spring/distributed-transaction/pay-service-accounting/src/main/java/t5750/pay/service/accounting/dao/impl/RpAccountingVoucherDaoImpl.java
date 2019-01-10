@@ -64,6 +64,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 * @param receiverFee
 	 *            收款方手续费.
 	 */
+	@Override
 	public void createAccountingVoucher(int entryType, String voucherNo,
 			String payerAccountNo, String receiverAccountNo,
 			double payerChangeAmount, double receiverChangeAmount,
@@ -107,6 +108,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 *            .
 	 * @return AccountingRequestNote .
 	 */
+	@Override
 	public RpAccountingVoucher findByRequestNo(String requestNo) {
 		return super.getSqlSession().selectOne(getStatement("getByRequestNo"),
 				requestNo);
@@ -118,6 +120,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 * @param searchMap
 	 * @return
 	 */
+	@Override
 	public Map getMapBy(Map<String, Object> searchMap) {
 		return (Map) super.getSessionTemplate()
 				.selectList(getStatement("listMapBy"), searchMap);
@@ -130,6 +133,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 *            会计分录类型
 	 * @return requestNo.
 	 */
+	@Override
 	public String buildAccountingVoucherNo(int entryType) {
 		return entryType + DateUtils.toString(new Date(), "yyyyMMdd")
 				+ super.getSqlSession()
@@ -142,6 +146,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 * @param noteMap
 	 * @return
 	 */
+	@Override
 	public List<RpAccountingVoucher> getListBy(Map<String, Object> noteMap) {
 		return super.listBy(noteMap);
 	}
@@ -155,6 +160,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 *            交易流水号
 	 * @return
 	 */
+	@Override
 	public RpAccountingVoucher getAccountingRequestNote(String requestNo,
 			String bankOrderNo, String voucherNo) {
 		Map<String, Object> paramMap = new Hashtable<String, Object>();
@@ -173,6 +179,7 @@ public class RpAccountingVoucherDaoImpl extends BaseDaoImpl<RpAccountingVoucher>
 	 *            来源系统
 	 * @return
 	 */
+	@Override
 	public RpAccountingVoucher getDataByVoucherNoFromSystem(int entryType,
 			String voucherNo, int fromSystem) {
 		Map<String, Object> paramMap = new Hashtable<String, Object>();
