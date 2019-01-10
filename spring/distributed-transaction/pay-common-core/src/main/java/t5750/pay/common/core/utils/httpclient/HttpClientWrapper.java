@@ -7,9 +7,7 @@ import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.HttpException;
 
 /**
- * 
  * 封装了HttpClient 往服务器发送请求的接口 让用户 不适用任何HttpClient 的api 的 直接调用该接口就可以实现相应的操作
- * 
  */
 public interface HttpClientWrapper {
 	/**
@@ -49,8 +47,8 @@ public interface HttpClientWrapper {
 	 * @throws IOException
 	 */
 	public String doRequest(MethodType method, String url,
-			Map<String, String> params, String charset)
-			throws HttpException, IOException;
+			Map<String, String> params, String charset) throws HttpException,
+			IOException;
 
 	/**
 	 * 

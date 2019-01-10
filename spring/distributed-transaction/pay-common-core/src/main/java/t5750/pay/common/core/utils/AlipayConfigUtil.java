@@ -7,9 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * 
- * @类功能说明： 支付宝属性文件加载工具. @版本：V1.0
- *
+ * @类功能说明： 支付宝属性文件加载工具.
+ * @版本：V1.0
  */
 public class AlipayConfigUtil {
 	private static final Log LOG = LogFactory.getLog(AlipayConfigUtil.class);
@@ -35,7 +34,9 @@ public class AlipayConfigUtil {
 	/**
 	 * 函数功能说明 ：读取配置项
 	 *
-	 * @参数： @return void @throws
+	 * @参数：
+	 * @return void
+	 * @throws
 	 */
 	public static String readConfig(String key) {
 		return (String) properties.get(key);

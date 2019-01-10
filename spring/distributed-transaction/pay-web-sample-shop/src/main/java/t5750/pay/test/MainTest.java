@@ -5,9 +5,9 @@ import java.util.*;
 
 import org.apache.commons.lang.math.RandomUtils;
 
+import t5750.pay.common.core.utils.httpclient.SimpleHttpUtils;
 import t5750.pay.utils.MerchantApiUtil;
 import t5750.pay.utils.PayConfigUtil;
-import t5750.pay.utils.httpclient.SimpleHttpUtils;
 
 public class MainTest {
 	public static void main(String[] args) {
@@ -57,7 +57,7 @@ public class MainTest {
 		for (int i = 0; i < 1; i++) { // 每条线程生成数
 			try {
 				int random = RandomUtils.nextInt(10);
-				long sleepNum = 10l * random;
+				long sleepNum = 10L * random;
 				Thread.sleep(sleepNum);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -68,8 +68,8 @@ public class MainTest {
 					+ 000 + i; // 生成商户订单号
 			Map<String, Object> paramMap = getInitRequestMap(merchantOrderNo,
 					payKey, paySecret); // 构建订单的请求参数
-			String resultStr = SimpleHttpUtils
-					.httpGet(PayConfigUtil.readConfig("scanPayUrl"), paramMap); // 请求网关创建订单
+			String resultStr = SimpleHttpUtils.httpGet(
+					PayConfigUtil.readConfig("scanPayUrl"), paramMap); // 请求网关创建订单
 			System.out.println(resultStr);
 			if (resultStr == null || "".equals(resultStr)) {// 模拟生成失败，跳出这次循环，继续下次操作。
 				continue;
@@ -81,11 +81,11 @@ public class MainTest {
 				e.printStackTrace();
 			}
 			// 模拟构建银行扣款成功结果通知
-			Map<String, Object> notifyMap = getNotifyRequestMap(
-					merchantOrderNo);
-			String notifyResultStr = SimpleHttpUtils.httpGet(
-					"http://127.0.0.1:8082/pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT",
-					notifyMap);
+			Map<String, Object> notifyMap = getNotifyRequestMap(merchantOrderNo);
+			String notifyResultStr = SimpleHttpUtils
+					.httpGet(
+							"http://127.0.0.1:8082/pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT",
+							notifyMap);
 			System.out.println(notifyResultStr);
 		}
 	}
@@ -115,8 +115,8 @@ public class MainTest {
 	 * @param paySecret
 	 * @return
 	 */
-	private static Map<String, Object> getInitRequestMap(String merchantOrderNo,
-			String payKey, String paySecret) {
+	private static Map<String, Object> getInitRequestMap(
+			String merchantOrderNo, String payKey, String paySecret) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("orderPrice", "10"); // 订单金额 , 单位:元
 		paramMap.put("payWayCode", "TEST_PAY_HTTP_CLIENT"); // 模拟网关支付
@@ -138,7 +138,7 @@ public class MainTest {
 		paramMap.put("notifyUrl",
 				"http://127.0.0.1:8083/pay-web-sample-shop/microPayNotify/notify");// 后台消息通知Url
 		paramMap.put("remark", " 支付备注"); // 支付备注
-		//////////// 扩展字段,选填,原值返回///////////
+		// ////////// 扩展字段,选填,原值返回///////////
 		String field1 = "扩展字段1"; // 扩展字段1
 		paramMap.put("field1", field1);
 		String field2 = "扩展字段2"; // 扩展字段2
@@ -149,7 +149,7 @@ public class MainTest {
 		paramMap.put("field4", field4);
 		String field5 = "扩展字段5"; // 扩展字段5
 		paramMap.put("field5", field5);
-		///// 签名及生成请求API的方法///
+		// /// 签名及生成请求API的方法///
 		String sign = MerchantApiUtil.getSign(paramMap, paySecret);
 		paramMap.put("sign", sign);
 		return paramMap;

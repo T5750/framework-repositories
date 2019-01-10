@@ -50,3 +50,10 @@ Deleted files:
 ```
 pay-web-message\src\main\webapp\js
 ```
+
+### pay-service-trade-api/pay-web-sample-shop
+Merged utils:
+```
+pay-service-trade-api\src\main\java\t5750\pay\utils\httpclient\*
+pay-service-trade-api\src\main\java\t5750\pay\utils\AlipayConfigUtil
+```
