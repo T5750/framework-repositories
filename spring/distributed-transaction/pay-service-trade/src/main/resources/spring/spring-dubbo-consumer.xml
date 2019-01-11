@@ -27,6 +27,8 @@
 					 check="false"/>-->
 
 	<!-- 消息 -->
-	<dubbo:reference interface="t5750.pay.service.message.api.RpTransactionMessageService"
-					 id="rpTransactionMessageService" check="false"/>
+	<!--<dubbo:reference interface="t5750.pay.service.message.api.RpTransactionMessageService" id="rpTransactionMessageService" check="false"/>-->
+	<dubbo:reference interface="t5750.pay.service.message.api.RpTransactionMessageService" id="rpTransactionMessageService" check="false">
+		<dubbo:method name="confirmAndSendMessage" async="true" return="false" />
+	</dubbo:reference>
 </beans>  
