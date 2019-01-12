@@ -50,6 +50,9 @@ public interface RpNotifyService {
 			String merchantNo, String merchantOrderNo, String notifyType)
 			throws NotifyBizException;
 
+	/**
+	 * 按条件分页查询通知记录.
+	 */
 	public PageBean<RpNotifyRecord> queryNotifyRecordListPage(
 			PageParam pageParam, Map<String, Object> paramMap)
 			throws NotifyBizException;

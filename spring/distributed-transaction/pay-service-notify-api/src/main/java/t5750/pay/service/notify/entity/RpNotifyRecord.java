@@ -2,6 +2,9 @@ package t5750.pay.service.notify.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
+
+import com.alibaba.fastjson.JSONObject;
 
 import t5750.pay.common.core.entity.BaseEntity;
 import t5750.pay.service.notify.enums.NotifyStatusEnum;
@@ -13,18 +16,15 @@ import t5750.pay.service.notify.enums.NotifyTypeEnum;
  */
 public class RpNotifyRecord extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = -6104194914044220447L;
-	// private Long notifyId;
-	//
-	// public Long getNotifyId() {
-	// return notifyId;
-	// }
 	private Date createTime;
+	/** 通知规则 */
+	private String notifyRule;
 	/** 最后一次通知时间 **/
 	private Date lastNotifyTime;
 	/** 通知次数 **/
-	private Integer notifyTimes = 0;
+	private Integer notifyTimes;
 	/** 限制通知次数 **/
-	private Integer limitNotifyTimes = 5;
+	private Integer limitNotifyTimes;
 	/** 通知URL **/
 	private String url;
 	/** 商户编号 **/
@@ -38,12 +38,13 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 		super();
 	}
 
-	public RpNotifyRecord(Date createTime, Date lastNotifyTime,
-			Integer notifyTimes, Integer limitNotifyTimes, String url,
-			String merchantNo, String merchantOrderNo, NotifyStatusEnum status,
-			NotifyTypeEnum type) {
+	public RpNotifyRecord(Date createTime, String notifyRule,
+			Date lastNotifyTime, Integer notifyTimes, Integer limitNotifyTimes,
+			String url, String merchantNo, String merchantOrderNo,
+			NotifyStatusEnum status, NotifyTypeEnum type) {
 		super();
 		this.createTime = createTime;
+		this.notifyRule = notifyRule;
 		this.lastNotifyTime = lastNotifyTime;
 		this.notifyTimes = notifyTimes;
 		this.limitNotifyTimes = limitNotifyTimes;
@@ -52,6 +53,26 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 		this.merchantOrderNo = merchantOrderNo;
 		this.notifyType = type.name();
 		super.setStatus(status.name());
+	}
+
+	/** 通知规则 */
+	public String getNotifyRule() {
+		return notifyRule;
+	}
+
+	/** 通知规则 */
+	public void setNotifyRule(String notifyRule) {
+		this.notifyRule = notifyRule;
+	}
+
+	/**
+	 * 获取通知规则的Map<String, Integer>.
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public Map<String, Integer> getNotifyRuleMap() {
+		return (Map) JSONObject.parseObject(getNotifyRule());
 	}
 
 	/** 最后一次通知时间 **/
@@ -74,12 +95,10 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 		this.notifyTimes = notifyTimes;
 	}
 
-	@Override
 	public Date getCreateTime() {
 		return createTime;
 	}
 
-	@Override
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -121,8 +140,8 @@ public class RpNotifyRecord extends BaseEntity implements Serializable {
 
 	/** 商户订单号 **/
 	public void setMerchantOrderNo(String merchantOrderNo) {
-		this.merchantOrderNo = merchantOrderNo == null ? null : merchantOrderNo
-				.trim();
+		this.merchantOrderNo = merchantOrderNo == null ? null
+				: merchantOrderNo.trim();
 	}
 
 	public String getNotifyType() {

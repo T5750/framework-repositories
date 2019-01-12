@@ -1,6 +1,7 @@
-package t5750.pay.app.notify.message;
+package t5750.pay.app.notify.listener;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -15,9 +16,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import t5750.pay.app.notify.core.NotifyPersist;
 import t5750.pay.app.notify.core.NotifyQueue;
+import t5750.pay.app.notify.param.NotifyParam;
 import t5750.pay.common.core.exception.BizException;
-import t5750.pay.common.core.utils.StringUtil;
-import t5750.pay.service.notify.api.RpNotifyService;
 import t5750.pay.service.notify.entity.RpNotifyRecord;
 import t5750.pay.service.notify.enums.NotifyStatusEnum;
 
@@ -31,18 +31,19 @@ public class ConsumerSessionAwareMessageListener implements MessageListener {
 	@Autowired
 	private NotifyQueue notifyQueue;
 	@Autowired
-	private RpNotifyService rpNotifyService;
-	@Autowired
 	private NotifyPersist notifyPersist;
+	@Autowired
+	private NotifyParam notifyParam;
 
-	@SuppressWarnings("static-access")
-	@Override
+	/**
+	 * 监听消费MQ队列中的消息.
+	 */
 	public void onMessage(Message message) {
 		try {
 			ActiveMQTextMessage msg = (ActiveMQTextMessage) message;
-			final String ms = msg.getText();
-			log.info("== receive message:" + ms);
-			JSON json = (JSON) JSONObject.parse(ms);
+			final String msgText = msg.getText();
+			log.info("== receive message:" + msgText);
+			JSON json = (JSON) JSONObject.parse(msgText);
 			RpNotifyRecord notifyRecord = JSONObject.toJavaObject(json,
 					RpNotifyRecord.class);
 			if (notifyRecord == null) {
@@ -51,28 +52,22 @@ public class ConsumerSessionAwareMessageListener implements MessageListener {
 			// log.info("notifyParam:" + notifyParam);
 			notifyRecord.setStatus(NotifyStatusEnum.CREATED.name());
 			notifyRecord.setCreateTime(new Date());
+			notifyRecord.setEditTime(new Date());
 			notifyRecord.setLastNotifyTime(new Date());
-			if (!StringUtil.isEmpty(notifyRecord.getId())) {
-				RpNotifyRecord notifyRecordById = rpNotifyService
-						.getNotifyRecordById(notifyRecord.getId());
-				if (notifyRecordById != null) {
-					return;
-				}
-			}
-			while (rpNotifyService == null) {
-				Thread.currentThread().sleep(1000); // 主动休眠，防止类Spring
-													// 未加载完成，监听服务就开启监听出现空指针异常
-			}
+			notifyRecord.setNotifyTimes(0); // 初始化通知0次
+			notifyRecord.setLimitNotifyTimes(notifyParam.getMaxNotifyTimes()); // 最大通知次数
+			Map<Integer, Integer> notifyParams = notifyParam.getNotifyParams();
+			notifyRecord.setNotifyRule(JSONObject.toJSONString(notifyParams)); // 保存JSON
+			// if ( !StringUtil.isEmpty(notifyRecord.getId())){
+			// RpNotifyRecord notifyRecordById =
+			// rpNotifyService.getNotifyRecordById(notifyRecord.getId());
+			// if (notifyRecordById != null){
+			// return;
+			// }
+			// }
 			try {
-				// 将获取到的通知先保存到数据库中
-				notifyPersist.saveNotifyRecord(notifyRecord);
-				notifyRecord = rpNotifyService
-						.getNotifyByMerchantNoAndMerchantOrderNoAndNotifyType(
-								notifyRecord.getMerchantNo(),
-								notifyRecord.getMerchantOrderNo(),
-								notifyRecord.getNotifyType());
-				// 添加到通知队列
-				notifyQueue.addElementToList(notifyRecord);
+				notifyPersist.saveNotifyRecord(notifyRecord); // 将获取到的通知先保存到数据库中
+				notifyQueue.addToNotifyTaskDelayQueue(notifyRecord); // 添加到通知队列(第一次通知)
 			} catch (BizException e) {
 				log.error("BizException :", e);
 			} catch (Exception e) {

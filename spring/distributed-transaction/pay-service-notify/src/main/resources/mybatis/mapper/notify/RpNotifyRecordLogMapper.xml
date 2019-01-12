@@ -4,8 +4,6 @@
 	<resultMap id="BaseResultMap" type="t5750.pay.service.notify.entity.RpNotifyRecordLog">
 		<id column="id" property="id" jdbcType="VARCHAR"/>
 		<result column="version" property="version" jdbcType="SMALLINT"/>
-		<result column="editor" property="editor" jdbcType="VARCHAR"/>
-		<result column="creater" property="creater" jdbcType="VARCHAR"/>
 		<result column="edit_time" property="editTime" jdbcType="TIMESTAMP"/>
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
 		<result column="notify_id" property="notifyId" jdbcType="VARCHAR"/>
@@ -17,9 +15,9 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, version, editor, creater, edit_time, create_time, notify_id, request, response,
-		merchant_no, merchant_order_no, http_status
-	</sql>
+    id, version, edit_time, create_time, notify_id, request, response, 
+    merchant_no, merchant_order_no, http_status
+  </sql>
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -29,169 +27,44 @@
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-		delete from rp_notify_record_log
-		where id = #{id,jdbcType=VARCHAR}
-	</delete>
+    delete from rp_notify_record_log
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
 
 	<insert id="insert" parameterType="t5750.pay.service.notify.entity.RpNotifyRecordLog">
-		insert into rp_notify_record_log (id, version, editor,
-		creater, edit_time, create_time,
-		notify_id, request, response,
-		merchant_no, merchant_order_no, http_status
-		)
-		values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=SMALLINT}, #{editor,jdbcType=VARCHAR},
-		#{creater,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP},
-		#{notifyId,jdbcType=VARCHAR}, #{request,jdbcType=VARCHAR}, #{response,jdbcType=VARCHAR},
-		#{merchantNo,jdbcType=VARCHAR}, #{merchantOrderNo,jdbcType=VARCHAR}, #{httpStatus,jdbcType=SMALLINT}
-		)
-	</insert>
-
-	<insert id="insertSelective" parameterType="t5750.pay.service.notify.entity.RpNotifyRecordLog">
-		insert into rp_notify_record_log
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				id,
-			</if>
-			<if test="version != null">
-				version,
-			</if>
-			<if test="editor != null">
-				editor,
-			</if>
-			<if test="creater != null">
-				creater,
-			</if>
-			<if test="editTime != null">
-				edit_time,
-			</if>
-			<if test="createTime != null">
-				create_time,
-			</if>
-			<if test="notifyId != null">
-				notify_id,
-			</if>
-			<if test="request != null">
-				request,
-			</if>
-			<if test="response != null">
-				response,
-			</if>
-			<if test="merchantNo != null">
-				merchant_no,
-			</if>
-			<if test="merchantOrderNo != null">
-				merchant_order_no,
-			</if>
-			<if test="httpStatus != null">
-				http_status,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="id != null">
-				#{id,jdbcType=VARCHAR},
-			</if>
-			<if test="version != null">
-				#{version,jdbcType=SMALLINT},
-			</if>
-			<if test="editor != null">
-				#{editor,jdbcType=VARCHAR},
-			</if>
-			<if test="creater != null">
-				#{creater,jdbcType=VARCHAR},
-			</if>
-			<if test="editTime != null">
-				#{editTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="createTime != null">
-				#{createTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="notifyId != null">
-				#{notifyId,jdbcType=VARCHAR},
-			</if>
-			<if test="request != null">
-				#{request,jdbcType=VARCHAR},
-			</if>
-			<if test="response != null">
-				#{response,jdbcType=VARCHAR},
-			</if>
-			<if test="merchantNo != null">
-				#{merchantNo,jdbcType=VARCHAR},
-			</if>
-			<if test="merchantOrderNo != null">
-				#{merchantOrderNo,jdbcType=VARCHAR},
-			</if>
-			<if test="httpStatus != null">
-				#{httpStatus,jdbcType=SMALLINT},
-			</if>
-		</trim>
-	</insert>
-
-	<update id="updateByPrimaryKeySelective" parameterType="t5750.pay.service.notify.entity.RpNotifyRecordLog">
-		update rp_notify_record_log
-		<set>
-			<if test="version != null">
-				version = #{version,jdbcType=SMALLINT},
-			</if>
-			<if test="editor != null">
-				editor = #{editor,jdbcType=VARCHAR},
-			</if>
-			<if test="creater != null">
-				creater = #{creater,jdbcType=VARCHAR},
-			</if>
-			<if test="editTime != null">
-				edit_time = #{editTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="createTime != null">
-				create_time = #{createTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="notifyId != null">
-				notify_id = #{notifyId,jdbcType=VARCHAR},
-			</if>
-			<if test="request != null">
-				request = #{request,jdbcType=VARCHAR},
-			</if>
-			<if test="response != null">
-				response = #{response,jdbcType=VARCHAR},
-			</if>
-			<if test="merchantNo != null">
-				merchant_no = #{merchantNo,jdbcType=VARCHAR},
-			</if>
-			<if test="merchantOrderNo != null">
-				merchant_order_no = #{merchantOrderNo,jdbcType=VARCHAR},
-			</if>
-			<if test="httpStatus != null">
-				http_status = #{httpStatus,jdbcType=SMALLINT},
-			</if>
-		</set>
-		where id = #{id,jdbcType=VARCHAR}
-	</update>
+    insert into rp_notify_record_log (id, version,
+      edit_time, create_time, 
+      notify_id, request, response, 
+      merchant_no, merchant_order_no, http_status
+      )
+    values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=SMALLINT}, 
+      #{editTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{notifyId,jdbcType=VARCHAR}, #{request,jdbcType=VARCHAR}, #{response,jdbcType=VARCHAR},
+      #{merchantNo,jdbcType=VARCHAR}, #{merchantOrderNo,jdbcType=VARCHAR}, #{httpStatus,jdbcType=SMALLINT}
+      )
+  </insert>
 
 	<update id="updateByPrimaryKey" parameterType="t5750.pay.service.notify.entity.RpNotifyRecordLog">
-		update rp_notify_record_log
-		set version = #{version,jdbcType=SMALLINT},
-		editor = #{editor,jdbcType=VARCHAR},
-		creater = #{creater,jdbcType=VARCHAR},
-		edit_time = #{editTime,jdbcType=TIMESTAMP},
-		create_time = #{createTime,jdbcType=TIMESTAMP},
-		notify_id = #{notifyId,jdbcType=VARCHAR},
-		request = #{request,jdbcType=VARCHAR},
-		response = #{response,jdbcType=VARCHAR},
-		merchant_no = #{merchantNo,jdbcType=VARCHAR},
-		merchant_order_no = #{merchantOrderNo,jdbcType=VARCHAR},
-		http_status = #{httpStatus,jdbcType=SMALLINT}
-		where id = #{id,jdbcType=VARCHAR}
-	</update>
+    update rp_notify_record_log
+    set version = #{version,jdbcType=SMALLINT} + 1,
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      notify_id = #{notifyId,jdbcType=VARCHAR},
+      request = #{request,jdbcType=VARCHAR},
+      response = #{response,jdbcType=VARCHAR},
+      merchant_no = #{merchantNo,jdbcType=VARCHAR},
+      merchant_order_no = #{merchantOrderNo,jdbcType=VARCHAR},
+      http_status = #{httpStatus,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
 
 	<sql id="condition_sql">
-
 		<if test="merchantNo != null and merchantNo != '' ">
 			and merchant_no = #{merchantNo}
 		</if>
-
 		<if test="merchantOrderNo != null and merchantOrderNo != '' ">
 			and merchant_order_no = #{merchantOrderNo}
 		</if>
-
 	</sql>
 
 	<select id="listPage" parameterType="java.util.Map" resultMap="BaseResultMap">

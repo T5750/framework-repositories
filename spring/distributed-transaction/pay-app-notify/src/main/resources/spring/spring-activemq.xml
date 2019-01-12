@@ -32,8 +32,7 @@
 		</constructor-arg>
 	</bean>
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageListener"
-		  class="t5750.pay.app.notify.message.ConsumerSessionAwareMessageListener"/>
+	<bean id="consumerMessageListener" class="t5750.pay.app.notify.listener.ConsumerSessionAwareMessageListener"/>
 	<!-- 消息监听容器 -->
 	<bean id="jmsContainer"
 		  class="org.springframework.jms.listener.DefaultMessageListenerContainer">

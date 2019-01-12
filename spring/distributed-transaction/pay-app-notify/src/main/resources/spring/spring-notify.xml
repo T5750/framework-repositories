@@ -16,14 +16,14 @@
 	</bean>
 
 	<!-- 配置通知参数, 时间单位分 -->
-	<bean id="notifyParam" class="t5750.pay.app.notify.entity.NotifyParam">
+	<bean id="notifyParam" class="t5750.pay.app.notify.param.NotifyParam">
 		<property name="notifyParams">
 			<map>
 				<entry key="1" value="0"/>
 				<entry key="2" value="1"/>
 				<entry key="3" value="2"/>
-				<entry key="4" value="5"/>
-				<entry key="5" value="15"/>
+				<entry key="4" value="3"/>
+				<entry key="5" value="4"/>
 			</map>
 		</property>
 		<property name="successValue" value="success"/>

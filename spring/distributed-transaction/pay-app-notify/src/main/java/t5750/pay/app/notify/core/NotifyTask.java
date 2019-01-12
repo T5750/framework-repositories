@@ -1,16 +1,16 @@
 package t5750.pay.app.notify.core;
 
+import java.util.Date;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.alibaba.fastjson.JSONObject;
-
 import t5750.pay.app.notify.PayAppNotify;
-import t5750.pay.app.notify.entity.NotifyParam;
+import t5750.pay.app.notify.param.NotifyParam;
 import t5750.pay.common.core.exception.BizException;
+import t5750.pay.common.core.utils.DateUtils;
 import t5750.pay.common.core.utils.httpclient.SimpleHttpParam;
 import t5750.pay.common.core.utils.httpclient.SimpleHttpResult;
 import t5750.pay.common.core.utils.httpclient.SimpleHttpUtils;
@@ -18,7 +18,7 @@ import t5750.pay.service.notify.entity.RpNotifyRecord;
 import t5750.pay.service.notify.enums.NotifyStatusEnum;
 
 /**
- * @功能说明:
+ * @功能说明: 通知任务类.
  * @版本:V1.0
  */
 public class NotifyTask implements Runnable, Delayed {
@@ -41,13 +41,33 @@ public class NotifyTask implements Runnable, Delayed {
 		this.executeTime = getExecuteTime(notifyRecord);
 	}
 
+	/**
+	 * 计算任务允许执行的开始时间(executeTime).<br/>
+	 * 
+	 * @param record
+	 * @return
+	 */
 	private long getExecuteTime(RpNotifyRecord record) {
-		long lastTime = record.getLastNotifyTime().getTime();
-		Integer nextNotifyTime = notifyParam.getNotifyParams()
-				.get(record.getNotifyTimes());
-		return (nextNotifyTime == null ? 0 : nextNotifyTime * 1000) + lastTime;
+		long lastNotifyTime = record.getLastNotifyTime().getTime(); // 最后通知时间（上次通知时间）
+		Integer notifyTimes = record.getNotifyTimes(); // 已通知次数
+		LOG.info("===>notifyTimes:" + notifyTimes);
+		// Integer nextNotifyTimeInterval =
+		// notifyParam.getNotifyParams().get(notifyTimes + 1); //
+		// 当前发送次数对应的时间间隔数（分钟数）
+		Integer nextNotifyTimeInterval = record.getNotifyRuleMap()
+				.get(String.valueOf(notifyTimes + 1)); // 当前发送次数对应的时间间隔数（分钟数）
+		long nextNotifyTime = (nextNotifyTimeInterval == null ? 0
+				: nextNotifyTimeInterval * 60 * 1000) + lastNotifyTime;
+		LOG.info("===>notify id:" + record.getId() + ", nextNotifyTime:"
+				+ DateUtils.formatDate(new Date(nextNotifyTime),
+						"yyyy-MM-dd HH:mm:ss SSS"));
+		return nextNotifyTime;
 	}
 
+	/**
+	 * 比较当前时间(task.executeTime)与任务允许执行的开始时间(executeTime).<br/>
+	 * 如果当前时间到了或超过任务允许执行的开始时间，那么就返回-1，可以执行。
+	 */
 	public int compareTo(Delayed o) {
 		NotifyTask task = (NotifyTask) o;
 		return executeTime > task.executeTime ? 1
@@ -56,73 +76,106 @@ public class NotifyTask implements Runnable, Delayed {
 
 	public long getDelay(TimeUnit unit) {
 		return unit.convert(executeTime - System.currentTimeMillis(),
-				unit.SECONDS);
+				TimeUnit.MILLISECONDS);
 	}
 
+	/**
+	 * 执行通知处理.
+	 */
 	public void run() {
-		// 得到当前通知对象的通知次数
-		Integer notifyTimes = notifyRecord.getNotifyTimes();
+		Integer notifyTimes = notifyRecord.getNotifyTimes(); // 得到当前通知对象的通知次数
+		Integer maxNotifyTimes = notifyRecord.getLimitNotifyTimes(); // 最大通知次数
+		Date notifyTime = new Date(); // 本次通知的时间
 		// 去通知
 		try {
-			LOG.info("Notify Url " + notifyRecord.getUrl() + " ;notify id:"
-					+ notifyRecord.getId() + ";notify times:"
-					+ notifyRecord.getNotifyTimes());
-			/** 采用 httpClient */
+			LOG.info("===>notify url " + notifyRecord.getUrl() + ", notify id:"
+					+ notifyRecord.getId() + ", notifyTimes:" + notifyTimes);
+			// 执行HTTP通知请求
 			SimpleHttpParam param = new SimpleHttpParam(notifyRecord.getUrl());
 			SimpleHttpResult result = SimpleHttpUtils.httpRequest(param);
-			notifyRecord.setNotifyTimes(notifyTimes + 1);
-			String successValue = notifyParam.getSuccessValue();
+			notifyRecord.setEditTime(notifyTime); // 取本次通知时间作为最后修改时间
+			notifyRecord.setNotifyTimes(notifyTimes + 1); // 通知次数+1
+			String successValue = notifyParam.getSuccessValue(); // 通知成功标识
 			String responseMsg = "";
 			Integer responseStatus = result.getStatusCode();
-			// 得到返回状态，如果是200，也就是通知成功
-			if (result != null && (responseStatus == 200
-					|| responseStatus == 201 || responseStatus == 202
-					|| responseStatus == 203 || responseStatus == 204
-					|| responseStatus == 205 || responseStatus == 206)) {
-				responseMsg = result.getContent().trim();
-				responseMsg = responseMsg.length() >= 600
-						? responseMsg.substring(0, 600)
-						: responseMsg;
-				LOG.info("订单号： " + notifyRecord.getMerchantOrderNo()
-						+ " HTTP_STATUS：" + responseStatus + "请求返回信息："
-						+ responseMsg);
-				// 通知成功
-				if (responseMsg.trim().equals(successValue)) {
-					notifyPersist.updateNotifyRord(notifyRecord.getId(),
-							notifyRecord.getNotifyTimes(),
-							NotifyStatusEnum.SUCCESS.name());
-				} else {
-					notifyQueue.addElementToList(notifyRecord);
-					notifyPersist.updateNotifyRord(notifyRecord.getId(),
-							notifyRecord.getNotifyTimes(),
-							NotifyStatusEnum.HTTP_REQUEST_SUCCESS.name());
-				}
-				LOG.info("Update NotifyRecord:"
-						+ JSONObject.toJSONString(notifyRecord)
-						+ ";responseMsg:" + responseMsg);
-			} else {
-				notifyQueue.addElementToList(notifyRecord);
-				// 再次放到通知列表中，由添加程序判断是否已经通知完毕或者通知失败
-				notifyPersist.updateNotifyRord(notifyRecord.getId(),
-						notifyRecord.getNotifyTimes(),
-						NotifyStatusEnum.HTTP_REQUEST_FALIED.name());
-			}
 			// 写通知日志表
 			notifyPersist.saveNotifyRecordLogs(notifyRecord.getId(),
 					notifyRecord.getMerchantNo(),
 					notifyRecord.getMerchantOrderNo(), notifyRecord.getUrl(),
 					responseMsg, responseStatus);
-			LOG.info("Insert NotifyRecordLog, merchantNo:"
-					+ notifyRecord.getMerchantNo() + ",merchantOrderNo:"
+			LOG.info("===>insert NotifyRecordLog, merchantNo:"
+					+ notifyRecord.getMerchantNo() + ", merchantOrderNo:"
 					+ notifyRecord.getMerchantOrderNo());
+			// 得到返回状态，如果是20X，也就是通知成功
+			if (responseStatus == 200 || responseStatus == 201
+					|| responseStatus == 202 || responseStatus == 203
+					|| responseStatus == 204 || responseStatus == 205
+					|| responseStatus == 206) {
+				responseMsg = result.getContent().trim();
+				responseMsg = responseMsg.length() >= 600
+						? responseMsg.substring(0, 600)
+						: responseMsg; // 避免异常日志过长
+				LOG.info("===>订单号: " + notifyRecord.getMerchantOrderNo()
+						+ " HTTP_STATUS:" + responseStatus + ",请求返回信息："
+						+ responseMsg);
+				// 通知成功,更新通知记录为已通知成功（以后不再通知）
+				if (responseMsg.trim().equals(successValue)) {
+					notifyPersist.updateNotifyRord(notifyRecord.getId(),
+							notifyRecord.getNotifyTimes(),
+							NotifyStatusEnum.SUCCESS.name(), notifyTime);
+					return;
+				}
+				// 通知不成功（返回的结果不是success）
+				if (notifyRecord.getNotifyTimes() < maxNotifyTimes) {
+					// 判断是否超过重发次数，未超重发次数的，再次进入延迟发送队列
+					notifyQueue.addToNotifyTaskDelayQueue(notifyRecord);
+					notifyPersist.updateNotifyRord(notifyRecord.getId(),
+							notifyRecord.getNotifyTimes(),
+							NotifyStatusEnum.HTTP_REQUEST_SUCCESS.name(),
+							notifyTime);
+					LOG.info(
+							"===>update NotifyRecord status to HTTP_REQUEST_SUCCESS, notifyId:"
+									+ notifyRecord.getId());
+				} else {
+					// 到达最大通知次数限制，标记为通知失败
+					notifyPersist.updateNotifyRord(notifyRecord.getId(),
+							notifyRecord.getNotifyTimes(),
+							NotifyStatusEnum.FAILED.name(), notifyTime);
+					LOG.info(
+							"===>update NotifyRecord status to failed, notifyId:"
+									+ notifyRecord.getId());
+				}
+			} else {
+				// 其它HTTP响应状态码情况下
+				if (notifyRecord.getNotifyTimes() < maxNotifyTimes) {
+					// 判断是否超过重发次数，未超重发次数的，再次进入延迟发送队列
+					notifyQueue.addToNotifyTaskDelayQueue(notifyRecord);
+					notifyPersist.updateNotifyRord(notifyRecord.getId(),
+							notifyRecord.getNotifyTimes(),
+							NotifyStatusEnum.HTTP_REQUEST_FALIED.name(),
+							notifyTime);
+					LOG.info(
+							"===>update NotifyRecord status to HTTP_REQUEST_FALIED, notifyId:"
+									+ notifyRecord.getId());
+				} else {
+					// 到达最大通知次数限制，标记为通知失败
+					notifyPersist.updateNotifyRord(notifyRecord.getId(),
+							notifyRecord.getNotifyTimes(),
+							NotifyStatusEnum.FAILED.name(), notifyTime);
+					LOG.info(
+							"===>update NotifyRecord status to failed, notifyId:"
+									+ notifyRecord.getId());
+				}
+			}
 		} catch (BizException e) {
-			LOG.error("NotifyTask", e);
+			LOG.error("===>NotifyTask", e);
 		} catch (Exception e) {
-			LOG.error("NotifyTask", e);
-			notifyQueue.addElementToList(notifyRecord);
+			// 异常
+			LOG.error("===>NotifyTask", e);
+			notifyQueue.addToNotifyTaskDelayQueue(notifyRecord); // 判断是否超过重发次数，未超重发次数的，再次进入延迟发送队列
 			notifyPersist.updateNotifyRord(notifyRecord.getId(),
 					notifyRecord.getNotifyTimes(),
-					NotifyStatusEnum.HTTP_REQUEST_FALIED.name());
+					NotifyStatusEnum.HTTP_REQUEST_FALIED.name(), notifyTime);
 			notifyPersist.saveNotifyRecordLogs(notifyRecord.getId(),
 					notifyRecord.getMerchantNo(),
 					notifyRecord.getMerchantOrderNo(), notifyRecord.getUrl(),
