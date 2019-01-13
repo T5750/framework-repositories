@@ -54,8 +54,10 @@ public class NotifyTask implements Runnable, Delayed {
 		// Integer nextNotifyTimeInterval =
 		// notifyParam.getNotifyParams().get(notifyTimes + 1); //
 		// 当前发送次数对应的时间间隔数（分钟数）
+		// Integer nextNotifyTimeInterval = record.getNotifyRuleMap()
+		// .get(String.valueOf(notifyTimes + 1)); // 当前发送次数对应的时间间隔数（分钟数）
 		Integer nextNotifyTimeInterval = record.getNotifyRuleMap()
-				.get(String.valueOf(notifyTimes + 1)); // 当前发送次数对应的时间间隔数（分钟数）
+				.get(notifyTimes + 1); // 当前发送次数对应的时间间隔数（分钟数）
 		long nextNotifyTime = (nextNotifyTimeInterval == null ? 0
 				: nextNotifyTimeInterval * 60 * 1000) + lastNotifyTime;
 		LOG.info("===>notify id:" + record.getId() + ", nextNotifyTime:"

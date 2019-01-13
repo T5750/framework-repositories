@@ -96,7 +96,7 @@ public class NotifyPersist {
 	public void initNotifyDataFromDB() {
 		LOG.info("===>init get notify data from database");
 		int pageNum = 1; // 当前页
-		int numPerPage = 10; // 每页记录数
+		int numPerPage = 500; // 每页记录数
 		PageParam pageParam = new PageParam(pageNum, numPerPage);
 		List<RpNotifyRecord> recordList = new ArrayList<RpNotifyRecord>(); // 每次拿到的结果集
 		// 组装查询条件，通知状态不成功，并且还没有超过最大通知次数的

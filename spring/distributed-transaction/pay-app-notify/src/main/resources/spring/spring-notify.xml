@@ -22,8 +22,8 @@
 				<entry key="1" value="0"/>
 				<entry key="2" value="1"/>
 				<entry key="3" value="2"/>
-				<entry key="4" value="3"/>
-				<entry key="5" value="4"/>
+				<entry key="4" value="5"/>
+				<entry key="5" value="15"/>
 			</map>
 		</property>
 		<property name="successValue" value="success"/>
