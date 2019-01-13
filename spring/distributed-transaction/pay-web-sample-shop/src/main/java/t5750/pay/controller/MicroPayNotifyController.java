@@ -28,6 +28,7 @@ public class MicroPayNotifyController extends BaseController {
 		LOG.info("银行返回结果：{}", requestMap);
 		try {
 			httpServletResponse.getWriter().print("success");
+			// httpServletResponse.getWriter().print("error");
 		} catch (IOException e) {
 			LOG.error("回写失败：", e);
 		}

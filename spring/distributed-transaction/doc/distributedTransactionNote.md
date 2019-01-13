@@ -32,7 +32,7 @@ public void completeOrder() {
 }
 ```
 
-## 可靠消息的最终一致性方案
+## 1 可靠消息的最终一致性方案
 异步确保型（可靠消息最终一致）
 - 对应支付系统会计异步记账业务
 - 银行通知结果信息存储与驱动订单处理
@@ -40,14 +40,41 @@ public void completeOrder() {
 
 ![distributedTransactionFinal-min](http://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
 
-## 最大努力通知型方案
+## 2 最大努力通知型方案
 最大努力通知型
 - 对应支付系统的商户通知业务场景
 - 按规律进行通知，不保证数据一定能通知成功，但会提供可查询操作接口进行核对
 
 ![distributedTransactionMax-min](http://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
 
-## TCC两阶段型方案
+### 2.1 应用部署
+1. 导入数据库脚本：
+	```
+	rp_notify_record.sql
+	rp_notify_record_log.sql
+	```
+1. 更新项目源码：
+	```
+	pay-service-notify-api
+	pay-service-notify
+	pay-app-notify
+	```
+1. 重新构建部署包
+1. 上传应用部署程序，按顺序启动应用
+
+### 2.2 应用测试
+1. 验证消息重发规则是否可行并准确
+1. 验证消息重发恢复机制
+
+### 2.3 优化建议
+- 通知记录、通知日志可视化管理、手工触发等功能（可参考可靠消息管理）
+- 可以考虑把通知服务做得更通用（通知队列分区、不同队列不同规则等）
+- 保证通知服务的性能，必要时可独立数据库（也可换用Redis等）
+- `pay-app-notify`启动时通知数据初始化功能的优化
+- `pay-app-notify`的内存调优和流量控制（`tasks.size()`）
+- 要求通知被动方处理通知接口的业务接口要实现幂等（注意点）
+
+## 3 TCC两阶段型方案
 TCC（两阶段型、补偿型）
 - 对应支付系统的订单账户操作：订单处理、资金账户处理、积分账户处理
 - 实时性要求比较高，数据必须可靠
