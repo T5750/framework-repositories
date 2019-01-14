@@ -40,16 +40,57 @@ public void completeOrder() {
 
 ![distributedTransactionFinal-min](http://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
 
-### 1.1 应用部署
+设计分析维度：
+- 消息发送一致性的正向流程
+- 消息发送一致性的异常处理流程
+- 消息投递（消费）的正向流程
+- 消息投递（消费）的异常处理流程
+
+### 1.1 可靠消息的最终一致性方案1（本地消息服务）
+
+![distributedTransactionFinalLocal-min](http://www.wailian.work/images/2019/01/14/distributedTransactionFinalLocal-min.jpg)
+
+优点：
+1. 消息时效性比较高
+1. 从应用设计开发的角度，实现了消息数据的可靠性，消息数据的可靠性不依赖于MQ中间件，弱化了对MQ中间件特性的依赖
+1. 方案轻量，容易实现
+
+弊端/局限：
+1. 与具体的业务场景绑定，耦合性强，不可共用
+1. 消息数据与业务数据同库，占用业务系统资源
+1. 业务系统在使用关系型数据库的情况下，消息服务性能会受关系型数据库并发性能的局限
+
+### 1.2 可靠消息的最终一致性方案2（独立消息服务）
+![distributedTransactionFinalConsistency-min](http://www.wailian.work/images/2019/01/11/distributedTransactionFinalConsistency-min.png)
+
+优点：
+1. 消息服务独立部署、独立维护、独立伸缩
+1. 消息存储可以按需选择不同的数据库来集成实现
+1. 消息服务可以被相同的使用场景共用，降低重复建设消息服务的成本
+1. 从应用（分布式服务）设计开发的角度实现了消息数据的可靠性，消息数据的可靠性不依赖于MQ中间件，弱化了对MQ中间件特性的依赖
+1. 降低了业务系统与消息系统间的耦合，有利于系统的扩展维护
+
+弊端/局限：
+1. 一次消息发送需要两次请求
+1. 主动方应用系统需要实现业务操作状态校验查询接口
+
+#### 1.2.1 应用部署
+1. 创建数据库、分库导入SQL脚本
+1. 安装和配置ActiveMQ中间件
+1. 安装ZooKeeper、DubboAdmin
+1. 构建部署包，按顺序打包
+1. 准备应用部署目录
+1. 上传应用部署程序，按顺序启动应用
+
 [Distributed Transaction Deploy](distributedTransactionDeploy.md)
 
-### 1.2 应用测试
+#### 1.2.2 应用测试
 重点：保障消息服务的可用性和可靠性
 1. 订单服务故障
 1. 会计服务故障
 1. 实时消息服务（MQ）故障
 
-### 1.3 优化建议
+#### 1.2.3 优化建议
 - 数据库：Redis（可靠性、可用性、性能），特别注意持久化配置`appendfsync always`
 - 消息日志表：适用于被动方应用业务的幂等性，判断比较麻烦或比较耗性能的情况，但会增加一定的开发工作量
 - 分布式任务调度
@@ -121,8 +162,6 @@ TCC方案的特点：
     - 成功：更新消息存储中的消息状态为“待发送（可发送）”；
 6. 被动方应用监听并接收“待发送”状态的消息，执行业务处理；
 7. 业务处理完成后，向消息中间件发送ACK，确认消息已经收到（消息中间件将从队列中删除该消息）。
-
-![distributedTransactionFinalConsistency-min](http://www.wailian.work/images/2019/01/11/distributedTransactionFinalConsistency-min.png)
 
 ## References
 - [微服务架构的分布式事务解决方案](https://www.roncoo.com/view/20)
