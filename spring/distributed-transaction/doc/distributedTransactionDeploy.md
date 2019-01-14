@@ -1,4 +1,4 @@
-# Distributed Transaction
+# Distributed Transaction Deploy
 
 ## databases
 - `doc\db\pay_dubbo_*.sql`

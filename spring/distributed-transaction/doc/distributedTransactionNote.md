@@ -40,6 +40,23 @@ public void completeOrder() {
 
 ![distributedTransactionFinal-min](http://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
 
+### 1.1 应用部署
+[Distributed Transaction Deploy](distributedTransactionDeploy.md)
+
+### 1.2 应用测试
+重点：保障消息服务的可用性和可靠性
+1. 订单服务故障
+1. 会计服务故障
+1. 实时消息服务（MQ）故障
+
+### 1.3 优化建议
+- 数据库：Redis（可靠性、可用性、性能），特别注意持久化配置`appendfsync always`
+- 消息日志表：适用于被动方应用业务的幂等性，判断比较麻烦或比较耗性能的情况，但会增加一定的开发工作量
+- 分布式任务调度
+- 实时消息服务：RocketMQ、RabbitMQ等（支持队列功能、消息数据的可靠性不依赖于MQ）
+- 独立业务使用独立消息服务（提高性能、隔离解耦，但增加维护成本和工作量）
+- 其它服务框架
+
 ## 2 最大努力通知型方案
 最大努力通知型
 - 对应支付系统的商户通知业务场景
@@ -48,17 +65,8 @@ public void completeOrder() {
 ![distributedTransactionMax-min](http://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
 
 ### 2.1 应用部署
-1. 导入数据库脚本：
-	```
-	rp_notify_record.sql
-	rp_notify_record_log.sql
-	```
-1. 更新项目源码：
-	```
-	pay-service-notify-api
-	pay-service-notify
-	pay-app-notify
-	```
+1. 导入数据库脚本：`rp_notify_record.sql`，`rp_notify_record_log.sql`
+1. 更新项目源码：`pay-service-notify-api`，`pay-service-notify`，`pay-app-notify`
 1. 重新构建部署包
 1. 上传应用部署程序，按顺序启动应用
 
