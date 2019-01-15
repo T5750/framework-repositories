@@ -1,0 +1,13 @@
+dependencies {
+    def springVersion = "4.3.8.RELEASE"
+    compile project(':spring:tcc-transaction:tcc-transaction-core')
+    compile group: 'org.springframework', name: 'spring-context', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-jdbc', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-aop', version: "$springVersion"
+    compile group: 'org.springframework', name: 'spring-context-support', version: "$springVersion"
+    compile('org.quartz-scheduler:quartz:2.2.1') {
+        exclude group: 'c3p0'
+    }
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}
