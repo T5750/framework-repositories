@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':spring:tcc-transaction:tcc-transaction-api')
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+}

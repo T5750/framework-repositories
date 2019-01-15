@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="sample-dubbo-order"/>
+
+	<!-- 读入配置属性文件 -->
+	<context:property-placeholder location="classpath:sample-dubbo-order.properties" ignore-unresolvable="true"/>
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry protocol="zookeeper"
+					address="${zookeeper.address}"
+					session="${zookeeper.session.timeout}"
+					timeout="${zookeeper.connect.timeout}"
+					file="./.dubbo/web-cache"/>
+
+	<!-- 用dubbo协议在dubbo.port端口暴露服务 ;payload:请求及响应数据包大小限制,单位：字节,默认值88388608(=8M)-->
+	<dubbo:protocol name="dubbo" port="${dubbo.port}" payload="88388608"/>
+
+	<!-- 当ProtocolConfig和ServiceConfig某属性没有配置时,采用此缺省值 -->
+	<dubbo:provider timeout="30000" threadpool="fixed" threads="100" accepts="1000"/>
+
+	<!-- 和本地bean一样实现服务 -->
+	<!-- 声明需要暴露的服务接口 -->
+	<!-- 下订单服务接口 -->
+	<dubbo:service interface="t5750.tcctransaction.sample.dubbo.order.api.PlaceOrderService"
+				   ref="placeOrderService" timeout="60000" retries="0"/>
+
+
+</beans>

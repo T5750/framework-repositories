@@ -8,6 +8,4 @@ dependencies {
     compile('org.quartz-scheduler:quartz:2.2.1') {
         exclude group: 'c3p0'
     }
-    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
 }

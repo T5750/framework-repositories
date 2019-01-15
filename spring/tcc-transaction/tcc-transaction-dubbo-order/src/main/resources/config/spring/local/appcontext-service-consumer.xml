@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- Dubbo服务接口引用 -->
+	<dubbo:reference id="captialTradeOrderService"
+					 interface="t5750.tcctransaction.sample.dubbo.capital.api.CapitalTradeOrderService"/>
+
+	<dubbo:reference id="redPacketTradeOrderService"
+					 interface="t5750.tcctransaction.sample.dubbo.redpacket.api.RedPacketTradeOrderService"/>
+
+	<dubbo:reference id="redPacketAccountService"
+					 interface="t5750.tcctransaction.sample.dubbo.redpacket.api.RedPacketAccountService"/>
+
+	<dubbo:reference id="capitalAccountService"
+					 interface="t5750.tcctransaction.sample.dubbo.capital.api.CapitalAccountService"/>
+
+</beans>
