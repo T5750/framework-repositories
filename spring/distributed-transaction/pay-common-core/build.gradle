@@ -42,8 +42,8 @@ dependencies {
     compile('com.alibaba:dubbo:2.6.2') {
         exclude group: 'org.springframework'
     }
-    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.10', ext: 'pom'
-    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.10'//, ext: 'pom'
+//    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
     compile group: 'org.apache.activemq', name: 'activemq-pool', version: '5.14.5'
     compile group: 'commons-pool', name: 'commons-pool', version: '1.6'
     compile("org.apache.curator:curator-framework:4.0.1") {
