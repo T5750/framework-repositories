@@ -14,6 +14,10 @@ Module | HTTP Port | Application Context | Url
 `tcc-transaction-dubbo-web-trade` | 8086 | `/` | [http://localhost:8086/](http://localhost:8086/)
 `incubator-dubbo-ops` | 8080 | `/` | [http://localhost:8080](http://localhost:8080)
 
+## test
+- `TransferServiceTest`
+- `PerformanceTest`
+
 ## Tips
 ### tcc-transaction-server
 [http://localhost:8085/tcc-transaction-server/management](http://localhost:8085/tcc-transaction-server/management)

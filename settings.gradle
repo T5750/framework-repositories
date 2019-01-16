@@ -109,4 +109,6 @@ include 'spring:tcc-transaction:tcc-transaction-dubbo-redpacket'
 findProject(':spring:tcc-transaction:tcc-transaction-dubbo-redpacket')?.name = 'tcc-transaction-dubbo-redpacket'
 include 'spring:tcc-transaction:tcc-transaction-dubbo-web-trade'
 findProject(':spring:tcc-transaction:tcc-transaction-dubbo-web-trade')?.name = 'tcc-transaction-dubbo-web-trade'
+include 'spring:tcc-transaction:tcc-transaction-unit-test'
+findProject(':spring:tcc-transaction:tcc-transaction-unit-test')?.name = 'tcc-transaction-unit-test'
 

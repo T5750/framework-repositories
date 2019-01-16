@@ -31,3 +31,4 @@ classes
 .idea*.zip
 ### *.log & *.log.* ###
 *.log*
+.dubbo
