@@ -203,12 +203,12 @@ TemporaryTopic create Temporary Topic();
 ## 4.1 高级主题（p2p）
 p2p的过程理解起来更加简单。它好比是两个人打电话，这两个人是独享这一条通信链路的。一方发送消息，另外一方接收，就这么简单。在实际应用中因为有多个用户对使用p2p的链路，它的通信场景如下图所示：
 
-![activemq-p2p-min](http://www.wailian.work/images/2018/11/12/activemq-p2p-min.jpg)
+![activemq-p2p-min](https://www.wailian.work/images/2018/11/12/activemq-p2p-min.jpg)
 
 ## 4.2 高级主题（publish-subscribe）
 发布订阅模式有点类似于我们日常生活中订阅报纸。每年到年尾的时候，邮局就会发一本报纸集合让我们来选择订阅哪一个。在这个表里头列了所有出版发行的报纸，那么对于我们每一个订阅者来说，我们可以选择一份或者多份报纸。比如北京日报、潇湘晨报等。那么这些个我们订阅的报纸就相当于发布订阅模式里的topic。有很多个人订阅报纸，也有人可能和我订阅了相同的报纸。那么在这里相当于我们在同一个topic里注册了。对于一份报纸发行方来说，它和所有的订阅者就构成了一个1对多的关系。这种关系如下图所示：
 
-![activemq-topic-min](http://www.wailian.work/images/2018/11/12/activemq-topic-min.jpg)
+![activemq-topic-min](https://www.wailian.work/images/2018/11/12/activemq-topic-min.jpg)
 
 ## 4.3 高级主题（与Spring进行整合）
 使用Spring框架整合ActiveMQ，利用消息中间件，异步处理任务的机制，比如：异步消费数据、异步发送邮件、异步做查询操作等。

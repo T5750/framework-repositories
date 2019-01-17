@@ -38,7 +38,7 @@ public void completeOrder() {
 - 银行通知结果信息存储与驱动订单处理
 - 可以异步，但数据绝对不能丢，而且一定要记账成功
 
-![distributedTransactionFinal-min](http://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
+![distributedTransactionFinal-min](https://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
 
 设计分析维度：
 - 消息发送一致性的正向流程
@@ -48,7 +48,7 @@ public void completeOrder() {
 
 ### 1.1 可靠消息的最终一致性方案1（本地消息服务）
 
-![distributedTransactionFinalLocal-min](http://www.wailian.work/images/2019/01/14/distributedTransactionFinalLocal-min.jpg)
+![distributedTransactionFinalLocal-min](https://www.wailian.work/images/2019/01/14/distributedTransactionFinalLocal-min.jpg)
 
 优点：
 1. 消息时效性比较高
@@ -61,7 +61,7 @@ public void completeOrder() {
 1. 业务系统在使用关系型数据库的情况下，消息服务性能会受关系型数据库并发性能的局限
 
 ### 1.2 可靠消息的最终一致性方案2（独立消息服务）
-![distributedTransactionFinalConsistency-min](http://www.wailian.work/images/2019/01/11/distributedTransactionFinalConsistency-min.png)
+![distributedTransactionFinalConsistency-min](https://www.wailian.work/images/2019/01/11/distributedTransactionFinalConsistency-min.png)
 
 优点：
 1. 消息服务独立部署、独立维护、独立伸缩
@@ -103,7 +103,7 @@ public void completeOrder() {
 - 对应支付系统的商户通知业务场景
 - 按规律进行通知，不保证数据一定能通知成功，但会提供可查询操作接口进行核对
 
-![distributedTransactionMax-min](http://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
+![distributedTransactionMax-min](https://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
 
 ### 2.1 应用部署
 1. 导入数据库脚本：`rp_notify_record.sql`，`rp_notify_record_log.sql`
@@ -128,12 +128,49 @@ TCC（两阶段型、补偿型）
 - 对应支付系统的订单账户操作：订单处理、资金账户处理、积分账户处理
 - 实时性要求比较高，数据必须可靠
 
-![distributedTransactionTCC-min](http://www.wailian.work/images/2019/01/08/distributedTransactionTCC-min.png)
+![distributedTransactionTCC-min](https://www.wailian.work/images/2019/01/08/distributedTransactionTCC-min.png)
+
+### 3.1 样例部署
+- [tcc-transaction 1.1.5](https://github.com/changmingxie/tcc-transaction/tree/master) 优点：框架的工程结构清晰、轻量、有持续维护更新、社区活跃、有比较完善的应用样例、文档比较完善
+- `tcc-transaction`项目工程结构：
+
+Module | Comment
+----|----
+`tcc-transaction-api` | 框架核心工程
+`tcc-transaction-core` | 框架核心工程
+`tcc-transaction-server` | 事务活动日志管理
+`tcc-transaction-spring` | 框架核心工程
+`tcc-transaction-tutorial-sample` | 结合Dubbo的使用样例
+`tcc-transaction-unit-test` | 单元测试工程
+
+1. 准备环境：Dubbo注册中心、Dubbo管控台、MySQL数据库、应用部署脚本
+1. 调整项目配置：JDBC配置、服务注册中心配置、Maven库配置
+1. 导入数据库脚本（建库、建表）：`create_db_cap.sql`，`create_db_ord.sql`，`create_db_red.sql`，`create_db_tcc.sql`
+1. 部署服务（要用到Dubbo注册）：
+    - `tcc-transaction-dubbo-order`（业务订单服务，主服务）
+    - `tcc-transaction-dubbo-capital`（资金账户服务，从服务）
+    - `tcc-transaction-dubbo-redpacket`（红包账户服务，从服务）
+1. 部署服务消费端：`tcc-transaction-dubbo-web-trade`
+
+### 2.2 应用部署与测试
+1. 更新TCC方案代码
+1. 建库、建表、准备应用部署脚本
+1. 更新部署服务（TCC）
+    - `pay-service-trade`（交易服务，主服务）
+    - `pay-service-account`（账户服务，从服务）
+    - `pay-service-point`（积分服务，从服务）
+1. TCC方案验证测试
+
+### 2.3 处理流程
+- Try流程：主服务A（交易服务）、从服务B（资金账户服务）、从服务C（积分账户服务）
+- Confirm流程：主服务、从服务
+- Cancel流程：主服务、从服务
+- 异常处理流程：Try、Confirm、Cancel
 
 ## 实战应用场景
 在支付系统中的实战应用场景
 
-![distributedTransactionInAction-min](http://www.wailian.work/images/2019/01/08/distributedTransactionInAction-min.png)
+![distributedTransactionInAction-min](https://www.wailian.work/images/2019/01/17/distributedTransactionInAction-min.png)
 
 可靠消息服务方案的特点：
 1. 可独立部署、独立伸缩（扩展性）；
@@ -149,7 +186,7 @@ TCC方案的特点：
 1. 适用于执行时间较短的业务。
 
 ## 可靠消息的生产与消费的正向流程
-![distributedTransactionQueue-min](http://www.wailian.work/images/2019/01/11/distributedTransactionQueue-min.png)
+![distributedTransactionQueue-min](https://www.wailian.work/images/2019/01/11/distributedTransactionQueue-min.png)
 
 1. 主动方应用先把消息发给消息中间件，消息状态标记为“待确认”；
 2. 消息中间件收到消息后，把消息持久化到消息存储中，但并不向被动方应用投递消息；

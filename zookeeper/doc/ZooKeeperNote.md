@@ -23,8 +23,8 @@ ZooKeeper分布式一致性算法：
 ## 1.3 ZooKeeper的结构
 ZooKeeper会维护一个具有层次关系的数据结构，它非常类似于一个标准的文件系统。
 
-![ZooKeeper-node-min](http://www.wailian.work/images/2018/11/14/ZooKeeper-node-min.png)
-![ZooKeeper-stru-min](http://www.wailian.work/images/2018/11/14/ZooKeeper-stru-min.png)
+![ZooKeeper-node-min](https://www.wailian.work/images/2018/11/14/ZooKeeper-node-min.png)
+![ZooKeeper-stru-min](https://www.wailian.work/images/2018/11/14/ZooKeeper-stru-min.png)
 
 ## 1.4 ZooKeeper的数据模型
 1. 每个子目录项如`NameService`都被称作为znode，这个znode是被它所在的路径唯一标识，如`Server1`这个znode的标识为`/NameService/Server1`

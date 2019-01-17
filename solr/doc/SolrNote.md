@@ -11,7 +11,7 @@
 - Solr可以独立运行，运行在Jetty、Tomcat等Servlet容器中，Solr索引的实现方法很简单，用POST方法向Solr服务器发送一个描述Field及其内容的XML文档，Solr根据XML文档添加、删除、更新索引。Solr搜索只需要发送HTTP GET请求，然后对Solr返回XML、json等格式的查询结果进行解析，组织页面布局。Solr不提供构建UI的功能，Solr提供了一个管理界面，通过管理界面可以查询Solr的配置和运行情况。
 
 ## 1.3 Solr示意图
-![solr-min](http://www.wailian.work/images/2018/11/16/solr-min.png)
+![solr-min](https://www.wailian.work/images/2018/11/16/solr-min.png)
 
 ## 1.4 Solr与Lucene区别
 - Lucene是一个开放源代码的全文检索引擎工具包，它不是一个完整的全文检索引擎。Lucene提供了完整的查询引擎和索引引擎，目的是为软件开发人员提供一个简单易用的工具包，以便在目标系统中实现全文检索的功能，或者以Lucene为基础构建全文检索引擎。
@@ -34,9 +34,9 @@
 ## 1.6 简单操作Solr服务器页面
 打开collection1进行添加数据测试
 
-![solr-documents-min](http://www.wailian.work/images/2018/11/20/solr-documents-min.png)
+![solr-documents-min](https://www.wailian.work/images/2018/11/20/solr-documents-min.png)
 
-![solr-query-min](http://www.wailian.work/images/2018/11/20/solr-query-min.png)
+![solr-query-min](https://www.wailian.work/images/2018/11/20/solr-query-min.png)
 
 ## 2.1 Java操作Solr服务器HelloWorld
 使用Java可以对Solr服务器进行操作。新建一个Solr的maven项目，对其进行演示。
@@ -80,13 +80,13 @@ HelloWorld程序：实现对Solr服务器的信息添加、查询、修改、删
 - 接下来，启动Solr：`/usr/local/apache-tomcat-7.0.29/bin/startup.sh`
 - 进入页面在分词器选择ik中文分词器，进行输入：`互联网应用架构`。查看分词结果如图所示：
 
-![solr-analysis-min](http://www.wailian.work/images/2018/11/20/solr-analysis-min.png)
+![solr-analysis-min](https://www.wailian.work/images/2018/11/20/solr-analysis-min.png)
 
 如果想自定义一些词库，让IK分词器可以识别，那么就需要自定义扩展词库了。操作步骤：
 1. 修改`/usr/local/apache-tomcat-7.0.29/webapps/solr/WEB-INF/classes/IKAnalyzer.cfg.xml`目录下的`IKAnalyzer.cfg.xml`配置文件，添加如下配置：`<entry key="ext_dict">ext.dic;</entry>`
 1. 新建`ext.dic`文件，在里面添加内容：`互联网应用`（注意：`ext.dic`的编码必须是`Encode in UTF-8 without BOM`，否则自定义的词库不会被识别）
 
-![solr-analysis-ext-min](http://www.wailian.work/images/2018/11/20/solr-analysis-ext-min.png)
+![solr-analysis-ext-min](https://www.wailian.work/images/2018/11/20/solr-analysis-ext-min.png)
 
 ## 2.4 Solr基础
 - 因为Solr包装并扩展了Lucene，所以它们使用很多相同的术语。更重要的是，Solr创建的索引与Lucene搜索引擎库完全兼容。通过对Solr进行适当的配置，某些情况下可能需要进行编码，Solr可以阅读和使用构建到其它Lucene应用程序中的索引。

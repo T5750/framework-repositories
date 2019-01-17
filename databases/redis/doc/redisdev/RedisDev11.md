@@ -56,7 +56,7 @@ LRU/LFU/FIFO算法剔除 | 最差 | 低
 - 代码维护。全部数据的优势更加明显，而部分数据一旦要加新字段需要修改业务代码，而且修改后通常还需要刷新缓存数据。
 
 ### 11.4　穿透优化
-![redis-miss-min](http://www.wailian.work/images/2018/10/29/redis-miss-min.png)
+![redis-miss-min](https://www.wailian.work/images/2018/10/29/redis-miss-min.png)
 
 缓存穿透是指查询一个根本不存在的数据，缓存层和存储层都不会命中，通常出于容错的考虑，如果从存储层查不到数据则不写入缓存层。
 
@@ -70,7 +70,7 @@ LRU/LFU/FIFO算法剔除 | 最差 | 低
 
 #### 1.缓存空对象
 
-![redis-miss-null-min](http://www.wailian.work/images/2018/10/29/redis-miss-null-min.png)
+![redis-miss-null-min](https://www.wailian.work/images/2018/10/29/redis-miss-null-min.png)
 
 缓存空对象会有两个问题：
 1. 空值做了缓存，意味着缓存层中存了更多的键，需要更多的内存空间（如果是攻击，问题更严重），比较有效的方法是针对这类数据设置一个较短的过期时间，让其自动剔除。
@@ -100,7 +100,7 @@ String get(String key) {
 
 #### 2.布隆过滤器拦截
 
-![redis-miss-bloomFilter-min](http://www.wailian.work/images/2018/10/29/redis-miss-bloomFilter-min.png)
+![redis-miss-bloomFilter-min](https://www.wailian.work/images/2018/10/29/redis-miss-bloomFilter-min.png)
 
 在访问缓存层和存储层之前，将存在的key用布隆过滤器提前保存起来，做第一层拦截。例如：一个推荐系统有4亿个用户id，每个小时算法工程师会根据每个用户之前历史行为计算出推荐数据放到存储层中，但是最新的用户由于没有历史行为，就会发生缓存穿透的行为，为此可以将所有推荐数据的用户做成布隆过滤器。如果布隆过滤器认为该用户id不存在，那么就不会访问存储层，在一定程度保护了存储层。
 
@@ -133,7 +133,7 @@ String get(String key) {
 - 客户端1次mget：1次网络+1次mget命令本身。
 
 #### 1.串行命令
-![redis-serialMget-min](http://www.wailian.work/images/2018/10/29/redis-serialMget-min.png)
+![redis-serialMget-min](https://www.wailian.work/images/2018/10/29/redis-serialMget-min.png)
 
 由于n个key是比较均匀地分布在Redis Cluster的各个节点上，因此无法使用mget命令一次性获取，所以通常来讲要获取n个key的值，最简单的方法就是逐次执行n个get命令，这种操作时间复杂度较高，`操作时间=n次网络时间+n次命令时间`，网络次数是n。很显然这种方案不是最优的，但是实现起来比较简单。
 
@@ -152,7 +152,7 @@ List<String> serialMGet(List<String> keys) {
 ```
 
 #### 2.串行IO
-![redis-serialIOMget-min](http://www.wailian.work/images/2018/10/29/redis-serialIOMget-min.png)
+![redis-serialIOMget-min](https://www.wailian.work/images/2018/10/29/redis-serialIOMget-min.png)
 
 Redis Cluster使用CRC16算法计算出散列值，再取对16383的余数就可以算出slot值，同时Smart客户端会保存slot和节点的对应关系，有了这两个数据就可以将属于同一个节点的key进行归档，得到每个节点的key子列表，之后对每个节点执行mget或者Pipeline操作，`操作时间=node次网络时间+n次命令时间`，网络次数是node的个数，很明显这种方案比第一种要好很多，但是如果节点数太多，还是有一定的性能问题。
 
@@ -196,7 +196,7 @@ Map<String, String> serialIOMget(List<String> keys) {
 ```
 
 #### 3.并行IO
-![redis-parallelIOMget-min](http://www.wailian.work/images/2018/10/29/redis-parallelIOMget-min.png)
+![redis-parallelIOMget-min](https://www.wailian.work/images/2018/10/29/redis-parallelIOMget-min.png)
 
 此方案是将方案2中的最后一步改为多线程执行，网络次数虽然还是节点个数，但由于使用多线程网络时间变为`O（1）`，这种方案会增加编程的复杂度。`操作时间=max_slow(node网络时间)+n次命令时间`。
 
@@ -217,11 +217,11 @@ Map<String, String> parallelIOMget(List<String> keys) {
 ```
 
 #### 4.hash_tag实现
-![redis-hash-tag-node-min](http://www.wailian.work/images/2018/10/29/redis-hash-tag-node-min.png)
+![redis-hash-tag-node-min](https://www.wailian.work/images/2018/10/29/redis-hash-tag-node-min.png)
 
 Redis Cluster的hash_tag功能可以将多个key强制分配到一个节点上，`操作时间=1次网络时间+n次命令时间`。所有key属于node2节点。
 
-![redis-hash-tag-min](http://www.wailian.work/images/2018/10/29/redis-hash-tag-min.png)
+![redis-hash-tag-min](https://www.wailian.work/images/2018/10/29/redis-hash-tag-min.png)
 
 Jedis客户端示例代码如下：
 ```
@@ -240,7 +240,7 @@ List<String> hashTagMget(String[] hashTagKeys) {
 hash_tag | 性能最高 | 业务维护成本较高，容易出现数据倾斜 | O(1)
 
 ### 11.6　雪崩优化
-![redis-stampeding-herd-min](http://www.wailian.work/images/2018/10/29/redis-stampeding-herd-min.png)
+![redis-stampeding-herd-min](https://www.wailian.work/images/2018/10/29/redis-stampeding-herd-min.png)
 
 缓存雪崩：由于缓存层承载着大量请求，有效地保护了存储层，但是如果缓存层由于某些原因不能提供服务，于是所有的请求都会达到存储层，存储层的调用量会暴增，造成存储层也会级联宕机的情况。缓存雪崩的英文原意是stampeding herd（奔逃的野牛），指的是缓存层宕掉后，流量会像奔逃的野牛一样，打向后端存储。
 
@@ -260,7 +260,7 @@ hash_tag | 性能最高 | 业务维护成本较高，容易出现数据倾斜 | 
 - 较少的潜在危险。
 
 #### 1.互斥锁（mutex key）
-![redis-setnx-min](http://www.wailian.work/images/2018/10/29/redis-setnx-min.png)
+![redis-setnx-min](https://www.wailian.work/images/2018/10/29/redis-setnx-min.png)
 
 此方法只允许一个线程重建缓存，其他线程等待重建缓存的线程执行完，重新从缓存获取数据即可。
 
@@ -292,7 +292,7 @@ String get(String key) {
 ```
 
 #### 2.永远不过期
-![redis-logicTimeout-min](http://www.wailian.work/images/2018/10/29/redis-logicTimeout-min.png)
+![redis-logicTimeout-min](https://www.wailian.work/images/2018/10/29/redis-logicTimeout-min.png)
 
 “永远不过期”包含两层意思：
 - 从缓存层面来看，确实没有设置过期时间，所以不会出现热点key过期后产生的问题，也就是“物理”不过期。

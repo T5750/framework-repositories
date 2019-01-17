@@ -1,7 +1,7 @@
 # nginx网摘笔记
 
 ## Keepalived+nginx+Tomcat实现高可用Web集群
-![nginx-keepalived-tomcat-min](http://www.wailian.work/images/2018/11/20/nginx-keepalived-tomcat-min.png)
+![nginx-keepalived-tomcat-min](https://www.wailian.work/images/2018/11/20/nginx-keepalived-tomcat-min.png)
 
 ### 配置说明
 - `state`：主服务器需配成`MASTER`，从服务器需配成`BACKUP`

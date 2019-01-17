@@ -1,7 +1,7 @@
 # Spring Boot
 
 ## Spring BeanLifeCycle
-![BeanLifeCycle-min](http://www.wailian.work/images/2018/11/05/BeanLifeCycle-min.png)
+![BeanLifeCycle-min](https://www.wailian.work/images/2018/11/05/BeanLifeCycle-min.png)
 
 Spring Bean的生命周期：
 - Bean容器找到配置文件中Spring Bean的定义。

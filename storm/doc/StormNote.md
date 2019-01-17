@@ -33,7 +33,7 @@ Storm是Twitter开源的一个分布式的实时计算系统，用于数据的�
 Storm是一个开源的分布式实时计算系统，可以简单、可靠的处理大量的数据流。Storm有很多使用场景：如实时分析，在线机器学习，持续计算，分布式RPC，ETL等等。Storm支持水平扩展，具有高容错性，保证每个消息都会得到处理，而且处理速度很快（在一个小集群中，每个结点每秒可以处理数以百万计的消息）。Storm的部署和运维都很便捷，而且更为重要的是可以使用任意编程询言来开发应用。
 
 ## 2.2 Storm架构图
-![storm-stru-min](http://www.wailian.work/images/2018/12/13/storm-stru-min.jpg)
+![storm-stru-min](https://www.wailian.work/images/2018/12/13/storm-stru-min.jpg)
 
 Nimbus主节点：
 - 主节点通常运行一个后台程序——Nimbus，用于响应分布在集群中的节点，分配任务和监测故障。这个很类似于Hadoop中的Job Tracker。
@@ -47,7 +47,7 @@ Zookeeper
 Topology（拓扑）
 - Storm中运行的一个实时应用程序，因为各个组件间的消息流动形成逻辑上的一个拓扑结构。一个topology是spouts和bolts组成的图，通过Stream Groupings将图中的spouts和bolts连接起来，如下图：
 
-![storm-flow-min](http://www.wailian.work/images/2018/12/13/storm-flow-min.png)
+![storm-flow-min](https://www.wailian.work/images/2018/12/13/storm-flow-min.png)
 
 ## 3.1 Storm集群环境搭建
 - [Storm集群安装配置](StormCluster.md)
@@ -58,7 +58,7 @@ Topology（拓扑）
 compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 ```
 
-![storm-process-min](http://www.wailian.work/images/2018/12/14/storm-process-min.png)
+![storm-process-min](https://www.wailian.work/images/2018/12/14/storm-process-min.png)
 
 - 首先，编写数据源类：Spout。可以使用2种方式：
     - 继承`BaseRichSpout`类
@@ -349,12 +349,12 @@ mystream.partitionBy(new Fields("username")).each(new Fields("username","text"),
 ```
 The `partitionBy` operation applies the `target partition = hash (fields) % (number of target partition)` formula to decide the target partition. As the preceding formula shows, the `partitionBy` operation calculates the hash of input fields to decide the target partition. Hence, it does not guarantee that all the tasks will get tuples to process. For example, if you have applied a `partitionBy` operation on a field, say X, with only two possible values, A and B, and created two tasks for the `myFilter` filter, then it is possible that both `hash (A) % 2` and `hash (B) % 2` are equal. This will result in all the tuples being routed to a single task and the other being completely idle. The following diagram shows how the input tuples are repartitioned using the `partitionBy` operation:
 
-![trident-partition-by-min](http://www.wailian.work/images/2018/12/20/trident-partition-by-min.png)
+![trident-partition-by-min](https://www.wailian.work/images/2018/12/20/trident-partition-by-min.png)
 
 ### The global operation
 The `global` repartitioning operation routes all tuples to the same partition. Hence, the same target partition is selected for all the batches in the stream. The following diagram shows how the tuples are repartitioned using the `global` operation:
 
-![trident-global-min](http://www.wailian.work/images/2018/12/20/trident-global-min.png)
+![trident-global-min](https://www.wailian.work/images/2018/12/20/trident-global-min.png)
 
 The following piece of code shows how we can use the `global` operation:
 ```
@@ -364,7 +364,7 @@ mystream.global().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
 ### The broadcast operation
 The `broadcast` operation is a special repartitioning operation that does not partition the tuples but replicates them to all partitions. The following is a diagram that shows how the tuples are sent over the network:
 
-![trident-global-min](http://www.wailian.work/images/2018/12/20/trident-global-min.png)
+![trident-global-min](https://www.wailian.work/images/2018/12/20/trident-global-min.png)
 
 The following piece of code shows how we can use the `broadcast` operation:
 ```
@@ -374,7 +374,7 @@ mystream.broadcast().each(new Fields("a","b"), new myFilter()).parallelismHint(2
 ### The batchGlobal operation
 This repartitioning operation routes all tuples that belong to one batch to the same target partition. The other batches of the same stream may go to a different partition. As the name suggests, this repartition is global at the batch level. The following diagram shows how the tuples are repartitioned using the `batchGlobal` operation:
 
-![trident-batch-global-min](http://www.wailian.work/images/2018/12/20/trident-batch-global-min.png)
+![trident-batch-global-min](https://www.wailian.work/images/2018/12/20/trident-batch-global-min.png)
 
 The following piece of code shows how we can use the `batchGlobal` operation:
 ```
