@@ -40,28 +40,31 @@ public class PayServiceTrade {
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 					"classpath:spring/spring-context.xml");
 			context.start();
-			final RpTransactionMessageService rpTransactionMessageService = (RpTransactionMessageService) context
-					.getBean("rpTransactionMessageService");
-			final RpTradePaymentOrderDao rpTradePaymentOrderDao = (RpTradePaymentOrderDao) context
-					.getBean("rpTradePaymentOrderDao");
-			final RpTradePaymentRecordDao rpTradePaymentRecordDao = (RpTradePaymentRecordDao) context
-					.getBean("rpTradePaymentRecordDao");
-			final IntClass intClass = new IntClass();
-			for (int i = 0; i < 10; i++) {// 线程数
-				new Thread(new Runnable() {
-					@Override
-					public void run() {
-						try {
-							creatTrade(rpTransactionMessageService,
-									rpTradePaymentOrderDao,
-									rpTradePaymentRecordDao);
-						} catch (ParseException e) {
-							System.err.println(e);
-						}
-					}
-				}).start();
-			}
-			log.info("========>创建完成");
+			// final RpTransactionMessageService rpTransactionMessageService =
+			// (RpTransactionMessageService) context
+			// .getBean("rpTransactionMessageService");
+			// final RpTradePaymentOrderDao rpTradePaymentOrderDao =
+			// (RpTradePaymentOrderDao) context
+			// .getBean("rpTradePaymentOrderDao");
+			// final RpTradePaymentRecordDao rpTradePaymentRecordDao =
+			// (RpTradePaymentRecordDao) context
+			// .getBean("rpTradePaymentRecordDao");
+			// final IntClass intClass = new IntClass();
+			// for (int i = 0; i < 10; i++) {// 线程数
+			// new Thread(new Runnable() {
+			// @Override
+			// public void run() {
+			// try {
+			// creatTrade(rpTransactionMessageService,
+			// rpTradePaymentOrderDao,
+			// rpTradePaymentRecordDao);
+			// } catch (ParseException e) {
+			// System.err.println(e);
+			// }
+			// }
+			// }).start();
+			// }
+			// log.info("========>创建完成");
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:", e);
 		}
@@ -76,18 +79,17 @@ public class PayServiceTrade {
 		}
 	}
 
-	static class IntClass {
-		Integer i;
-
-		public Integer getI() {
-			return i;
-		}
-
-		public void setI(Integer i) {
-			this.i = i;
-		}
-	}
-
+	// static class IntClass {
+	// Integer i;
+	//
+	// public Integer getI() {
+	// return i;
+	// }
+	//
+	// public void setI(Integer i) {
+	// this.i = i;
+	// }
+	// }
 	private static void creatTrade(
 			RpTransactionMessageService rpTransactionMessageService,
 			RpTradePaymentOrderDao rpTradePaymentOrderDao,

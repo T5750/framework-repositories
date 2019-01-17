@@ -34,4 +34,7 @@
 	<import resource="classpath:spring/spring-mybatis.xml"/>
 	<import resource="classpath:spring/spring-dubbo-consumer.xml"/>
 	<import resource="classpath:spring/spring-dubbo-provider.xml"/>
+
+	<!-- TCC Transaction -->
+	<import resource="classpath:tcc-transaction.xml" />
 </beans>

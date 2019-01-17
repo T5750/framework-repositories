@@ -23,6 +23,8 @@ import t5750.pay.service.account.entity.RpAccountHistory;
 import t5750.pay.service.account.enums.AccountFundDirectionEnum;
 import t5750.pay.service.account.enums.AccountHistoryStatusEnum;
 import t5750.pay.service.account.exceptions.AccountBizException;
+import t5750.tcctransaction.Compensable;
+import t5750.tcctransaction.api.TransactionContext;
 
 /**
  * @类功能说明： 账户操作service实现类 @版本：V1.0
@@ -143,6 +145,146 @@ public class RpAccountTransactionServiceImpl implements
 		this.rpAccountDao.update(account);
 		LOG.info("账户加款成功，并记录了账户历史");
 		return account;
+	}
+
+	/**
+	 * 加款:有银行流水
+	 *
+	 * @param userNo
+	 *            用户编号
+	 * @param amount
+	 *            加款金额
+	 * @param requestNo
+	 *            请求号
+	 * @param trxType
+	 *            业务类型
+	 * @param remark
+	 *            备注
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Compensable(confirmMethod = "confirmCreditToAccountTcc", cancelMethod = "cancelCreditToAccountTcc")
+	public void creditToAccountTcc(TransactionContext transactionContext,
+			String userNo, BigDecimal amount, String requestNo,
+			String bankTrxNo, String trxType, String remark) {
+		LOG.info("===>creditToAccountTcc TRYING begin");
+		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);
+		if (account == null) {
+			throw AccountBizException.ACCOUNT_NOT_EXIT;
+		}
+		String completeSett = PublicEnum.NO.name();
+		String isAllowSett = PublicEnum.YES.name();
+		// 通过请求号唯一来做幂等判断
+		RpAccountHistory accountHistoryEntity = rpAccountHistoryDao
+				.getByRequestNo(requestNo);
+		if (accountHistoryEntity == null) {// 如果账户历史为空,则创建数据,否则,不创建账户历史 防止多次提交
+			// 记录账户历史
+			accountHistoryEntity = new RpAccountHistory();
+			accountHistoryEntity.setCreateTime(new Date());
+			accountHistoryEntity.setEditTime(new Date());
+			accountHistoryEntity.setIsAllowSett(isAllowSett);
+			accountHistoryEntity.setAmount(amount);
+			accountHistoryEntity.setBalance(account.getBalance());
+			accountHistoryEntity.setRequestNo(requestNo);
+			accountHistoryEntity.setBankTrxNo(bankTrxNo);
+			accountHistoryEntity.setIsCompleteSett(completeSett);
+			accountHistoryEntity.setRemark(remark);
+			accountHistoryEntity.setFundDirection(AccountFundDirectionEnum.ADD
+					.name());
+			accountHistoryEntity.setAccountNo(account.getAccountNo());
+			accountHistoryEntity.setTrxType(trxType);
+			accountHistoryEntity.setId(StringUtil.get32UUID());
+			accountHistoryEntity.setUserNo(userNo);
+			// 状态为TRYING（业务表设计上要有对应的状态为配合TCC的状态）
+			accountHistoryEntity.setStatus(AccountHistoryStatusEnum.TRYING
+					.name());
+			this.rpAccountHistoryDao.insert(accountHistoryEntity);
+		} else if (AccountHistoryStatusEnum.CANCEL.name().equals(
+				accountHistoryEntity.getStatus())) {
+			// 如果是取消的,有可能是之前的业务出现异常问题而取消,那么重试阶段,再将状态更新为TYING状态,而不是重新创建一条
+			LOG.info("之前因为业务问题取消后,又重试的{}", accountHistoryEntity.getBankTrxNo());
+			accountHistoryEntity.setStatus(AccountHistoryStatusEnum.TRYING
+					.name());
+			this.rpAccountHistoryDao.update(accountHistoryEntity);
+		}
+		LOG.info("===>creditToAccountTcc TRYING end");
+	}
+
+	/**
+	 * 资金账户加款确认阶段
+	 * 
+	 * @param transactionContext
+	 * @param userNo
+	 * @param amount
+	 * @param requestNo
+	 * @param bankTrxNo
+	 * @param trxType
+	 * @param remark
+	 * @return
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	public void confirmCreditToAccountTcc(
+			TransactionContext transactionContext, String userNo,
+			BigDecimal amount, String requestNo, String bankTrxNo,
+			String trxType, String remark) {
+		LOG.info("===>confirmCreditToAccountTcc begin");
+		RpAccountHistory rpAccountHistory = rpAccountHistoryDao
+				.getByRequestNo(requestNo);
+		// 幂等判断
+		if (rpAccountHistory == null
+				|| !AccountHistoryStatusEnum.TRYING.name().equals(
+						rpAccountHistory.getStatus())) {
+			// 如果账户历史为空,或者状态为非TRYING中的,就不执行确认操作
+			return;
+		}
+		rpAccountHistory.setStatus(AccountHistoryStatusEnum.CONFORM.name()); // 设置状态为CONFORM
+		rpAccountHistoryDao.update(rpAccountHistory);
+		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);
+		if (account == null) {
+			throw AccountBizException.ACCOUNT_NOT_EXIT;
+		}
+		Date lastModifyDate = account.getEditTime();
+		// 不是同一天直接清0
+		if (!DateUtils.isSameDayWithToday(lastModifyDate)) {
+			account.setTodayExpend(BigDecimal.ZERO);
+			account.setTodayIncome(BigDecimal.ZERO);
+		}
+		// 总收益累加和今日收益
+		if (TrxTypeEnum.EXPENSE.name().equals(trxType)) {// 业务类型是交易
+			account.setTotalIncome(account.getTotalIncome().add(amount));
+			/***** 根据上次修改时间，统计今日收益 *******/
+			if (DateUtils.isSameDayWithToday(lastModifyDate)) {
+				// 如果是同一天
+				account.setTodayIncome(account.getTodayIncome().add(amount));
+			} else {
+				// 不是同一天
+				account.setTodayIncome(amount);
+			}
+			/************************************/
+		}
+		/** 设置余额的值 **/
+		account.setBalance(account.getBalance().add(amount));
+		account.setEditTime(new Date());
+		this.rpAccountDao.update(account);
+		LOG.info("===>confirmCreditToAccountTcc end");
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public void cancelCreditToAccountTcc(TransactionContext transactionContext,
+			String userNo, BigDecimal amount, String requestNo,
+			String bankTrxNo, String trxType, String remark) {
+		LOG.info("===>cancelCreditToAccountTcc begin");
+		RpAccountHistory rpAccountHistory = rpAccountHistoryDao
+				.getByRequestNo(requestNo);
+		// 幂等判断
+		if (rpAccountHistory == null
+				|| !AccountHistoryStatusEnum.TRYING.name().equals(
+						rpAccountHistory.getStatus())) {// 如果账户历史为空,或者状态为非TRYING中的,就不执行确认操作
+			return;
+		}
+		rpAccountHistory.setStatus(AccountHistoryStatusEnum.CANCEL.name());// 设置状态为取消状态
+		rpAccountHistory.setIsAllowSett(PublicEnum.NO.name());// 设置为不可结算
+		rpAccountHistoryDao.update(rpAccountHistory);
+		LOG.info("===>cancelCreditToAccountTcc end");
 	}
 
 	/**

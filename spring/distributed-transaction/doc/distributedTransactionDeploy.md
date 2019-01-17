@@ -17,8 +17,9 @@ Service | Dubbo Port
 `PayServiceAccounting` | 20882
 `PayServiceMessage` | 20888
 `PayServiceNotify` | 20883
-`PayServiceTrade` | 20886
+`PayServicePoint` | 20884
 `PayServiceUser` | 20887
+`PayServiceTrade` | 20886
 
 ## app
 - `PayAppMessageTask`

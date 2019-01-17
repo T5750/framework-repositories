@@ -23,8 +23,7 @@
 	<dubbo:reference interface="t5750.pay.service.account.api.RpAccountTransactionService"
 					 id="rpAccountTransactionService" check="false"/>
 
-	<!--<dubbo:reference interface="t5750.pay.service.point.api.RpPointAccountService" id="rpPointAccountService"
-					 check="false"/>-->
+	<dubbo:reference interface="t5750.pay.service.point.api.RpPointAccountService" id="rpPointAccountService" check="false" />
 
 	<!-- 消息 -->
 	<!--<dubbo:reference interface="t5750.pay.service.message.api.RpTransactionMessageService" id="rpTransactionMessageService" check="false"/>-->

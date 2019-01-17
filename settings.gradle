@@ -55,6 +55,8 @@ include 'spring:distributed-transaction:pay-service-notify-api'
 findProject(':spring:distributed-transaction:pay-service-notify-api')?.name = 'pay-service-notify-api'
 include 'spring:distributed-transaction:pay-service-user-api'
 findProject(':spring:distributed-transaction:pay-service-user-api')?.name = 'pay-service-user-api'
+include 'spring:distributed-transaction:pay-service-point-api'
+findProject(':spring:distributed-transaction:pay-service-point-api')?.name = 'pay-service-point-api'
 /*service*/
 include 'spring:distributed-transaction:pay-service-message'
 findProject(':spring:distributed-transaction:pay-service-message')?.name = 'pay-service-message'
@@ -68,6 +70,8 @@ include 'spring:distributed-transaction:pay-service-trade'
 findProject(':spring:distributed-transaction:pay-service-trade')?.name = 'pay-service-trade'
 include 'spring:distributed-transaction:pay-service-user'
 findProject(':spring:distributed-transaction:pay-service-user')?.name = 'pay-service-user'
+include 'spring:distributed-transaction:pay-service-point'
+findProject(':spring:distributed-transaction:pay-service-point')?.name = 'pay-service-point'
 /*app*/
 include 'spring:distributed-transaction:pay-app-message'
 findProject(':spring:distributed-transaction:pay-app-message')?.name = 'pay-app-message'
@@ -84,7 +88,7 @@ include 'spring:distributed-transaction:pay-web-gateway'
 findProject(':spring:distributed-transaction:pay-web-gateway')?.name = 'pay-web-gateway'
 include 'spring:distributed-transaction:pay-web-sample-shop'
 findProject(':spring:distributed-transaction:pay-web-sample-shop')?.name = 'pay-web-sample-shop'
-/*tcc-transaction*/
+/*tcc-transaction begin*/
 include 'spring:tcc-transaction'
 findProject(':spring:tcc-transaction')?.name = 'tcc-transaction'
 include 'spring:tcc-transaction:tcc-transaction-core'
@@ -111,4 +115,4 @@ include 'spring:tcc-transaction:tcc-transaction-dubbo-web-trade'
 findProject(':spring:tcc-transaction:tcc-transaction-dubbo-web-trade')?.name = 'tcc-transaction-dubbo-web-trade'
 include 'spring:tcc-transaction:tcc-transaction-unit-test'
 findProject(':spring:tcc-transaction:tcc-transaction-unit-test')?.name = 'tcc-transaction-unit-test'
-
+/*tcc-transaction end*/
