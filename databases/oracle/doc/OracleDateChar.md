@@ -1,7 +1,7 @@
 # Oracle中TO_DATE TO_CHAR格式
 
 ## TO_CHAR
-使用`TO_CHAR`函数处理数字：`TO_CHAR(number, '格式');`
+使用`TO_CHAR`函数处理数字：`TO_CHAR(number,'格式');`
 
 `TO_CHAR(salary,'$99,999.99');`
 
@@ -54,7 +54,7 @@ SQL | Result | Comment
 `TO_CHAR(SYSTIMESTAMP,'YY')` | 09
 
 ## TO_DATE
-使用`TO_DATE`函数将字符转换为日期：`TO_DATE(date, '格式')`
+使用`TO_DATE`函数将字符转换为日期：`TO_DATE(date,'格式')`
 
 格式控制 | 描述
 ----|----
@@ -74,13 +74,13 @@ SQL | Result | Comment
 `TH` | 数字的序数词
 
 ```
-SELECT TO_DATE('11:25:34', 'HH12:MI:SS AM') FROM DUAL;
-SELECT TO_DATE('2006-05-01 19:25:34', 'YYYY-MM-DD HH24:MI:SS') FROM DUAL;
-SELECT TO_DATE('2006-05-01 19:25', 'YYYY-MM-DD HH24:MI') FROM DUAL;
-SELECT TO_DATE('2006-05-01 19', 'YYYY-MM-DD HH24') FROM DUAL;
-SELECT TO_DATE('2006-05-01', 'YYYY-MM-DD') FROM DUAL;
-SELECT TO_DATE('2006-05', 'YYYY-MM') FROM DUAL;
-SELECT TO_DATE('2006', 'YYYY') FROM DUAL;
+SELECT TO_DATE('11:25:34','HH12:MI:SS AM') FROM DUAL;
+SELECT TO_DATE('2006-05-01 19:25:34','YYYY-MM-DD HH24:MI:SS') FROM DUAL;
+SELECT TO_DATE('2006-05-01 19:25','YYYY-MM-DD HH24:MI') FROM DUAL;
+SELECT TO_DATE('2006-05-01 19','YYYY-MM-DD HH24') FROM DUAL;
+SELECT TO_DATE('2006-05-01','YYYY-MM-DD') FROM DUAL;
+SELECT TO_DATE('2006-05','YYYY-MM') FROM DUAL;
+SELECT TO_DATE('2006','YYYY') FROM DUAL;
 ```
 
 日期说明：
@@ -89,7 +89,7 @@ SELECT TO_DATE('2006', 'YYYY') FROM DUAL;
 - 但是，不要被这种“惯性”所迷惑，如果忽略`MM`参数，Oracle并不会取整到年，取整到当前月。
 
 ## TO_NUMBER
-使用`TO_NUMBER`函数将字符转换为数字：`TO_NUMBER(number, '格式')`
+使用`TO_NUMBER`函数将字符转换为数字：`TO_NUMBER(number,'格式')`
 
 数字格式 | 格式
 ----|----
@@ -103,10 +103,10 @@ SELECT TO_DATE('2006', 'YYYY') FROM DUAL;
 ## 注意
 1. 在使用Oracle的`TO_DATE`函数来做日期转换时，可能会直觉地采用`yyyy-MM-dd HH:mm:ss`的格式作为格式进行转换，但是在Oracle中会引起错误：“ORA 01810 格式代码出现两次”。如：`select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mm:ss') from dual;`原因是SQL中不区分大小写，`MM`和`mm`被认为是相同的格式代码，所以Oracle的SQL采用了`mi`代替分钟。`select to_date('2005-01-01 13:14:20','yyyy-MM-dd HH24:mi:ss') from dual;`
 2. 另要以24小时的形式显示出来要用`HH24`
-```
-SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS') FROM DUAL;//MI是分钟
-SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MM:SS') FROM DUAL;//MM会显示月份
-```
+	```
+	SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS') FROM DUAL;// MI是分钟
+	SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MM:SS') FROM DUAL;// MM会显示月份
+	```
 
 ## References
 - [Oracle中TO_DATE TO_CHAR格式](https://blog.csdn.net/delphi308/article/details/25654455)
