@@ -116,3 +116,6 @@ findProject(':spring:tcc-transaction:tcc-transaction-dubbo-web-trade')?.name = '
 include 'spring:tcc-transaction:tcc-transaction-unit-test'
 findProject(':spring:tcc-transaction:tcc-transaction-unit-test')?.name = 'tcc-transaction-unit-test'
 /*tcc-transaction end*/
+include 'databases:oracle'
+findProject(':databases:oracle')?.name = 'oracle'
+
