@@ -32,6 +32,9 @@ public void completeOrder() {
 }
 ```
 
+## 分布式事务解决方案介绍
+[分布式事务解决方案介绍](distributedTransactionIntroduction.md)
+
 ## 1 可靠消息的最终一致性方案
 异步确保型（可靠消息最终一致）
 - 对应支付系统会计异步记账业务
