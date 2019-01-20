@@ -100,6 +100,68 @@ SELECT * FROM A MINUS SELECT * FROM B;
 SELECT * FROM B MINUS SELECT * FROM A;
 ```
 
+## 1.7 子查询
+非关联子查询：主查询和子查询是相对独立的，唯一的，子查询查询结果和主查询进行比较
+```
+SELECT A.ENAME, A.SAL FROM EMP A WHERE A.DEPTNO= (SELECTB.DEPTNO FROM DEPT B WHERE B.LOC = 'NEW YORK');
+```
+关联子查询：主查询和子查询是产生关联关系的主查询的一个列字段代入到子查询中进行比较
+```
+SELECT A.DEPTNO, (SELECT B.LOC FROM DEPT B WHERE B.DEPTNO =A.DEPTNO) FROM EMP A;
+```
+`IN`和`EXISTS`，`IN`是做全表扫描，`EXISTS`是做是否存在，非全表扫描。
+- 查询属于领导（大小领导都算）的员工。答案：`SELECT * FROM EMP A WHERE EXISTS (SELECT 1 FROM EMP B WHERE B.MGR=A.EMPNO);`
+- 查询哪个部门不存在员工的部门信息。答案：`SELECT * FROM DEPT D WHERE NOT EXISTS (SELECT 1 FROM EMP E WHERE E.DEPTNO=D.DEPTNO);`
+
+## 1.8 ROWNUM使用
+使用`ROWNUM`需要注意：使用`<`可以查询结果，使用`>`没有结果，必须使用别名的形式查询`>`才能有结果
+- 查询前小于5的记录。答案：`SELECT * FROM EMP WHERE ROWNUM < 5;`
+- 查询大于5的记录数。答案：`SELECT * FROM (SELECT E.*,ROWNUM AS RN FROM EMP E) WHERE RN>5;`
+- 查询薪水前三名。答案：`SELECT * FROM (SELECT * FROM EMP ORDER BY SAL DESC)WHERE ROWNUM <=3;`
+- 分页查询5-10条数据。答案：`SELECT * FROM (SELECT EMP.*,ROWNUM RN FROM EMP) A WHERE A.RN BETWEEN 5 AND 10;`
+
+## 2.1 CT和IS
+`SELECT INTO`和`INSERT INTO SELECT`两种表复制语句
+- CT：`create table <new table> as select * from <exists table>`
+- 要求目标表不存在，因为在插入时会自动创建表，并格查询表中指定字段数据复制到新建的表中
+- IS：`insert into table2 (f1,f2,...) select v1,2,... from table1`
+- 要求目标表table2必须存在，由于目标表table2已经存在，所以除了插入源表table1的字段外，还可以插入常量
+
+## 2.2 MERGE用法
+MERGE INTO用法：
+```
+merge into 表A
+using 与表A产生关联字段值
+on 进行和表A关联
+    when matched then
+        update set...
+    when not matched then
+        insert (...) values ...
+```
+
+## 2.3 递归函数
+`START WITH CONNECT BY`是Oracle提供的递归查询（分层查询）函数，非常的好用，在进行递归遍历树形结构的时候可以使用。
+```
+start with（从某个节点id开始）
+connect by prior（子节点id和父节点pid之间的关系需要）
+```
+形如：
+```
+SELECT * FROM EMP
+START WITH EMPNO=7369
+CONNECT BY PRIOR MGR=EMPNO;（父节点=子节点向上查询，反之向下查询）
+```
+可以添加WHERE条件限制。可以指定多个起始节点查询。可以进行排序。
+
+## 2.4 分析函数
+- `over`函数
+- `over partition by`组合
+- `over partition by order by`组合
+- `row_number`函数
+- `rollup`函数
+- `cube`函数
+- `grouping`函数
+
 
 ## References
 - Oracle
