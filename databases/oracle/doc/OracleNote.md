@@ -21,7 +21,6 @@
 所接触了解最多的是关系型数据库，如Oracle、MySQL、DB2、SQLServer等，这些数据库你不可能每种都精通，但是如果你学会了Oracle，那么其它的数据库学习起来就相对的容易很多。在关系数据中，Oracle也是最复杂、最博大精深的。
 
 ## 1.1 数据库语言
-
 数据操作语言：DML(data manipulation language)
 - `select insert update delete merge`
 
@@ -103,7 +102,7 @@ SELECT * FROM B MINUS SELECT * FROM A;
 ## 1.7 子查询
 非关联子查询：主查询和子查询是相对独立的，唯一的，子查询查询结果和主查询进行比较
 ```
-SELECT A.ENAME, A.SAL FROM EMP A WHERE A.DEPTNO= (SELECTB.DEPTNO FROM DEPT B WHERE B.LOC = 'NEW YORK');
+SELECT A.ENAME, A.SAL FROM EMP A WHERE A.DEPTNO= (SELECT B.DEPTNO FROM DEPT B WHERE B.LOC = 'NEW YORK');
 ```
 关联子查询：主查询和子查询是产生关联关系的主查询的一个列字段代入到子查询中进行比较
 ```
@@ -165,3 +164,4 @@ CONNECT BY PRIOR MGR=EMPNO;（父节点=子节点向上查询，反之向下查�
 
 ## References
 - Oracle
+- [EMP and DEPT](https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html)
