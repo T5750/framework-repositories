@@ -2,21 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50718
+Source Server Version : 50638
 Source Host           : localhost:3306
 Source Database       : pay_dubbo_base
 
 Target Server Type    : MYSQL
-Target Server Version : 50718
+Target Server Version : 50638
 File Encoding         : 65001
 
-Date: 2019-01-06 16:15:53
+Date: 2019-01-21 16:02:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for rp_notify_record
+-- Table structure for `rp_notify_record`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_notify_record`;
 CREATE TABLE `rp_notify_record` (
@@ -40,11 +40,9 @@ CREATE TABLE `rp_notify_record` (
 -- ----------------------------
 -- Records of rp_notify_record
 -- ----------------------------
-INSERT INTO `rp_notify_record` VALUES ('08f57b13cd924383ad71160b0f30b82a', '0', '2019-01-06 16:05:27', null, null, '2019-01-06 16:05:28', '1', '5', 'http://127.0.0.1:8083/pay-web-sample-shop/microPayNotify/notify?field1=扩展字段1&field2=扩展字段2&field3=扩展字段3&field4=扩展字段4&field5=扩展字段5&orderDate=20190106&orderNo=pt92019010616051200&orderPrice=10.000000&orderTime=20190106160512&payKey=4c52295065654407b42797cda80dd07d&payWayCode=TEST_PAY_HTTP_CLIENT&productName=模拟支付网关支付产品&remark=支付备注&tradeStatus=SUCCESS&sign=2155C5AB28DC6F3B0FD01697AE3E9661', 'pt92019010616051200', '88882016071900000003', 'SUCCESS', 'MERCHANT');
-INSERT INTO `rp_notify_record` VALUES ('ff7a0ea9a7754de882988f95c1d6067b', '0', '2019-01-06 16:05:27', null, null, '2019-01-06 16:05:28', '1', '5', 'http://127.0.0.1:8083/pay-web-sample-shop/microPayNotify/notify?field1=扩展字段1&field2=扩展字段2&field3=扩展字段3&field4=扩展字段4&field5=扩展字段5&orderDate=20190106&orderNo=pt102019010616051200&orderPrice=10.000000&orderTime=20190106160512&payKey=abcf900288114d5fa7fde764966eb2ff&payWayCode=TEST_PAY_HTTP_CLIENT&productName=模拟支付网关支付产品&remark=支付备注&tradeStatus=SUCCESS&sign=BFB59CBDA934B62CBFBD20696AA27AB6', 'pt102019010616051200', '88882016072200000005', 'SUCCESS', 'MERCHANT');
 
 -- ----------------------------
--- Table structure for rp_notify_record_log
+-- Table structure for `rp_notify_record_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_notify_record_log`;
 CREATE TABLE `rp_notify_record_log` (
@@ -66,11 +64,9 @@ CREATE TABLE `rp_notify_record_log` (
 -- ----------------------------
 -- Records of rp_notify_record_log
 -- ----------------------------
-INSERT INTO `rp_notify_record_log` VALUES ('509d3e3733d24fb08b8f565ca74d0dc8', '0', null, null, '2019-01-06 16:05:28', '2019-01-06 16:05:28', 'ff7a0ea9a7754de882988f95c1d6067b', 'http://127.0.0.1:8083/pay-web-sample-shop/microPayNotify/notify?field1=扩展字段1&field2=扩展字段2&field3=扩展字段3&field4=扩展字段4&field5=扩展字段5&orderDate=20190106&orderNo=pt102019010616051200&orderPrice=10.000000&orderTime=20190106160512&payKey=abcf900288114d5fa7fde764966eb2ff&payWayCode=TEST_PAY_HTTP_CLIENT&productName=模拟支付网关支付产品&remark=支付备注&tradeStatus=SUCCESS&sign=BFB59CBDA934B62CBFBD20696AA27AB6', 'success', '88882016072200000005', 'pt102019010616051200', '200');
-INSERT INTO `rp_notify_record_log` VALUES ('b4b3c82c3f0d4a33b22bc1190f5d7a9d', '0', null, null, '2019-01-06 16:05:28', '2019-01-06 16:05:28', '08f57b13cd924383ad71160b0f30b82a', 'http://127.0.0.1:8083/pay-web-sample-shop/microPayNotify/notify?field1=扩展字段1&field2=扩展字段2&field3=扩展字段3&field4=扩展字段4&field5=扩展字段5&orderDate=20190106&orderNo=pt92019010616051200&orderPrice=10.000000&orderTime=20190106160512&payKey=4c52295065654407b42797cda80dd07d&payWayCode=TEST_PAY_HTTP_CLIENT&productName=模拟支付网关支付产品&remark=支付备注&tradeStatus=SUCCESS&sign=2155C5AB28DC6F3B0FD01697AE3E9661', 'success', '88882016071900000003', 'pt92019010616051200', '200');
 
 -- ----------------------------
--- Table structure for rp_pay_product
+-- Table structure for `rp_pay_product`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_pay_product`;
 CREATE TABLE `rp_pay_product` (
@@ -93,7 +89,7 @@ INSERT INTO `rp_pay_product` VALUES ('7e496b1206714527863fa2cf3f836db5', '2016-0
 INSERT INTO `rp_pay_product` VALUES ('ec7502bbf1894cb69ede121433594285', '2016-09-17 18:08:50', '2016-09-17 18:09:16', '0', 'UNACTIVE', 'BBB', 'BBB', 'NO');
 
 -- ----------------------------
--- Table structure for rp_pay_way
+-- Table structure for `rp_pay_way`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_pay_way`;
 CREATE TABLE `rp_pay_way` (
@@ -124,7 +120,7 @@ INSERT INTO `rp_pay_way` VALUES ('dcda9a88435e47b3b6d24df2c6358be1', '0', '2016-
 INSERT INTO `rp_pay_way` VALUES ('ff242c5f9c3e4ea7a857860e57f6ddd4', '0', '2016-07-19 18:52:29', null, 'WEIXIN', '微信', 'SCANPAY', '扫码支付', 'RC', 'ACTIVE', null, '0.8');
 
 -- ----------------------------
--- Table structure for rp_user_info
+-- Table structure for `rp_user_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_user_info`;
 CREATE TABLE `rp_user_info` (
@@ -148,7 +144,7 @@ INSERT INTO `rp_user_info` VALUES ('64b098ee76574c5681710b47d10bcd64', '2016-07-
 INSERT INTO `rp_user_info` VALUES ('c48f5ac8024a4547878b5708b311215c', '2016-07-19 16:55:09', 'ACTIVE', '88882016071900000003', 'bm', '99992016071900000003');
 
 -- ----------------------------
--- Table structure for rp_user_pay_config
+-- Table structure for `rp_user_pay_config`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_user_pay_config`;
 CREATE TABLE `rp_user_pay_config` (
@@ -181,7 +177,7 @@ INSERT INTO `rp_user_pay_config` VALUES ('c101c24326554b848f0f497234f129d7', '20
 INSERT INTO `rp_user_pay_config` VALUES ('e510d10eed13497d9fafb492688d09d3', '2016-07-24 20:23:11', null, '0', null, 'ACTIVE', 'YES', 'NO', 'RC', 'RC', '88882016072400000006', 'mk', '1', 'ca6577dff6d647ac882dfb405ceda21e', 'PLAT_RECEIVES', '1b8da6c9b7544856955fcff6bf920f84');
 
 -- ----------------------------
--- Table structure for rp_user_pay_info
+-- Table structure for `rp_user_pay_info`
 -- ----------------------------
 DROP TABLE IF EXISTS `rp_user_pay_info`;
 CREATE TABLE `rp_user_pay_info` (
@@ -218,7 +214,7 @@ INSERT INTO `rp_user_pay_info` VALUES ('981cd025a111452cafb9c103c5df0f9d', '2016
 INSERT INTO `rp_user_pay_info` VALUES ('d6ecaedb883149a28356d2510b711793', '2016-07-19 17:59:38', '2019-01-06 14:35:03', '0', null, 'ACTIVE', '', null, '', null, '88882016071900000003', 'bm', '', 'WEIXIN', '微信');
 
 -- ----------------------------
--- Table structure for seq_table
+-- Table structure for `seq_table`
 -- ----------------------------
 DROP TABLE IF EXISTS `seq_table`;
 CREATE TABLE `seq_table` (
@@ -236,7 +232,7 @@ INSERT INTO `seq_table` VALUES ('ACCOUNT_NO_SEQ', '1000000007', '1', '账户--�
 INSERT INTO `seq_table` VALUES ('USER_NO_SEQ', '1000000007', '1', '用户--用户编号');
 
 -- ----------------------------
--- Function structure for FUN_DATE_ADD
+-- Function structure for `FUN_DATE_ADD`
 -- ----------------------------
 DROP FUNCTION IF EXISTS `FUN_DATE_ADD`;
 DELIMITER ;;
@@ -248,7 +244,7 @@ END
 DELIMITER ;
 
 -- ----------------------------
--- Function structure for FUN_NOW
+-- Function structure for `FUN_NOW`
 -- ----------------------------
 DROP FUNCTION IF EXISTS `FUN_NOW`;
 DELIMITER ;;
@@ -260,7 +256,7 @@ END
 DELIMITER ;
 
 -- ----------------------------
--- Function structure for FUN_SEQ
+-- Function structure for `FUN_SEQ`
 -- ----------------------------
 DROP FUNCTION IF EXISTS `FUN_SEQ`;
 DELIMITER ;;
@@ -275,7 +271,7 @@ END
 DELIMITER ;
 
 -- ----------------------------
--- Function structure for FUN_SEQ_CURRENT_VALUE
+-- Function structure for `FUN_SEQ_CURRENT_VALUE`
 -- ----------------------------
 DROP FUNCTION IF EXISTS `FUN_SEQ_CURRENT_VALUE`;
 DELIMITER ;;
@@ -292,7 +288,7 @@ END
 DELIMITER ;
 
 -- ----------------------------
--- Function structure for FUN_SEQ_SET_VALUE
+-- Function structure for `FUN_SEQ_SET_VALUE`
 -- ----------------------------
 DROP FUNCTION IF EXISTS `FUN_SEQ_SET_VALUE`;
 DELIMITER ;;

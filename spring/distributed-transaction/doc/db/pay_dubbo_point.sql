@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50638
 File Encoding         : 65001
 
-Date: 2019-01-16 15:25:13
+Date: 2019-01-21 16:04:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,11 +33,6 @@ CREATE TABLE `rp_point_account` (
 -- ----------------------------
 -- Records of rp_point_account
 -- ----------------------------
-INSERT INTO `rp_point_account` VALUES ('8fda4f630bed4b5dabb3d26ff1ef1f13', '2016-07-24 20:26:47', '2016-09-08 12:03:36', '0', '88882016072400000007', '0');
-INSERT INTO `rp_point_account` VALUES ('acd7c91325c84331a3356dac5e8a05b7', '2016-07-24 20:26:47', '2016-09-08 12:03:30', '0', '88882016072400000006', '0');
-INSERT INTO `rp_point_account` VALUES ('bfc28dd5bfe04648846b09131e8984a4', '2016-07-22 15:59:31', '2016-09-08 12:03:34', '0', '88882016072100000004', '0');
-INSERT INTO `rp_point_account` VALUES ('c10db471e70f4a089ccba95aa8515ab1', '2016-07-19 18:09:54', '2016-11-21 02:38:56', '0', '88882016071900000003', '20');
-INSERT INTO `rp_point_account` VALUES ('fe27d17443384d4ea7c037a772a8a931', '2016-07-22 16:00:16', '2016-11-21 02:38:56', '0', '88882016072200000005', '20');
 
 -- ----------------------------
 -- Table structure for `rp_point_account_history`
@@ -63,10 +58,6 @@ CREATE TABLE `rp_point_account_history` (
 -- ----------------------------
 -- Records of rp_point_account_history
 -- ----------------------------
-INSERT INTO `rp_point_account_history` VALUES ('53249862c060412fa72ed3e0941a019c', '2016-11-21 02:33:03', '2016-11-21 02:38:01', '0', '支付备注', '10', '10', 'ADD', 'pt162016112102320400', '20161121023205', 'EXPENSE', '88882016072200000005', 'CONFORM');
-INSERT INTO `rp_point_account_history` VALUES ('5a8d27af68a94235a78897b2dc7c88af', '2016-11-21 02:32:58', '2016-11-21 02:38:56', '0', '支付备注', '10', '10', 'ADD', 'pt142016112102320400', '20161121023205', 'EXPENSE', '88882016072200000005', 'CONFORM');
-INSERT INTO `rp_point_account_history` VALUES ('6eadd2cab8204921bad9b34a4b18c5e4', '2016-11-21 02:32:58', '2016-11-21 02:38:56', '0', '支付备注', '10', '10', 'ADD', 'pt152016112102320400', '20161121023205', 'EXPENSE', '88882016071900000003', 'CONFORM');
-INSERT INTO `rp_point_account_history` VALUES ('dcf294f2d70d4d93b0f013cc80239402', '2016-11-21 02:32:58', '2016-11-21 02:38:00', '0', '支付备注', '10', '10', 'ADD', 'pt132016112102320400', '20161121023205', 'EXPENSE', '88882016071900000003', 'CONFORM');
 
 -- ----------------------------
 -- Table structure for `seq_table`

@@ -9,37 +9,46 @@
 ##=======订单库：pay_dubbo_order
 ################################################################################################
 ## 订单总笔数：
-select count(id) from rp_trade_payment_order;
+select count(id) from rp_trade_payment_order; ## 1008
 
 ## 支付成功的订单
-select count(id) from rp_trade_payment_order where status='SUCCESS';
+select count(id) from rp_trade_payment_order where status='SUCCESS'; ## 1000
 
 ## 支付中状态的订单数（模拟支付进程关闭是会产生）
-select count(id) from rp_trade_payment_order where status='WAITING_PAYMENT';
-
-################################################################################################
-##=======会计系统库：pay_dubbo_accounting
-################################################################################################
-## 会计原始凭证数
-select count(id) from rp_accounting_voucher;
+select count(id) from rp_trade_payment_order where status='WAITING_PAYMENT'; ## 8
 
 ################################################################################################
 ##=======资金账户库：pay_dubbo_account
 ################################################################################################
 ## 账户余额总数（总数/9.92=成功笔数）
-select sum(balance) from rp_account;
+select sum(balance) from rp_account; ## 9920.000000
 
 ## 账户变动历史记录总数
-select count(id) from rp_account_history;
+select count(id) from rp_account_history; ## 1000
 
 ## 成功支付订单对应的账户变动历史记录数
-select count(id) from rp_account_history where fund_direction='ADD' and status='CONFORM';
+select count(id) from rp_account_history where fund_direction='ADD' and status='CONFORM'; ## 1000
+
+################################################################################################
+##=======积分账户库：pay_dubbo_point
+################################################################################################
+## 积分余额总和
+select sum(balance) from rp_point_account; ## 10000
+
+## 成功支付订单对应的积分账户变动历史记录数
+select count(id) from rp_point_account_history where fund_direction='ADD' and status='CONFORM'; ## 1000
+
+################################################################################################
+##=======会计系统库：pay_dubbo_accounting
+################################################################################################
+## 会计原始凭证数
+select count(id) from rp_accounting_voucher; ## 1000
 
 ################################################################################################
 ##=======基础库：pay_dubbo_base
 ################################################################################################
 ## 商户通知记录数
-select count(id) from rp_notify_record;
+select count(id) from rp_notify_record; ## 970
 
 ## 商户通知记录日志
-select count(id) from rp_notify_record_log;
+select count(id) from rp_notify_record_log; ## 970
