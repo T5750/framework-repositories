@@ -98,8 +98,8 @@ public class JdbcTransactionRepository extends CachableTransactionRepository {
 		LOG.debug("==>JdbcTransactionRepository.doUpdate(Transaction transaction)");
 		Connection connection = null;
 		PreparedStatement stmt = null;
-		transaction.updateTime();
-		transaction.updateVersion();
+		transaction.updateTime(); // 更新时间（这是要随transaction序列化到content中的）
+		transaction.updateVersion(); // 版本+1（这是要随transaction序列化到content中的）
 		try {
 			connection = this.getConnection();
 			StringBuilder builder = new StringBuilder();

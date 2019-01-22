@@ -52,7 +52,7 @@ public class RecoverScheduledJob {
 			CronTriggerFactoryBean cronTrigger = new CronTriggerFactoryBean();
 			// 设置触发器名称
 			cronTrigger.setBeanName("transactionRecoveryCronTrigger");
-			// 触发规则（这里通过事务配置器获取事务恢复定时任务规则）
+			// 触发规则（这里通过事务配置器获取事务恢复定时任务规则），如：0 */1 * * * ?
 			cronTrigger.setCronExpression(transactionConfigurator
 					.getRecoverConfig().getCronExpression());
 			cronTrigger.afterPropertiesSet();

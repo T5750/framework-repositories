@@ -49,7 +49,7 @@ public class TransactionManager {
 	 * @param transactionContext
 	 */
 	public void propagationNewBegin(TransactionContext transactionContext) {
-		Transaction transaction = new Transaction(transactionContext);
+		Transaction transaction = new Transaction(transactionContext); // 事务ID不变
 		LOG.debug("==>propagationNewBegin TransactionXid："
 				+ TransactionXid.byteArrayToUUID(
 						transaction.getXid().getGlobalTransactionId())
@@ -58,7 +58,7 @@ public class TransactionManager {
 				+ TransactionXid.byteArrayToUUID(
 						transaction.getXid().getBranchQualifier()).toString());
 		transactionConfigurator.getTransactionRepository().create(transaction);
-		threadLocalTransaction.set(transaction);
+		threadLocalTransaction.set(transaction); // 存于当前线程的事务局部变量中
 	}
 
 	/**

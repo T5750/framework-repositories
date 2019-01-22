@@ -76,7 +76,7 @@ public class ResourceCoordinatorInterceptor {
 			}
 		}
 		LOG.debug("==>pjp.proceed(pjp.getArgs())");
-		return pjp.proceed(pjp.getArgs());
+		return pjp.proceed(pjp.getArgs()); // 开始执行被拦截的方法，或进入下一个拦截器处理逻辑
 	}
 
 	/**
@@ -95,20 +95,21 @@ public class ResourceCoordinatorInterceptor {
 		Transaction transaction = transactionConfigurator
 				.getTransactionManager().getCurrentTransaction(); // 获取当前事务
 		TransactionXid xid = new TransactionXid(transaction.getXid()
-				.getGlobalTransactionId()); // 获取事务Xid
+				.getGlobalTransactionId()); // 使用全局事务ID和新的分支事务限定符号，生成新的事务Xid
 		LOG.debug("==>TransactionXid："
 				+ TransactionXid.byteArrayToUUID(xid.getGlobalTransactionId())
 						.toString()
 				+ "|"
 				+ TransactionXid.byteArrayToUUID(xid.getBranchQualifier())
 						.toString());
+		// 获取到目标类（最好做成独立的类）
 		Class targetClass = ReflectionUtils.getDeclaringType(pjp.getTarget()
 				.getClass(), method.getName(), method.getParameterTypes());
-		// 构建确认方法的提交上下文
+		// 构建确认方法的提交上下文（相同的参数）
 		InvocationContext confirmInvocation = new InvocationContext(
 				targetClass, confirmMethodName, method.getParameterTypes(),
 				pjp.getArgs());
-		// 构建取消方法的提交上下文
+		// 构建取消方法的提交上下文（相同的参数）
 		InvocationContext cancelInvocation = new InvocationContext(targetClass,
 				cancelMethodName, method.getParameterTypes(), pjp.getArgs());
 		// 构建参与者对像
@@ -117,7 +118,7 @@ public class ResourceCoordinatorInterceptor {
 		transaction.enlistParticipant(participant); // 加入参与者
 		TransactionRepository transactionRepository = transactionConfigurator
 				.getTransactionRepository();
-		transactionRepository.update(transaction); // 更新事务
+		transactionRepository.update(transaction); // 更新事务信息（加入了事务参与者，包含了触发confirm或cancel方法的参数信息）
 		return participant;
 	}
 
@@ -135,14 +136,14 @@ public class ResourceCoordinatorInterceptor {
 		Transaction transaction = transactionConfigurator
 				.getTransactionManager().getCurrentTransaction(); // 获取当前事务
 		TransactionXid xid = new TransactionXid(transaction.getXid()
-				.getGlobalTransactionId()); // 获取事务Xid
+				.getGlobalTransactionId()); // 使用全局事务ID和新的分支事务限定符号，生成新的事务Xid
 		LOG.debug("==>TransactionXid："
 				+ TransactionXid.byteArrayToUUID(xid.getGlobalTransactionId())
 						.toString()
 				+ "|"
 				+ TransactionXid.byteArrayToUUID(xid.getBranchQualifier())
 						.toString());
-		// 获取事务上下文参数的位置
+		// 注意！！！此处给服务接口的 TransactionContext 参数设值（新的事务分支ID），状态为当前transaction状态TRYING
 		int position = CompensableMethodUtils
 				.getTransactionContextParamPosition(((MethodSignature) pjp
 						.getSignature()).getParameterTypes());
@@ -158,6 +159,7 @@ public class ResourceCoordinatorInterceptor {
 		System.arraycopy(tryArgs, 0, cancelArgs, 0, tryArgs.length); // 数组拷贝
 		cancelArgs[position] = new TransactionContext(xid,
 				TransactionStatus.CANCELLING.getId()); // 构建事务取消上下文
+		// targetClass 其实是在本地被引用的远程服务接口类
 		Class targetClass = ReflectionUtils.getDeclaringType(pjp.getTarget()
 				.getClass(), method.getName(), method.getParameterTypes());
 		// 构建确认方法的提交上下文
@@ -170,10 +172,10 @@ public class ResourceCoordinatorInterceptor {
 		// 构建参与者对像
 		Participant participant = new Participant(xid, new Terminator(
 				confirmInvocation, cancelInvocation));
-		transaction.enlistParticipant(participant); // 加入到参与者
+		transaction.enlistParticipant(participant); // 加入到参与者（包含消费者调用上下文信息）
 		TransactionRepository transactionRepository = transactionConfigurator
 				.getTransactionRepository();
-		transactionRepository.update(transaction); // 更新事务
+		transactionRepository.update(transaction); // 更新事务（此时的transaction包含了根参与者的和消费者的参与者的事务上下文信息）
 		return participant;
 	}
 
@@ -193,13 +195,14 @@ public class ResourceCoordinatorInterceptor {
 		Transaction transaction = transactionConfigurator
 				.getTransactionManager().getCurrentTransaction();
 		TransactionXid xid = new TransactionXid(transaction.getXid()
-				.getGlobalTransactionId());
+				.getGlobalTransactionId()); // 使用全局事务ID和新的分支事务限定符号，生成新的事务Xid
 		LOG.debug("==>TransactionXid："
 				+ TransactionXid.byteArrayToUUID(xid.getGlobalTransactionId())
 						.toString()
 				+ "|"
 				+ TransactionXid.byteArrayToUUID(xid.getBranchQualifier())
 						.toString());
+		// targetClass：服务提供者接口实现类
 		Class targetClass = ReflectionUtils.getDeclaringType(pjp.getTarget()
 				.getClass(), method.getName(), method.getParameterTypes());
 		// 构建确认方法的提交上下文

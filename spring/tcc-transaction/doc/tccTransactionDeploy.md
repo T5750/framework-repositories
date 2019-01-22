@@ -37,3 +37,6 @@ tcc-transaction-server\src\main\webapp\static\css\
 tcc-transaction-server\src\main\webapp\static\js\jquery
 tcc-transaction-server\src\main\webapp\index.jsp
 ```
+
+## References
+- tcc-transaction-v1.1.5

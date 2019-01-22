@@ -54,7 +54,7 @@ public class CompensableTransactionInterceptor {
 				+ methodType.toString());
 		switch (methodType) {
 		case ROOT:
-			return rootMethodProceed(pjp); // 主事务方法的处理
+			return rootMethodProceed(pjp); // 主事务方法的处理（没有transactionContext参数）
 		case PROVIDER:
 			return providerMethodProceed(pjp, transactionContext); // 服务提供者事务方法处理
 		default:
@@ -74,7 +74,7 @@ public class CompensableTransactionInterceptor {
 		Object returnValue = null; // 返回值
 		try {
 			logger.debug("==>rootMethodProceed try begin");
-			returnValue = pjp.proceed(); // Try (开始执行被拦截的方法)
+			returnValue = pjp.proceed(); // Try (开始执行被拦截的方法，或进入下一个拦截器处理逻辑)
 			logger.debug("==>rootMethodProceed try end");
 		} catch (OptimisticLockException e) {
 			logger.warn("==>compensable transaction trying exception.", e);
@@ -85,8 +85,8 @@ public class CompensableTransactionInterceptor {
 			transactionConfigurator.getTransactionManager().rollback();
 			throw tryingException;
 		}
-		logger.info("===>rootMethodProceed begin commit()");
-		transactionConfigurator.getTransactionManager().commit(); // Try检验正常后提交(事务管理器在控制提交)
+		logger.debug("===>rootMethodProceed begin commit()");
+		transactionConfigurator.getTransactionManager().commit(); // Try检验正常后提交(事务管理器在控制提交)：Confirm
 		return returnValue;
 	}
 
@@ -109,7 +109,7 @@ public class CompensableTransactionInterceptor {
 			transactionConfigurator.getTransactionManager()
 					.propagationNewBegin(transactionContext);
 			logger.debug("==>providerMethodProceed try end");
-			return pjp.proceed();
+			return pjp.proceed(); // 开始执行被拦截的方法，或进入下一个拦截器处理逻辑
 		case CONFIRMING:
 			try {
 				logger.debug("==>providerMethodProceed confirm begin");

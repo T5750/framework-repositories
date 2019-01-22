@@ -102,7 +102,7 @@ public class TransactionRecovery {
 							transaction);
 					transaction.rollback();
 				}
-				// 其他情况下，超时没处理的事务日志直接删除
+				// 已成功恢复处理或其他情况，超时没处理的事务日志直接删除
 				transactionConfigurator.getTransactionRepository().delete(
 						transaction);
 			} catch (Throwable e) {

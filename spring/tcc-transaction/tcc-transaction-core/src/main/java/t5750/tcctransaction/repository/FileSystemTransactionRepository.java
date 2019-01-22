@@ -19,8 +19,7 @@ import t5750.tcctransaction.serializer.JdkSerializationSerializer;
 import t5750.tcctransaction.serializer.ObjectSerializer;
 
 /**
- * 文件系统事务库. Created by changming.xie on 2/24/16. this repository is suitable for
- * single node, not for cluster nodes
+ * 文件系统事务库. this repository is suitable for single node, not for cluster nodes
  */
 public class FileSystemTransactionRepository extends
 		CachableTransactionRepository {
