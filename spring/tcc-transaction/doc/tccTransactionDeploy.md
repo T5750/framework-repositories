@@ -9,6 +9,7 @@
 - `tcc-transaction-server.properties`
 - `tcc-transaction-unit-test.xml`
 - `redis-domain-key-prefix.properties`
+- `jdbc-domain-suffix.properties`
 
 ## service
 Service | Dubbo Port 
@@ -39,4 +40,4 @@ tcc-transaction-server\src\main\webapp\index.jsp
 ```
 
 ## References
-- tcc-transaction-v1.1.5
+- [tcc-transaction 1.1.5](https://github.com/changmingxie/tcc-transaction/tree/master)

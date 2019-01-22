@@ -127,48 +127,7 @@ public void completeOrder() {
 - 要求通知被动方处理通知接口的业务接口要实现幂等（注意点）
 
 ## 3 TCC两阶段型方案
-TCC（两阶段型、补偿型）
-- 对应支付系统的订单账户操作：订单处理、资金账户处理、积分账户处理
-- 实时性要求比较高，数据必须可靠
-
-![distributedTransactionTCC-min](https://www.wailian.work/images/2019/01/08/distributedTransactionTCC-min.png)
-
-### 3.1 样例部署
-- [tcc-transaction 1.1.5](https://github.com/changmingxie/tcc-transaction/tree/master) 优点：框架的工程结构清晰、轻量、有持续维护更新、社区活跃、有比较完善的应用样例、文档比较完善
-- `tcc-transaction`项目工程结构：
-
-Module | Comment
-----|----
-`tcc-transaction-api` | 框架核心工程
-`tcc-transaction-core` | 框架核心工程
-`tcc-transaction-server` | 事务活动日志管理
-`tcc-transaction-spring` | 框架核心工程
-`tcc-transaction-tutorial-sample` | 结合Dubbo的使用样例
-`tcc-transaction-unit-test` | 单元测试工程
-
-1. 准备环境：Dubbo注册中心、Dubbo管控台、MySQL数据库、应用部署脚本
-1. 调整项目配置：JDBC配置、服务注册中心配置、Maven库配置
-1. 导入数据库脚本（建库、建表）：`create_db_cap.sql`，`create_db_ord.sql`，`create_db_red.sql`，`create_db_tcc.sql`
-1. 部署服务（要用到Dubbo注册）：
-    - `tcc-transaction-dubbo-order`（业务订单服务，主服务）
-    - `tcc-transaction-dubbo-capital`（资金账户服务，从服务）
-    - `tcc-transaction-dubbo-redpacket`（红包账户服务，从服务）
-1. 部署服务消费端：`tcc-transaction-dubbo-web-trade`
-
-### 2.2 应用部署与测试
-1. 更新TCC方案代码
-1. 建库、建表、准备应用部署脚本
-1. 更新部署服务（TCC）
-    - `pay-service-trade`（交易服务，主服务）
-    - `pay-service-account`（账户服务，从服务）
-    - `pay-service-point`（积分服务，从服务）
-1. TCC方案验证测试
-
-### 2.3 处理流程
-- Try流程：主服务A（交易服务）、从服务B（资金账户服务）、从服务C（积分账户服务）
-- Confirm流程：主服务、从服务
-- Cancel流程：主服务、从服务
-- 异常处理流程：Try、Confirm、Cancel
+[TCC两阶段型方案](distributedTransactionTcc.md)
 
 ## 实战应用场景
 在支付系统中的实战应用场景
