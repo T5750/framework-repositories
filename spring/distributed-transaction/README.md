@@ -5,6 +5,9 @@
 - [分布式事务解决方案笔记](doc/distributedTransactionNote.md)
     - [分布式事务解决方案介绍](doc/distributedTransactionIntroduction.md)
     - [消息发送一致性](doc/distributedTransactionConsistency.md)
+    - [消息发送一致性的异常流程处理](doc/distributedTransactionConsistency.md#消息发送一致性的异常流程处理)
+    - [常规MQ队列消息的处理流程和特点](doc/distributedTransactionMessage.md)
+    - [消息重复发送问题与业务接口的幂等性设计](doc/distributedTransactionMessage.md#消息重复发送问题与业务接口的幂等性设计)
     - [TCC两阶段型方案](doc/distributedTransactionTcc.md)
 
 ## Runtime Environment

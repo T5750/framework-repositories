@@ -62,6 +62,8 @@ public void completeOrder() {
     - 成功：更新消息存储中的消息状态为“待发送（可发送）”，紧接着执行消息投递；
 6. 前面的正向流程都成功后，向被动方应用投递消息；
 
+## 消息发送一致性的异常流程处理
+
 ### 异常情况分析
 ![messageDeliveryConsistencyApp-min](http://www.wailian.work/images/2019/01/23/messageDeliveryConsistencyApp-min.png)
 
