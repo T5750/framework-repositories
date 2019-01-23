@@ -3,6 +3,9 @@
 ## Contents
 - [分布式事务部署](doc/distributedTransactionDeploy.md)
 - [分布式事务解决方案笔记](doc/distributedTransactionNote.md)
+    - [分布式事务解决方案介绍](doc/distributedTransactionIntroduction.md)
+    - [消息发送一致性](doc/distributedTransactionConsistency.md)
+    - [TCC两阶段型方案](doc/distributedTransactionTcc.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
