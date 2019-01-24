@@ -118,4 +118,20 @@ findProject(':spring:tcc-transaction:tcc-transaction-unit-test')?.name = 'tcc-tr
 /*tcc-transaction end*/
 include 'databases:oracle'
 findProject(':databases:oracle')?.name = 'oracle'
+/*tcc-transaction-boot begin*/
+include 'spring-boot:tcc-transaction-boot'
+findProject(':spring-boot:tcc-transaction-boot')?.name = 'tcc-transaction-boot'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-redpacket-api'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-redpacket-api')?.name = 'tcc-transaction-boot-redpacket-api'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-redpacket'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-redpacket')?.name = 'tcc-transaction-boot-redpacket'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-capital-api'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-capital-api')?.name = 'tcc-transaction-boot-capital-api'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-capital'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-capital')?.name = 'tcc-transaction-boot-capital'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-order'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-order')?.name = 'tcc-transaction-boot-order'
+include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-common'
+findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-common')?.name = 'tcc-transaction-boot-common'
+/*tcc-transaction-boot end*/
 
