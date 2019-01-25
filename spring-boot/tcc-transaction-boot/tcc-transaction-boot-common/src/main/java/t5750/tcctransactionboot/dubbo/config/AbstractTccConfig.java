@@ -1,4 +1,4 @@
-package t5750.tcctransactionboot.sample.dubbo.order.config;
+package t5750.tcctransactionboot.dubbo.config;
 
 import java.beans.PropertyVetoException;
 
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -21,9 +20,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  */
 @Configuration
 @ImportResource(locations = { "classpath:tcc-transaction.xml" })
-public class TccConfiguration {
-	@Value("${c3p0.jdbcUrl}")
-	private String jdbcUrl;
+public abstract class AbstractTccConfig {
 	@Value("${tcc.jdbc.url}")
 	private String tccJdbcUrl;
 	@Value("${c3p0.user}")
@@ -49,7 +46,7 @@ public class TccConfiguration {
 	@Value("${tcc.tbSuffix}")
 	private String tccTbSuffix;
 
-	private ComboPooledDataSource createDataSource(String jdbcUrl)
+	public ComboPooledDataSource createDataSource(String jdbcUrl)
 			throws PropertyVetoException {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		dataSource.setJdbcUrl(jdbcUrl);
@@ -65,16 +62,6 @@ public class TccConfiguration {
 		return dataSource;
 	}
 
-	// , destroyMethod = "close"
-	@Bean(name = "orderDataSource")
-	@Qualifier(value = "orderDataSource")
-	@Primary
-	// @ConfigurationProperties(prefix = "c3p0")
-	public DataSource orderDataSource() throws PropertyVetoException {
-		ComboPooledDataSource dataSource = createDataSource(jdbcUrl);
-		return dataSource;
-	}
-
 	@Bean(name = "tccDataSource")
 	@Qualifier(value = "tccDataSource")
 	public DataSource tccDataSource() throws PropertyVetoException {
@@ -82,11 +69,13 @@ public class TccConfiguration {
 		return dataSource;
 	}
 
+	public abstract DataSource dataSource() throws PropertyVetoException;
+
 	@Bean(name = "transactionManager")
 	public DataSourceTransactionManager transactionManager()
 			throws PropertyVetoException {
 		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(
-				orderDataSource());
+				dataSource());
 		return transactionManager;
 	}
 
@@ -106,10 +95,6 @@ public class TccConfiguration {
 		recoverConfig.setMaxRetryCount(30);
 		recoverConfig.setRecoverDuration(60);
 		recoverConfig.setCronExpression("0/30 * * * * ?");
-		// Set<Class<? extends Exception>> delayCancelExceptions=new
-		// HashSet<Class<? extends Exception>>();
-		// delayCancelExceptions.add(new TimeoutException());
-		// recoverConfig.setDelayCancelExceptions(delayCancelExceptions);
 		return recoverConfig;
 	}
 }

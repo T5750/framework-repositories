@@ -6,56 +6,50 @@ import java.math.BigDecimal;
 /**
  */
 public class CapitalTradeOrderDto implements Serializable {
+	private static final long serialVersionUID = 6627401903410124642L;
+	private long selfUserId;
+	private long oppositeUserId;
+	private String orderTitle;
+	private String merchantOrderNo;
+	private BigDecimal amount;
 
-    private static final long serialVersionUID = 6627401903410124642L;
-    
-    private long selfUserId;
+	public long getSelfUserId() {
+		return selfUserId;
+	}
 
-    private long oppositeUserId;
+	public void setSelfUserId(long selfUserId) {
+		this.selfUserId = selfUserId;
+	}
 
-    private String orderTitle;
+	public long getOppositeUserId() {
+		return oppositeUserId;
+	}
 
-    private String merchantOrderNo;
+	public void setOppositeUserId(long oppositeUserId) {
+		this.oppositeUserId = oppositeUserId;
+	}
 
-    private BigDecimal amount;
+	public String getOrderTitle() {
+		return orderTitle;
+	}
 
-    public long getSelfUserId() {
-        return selfUserId;
-    }
+	public void setOrderTitle(String orderTitle) {
+		this.orderTitle = orderTitle;
+	}
 
-    public void setSelfUserId(long selfUserId) {
-        this.selfUserId = selfUserId;
-    }
+	public String getMerchantOrderNo() {
+		return merchantOrderNo;
+	}
 
-    public long getOppositeUserId() {
-        return oppositeUserId;
-    }
+	public void setMerchantOrderNo(String merchantOrderNo) {
+		this.merchantOrderNo = merchantOrderNo;
+	}
 
-    public void setOppositeUserId(long oppositeUserId) {
-        this.oppositeUserId = oppositeUserId;
-    }
+	public BigDecimal getAmount() {
+		return amount;
+	}
 
-    public String getOrderTitle() {
-        return orderTitle;
-    }
-
-    public void setOrderTitle(String orderTitle) {
-        this.orderTitle = orderTitle;
-    }
-
-    public String getMerchantOrderNo() {
-        return merchantOrderNo;
-    }
-
-    public void setMerchantOrderNo(String merchantOrderNo) {
-        this.merchantOrderNo = merchantOrderNo;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 }

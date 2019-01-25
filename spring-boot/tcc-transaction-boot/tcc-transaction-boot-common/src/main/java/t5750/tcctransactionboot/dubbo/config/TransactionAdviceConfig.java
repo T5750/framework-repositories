@@ -1,4 +1,4 @@
-package t5750.tcctransactionboot.sample.dubbo.capital.config;
+package t5750.tcctransactionboot.dubbo.config;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
@@ -16,7 +16,7 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 @Aspect
 @Configuration
 public class TransactionAdviceConfig {
-	private static final String AOP_POINTCUT_EXPRESSION = "execution(* t5750.tcctransactionboot.sample.dubbo.capital.service.*.*(..))";
+	private static final String AOP_POINTCUT_EXPRESSION = "execution(* t5750.tcctransactionboot.sample.dubbo.*.service.*.*(..))";
 	@Autowired
 	private PlatformTransactionManager transactionManager;
 
