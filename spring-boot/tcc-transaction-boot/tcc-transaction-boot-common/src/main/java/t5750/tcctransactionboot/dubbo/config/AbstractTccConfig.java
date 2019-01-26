@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -62,8 +63,9 @@ public abstract class AbstractTccConfig {
 		return dataSource;
 	}
 
-	@Bean(name = "tccDataSource")
+	@Bean(name = "tccDataSource", destroyMethod = "close")
 	@Qualifier(value = "tccDataSource")
+	@Lazy(value = false)
 	public DataSource tccDataSource() throws PropertyVetoException {
 		ComboPooledDataSource dataSource = createDataSource(tccJdbcUrl);
 		return dataSource;

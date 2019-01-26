@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 
 import t5750.tcctransactionboot.dubbo.config.AbstractTccConfig;
@@ -23,10 +24,10 @@ public class TccConfig extends AbstractTccConfig {
 	private String jdbcUrl;
 
 	@Override
-	// , destroyMethod = "close"
-	@Bean(name = "redpacketDataSource")
+	@Bean(name = "redpacketDataSource", destroyMethod = "close")
 	@Qualifier(value = "redpacketDataSource")
 	@Primary
+	@Lazy(value = false)
 	// @ConfigurationProperties(prefix = "c3p0")
 	public DataSource dataSource() throws PropertyVetoException {
 		ComboPooledDataSource dataSource = createDataSource(jdbcUrl);

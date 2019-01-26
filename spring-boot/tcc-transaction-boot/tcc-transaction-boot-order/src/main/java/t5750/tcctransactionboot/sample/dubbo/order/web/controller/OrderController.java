@@ -50,7 +50,7 @@ public class OrderController {
 		List<Product> products = productRepository.findByShopId(shopId);
 		ModelAndView mv = new ModelAndView("/shop");
 		mv.addObject("products", products);
-		mv.addObject("userId", String.valueOf(userId));
+		mv.addObject("userId", userId);
 		mv.addObject("shopId", shopId);
 		return mv;
 	}
@@ -64,7 +64,7 @@ public class OrderController {
 		mv.addObject("redPacketAmount",
 				accountService.getRedPacketAccountByUserId(userId));
 		mv.addObject("product", productRepository.findById(productId));
-		mv.addObject("userId", String.valueOf(userId));
+		mv.addObject("userId", userId);
 		mv.addObject("shopId", shopId);
 		return mv;
 	}
