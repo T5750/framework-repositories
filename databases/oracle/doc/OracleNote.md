@@ -165,40 +165,26 @@ CONNECT BY PRIOR MGR=EMPNO;（父节点=子节点向上查询，反之向下查�
 - [3.1.1 用户操作](OracleNoteGrant.md)
 - [3.1.2 简单赋权](OracleNoteGrant.md)
 - [3.1.3 权限的传递和回收](OracleNoteGrant.md)
-
-
 - [3.2.1 事务特性](OracleNoteGrant.md)
 - [3.2.2 事务的开始和结束](OracleNoteGrant.md)
-
-
 - [3.3.1 锁](OracleNoteGrant.md)
 - [3.3.2 锁类型](OracleNoteGrant.md)
 - [3.3.3 加锁模式](OracleNoteGrant.md)
 - [3.3.4 死锁问题](OracleNoteGrant.md)
-
-
 - [3.4.1 索引](OracleNoteIndex.md)
 - [3.4.2 SQL索引概念](OracleNoteIndex.md)
 - [3.4.3 索引的说明和目的](OracleNoteIndex.md)
 - [3.4.4 索引的使用](OracleNoteIndex.md)
 - [3.4.5 索引的问题](OracleNoteIndex.md)
 - [3.4.6 解决索引碎片问题](OracleNoteIndex.md)
-
-
 - [数据库设计与优化](OracleNoteIndex.md#数据库设计与优化)
-
-
 - [3.5.1 物化视图概念](OracleNoteMaterializedView.md)
 - [3.5.2 物化视图的使用](OracleNoteMaterializedView.md)
 - [3.5.3 COMMIT刷新](OracleNoteMaterializedView.md)
 - [3.5.4 DEMAND刷新](OracleNoteMaterializedView.md)
 - [3.5.5 快速刷新的建立](OracleNoteMaterializedView.md)
-
-
 - [3.6.1 同义词](OracleNoteMaterializedView.md)
 - [3.6.2 同义词使用要点](OracleNoteMaterializedView.md)
-
-
 - [3.7.1 DBLINK](OracleNoteMaterializedView.md)
 
 ## 4.x PL/SQL（包、存储过程、触发器、定时任务等）
@@ -207,8 +193,6 @@ PL/SQL编程很重要，入门很容易（相对都是基础内容），要精�
 ## 5.x 表空间、表类型、分区、分区索引、设计数据库表结构
 - [5.1.1 表空间使用](OracleNoteTablespace.md)
 - [5.1.2 查看表空间](OracleNoteTablespace.md)
-
-
 - [5.2.1 Oracle表类型](OracleNoteTablespace.md)
 
 ## 6.x 简单备份和恢复
