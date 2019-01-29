@@ -133,4 +133,131 @@ DB设计 | 面向实时交易类应用 | 面向统计分析类应用
     - 使用类似MyCat的代理平台，管理多个数据源。
     - 在每个应用程序模块中配置管理所需要的一个（或多个）数据源，直接访问各个数据库，在模块内完成数据的整合。
 
+## 5.2.10 分区表介绍
+- 表分区是日常开发中最常用的技术，主要针对于大数据量、频繁查询数据等需求，有了表分区，可以对表进行区间的拆分和组织，提高查询的效率。
+- 一般来讲，Oracle表分区的一个区间数据最好不大于500W条，也就是说500W条数据左右可以划分为一个区间，根据实际业务需求和表分区的性能而定。
+- Oracle11g提供了7种分区，功能非常强大，基本满足我们开发的90%以上的需求，作为一个优秀的高程/架构方向的程序员，一定要对数据库存储的概念非常透彻，即使是使用MySQL也会有类似的分区技术，早期MySQL多用于水平和垂直"分区"，拆表拆字段的形式。
+    - range分区
+    - hash分区
+    - list分区
+    - 复合分区
+    - 间隔分区
+    - system分区
+
+## 5.2.11 range分区
+range分区就是区域分区，按照定义的区域，进行划分。语法：
+```
+create table(...)
+partition by range(field)(
+	partition p1 values less than(value),
+	partition p2 values less than(value),
+	partition p3 values less than(value)
+);
+```
+- 查看分区情况：`select * from user_tab_partitions;`
+- 查看分区数据：`select * from table partition(p1);`
+- 修改分区：
+    - 添加：`alter table tableName add partition p4 values less than(maxvalue);`
+    - 删除：`alter table tableName drop partition p4;`
+    - 更新数据时操作时不可以跨分区操作，会出现错误，需要设置可移动的分区才能进行跨分区查询。`alter table tablename enable row movement;`
+
+## 5.2.12 分区索引
+分区之后虽然可以提高查询的效率，但也仅仅是提高了数据的范围，所以在有必要的情况需要建立分区索引，从而进一步提高效率。
+
+分区索引大体上分俩大类，一类叫做local，一类叫做global。
+- local：在每个分区上建立索引。
+- global：一种是在全局上建立索引，这种方式分不分区都一样，一般不使用；还有一种就是自义数据区间的索引，也叫做前缀索引，这个是非常有意义的，自定义区域值时注意必须要`maxvalue`。
+
+另外要注意一点：在分区上建立的索引必须是分区字段列。
+
+- local方式语法：`create index idxname on table(field) local;`
+- 查看分区索引：`select * from user_ind_partitions;`
+- global自定义全局（前缀索引）引方式语法：
+```
+create index idxname on table(field) global
+partition by range(field)(
+	partition p1 values less than(value),
+	partition p2 values less than(maxvalue)
+);
+```
+- global全局索引方式语法：`create index idxname on table(field) global;`
+
+## 5.2.13 hash分区
+hash分区实现均匀的负载值分配，増加hash分区可以重新分布数据。
+1. 建立散列分区表
+	```
+	create table my_emp(
+		empno number,
+		ename varchar2(10)
+	partition by hash(empno)(
+		partition p1, partition p2
+	);
+	```
+1. 査看分区表结构
+	```
+	select * from user_tab_partitions where table_name='MY_EMP';
+	```
+1. 插入数据
+	```
+	insert into my_emp values(1,'A');
+	insert into my_emp values(2,'B');
+	insert into my_emp values(3,'C');
+	```
+1. 査看分区数据
+	```
+	select * from my_emp partition(p1);
+	select * from my_emp partition(p2);
+	```
+
+## 5.2.14 list分区
+```
+create table personcity(
+	id number,
+	name varchar2(10),
+	city varchar2(10)
+)
+partition by list(city)(
+	partition east values('tianjin','dalian'),
+	partition vest values('xian'),
+	partition south values('shanghai'),
+	partition north values('herbin'),
+	partition other values(default)
+);
+insert into personcity values(1,'sohu','tianjin');
+insert into personcity values(2,'sina','herbin');
+insert into personcity values(3,'yahoo','dalian');
+insert into personcity values(4,'360','zhengzhou');
+insert into personcity values(5,'baidu','xian');
+select * from personcity partition(east);
+```
+
+## 5.2.15 复合分区
+把范围分区和散列分区相结合，或范围分区和列表分区相结合
+```
+create table student(
+	sno number,
+	sname varchar2(10)
+)
+partition by range(sno)
+subpartition by hash(sname)
+subpartitions 4(
+	partition p1 values less than(1000),
+	partition p2 values less than(2000),
+	partition p3 values less than(maxvalue)
+);
+select * from user_tab_partitions where table_name='STUDENT';
+select * from user_tab_subpartitions where table_name='STUDENT';
+```
+
+## 5.2.16 间隔分区
+- Interval Partitioning是一种分区自动化的分区，可以指定时间间隔进行分区，这是Oracle11g的新特性，这个功能在实际的工作中也非常常用。
+- Interval Partitioning一直是Oracle数据库引以为荣的一项技术，正是分区的存在让Oracle高效的处理海量数据成为可能。
+- Interval Partitioning实际上是由range分区引申的，最终实现了range分区的自动化。语法：
+```
+create table interval_sale(sid int, sdate timestamp)
+partition by range(sdate)
+interval(numtoyminterval(1,'MONTH'))(
+	partition p1 values less than (TIMESTAMP '2014-02-01 00:00:00.00')
+)
+```
 

@@ -202,6 +202,13 @@ PL/SQL编程很重要，入门很容易（相对都是基础内容），要精�
 - [5.2.7 水平切分](OracleNoteTablespace.md)
 - [5.2.8 数据拆分优点和最佳实践方案](OracleNoteTablespace.md)
 - [5.2.9 数据拆分缺点解决方案](OracleNoteTablespace.md)
+- [5.2.10 分区表介绍](OracleNoteTablespace.md)
+- [5.2.11 range分区](OracleNoteTablespace.md)
+- [5.2.12 分区索引](OracleNoteTablespace.md)
+- [5.2.13 hash分区](OracleNoteTablespace.md)
+- [5.2.14 list分区](OracleNoteTablespace.md)
+- [5.2.15 复合分区](OracleNoteTablespace.md)
+- [5.2.16 间隔分区](OracleNoteTablespace.md)
 
 ## 6.x 简单备份和恢复
 
