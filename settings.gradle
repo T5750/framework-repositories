@@ -134,4 +134,6 @@ findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-order')?.nam
 include 'spring-boot:tcc-transaction-boot:tcc-transaction-boot-common'
 findProject(':spring-boot:tcc-transaction-boot:tcc-transaction-boot-common')?.name = 'tcc-transaction-boot-common'
 /*tcc-transaction-boot end*/
+include 'databases:mysql'
+findProject(':databases:mysql')?.name = 'mysql'
 
