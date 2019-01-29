@@ -194,6 +194,14 @@ PL/SQL编程很重要，入门很容易（相对都是基础内容），要精�
 - [5.1.1 表空间使用](OracleNoteTablespace.md)
 - [5.1.2 查看表空间](OracleNoteTablespace.md)
 - [5.2.1 Oracle表类型](OracleNoteTablespace.md)
+- [5.2.2 OLTP和OLAP](OracleNoteTablespace.md)
+- [5.2.3 OLTP和OLAP区别](OracleNoteTablespace.md)
+- [5.2.4 关系型数据库和NoSQL数据库对比](OracleNoteTablespace.md)
+- [5.2.5 何为数据切分](OracleNoteTablespace.md)
+- [5.2.6 垂直切分](OracleNoteTablespace.md)
+- [5.2.7 水平切分](OracleNoteTablespace.md)
+- [5.2.8 数据拆分优点和最佳实践方案](OracleNoteTablespace.md)
+- [5.2.9 数据拆分缺点解决方案](OracleNoteTablespace.md)
 
 ## 6.x 简单备份和恢复
 
