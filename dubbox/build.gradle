@@ -19,7 +19,6 @@ subprojects {
         maven { url "https://repo.spring.io/milestone" }
         mavenLocal()
     }
-    apply plugin: 'eclipse'
     apply plugin: 'org.springframework.boot'
     dependencies {
         compile('org.springframework.boot:spring-boot-starter')

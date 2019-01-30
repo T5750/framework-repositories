@@ -12,7 +12,6 @@ buildscript {
     }
 }
 
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 dependencies {
