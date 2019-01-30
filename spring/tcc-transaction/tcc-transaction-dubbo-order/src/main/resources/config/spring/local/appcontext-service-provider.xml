@@ -19,7 +19,7 @@
 					address="${zookeeper.address}"
 					session="${zookeeper.session.timeout}"
 					timeout="${zookeeper.connect.timeout}"
-					file="./.dubbo/web-cache"/>
+					file="./spring/tcc-transaction/.dubbo/web-cache"/>
 
 	<!-- 用dubbo协议在dubbo.port端口暴露服务 ;payload:请求及响应数据包大小限制,单位：字节,默认值88388608(=8M)-->
 	<dubbo:protocol name="dubbo" port="${dubbo.port}" payload="88388608"/>

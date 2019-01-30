@@ -16,7 +16,7 @@
 
 	<dubbo:registry protocol="zookeeper" address="${zookeeper.address}"
 					session="${zookeeper.session.timeout}"
-					timeout="${zookeeper.connect.timeout}" file="./.dubbo/web-cache"/>
+					timeout="${zookeeper.connect.timeout}" file="./spring/tcc-transaction/.dubbo/web-cache"/>
 
 	<dubbo:reference id="placeOrderService"
 					 interface="t5750.tcctransaction.sample.dubbo.order.api.PlaceOrderService"/>

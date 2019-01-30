@@ -14,7 +14,7 @@
 	<!--<dubbo:registry id="capitalRpcZk" address="multicast://224.5.6.7:1234?unicast=false"/>-->
 	<dubbo:registry id="redPacketRpcZk" protocol="zookeeper" register="true" subscribe="false"
 					address="${zookeeper.address}" session="${zookeeper.session.timeout}"
-					timeout="${zookeeper.connect.timeout}" file="./.dubbo/rpc-cache"/>
+					timeout="${zookeeper.connect.timeout}" file="./spring/tcc-transaction/.dubbo/rpc-cache"/>
 
 	<!--<dubbo:monitor protocol="registry" />-->
 
