@@ -1,0 +1,51 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: spring-boot-admin-sample-war
+  boot:
+    admin:
+      client:
+        url: http://localhost:8070
+        instance:
+          service-base-url: http://localhost:8070
+  profiles:
+    active:
+      - secure
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+---
+spring:
+  profiles: insecure
+
+management:
+  security:
+    enabled: false
+
+security:
+  basic:
+    enabled: false
+
+---
+spring:
+  profiles: secure
+  boot:
+    admin:
+      name: user       #These two are needed so that the client
+      password: pass   #can register at the protected server api
+      client:
+        metadata:
+          user.name: user         #These two are needed so that the server
+          user.password: pass #can access the protected client endpoints
+security:
+  user:
+    name: user
+    password: pass
