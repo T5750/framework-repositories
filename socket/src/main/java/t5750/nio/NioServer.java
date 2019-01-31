@@ -112,7 +112,7 @@ public class NioServer implements Runnable {
 		try {
 			// 1 获取服务通道
 			ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
-			// 2 执行阻塞方法
+			// 2 执行阻塞方法（等待客户端的通道）
 			SocketChannel sc = ssc.accept();
 			// 3 设置阻塞模式
 			sc.configureBlocking(false);
