@@ -251,16 +251,14 @@ public class ZooKeeperWatcher implements Watcher {
 			// 删除节点
 			else if (EventType.NodeDeleted == eventType) {
 				System.out.println(logPrefix + "节点 " + path + " 被删除");
-			} else
-				;
+			}
 		} else if (KeeperState.Disconnected == keeperState) {
 			System.out.println(logPrefix + "与ZK服务器断开连接");
 		} else if (KeeperState.AuthFailed == keeperState) {
 			System.out.println(logPrefix + "权限检查失败");
 		} else if (KeeperState.Expired == keeperState) {
 			System.out.println(logPrefix + "会话失效");
-		} else
-			;
+		}
 		System.out.println("--------------------------------------------");
 	}
 

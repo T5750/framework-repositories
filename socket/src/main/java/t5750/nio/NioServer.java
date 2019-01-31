@@ -102,7 +102,7 @@ public class NioServer implements Runnable {
 			// 8 打印结果
 			String body = new String(bytes).trim();
 			System.out.println("Server : " + body);
-			// 9..可以写回给客户端数据
+			// 9 可以写回给客户端数据
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -125,6 +125,5 @@ public class NioServer implements Runnable {
 
 	public static void main(String[] args) {
 		new Thread(new NioServer(SocketUtil.PORT_8765)).start();
-		;
 	}
 }

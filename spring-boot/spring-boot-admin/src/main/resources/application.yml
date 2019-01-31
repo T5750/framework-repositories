@@ -6,9 +6,9 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8070
+        url: http://localhost:${server.port}
         instance:
-          service-base-url: http://localhost:8070
+          service-base-url: http://localhost:${server.port}
   profiles:
     active:
       - secure

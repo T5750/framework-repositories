@@ -112,7 +112,6 @@ public class JdbcTransactionDao implements TransactionDao {
 		try {
 			String tableName = TABLE_NAME_PREFIX
 					+ domainSuffix.getProperty(domain);
-			;
 			String sql = "UPDATE " + tableName + " SET RETRIED_COUNT=0"
 					+ " WHERE GLOBAL_TX_ID = ? AND BRANCH_QUALIFIER = ?";
 			preparedStatement = connection.prepareStatement(sql);

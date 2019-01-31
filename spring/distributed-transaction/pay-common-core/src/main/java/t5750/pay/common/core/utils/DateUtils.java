@@ -270,7 +270,6 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	public static Date addSecond(Date date, int second) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		;
 		calendar.add(Calendar.SECOND, second);
 		return calendar.getTime();
 	}
