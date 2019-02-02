@@ -3,6 +3,7 @@
 ## Contents
 - [TCC Transaction Boot](tcc-transaction-boot/README.md)
 - [Spring Boot Admin](spring-boot-admin/README.md)
+- [Monitoring and management over JMX](doc/SpringBootJmx.md)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)

@@ -15,8 +15,6 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter')
-    compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '1.5.7'
 }
