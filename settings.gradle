@@ -138,4 +138,6 @@ include 'databases:mysql'
 findProject(':databases:mysql')?.name = 'mysql'
 include 'spring-boot:spring-boot-admin'
 findProject(':spring-boot:spring-boot-admin')?.name = 'spring-boot-admin'
+include 'nginx:fastdfs'
+findProject(':nginx:fastdfs')?.name = 'fastdfs'
 
