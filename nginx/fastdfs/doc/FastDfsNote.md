@@ -5,7 +5,7 @@
 - FastDFS是为互联网应用量身定做的一套分布式文件存储系统，非常适合用来存储用户图片、视频、文档等文件。对于互联网应用，和其它分布式文件系统相比，优势非常明显
 - 官方学习网站：[http://www.csource.org/](http://www.csource.org/)
 - 软件包下载地址：[https://sourceforge.net/projects/fastdfs/files/](https://sourceforge.net/projects/fastdfs/files/)
-- 源码包下载地址：[https://github.com/happyfish100/](https://github.com/happyfish100/)
+- 源码包下载地址：[https://github.com/happyfish100/fastdfs](https://github.com/happyfish100/fastdfs)
 
 ## 1.2 单节点安装
 单个节点安装需要tracker、storage，以及使用Http访问，需要集成nginx模块
