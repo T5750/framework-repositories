@@ -46,7 +46,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 	/etc/fdfs/tracker.conf.sample
 	```
     - 命令行工具在`/usr/bin/`目录下，`Fdfs_*`的一些列执行脚本
-4. 因为FastDFS服务脚本设置的bin目录为`/usr/local/bin/`下,但是实际安装在了`/usr/bin/`下面。所以需要修改FastDFS配置文件中的路径，也就是需要修改2个配置文件：
+4. 因为FastDFS服务脚本设置的bin目录为`/usr/local/bin/`下，但是实际安装在了`/usr/bin/`下面。所以需要修改FastDFS配置文件中的路径，也就是需要修改2个配置文件：
     - 命令：`vim /etc/init.d/fdfs_storaged`
     - 进行全局替换命令：`%s+/usr/local/bin+/usr/bin`
     - 命令：`vim /etc/init.d/fdfs_trackerd`
@@ -56,7 +56,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 1. 进入`cd /etc/fdfs/`目录配置跟踪器文件（注意是192.168.1.110节点），把`tracker.conf.sample`文件进行cope一份：去修改`tracker.conf`文件
 2. 修改`tracker.conf`文件：`vim /etc/fdfs/tracker.conf`
     - 修改配置文件里的`base_path`即可：`base_path=/fastdfs/tracker`
-    - 注意：对于`tracker.conf`配置文件参数解释可以找官方文档，地址为：[http://bbs.chinaunix.net/thread-1941456-1-1.html](http://bbs.chinaunix.net/thread-1941456-1-1.html)
+    - 注意：`tracker.conf`配置文件参数：[FastDFS 配置文件详解](http://bbs.chinaunix.net/thread-1941456-1-1.html)
 3. 最后一定要创建之前定义好的目录（也就是`/fastdfs/tracker`）：`mkdir -p /fastdfs/tracker`
 4. 关闭防火墙：`vim /etc/sysconfig/iptables`
     - 添加：`-A INPUT -m state --state NEW -m tcp -p tcp --dport 22122 -j ACCEPT`
@@ -115,7 +115,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 文件上传到FastDFS系统中去，在跟踪器（192.168.1.110）中上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/FastDFS_v5.05.tar.gz`
     - 最后发现，命令执行完毕后，返回一个`group1/M00/00/00/...`的ID，其实就是返回当前所上传的文件在存储器（192.168.1.112）中的哪一个组、哪一个目录位置，所以查看存储器中的`/fastdfs/storage/data/00/00`文件夹位置，发现已经存在了刚才上传的文件，测试上传文件已经OK。
 
-## FastDFS与Nginx整合
+## FastDFS与nginx整合
 1. 首先，两台机器必须安装nginx
 2. 然后，在存储节点上（192.168.1.110）安装`fastdfs-nginx-module_v1.16.tar.gz`包进行整合
     - 目录命令：`cd /usr/local/software/`
@@ -144,7 +144,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - Copy命令：`cp http.conf mime.types /etc/fdfs/`
 9. 创建一个软连接，在`/fastdfs/storage`文件存储目录下创建软连接，将其链接到实际存放数据的目录
     - 命令：`ln -s /fastdfs/storage/data/ /fastdfs/storage/data/M00`
-10. 修改Nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
+10. 修改nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
 	```
 	listen 8888;
 	server_name localhost;
@@ -170,3 +170,12 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 停止tracker命令：`/etc/init.d/fdfs_trackerd stop`
     - 关闭storage命令：`/etc/init.d/fdfs_storaged stop`
     - 关闭nginx命令：`/usr/local/nginx/sbin/nginx -s stop`
+
+## Tips
+iptables防火墙
+- 暂时关闭/打开
+    - `service iptables stop`
+    - `service iptables start`
+- 永久打开/关闭
+    - `chkconfig iptables on`
+    - `chkconfig iptables off`
