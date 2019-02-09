@@ -3,6 +3,11 @@
 ## 准备工作（2台机器同时进行）
 1. 下载软件：[http://sourceforge.net/projects/fastdfs/files/](http://sourceforge.net/projects/fastdfs/files/)
 2. 安装gcc：`yum install make cmake gcc gcc-c++`
+3. 运行yum命令：
+	```
+	yum install pcre-devel
+	yum install zlib zlib-devel
+	```
 
 ## 安装libfastcommon（2台机器同时进行）
 1. 上传`libfastcommon-master.zip`到`/usr/local/software`下
@@ -110,3 +115,58 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 文件上传到FastDFS系统中去，在跟踪器（192.168.1.110）中上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/FastDFS_v5.05.tar.gz`
     - 最后发现，命令执行完毕后，返回一个`group1/M00/00/00/...`的ID，其实就是返回当前所上传的文件在存储器（192.168.1.112）中的哪一个组、哪一个目录位置，所以查看存储器中的`/fastdfs/storage/data/00/00`文件夹位置，发现已经存在了刚才上传的文件，测试上传文件已经OK。
 
+## FastDFS与Nginx整合
+1. 首先，两台机器必须安装nginx
+2. 然后，在存储节点上（192.168.1.110）安装`fastdfs-nginx-module_v1.16.tar.gz`包进行整合
+    - 目录命令：`cd /usr/local/software/`
+    - 解压命令：`tar -zxvf /usr/local/software/fastdfs-nginx-module_v1.16.tar.gz -C /usr/local/fast/`
+3. 进入目录：`cd /usr/local/fast/fastdfs-nginx-module/src/`
+4. 编辑配置文件`config`
+    - 去掉local文件层次：`vim /usr/local/fast/fastdfs-nginx-module/src/config`
+    - `CORE_INCS="$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/"`
+5. FastDFS与nginx进行集成
+    - `tar -zxvf /usr/local/software/nginx-1.6.2.tar.gz -C /usr/local/`
+    - 进入到nginx目录命令：`cd /usr/local/nginx-1.6.2/`
+    - 加入模块命令：`./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src/`
+    - 重新编译命令：`make && make install`
+6. 复制`fastdfs-nginx-module`中的配置文件，到`/etc/fdfs`目录中：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/`
+7. 进行修改`/etc/fdfs/`目录下，刚copy过来的`mod_fastdfs.conf`文件
+    - 命令：`vim /etc/fdfs/mod_fastdfs.conf`
+    - 修改内容：比如连接超时时间、跟踪器路径配置、url的group配置
+	```
+	connect_timeout=10
+	tracker_server=192.168.1.110:22122
+	url_have_group_name = true
+	store_path0=/fastdfs/storage
+	```
+8. 复制FastDFS里的2个文件，到`/etc/fdfs`目录中
+    - 目录命令：`cd /usr/local/fast/FastDFS/conf/`
+    - Copy命令：`cp http.conf mime.types /etc/fdfs/`
+9. 创建一个软连接，在`/fastdfs/storage`文件存储目录下创建软连接，将其链接到实际存放数据的目录
+    - 命令：`ln -s /fastdfs/storage/data/ /fastdfs/storage/data/M00`
+10. 修改Nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
+	```
+	listen 8888;
+	server_name localhost;
+	location ~/group([0-9])/M00 {
+	    #alias /fastdfs/storage/data;
+	    ngx_fastdfs_module;
+	}
+	```
+    - 注意：nginx里的端口要和第五步配置FastDFS存储中的`storage.conf`文件配置一致，也就是（`http.server_port=8888`）
+11. 最后检查防火墙，启动nginx服务
+    - 启动命令：`/usr/local/nginx/sbin/nginx`，刚才上传了一个文件，上传成功，
+    - 现在使用这个ID用浏览器访问地址：[http://192.168.1.110:8888/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg](http://192.168.1.110:8888/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg)
+    - 运维注意：在使用FastDFS的时候，需要正常关机，不要使用`kill -9`，强杀FastDFS进程，不然会在文件上传时出现丢数据的情况
+
+## 启动停止服务
+- 启动命令：
+    - 启动tracker命令：`/etc/init.d/fdfs_trackerd start`
+    - 查看进程命令：`ps -el | grep fdfs`
+    - 启动storage命令：`/etc/init.d/fdfs_storaged start`
+    - 查看进程命令：`ps -el | grep fdfs`
+    - 启动nginx命令：`/usr/local/nginx/sbin/nginx`
+- 停止命令：
+    - 停止tracker命令：`/etc/init.d/fdfs_trackerd stop`
+    - 关闭storage命令：`/etc/init.d/fdfs_storaged stop`
+    - 关闭nginx命令：`/usr/local/nginx/sbin/nginx -s stop`
