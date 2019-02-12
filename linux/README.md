@@ -4,6 +4,9 @@
 - [CentOS Installation](doc/CentOSInstallation.md)
 - [CentOS Tips](doc/CentOSTips.md)
 
+### Linux笔记
+- [Linux笔记](doc/LinuxNote.md)
+
 ### Linux网摘笔记
 - [Linux常用命令大全](doc/LinuxCommands.md)
     - [系统信息](doc/LinuxCommands.md#系统信息)
