@@ -15,14 +15,14 @@ import t5750.pay.common.core.dwz.DwzAjax;
 import t5750.pay.common.core.utils.StringUtil;
 
 /**
- * @类功能说明： 系统 登陆管理. @版本：V1.0
+ * @类功能说明： 系统 登录管理. @版本：V1.0
  */
 @Controller
 public class LoginController {
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 
 	/**
-	 * 函数功能说明 ： 进入后台登陆页面.
+	 * 函数功能说明 ： 进入后台登录页面.
 	 * 
 	 * @参数： @return @return String @throws
 	 */
@@ -32,7 +32,7 @@ public class LoginController {
 	}
 
 	/**
-	 * 函数功能说明 ： 登陆后台管理系统.
+	 * 函数功能说明 ： 登录后台管理系统.
 	 * 
 	 * @参数： @param request @参数： @param model @参数： @return @return String @throws
 	 */
