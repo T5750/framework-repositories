@@ -5,7 +5,11 @@
 - [CentOS Tips](doc/CentOSTips.md)
 
 ### Linux笔记
-- [Linux笔记](doc/LinuxNote.md)
+- [1.x Linux初步与环境安装](doc/LinuxNote.md)
+- [2.x 常用命令](doc/LinuxNoteCommands.md)
+- [3.x vi/vim文本编辑器](doc/LinuxNoteVim.md)
+- [4.x 用户管理](doc/LinuxNoteUser.md)
+- [5.x 进程管理](doc/LinuxNoteProcess.md)
 
 ### Linux网摘笔记
 - [Linux常用命令大全](doc/LinuxCommands.md)
