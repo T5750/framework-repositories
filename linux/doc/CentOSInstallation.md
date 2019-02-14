@@ -38,7 +38,6 @@
         - Gateway: 192.168.1.1
         - DNS servers: 192.168.1.1
 1. Asia/Shanghai
-1. 取消system clock uses UTC
 1. Root Password
 1. Create Custom Layout
 1. Hard Drives:
