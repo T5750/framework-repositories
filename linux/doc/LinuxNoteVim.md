@@ -1,3 +1,5 @@
+[PREV 2.x 常用命令](LinuxNoteCommands.md) | [NEXT 4.x 用户管理](LinuxNoteUser.md)
+
 ## 3.1 vi/vim
 vi/vim是一个功能强大的全屏幕文本编辑器，也是Linux最常用的文本编辑器，作用是建立、编辑、显示文本文件。vi/vim没有菜单，只能依靠命令去操作。
 

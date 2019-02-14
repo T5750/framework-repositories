@@ -1,3 +1,5 @@
+[PREV 3.x vi/vim文本编辑器](LinuxNoteVim.md) | [NEXT 5.x 进程管理](LinuxNoteProcess.md)
+
 ## 4.1.1 用户管理配置文件
 - 用户信息文件：`/etc/passwd`
 - 密码文件：`/etc/shadow`

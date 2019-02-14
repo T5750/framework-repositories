@@ -10,6 +10,9 @@
 - [3.x vi/vim文本编辑器](doc/LinuxNoteVim.md)
 - [4.x 用户管理](doc/LinuxNoteUser.md)
 - [5.x 进程管理](doc/LinuxNoteProcess.md)
+- [6.x 系统文件构成](doc/LinuxNoteSystem.md)
+- [7.x 软件包管理](doc/LinuxNoteYum.md)
+- [8.x Shell编程](doc/LinuxNoteShell.md)
 
 ### Linux网摘笔记
 - [Linux常用命令大全](doc/LinuxCommands.md)

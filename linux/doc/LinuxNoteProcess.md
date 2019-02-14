@@ -1,3 +1,5 @@
+[PREV 4.x 用户管理](LinuxNoteUser.md) | [NEXT 6.x 系统文件构成](LinuxNoteSystem.md)
+
 ## 5.1 程序和进程的概念
 - 程序是静态概念，本身作为一种软件资源长期保持
 - 进程是程序执行的过程，它是动态的，是有一定的生命周期的，是动态产生和消亡的
@@ -128,4 +130,13 @@ ps（process status）
 - 每个时间字段都可以指定多个值，不连续的值用“,”分隔，连续的值用“-”分隔
 - 命令应该使用绝对路径，用户必须有运行对应命令的权限
 
-[PREV 4.x 用户管理](LinuxNoteUser.md)
+如果crontab程序没有启动，则需要手工启动：
+- `ps -el | grep crond`
+- `/etc/rc.d/init.d/crond start`
+- crontab文件建好后，可以到`/var/spool/cron`目录确认
+	```
+	crontab -e
+	*/1 * * 1-12 * /usr/bin/wall < /home/at-test.sh
+	```
+
+[PREV 4.x 用户管理](LinuxNoteUser.md) | [NEXT 6.x 系统文件构成](LinuxNoteSystem.md)

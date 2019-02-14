@@ -1,3 +1,5 @@
+[PREV 1.x Linux初步与环境安装](LinuxNote.md) | [NEXT 3.x vi/vim文本编辑器](LinuxNoteVim.md)
+
 ## 2.1 文件处理命令
 
 ### ls
