@@ -1,7 +1,7 @@
 [PREV 7.x 软件包管理](LinuxNoteYum.md)
 
 ## 8.1.1 Shell编程
-Shel编程的语法非常简单，使用`sh example`运行脚本程序即可：
+Shell编程的语法非常简单，使用`sh example`运行脚本程序即可：
 ```
 #!/bin/bash
 echo "Hello Shell!"
@@ -169,6 +169,7 @@ expr命令，对整数进行运算。注意点：
 ## 8.3.2 if语句
 语法格式：`if test -d $1 then ... else ... fi`
 - 变量测试语句可用[]进行简化，如`test -d $1`等价于`[ -d $1 ]`
+- 注意：`["空格" -d $1 "空格"]`
 ```
 if [ -d $1 ]
 then
@@ -177,7 +178,6 @@ else
         echo "This is not a directory!"
 fi
 ```
-注意：["空格" -d $1 "空格"]
 
 ## 8.3.3 if elif语句
 语法格式：
@@ -213,6 +213,105 @@ then
 else
         echo "others"
 fi
+```
+
+## 8.3.5 for循环（名字表循环）
+for...done语句，格式：
+```
+for 变量 in 名字表
+do
+	命令
+done
+```
+```
+for var in 1 2 3 4 5
+do
+        echo "Number is $var"
+done
+```
+
+## 8.3.6 select循环
+格式：
+```
+select 变量 in 列表
+do
+	命令
+done
+```
+```
+select var in "java" "c" "c++"
+do
+        break;
+done
+echo "You selected $var"
+```
+```
+[root]# sh select.sh 
+1) java
+2) c
+3) c++
+#? 2
+You selected c
+```
+
+## 8.3.7 case语句
+case...esac语句，格式：
+```
+case 变量 in
+	字符串 1) 命令列表1;;
+	...
+	字符串 n) 命令列表n;;
+esac
+```
+```
+read op
+case $op in
+        a)
+        echo "You selected a";;
+        b)
+        echo "You selected b";;
+        c)
+        echo "You selected c";;
+        *)
+        echo "Error"
+esac
+```
+
+## 8.3.8 while循环
+while语句，格式：
+```
+while 条件
+do
+	命令
+done
+```
+```
+num=1
+sum=0
+while [ $num -le 100 ]
+do
+        sum=`expr $sum + $num`
+        num=`expr $num + 1`
+done
+echo $sum
+```
+
+## 8.3.9 break和continue
+Shell中的break和continue与Java中的一样
+```
+i=0
+while [ $i -le 100 ]
+do
+        i=`expr $i + 1`
+        if [ $i -eq 5 -o $i -eq 10 ]
+                then continue;
+        else
+                echo "This number is $i"
+        fi
+        if [ $i -eq 15 ]
+                then break;
+        fi
+done
 ```
 
 [PREV 7.x 软件包管理](LinuxNoteYum.md)
