@@ -3,6 +3,7 @@
 ## lrzsz
 - [lrzsz官网](http://freshmeat.sourceforge.net/projects/lrzsz/)
 - `yum -y install lrzsz`
+- `sz /home/shelldir/*.sh`：下载目录
 
 ## iptables
 - 暂时关闭/打开
