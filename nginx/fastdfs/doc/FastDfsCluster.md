@@ -143,4 +143,91 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - `/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/FastDFS_v5.05.tar.gz`
     - 返回一个`group1/M00/00/00/...`的ID，到group1下的目录可以看到上传的文件，而group2没有数据
 
+## 4个存储节点配置nginx
+1. 在存储节点上，安装`fastdfs-nginx-module_v1.16.tar.gz`包进行整合
+    - 目录命令：`cd /usr/local/software/`
+    - 解压命令：`tar -zxvf /usr/local/software/fastdfs-nginx-module_v1.16.tar.gz -C /usr/local/fast/`
+2. 在安装fastdfs-nginx-module之前，对其路径进行修改
+    - 进入目录：`cd /usr/local/fast/fastdfs-nginx-module/src/`
+    - 编辑配置文件：`vim /usr/local/fast/fastdfs-nginx-module/src/config`
+    - 去掉local文件层次：`CORE_INCS="$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/"`
+3. 4个存储节点安装nginx依赖库文件：
+	```
+	yum install pcre
+	yum install pcre-devel
+	yum install zlib
+	yum install zlib-devel
+	```
+4. 解压并安装nginx，加入fastdfs-nginx-module
+    - `tar -zxvf /usr/local/software/nginx-1.6.2.tar.gz -C /usr/local/`
+    - 进入到nginx目录命令：`cd /usr/local/nginx-1.6.2/`
+    - 加入模块命令：`./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src/`
+    - 编译命令：`make && make install`
+5. 复制`fastdfs-nginx-module`中的配置文件，到`/etc/fdfs`目录中
+    - 复制命令：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/`
+    - 修改命令：`vim /etc/fdfs/mod_fastdfs.conf`
+    - 修改内容：比如连接超时时间、跟踪器路径配置、url的group配置
+	```
+	connect_timeout=10
+	tracker_server=192.168.1.110:22122
+	tracker_server=192.168.1.111:22122
+	storage_server_port=23000
+	group_name=group1	#第二组为group_name=group2
+	url_have_group_name = true
+	store_path0=/fastdfs/storage
+	group_count = 2
 
+	[group1]
+	group_name=group1
+	storage_server_port=23000
+	store_path_count=1
+	store_path0=/fastdfs/storage
+
+	[group2]
+	group_name=group2
+	storage_server_port=23000
+	store_path_count=1
+	store_path0=/fastdfs/storage
+	```
+6. 复制FastDFS里的2个文件，到`/etc/fdfs`目录中
+    - 目录命令：`cd /usr/local/fast/FastDFS/conf/`
+    - Copy命令：`cp http.conf mime.types /etc/fdfs/`
+7. 创建一个软连接，在`/fastdfs/storage`文件存储目录下创建软连接，将其链接到实际存放数据的目录
+    - 命令：`ln -s /fastdfs/storage/data/ /fastdfs/storage/data/M00`
+8. 修改nginx配置文件（所有节点都一致）`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
+	```
+	listen 8888;
+	server_name localhost;
+	location ~/group([0-9])/M00 {
+	    #alias /fastdfs/storage/data;
+	    ngx_fastdfs_module;
+	}
+	```
+9. 最后检查防火墙，启动nginx服务
+    - `/usr/local/nginx/sbin/nginx`（加`-s stop`为停止，加`-s reload`为重启）
+10. nginx与FastDFS集成测试，通过跟踪器的Client上传文件，然后打开浏览器，可通过nginx访问FastDFS的文件
+    - 上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/avatar.jpg`
+    - 浏览器地址：http://192.168.1.114:8888/group2/M00/00/00/wKgBclxn9QiAL3Q_AAAZtkdii-k180.jpg
+    - 浏览器地址：http://192.168.1.115:8888/group2/M00/00/00/wKgBclxn9QiAL3Q_AAAZtkdii-k180.jpg
+
+## 2个跟踪器安装nginx
+110和111节点提供反向代理服务，目的是使用统一的一个IP地址对外提供服务
+1. 上传nginx缓存模块ngx_cache_purge-2.3.tar.gz，并进行解压：
+    - `tar -zxvf /usr/local/software/ngx_cache_purge-2.3.tar.gz -C /usr/local/fast/`
+2. 安装nginx依赖库文件：
+	```
+	yum install pcre
+	yum install pcre-devel
+	yum install zlib
+	yum install zlib-devel
+	```
+3. 解压并安装nginx，加入缓存模块ngx_cache_purge
+    - `tar -zxvf /usr/local/software/nginx-1.6.2.tar.gz -C /usr/local/`
+    - 进入到nginx目录命令：`cd /usr/local/nginx-1.6.2/`
+    - 加入模块命令：`./configure --add-module=/usr/local/fast/ngx_cache_purge-2.3`
+    - 编译命令：`make && make install`
+4. 配置nginx负载均衡和缓存（110和111节点配置一致）
+    - `vim /usr/local/nginx/conf/nginx.conf`，配置如下：
+```
+
+```
