@@ -4,6 +4,7 @@
 ### FastDFS笔记
 - [FastDFS笔记](doc/FastDfsNote.md)
 - [FastDFS单节点安装手册](doc/FastDfsStandalone.md)
+- [FastDFS集群安装手册](doc/FastDfsCluster.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
