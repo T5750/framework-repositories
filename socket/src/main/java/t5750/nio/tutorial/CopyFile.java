@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
+ * NIO 入门<br/>
  * https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html
  */
 public class CopyFile {

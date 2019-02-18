@@ -1,4 +1,4 @@
-package t5750.nio;
+package t5750.nio.echo;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 import t5750.util.SocketUtil;
 
-public class NioServer implements Runnable {
+public class NioEchoServer implements Runnable {
 	// 1 多路复用器（管理所有的通道）
 	private Selector selector;
 	// 2 建立缓冲区
@@ -19,7 +19,7 @@ public class NioServer implements Runnable {
 	// 3
 	private ByteBuffer writeBuf = ByteBuffer.allocate(1024);
 
-	public NioServer(int port) {
+	public NioEchoServer(int port) {
 		try {
 			// 1 打开路复用器
 			this.selector = Selector.open();
@@ -31,7 +31,7 @@ public class NioServer implements Runnable {
 			ssc.bind(new InetSocketAddress(port));
 			// 5 把服务器通道注册到多路复用器上，并且监听阻塞事件
 			ssc.register(this.selector, SelectionKey.OP_ACCEPT);
-			System.out.println("NioServer start, port :" + port);
+			System.out.println("NioChatServer start, port :" + port);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -60,51 +60,17 @@ public class NioServer implements Runnable {
 						}
 						// 8 如果为可读状态
 						if (key.isReadable()) {
-							this.read(key);
+							readBuf = NioEchoUtil.read(key, readBuf);
 						}
 						// 9 写数据
 						if (key.isWritable()) {
-							// this.write(key); //ssc
+							writeBuf = NioEchoUtil.write(key, writeBuf);
 						}
 					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-	}
-
-	private void write(SelectionKey key) {
-		// ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
-		// ssc.register(this.selector, SelectionKey.OP_WRITE);
-	}
-
-	private void read(SelectionKey key) {
-		try {
-			// 1 清空缓冲区旧的数据
-			this.readBuf.clear();
-			// 2 获取之前注册的socket通道对象
-			SocketChannel sc = (SocketChannel) key.channel();
-			// 3 读取数据
-			int count = sc.read(this.readBuf);
-			// 4 如果没有数据
-			if (count == -1) {
-				key.channel().close();
-				key.cancel();
-				return;
-			}
-			// 5 有数据则进行读取 读取之前需要进行复位方法(把position 和limit进行复位)
-			this.readBuf.flip();
-			// 6 根据缓冲区的数据长度创建相应大小的byte数组，接收缓冲区的数据
-			byte[] bytes = new byte[this.readBuf.remaining()];
-			// 7 接收缓冲区数据
-			this.readBuf.get(bytes);
-			// 8 打印结果
-			String body = new String(bytes).trim();
-			System.out.println("Server : " + body);
-			// 9 可以写回给客户端数据
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -117,6 +83,8 @@ public class NioServer implements Runnable {
 			// 3 设置阻塞模式
 			sc.configureBlocking(false);
 			// 4 注册到多路复用器上，并设置读取标识
+//			sc.register(this.selector, SelectionKey.OP_READ
+//					| SelectionKey.OP_WRITE);
 			sc.register(this.selector, SelectionKey.OP_READ);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -124,6 +92,7 @@ public class NioServer implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		new Thread(new NioServer(SocketUtil.PORT_8765)).start();
+		new Thread(new NioEchoServer(SocketUtil.PORT_8765),
+				NioEchoUtil.THREAD_SERVER).start();
 	}
 }
