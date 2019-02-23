@@ -263,7 +263,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 		keepalive_timeout  65;
 
 		#gzip  on;
-
+		#设置缓存参数
 		server_names_hash_bucket_size 128;
 		client_header_buffer_size 32k;
 		large_client_header_buffers 4 32k;
@@ -282,16 +282,16 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 		proxy_buffers 4 64k;
 		proxy_busy_buffers_size 128k;
 		proxy_temp_file_write_size 128k;
-
+		#设置缓存存储路径、存储方式、分配内存大小、磁盘最大空间、缓存期限
 		proxy_cache_path /fastdfs/cache/nginx/proxy_cache levels=1:2
 		keys_zone=http-cache:200m max_size=1g inactive=30d;
 		proxy_temp_path /fastdfs/cache/nginx/proxy_cache/tmp;
-
+		#设置group1的服务器
 		upstream fdfs_group1 {
 			 server 192.168.1.112:8888 weight=1 max_fails=2 fail_timeout=30s;
 			 server 192.168.1.113:8888 weight=1 max_fails=2 fail_timeout=30s;
 		}
-
+		#设置group2的服务器
 		upstream fdfs_group2 {
 			 server 192.168.1.114:8888 weight=1 max_fails=2 fail_timeout=30s;
 			 server 192.168.1.115:8888 weight=1 max_fails=2 fail_timeout=30s;
@@ -304,25 +304,27 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 			#charset koi8-r;
 
 			#access_log  logs/host.access.log  main;
-
+			#设置group1的负载均衡参数
 			location /group1/M00 {
 				proxy_next_upstream http_502 http_504 error timeout invalid_header;
 				proxy_cache http-cache;
 				proxy_cache_valid  200 304 12h;
 				proxy_cache_key $uri$is_args$args;
+				#对应group1的服务设置
 				proxy_pass http://fdfs_group1;
 				expires 30d;
 			}
-
+			#设置group2的负载均衡参数
 			location /group2/M00 {
 				proxy_next_upstream http_502 http_504 error timeout invalid_header;
 				proxy_cache http-cache;
 				proxy_cache_valid  200 304 12h;
 				proxy_cache_key $uri$is_args$args;
+				#对应group2的服务设置
 				proxy_pass http://fdfs_group2;
 				expires 30d;
 			}
-
+			#设置清除缓存的访问权限
 			location ~/purge(/.*) {
 				allow 127.0.0.1;
 				allow 192.168.1.103;
@@ -400,4 +402,5 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 
 	}
 	```
+	- `/usr/local/nginx/sbin/nginx`
     - http://192.168.1.110:8000/group1/M00/00/00/wKgBcFxpMZOAKz7OAAAZtkdii-k290.jpg
