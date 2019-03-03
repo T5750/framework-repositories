@@ -404,3 +404,29 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 	```
 	- `/usr/local/nginx/sbin/nginx`
     - http://192.168.1.110:8000/group1/M00/00/00/wKgBcFxpMZOAKz7OAAAZtkdii-k290.jpg
+
+## 2台安装Keepalived
+虚拟出一个VIP，对2台跟踪器做高可用配置
+- 修改nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
+	```
+	# FastDFS Tracker Proxy 2台跟踪器的nginx代理服务
+	upstream fastdfs_tracker {
+		server 192.168.1.110:8000 weight=1 max_fails=2 fail_timeout=30s;
+		server 192.168.1.111:8000 weight=1 max_fails=2 fail_timeout=30s;
+	}
+	# FastDFS Proxy 代理路径为/fastdfs
+	location /fastdfs {
+		root   html;
+		index  index.html index.htm;
+		proxy_pass  http://fastdfs_tracker/;
+		proxy_set_header Host  $http_host;
+		proxy_set_header Cookie $http_cookie;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		client_max_body_size  300m;
+	}
+	```
+- `/usr/local/nginx/sbin/nginx`
+- `service keepalived start`
+- http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg
