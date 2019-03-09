@@ -51,4 +51,5 @@
 
 
 ## References
-- FastDFS
+- [FastDFS](https://github.com/happyfish100/fastdfs)
+- [分布式文件系统（FastDFS）](http://bbs.chinaunix.net/forum-240-1.html)

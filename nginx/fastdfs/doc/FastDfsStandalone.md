@@ -129,7 +129,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 进入到nginx目录命令：`cd /usr/local/nginx-1.6.2/`
     - 加入模块命令：`./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src/`
     - 重新编译命令：`make && make install`
-6. 复制`fastdfs-nginx-module`中的配置文件，到`/etc/fdfs`目录中：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/`
+6. 复制fastdfs-nginx-module中的配置文件，到`/etc/fdfs`目录中：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/`
 7. 进行修改`/etc/fdfs/`目录下，刚copy过来的`mod_fastdfs.conf`文件
     - 命令：`vim /etc/fdfs/mod_fastdfs.conf`
     - 修改内容：比如连接超时时间、跟踪器路径配置、url的group配置

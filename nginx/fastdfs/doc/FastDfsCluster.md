@@ -130,6 +130,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 	```
 
 ## 测试文件上传
+`cd /usr/bin/ && ll | grep fdfs`
 1. 任意一个跟踪器节点，进入`cd /etc/fdfs/`，copy一份`client.conf`文件：`cp client.conf.sample client.conf`
 2. 编辑`client.conf`文件：`vim /etc/fdfs/client.conf`
     - 修改内容：
@@ -145,10 +146,8 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 
 ## 4个存储节点配置nginx
 1. 在存储节点上，安装`fastdfs-nginx-module_v1.16.tar.gz`包进行整合
-    - 目录命令：`cd /usr/local/software/`
     - 解压命令：`tar -zxvf /usr/local/software/fastdfs-nginx-module_v1.16.tar.gz -C /usr/local/fast/`
 2. 在安装fastdfs-nginx-module之前，对其路径进行修改
-    - 进入目录：`cd /usr/local/fast/fastdfs-nginx-module/src/`
     - 编辑配置文件：`vim /usr/local/fast/fastdfs-nginx-module/src/config`
     - 去掉local文件层次：`CORE_INCS="$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/"`
 3. 4个存储节点安装nginx依赖库文件：
@@ -163,10 +162,11 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 进入到nginx目录命令：`cd /usr/local/nginx-1.6.2/`
     - 加入模块命令：`./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src/`
     - 编译命令：`make && make install`
-5. 复制`fastdfs-nginx-module`中的配置文件，到`/etc/fdfs`目录中
+5. 复制fastdfs-nginx-module中的配置文件，到`/etc/fdfs`目录
     - 复制命令：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/`
     - 修改命令：`vim /etc/fdfs/mod_fastdfs.conf`
     - 修改内容：比如连接超时时间、跟踪器路径配置、url的group配置
+    - 注意：第一组和第二组节点修改内容，不同内容只有一个组名！
 	```
 	connect_timeout=10
 	tracker_server=192.168.1.110:22122
@@ -203,6 +203,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 	    ngx_fastdfs_module;
 	}
 	```
+    - 注意：nginx的端口要和`storage.conf`配置一致，也就是`http.server_port=8888`。另外storage有多个group，与nginx整合需要通配！
 9. 最后检查防火墙，启动nginx服务
     - `/usr/local/nginx/sbin/nginx`（加`-s stop`为停止，加`-s reload`为重启）
 10. nginx与FastDFS集成测试，通过跟踪器的Client上传文件，然后打开浏览器，可通过nginx访问FastDFS的文件
@@ -277,7 +278,6 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 		proxy_connect_timeout 90;
 		proxy_send_timeout 90;
 		proxy_read_timeout 90;
-
 		proxy_buffer_size 16k;
 		proxy_buffers 4 64k;
 		proxy_busy_buffers_size 128k;
@@ -402,12 +402,15 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 
 	}
 	```
-	- `/usr/local/nginx/sbin/nginx`
+5. 创建缓存的使用目录：
+    - `mkdir -p /fastdfs/cache/nginx/proxy_cache`
+    - `mkdir -p /fastdfs/cache/nginx/proxy_cache/tmp`
+6. 检查防火墙，启动nginx：`/usr/local/nginx/sbin/nginx`
     - http://192.168.1.110:8000/group1/M00/00/00/wKgBcFxpMZOAKz7OAAAZtkdii-k290.jpg
 
 ## 2台安装Keepalived
 虚拟出一个VIP，对2台跟踪器做高可用配置
-- 修改nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`，修改配置内容：
+1. 修改nginx配置文件`vim /usr/local/nginx/conf/nginx.conf`
 	```
 	# FastDFS Tracker Proxy 2台跟踪器的nginx代理服务
 	upstream fastdfs_tracker {
@@ -427,6 +430,22 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 		client_max_body_size  300m;
 	}
 	```
-- `/usr/local/nginx/sbin/nginx`
-- `service keepalived start`
-- http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg
+    - `nginx.conf`分别上传到2个带Keepalived的节点（116和117）
+2. 启动2台机器的nginx和Keepalived，即可进行最终的测试
+    - `/usr/local/nginx/sbin/nginx`
+    - `service keepalived start`
+    - 查看虚拟IP：`ip a`，虚拟IP为：192.168.1.166
+    - 在任意一个跟踪器上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/avatar.jpg`
+    - http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg
+    - 注意：116和117的nginx配置文件里，指定了location的前缀为`/fastdfs`
+
+## 关闭集群
+1. 116 117（2台一级负载节点）
+    - 关闭Keepalived：`service keepalived stop`
+    - 关闭nginx：`/usr/local/nginx/sbin/nginx -s stop`
+2. 110 111（2台二级负载节点，跟踪器节点）
+    - 关闭nginx：`/usr/local/nginx/sbin/nginx -s stop`
+    - 关闭跟踪器：`/etc/init.d/fdfs_trackerd stop`
+3. 112 113 114 115（4台三级负载节点，存储器节点）
+    - 关闭nginx：`/usr/local/nginx/sbin/nginx -s stop`
+    - 关闭存储器：`/etc/init.d/fdfs_storaged stop`
