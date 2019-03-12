@@ -1,4 +1,7 @@
 # FastDFS集群安装手册
+
+![FastDfsCluster-min-min](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
+
 - 192.168.1.110 tracker-group1
    - 192.168.1.112 storage-group1-1
    - 192.168.1.113 storage-group1-2
@@ -438,8 +441,6 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 在任意一个跟踪器上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/avatar.jpg`
     - http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg
     - 注意：116和117的nginx配置文件里，指定了location的前缀为`/fastdfs`
-
-![FastDfs-min-min](https://www.wailian.work/images/2019/03/10/FastDfs-min-min.png)
 
 ## 关闭集群
 1. 116 117（2台一级负载节点）

@@ -47,8 +47,7 @@
 ![FastDfsClusterBuild-min](https://www.wailian.work/images/2019/02/03/FastDfsClusterBuild-min.jpg)
 
 ## 3.5 FastDFS集群+nginx负载均衡
-![FastDfsClusterNginx-min](https://www.wailian.work/images/2019/02/03/FastDfsClusterNginx-min.jpg)
-
+![FastDfsCluster-min-min](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
 
 ## References
 - [FastDFS](https://github.com/happyfish100/fastdfs)
