@@ -53,7 +53,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 进行全局替换命令：`%s+/usr/local/bin+/usr/bin`
 
 ## 配置跟踪器（192.168.1.110节点）
-1. 进入`cd /etc/fdfs/`目录配置跟踪器文件（注意是192.168.1.110节点），把`tracker.conf.sample`文件进行cope一份：去修改`tracker.conf`文件
+1. 进入`cd /etc/fdfs/`目录配置跟踪器文件（注意是192.168.1.110节点），把`tracker.conf.sample`文件cope一份：`cp tracker.conf.sample tracker.conf`
 2. 修改`tracker.conf`文件：`vim /etc/fdfs/tracker.conf`
     - 修改配置文件里的`base_path`即可：`base_path=/fastdfs/tracker`
     - 注意：`tracker.conf`配置文件参数：[FastDFS 配置文件详解](http://bbs.chinaunix.net/thread-1941456-1-1.html)
