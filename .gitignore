@@ -32,3 +32,7 @@ classes
 ### *.log & *.log.* ###
 *.log*
 .dubbo
+### Kettle ###
+kettle-core-8.2.0.0-342.jar
+kettle-engine-8.2.0.0-342.jar
+metastore-8.2.0.0-342.jar
