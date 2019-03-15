@@ -211,7 +211,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - `/usr/local/nginx/sbin/nginx`（加`-s stop`为停止，加`-s reload`为重启）
 10. nginx与FastDFS集成测试，通过跟踪器的Client上传文件，然后打开浏览器，可通过nginx访问FastDFS的文件
     - 上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/avatar.jpg`
-    - 浏览器地址：[http://192.168.1.114:8888/group2/M00/00/00/wKgBclxn9QiAL3Q_AAAZtkdii-k180.jpg]((https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png))
+    - 浏览器地址：[http://192.168.1.114:8888/group2/M00/00/00/wKgBclxn9QiAL3Q_AAAZtkdii-k180.jpg](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
     - 浏览器地址：[http://192.168.1.115:8888/group2/M00/00/00/wKgBclxn9QiAL3Q_AAAZtkdii-k180.jpg](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
 
 ## 2个跟踪器安装nginx
@@ -439,7 +439,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - `service keepalived start`
     - 查看虚拟IP：`ip a`，虚拟IP为：192.168.1.166
     - 在任意一个跟踪器上传文件：`/usr/bin/fdfs_upload_file /etc/fdfs/client.conf /usr/local/software/avatar.jpg`
-    - [http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg]((https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png))
+    - [http://192.168.1.166/fastdfs/group1/M00/00/00/wKgBcFx7wWeAVqGPAAAZtkdii-k652.jpg](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
     - 注意：116和117的nginx配置文件里，指定了location的前缀为`/fastdfs`
 
 ## 关闭集群

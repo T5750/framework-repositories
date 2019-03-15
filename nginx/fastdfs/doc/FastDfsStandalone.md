@@ -1,5 +1,8 @@
 # FastDFS单节点安装手册
 
+- 192.168.1.110 tracker
+   - 192.168.1.112 storage
+
 ## 准备工作（2台机器同时进行）
 1. 下载软件：[http://sourceforge.net/projects/fastdfs/files/](http://sourceforge.net/projects/fastdfs/files/)
 2. 安装gcc：`yum install make cmake gcc gcc-c++`
