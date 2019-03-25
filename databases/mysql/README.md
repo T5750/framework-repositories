@@ -15,6 +15,11 @@
     - [Index cardinality](doc/mysqlIndex.md#Index-cardinality)
     - [USE INDEX hint](doc/mysqlIndex.md#USE-INDEX-hint)
     - [FORCE INDEX hint](doc/mysqlIndex.md#FORCE-INDEX-hint)
+- [MySQL Functions](doc/mysqlFunction.md)
+    - [Aggregate Functions](doc/mysqlFunction.md)
+    - [Control Flow Functions](doc/mysqlFunction.md#control-flow-functions)
+    - [Comparison Functions](doc/mysqlFunction.md#comparison-functions)
+    - [Date Functions](doc/mysqlFunctionDate.md)
 
 ## Runtime Environment
 - [MySQL 5.6](http://www.mysql.com/)
