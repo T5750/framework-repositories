@@ -5,6 +5,7 @@
 - [Kettle](kettle/README.md)
 - [Oracle](oracle/README.md)
 - [MySQL](mysql/README.md)
+- [DB2](db2/README.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -13,3 +14,4 @@
 - [Data Integration 8.2](https://community.hitachivantara.com/docs/DOC-1009855)
 - [Oracle Database 11g](https://www.oracle.com/downloads/)
 - [MySQL 5.6](http://www.mysql.com/)
+- [DB2 9.7](https://www.ibm.com/analytics/us/en/technology/db2/db2-linux-unix-windows.html)
