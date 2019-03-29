@@ -199,6 +199,65 @@ SELECT SYSDATE(3);
 SELECT SYSDATE(), NOW();
 ```
 
+### TIMEDIFF
+Calculates the difference between two TIME or DATETIME values.
+```
+SELECT TIMEDIFF('12:00:00','10:00:00') diff;
+SELECT TIMEDIFF('2010-01-01 01:00:00','2010-01-02 01:00:00') diff;
+SELECT TIMEDIFF('2010-01-01',NULL) diff;
+SELECT TIMEDIFF('2010-01-01 10:00:00','10:00:00') diff;
+SELECT TIMEDIFF('2009-03-01 00:00:00','2009-01-01 00:00:00') diff;
+SHOW WARNINGS;
+SELECT TIMESTAMPDIFF(HOUR,'2009-01-01 00:00:00','2009-03-01 00:00:00') diff;
+```
+
+### TIMESTAMPDIFF
+Calculates the difference between two DATE or DATETIME values.
+```
+SELECT TIMESTAMPDIFF(MONTH, '2010-01-01', '2010-06-01') result;
+SELECT TIMESTAMPDIFF(DAY, '2010-01-01', '2010-06-01') result;
+SELECT TIMESTAMPDIFF(MINUTE, '2010-01-01 10:00:00', '2010-01-01 10:45:00') result;
+SELECT TIMESTAMPDIFF(MINUTE, '2010-01-01 10:00:00', '2010-01-01 10:45:59') result;
+SELECT TIMESTAMPDIFF(SECOND, '2010-01-01 10:00:00', '2010-01-01 10:45:59') result;
+CREATE TABLE persons (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    date_of_birth DATE NOT NULL
+);
+INSERT INTO persons(full_name, date_of_birth)
+VALUES('John Doe', '1990-01-01'),
+      ('David Taylor', '1989-06-06'),
+      ('Peter Drucker', '1985-03-02'),
+      ('Lily Smith', '1992-05-05'),
+      ('Mary William', '1995-12-01');
+SELECT id,full_name,date_of_birth,TIMESTAMPDIFF(YEAR,date_of_birth,'2017-01-01') age FROM persons;
+SELECT id,full_name,date_of_birth,TIMESTAMPDIFF(YEAR,date_of_birth,NOW()) age FROM persons;
+```
+
+### WEEK
+Returns a week number of a date.
+
+Mode | First day of week | Range | Week 1 is the first week …
+---|---|---|-----
+0 | Sunday | 0-53 | with a Sunday in this year
+1 | Monday | 0-53 | with 4 or more days this year
+2 | Sunday | 1-53 | with a Sunday in this year
+3 | Monday | 1-53 | with 4 or more days this year
+4 | Sunday | 0-53 | with 4 or more days this year
+5 | Monday | 0-53 | with a Monday in this year
+6 | Sunday | 1-53 | with 4 or more days this year
+7 | Monday | 1-53 | with a Monday in this year
+
+```
+SHOW VARIABLES LIKE 'default_week_format';
+SELECT WEEK(orderDate) week_no, COUNT(*) FROM orders WHERE YEAR(orderDate) = 2003 GROUP BY WEEK(orderDate);
+```
+
+### WEEKDAY
+Returns a weekday index for a date.
+```
+SELECT DAYNAME('2010-01-01'), WEEKDAY('2010-01-01');
+```
 
 ## References
 - [MySQL Date Functions](http://www.mysqltutorial.org/mysql-date-functions/)
