@@ -57,7 +57,77 @@ SELECT productDescription,(50 - IFNULL(NULLIF(LOCATE(' ', REVERSE(LEFT(productDe
 SELECT productDescription, LEFT(productDescription, last_space_pos) FROM (SELECT productDescription,(50 - IFNULL(NULLIF(LOCATE(' ', REVERSE(LEFT(productDescription, 50))), 0) - 1, 0)) last_space_pos FROM products) AS t;
 ```
 
+### REPLACE
+Search and replace a substring in a string.
+```
+UPDATE products SET productDescription = REPLACE(productDescription,'abuot','about');
+```
 
+### SUBSTRING
+Extract a substring starting from a position with a specific length.
+```
+SELECT SUBSTRING('MYSQL SUBSTRING', 7);
+SELECT SUBSTRING('MySQL SUBSTRING',-10);
+SELECT SUBSTRING('MYSQL SUBSTRING', 0);
+SELECT SUBSTRING('MySQL SUBSTRING' FROM -10);
+SELECT SUBSTRING('MySQL SUBSTRING',1,5);
+SELECT SUBSTRING('MySQL SUBSTRING' FROM 1 FOR 5);
+SELECT SUBSTRING('MySQL SUBSTRING',-15,5);
+SELECT SUBSTRING('MySQL SUBSTRING' FROM -15 FOR 5);
+```
+
+### TRIM
+Remove unwanted characters from a string.
+```
+SELECT TRIM(' MySQL TRIM Function ');
+SELECT TRIM(LEADING FROM '    MySQL TRIM Function   ');
+SELECT TRIM(TRAILING FROM '    MySQL TRIM Function   ');
+UPDATE products SET productname = TRIM(productname);
+SELECT LTRIM('  MySQL LTRIM function');
+SELECT RTRIM('MySQL RTRIM function   ');
+```
+
+### FIND_IN_SET
+Find a string within a comma-separated list of strings.
+```
+SELECT FIND_IN_SET('y','x,y,z'); -- 2
+SELECT FIND_IN_SET('a','x,y,z');
+SELECT FIND_IN_SET('a','');
+SELECT FIND_IN_SET(NULL,'x,y,z');
+SELECT FIND_IN_SET('a',NULL);
+CREATE TABLE IF NOT EXISTS divisions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(25) NOT NULL,
+    belts VARCHAR(200) NOT NULL
+);
+INSERT INTO divisions(name,belts)
+VALUES ('O-1','white,yellow,orange'),
+ ('O-2','purple,green,blue'),
+ ('O-3','brown,red,black'),
+ ('O-4','white,yellow,orange'),
+ ('O-5','purple,green,blue'),
+ ('O-6','brown,red'),
+ ('O-7','black'),
+ ('O-8','white,yellow,orange'),
+ ('O-9','purple,green,blue'),
+ ('O-10','brown,red');
+SELECT name, belts FROM divisions WHERE FIND_IN_SET('red', belts);
+SELECT name, belts FROM divisions WHERE NOT FIND_IN_SET('black', belts);
+SELECT name, belts FROM divisions WHERE name IN ('O-1' , 'O-2');
+SELECT name, belts FROM divisions WHERE FIND_IN_SET(name, 'O-1,O-2');
+```
+
+### FORMAT
+Format a number with a specific locale, rounded to the number of decimals
+```
+SELECT FORMAT(12500.2015, 2);
+SELECT FORMAT(12500.2015, 0);
+SELECT FORMAT(12500.2015, 2,'de_DE');
+SELECT productname, quantityInStock * buyPrice stock_value FROM products;
+SELECT productname,CONCAT('$',FORMAT(quantityInStock * buyPrice, 2)) stock_value FROM products;
+SELECT productname,CONCAT('$',FORMAT(quantityInStock * buyPrice, 2)) stock_value FROM products ORDER BY stock_value;
+SELECT productname,CONCAT('$',FORMAT(quantityInStock * buyPrice, 2)) stock_value FROM products ORDER BY quantityInStock * buyPrice;
+```
 
 ## References
 - [String Functions](http://www.mysqltutorial.org/mysql-string-functions/)

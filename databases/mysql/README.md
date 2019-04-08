@@ -21,6 +21,7 @@
     - [Comparison Functions](doc/mysqlFunction.md#comparison-functions)
     - [Date Functions](doc/mysqlFunctionDate.md)
     - [String Functions](doc/mysqlFunctionString.md)
+    - [Math Functions](doc/mysqlFunctionMath.md)
 
 ## Runtime Environment
 - [MySQL 5.6](http://www.mysql.com/)
