@@ -22,6 +22,7 @@
     - [Date Functions](doc/mysqlFunctionDate.md)
     - [String Functions](doc/mysqlFunctionString.md)
     - [Math Functions](doc/mysqlFunctionMath.md)
+    - [Window Functions](doc/mysqlFunctionWindow.md)
 
 ## Runtime Environment
 - [MySQL 5.6](http://www.mysql.com/)
