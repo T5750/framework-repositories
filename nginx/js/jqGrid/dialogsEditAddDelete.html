@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- The jQuery library is a prerequisite for all jqSuite products -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <!-- We support more than 40 localizations -->
+    <script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js"></script>
+    <!-- This is the Javascript file of jqGrid -->   
+    <script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js"></script>
+    <!-- A link to a Boostrap  and jqGrid Bootstrap CSS siles-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.guriddo.net/demo/css/trirand/ui.jqgrid-bootstrap.css" />
+	<script>
+		// $.jgrid.defaults.width = 780;
+		$.jgrid.defaults.autowidth = true;
+		$.jgrid.defaults.responsive = true;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="json/dialogsEditAddDelete.js"></script>
+    <meta charset="utf-8" />
+    <title>jqGrid Loading Data - Dialogs - Edit, Add, Delete</title>
+</head>
+<body>
+<div style="margin:20px 20px 20px 20px;">
+    <table id="jqGrid"></table>
+	<div id="jqGridPager"></div>
+	<div class="alert alert-info" id="alert-info" style="display: none;">
+		<strong><i class="icon-ok"></i> Well done! </strong>
+		<font id="alert-info-font"></font>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#jqGrid").jqGrid({
+			url: 'data.json',
+			// we set the changes to be made at client side using predefined word clientArray
+			editurl: 'clientArray',
+			datatype: "local",
+			data: dataArray,
+			colModel: [
+				{
+					label: 'Customer ID',
+					name: 'CustomerID',
+					width: 75,
+					key: true,
+					editable: true,
+					editrules : { required: true}
+				},
+				{
+					label: 'Company Name',
+					name: 'CompanyName',
+					width: 140,
+					editable: true // must set editable to true if you want to make the field editable
+				},
+				{
+					label : 'Phone',
+					name: 'Phone',
+					width: 100,
+					editable: true
+				},
+				{
+					label: 'Postal Code',
+					name: 'PostalCode',
+					width: 80,
+					editable: true
+				},
+				{
+					label: 'City',
+					name: 'City',
+					width: 140,
+					editable: true
+				}
+			],
+			sortname: 'CustomerID',
+			sortorder : 'asc',
+			loadonce: true,
+			viewrecords: true,
+			height: 200,
+			rowNum: 10,
+			pager: "#jqGridPager"
+		});
+		$('#jqGrid').navGrid('#jqGridPager',
+			// the buttons to appear on the toolbar of the grid
+			{ edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+			// options for the Edit Dialog
+			{
+				editCaption: "The Edit Dialog",
+				recreateForm: true,
+				checkOnUpdate : true,
+				checkOnSubmit : true,
+				closeAfterEdit: true,
+				errorTextFormat: function (data) {
+					return 'Error: ' + data.responseText
+				}
+			},
+			// options for the Add Dialog
+			{
+				closeAfterAdd: true,
+				recreateForm: true,
+				errorTextFormat: function (data) {
+					return 'Error: ' + data.responseText
+				},
+				afterComplete: function (response, postdata) {
+					alertInfo(response, postdata);
+				}
+			},
+			// options for the Delete Dailog
+			{
+				errorTextFormat: function (data) {
+					return 'Error: ' + data.responseText
+				},
+				afterComplete: function (response, postdata) {
+					alertInfo(response, postdata);
+				}
+			});
+	});
+	function alertInfo(response, postdata){
+		var result="response.status="+response.status+", postdata.oper="+postdata.oper;
+		$("#alert-info-font").text(result);
+		$("#alert-info").show();
+		setTimeout('$("#alert-info").hide();',5000);
+	}
+</script>
+</body>
+</html>

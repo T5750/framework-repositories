@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- The jQuery library is a prerequisite for all jqSuite products -->
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<!-- We support more than 40 localizations -->
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js"></script>
+	<!-- This is the Javascript file of jqGrid -->
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js"></script>
+	<!-- A link to a Boostrap  and jqGrid Bootstrap CSS siles-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="http://www.guriddo.net/demo/css/trirand/ui.jqgrid-bootstrap.css" />
+	<script>
+		$.jgrid.defaults.width = 780;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<meta charset="utf-8" />
+	<title>jqGrid Loading Data - JSON Live</title>
+</head>
+<body>
+<div style="margin-left:20px">
+	<table id="jqGrid"></table>
+	<div id="jqGridPager"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#jqGrid").jqGrid({
+			colModel: [
+				{
+					label: 'Title',
+					name: 'Title',
+					width: 150,
+					formatter: formatTitle
+				},
+				{
+					label: 'Link',
+					name: 'Link',
+					width: 80,
+					formatter: formatLink
+				},
+				{
+					label: 'View Count',
+					name: 'ViewCount',
+					width: 35,
+					sorttype:'integer',
+					formatter: 'number',
+					align: 'right'
+				},
+				{
+					label: 'Answer Count',
+					name: 'AnswerCount',
+					width: 25
+				}
+			],
+			viewrecords: true, // show the current page, data rang and total records on the toolbar
+			width: 780,
+			height: 200,
+			rowNum: 15,
+			datatype: 'local',
+			pager: "#jqGridPager",
+			caption: "Load live data from stackoverflow"
+		});
+		fetchGridData();
+		function fetchGridData() {
+			var gridArrayData = [];
+			// show loading message
+			$("#jqGrid")[0].grid.beginReq();
+			$.ajax({
+				url: "http://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=jqgrid&site=stackoverflow",
+				success: function (result) {
+					for (var i = 0; i < result.items.length; i++) {
+						var item = result.items[i];
+						gridArrayData.push({
+							Title: item.title,
+							Link: item.link,
+							CreationDate: item.creation_date,
+							ViewCount: item.view_count,
+							AnswerCount: item.answer_count
+						});
+					}
+					// set the new data
+					$("#jqGrid").jqGrid('setGridParam', { data: gridArrayData});
+					// hide the show message
+					$("#jqGrid")[0].grid.endReq();
+					// refresh the grid
+					$("#jqGrid").trigger('reloadGrid');
+				}
+			});
+		}
+		function formatTitle(cellValue, options, rowObject) {
+			return cellValue.substring(0, 50) + "...";
+		};
+		function formatLink(cellValue, options, rowObject) {
+			return "<a href='" + cellValue + "'>" + cellValue.substring(0, 25) + "..." + "</a>";
+		};
+	});
+</script>
+</body>
+</html>
