@@ -7,7 +7,7 @@
 - Load from live JSON API (StackOverflow): `jsonLive.html`
 
 ### Editing, Adding, Deleting rows
-- Dialogs: Edit, Add, Delete: `loadingData.html`
+- Dialogs: Edit, Add, Delete: `dialogsEditAddDelete.html`
 
 ### Hierarchy
 - Two level hierarchy: `twoLevelHierarchy.html`
