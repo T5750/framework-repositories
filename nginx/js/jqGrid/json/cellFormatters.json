@@ -1,0 +1,36 @@
+{
+  "rows":[
+	{
+	  "Integer":"200000",
+	  "Number":"60000000.34",
+	  "Currency":"34.21",
+	  "Email":"john.smith@yahoo.com",
+	  "Link":"http://www.yahoo.com",
+	  "CheckBox": true
+	},
+	{
+	  "Integer":"1600000",
+	  "Number":"7522233100.21",
+	  "Currency":"244.51",
+	  "Email":"joe.woe@google.com",
+	  "Link":"http://www.google.com",
+	  "CheckBox": true
+	},
+	{
+	  "Integer":"430150",
+	  "Number":"6644000160",
+	  "Currency":"1700",
+	  "Email":"julia.bergman@bing.com",
+	  "Link":"http://www.bing.com",
+	  "CheckBox": false
+	},
+	{
+	  "Integer":"125330",
+	  "Number":"20003340.99",
+	  "Currency":"4678321",
+	  "Email":"roy.corner@msn.com",
+	  "Link":"http://www.msn.com",
+	  "CheckBox": true
+	}
+  ]
+}
