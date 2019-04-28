@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Date Range Picker &mdash; JavaScript Date &amp; Time Picker Library</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.2.1/trianglify.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-daterangepicker/3.0.5/daterangepicker.min.js"></script>
+	<link href="https://cdn.bootcss.com/bootstrap-daterangepicker/3.0.5/daterangepicker.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<script src="http://www.daterangepicker.com/website.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://www.daterangepicker.com/website.css" />
+	<meta name="google-site-verification" content="1fP-Eo9i1ozV4MUlqZv2vsLv1r7tvYutUb6i38v0_vg" />
+</head>
+<body>
+<div class="container" style="padding: 0 30px" id="main">
+	<div class="row">
+		<div class="leftcol d-none d-lg-block d-xl-block">
+			<div id="menu" class="list-group" style="margin-bottom: 10px">
+				<a class="list-group-item" href="#examples">Examples</a>
+				<a class="list-group-item" href="#config">Configuration Generator</a>
+			</div>
+		</div>
+		<div class="rightcol">
+			<h1><a id="examples" href="#examples">Examples</a></h1>
+			<!-- Example 1 -->
+			<h2><a data-toggle="nothing" href="#example1">Simple Date Range Picker With a Callback</a></h2>
+			<div class="collapsable" id="example1">
+				<div class="row">
+					<div class="col-8">
+						<label>Code:</label>
+					</div>
+					<div class="col-4">
+						<label>Produces:</label>
+						<input type="text" name="daterange" class="form-control" value="1/01/2018 - 01/15/2018" />
+						<script>
+							$(function() {
+								$('input[name="daterange"]').daterangepicker({
+									opens: 'left'
+								}, function(start, end, label) {
+									console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<!-- Example 2 -->
+			<h2><a data-toggle="nothing" href="#example2">Date Range Picker With Times</a></h2>
+			<div class="collapsable" id="example2">
+				<div class="row">
+					<div class="col-8">
+						<label>Code:</label>
+					</div>
+					<div class="col-4">
+						<label>Produces:</label>
+						<input type="text" name="datetimes" class="form-control pull-right" />
+						<script>
+							$(function() {
+								$('input[name="datetimes"]').daterangepicker({
+									timePicker: true,
+									startDate: moment().startOf('hour'),
+									endDate: moment().startOf('hour').add(32, 'hour'),
+									locale: {
+										format: 'M/DD hh:mm A'
+									}
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<!-- Example 3 -->
+			<h2><a data-toggle="nothing" href="#example3">Single Date Picker</a></h2>
+			<div class="collapsable" id="example3">
+				<div class="row">
+					<div class="col-8">
+						<label>Code:</label>
+					</div>
+					<div class="col-4">
+						<label>Produces:</label>
+						<input type="text" name="birthday" class="form-control pull-right" value="10/24/1984" />
+						<script>
+							$(function() {
+								$('input[name="birthday"]').daterangepicker({
+									singleDatePicker: true,
+									showDropdowns: true,
+									minYear: 1901,
+									maxYear: parseInt(moment().format('YYYY'),10)
+								}, function(start, end, label) {
+									var years = moment().diff(start, 'years');
+									alert("You are " + years + " years old!");
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<!-- Example 4 -->
+			<h2><a data-toggle="nothing" href="#example4">Predefined Date Ranges</a></h2>
+			<div class="collapsable" id="example4">
+				<div class="row">
+					<div class="col-8">
+						<label>Code:</label>
+					</div>
+					<div class="col-4">
+						<label>Produces:</label>
+						<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+							<i class="fa fa-calendar"></i>&nbsp;
+							<span></span> <i class="fa fa-caret-down"></i>
+						</div>
+						<script type="text/javascript">
+							$(function() {
+								var start = moment().subtract(29, 'days');
+								var end = moment();
+								function cb(start, end) {
+									$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+								}
+								$('#reportrange').daterangepicker({
+									startDate: start,
+									endDate: end,
+									ranges: {
+										'Today': [moment(), moment()],
+										'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+										'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+										'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+										'This Month': [moment().startOf('month'), moment().endOf('month')],
+										'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+									}
+								}, cb);
+								cb(start, end);
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<!-- Example 5 -->
+			<h2><a data-toggle="nothing" href="#example5">Input Initially Empty</a></h2>
+			<div class="collapsable" id="example5">
+				<div class="row">
+					<div class="col-8">
+						<label>Code:</label>
+					</div>
+					<div class="col-4">
+						<label>Produces:</label>
+						<input type="text" name="datefilter" class="form-control pull-right" value="" />
+						<script type="text/javascript">
+							$(function() {
+								$('input[name="datefilter"]').daterangepicker({
+									autoUpdateInput: false,
+									locale: {
+										cancelLabel: 'Clear'
+									}
+								});
+								$('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+									$(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+								});
+								$('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+									$(this).val('');
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<h1 style="margin-top: 30px"><a id="config" href="#config">Configuration Generator</a></h1>
+			<div class="well configurator">
+				<form>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="parentEl">parentEl</label>
+								<input type="text" class="form-control" id="parentEl" value="" placeholder="body">
+							</div>
+							<div class="form-group">
+								<label for="startDate">startDate</label>
+								<input type="text" class="form-control" id="startDate" value="07/01/2017">
+							</div>
+							<div class="form-group">
+								<label for="endDate">endDate</label>
+								<input type="text" class="form-control" id="endDate" value="07/15/2017">
+							</div>
+							<div class="form-group">
+								<label for="minDate">minDate</label>
+								<input type="text" class="form-control" id="minDate" value="" placeholder="MM/DD/YYYY">
+							</div>
+							<div class="form-group">
+								<label for="maxDate">maxDate</label>
+								<input type="text" class="form-control" id="maxDate" value="" placeholder="MM/DD/YYYY">
+							</div>
+							<div class="form-group">
+								<label for="opens">opens</label>
+								<select id="opens" class="form-control">
+									<option value="right" selected>right</option>
+									<option value="left">left</option>
+									<option value="center">center</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="drops">drops</label>
+								<select id="drops" class="form-control">
+									<option value="down" selected>down</option>
+									<option value="up">up</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="showDropdowns"> showDropdowns
+								</label>
+							</div>
+							<div class="form-group">
+								<label for="minYear">minYear</label>
+								<input type="text" class="form-control" id="minYear" value="">
+							</div>
+							<div class="form-group">
+								<label for="maxYear">maxYear</label>
+								<input type="text" class="form-control" id="maxYear" value="">
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="showWeekNumbers"> showWeekNumbers
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="showISOWeekNumbers"> showISOWeekNumbers
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="singleDatePicker"> singleDatePicker
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="timePicker"> timePicker
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="timePicker24Hour"> timePicker24Hour
+								</label>
+							</div>
+							<div class="form-group">
+								<label for="timePickerIncrement">timePickerIncrement (in minutes)</label>
+								<input type="text" class="form-control" id="timePickerIncrement" value="1">
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="timePickerSeconds"> timePickerSeconds
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="maxSpan"> maxSpan (example value)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="locale"> locale (example settings)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="autoApply"> autoApply
+								</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="buttonClasses">buttonClasses</label>
+								<input type="text" class="form-control" id="buttonClasses" value="btn btn-sm">
+							</div>
+							<div class="form-group">
+								<label for="applyButtonClasses">applyButtonClasses</label>
+								<input type="text" class="form-control" id="applyButtonClasses" value="btn-primary">
+							</div>
+							<div class="form-group">
+								<label for="cancelButtonClasses">cancelButtonClasses</label>
+								<input type="text" class="form-control" id="cancelButtonClasses" value="btn-default">
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="ranges"> ranges (with example predefined ranges)
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="alwaysShowCalendars"> alwaysShowCalendars
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="showCustomRangeLabel" checked="checked"> showCustomRangeLabel
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="linkedCalendars" checked="checked"> linkedCalendars
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="autoUpdateInput" checked="checked"> autoUpdateInput
+								</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-4 demo">
+					<div style="position: relative">
+						<h2 style="margin-bottom: 15px">Your Date Range Picker</h2>
+						<input type="text" id="config-demo" class="form-control">
+					</div>
+				</div>
+				<div class="col-8">
+					<h2 style="margin-bottom: 15px">Your Configuration to Copy</h2>
+					<div class="well">
+						<textarea id="config-text" style="height: 300px; width: 100%; padding: 10px"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
