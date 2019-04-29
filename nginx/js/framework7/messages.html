@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Messages</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div class="page">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Messages</div>
+				</div>
+			</div>
+			<div class="toolbar messagebar">
+				<div class="toolbar-inner">
+					<div class="messagebar-area">
+						<textarea class="resizable" placeholder="Message"></textarea>
+					</div><a class="link send-link" href="#">Send</a>
+				</div>
+			</div>
+			<div class="page-content messages-content">
+				<div class="messages">
+					<!-- Messages title -->
+					<div class="messages-title"><b>Sunday, Feb 9,</b> 12:58</div>
+					<!-- Full layout sent message -->
+					<div class="message message-sent">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/7);"></div>
+						<div class="message-content">
+							<div class="message-name">John Doe</div>
+							<div class="message-header">Message header</div>
+							<div class="message-bubble">
+								<div class="message-text-header">Text header</div>
+								<div class="message-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+								<div class="message-text-footer">Text footer</div>
+							</div>
+							<div class="message-footer">Message footer</div>
+						</div>
+					</div>
+					<!-- Full layout received message -->
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/7);"></div>
+						<div class="message-content">
+							<div class="message-name">John Doe</div>
+							<div class="message-header">Message header</div>
+							<div class="message-bubble">
+								<div class="message-text-header">Text header</div>
+								<div class="message-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+								<div class="message-text-footer">Text footer</div>
+							</div>
+							<div class="message-footer">Message footer</div>
+						</div>
+					</div>
+					<!-- Messages -->
+					<div class="message message-sent">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">Hi, Kate</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-sent">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">How are you?</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/9);"></div>
+						<div class="message-content">
+							<div class="message-name">Kate</div>
+							<div class="message-bubble">
+								<div class="message-text">Hi, I am good!</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/7);"></div>
+						<div class="message-content">
+							<div class="message-name">Blue Ninja</div>
+							<div class="message-bubble">
+								<div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-sent">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">Hey, Blue Ninja! Glad to see you ;)</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-sent">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">Hey, look, cutest kitten ever!</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-sent">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-image"><img src="http://lorempixel.com/200/260/cats/4/" style="width:200px; height: 260px;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/9);"></div>
+						<div class="message-content">
+							<div class="message-name">Kate</div>
+							<div class="message-bubble">
+								<div class="message-text">Nice!</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/9);"></div>
+						<div class="message-content">
+							<div class="message-name">Kate</div>
+							<div class="message-bubble">
+								<div class="message-text">Like it very much!</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/7);"></div>
+						<div class="message-content">
+							<div class="message-name">Blue Ninja</div>
+							<div class="message-bubble">
+								<div class="message-text">Awesome!</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/messages.js"></script>
+</body>
+</html>

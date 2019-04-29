@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Messagebar</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet">
+	<link href="css/framework7-icons.css" rel="stylesheet">
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div class="page">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Messages</div>
+				</div>
+			</div>
+			<div class="toolbar messagebar">
+				<div class="toolbar-inner">
+					<a class="link toggle-sheet" href="#">
+						<i class="icon f7-icons ios-only">camera_fill</i>
+						<i class="icon material-icons md-only">camera_alt</i>
+					</a>
+					<div class="messagebar-area">
+						<textarea placeholder="Message"></textarea>
+					</div>
+					<a class="link" href="#">Send</a>
+				</div>
+				<div class="messagebar-sheet"></div>
+			</div>
+			<div class="page-content messages-content">
+				<div class="messages">
+					<div class="messages-title"><b>Sunday, Feb 9,</b> 12:58</div>
+					<div class="message message-sent message-first">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">Hi, Kate</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-sent message-last message-tail">
+						<div class="message-content">
+							<div class="message-bubble">
+								<div class="message-text">How are you?</div>
+							</div>
+						</div>
+					</div>
+					<div class="message message-received message-first message-last message-tail">
+						<div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/9)"></div>
+						<div class="message-content">
+							<div class="message-name">Kate</div>
+							<div class="message-bubble">
+								<div class="message-text">Hi, I am good!</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/messagebar.js"></script>
+</body>
+</html>
