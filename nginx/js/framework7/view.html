@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Multiple Views Layout</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- view inside of panel -->
+	<div class="panel panel-left panel-cover">
+		<div class="view panel-view"></div>
+	</div>
+	<!-- Views container -->
+	<div class="views tabs">
+		<!-- Your main view -->
+		<div class="view view-main tab tab-active" id="view-1">
+			<!-- View related pages -->
+			<div data-name="home" class="page">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="title">Multiple Views Layout</div>
+					</div>
+				</div>
+				<div class="page-content">
+					<div class="block">
+						<p>Multiple Views Layout - view-1</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Another view -->
+		<div class="view tab view-init" id="view-2" data-name="another">
+			<!-- View related pages -->
+			<div data-name="left" class="page">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="title">Multiple Views Layout</div>
+					</div>
+				</div>
+				<div class="page-content">
+					<div class="block">
+						<p>Multiple Views Layout - view-2</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup">
+		<div class="view popup-view"></div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+</body>
+</html>
