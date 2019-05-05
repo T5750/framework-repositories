@@ -6,7 +6,21 @@ var app = new Framework7({
 			path: '/about/',
 			//url: './pages/about.html',
 			// Fill this tab content from content string
-			content: '<div class="page"><div class="page-content"><div class="block"><h3>About Me</h3><p></p></div></div></div>'
+			content: '<div class="page"><div class="page-content"><div class="block"><h3>About Me</h3><p></p></div></div></div>',
+			on: {
+				pageBeforeIn: function (event, page) {
+					console.log("pageBeforeIn");
+				},
+				pageAfterIn: function (event, page) {
+					console.log("pageAfterIn");
+				},
+				pageInit: function (event, page) {
+					console.log("pageInit");
+				},
+				pageBeforeRemove: function (event, page) {
+					console.log("pageBeforeRemove");
+				}
+			}
 		},
 		// Dynamic page from content
 		{
@@ -72,7 +86,7 @@ var app = new Framework7({
 		{
 			path: '/popup-content/',
 			popup: {
-				content: '<div class="popup"><div class="view"><div class="page"><div class="page-content"><div class="block">Creates popup from passed HTML string</div></div></div></div></div>'
+				content: '<div class="popup"><div class="view"><div class="page"><div class="page-content"><div class="block"><p>Creates popup from passed HTML string</p><p><a class="link popup-close" href="#">Close popup</a></p></div></div></div></div></div>'
 			}
 		},
 		{
