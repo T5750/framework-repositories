@@ -7,9 +7,9 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- Color theme for statusbar -->
 	<meta name="theme-color" content="#2196f3">
-	<title>Link</title>
-	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet">
-	<link href="css/framework7-icons.css" rel="stylesheet">
+	<title>My App</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.rtl.min.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="path/to/my-app.css">-->
 </head>
 <body>
 <!-- App root element -->
@@ -23,23 +23,27 @@
 			<!-- Top Navbar -->
 			<div class="navbar">
 				<div class="navbar-inner">
-					<div class="title">Link</div>
+					<div class="title">Awesome App</div>
+				</div>
+			</div>
+			<!-- Toolbar -->
+			<div class="toolbar">
+				<div class="toolbar-inner">
+					<!-- Toolbar links -->
+					<a href="#" class="link">Link 1</a>
+					<a href="#" class="link">Link 2</a>
 				</div>
 			</div>
 			<!-- Scrollable page content -->
 			<div class="page-content">
-				<div class="block-title">Link Layout</div>
-				<a class="link external" href="layout/app-layout.html">
-					<i class="icon icon-forward"></i>
-					<span>Link Text</span>
-				</a>
-				<div class="block-title">Bypass Links Handler</div>
-				<p><a class="link external" href="http://bing.com">Open Bing</a></p>
+				<p>Page content goes here</p>
+				<!-- Link to another page -->
+				<a href="/about/">About app</a>
 			</div>
 		</div>
 	</div>
 </div>
 <script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="../js/app-layout.js"></script>
 </body>
 </html>
