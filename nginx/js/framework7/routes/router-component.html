@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- Color theme for statusbar -->
 	<meta name="theme-color" content="#2196f3">
-	<title>Routes Alias</title>
+	<title>Router Component</title>
 	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet">
 </head>
 <body>
@@ -18,36 +18,22 @@
 	<!-- Your main view, should have "view-main" class -->
 	<div class="view view-main">
 		<!-- Initial Page, "data-name" contains page name -->
-		<div data-name="home" class="page">
-			<!-- Top Navbar -->
+		<div class="page">
 			<div class="navbar">
 				<div class="navbar-inner">
-					<div class="title">Routes Alias</div>
+					<div class="title">Router Component</div>
 				</div>
 			</div>
-			<!-- Scrollable page content -->
 			<div class="page-content">
 				<div class="block">
-					<p>alias: '/bar/'</p>
-					<a href="/bar/">Alias bar</a>
-				</div>
-				<div class="block">
-					<p>alias: ['/bar2/', '/baz/', '/baz2/']</p>
-					<a href="/baz/">Alias baz</a>
-				</div>
-				<div class="block">
-					<p>redirect: '/about/'</p>
-					<a href="/foobar/">Redirect foobar</a>
-				</div>
-				<div class="block">
-					<p>redirect: function</p>
-					<a href="/foobaz/?user=tester">Redirect foobaz</a>
+					<p>Component Object</p>
+					<a href="/some-page/">Some Page</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
-<script type="text/javascript" src="../js/routes-alias.js"></script>
+<script type="text/javascript" src="../js/router-component.js"></script>
 </body>
 </html>
