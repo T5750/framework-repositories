@@ -8,5 +8,8 @@ npm install &&
 npm run serve
 ```
 
+## Tips
+- Commits on Feb 7, 2019
+
 ## References
 - [Framework7 Tabs Starter App Template](https://github.com/framework7io/framework7-template-tabs)
