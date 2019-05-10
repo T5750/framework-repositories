@@ -5,6 +5,7 @@
 ### Mobile
 - [Framework7](framework7/README.md)
 - [F2](f2/README.md)
+- [hammer.js](hammerjs/README.md)
 
 ### PC
 - [jqGrid](jqGrid/README.md)
