@@ -141,4 +141,7 @@ findProject(':spring-boot:spring-boot-admin')?.name = 'spring-boot-admin'
 include 'nginx:fastdfs'
 findProject(':nginx:fastdfs')?.name = 'fastdfs'
 include 'linux'
+include 'big-data'
+include 'big-data:hadoop'
+findProject(':big-data:hadoop')?.name = 'hadoop'
 

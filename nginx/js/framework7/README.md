@@ -18,3 +18,4 @@
 - [Framework7 Icons](https://github.com/framework7io/framework7-icons)
 - [Framework7 Single View Starter App Template](https://github.com/framework7io/framework7-template-single-view)
 - [Framework7 Tabs Starter App Template](https://github.com/framework7io/framework7-template-tabs)
+- [Framework7 Split View Starter App Template](https://github.com/framework7io/framework7-template-split-view)
