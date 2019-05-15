@@ -4,6 +4,8 @@
 ### Hadoop
 - [Hadoop](hadoop/README.md)
     - [Enviornment Setup](hadoop/doc/HadoopEnviornmentSetup.md)
+    - [HDFS](hadoop/doc/HadoopHdfs.md)
+    - [Command Reference](hadoop/doc/HadoopCommandReference.md)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
