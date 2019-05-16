@@ -93,6 +93,10 @@ export PATH=${JAVA_HOME}/bin:${HADOOP_HOME}/bin:$PATH
 		  <name>dfs.data.dir</name>
 		  <value>file:///home/hadoop/hadoopinfra/hdfs/datanode</value>
 	   </property>
+	   <property>
+          <name>hadoop.tmp.dir</name>
+          <value>file:///home/hadoop/hadoopinfra/hdfs/tmp</value>
+       </property>
 	</configuration>
 	```
     - `vim yarn-site.xml`
