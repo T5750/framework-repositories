@@ -31,4 +31,8 @@
 		<value>/home/hadoop/cluster/dfs/name</value>
 		<final>true</final>
 	</property>
+	<property>
+		<name>dfs.hosts.exclude</name>
+		<value>/home/hadoop/cluster/hdfs_exclude</value>
+	</property>
 </configuration>

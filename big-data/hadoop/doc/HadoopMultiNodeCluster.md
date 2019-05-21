@@ -133,7 +133,7 @@ tc212
 ```
 
 ### Format Name Node on Hadoop Master
-`hadoop namenode –format`
+`hdfs namenode –format`
 
 ## Starting Hadoop Services
 ```
@@ -162,6 +162,103 @@ tail -f -n 99 /usr/local/hadoop/logs/yarn-hadoop-resourcemanager-tc213.log
 ```
 tail -f -n 99 /usr/local/hadoop/logs/hadoop-hadoop-datanode-tc211.log
 tail -f -n 99 /usr/local/hadoop/logs/yarn-hadoop-nodemanager-tc211.log
+```
+
+## Adding a New DataNode in the Hadoop Cluster
+### Networking
+```
+IP address : 192.168.100.214 
+netmask : 255.255.255.0
+hostname : tc214
+```
+
+## Adding User and SSH Access
+### Add a User
+```
+useradd hadoop
+passwd hadoop
+```
+
+### Execute the following on the master
+```
+mkdir -p $HOME/.ssh
+chmod 700 $HOME/.ssh
+ssh-keygen -t rsa -P '' -f $HOME/.ssh/id_rsa
+cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+chmod 644 $HOME/.ssh/authorized_keys
+Copy the public key to new slave node in hadoop user $HOME directory
+scp $HOME/.ssh/id_rsa.pub hadoop@192.168.100.214:/home/hadoop/
+```
+
+### Execute the following on the slaves
+```
+su hadoop ssh -X hadoop@192.168.100.214
+```
+
+## Set Hostname of New Node
+`vi /etc/sysconfig/network`
+```
+NETWORKING = yes 
+HOSTNAME = tc214
+```
+
+`vi /etc/hosts`
+```
+192.168.100.214 tc214
+```
+
+## Start the DataNode on New Node
+### Login to new node
+`su hadoop or ssh -X hadoop@192.168.100.214`
+
+### Start HDFS on a newly added slave node by using the following command
+```
+./bin/hadoop-daemon.sh start datanode
+yarn-daemon.sh start nodemanager
+```
+
+### Check the output of jps command on a new node. It looks as follows.
+```
+$ jps
+7141 DataNode
+10312 Jps
+```
+
+## Removing a DataNode from the Hadoop Cluster
+1. Login to master
+1. Change cluster configuration: `hdfs-site.xml`
+	```
+	<property>
+		<name>dfs.hosts.exclude</name>
+		<value>/home/hadoop/cluster/hdfs_exclude</value>
+	</property>
+	```
+1. Determine hosts to decommission: `/home/hadoop/cluster/hdfs_exclude`
+	```
+	192.168.100.214
+	```
+1. Force configuration reload: `$HADOOP_HOME/bin/hdfs dfsadmin -refreshNodes`
+1. Shutdown nodes: `$HADOOP_HOME/bin/hdfs dfsadmin -report`
+1. Edit excludes file again
+	```
+	$HADOOP_HOME/bin/hadoop-daemon.sh stop tasktracker
+	$HADOOP_HOME/bin/hadoop-daemon.sh start tasktracker
+	```
+### Results
+```
+Name: 192.168.100.214:50010 (tc214)
+Hostname: tc214
+Decommission Status : Decommission in progress
+```
+```
+Name: 192.168.100.214:50010 (tc214)
+Hostname: tc214
+Decommission Status : Decommissioned
+```
+```
+http://192.168.100.213:50070/dfshealth.html#tab-datanode
+hadoop-daemon.sh stop datanode
+yarn-daemon.sh stop nodemanager
 ```
 
 ## References
