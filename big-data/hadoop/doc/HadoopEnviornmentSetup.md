@@ -127,8 +127,8 @@ export PATH=${JAVA_HOME}/bin:${HADOOP_HOME}/bin:$PATH
 	```
 1. Verifying Hadoop dfs: `start-dfs.sh`
 1. Verifying Yarn Script: `start-yarn.sh`
-1. Accessing Hadoop on Browser: [http://192.168.100.211:50070](http://192.168.100.211:50070)
-1. Verify All Applications for Cluster: [http://192.168.100.211:8088](http://192.168.100.211:8088)
+1. Accessing Hadoop on Browser: [http://192.168.100.210:50070](http://192.168.100.210:50070)
+1. Verify All Applications for Cluster: [http://192.168.100.210:8088](http://192.168.100.210:8088)
 
 ## References
 - [Hadoop - Enviornment Setup](https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm)

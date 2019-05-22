@@ -1,5 +1,15 @@
 # MapReduce
 
+>MapReduce: Simplified Data Processing on Large Clusters
+
+Steps in Map Reduce
+
+![mapreduce-introduction](https://www.wailian.work/images/2019/05/22/mapreduce-introduction.png)
+
+Data Flow In MapReduce
+
+![data-flow-in-mapreduce](https://www.wailian.work/images/2019/05/22/data-flow-in-mapreduce.png)
+
 ## The Algorithm
 ![mapreduce_algorithm-min-min](https://www.wailian.work/images/2019/05/15/mapreduce_algorithm-min-min.jpg)
 
@@ -124,5 +134,40 @@ e.g.
 hadoop job -kill job_1557970197535_0001
 ```
 
+## Word Count Example
+### Steps to execute MapReduce word count example
+```
+mkdir word-count
+vi ~/word-count/word-count-data.txt
+HDFS is a storage unit of Hadoop
+MapReduce is a processing tool of Hadoop
+start-dfs.sh
+start-yarn.sh
+hdfs dfs -mkdir /word-count
+hdfs dfs -put ~/word-count/word-count-data.txt /word-count
+WordCountMapper, WordCountReducer, WordCountRunner
+# IDE-->Gradle-->Tasks-->build-->jar
+hadoop jar ~/word-count/hadoop-demos.jar t5750.hadoop.mapred.WordCountRunner /word-count /word-count-output
+# Browsing HDFS: http://192.168.100.210:50070/explorer.html#/
+hdfs dfs -cat /word-count-output/part-00000
+```
+
+## MapReduce Char Count Example
+### Steps to execute MapReduce char count example
+```
+mkdir char-count
+vi ~/char-count/char-count-info.txt
+hdfs dfs -mkdir /char-count
+hdfs dfs -put ~/char-count/char-count-info.txt /char-count
+CharCountMapper, CharCountReducer, CharCountRunner
+# IDE-->Gradle-->Tasks-->build-->jar
+hadoop jar ~/char-count/hadoop-demos.jar t5750.hadoop.mapred.CharCountRunner /char-count /char-count-output
+hdfs dfs -cat /char-count-output/part-00000
+```
+
 ## References
 - [Hadoop - MapReduce](https://www.tutorialspoint.com/hadoop/hadoop_mapreduce.htm)
+- [What is MapReduce](https://www.javatpoint.com/mapreduce)
+- [Data Flow In MapReduce](https://www.javatpoint.com/data-flow-in-mapreduce)
+- [MapReduce Word Count Example](https://www.javatpoint.com/mapreduce-word-count-example)
+- [MapReduce Char Count Example](https://www.javatpoint.com/mapreduce-char-count-example)

@@ -12,6 +12,7 @@
 - [Multi-Node Cluster](doc/HadoopMultiNodeCluster.md)
 	- [Adding a New DataNode in the Hadoop Cluster](doc/HadoopMultiNodeCluster.md#adding-a-new-datanode-in-the-hadoop-cluster)
 	- [Removing a DataNode from the Hadoop Cluster](doc/HadoopMultiNodeCluster.md#removing-a-datanode-from-the-hadoop-cluster)
+- [YARN](doc/HadoopYarn.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

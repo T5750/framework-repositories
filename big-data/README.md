@@ -11,6 +11,7 @@
     - [Multi-Node Cluster](hadoop/doc/HadoopMultiNodeCluster.md)
         - [Adding a New DataNode in the Hadoop Cluster](hadoop/doc/HadoopMultiNodeCluster.md#adding-a-new-datanode-in-the-hadoop-cluster)
         - [Removing a DataNode from the Hadoop Cluster](hadoop/doc/HadoopMultiNodeCluster.md#removing-a-datanode-from-the-hadoop-cluster)
+    - [YARN](hadoop/doc/HadoopYarn.md)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.

@@ -4,7 +4,7 @@ import io.netty.handler.codec.http.HttpConstants;
 import io.netty.util.internal.InternalThreadLocalMap;
 
 /**
- * Created by bm on 2018/12/6.
+ * 
  */
 final class CookieEncoderUtil {
 	static StringBuilder stringBuilder() {
