@@ -144,4 +144,6 @@ include 'linux'
 include 'big-data'
 include 'big-data:hadoop'
 findProject(':big-data:hadoop')?.name = 'hadoop'
+include 'big-data:hbase'
+findProject(':big-data:hbase')?.name = 'hbase'
 

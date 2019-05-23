@@ -13,6 +13,14 @@
         - [Removing a DataNode from the Hadoop Cluster](hadoop/doc/HadoopMultiNodeCluster.md#removing-a-datanode-from-the-hadoop-cluster)
     - [YARN](hadoop/doc/HadoopYarn.md)
 
+### HBase
+- [HBase](hbase/README.md)
+    - [HBase Overview](hbase/doc/HBaseOverview.md)
+    - [HBase Architecture](hbase/doc/HBaseArchitecture.md)
+    - [HBase Installation](hbase/doc/HBaseInstallation.md)
+    - [HBase Shell](hbase/doc/HBaseShell.md)
+    - [HBase Admin API](hbase/doc/HBaseAdminAPI.md)
+
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
 1. Variety: Now a days data are not stored in rows and column. Data is structured as well as unstructured. Log file, CCTV footage is unstructured data. Data which can be saved in tables are structured data like the transaction data of the bank.
