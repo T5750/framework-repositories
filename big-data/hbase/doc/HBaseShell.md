@@ -33,5 +33,15 @@
 ## Starting HBase Shell
 `./bin/hbase shell`
 
+## Results
+```
+@shell.hbase.configuration.get("hbase.zookeeper.quorum")
+@shell.hbase.configuration.get("hbase.zookeeper.property.clientPort")
+@shell.hbase.configuration.get("hbase.master.info.port")
+@shell.hbase.configuration.get("hbase.master.port")
+@shell.hbase.configuration.get("hbase.rootdir")
+@shell.hbase.configuration.get("hbase.zookeeper.property.dataDir")
+```
+
 ## References
 - [HBase - Shell](https://www.tutorialspoint.com/hbase/hbase_shell.htm)
