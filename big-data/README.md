@@ -27,6 +27,15 @@
     - [HBase Describe & Alter](hbase/doc/HBaseTable.md#describe--alter)
     - [HBase Exists](hbase/doc/HBaseTable.md#exists)
     - [HBase Drop a Table](hbase/doc/HBaseTable.md#drop-a-table)
+    - [HBase Shutting Down](hbase/doc/HBaseAdminAPI.md#shutting-down)
+    - [HBase Client API](hbase/doc/HBaseClientAPI.md)
+    - [HBase Create Data](hbase/doc/HBaseData.md)
+    - [HBase Update Data](hbase/doc/HBaseData.md#update-data)
+    - [HBase Read Data](hbase/doc/HBaseData.md#read-data)
+    - [HBase Delete Data](hbase/doc/HBaseData.md#delete-data)
+    - [HBase Scan](hbase/doc/HBaseData.md#scan)
+    - [HBase Count & Truncate](hbase/doc/HBaseData.md#count--truncate)
+    - [HBase Security](hbase/doc/HBaseData.md#security)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.

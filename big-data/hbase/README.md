@@ -13,6 +13,15 @@
 - [HBase Describe & Alter](doc/HBaseTable.md#describe--alter)
 - [HBase Exists](doc/HBaseTable.md#exists)
 - [HBase Drop a Table](doc/HBaseTable.md#drop-a-table)
+- [HBase Shutting Down](doc/HBaseAdminAPI.md#shutting-down)
+- [HBase Client API](doc/HBaseClientAPI.md)
+- [HBase Create Data](doc/HBaseData.md)
+- [HBase Update Data](doc/HBaseData.md#update-data)
+- [HBase Read Data](doc/HBaseData.md#read-data)
+- [HBase Delete Data](doc/HBaseData.md#delete-data)
+- [HBase Scan](doc/HBaseData.md#scan)
+- [HBase Count & Truncate](doc/HBaseData.md#count--truncate)
+- [HBase Security](doc/HBaseData.md#security)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
