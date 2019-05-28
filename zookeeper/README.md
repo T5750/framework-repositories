@@ -15,6 +15,9 @@
 - [ZooKeeper异常笔记](doc/ZooKeeperException.md)
     - [java.net.ConnectException:拒绝连接](doc/ZooKeeperException.md)
 
+### ZooKeeper Logs
+- [ZooKeeper Logs](doc/ZooKeeperLogs.md)
+
 ## Examples
 - [curator-examples](https://github.com/apache/curator/tree/master/curator-examples/src/main/java)
 
