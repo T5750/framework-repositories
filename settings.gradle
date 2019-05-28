@@ -146,4 +146,6 @@ include 'big-data:hadoop'
 findProject(':big-data:hadoop')?.name = 'hadoop'
 include 'big-data:hbase'
 findProject(':big-data:hbase')?.name = 'hbase'
+include 'big-data:hive'
+findProject(':big-data:hive')?.name = 'hive'
 

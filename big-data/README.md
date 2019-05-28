@@ -37,6 +37,14 @@
     - [HBase Count & Truncate](hbase/doc/HBaseData.md#count--truncate)
     - [HBase Security](hbase/doc/HBaseData.md#security)
 
+### Hive
+- [Hive](hive/README.md)
+    - [Hive Introduction](hive/doc/HiveIntroduction.md)
+    - [Hive Installation](hive/doc/HiveInstallation.md)
+    - [Hive Data Types](hive/doc/HiveDataTypes.md)
+    - [Hive Create Database](hive/doc/HiveDatabase.md)
+    - [Hive Drop Database](hive/doc/HiveDatabase.md#drop-database)
+
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
 1. Variety: Now a days data are not stored in rows and column. Data is structured as well as unstructured. Log file, CCTV footage is unstructured data. Data which can be saved in tables are structured data like the transaction data of the bank.
