@@ -10,6 +10,9 @@ import java.sql.SQLException;
 public class HiveUtil {
 	private static final String DRIVER_NAME = "org.apache.hive.jdbc.HiveDriver";
 	public static final String DATABASE_NAME = "userdb_api";
+	public static final String TABLE_EMPLOYEE_API = "employee_api";
+	public static final String TABLE_EMP_API = "emp_api";
+	public static final String TABLE_EMPLOYEE = "employee";
 
 	public static Connection getConnection() throws SQLException {
 		Connection con = null;

@@ -44,6 +44,18 @@
     - [Hive Data Types](hive/doc/HiveDataTypes.md)
     - [Hive Create Database](hive/doc/HiveDatabase.md)
     - [Hive Drop Database](hive/doc/HiveDatabase.md#drop-database)
+    - [Hive Create Table](hive/doc/HiveTable.md)
+    - [Hive Alter Table](hive/doc/HiveTable.md#alter-table)
+    - [Hive Drop Table](hive/doc/HiveTable.md#drop-table)
+    - [Hive Partitioning](hive/doc/HivePartitioning.md)
+    - [Hive Built-in Operators](hive/doc/HiveBuiltInOperators.md)
+    - [Hive Built-in Functions](hive/doc/HiveBuiltInFunctions.md)
+    - [Hive View and Indexes](hive/doc/HiveViewIndexes.md)
+    - [HiveQL](hive/doc/HiveQL.md)
+        - [HiveQL Select-Where](hive/doc/HiveQL.md#select-where)
+        - [HiveQL Select-Order By](hive/doc/HiveQL.md#select-order-by)
+        - [HiveQL Select-Group By](hive/doc/HiveQL.md#select-group-by)
+        - [HiveQL Select-Joins](hive/doc/HiveQL.md#select-joins)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
