@@ -56,6 +56,15 @@
         - [HiveQL Select-Order By](hive/doc/HiveQL.md#select-order-by)
         - [HiveQL Select-Group By](hive/doc/HiveQL.md#select-group-by)
         - [HiveQL Select-Joins](hive/doc/HiveQL.md#select-joins)
+    - [Hive vs. HBase](hive/doc/HiveHBase.md)
+
+### Spark
+- [Spark](spark/README.md)
+    - [Spark Introduction](spark/doc/SparkIntroduction.md)
+    - [Spark RDD](spark/doc/SparkRDD.md)
+    - [Spark Installation](spark/doc/SparkInstallation.md)
+    - [Spark SQL Introduction](spark/doc/SparkSqlIntroduction.md)
+    - [Spark SQL DataFrames](spark/doc/SparkSqlDataFrames.md)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.

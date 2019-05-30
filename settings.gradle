@@ -148,4 +148,6 @@ include 'big-data:hbase'
 findProject(':big-data:hbase')?.name = 'hbase'
 include 'big-data:hive'
 findProject(':big-data:hive')?.name = 'hive'
+include 'big-data:spark'
+findProject(':big-data:spark')?.name = 'spark'
 

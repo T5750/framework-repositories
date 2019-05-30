@@ -18,6 +18,7 @@
     - [HiveQL Select-Order By](doc/HiveQL.md#select-order-by)
     - [HiveQL Select-Group By](doc/HiveQL.md#select-group-by)
     - [HiveQL Select-Joins](doc/HiveQL.md#select-joins)
+- [Hive vs. HBase](doc/HiveHBase.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
