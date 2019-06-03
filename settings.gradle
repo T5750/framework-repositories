@@ -150,4 +150,6 @@ include 'big-data:hive'
 findProject(':big-data:hive')?.name = 'hive'
 include 'big-data:spark'
 findProject(':big-data:spark')?.name = 'spark'
+include 'big-data:flume'
+findProject(':big-data:flume')?.name = 'flume'
 

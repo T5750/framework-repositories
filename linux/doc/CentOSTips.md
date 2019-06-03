@@ -22,3 +22,6 @@
 - `yum -y install ntp ntpdate`
 - `vim /etc/rc.d/rc.local`
     - `/usr/sbin/ntpdate cn.pool.ntp.org`
+
+## telnet
+- `yum install telnet`

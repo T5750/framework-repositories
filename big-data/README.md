@@ -72,6 +72,16 @@
         - [Spark SQL Hive Tables](spark/doc/SparkSqlDataSources.md#spark-sql-hive-tables)
         - [Spark SQL Parquet Files](spark/doc/SparkSqlDataSources.md#spark-sql-parquet-files)
 
+### Flume
+- [Flume](flume/README.md)
+    - [Flume Introduction](flume/doc/FlumeIntroduction.md)
+    - [Flume Architecture](flume/doc/FlumeIntroduction.md#architecture)
+    - [Flume Data Flow](flume/doc/FlumeIntroduction.md#data-flow)
+    - [Flume Environment](flume/doc/FlumeEnvironment.md)
+    - [Flume Configuration](flume/doc/FlumeConfiguration.md)
+    - [Flume Sequence Generator Source](flume/doc/FlumeSequenceGeneratorSource.md)
+    - [Flume NetCat Source](flume/doc/FlumeNetCatSource.md)
+
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
 1. Variety: Now a days data are not stored in rows and column. Data is structured as well as unstructured. Log file, CCTV footage is unstructured data. Data which can be saved in tables are structured data like the transaction data of the bank.
