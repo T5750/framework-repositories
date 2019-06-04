@@ -82,6 +82,34 @@
     - [Flume Sequence Generator Source](flume/doc/FlumeSequenceGeneratorSource.md)
     - [Flume NetCat Source](flume/doc/FlumeNetCatSource.md)
 
+### Pig
+- [Pig](pig/README.md)
+    - [Pig Introduction](pig/doc/PigOverview.md)
+        - [Pig Overview](pig/doc/PigOverview.md)
+        - [Pig Architecture](pig/doc/PigArchitecture.md)
+    - [Pig Environment](pig/doc/PigInstallation.md)
+        - [Pig Installation](pig/doc/PigInstallation.md)
+        - [Pig Execution](pig/doc/PigExecution.md)
+        - [Pig Grunt Shell](pig/doc/PigGruntShell.md)
+    - [Pig Latin](pig/doc/PigLatinBasics.md)
+        - [Pig Latin Basics](pig/doc/PigLatinBasics.md)
+    - [Load & Store Operators](pig/doc/PigLoadStoreOperators.md)
+        - [Pig Reading Data](pig/doc/PigLoadStoreOperators.md)
+        - [Pig Storing Data](pig/doc/PigLoadStoreOperators.md#storing-data)
+    - [Diagnostic Operators](pig/doc/PigDiagnosticOperators.md)
+        - [Pig Dump Operator](pig/doc/PigDiagnosticOperators.md#dump-operator)
+        - [Pig Describe Operator](pig/doc/PigDiagnosticOperators.md#describe-operator)
+        - [Pig Explain Operator](pig/doc/PigDiagnosticOperators.md#explain-operator)
+        - [Pig Illustrate Operator](pig/doc/PigDiagnosticOperators.md#illustrate-operator)
+    - [Grouping & Joining](pig/doc/PigGroupOperator.md)
+        - [Pig Group Operator](pig/doc/PigGroupOperator.md)
+        - [Pig Cogroup Operator](pig/doc/PigCogroupOperator.md)
+        - [Pig Join Operator](pig/doc/PigJoinOperator.md)
+        - [Pig Cross Operator](pig/doc/PigCrossOperator.md)
+    - [Combining & Splitting](pig/doc/PigCombiningSplitting.md)
+        - [Pig Union Operator](pig/doc/PigCombiningSplitting.md)
+        - [Pig Split Operator](pig/doc/PigCombiningSplitting.md#split-operator)
+
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
 1. Variety: Now a days data are not stored in rows and column. Data is structured as well as unstructured. Log file, CCTV footage is unstructured data. Data which can be saved in tables are structured data like the transaction data of the bank.
