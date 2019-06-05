@@ -1,0 +1,6 @@
+dependencies {
+    compile group: 'org.apache.pig', name: 'pig', version: '0.17.0'
+    compile group: 'org.apache.hadoop', name: 'hadoop-hdfs', version: '2.9.2'
+    compile group: 'org.apache.hadoop', name: 'hadoop-common', version: '2.9.2'
+}
+archivesBaseName = 'pig-demos'

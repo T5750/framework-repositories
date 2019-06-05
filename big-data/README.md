@@ -109,6 +109,23 @@
     - [Combining & Splitting](pig/doc/PigCombiningSplitting.md)
         - [Pig Union Operator](pig/doc/PigCombiningSplitting.md)
         - [Pig Split Operator](pig/doc/PigCombiningSplitting.md#split-operator)
+    - [Filtering](pig/doc/PigFiltering.md)
+        - [Pig Filter Operator](pig/doc/PigFiltering.md)
+        - [Pig Distinct Operator](pig/doc/PigFiltering.md#distinct-operator)
+        - [Pig Foreach Operator](pig/doc/PigFiltering.md#foreach-operator)
+    - [Sorting](pig/doc/PigSorting.md)
+        - [Pig Order By](pig/doc/PigSorting.md)
+        - [Pig Limit Operator](pig/doc/PigSorting.md#limit-operator)
+    - [Pig Latin Built-In Functions](pig/doc/PigEvalFunctions.md)
+        - [Pig Eval Functions](pig/doc/PigEvalFunctions.md)
+        - [Pig Load & Store Functions](pig/doc/PigLoadStoreFunctions.md)
+        - [Pig Bag & Tuple Functions](pig/doc/PigBagTupleFunctions.md)
+        - [Pig String Functions](pig/doc/PigStringFunctions.md)
+        - [Pig Date-time Functions](pig/doc/PigDatetimeFunctions.md)
+        - [Pig Math Functions](pig/doc/PigMathFunctions.md)
+    - [Other Modes Of Execution](pig/doc/PigUserDefinedFunctions.md)
+        - [Pig User Defined Functions](pig/doc/PigUserDefinedFunctions.md)
+        - [Pig Running Scripts](pig/doc/PigRunningScripts.md)
 
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.

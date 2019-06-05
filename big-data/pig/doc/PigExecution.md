@@ -38,13 +38,12 @@ $ pig -x spark ...
 ## Invoking the Grunt Shell
 Local mode | MapReduce mode
 ---|---
-`$ ./pig –x local` | `$ ./pig -x mapreduce`
+`$ ./pig -x local` | `$ ./pig -x mapreduce`
 
 ## Batch Mode
-
 Local mode | MapReduce mode
 ---|---
-`$ pig -x local Sample_script.pig` | `$ pig -x mapreduce Sample_script.pig`
+`$ pig -x local sample_script.pig` | `$ pig -x mapreduce sample_script.pig`
 
 ```
 mkdir pig

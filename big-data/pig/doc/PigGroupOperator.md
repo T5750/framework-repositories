@@ -52,6 +52,7 @@ vi /usr/local/hadoop/etc/hadoop/mapred-site.xml
 	<value>192.168.100.210:19888</value>
 </property>
 $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh stop historyserver
 ```
 
 ## References
