@@ -127,6 +127,11 @@
         - [Pig User Defined Functions](pig/doc/PigUserDefinedFunctions.md)
         - [Pig Running Scripts](pig/doc/PigRunningScripts.md)
 
+### Impala
+- [Impala](impala/README.md)
+    - [Impala Overview](impala/doc/ImpalaOverview.md)
+
+
 ### 3V's of Big Data
 1. Velocity: The data is increasing at a very fast rate. It is estimated that the volume of data will double in every 2 years.
 1. Variety: Now a days data are not stored in rows and column. Data is structured as well as unstructured. Log file, CCTV footage is unstructured data. Data which can be saved in tables are structured data like the transaction data of the bank.

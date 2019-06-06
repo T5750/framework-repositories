@@ -154,4 +154,6 @@ include 'big-data:flume'
 findProject(':big-data:flume')?.name = 'flume'
 include 'big-data:pig'
 findProject(':big-data:pig')?.name = 'pig'
+include 'big-data:impala'
+findProject(':big-data:impala')?.name = 'impala'
 
