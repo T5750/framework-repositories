@@ -1,7 +1,7 @@
 # DB2
 
 ## Runtime Environment
-- [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk6downloads-1902814.html)
+- [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 - [DB2 9.7](https://www.ibm.com/analytics/us/en/technology/db2/db2-linux-unix-windows.html)
 
 ## Procedure Features
