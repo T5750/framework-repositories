@@ -156,4 +156,6 @@ include 'big-data:pig'
 findProject(':big-data:pig')?.name = 'pig'
 include 'big-data:impala'
 findProject(':big-data:impala')?.name = 'impala'
+include 'spring-boot:spring-boot-security'
+findProject(':spring-boot:spring-boot-security')?.name = 'spring-boot-security'
 
