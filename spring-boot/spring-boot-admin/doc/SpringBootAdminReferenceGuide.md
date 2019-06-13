@@ -112,5 +112,16 @@ public class NotifierConfiguration {
 	spring.boot.admin.password=pass
 	```
 
+### Securing Client Actuator Endpoints
+Submitting the credentials using SBA Client:
+```
+spring.boot.admin:
+  url: http://localhost:8080
+  client:
+    metadata:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+```
+
 ## References
 - [Spring Boot Admin Reference Guide 1.5.7](http://codecentric.github.io/spring-boot-admin/1.5.7/)
