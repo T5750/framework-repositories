@@ -17,5 +17,7 @@ apply plugin: 'org.springframework.boot'
 dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '1.5.7'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-security')
 }

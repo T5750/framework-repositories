@@ -11,6 +11,7 @@
 - [Service Components](doc/SpringBootRestful.md#service-components)
 - [Thymeleaf](doc/SpringBootThymeleaf.md)
 - [Consuming RESTful Web Services](doc/SpringBootThymeleaf.md#consuming-restful-web-services)
+- [CORS Support](doc/SpringBootCors.md)
 - [Internationalization](doc/SpringBootThymeleaf.md#internationalization)
 
 ### Spring Boot网摘笔记

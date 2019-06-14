@@ -39,4 +39,13 @@ public class ProductServiceController {
 		return new ResponseEntity<>("Product is deleted successsfully",
 				HttpStatus.OK);
 	}
+
+	/**
+	 * CrossOrigin or CorsConfig
+	 */
+	@RequestMapping(value = "/products-cors")
+	// @CrossOrigin(origins = Globals.SPRING_BOOT_SECURITY_ORIGIN)
+	public ResponseEntity<Object> getProductCors() {
+		return getProduct();
+	}
 }

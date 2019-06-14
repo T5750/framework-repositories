@@ -2,10 +2,10 @@
 
 ## Exception Handling
 ### Controller Advice
-The @ControllerAdvice is an annotation, to handle the exceptions globally.
+The `@ControllerAdvice` is an annotation, to handle the exceptions globally.
 
 ### Exception Handler
-The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+The `@ExceptionHandler` is an annotation used to handle the specific exceptions and sending the custom responses to the client.
 
 Update URL: http://localhost:8071/products/9
 
