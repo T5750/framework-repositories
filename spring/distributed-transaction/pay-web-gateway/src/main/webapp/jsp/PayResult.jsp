@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>扫码支付</title>
     <meta charset="utf-8">
-    <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css">
+    <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css" />
     <%--<script type="text/javascript" src="${path}js/jquery-1.7.2.min.js"></script>--%>
     <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script language="javascript">

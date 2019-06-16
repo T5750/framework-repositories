@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>支付收银台</title>
-    <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css">
+    <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="wrap_header">

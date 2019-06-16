@@ -13,7 +13,7 @@
     <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <%--<script type="text/javascript" src="${path}js/jquery.qrcode.min.js"></script>--%>
     <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-    <link href="${path}/pay_files/pay.css" rel="stylesheet" type="text/css">
+    <link href="${path}/pay_files/pay.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         var times = 280;
         /*第一次读取最新通知*/

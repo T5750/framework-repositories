@@ -10,7 +10,7 @@
   <title>扫码支付</title>
   <%--<script type="text/javascript" src="${path}js/jquery-1.7.2.min.js"></script>--%>
   <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css">
+  <link href="${path}pay_files/pay.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="wrap_header">
