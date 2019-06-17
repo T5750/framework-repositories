@@ -13,6 +13,7 @@
 - [Consuming RESTful Web Services](doc/SpringBootThymeleaf.md#consuming-restful-web-services)
 - [CORS Support](doc/SpringBootCors.md)
 - [Internationalization](doc/SpringBootThymeleaf.md#internationalization)
+- [Actuator](doc/SpringBootActuator.md)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)
