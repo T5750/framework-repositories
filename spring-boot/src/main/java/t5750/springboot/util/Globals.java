@@ -8,6 +8,9 @@ public class Globals {
 	public static final int SPRING_BOOT_SECURITY_PORT = 8072;
 	public static final String SPRING_BOOT_SECURITY_ORIGIN = "http://localhost:"
 			+ SPRING_BOOT_SECURITY_PORT;
+	public static final String KAFKA_BOOTSTRAP_SERVERS = "192.168.100.163:9092";
+	public static final String KAFKA_GROUP_ID = "group-id";
+	public static final String KAFKA_TOPIC = "tutorialspoint";
 
 	public static String getBasePath(HttpServletRequest request) {
 		String path = request.getContextPath();

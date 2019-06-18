@@ -14,6 +14,9 @@
 - [CORS Support](doc/SpringBootCors.md)
 - [Internationalization](doc/SpringBootThymeleaf.md#internationalization)
 - [Actuator](doc/SpringBootActuator.md)
+- [Swagger2](doc/SpringBootSwagger2.md)
+- [Hystrix](doc/SpringBootHystrix.md)
+- [Kafka](doc/SpringBootKafka.md)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)
@@ -33,3 +36,6 @@
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Swagger2 2.9.2](https://swagger.io/)
+- [Hystrix 1.5.8](https://github.com/Netflix/Hystrix)
+- [Kafka 0.9.0.1](http://kafka.apache.org/downloads.html)
