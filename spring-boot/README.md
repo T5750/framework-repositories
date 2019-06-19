@@ -17,6 +17,8 @@
 - [Swagger2](doc/SpringBootSwagger2.md)
 - [Hystrix](doc/SpringBootHystrix.md)
 - [Kafka](doc/SpringBootKafka.md)
+- [Unit Test Cases](doc/SpringBootUnitTest.md)
+- [Rest Controller Unit Test](doc/SpringBootUnitTest.md#rest-controller-unit-test)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)
