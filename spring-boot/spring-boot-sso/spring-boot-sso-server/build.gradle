@@ -1,0 +1,21 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.security.oauth:spring-security-oauth2')
+    compile('org.springframework.boot:spring-boot-starter-web')
+}
