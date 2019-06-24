@@ -33,6 +33,7 @@
 
 ### Spring Security
 - [Spring Security](spring-boot-security/README.md)
+    - [Secure Spring REST API using Basic Authentication](spring-boot-security/doc/SpringSecurityRestBasic.md)
 - [Spring Security OAuth](spring-security-oauth/README.md)
 - [Spring Boot SSO](spring-boot-sso/README.md)
 

@@ -3,15 +3,18 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Spring Boot Application</title>
+	<title>Spring Security Application</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h4>Welcome to Thymeleaf Spring Boot web application</h4>
+		<h4>Prerequisites: spring-boot/BootApplication, Port: 8071</h4>
 		<a class="btn btn-default" th:href="@{/view-products}" role="button">View Products CORS</a>
+		<h4>Secure Spring REST API using Basic Authentication</h4>
+		<a class="btn btn-default" th:href="@{/user/}" role="button">Retrieve All Users</a>
+		<a class="btn btn-default" th:href="@{/user/2}" role="button">Retrieve Single User</a>
 	</div>
 </body>
 </html>
