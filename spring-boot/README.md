@@ -36,6 +36,7 @@
     - [Secure Spring REST API using Basic Authentication](spring-boot-security/doc/SpringSecurityRestBasic.md)
 - [Spring Security OAuth](spring-security-oauth/README.md)
 - [Spring Boot SSO](spring-boot-sso/README.md)
+- [Spring Boot SSL](spring-boot-ssl/README.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
