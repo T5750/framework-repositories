@@ -4,6 +4,8 @@
 - [Secure Spring REST API using Basic Authentication](doc/SpringSecurityRestBasic.md)
 - [Spring Security Architecture Overview](doc/SpringSecurityArchitecture.md)
 - [Spring Security Reference](doc/SpringSecurityReference.md)
+- [Spring Security Configuration](doc/SpringSecurityConfiguration.md)
+- [Spring Security Filter](doc/SpringSecurityFilter.md)
 
 ### Spring Security OAuth
 - [Spring Security OAuth](../spring-security-oauth/README.md)

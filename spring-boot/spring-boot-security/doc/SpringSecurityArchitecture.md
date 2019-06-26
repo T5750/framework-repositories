@@ -142,5 +142,8 @@ public interface UserDetailsService {
 }
 ```
 
+## Architecture Overview
+![Spring_Security-min-min](https://www.wailian.work/images/2019/06/26/Spring_Security-min-min.png)
+
 ## References
 - [Spring Security(一)--Architecture Overview](https://www.cnkirito.moe/spring-security-1/)

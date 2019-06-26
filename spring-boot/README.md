@@ -36,6 +36,8 @@
     - [Secure Spring REST API using Basic Authentication](spring-boot-security/doc/SpringSecurityRestBasic.md)
     - [Spring Security Architecture Overview](spring-boot-security/doc/SpringSecurityArchitecture.md)
     - [Spring Security Reference](spring-boot-security/doc/SpringSecurityReference.md)
+    - [Spring Security Configuration](spring-boot-security/doc/SpringSecurityConfiguration.md)
+    - [Spring Security Filter](spring-boot-security/doc/SpringSecurityFilter.md)
 - [Spring Security OAuth](spring-security-oauth/README.md)
 - [Spring Boot SSO](spring-boot-sso/README.md)
 - [Spring Boot SSL](spring-boot-ssl/README.md)

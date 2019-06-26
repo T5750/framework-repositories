@@ -5,11 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Spring Security Application</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
+		<h4>Sign In</h4>
 		<div>
 			<p class="bg-danger" style="padding: 15px;" th:if="${param.error}">Invalid username and password.</p>
 			<p class="bg-info" style="padding: 15px;" th:if="${param.logout}">You have been logged out.</p>

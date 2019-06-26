@@ -5,8 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Spring Security Application</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -15,6 +13,9 @@
 		<h4>Secure Spring REST API using Basic Authentication</h4>
 		<a class="btn btn-default" th:href="@{/user/}" role="button">Retrieve All Users</a>
 		<a class="btn btn-default" th:href="@{/user/2}" role="button">Retrieve Single User</a>
+		<h4>Spring Security IP Login</h4>
+		<a class="btn btn-default" th:href="@{/ipLogin}" role="button">Sign In by IP</a>
+		<a class="btn btn-default" th:href="@{/ipHello}" role="button">Hello by IP</a>
 	</div>
 </body>
 </html>

@@ -11,6 +11,9 @@ spring:
           service-base-url: http://localhost:${server.port}
       routes:
         endpoints: env,metrics,trace,dump,info,configprops,logfile,heapdump,loggers
+      monitor:
+        period: 60000
+        status-lifetime: 60000
   profiles:
     active:
       - secure
