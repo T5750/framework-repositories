@@ -145,5 +145,21 @@ public interface UserDetailsService {
 ## Architecture Overview
 ![Spring_Security-min-min](https://www.wailian.work/images/2019/06/26/Spring_Security-min-min.png)
 
+### Filter
+- [Filter Ordering](SpringSecurityReference.md#133-filter-ordering)
+
+### WEB http认证授权
+- request请求经过认证处理Filter时，Filter从request中获取需要的账号，凭证，生成未认证的`Authentication`，委托给`AuthenticationManager`进行认证，由`AuthenticationManager`的实现类`ProviderManager`进行认证
+- `ProviderManager`持有多个`AuthenticationProvider`实例，循环找出支持当前`Authentication`的provider实例，进行认证
+- 在provider中，首先使用`UserdetailsService`的`loadUserByUsername`获取当前用户名对应的用户在系统中的信息，之后对用户状态进行检查。如果通过检查，则使用`PasswordEncoder`进行凭证对比，如果一致，则认证成功，否则认证失败。无论认证成功或失败，`ProviderManager`都会通过预先配置的`AuthenticationEventPublisher`发布相应事件
+- 另外，在认证处理Filter中，可预先设置成功或失败的Handler，进行自定义处理
+
+### 扩展点
+1. 自定义`Authentication`，继承自`AbstractAuthenticationToken`
+1. 自定义`AuthenticationProvider`，实现`AuthenticationProvider`接口。`supports`方法支持1中定义的`Authentication`。`authenticate`方法根据自身业务，加载系统中用户，与request中用户做对比，完成认证授权
+1. 自定义认证Filter，继承自`AbstractAuthenticationProcessingFilter`，实现`attemptAuthentication`方法，从request中生成1中定义的`Authentication`，使用`AuthenticationManager`进行认证
+1. 通过`WebSecurityConfigurerAdapter`将自定义的provider配置到`AuthenticationManagerBuilder`，将自定义的认证Filter配置到`HttpSecurity`
+
 ## References
 - [Spring Security(一)--Architecture Overview](https://www.cnkirito.moe/spring-security-1/)
+- [Spring Security流程简要分析](https://dr-yanglong.github.io/2018/09/24/spring-security/)

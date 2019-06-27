@@ -32,6 +32,35 @@
 
 ## Client applications
 
+### Show version in application list
+`META-INF/build-info.properties`
+
+`pom.xml`
+```
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<executions>
+				<execution>
+					<goals>
+						<goal>build-info</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+</build>
+```
+
+`build.gradle`
+```
+springBoot {
+    buildInfo()
+}
+```
+
 ### Loglevel management
 `logback-spring.xml`
 ```
