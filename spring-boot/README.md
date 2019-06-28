@@ -19,6 +19,8 @@
 - [Kafka](doc/SpringBootKafka.md)
 - [Unit Test Cases](doc/SpringBootUnitTest.md)
 - [Rest Controller Unit Test](doc/SpringBootUnitTest.md#rest-controller-unit-test)
+- [Get all loaded beans](doc/SpringBootBean.md)
+- [JMSTemplate](doc/SpringBootJmsTemplate.md)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)
@@ -38,7 +40,9 @@
     - [Spring Security Reference](spring-boot-security/doc/SpringSecurityReference.md)
     - [Spring Security Configuration](spring-boot-security/doc/SpringSecurityConfiguration.md)
     - [Spring Security Filter](spring-boot-security/doc/SpringSecurityFilter.md)
+    - [Spring Security IP_Login](spring-boot-security/doc/SpringSecurityFilter.md#ip_login)
     - [Spring Security SpringSecurityFilterChain](spring-boot-security/doc/SpringSecurityFilterChain.md)
+    - [Spring Security Authorization](spring-boot-security/doc/SpringSecurityFilter.md#authorization)
 - [Spring Security OAuth](spring-security-oauth/README.md)
 - [Spring Boot SSO](spring-boot-sso/README.md)
 - [Spring Boot SSL](spring-boot-ssl/README.md)
@@ -50,3 +54,4 @@
 - [Swagger2 2.9.2](https://swagger.io/)
 - [Hystrix 1.5.8](https://github.com/Netflix/Hystrix)
 - [Kafka 0.9.0.1](http://kafka.apache.org/downloads.html)
+- [ActiveMQ 5.11.1 Release](http://activemq.apache.org/download.html)

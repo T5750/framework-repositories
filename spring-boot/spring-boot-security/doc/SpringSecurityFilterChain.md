@@ -240,7 +240,6 @@ public final class DefaultSecurityFilterChain implements SecurityFilterChain {
 
 ### WebSecurity
 ```
-
 @Configuration
 public class WebSecurityConfiguration implements ImportAware, BeanClassLoaderAware {
 	@Bean(name = AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME)

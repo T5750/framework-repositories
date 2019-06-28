@@ -292,6 +292,30 @@ protected void configure(HttpSecurity http) throws Exception {
 1. `IpAuthenticationProvider` –> `DaoAuthenticationProvider`
 1. `ConcurrentHashMap` –> `UserDetailsService`
 
+## Authorization
+![securityAuthorizationDiagram-min-min](https://www.wailian.work/images/2019/06/28/securityAuthorizationDiagram-min-min.png)
+
+![AuthorizationSequenceDiagram-min-min](https://www.wailian.work/images/2019/06/28/AuthorizationSequenceDiagram-min-min.png)
+
+Breakpoints
+```
+package org.springframework.security.web.access.intercept;
+public class DefaultFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
+	public Collection<ConfigAttribute> getAttributes(Object object) {
+		return entry.getValue();
+	}
+}
+```
+```
+package org.springframework.security.access.intercept;
+public abstract class AbstractSecurityInterceptor implements InitializingBean, ApplicationEventPublisherAware, MessageSourceAware {
+	protected InterceptorStatusToken beforeInvocation(Object object) {
+		this.accessDecisionManager.decide(authenticated, object, attributes);
+	}
+}
+```
+
 ## References
 - [Spring Security(四)--核心过滤器源码分析](https://www.cnkirito.moe/spring-security-4/)
 - [Spring Security(五)--动手实现一个IP_Login](https://www.cnkirito.moe/spring-security-5/)
+- [Spring Security 源码分析二：Spring Security 授权过程](http://www.iocoder.cn/Spring-Security/longfei/The-authorization-process/)

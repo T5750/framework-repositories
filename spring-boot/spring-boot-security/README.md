@@ -6,7 +6,9 @@
 - [Spring Security Reference](doc/SpringSecurityReference.md)
 - [Spring Security Configuration](doc/SpringSecurityConfiguration.md)
 - [Spring Security Filter](doc/SpringSecurityFilter.md)
+- [Spring Security IP_Login](doc/SpringSecurityFilter.md#ip_login)
 - [Spring Security SpringSecurityFilterChain](doc/SpringSecurityFilterChain.md)
+- [Spring Security Authorization](doc/SpringSecurityFilter.md#authorization)
 
 ### Spring Security OAuth
 - [Spring Security OAuth](../spring-security-oauth/README.md)
