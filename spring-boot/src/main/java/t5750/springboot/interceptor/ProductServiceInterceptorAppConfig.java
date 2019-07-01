@@ -8,10 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Component
 public class ProductServiceInterceptorAppConfig extends WebMvcConfigurerAdapter {
 	@Autowired
-	ProductServiceInterceptor productServiceInterceptor;
+	private ProductServiceInterceptor productServiceInterceptor;
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(productServiceInterceptor);
+		registry.addInterceptor(productServiceInterceptor).addPathPatterns(
+				"/products/**");
 	}
 }

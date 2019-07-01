@@ -21,6 +21,7 @@
 - [Rest Controller Unit Test](doc/SpringBootUnitTest.md#rest-controller-unit-test)
 - [Get all loaded beans](doc/SpringBootBean.md)
 - [JMSTemplate](doc/SpringBootJmsTemplate.md)
+- [Servlet](doc/SpringBootServlet.md)
 
 ### Spring Boot网摘笔记
 - [Spring Bean的生命周期](doc/BeanLifeCycle.md)

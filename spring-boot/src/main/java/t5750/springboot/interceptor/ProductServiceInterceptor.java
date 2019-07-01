@@ -16,7 +16,8 @@ public class ProductServiceInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		logger.info("Pre Handle method is Calling");
+		logger.info("Pre Handle method is Calling, RequestURI = "
+				+ request.getRequestURI());
 		return true;
 	}
 

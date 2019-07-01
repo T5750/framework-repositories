@@ -3,6 +3,44 @@
 ## Classes
 ### SecurityContextHolder
 ```
+public class SecurityContextHolder {
+	public static final String MODE_THREADLOCAL = "MODE_THREADLOCAL";
+
+	private static void initialize() {
+		if (!StringUtils.hasText(strategyName)) {
+			// Set default
+			strategyName = MODE_THREADLOCAL;
+		}
+		if (strategyName.equals(MODE_THREADLOCAL)) {
+			strategy = new ThreadLocalSecurityContextHolderStrategy();
+		}
+		else if (strategyName.equals(MODE_INHERITABLETHREADLOCAL)) {
+			strategy = new InheritableThreadLocalSecurityContextHolderStrategy();
+		}
+		else if (strategyName.equals(MODE_GLOBAL)) {
+			strategy = new GlobalSecurityContextHolderStrategy();
+		}
+		else {
+			// Try to load a custom strategy
+			try {
+				Class<?> clazz = Class.forName(strategyName);
+				Constructor<?> customStrategy = clazz.getConstructor();
+				strategy = (SecurityContextHolderStrategy) customStrategy.newInstance();
+			}
+			catch (Exception ex) {
+				ReflectionUtils.handleReflectionException(ex);
+			}
+		}
+		initializeCount++;
+	}
+}
+```
+```
+final class ThreadLocalSecurityContextHolderStrategy implements SecurityContextHolderStrategy {
+	private static final ThreadLocal<SecurityContext> contextHolder = new ThreadLocal<SecurityContext>();
+}
+```
+```
 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 if (principal instanceof UserDetails) {
 	String username = ((UserDetails)principal).getUsername();

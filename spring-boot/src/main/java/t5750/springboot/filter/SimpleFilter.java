@@ -19,8 +19,8 @@ public class SimpleFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterchain) throws IOException, ServletException {
-		logger.info("Remote Host:" + request.getRemoteHost());
-		logger.info("Remote Address:" + request.getRemoteAddr());
+		logger.info("Remote Host: " + request.getRemoteHost()
+				+ ", Remote Address: " + request.getRemoteAddr());
 		filterchain.doFilter(request, response);
 	}
 
