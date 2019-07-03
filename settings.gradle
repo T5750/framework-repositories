@@ -178,4 +178,7 @@ include 'spring-boot:spring-boot-sso:spring-boot-sso-app-bar'
 findProject(':spring-boot:spring-boot-sso:spring-boot-sso-app-bar')?.name = 'spring-boot-sso-app-bar'
 include 'spring-boot:spring-boot-ssl'
 findProject(':spring-boot:spring-boot-ssl')?.name = 'spring-boot-ssl'
+include 'spring-cloud'
+include 'spring-cloud:spring-cloud-alibaba'
+findProject(':spring-cloud:spring-cloud-alibaba')?.name = 'spring-cloud-alibaba'
 
