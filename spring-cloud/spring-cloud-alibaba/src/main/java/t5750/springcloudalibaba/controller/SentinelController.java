@@ -7,16 +7,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import t5750.springcloudalibaba.service.SentinelService;
+
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 
 @RestController
 public class SentinelController {
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private SentinelService sentinelService;
 
-	@GetMapping(value = "/hello")
-	@SentinelResource("hello")
-	public String hello() {
+	@GetMapping(value = "/helloSentinel")
+	@SentinelResource("helloSentinel")
+	public String helloSentinel() {
 		return "Hello Sentinel";
 	}
 
@@ -24,5 +28,15 @@ public class SentinelController {
 	public String template() {
 		return restTemplate.getForObject("http://www.taobao.com/test",
 				String.class);
+	}
+
+	@GetMapping(value = "/testHandler")
+	public String testHandler() {
+		return sentinelService.testHandler(System.currentTimeMillis());
+	}
+
+	@GetMapping("/testFallback")
+	public String testFallback() {
+		return sentinelService.testFallback(System.currentTimeMillis());
 	}
 }
