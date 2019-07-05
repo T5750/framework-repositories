@@ -181,4 +181,6 @@ findProject(':spring-boot:spring-boot-ssl')?.name = 'spring-boot-ssl'
 include 'spring-cloud'
 include 'spring-cloud:spring-cloud-alibaba'
 findProject(':spring-cloud:spring-cloud-alibaba')?.name = 'spring-cloud-alibaba'
+include 'spring-cloud:spring-cloud-alibaba-consumer'
+findProject(':spring-cloud:spring-cloud-alibaba-consumer')?.name = 'spring-cloud-alibaba-consumer'
 

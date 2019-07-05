@@ -9,4 +9,5 @@
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.19.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Cloud Edgware.RELEASE](https://spring.io/projects/spring-cloud)
+- [Spring Boot 1.5.16.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Cloud Edgware.SR5](https://spring.io/projects/spring-cloud)

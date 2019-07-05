@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Spring Cloud Alibaba Consumer</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+</head>
+<body>
+	<div class="container">
+		<h3>Welcome to Spring Cloud Alibaba Consumer</h3>
+		<h4>Nacos</h4>
+		<a class="btn btn-default" th:href="@{/nacos_discovery}" role="button">Nacos Discovery</a>
+		<a class="btn btn-default" th:href="@{/nacos/echo/consumer}" role="button">Nacos Echo Consumer</a>
+		<a class="btn btn-default" th:href="@{/nacos/echo-feign/feign}" role="button">Nacos Echo Feign</a>
+	</div>
+</body>
+</html>
