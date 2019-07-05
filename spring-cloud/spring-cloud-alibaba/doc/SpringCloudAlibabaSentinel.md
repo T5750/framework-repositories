@@ -1,4 +1,8 @@
-## Spring Cloud Alibaba Sentinel
+# Spring Cloud Alibaba Sentinel
+
+## Sentinel
+### Introduction
+![sentinel-min-min](https://www.wailian.work/images/2019/07/04/sentinel-min-min.png)
 
 ### @SentinelResource
 >注：1.6.0 之前的版本 fallback 函数只针对降级异常（DegradeException）进行处理，不能针对业务异常进行处理。

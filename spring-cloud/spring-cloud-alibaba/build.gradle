@@ -28,4 +28,5 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.cloud:spring-cloud-starter-alibaba-sentinel')
+    compile('org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config')
 }

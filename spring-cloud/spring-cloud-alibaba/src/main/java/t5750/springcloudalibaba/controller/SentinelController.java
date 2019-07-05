@@ -12,6 +12,7 @@ import t5750.springcloudalibaba.service.SentinelService;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 
 @RestController
+@RequestMapping("/sentinel")
 public class SentinelController {
 	@Autowired
 	private RestTemplate restTemplate;
