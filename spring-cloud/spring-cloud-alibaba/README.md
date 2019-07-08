@@ -3,6 +3,7 @@
 ## Contents
 - [Spring Cloud Alibaba Sentinel](doc/SpringCloudAlibabaSentinel.md)
 - [Spring Cloud Alibaba Nacos](doc/SpringCloudAlibabaNacos.md)
+- [Spring Cloud Alibaba RocketMQ](doc/SpringCloudAlibabaRocketMQ.md)
 
 ## Versions
 Spring Cloud Version | Spring Cloud Alibaba Version | Spring Boot Version
@@ -23,7 +24,8 @@ Spring Cloud Alibaba Version | Sentinel Version | Nacos Version | RocketMQ Versi
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.19.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.16.RELEASE](https://projects.spring.io/spring-boot)
-- [Spring Cloud Edgware.RELEASE](https://spring.io/projects/spring-cloud)
+- [Spring Cloud Edgware.SR5](https://spring.io/projects/spring-cloud)
 - [Spring Cloud Alibaba 0.1.2.RELEASE](https://github.com/spring-cloud-incubator/spring-cloud-alibaba/tree/1.x)
 - [Sentinel 1.5.2](https://github.com/alibaba/Sentinel/tree/release-1.5)
 - [Nacos 1.0.0](https://github.com/alibaba/Nacos)
+- [RocketMQ 4.4.0](https://github.com/apache/rocketmq/)

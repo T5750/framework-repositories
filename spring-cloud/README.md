@@ -5,6 +5,7 @@
 - [Spring Cloud Alibaba](spring-cloud-alibaba/README.md)
     - [Spring Cloud Alibaba Sentinel](spring-cloud-alibaba/doc/SpringCloudAlibabaSentinel.md)
     - [Spring Cloud Alibaba Nacos](spring-cloud-alibaba/doc/SpringCloudAlibabaNacos.md)
+    - [Spring Cloud Alibaba RocketMQ](spring-cloud-alibaba/doc/SpringCloudAlibabaRocketMQ.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

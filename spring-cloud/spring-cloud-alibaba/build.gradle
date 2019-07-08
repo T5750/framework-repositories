@@ -30,4 +30,5 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-alibaba-sentinel')
     compile('org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config')
     compile('org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+    compile('org.springframework.cloud:spring-cloud-starter-stream-rocketmq')
 }

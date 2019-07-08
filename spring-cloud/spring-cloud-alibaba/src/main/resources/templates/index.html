@@ -15,10 +15,16 @@
 		<a class="btn btn-default" th:href="@{/sentinel/testHandler}" role="button">Test Handler</a>
 		<a class="btn btn-default" th:href="@{/sentinel/testFallback}" role="button">Test Fallback</a>
 		<h4>Nacos</h4>
+<pre>sh startup.sh -m standalone
+cmd startup.cmd -m standalone</pre>
 		<a class="btn btn-default" th:href="@{/nacos/user}" role="button">Nacos Config User</a>
 		<a class="btn btn-default" th:href="@{/nacos_config}" role="button">Nacos Config</a>
 		<a class="btn btn-default" th:href="@{/nacos_discovery}" role="button">Nacos Discovery</a>
 		<a class="btn btn-default" th:href="@{/nacos/echo/provider}" role="button">Nacos Echo Provider</a>
+		<h4>RocketMQ</h4>
+<pre>nohup sh mqnamesrv &#38;
+nohup sh mqbroker -n localhost:9876 &#38;</pre>
+		<a class="btn btn-default" th:href="@{/channels}" role="button">Channels</a>
 	</div>
 </body>
 </html>
