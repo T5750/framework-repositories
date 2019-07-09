@@ -51,7 +51,7 @@ public class RocketMqConfig {
 			senderService.sendTransactionalMsg("transactional-msg1", 1);
 			// ROLLBACK_MESSAGE message
 			senderService.sendTransactionalMsg("transactional-msg2", 2);
-			// ROLLBACK_MESSAGE message
+			// COMMIT_MESSAGE message
 			senderService.sendTransactionalMsg("transactional-msg3", 3);
 			// COMMIT_MESSAGE message
 			senderService.sendTransactionalMsg("transactional-msg4", 4);

@@ -38,3 +38,5 @@ kettle-engine-8.2.0.0-342.jar
 metastore-8.2.0.0-342.jar
 ### Spring Boot SSL ###
 spring-boot/spring-boot-ssl/src/main/resources/spring-boot-ssl.jks
+### Out folder ###
+out

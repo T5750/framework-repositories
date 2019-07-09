@@ -1,5 +1,9 @@
 # Spring Cloud Alibaba Nacos
 
+## Introduction
+>一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。
+Nacos 致力于帮助您发现、配置和管理微服务。
+
 ## Architecture
 ![nacos-architecture-min](https://www.wailian.work/images/2019/07/05/nacos-architecture-min.jpg)
 

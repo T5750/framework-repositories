@@ -40,4 +40,10 @@ public class SentinelController {
 	public String testFallback() {
 		return sentinelService.testFallback(System.currentTimeMillis());
 	}
+
+	@GetMapping(value = "/datasourceNacos")
+	@SentinelResource("datasourceNacos")
+	public String datasourceNacos() {
+		return "Datasource Nacos";
+	}
 }
