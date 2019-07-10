@@ -1,8 +1,10 @@
 package t5750.springcloudalibaba.consumer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,6 +12,7 @@ import t5750.springcloudalibaba.consumer.service.EchoService;
 import t5750.springcloudalibaba.consumer.util.Globals;
 
 @RestController
+@RefreshScope
 @RequestMapping("/nacos")
 public class NacosConsumerController {
 	private final RestTemplate restTemplate;
@@ -17,6 +20,8 @@ public class NacosConsumerController {
 	private EchoService echoService;
 	@Autowired
 	private LoadBalancerClient loadBalancerClient;
+	@Value("${nacos.version}")
+	private String version;
 
 	@Autowired
 	public NacosConsumerController(RestTemplate restTemplate) {
@@ -46,5 +51,13 @@ public class NacosConsumerController {
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(url, String.class);
 		return "Invoke : " + url + ", return : " + result;
+	}
+
+	/**
+	 * by spring.cloud.nacos.config.shared-dataids
+	 */
+	@RequestMapping(value = "/version")
+	public String version() {
+		return "Nacos version " + version;
 	}
 }

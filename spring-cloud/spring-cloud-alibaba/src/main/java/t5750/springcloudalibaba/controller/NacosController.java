@@ -15,6 +15,8 @@ public class NacosController {
 	private String userName;
 	@Value("${user.age}")
 	private int age;
+	@Value("${nacos.version}")
+	private String version;
 
 	/**
 	 * for Nacos config
@@ -30,5 +32,13 @@ public class NacosController {
 	@RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
 	public String echo(@PathVariable String string) {
 		return "Hello Nacos Discovery " + string;
+	}
+
+	/**
+	 * by spring.cloud.nacos.config.shared-dataids
+	 */
+	@RequestMapping(value = "/version")
+	public String version() {
+		return "Nacos version " + version;
 	}
 }

@@ -39,6 +39,12 @@ curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=spring-cloud-alib
 ### Endpoint
 - http://localhost:18083/nacos_config
 
+### 配置的优先级
+当三种方式共同使用时，优先级关系是: A < B < C
+- A: 通过 `spring.cloud.nacos.config.shared-dataids` 支持多个共享 Data Id 的配置
+- B: 通过 `spring.cloud.nacos.config.ext-config[n].data-id` 的方式支持多个扩展 Data Id 的配置
+- C: 通过内部相关规则(应用名、应用名+ Profile )自动生成相关的 Data Id 配置
+
 ## Nacos Discovery
 ### Quickstart
 1. `compile('org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery')`
