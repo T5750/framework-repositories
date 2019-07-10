@@ -1,6 +1,15 @@
 # Big Data
 
 ## Contents
+### Solr
+- [Solr](solr/README.md)
+
+### Storm
+- [Storm](storm/README.md)
+
+### Kafka
+- [Kafka](kafka/README.md)
+
 ### Hadoop
 - [Hadoop](hadoop/README.md)
     - [Enviornment Setup](hadoop/doc/HadoopEnviornmentSetup.md)
