@@ -48,6 +48,9 @@
 - [Spring Boot SSO](spring-boot-sso/README.md)
 - [Spring Boot SSL](spring-boot-ssl/README.md)
 
+### Spring Boot Nacos
+- [Spring Boot Nacos](spring-boot-nacos/README.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)

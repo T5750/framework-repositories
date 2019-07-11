@@ -186,4 +186,6 @@ include 'big-data:solr'
 findProject(':big-data:solr')?.name = 'solr'
 include 'big-data:storm'
 findProject(':big-data:storm')?.name = 'storm'
+include 'spring-boot:spring-boot-nacos'
+findProject(':spring-boot:spring-boot-nacos')?.name = 'spring-boot-nacos'
 

@@ -3,6 +3,8 @@
 ## Contents
 - [Spring Cloud Alibaba Sentinel](doc/SpringCloudAlibabaSentinel.md)
 - [Spring Cloud Alibaba Nacos](doc/SpringCloudAlibabaNacos.md)
+    - [Nacos Config](doc/SpringCloudAlibabaNacos.md#nacos-config)
+    - [Nacos Discovery](doc/SpringCloudAlibabaNacos.md#nacos-discovery)
 - [Spring Cloud Alibaba RocketMQ](doc/SpringCloudAlibabaRocketMQ.md)
 
 ## Versions
