@@ -16,6 +16,8 @@ cmd startup.cmd -m standalone</pre>
 		<h5>Nacos Discovery</h5>
 		<pre>curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&#38;ip=127.0.0.1&#38;port=8841'</pre>
 		<a class="btn btn-default" th:href="@{/discovery/get(serviceName=example)}" role="button">Get Discovery</a>
+		<h4>Druid</h4>
+		<a class="btn btn-default" th:href="@{/druid}" role="button" target="_blank">Druid Monitor</a>
 	</div>
 </body>
 </html>

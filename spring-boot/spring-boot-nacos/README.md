@@ -23,6 +23,7 @@ curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&ip=1
 - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
 - [MySQL 5.6](http://www.mysql.com/)
 - [Nacos 0.2.1](https://github.com/alibaba/Nacos)
+- [Druid 1.1.10](https://github.com/alibaba/druid)
 
 ## References
 - [Nacos Spring Boot 快速开始](https://nacos.io/zh-cn/docs/quick-start-spring-boot.html)

@@ -6,6 +6,7 @@
     - [Nacos Config](doc/SpringCloudAlibabaNacos.md#nacos-config)
     - [Nacos Discovery](doc/SpringCloudAlibabaNacos.md#nacos-discovery)
 - [Spring Cloud Alibaba RocketMQ](doc/SpringCloudAlibabaRocketMQ.md)
+- [Spring Cloud Alibaba Dubbo](doc/SpringCloudAlibabaDubbo.md)
 
 ## Versions
 Spring Cloud Version | Spring Cloud Alibaba Version | Spring Boot Version

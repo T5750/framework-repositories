@@ -23,6 +23,7 @@
     - [String Functions](doc/mysqlFunctionString.md)
     - [Math Functions](doc/mysqlFunctionMath.md)
     - [Window Functions](doc/mysqlFunctionWindow.md)
+- [Grafana](doc/Grafana.md)
 
 ## Runtime Environment
 - [MySQL 5.6](http://www.mysql.com/)

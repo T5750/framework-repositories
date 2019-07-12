@@ -42,7 +42,11 @@ mqadmin clusterList -n 127.0.0.1:9876
 mqadmin topicList -n 127.0.0.1:9876
 ```
 
+## Spring Cloud Stream
+![SpringCloudStream-min-min](https://www.wailian.work/images/2019/07/12/SpringCloudStream-min-min.png)
+
 ## References
 - [RocketMQ Example](https://github.com/alibaba/spring-cloud-alibaba/blob/master/spring-cloud-alibaba-examples/rocketmq-example/readme-zh.md)
 - [Quick Start](https://rocketmq.apache.org/docs/quick-start/)
 - [CLI Admin Tool](http://rocketmq.apache.org/docs/cli-admin-tool/)
+- [Spring Cloud Stream 体系及原理介绍](https://mp.weixin.qq.com/s?__biz=MzU4NzU0MDIzOQ==&mid=2247486235&idx=4&sn=03a0468424a2987becf9bc20feb01f55&chksm=fdeb397bca9cb06ddca880f305f1019ba7a2734c340987cfc1ef04a58eb4a5226dd25ce66edd&scene=21#wechat_redirect)

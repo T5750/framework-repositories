@@ -8,6 +8,7 @@
         - [Nacos Config](spring-cloud-alibaba/doc/SpringCloudAlibabaNacos.md#nacos-config)
         - [Nacos Discovery](spring-cloud-alibaba/doc/SpringCloudAlibabaNacos.md#nacos-discovery)
     - [Spring Cloud Alibaba RocketMQ](spring-cloud-alibaba/doc/SpringCloudAlibabaRocketMQ.md)
+    - [Spring Cloud Alibaba Dubbo](spring-cloud-alibaba/doc/SpringCloudAlibabaDubbo.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
