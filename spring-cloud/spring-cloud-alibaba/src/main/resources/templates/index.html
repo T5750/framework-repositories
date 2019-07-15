@@ -1,33 +1,70 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" class="h-100">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Spring Cloud Alibaba</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		main > .container {
+			padding: 60px 15px 0;
+		}
+		.footer {
+			background-color: #f5f5f5;
+		}
+	</style>
 </head>
-<body>
-	<div class="container">
-		<h3>Welcome to Spring Cloud Alibaba</h3>
-		<h4>Sentinel</h4>
-		<pre>java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.6.2.jar</pre>
-		<a class="btn btn-default" th:href="@{/sentinel/helloSentinel}" role="button">Hello Sentinel</a>
-		<a class="btn btn-default" th:href="@{/sentinel/template}" role="button">RestTemplate</a>
-		<a class="btn btn-default" th:href="@{/sentinel/testHandler}" role="button">Test Handler</a>
-		<a class="btn btn-default" th:href="@{/sentinel/testFallback}" role="button">Test Fallback</a>
-		<a class="btn btn-default" th:href="@{/sentinel/datasourceNacos}" role="button">Datasource Nacos</a>
-		<h4>Nacos</h4>
+<body class="d-flex flex-column h-100">
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a class="navbar-brand" th:href="@{/}">Spring Cloud Alibaba</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/T5750/framework-repositories" target="_blank">GitHub</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://t5750.github.io/" target="_blank">Blog</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main role="main" class="flex-shrink-0">
+		<div class="container">
+			<h4 class="mt-5">Sentinel</h4>
+			<pre>java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.6.2.jar</pre>
+			<a class="btn btn-outline-primary" th:href="@{/sentinel/helloSentinel}" role="button">Hello Sentinel</a>
+			<a class="btn btn-outline-primary" th:href="@{/sentinel/template}" role="button">RestTemplate</a>
+			<a class="btn btn-outline-primary" th:href="@{/sentinel/testHandler}" role="button">Test Handler</a>
+			<a class="btn btn-outline-primary" th:href="@{/sentinel/testFallback}" role="button">Test Fallback</a>
+			<a class="btn btn-outline-primary" th:href="@{/sentinel/datasourceNacos}" role="button">Datasource Nacos</a>
+			<h4 class="mt-3">Nacos</h4>
 <pre>sh startup.sh -m standalone
 cmd startup.cmd -m standalone</pre>
-		<a class="btn btn-default" th:href="@{/nacos/user}" role="button">Config User</a>
-		<a class="btn btn-default" th:href="@{/nacos_config}" role="button">Nacos Config</a>
-		<a class="btn btn-default" th:href="@{/nacos_discovery}" role="button">Nacos Discovery</a>
-		<a class="btn btn-default" th:href="@{/nacos/echo/provider}" role="button">Echo Provider</a>
-		<a class="btn btn-default" th:href="@{/nacos/version}" role="button">Nacos version</a>
-		<h4>RocketMQ</h4>
+			<a class="btn btn-outline-primary" th:href="@{/nacos/user}" role="button">Config User</a>
+			<a class="btn btn-outline-primary" th:href="@{/nacos_config}" role="button">Nacos Config</a>
+			<a class="btn btn-outline-primary" th:href="@{/nacos_discovery}" role="button">Nacos Discovery</a>
+			<a class="btn btn-outline-primary" th:href="@{/nacos/echo/provider}" role="button">Echo Provider</a>
+			<a class="btn btn-outline-primary" th:href="@{/nacos/version}" role="button">Nacos version</a>
+			<h4 class="mt-3">RocketMQ</h4>
 <pre>nohup sh mqnamesrv &#38;
 nohup sh mqbroker -n localhost:9876 &#38;</pre>
-		<a class="btn btn-default" th:href="@{/channels}" role="button">Channels</a>
-	</div>
+			<a class="btn btn-outline-primary" th:href="@{/channels}" role="button">Channels</a>
+		</div>
+	</main>
+	<footer class="footer mt-auto py-3">
+		<div class="container">
+			<span class="text-muted">© 2019 T5750</span>
+		</div>
+	</footer>
 </body>
 </html>
