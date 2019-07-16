@@ -20,7 +20,6 @@
 - [Unit Test Cases](doc/SpringBootUnitTest.md)
 - [Rest Controller Unit Test](doc/SpringBootUnitTest.md#rest-controller-unit-test)
 - [Get all loaded beans](doc/SpringBootBean.md)
-- [JMSTemplate](doc/SpringBootJmsTemplate.md)
 - [Servlet](doc/SpringBootServlet.md)
 
 ### Spring Boot网摘笔记
@@ -50,6 +49,10 @@
 
 ### Spring Boot Nacos
 - [Spring Boot Nacos](spring-boot-nacos/README.md)
+
+### Spring JMS
+- [JMSTemplate](doc/SpringBootJmsTemplate.md)
+- [JMS Topic](doc/SpringBootJmsTopic.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

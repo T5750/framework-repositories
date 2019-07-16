@@ -12,11 +12,15 @@ import org.springframework.jms.support.converter.MappingJackson2MessageConverter
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 @Configuration
 @EnableJms
 public class JmsConfig {
 	@Bean
-	public JmsListenerContainerFactory<?> myFactory(
+	public JmsListenerContainerFactory<?> queueListenerFactory(
 			ConnectionFactory connectionFactory,
 			DefaultJmsListenerContainerFactoryConfigurer configurer) {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
@@ -28,10 +32,29 @@ public class JmsConfig {
 	}
 
 	@Bean
+	public JmsListenerContainerFactory<?> topicListenerFactory(
+			ConnectionFactory connectionFactory) {
+		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+		factory.setMessageConverter(jacksonJmsMessageConverter());
+		factory.setConnectionFactory(connectionFactory);
+		factory.setPubSubDomain(true);
+		return factory;
+	}
+
+	@Bean
 	public MessageConverter jacksonJmsMessageConverter() {
 		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
 		converter.setTargetType(MessageType.TEXT);
 		converter.setTypeIdPropertyName("_type");
+		converter.setObjectMapper(objectMapper());
 		return converter;
+	}
+
+	@Bean
+	public ObjectMapper objectMapper() {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+		return mapper;
 	}
 }

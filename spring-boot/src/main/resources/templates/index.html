@@ -17,7 +17,6 @@
 		<a class="btn btn-default" th:href="@{/hystrix}" role="button">Hystrix</a>
 		<a class="btn btn-default" th:href="@{/loadedBeans}" role="button">Get all loaded beans</a>
 		<a class="btn btn-default" th:href="@{/beans}" role="button">Load /beans endpoint</a>
-		<a class="btn btn-default" th:href="@{/sendMessage}" role="button">Send a message</a>
 		<h4>Prerequisites: spring-boot-security/BootSecurityApplication, Port: 8072</h4>
 		<a class="btn btn-default" href="http://localhost:8072/view-products" role="button">View Products CORS</a>
 		<h4>Prerequisites: Kafka, Port: 9092</h4>
@@ -25,6 +24,10 @@
 bin/zookeeper-server-start.sh config/zookeeper.properties &#38;
 bin/kafka-server-start.sh config/server.properties &#38;</pre>
 		<a class="btn btn-default" th:href="@{/kafkaMessage}" role="button">Kafka Message</a>
+		<h4>Spring JMS</h4>
+		<a class="btn btn-default" th:href="@{/jms/sendMessage}" role="button">Send a message</a>
+		<a class="btn btn-default" th:href="@{/jms/sendOrder}" role="button">Send orders</a>
+		<a class="btn btn-default" th:href="@{/jms/sendTopic}" role="button">Send topics</a>
 	</div>
 </body>
 </html>
