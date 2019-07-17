@@ -1,4 +1,4 @@
-package t5750.springboot.config;
+package t5750.springbootjms.config;
 
 import javax.jms.ConnectionFactory;
 
@@ -11,6 +11,7 @@ import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -18,7 +19,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Configuration
 @EnableJms
-public class JmsConfig {
+@EnableAsync
+public class JmsConsumerConfig {
 	@Bean
 	public JmsListenerContainerFactory<?> queueListenerFactory(
 			ConnectionFactory connectionFactory,

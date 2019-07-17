@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Spring Boot JMS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+</head>
+<body>
+	<div class="container">
+		<h4>Spring JMS</h4>
+		<a class="btn btn-default" th:href="@{/jms/sendMessage}" role="button">Send a message</a>
+		<a class="btn btn-default" th:href="@{/jms/sendOrder}" role="button">Send orders</a>
+		<a class="btn btn-default" th:href="@{/jms/sendTopic}" role="button">Send topics</a>
+	</div>
+</body>
+</html>

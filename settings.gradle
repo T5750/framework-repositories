@@ -188,4 +188,6 @@ include 'big-data:storm'
 findProject(':big-data:storm')?.name = 'storm'
 include 'spring-boot:spring-boot-nacos'
 findProject(':spring-boot:spring-boot-nacos')?.name = 'spring-boot-nacos'
+include 'spring-boot:spring-boot-jms'
+findProject(':spring-boot:spring-boot-jms')?.name = 'spring-boot-jms'
 

@@ -1,4 +1,4 @@
-package t5750.springboot.listener;
+package t5750.springbootjms.listener;
 
 import javax.jms.Session;
 
@@ -10,10 +10,10 @@ import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import t5750.springboot.model.Message;
-import t5750.springboot.model.Order;
-import t5750.springboot.model.Topic;
-import t5750.springboot.util.Globals;
+import t5750.springbootjms.model.Message;
+import t5750.springbootjms.model.Order;
+import t5750.springbootjms.model.Topic;
+import t5750.springbootjms.util.Globals;
 
 @Component
 public class JmsReceiver {

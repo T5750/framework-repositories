@@ -26,8 +26,6 @@ dependencies {
     compile group: 'com.netflix.hystrix', name: 'hystrix-metrics-event-stream', version: '1.5.8'
     compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '1.0.6.RELEASE'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
-    compile('org.springframework.boot:spring-boot-starter-activemq')
-    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.8.8'
 }
 springBoot {
     buildInfo()

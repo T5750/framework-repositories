@@ -1,4 +1,4 @@
-package t5750.springboot.controller;
+package t5750.springbootjms.controller;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import t5750.springboot.model.Message;
-import t5750.springboot.model.Order;
-import t5750.springboot.model.Topic;
-import t5750.springboot.service.JmsService;
+import t5750.springbootjms.model.Message;
+import t5750.springbootjms.model.Order;
+import t5750.springbootjms.model.Topic;
+import t5750.springbootjms.service.JmsService;
 
 /**
  * Spring Boot JMSTemplate with Embedded ActiveMQ

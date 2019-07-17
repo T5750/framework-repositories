@@ -1,4 +1,4 @@
-package t5750.springboot.model;
+package t5750.springbootjms.model;
 
 import java.io.Serializable;
 import java.util.Date;
