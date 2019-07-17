@@ -2,6 +2,8 @@ package t5750.springbootjms.config;
 
 import javax.jms.ConnectionFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,11 +23,19 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 @EnableJms
 @EnableAsync
 public class JmsConsumerConfig {
+	private static Logger logger = LoggerFactory
+			.getLogger(JmsConsumerConfig.class);
+
 	@Bean
 	public JmsListenerContainerFactory<?> queueListenerFactory(
 			ConnectionFactory connectionFactory,
 			DefaultJmsListenerContainerFactoryConfigurer configurer) {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+		// https://stackoverflow.com/questions/8922532/execution-of-jms-message-listener-failed-and-no-errorhandler-has-been-set
+		factory.setErrorHandler(t -> {
+			// logger.error("Error in listener!", t);
+			logger.error(t.getCause().getMessage());
+		});
 		// This provides all boot's default to this factory, including the
 		// message converter
 		configurer.configure(factory, connectionFactory);

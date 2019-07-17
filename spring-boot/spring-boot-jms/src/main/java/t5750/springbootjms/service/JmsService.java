@@ -10,4 +10,10 @@ public interface JmsService {
 	void sendOrder(Order order);
 
 	void sendTopic(Topic topic);
+
+	void sendInvaildOrder(Order order);
+
+	void sendException(Order order);
+
+	void sendHeader(Order order);
 }

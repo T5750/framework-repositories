@@ -3,8 +3,12 @@ package t5750.springbootjms.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class Order implements Serializable {
+	@NotNull
 	private Long id;
+	@NotNull
 	private String content;
 	private Date timestamp;
 

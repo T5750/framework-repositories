@@ -57,4 +57,25 @@ public class JmsController {
 		}
 		return topicList;
 	}
+
+	@RequestMapping(value = "/sendInvaildOrder")
+	public Order sendInvaildOrder() {
+		Order order = new Order(null, "sendInvaildOrder", new Date());
+		jmsService.sendInvaildOrder(order);
+		return order;
+	}
+
+	@RequestMapping(value = "/sendException")
+	public Order sendException() {
+		Order order = new Order(20L, "sendException", new Date());
+		jmsService.sendException(order);
+		return order;
+	}
+
+	@RequestMapping(value = "/sendHeader")
+	public Order sendHeader() {
+		Order order = new Order(30L, "sendHeader", new Date());
+		jmsService.sendHeader(order);
+		return order;
+	}
 }
