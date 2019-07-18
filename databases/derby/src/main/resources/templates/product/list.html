@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Derby - List Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+	<h2>Product List</h2>
+	<div th:if="${not #lists.isEmpty(products)}">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image URL</th>
+                <th>List</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.imageUrl}"></td>
+                <td><a th:href="${'/product/show/' + product.id}">View</a> </td>
+                <td><a th:href="${'/product/edit/' + product.id}">Edit</a> </td>
+                <td><a th:href="${'/product/delete/' + product.id}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+	<div>
+		<a class="btn btn-default" th:href="@{/product/new}" role="button">New Product</a>
+	</div>
+</div>
+</body>
+</html>

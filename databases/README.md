@@ -7,6 +7,7 @@
 - [MySQL](mysql/README.md)
     - [Grafana](mysql/doc/Grafana.md)
 - [DB2](db2/README.md)
+- [Derby](derby/README.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -17,3 +18,4 @@
 - [MySQL 5.6](http://www.mysql.com/)
 - [DB2 9.7](https://www.ibm.com/analytics/us/en/technology/db2/db2-linux-unix-windows.html)
 - [Grafana 6.2.5](https://grafana.com/grafana/download)
+- [Derby 10.13.1.1](https://db.apache.org/derby/)
