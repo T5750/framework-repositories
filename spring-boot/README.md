@@ -51,11 +51,11 @@
 - [Spring Boot Nacos](spring-boot-nacos/README.md)
 
 ### Spring JMS
-- [JMSTemplate](doc/SpringBootJmsTemplate.md)
-- [JMS Topic](doc/SpringBootJmsTopic.md)
-- [JMS Validate Messages](doc/SpringBootJmsTopic.md#jms-validate-messages)
-- [JMS Error Handling](doc/SpringBootJmsTopic.md#jms-error-handling)
-- [JMS Message Header Properties](doc/SpringBootJmsTopic.md#jms-message-header-properties)
+- [JMSTemplate](spring-boot-jms/doc/SpringBootJmsTemplate.md)
+- [JMS Topic](spring-boot-jms/doc/SpringBootJmsTopic.md)
+- [JMS Validate Messages](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-validate-messages)
+- [JMS Error Handling](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-error-handling)
+- [JMS Message Header Properties](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-message-header-properties)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
