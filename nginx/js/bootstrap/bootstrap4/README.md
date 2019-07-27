@@ -9,10 +9,13 @@
 
 ### Framework
 - `starterTemplate.html`
+- `gridTemplate.html`
 - `jumbotronTemplate.html`
 
 ### Navbars
 - `navbarStatic.html`
+- `navbarFixedTop.html`
+- `navbarBottom.html`
 
 ## References
 - [Examples](https://getbootstrap.com/docs/4.3/examples/)
