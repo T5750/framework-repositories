@@ -2,8 +2,12 @@
 
 ## Examples
 ### Custom components
-- `coverTemplate.html`
+- `album.html`
 - `carouselTemplate.html`
+- `checkout.html`
+- `coverTemplate.html`
+- `pricing.html`
+- `product.html`
 - `stickyFooterTemplate.html`
 - `stickyFooterNavbarTemplate.html`
 
