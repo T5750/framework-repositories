@@ -33,7 +33,7 @@ Module | HTTP Port | Application Context | Url
 `pay-web-gateway` | **8082** | `/pay-web-gateway` | 
 `pay-web-message` | 8084 | `/pay-web-message` | [http://localhost:8084/pay-web-message](http://localhost:8084/pay-web-message)
 `pay-web-sample-shop` | **8083** | `/pay-web-sample-shop` | [http://localhost:8083/pay-web-sample-shop](http://localhost:8083/pay-web-sample-shop)
-`incubator-dubbo-ops` | 8080 | `/`  | [http://localhost:8080](http://localhost:8080)
+`dubbo-admin` | 8080 | `/`  | [http://localhost:8080](http://localhost:8080)
 
 ## Tips
 ### pay-web-message/pay-web-boss

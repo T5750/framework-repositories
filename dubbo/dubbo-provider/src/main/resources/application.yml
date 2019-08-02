@@ -3,15 +3,15 @@ spring:
     name: dubbo-provider
 server:
   port: 8081
-  context-path: /dubbo-provider
+  context-path: /${spring.application.name}
 management:
   port: 9091
 dubbo:
   scan:
     basePackages: t5750.dubbo.service
   application:
-    id: dubbo-provider
-    name: dubbo-provider
+    id: ${spring.application.name}
+    name: ${spring.application.name}
   protocol:
     id: dubbo
     name: dubbo
@@ -19,3 +19,7 @@ dubbo:
   registry:
     address: zookeeper://192.168.100.163:2181?backup=192.168.100.164:2181,192.168.100.165:2181
     id: zookeeper-registry
+logging:
+  file: dubbo/logs/${spring.application.name}.log
+  level:
+    root: info

@@ -17,7 +17,9 @@ subprojects {
     dependencies {
         compile('org.springframework.boot:spring-boot-starter')
         compile('org.springframework.boot:spring-boot-starter-web')
-        // compile group: 'io.dubbo.springboot', name: 'spring-boot-starter-dubbo', version: '1.0.0'
-        compile group: 'com.alibaba.boot', name: 'dubbo-spring-boot-starter', version: '0.1.1'
+        compile('com.alibaba.boot:dubbo-spring-boot-starter:0.1.2.RELEASE') {
+            exclude group: 'org.slf4j'
+            exclude group: 'log4j'
+        }
     }
 }

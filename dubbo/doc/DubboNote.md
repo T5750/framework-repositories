@@ -62,21 +62,21 @@ Dubbo下载地址：[https://github.com/apache/incubator-dubbo](https://github.c
 - 修改内容：ZooKeeper注册中心地址以及用户名密码
 
 ## 1.6 monitor监控中心
-- [incubator-dubbo-ops](https://github.com/apache/incubator-dubbo-ops)
+- [dubbo-admin](https://github.com/apache/dubbo-admin)
 
-## 2 Dubbo 2.6.2
+## 2 Dubbo 2.6.x
 ### Results
 - [http://localhost:8082/dubbo-consumer/sample/hello](http://localhost:8082/dubbo-consumer/sample/hello)
 - [http://localhost:8082/dubbo-consumer/sample/users](http://localhost:8082/dubbo-consumer/sample/users)
 - [http://localhost:8082/dubbo-consumer/direct/print](http://localhost:8082/dubbo-consumer/direct/print)
 - [http://localhost:8082/dubbo-consumer/dependency/print](http://localhost:8082/dubbo-consumer/dependency/print)
 
-## 3 Dubbo ops
-1. 下载代码：`git clone https://github.com/apache/incubator-dubbo-ops.git`
-2. 在`dubbo-admin-backend/src/resources/application-production.properties`中指定注册中心地址
+## 3 Dubbo Admin
+1. 下载代码：`git clone https://github.com/apache/dubbo-admin.git`
+2. 在`dubbo-admin-server/src/main/resources/application.properties`中指定注册中心地址
 3. 构建：
     > - `mvn clean package`
-4. 启动：`mvn --projects dubbo-admin-backend spring-boot:run`
+4. 启动：`mvn --projects dubbo-admin-server spring-boot:run`
 5. 访问：[http://localhost:8080](http://localhost:8080)
 
 ### Swagger support
@@ -84,6 +84,6 @@ Dubbo下载地址：[https://github.com/apache/incubator-dubbo](https://github.c
 
 ## References
 - [Apache Dubbo](http://dubbo.incubator.apache.org/zh-cn/)
-- [Dubbo 2.6.2](https://github.com/apache/incubator-dubbo/releases)
-- [dubbo-spring-boot-starter 0.1.1](https://github.com/apache/incubator-dubbo-spring-boot-project)
-- [incubator-dubbo-ops](https://github.com/apache/incubator-dubbo-ops)
+- [Dubbo 2.6.x](https://github.com/apache/dubbo/releases)
+- [dubbo-spring-boot-starter 0.1.x](https://github.com/apache/dubbo-spring-boot-project)
+- [dubbo-admin](https://github.com/apache/dubbo-admin)

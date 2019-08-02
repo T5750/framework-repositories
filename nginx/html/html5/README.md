@@ -11,6 +11,12 @@
 - [Blossom](http://www.bongiovi.tw/experiments/webgl/blossom/)
 - [Teach Me to Fly](http://www.spacegoo.com/wingsuit/)
 - [Visualeyezer](http://inear.se/visualeyezer/)
+- [The Biodigital Human](https://www.biodigital.com/)
+- [GLGE](http://www.glge.org/)
+- [Quake 3](http://media.tojicode.com/q3bsp/)
+- [WebGL Image Filter](http://evanw.github.io/webgl-filter/)
+- [Acko.net](http://acko.net/)
+- [WebGL Terrain](http://alteredqualia.com/three/examples/webgl_terrain_dynamic.html)
 
 ## Results
 - `canvasClock.html`
@@ -22,3 +28,4 @@
 
 ## References
 - [16个富有创意的HTML5 Canvas动画特效集合](https://www.html5tricks.com/16-html5-canvas-animation.html)
+- [20个不可思议的 WebGL 示例和演示](https://www.cnblogs.com/lhb25/p/20-webgl-demo-and-examples.html)
