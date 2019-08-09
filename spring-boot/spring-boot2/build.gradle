@@ -1,0 +1,21 @@
+// Comment spring-boot -> apply plugin: 'org.springframework.boot'
+plugins {
+    id 'java'
+//    id 'org.springframework.boot' version '2.1.1.RELEASE'
+//    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+dependencies {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    implementation "org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}"
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}") {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+//bootJar {
+//    classifier = 'boot'
+//}

@@ -192,4 +192,6 @@ include 'spring-boot:spring-boot-jms'
 findProject(':spring-boot:spring-boot-jms')?.name = 'spring-boot-jms'
 include 'databases:derby'
 findProject(':databases:derby')?.name = 'derby'
+include 'spring-boot:spring-boot2'
+findProject(':spring-boot:spring-boot2')?.name = 'spring-boot2'
 
