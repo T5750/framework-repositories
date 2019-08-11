@@ -3,6 +3,7 @@
 ## Contents
 - [Logging](doc/SpringBoot2Logging.md)
 - [REST API](doc/SpringBoot2Rest.md)
+- [ResponseBodyEmitter](doc/SpringBoot2ResponseBodyEmitter.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
