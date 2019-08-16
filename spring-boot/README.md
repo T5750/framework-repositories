@@ -57,6 +57,9 @@
 - [JMS Error Handling](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-error-handling)
 - [JMS Message Header Properties](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-message-header-properties)
 
+### Spring Boot 2
+- [Spring Boot 2](spring-boot2/README.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
