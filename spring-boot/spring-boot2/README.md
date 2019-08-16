@@ -5,6 +5,9 @@
 - [REST API](doc/SpringBoot2Rest.md)
 - [ResponseBodyEmitter](doc/SpringBoot2ResponseBodyEmitter.md)
 
+### Spring Boot 2网摘笔记
+- [ShutdownHook](doc/SpringBoot2ShutdownHook.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 5.1.3.RELEASE](http://projects.spring.io/spring-framework)
