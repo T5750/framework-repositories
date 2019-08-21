@@ -4,7 +4,7 @@
 - [Logging](doc/SpringBoot2Logging.md)
 - [REST API](doc/SpringBoot2Rest.md)
 - [ResponseBodyEmitter](doc/SpringBoot2ResponseBodyEmitter.md)
-- [SseEmitter](doc/SpringBoot2ResponseBodyEmitter.md)
+- [SseEmitter](doc/SpringBoot2ResponseBodyEmitter.md#spring-boot-2-sseemitter)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)
