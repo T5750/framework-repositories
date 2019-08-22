@@ -3,6 +3,8 @@
 ## Contents
 ### nginx笔记
 - [nginx笔记](doc/nginxNote.md)
+- [nginx Img](doc/nginxImg.md)
+- [nginx Util](doc/nginxUtil.md)
 
 ### nginx网摘笔记
 - [nginx网摘笔记](doc/nginxCollection.md)
