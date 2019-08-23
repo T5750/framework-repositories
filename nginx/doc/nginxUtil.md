@@ -35,3 +35,5 @@ rm -rf /usr/local/nginx-1.6.2/
 
 ## References
 - [Command-line parameters](http://nginx.org/en/docs/switches.html)
+- [Alphabetical index of directives](http://nginx.org/en/docs/dirindex.html)
+- [Alphabetical index of variables](http://nginx.org/en/docs/varindex.html)

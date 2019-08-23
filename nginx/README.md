@@ -10,6 +10,7 @@
 - [nginx网摘笔记](doc/nginxCollection.md)
     - [Keepalived+nginx+Tomcat实现高可用Web集群](doc/nginxCollection.md#Keepalived+nginx+Tomcat实现高可用Web集群)
     - [split-brain脑裂问题（Keepalived）](doc/splitBrainKeepalived.md)
+    - [nginx Location](doc/nginxLocation.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

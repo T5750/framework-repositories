@@ -12,7 +12,7 @@ function start() {
 		echo "$prefix Maybe $appName is running, please check it..."
 	else
 		echo "$prefix The $appName is starting..."
-		nohup java -jar -Xms512M -Xmx512M -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError ./$appName > /dev/null 2>&1 &
+		nohup java -jar -Xms512M -Xmx512M -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError ./$appName >/dev/null 2>&1 &
 	fi
 }
 

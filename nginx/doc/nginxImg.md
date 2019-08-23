@@ -10,6 +10,29 @@ location /img/ {
 ```
 
 ## Proxy
+```
+      +                     +                       +
+      |     1. Request      |                       |
+      +-------------------->+                       |
+      |                     |      2. Request       |
+      |                     +---------------------->+
+      |                     |                       |
+      |                     |      3. Request       |
+      |                     <-----------------------+
+      |     4. Request      |                       |
+      +<--------------------+                       |
+      |                     |                       |
+      |     1. Request      |                       |
+      +-------------------->+                       |
+      |                     |                       |
+      |     2. Request      |                       |
+      +<--------------------+                       |
+      |                     |                       |
++-----+----+          +-----+-----+          +------+-----+
+|  Client  |          |   nginx   |          |   Server   |
++----------+          +-----------+          +------------+
+```
+
 ### ngx_cache_purge
 ```
 tar -zxvf /usr/local/software/nginx-1.14.1.tar.gz -C /usr/local/
@@ -33,16 +56,13 @@ cp -avx ROOT/tomcat.png img/
 ### nginx.conf
 ```
 http {
-	...
 	proxy_cache_path /data/ngx_cache levels=1:2 keys_zone=whsir_com:10m max_size=10g inactive=60m use_temp_path=off;
-	...
 	server {
 		listen 8080;
 		server_name 127.0.0.1;
 		root /data/;
 	}
 	server {
-	...
 		listen 80;
 		server_name 192.168.50.101;
 		location / {
@@ -65,7 +85,6 @@ http {
 			proxy_set_header X-Forwarded-For $remote_addr;
 			proxy_pass http://127.0.0.1:8080;
 		}
-	...
 	}
 } 
 ```
@@ -88,12 +107,27 @@ http {
 - `nginxImgProxy.conf`
 - Chrome: F12 -> Manage Header Columns -> Add custom header -> X-Cache
 ```
-nginx -t
 http://192.168.1.110:9090/img/tomcat.png
 http://192.168.1.110:9090/purge/img/tomcat.png
 curl -s -I http://192.168.1.110:9090/img/tomcat.png|grep "X-Cache"
+http://192.168.1.110:9090/
+http://192.168.1.110:9090/purge/
+```
+
+## 隐藏nginx版本信息
+### 查看当前版本
+```
+curl -I 127.0.0.1:9090
+```
+
+### 隐藏版本信息
+```
+http {
+    server_tokens off;
+}
 ```
 
 ## References
 - [Nginx配置缓存服务器及缓存清除](https://blog.whsir.com/post-3173.html)
 - [ngx_cache_purge](https://github.com/FRiCKLE/ngx_cache_purge)
+- [隐藏nginx版本信息](https://blog.whsir.com/post-3165.html)
