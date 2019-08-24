@@ -24,4 +24,9 @@ public class EmployeeDAO {
 	public void addEmployee(Employee employee) {
 		list.getEmployeeList().add(employee);
 	}
+
+	public Employee getEmployeeById(int id) {
+		id = id - 1;
+		return list.getEmployeeList().get(id);
+	}
 }

@@ -2,6 +2,7 @@ package t5750.springboot2.exception;
 
 import java.util.List;
 
+//@XmlRootElement(name = "error")
 public class ErrorResponse {
 	public ErrorResponse(String message, List<String> details) {
 		super();

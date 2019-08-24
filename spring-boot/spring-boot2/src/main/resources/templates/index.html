@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Spring Cloud Boot 2</title>
+	<title>Spring Boot 2</title>
 	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
 	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -42,6 +42,7 @@
 		<div class="container">
 			<h4 class="mt-5">REST API</h4>
 			<a class="btn btn-outline-primary" th:href="@{/employees/}" role="button">GET employees</a>
+			<a class="btn btn-outline-primary" th:href="@{/employees/vo/1}" role="button">GET employee 1</a>
 			<h4 class="mt-5">ResponseBodyEmitter</h4>
 			<a class="btn btn-outline-primary" th:href="@{/fetch-data-sets}" role="button">Fetch data sets</a>
 			<a class="btn btn-outline-primary" th:href="@{/emit-data-sets}" role="button">Emit data sets</a>
