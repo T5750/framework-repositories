@@ -8,10 +8,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-//extends ResourceSupport
+import org.springframework.hateoas.ResourceSupport;
+
 @XmlRootElement(name = "employee")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class EmployeeVO implements Serializable {
+public class EmployeeVO extends ResourceSupport implements Serializable {
 	private Integer employeeId;
 	@NotEmpty(message = "first name must not be empty")
 	private String firstName;
@@ -63,5 +64,11 @@ public class EmployeeVO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeVO [id=" + employeeId + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + "]";
 	}
 }

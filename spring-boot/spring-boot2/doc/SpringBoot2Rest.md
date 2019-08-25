@@ -66,3 +66,4 @@ ANNOTATION | USAGE
 - [Spring Boot 2 REST API Example](https://howtodoinjava.com/spring-boot2/rest-api-example/)
 - [Spring Boot 2 REST POST with Headers](https://howtodoinjava.com/spring-boot2/spring-boot2-rest-post-example/)
 - [Spring boot exception handling – @ExceptionHandler example](https://howtodoinjava.com/spring-boot2/spring-rest-request-validation/)
+- [Spring Boot HATEOAS Example](https://howtodoinjava.com/spring-boot2/rest-with-spring-hateoas-example/)
