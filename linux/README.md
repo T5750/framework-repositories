@@ -39,6 +39,8 @@
     - [备份](doc/LinuxCommands.md#备份)
     - [光盘](doc/LinuxCommands.md#光盘)
     - [网络（以太网和WIFI无线）](doc/LinuxCommands.md#网络（以太网和WIFI无线）)
+- [Linux Clear Cache](doc/LinuxClearCache.md)
+- [Linux Cron Scheduling Task](doc/LinuxCronSchedulingTask.md)
 
 ## Runtime Environment
 - [CentOS 6.10](https://www.centos.org/download/)
