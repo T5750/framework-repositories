@@ -196,4 +196,8 @@ include 'spring-boot:spring-boot2'
 findProject(':spring-boot:spring-boot2')?.name = 'spring-boot2'
 include 'spring-boot:spring-boot-sample'
 findProject(':spring-boot:spring-boot-sample')?.name = 'spring-boot-sample'
+include 'spring-boot:spring-boot2-provider'
+findProject(':spring-boot:spring-boot2-provider')?.name = 'spring-boot2-provider'
+include 'spring-boot:spring-boot2-api'
+findProject(':spring-boot:spring-boot2-api')?.name = 'spring-boot2-api'
 
