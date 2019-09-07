@@ -6,6 +6,8 @@
 - [ResponseBodyEmitter](doc/SpringBoot2ResponseBodyEmitter.md)
 - [SseEmitter](doc/SpringBoot2ResponseBodyEmitter.md#spring-boot-2-sseemitter)
 - [Exception handling](doc/SpringBoot2Rest.md#exception-handling)
+- [Async](doc/SpringBoot2Async.md)
+- [Caching](doc/SpringBoot2Caching.md)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)

@@ -5,9 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
+@EnableCaching
 public class Boot2Application extends SpringBootServletInitializer {
 	private static final Logger LOGGER = LogManager
 			.getLogger(Boot2Application.class);

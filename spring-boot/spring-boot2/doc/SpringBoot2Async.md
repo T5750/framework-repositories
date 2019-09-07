@@ -5,3 +5,4 @@ Spring comes with [@EnableAsync](https://docs.spring.io/spring-framework/docs/cu
 
 ## References
 - [Spring @Async rest controller example – Spring @EnableAsync](https://howtodoinjava.com/spring-boot2/enableasync-async-controller/)
+- [Spring boot async rest controller with Callable interface](https://howtodoinjava.com/spring-boot2/async-rest-controller-callable/)
