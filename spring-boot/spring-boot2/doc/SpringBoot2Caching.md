@@ -9,6 +9,19 @@
 ## Cache annotations
 1. `@EnableCaching`
 1. `@Cacheable`
+	```
+	@Cacheable(value="books", key="#isbn")
+	public Book findStoryBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+
+	@Cacheable(value="books", key="#isbn.rawNumber")
+	public Book findStoryBook (ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+
+	@Cacheable(value="books", key="T(classType).hash(#isbn)")
+	public Book findStoryBook (ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+
+	@Cacheable(value="book", condition="#name.length < 50")
+	public Book findStoryBook (String name)
+	```
 1. `@CachePut`
 1. `@CacheEvict`
 1. `@Caching`

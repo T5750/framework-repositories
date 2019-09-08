@@ -7,9 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
+import org.springframework.retry.annotation.EnableRetry;
 
 @SpringBootApplication
 @EnableCaching
+@EnableRetry
 public class Boot2Application extends SpringBootServletInitializer {
 	private static final Logger LOGGER = LogManager
 			.getLogger(Boot2Application.class);
