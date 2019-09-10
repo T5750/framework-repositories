@@ -25,3 +25,7 @@
 
 ## telnet
 - `yum install telnet`
+
+## Commands
+### bc
+- `scale=2`
