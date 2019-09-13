@@ -9,6 +9,7 @@
 - [Async](doc/SpringBoot2Async.md)
 - [Caching](doc/SpringBoot2Caching.md)
 - [Retry](doc/SpringBoot2Retry.md)
+- [Devtools](doc/SpringBoot2Devtools.md)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)
