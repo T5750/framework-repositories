@@ -15,6 +15,7 @@
 ### Lua笔记
 - [nginx Lua Installation](doc/lua/nginxLuaInstallation.md)
 - [nginx Lua Quick Start](doc/lua/nginxLuaQuickStart.md)
+- [nginx Lua Redis/SSDB+Twemproxy](doc/lua/nginxLuaRedisSsdbTwemproxy.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -23,3 +24,6 @@
 - [OpenResty 1.7.7.2](http://openresty.org/cn/download.html)
 - [Lua 5.x](https://www.lua.org/download.html)
 - [Lua for Windows v5.1.x](https://github.com/rjpcomputing/luaforwindows/releases)
+- [Redis 5.0.5](https://redis.io/download)
+- [SSDB 1.9.4](https://github.com/ideawu/ssdb)
+- [twemproxy 0.4.1](https://github.com/twitter/twemproxy)
