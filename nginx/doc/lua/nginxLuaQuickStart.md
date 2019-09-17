@@ -111,5 +111,12 @@ init_worker_by_lua_file conf/lua/init_worker.lua;
 - http://192.168.1.110/lua_access?token=123
 - http://192.168.1.110/lua_access?token=1234
 
+### Module
+- `lua.conf`: /lua_module_hello
+- `module_hello.lua`
+- `test_module_hello.lua`
+- http://192.168.1.110/lua_module_hello
+
 ### References
 - [第二章 OpenResty(Nginx+Lua)开发入门](https://www.iteye.com/blog/jinnianshilongnian-2186448)
+- [第四章 Lua模块开发](https://www.iteye.com/blog/jinnianshilongnian-2187067)

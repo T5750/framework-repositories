@@ -139,7 +139,7 @@ cd autoconf-2.69
 make && make install
 ```
 
-#### SSDB
+#### SSDB Install
 ```
 # 启动主库, 此命令会阻塞住命令行
 ./ssdb-server ssdb.conf
