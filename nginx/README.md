@@ -23,6 +23,11 @@
     - [Redis Client](doc/lua/nginxLuaDevLib.md#redis-client)
     - [MySQL Client](doc/lua/nginxLuaDevLib.md#mysql-client)
     - [Http Client](doc/lua/nginxLuaDevLib.md#http-client)
+    - [JSON](doc/lua/nginxLuaDevLib.md#json)
+    - [编码转换](doc/lua/nginxLuaDevLib.md#编码转换)
+    - [位运算](doc/lua/nginxLuaDevLib.md#位运算)
+    - [字符串处理](doc/lua/nginxLuaDevLib.md#字符串处理)
+    - [Template](doc/lua/nginxLuaDevLib.md#template)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

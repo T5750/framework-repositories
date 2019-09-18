@@ -15,7 +15,7 @@ tar -xvf 2.3.tar.gz
 wget https://github.com/yaoweibin/nginx_upstream_check_module/archive/v0.3.0.tar.gz
 tar -xvf v0.3.0.tar.gz
 cd /usr/servers/ngx_openresty-1.7.7.2
-./configure --prefix=/usr/servers --with-http_realip_module --with-pcre --with-luajit --add-module=./bundle/ngx_cache_purge-2.3/ --add-module=./bundle/nginx_upstream_check_module-0.3.0/ -j2
+./configure --prefix=/usr/servers --with-http_realip_module --with-pcre --with-luajit --with-http_iconv_module --add-module=./bundle/ngx_cache_purge-2.3/ --add-module=./bundle/nginx_upstream_check_module-0.3.0/ -j2
 make && make install
 /usr/servers/nginx/sbin/nginx -V
 /usr/servers/nginx/sbin/nginx
@@ -86,3 +86,4 @@ lua_shared_dict limit_counter 10m;
 
 ### References
 - [第一章 安装OpenResty(Nginx+Lua)开发环境](https://www.iteye.com/blog/jinnianshilongnian-2186270)
+- [OpenResty 安装](https://openresty.org/cn/installation.html)
