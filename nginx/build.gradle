@@ -1,0 +1,8 @@
+apply plugin: 'war'
+
+dependencies {
+    providedCompile 'org.apache.tomcat:tomcat-catalina:7.0.77'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+    compile group: 'com.alibaba', name: 'druid', version: '1.1.10'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+}

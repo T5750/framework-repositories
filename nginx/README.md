@@ -28,6 +28,7 @@
     - [位运算](doc/lua/nginxLuaDevLib.md#位运算)
     - [字符串处理](doc/lua/nginxLuaDevLib.md#字符串处理)
     - [Template](doc/lua/nginxLuaDevLib.md#template)
+- [nginx Lua Web HTTP service](doc/lua/nginxLuaWebService.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -39,3 +40,4 @@
 - [Redis 5.0.5](https://redis.io/download)
 - [SSDB 1.9.4](https://github.com/ideawu/ssdb)
 - [twemproxy 0.4.1](https://github.com/twitter/twemproxy)
+- [Atlas 2.2.1](https://github.com/Qihoo360/Atlas)
