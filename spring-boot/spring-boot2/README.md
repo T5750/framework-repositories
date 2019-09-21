@@ -11,6 +11,7 @@
 - [Retry](doc/SpringBoot2Retry.md)
 - [Devtools](doc/SpringBoot2Devtools.md)
 - [JUnit](doc/SpringBoot2Junit.md)
+- [H2](doc/SpringBoot2H2.md)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)
