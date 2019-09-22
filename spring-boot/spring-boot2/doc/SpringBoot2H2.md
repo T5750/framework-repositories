@@ -53,3 +53,4 @@ spring.h2.console.settings.web-allow-others=false
 
 ## References
 - [Spring Boot with H2 Database](https://howtodoinjava.com/spring-boot2/h2-database-example/)
+- [Spring boot crud operations example with hibernate](https://howtodoinjava.com/spring-boot2/spring-boot-crud-hibernate/)

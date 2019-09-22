@@ -40,24 +40,27 @@
 	</header>
 	<main role="main" class="flex-shrink-0">
 		<div class="container">
-			<h4 class="mt-5">REST API</h4>
+			<h4 class="mt-3">REST API</h4>
 			<a class="btn btn-outline-primary" th:href="@{/employees/}" role="button">Get employees</a>
 			<a class="btn btn-outline-primary" th:href="@{/employees/vo/1}" role="button">Get employee 1</a>
 			<a class="btn btn-outline-primary" th:href="@{/hateoas/employees}" role="button">Get HATEOAS employees</a>
 			<a class="btn btn-outline-primary" th:href="@{/hateoas/employees/1}" role="button">Get HATEOAS employee 1</a>
 			<a class="btn btn-outline-primary" th:href="@{/retry?simulateretry=true&simulateretryfallback=false}" role="button">Retry success or fallback</a>
 			<a class="btn btn-outline-primary" th:href="@{/retry?simulateretry=true&simulateretryfallback=true}" role="button">Retry fallback only</a>
-			<h4 class="mt-5">ResponseBodyEmitter</h4>
+			<h4 class="mt-3">ResponseBodyEmitter</h4>
 			<a class="btn btn-outline-primary" th:href="@{/fetch-data-sets}" role="button">Fetch data sets</a>
 			<a class="btn btn-outline-primary" th:href="@{/emit-data-sets}" role="button">Emit data sets</a>
 			<a class="btn btn-outline-primary" th:href="@{/testCallable}" role="button">Test Callable</a>
 			<a class="btn btn-outline-primary" th:href="@{/testCompletableFuture}" role="button">Test CompletableFuture</a>
-			<h4 class="mt-5">Prerequisites: spring-boot2-provider/Boot2Provider, Port: 18091</h4>
+			<h4 class="mt-3">Prerequisites: spring-boot2-provider/Boot2Provider, Port: 18091</h4>
 			<a class="btn btn-outline-primary" th:href="@{/testAsynch}" role="button">Get Async REST Service</a>
-			<h4 class="mt-5">Caching</h4>
+			<h4 class="mt-3">Caching</h4>
 			<a class="btn btn-outline-primary" th:href="@{/student/1}" role="button">Get caching</a>
-			<h4 class="mt-5">H2</h4>
+			<h4 class="mt-3">H2</h4>
 			<a class="btn btn-outline-primary" th:href="@{/h2}" role="button">H2 Console</a>
+			<a class="btn btn-outline-primary" th:href="@{/employeeCrud}" role="button">Get employees</a>
+			<a class="btn btn-outline-primary" th:href="@{/employeeCrud/1}" role="button">Get employee 1</a>
+			<a class="btn btn-outline-primary" th:href="@{/employeePage/list}" role="button">List Employees</a>
 		</div>
 	</main>
 	<footer class="footer mt-auto py-3">

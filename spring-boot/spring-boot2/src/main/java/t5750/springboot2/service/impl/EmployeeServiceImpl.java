@@ -41,12 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public EmployeeEntity createOrUpdateEmployee(EmployeeEntity entity)
 			throws RecordNotFoundException {
 		if (StringUtils.isEmpty(entity.getId())) {
-			EmployeeEntity employeeEntity = new EmployeeEntity();
-			employeeEntity.setFirstName(entity.getFirstName());
-			employeeEntity.setLastName(entity.getLastName());
-			employeeEntity.setEmail(entity.getEmail());
-			employeeEntity = repository.save(employeeEntity);
-			return employeeEntity;
+			entity = repository.save(entity);
+			return entity;
 		}
 		Optional<EmployeeEntity> employee = repository.findById(entity.getId());
 		if (employee.isPresent()) {
