@@ -1,0 +1,71 @@
+<title>Item</title>
+<div class="breadcrumb">
+	<strong><a href='{* breadcrumb[1][3] *}'>{* breadcrumb[1][2] *}</a></strong>
+	<span>
+		&nbsp;&gt;&nbsp;
+		<a href='{* breadcrumb[2][3] *}'>{* breadcrumb[2][2] *}</a>
+		&nbsp;&gt;&nbsp;
+		<a href='{* breadcrumb[3][3] *}'>{* breadcrumb[3][2] *}</a>
+		&nbsp;&gt;&nbsp;
+	</span>
+	<span>
+		{% if brand then %}
+		<a href='http://www.jd.com/pinpai/{* ps3Id *}-{* brandId *}.html'>{* brand['name'] *}</a>
+		&nbsp;&gt;&nbsp;
+		{% end %}
+		<a href='http://item.jd.com/{* skuId *}.html'>{* moreName *}</a>
+	</span>
+</div>
+<div id="spec-n1" class="jqzoom" onclick="window.open('http://www.jd.com/bigimage.aspx?id={* skuId *}')" clstag="shangpin|keycount|product|spec-n1">
+	<img data-img="1" width="350" height="350" src="http://img14.360buyimg.com/n1/{* imgs[1] *}" alt="{* name *}"/>
+</div>
+<div id="spec-list" clstag="shangpin|keycount|product|spec-n5">
+	<a href="javascript:;" class="spec-control" id="spec-forward"></a>
+	<a href="javascript:;" class="spec-control" id="spec-backward"></a>
+	<div class="spec-items">
+		<ul class="lh">
+			{% for _, img in ipairs(imgs) do %}
+			<li><img class='img-hover' alt='{* name *}' src='http://img14.360buyimg.com/n5/{* img *}' data-url='{* img *}' data-img='1' width='50' height='50'></li>
+			{% end %}
+		</ul>
+	</div>
+</div>
+<div class="dt">选择颜色：</div>
+<div class="dd">
+	{% for _, color in ipairs(colorList) do %}
+	<div class="item"><b></b><a href="{* color['url'] *}" title="{* color['color'] *}"><i>{* color['color'] *}</i></a></div>
+	{% end %}
+</div>
+</div>
+<div id="choose-version" class="li">
+	<div class="dt">选择版本：</div>
+	<div class="dd">
+		{% for _, size in ipairs(sizeList) do %}
+		<div class="item"><b></b><a href="{* size['url'] *}" title="{* size['size'] *}">{* size['size'] *}</a></div>
+		{% end %}
+	</div>
+</div>
+<ul id="parameter2" class="p-parameter-list">
+	<li title='{* name *}'>商品名称：{* name *}</li>
+	<li title='{* skuId *}'>商品编号：{* skuId *}</li>
+	{% if brand then %}
+	<li title='{* brand["name"] *}'>品牌： <a href='http://www.jd.com/pinpai/{* ps3Id *}-{* brandId *}.html' target='_blank'>{* brand["name"] *}</a></li>
+	{% end %}
+	{% if date then %}
+	<li title='{* date *}'>上架时间：{* date *}</li>
+	{% end %}
+	{% if weight then %}
+	<li title='{* weight *}'>商品毛重：{* weight *}</li>
+	{% end %}
+	{% for _, e in pairs(expands) do %}
+	<li title='{* e[2] *}'>{* e[1] *}：{* e[2] *}</li>
+	{% end %}
+</ul>
+<table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable">
+	{% for group, pc in pairs(propCodes) do %}
+	<tr><th class="tdTitle" colspan="2">{* group *}</th><tr>
+	{% for _, v in pairs(pc) do %}
+	<tr><td class="tdTitle">{* v[1] *}</td><td>{* v[2] *}</td></tr>
+	{% end %}
+	{% end %}
+</table>

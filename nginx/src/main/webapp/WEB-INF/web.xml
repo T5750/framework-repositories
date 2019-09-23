@@ -1,6 +1,8 @@
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-		"http://java.sun.com/dtd/web-app_2_3.dtd" >
-<web-app>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 version="3.0">
 	<display-name>nginx</display-name>
 	<servlet>
 		<servlet-name>adServlet</servlet-name>
@@ -9,5 +11,13 @@
 	<servlet-mapping>
 		<servlet-name>adServlet</servlet-name>
 		<url-pattern>/ad</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>productServiceServlet</servlet-name>
+		<servlet-class>t5750.nginx.lua.servlet.ProductServiceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>productServiceServlet</servlet-name>
+		<url-pattern>/info</url-pattern>
 	</servlet-mapping>
 </web-app>

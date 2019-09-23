@@ -29,6 +29,7 @@
     - [字符串处理](doc/lua/nginxLuaDevLib.md#字符串处理)
     - [Template](doc/lua/nginxLuaDevLib.md#template)
 - [nginx Lua Web HTTP service](doc/lua/nginxLuaWebService.md)
+- [nginx Lua Web Desc Page](doc/lua/nginxLuaWebDescPage.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
