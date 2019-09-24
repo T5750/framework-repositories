@@ -21,10 +21,10 @@ mkdir -p /usr/data/ssdb_7770
 mkdir -p /usr/data/ssdb_7771
 mkdir -p /usr/data/ssdb_7772
 mkdir -p /usr/data/ssdb_7773
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_basic_7770.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_basic_7771.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_basic_7772.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_basic_7773.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_basic_7770.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_basic_7771.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_basic_7772.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_basic_7773.conf &
 ```
 
 #### 商品介绍SSDB集群配置
@@ -34,10 +34,10 @@ vi /usr/servers/templates/ssdb_desc_8881.conf
 vi /usr/servers/templates/ssdb_desc_8882.conf
 vi /usr/servers/templates/ssdb_desc_8883.conf
 mkdir -p /usr/data/ssdb_888{0,1,2,3}
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_desc_8880.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_desc_8881.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_desc_8882.conf &
-nohup /usr/servers/ssdb-1.9.4/ssdb-server /usr/servers/templates/ssdb_desc_8883.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_desc_8880.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_desc_8881.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_desc_8882.conf &
+nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_desc_8883.conf &
 ps aux | grep ssdb
 ```
 
@@ -163,7 +163,123 @@ http://item.jd.com/backend/info?type=basic&skuId=1
 - `nginx_desc_page.conf`: `^/(\d+).html$`
 - http://item.jd.com/1217499.html
 
+### 优化
+#### local cache
+`local_cache.lua`
+```
+vim /usr/servers/nginx/conf/nginx.conf
+#http部分分配内存大小
+lua_shared_dict item_local_cache 1m;
+```
 
+#### ngx_cache_purge
+为了防止恶意刷页面/热点页面访问频繁，可以使用nginx proxy_cache做页面缓存，当然更好的选择是使用CDN技术，如通过Apache Traffic Server、Squid、Varnish
+```
+vim /usr/servers/nginx/conf/nginx.conf
+proxy_buffering on;
+proxy_buffer_size 8k;
+proxy_buffers 256 8k;
+proxy_busy_buffers_size 64k;
+proxy_temp_file_write_size 64k;
+proxy_temp_path /usr/servers/nginx/proxy_temp;
+#设置Web缓存区名称为cache_one，内存缓存空间大小为200MB，1分钟没有被访问的内容自动清除，硬盘缓存空间大小为30GB。
+proxy_cache_path /usr/servers/nginx/proxy_cache levels=1:2 keys_zone=cache_item:200m inactive=1m max_size=30g;
+```
+[Module ngx_http_proxy_module](http://nginx.org/cn/docs/http/ngx_http_proxy_module.html)
+
+`nginx_desc_page.conf`
+```
+map $host $item_dynamic {
+	default "0";
+	item2015.jd.com "1";
+}
+server {
+	location ~ ^/(\d+).html$ {
+		set $skuId $1;
+		if ($host !~ "^(item|item2015)\.jd\.com$") {
+		 return 403;
+		}
+		expires 3m;
+		proxy_cache cache_item;
+		proxy_cache_key $uri;
+		proxy_cache_bypass $item_dynamic;
+		proxy_no_cache $item_dynamic;
+		proxy_cache_valid 200 301 3m;
+		proxy_cache_use_stale updating error timeout invalid_header http_500 http_502 http_503 http_504;
+		proxy_pass_request_headers off;
+		proxy_set_header Host $host;
+		#支持keep-alive
+		proxy_http_version 1.1;
+		proxy_set_header Connection "";
+		proxy_pass http://127.0.0.1/proxy/$skuId.html;
+		add_header X-Cache '$upstream_cache_status';
+	}
+
+	location ~ ^/proxy/(\d+).html$ {
+		allow 127.0.0.1;
+		deny all;
+		keepalive_timeout 30s;
+		keepalive_requests 1000;
+		default_type 'text/html';
+		charset utf-8;
+		lua_code_cache on;
+		set $skuId $1;
+		content_by_lua_file /usr/servers/templates/item.lua;
+	}
+
+	location /purge {
+		allow 127.0.0.1;
+		allow 192.168.0.0/16;
+		allow 192.168.1.100;
+		deny all;
+		proxy_cache_purge cache_item $arg_url;
+	}
+}
+```
+- `expires`：设置响应缓存头信息，此处是3分钟；将会得到`Cache-Control:max-age=180`和类似`Expires:Sat, 28 Feb 2015 10:01:10 GMT`的响应头
+- `proxy_cache`：使用之前在`nginx.conf`中配置的`cache_item`缓存
+- `proxy_cache_key`：缓存key为uri，不包括host和参数，这样不管用户怎么通过在url上加随机数都是走缓存的
+- `proxy_cache_bypass`：nginx不从缓存取响应的条件，可以写多个；如果存在一个字符串条件且不是“0”，那么nginx就不会从缓存中取响应内容；此处如果使用的host为item2015.jd.com时就不会从缓存取响应内容
+- `proxy_no_cache`：nginx不将响应内容写入缓存的条件，可以写多个；如果存在一个字符串条件且不是“0”，那么nginx就不会从将响应内容写入缓存；此处如果使用的host为item2015.jd.com时就不会将响应内容写入缓存
+- `proxy_cache_valid`：为不同的响应状态码设置不同的缓存时间，此处对200、301缓存3分钟
+- `proxy_cache_use_stale`：什么情况下使用不新鲜（过期）的缓存内容；配置和`proxy_next_upstream`内容类似；此处配置了如果连接出错、超时、404、500等都会使用不新鲜的缓存内容；此外配置了updating配置，通过配置它可以在nginx正在更新缓存（其中一个Worker进程）时（其他的Worker进程）使用不新鲜的缓存进行响应，这样可以减少回源的数量
+- `proxy_pass_request_headers`：不需要请求头，所以不传递
+- `proxy_http_version 1.1`和`proxy_set_header Connection ""`：支持keepalive
+- `add_header X-Cache '$upstream_cache_status'`：添加是否缓存命中的响应头；比如命中HIT、不命中MISS、不走缓存BYPASS；比如命中会看到`X-Cache：HIT`响应头
+- `allow/deny`：允许和拒绝访问的ip列表，此处只允许本机访问
+- `keepalive_timeout 30s`和`keepalive_requests 1000`：支持keepalive
+- 清理缓存：http://item.jd.com/purge?url=/1217499.html
+
+`item.lua`
+```
+--添加Last-Modified，用于响应304缓存
+ngx.header["Last-Modified"] = ngx.http_time(ngx.now())
+local template = require "resty.template"
+template.caching(true)
+template.render("item.html", basicInfo)
+```
+
+#### GZIP压缩
+```
+gzip on;
+gzip_min_length 4k;
+gzip_buffers 4 16k;
+gzip_http_version 1.0;
+gzip_proxied any;#前端是squid的情况下要加此参数，否则squid上不缓存gzip文件
+gzip_comp_level 2;
+gzip_types text/plain application/x-javascript text/css application/xml;
+gzip_vary on;
+```
+
+### Tips
+Module | HTTP Port | Command or Url | Start
+---|---|---|---
+SSDB Basic | 7770-7773 | redis-cli -p 7770 | nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_basic_7770.conf &
+SSDB Desc | 8880-8883 | redis-cli -p 8880 | nohup /usr/servers/ssdb-1.9.4/ssdb-server -d /usr/servers/templates/ssdb_desc_8880.conf &
+Redis | 6660-6662 | redis-cli -h 192.168.1.110 -p 6660 | nohup redis-server /usr/servers/templates/redis_6660.conf &
+Twemproxy | 1111-1116 | redis-cli -p 1111 | /usr/servers/templates/nutcracker.sh start
+tomcat-8-desc-page | 8080 | [Other API](http://192.168.1.110:8080/info?type=other&ps3Id=655&brandId=14026) | /usr/servers/tomcat-8-desc-page/bin/startup.sh
+nginx | 80 | [Desc Page](http://item.jd.com/1217499.html) | nginx
 
 ### References
 - [第七章 Web开发实战2——商品详情页](https://www.iteye.com/blog/jinnianshilongnian-2188538)

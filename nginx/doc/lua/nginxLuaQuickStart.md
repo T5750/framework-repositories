@@ -27,7 +27,7 @@
 - `ngx.resp.get_headers()`获取设置的响应状态码
 - `ngx.send_headers()`发送响应状态码，当调用`ngx.say/ngx.print`时自动发送响应状态码；可以通过`ngx.headers_sent=true`判断是否发送了响应状态码
 
-#### 其他API
+#### 其它API
 - `lua.conf`: /lua_other
 
 - `ngx.escape_uri/ngx.unescape_uri`：uri编码解码

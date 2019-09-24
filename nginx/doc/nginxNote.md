@@ -10,7 +10,7 @@
 1. 使用软件进行负载均衡：
     - 使用阿里云服务器均衡负载SLB
     - 使用nginx+Keepalived
-    - 其他软件负载均衡，如：LVS（Linux Virtual Server）、haproxy等
+    - 其它软件负载均衡，如：LVS（Linux Virtual Server）、haproxy等
 
 ## 1.3 nginx优点
 - nginx可以在大多数Unix like OS上编译运行，并有Windows移植版。一般情况下，对于新建站点，建议使用最新稳定版作为生产版本，已有站点的升级急迫性不高。nginx的源代码使用2-clause BSD-like license。
