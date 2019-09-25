@@ -30,6 +30,10 @@
     - [Template](doc/lua/nginxLuaDevLib.md#template)
 - [nginx Lua Web HTTP service](doc/lua/nginxLuaWebService.md)
 - [nginx Lua Web Desc Page](doc/lua/nginxLuaWebDescPage.md)
+- [nginx Lua Web Test](doc/lua/nginxLuaWebTest.md)
+    - [流量复制](doc/lua/nginxLuaWebTest.md#流量复制)
+    - [AB测试](doc/lua/nginxLuaWebTest.md#AB测试)
+    - [协程](doc/lua/nginxLuaWebTest.md#协程)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
