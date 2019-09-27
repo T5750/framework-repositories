@@ -3,6 +3,7 @@
 ## Contents
 - [CentOS Installation](doc/CentOSInstallation.md)
 - [CentOS Tips](doc/CentOSTips.md)
+- [CentOS Python](doc/CentOSPython.md)
 
 ### Linux笔记
 - [1.x Linux初步与环境安装](doc/LinuxNote.md)
