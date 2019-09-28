@@ -1,10 +1,20 @@
 package t5750.springboot2.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	public Employee() {
 	}
 
-	public Employee(Integer id, String firstName, String lastName, String email) {
+	public Employee(Integer id, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public Employee(Integer id, String firstName, String lastName,
+			String email) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -51,7 +61,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + "]";
 	}
 }

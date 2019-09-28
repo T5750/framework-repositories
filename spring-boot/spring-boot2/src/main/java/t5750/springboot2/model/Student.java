@@ -1,6 +1,8 @@
 package t5750.springboot2.model;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 	String id;
 	String name;
 	String clz;

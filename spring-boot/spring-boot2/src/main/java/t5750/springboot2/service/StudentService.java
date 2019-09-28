@@ -7,7 +7,8 @@ import t5750.springboot2.model.Student;
 
 @Service
 public class StudentService {
-	@Cacheable("student")
+	// @Cacheable("student")
+	@Cacheable(cacheNames = "studentCache", key = "#id")
 	public Student getStudentByID(String id) {
 		try {
 			System.out.println(
