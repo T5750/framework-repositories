@@ -1,4 +1,4 @@
-# Linux笔记
+# Linux笔记 Chapter 1
 
 ## 1.1 Linux初步
 Linux系统出现于1991年，由芬兰大学生李纳斯（Linus Torvalds）和后来陆续加入的众多爱好者共同开发完成。Linux是一个自由软件，是源代码开放的UNIX。当然UNIX是Linux的前辈了，早在Linux出现前20年就产生了。

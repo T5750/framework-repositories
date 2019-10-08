@@ -60,6 +60,7 @@ A B C D E USERNAME /root/backup.sh
 ```
 
 ### 9. Special Strings for Common Schedule
+
 Strings | Meanings
 ---|-----
 `@reboot` | Command will run when the system reboot.

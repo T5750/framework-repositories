@@ -1,3 +1,5 @@
+# Linux笔记 Chapter 7
+
 [PREV 6.x 系统文件构成](LinuxNoteSystem.md) | [NEXT 8.x Shell编程](LinuxNoteShell.md)
 
 ## 7.1 软件包管理

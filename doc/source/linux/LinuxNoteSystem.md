@@ -1,3 +1,5 @@
+# Linux笔记 Chapter 6
+
 [PREV 5.x 进程管理](LinuxNoteProcess.md) | [NEXT 7.x 软件包管理](LinuxNoteYum.md)
 
 ## 6.1 系统文件构成
