@@ -7,9 +7,13 @@ Framework Repositories
 ===============================
 This is my technical note, I hope this can help you.
 
+- Docs: https://framework-repositories.readthedocs.io
+- Source: https://github.com/T5750/framework-repositories
+
 .. toctree::
    :maxdepth: 2
    :glob:
 
+   framework/index
    linux/index
    sphinx/index

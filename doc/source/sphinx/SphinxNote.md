@@ -44,6 +44,8 @@ pip install -U sphinx
 ## Read the Docs
 1. `pip install sphinx_rtd_theme`
 2. `sphinx-quickstart`
+    - Separate source and build directories (y/n) [n]: y
+    - Project language [en]: zh_CN
 3. `make html`
 
 ### Windows
