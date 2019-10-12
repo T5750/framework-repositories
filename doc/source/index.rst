@@ -16,4 +16,5 @@ This is my technical note, I hope this can help you.
 
    framework/index
    linux/index
+   nginx/index
    sphinx/index

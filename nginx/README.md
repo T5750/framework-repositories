@@ -2,15 +2,15 @@
 
 ## Contents
 ### nginx笔记
-- [nginx笔记](doc/nginxNote.md)
-- [nginx Img](doc/nginxImg.md)
-- [nginx Util](doc/nginxUtil.md)
+- [nginx笔记](../doc/source/nginx/nginxNote.md)
+- [nginx Img](../doc/source/nginx/nginxImg.md)
+- [nginx Util](../doc/source/nginx/nginxUtil.md)
 
 ### nginx网摘笔记
-- [nginx网摘笔记](doc/nginxCollection.md)
-    - [Keepalived+nginx+Tomcat实现高可用Web集群](doc/nginxCollection.md#Keepalived+nginx+Tomcat实现高可用Web集群)
-    - [split-brain脑裂问题（Keepalived）](doc/splitBrainKeepalived.md)
-    - [nginx Location](doc/nginxLocation.md)
+- [nginx网摘笔记](../doc/source/nginx/nginxCollection.md)
+    - [Keepalived+nginx+Tomcat实现高可用Web集群](../doc/source/nginx/nginxCollection.md#Keepalived+nginx+Tomcat实现高可用Web集群)
+    - [split-brain脑裂问题（Keepalived）](../doc/source/nginx/splitBrainKeepalived.md)
+    - [nginx Location](../doc/source/nginx/nginxLocation.md)
 
 ### Lua笔记
 - [nginx Lua Installation](doc/lua/nginxLuaInstallation.md)

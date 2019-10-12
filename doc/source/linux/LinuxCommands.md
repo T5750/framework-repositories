@@ -69,7 +69,7 @@
 ## 文件搜索
 - find / -name file1 从 '/' 开始进入根文件系统搜索文件和目录
 - find / -user user1 搜索属于用户 'user1' 的文件和目录
-- find /home/user1 -name \*.bin 在目录 '/ home/user1' 中搜索带有'.bin' 结尾的文件
+- find /home/user1 -name \*.bin 在目录 '/home/user1' 中搜索带有'.bin' 结尾的文件
 - find /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件
 - find /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件
 - find / -name \*.rpm -exec chmod 755 '{}' \; 搜索以 '.rpm' 结尾的文件并定义其权限
@@ -79,8 +79,8 @@
 - which halt 显示一个二进制文件或可执行文件的完整路径
 
 ## 挂载一个文件系统
-- mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 '/ mnt/hda2' 已经存在
-- umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 '/ mnt/hda2' 退出
+- mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 '/mnt/hda2' 已经存在
+- umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 '/mnt/hda2' 退出
 - fuser -km /mnt/hda2 当设备繁忙时强制卸载
 - umount -n /mnt/hda2 运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用
 - mount /dev/fd0 /mnt/floppy 挂载一个软盘
