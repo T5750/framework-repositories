@@ -235,4 +235,4 @@ make && make install
 telnet测试端口号：`telnet bm.com 1234`
 
 ## References
-- nginx
+- 尚学堂互联网架构师课程

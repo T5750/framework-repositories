@@ -343,4 +343,4 @@ Curator框架中使用链式编程风格，易读性更强，使用工程方法�
 - `PathChildrenCacheListener`：监听子节点的新增、修改、删除操作。
 
 ## References
-- ZooKeeper
+- 尚学堂互联网架构师课程

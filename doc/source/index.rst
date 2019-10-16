@@ -18,3 +18,4 @@ This is my technical note, I hope this can help you.
    linux/index
    nginx/index
    sphinx/index
+   zookeeper/index

@@ -68,4 +68,4 @@ Linux中的文件如：`drwxr-xr-x`可以看做三个部分（rwx，r-x，r-x）
 [NEXT 2.x 常用命令](LinuxNoteCommands.md)
     
 ## References
-- Linux
+- 尚学堂互联网架构师课程
