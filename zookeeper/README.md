@@ -21,6 +21,7 @@
 
 ### ZooKeeper Management
 - [zkui](../doc/source/zookeeper/ZooKeeperManagement.md)
+- [Shepher](../doc/source/zookeeper/ZooKeeperManagement.md#Shepher)
 
 ## Examples
 - [curator-examples](https://github.com/apache/curator/tree/master/curator-examples/src/main/java)
@@ -31,3 +32,4 @@
 - [ZkClient 0.10](https://github.com/sgroschupf/zkclient)
 - [Curator 2.12.0](http://curator.apache.org/)
 - [zkui](https://github.com/DeemOpen/zkui)
+- [shepher](https://github.com/XiaoMi/shepher)

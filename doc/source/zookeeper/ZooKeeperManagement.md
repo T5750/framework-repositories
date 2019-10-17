@@ -3,6 +3,9 @@
 ## zkui
 A UI dashboard that allows CRUD operations on Zookeeper.
 
+### Requirements
+Requires Java 7 to run.
+
 ### Setup
 1. `mvn clean install`
 1. Copy the `config.cfg` to the folder with the jar file. Modify it to point to the zookeeper instance. Multiple zk instances are coma separated. eg: `server1:2181,server2:2181`. First server should always be the leader.
@@ -27,5 +30,32 @@ Eg:
 KeeperErrorCode = ConnectionLoss for /
 - `zkSessionTimeout=20`
 
+## Shepher
+Shepher is a management tool of ZooKeeper. In Xiaomi, we use it as the configuration management center.
+
+### Function comparison of similar products
+
+Product | Introduction | Visualized operation of nodes | Snapshot management | Node modified Diff and Review function | Node operated mail notification | CAS and LDAP log | Authority management | Cascade delete | System status monitor
+---|---|---|---|---|---|---|---|---|---
+Shepher | ZooKeeper management | √ | √ | √ | √ | √ | √ |   |  
+TaoKeeper | ZooKeeper cluster monitor and statement |   |   |   |   |   |   |   | √
+Zkdash | ZooKeeper management | √ | √ |   |   |   |   | √ |  
+Disconf | ZooKeeper management | √ | √ |   | √ |   | √ | √ | √
+XDiamond | Configuration center | √ |   |   |   | √ | √ |   | √
+
+### Requirements
+- JDK 1.8
+- Maven 3.2 +
+- MySQL 5.6
+
+### Setup
+1. `db/init.sql`: `youradmin` -> `root`
+1. `vi conf/application-online.properties`
+1. `$ mvn clean package`
+1. `$ cd shepher-packaging/target/shepher-packaging-{version}-bin`
+1. `$ sh bin/run.sh -c conf/application-online.properties start`
+1. http://192.168.1.110:8089
+
 ## References
 - [zkui](https://github.com/DeemOpen/zkui)
+- [shepher](https://github.com/XiaoMi/shepher)

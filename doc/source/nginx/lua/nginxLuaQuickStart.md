@@ -44,6 +44,7 @@ lua_shared_dict shared_data 1m;
 ```
 
 ### 模块指令
+
 指令 | 所处处理阶段 | 使用范围 | 解释
 ---|---|---|---
 init_by_lua, init_by_lua_file | loading-config | http | nginx Master进程加载配置时执行；通常用于初始化全局配置/预加载Lua模块

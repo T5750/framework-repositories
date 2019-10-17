@@ -27,6 +27,7 @@ Apache Dubbo (incubating)是一款高性能、轻量级的开源Java RPC框架�
 ![architecture](http://dubbo.incubator.apache.org/img/architecture.png)
 
 ### 节点角色说明
+
 节点 | 角色说明
 ----|------
 Provider | 暴露服务的服务提供方
