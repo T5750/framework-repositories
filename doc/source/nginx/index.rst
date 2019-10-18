@@ -18,3 +18,7 @@ nginx
     lua/nginxLuaWebService
     lua/nginxLuaWebDescPage
     lua/nginxLuaWebTest
+    fastdfs/FastDfsNote
+    fastdfs/FastDfsStandalone
+    fastdfs/FastDfsCluster
+    fastdfs/FastDfsJava

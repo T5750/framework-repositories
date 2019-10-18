@@ -26,6 +26,9 @@ Eg:
 - http://localhost:9090/acd/appconfig?propNames=foo&app=myapp&host=myhost.com
 - A shell script will call this via MY_PROPERTY="$(curl -f -s -S -k "http://localhost:9090/acd/appconfig?propNames=foo&host=`hostname -f`" | cut -d '=' -f 2)" echo $MY_PROPERTY
 
+### Screenshots
+![](https://www.wailian.work/images/2019/10/18/zkuiDashboardConsole-min.png)
+
 ### Tips
 KeeperErrorCode = ConnectionLoss for /
 - `zkSessionTimeout=20`
@@ -55,6 +58,9 @@ XDiamond | Configuration center | √ |   |   |   | √ | √ |   | √
 1. `$ cd shepher-packaging/target/shepher-packaging-{version}-bin`
 1. `$ sh bin/run.sh -c conf/application-online.properties start`
 1. http://192.168.1.110:8089
+
+### Screenshots
+![](https://www.wailian.work/images/2019/10/18/ShepherHome-min.png)
 
 ## References
 - [zkui](https://github.com/DeemOpen/zkui)
