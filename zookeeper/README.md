@@ -18,6 +18,7 @@
 ### ZooKeeper Administrator's Guide
 - [ZooKeeper Logs](../doc/source/zookeeper/ZooKeeperLogs.md)
 - [ZooKeeper Commands](../doc/source/zookeeper/ZooKeeperCommands.md)
+- [ZooKeeper Observers](../doc/source/zookeeper/ZooKeeperObservers.md)
 
 ### ZooKeeper Management
 - [zkui](../doc/source/zookeeper/ZooKeeperManagement.md)

@@ -96,8 +96,8 @@ ZooKeeper使用场景非常广泛：如Hadoop、Storm。消息中间件、RPC服
 1. 把hadoop01和hadoop02中的`myid`文件里的值修改为`1`和`2`路径（`vi /usr/local/zookeeper/data/myid`）
 1. 启动zookeeper：
     - 路径：`/usr/local/zookeeper/bin`
-    - 执行：`zkserver.sh start`（往意这里3台机器都要进行启动）
-    - 状态：`zkserver.sh status`（在三个节点上检验zk的mode，一个leader和两个follower）
+    - 执行：`zkServer.sh start`（往意这里3台机器都要进行启动）
+    - 状态：`zkServer.sh status`（在三个节点上检验zk的mode，一个leader和两个follower）
 
 ## 2.2 ZooKeeper操作Shell
 `zkCli.sh`进入ZooKeeper客户端根据提示命令进行操作：

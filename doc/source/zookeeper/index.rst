@@ -11,4 +11,5 @@ ZooKeeper
     ZooKeeperException
     ZooKeeperLogs
     ZooKeeperCommands
+    ZooKeeperObservers
     ZooKeeperManagement
