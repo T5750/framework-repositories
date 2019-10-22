@@ -1,6 +1,4 @@
-# MySQL Functions
-
-## Date Functions
+## MySQL Date Functions
 
 ### CURDATE
 Returns the current date.
@@ -259,5 +257,5 @@ Returns a weekday index for a date.
 SELECT DAYNAME('2010-01-01'), WEEKDAY('2010-01-01');
 ```
 
-## References
+### References
 - [MySQL Date Functions](http://www.mysqltutorial.org/mysql-date-functions/)

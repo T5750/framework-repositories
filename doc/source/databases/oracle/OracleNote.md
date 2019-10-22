@@ -1,4 +1,4 @@
-# Oracle笔记
+# Oracle笔记 Chapter 1-2
 
 ## 概述
 目前数据库大体上分为两类，一类是关系型数据库，一类是非关系型数据库。其实在业界中，大体上可以分为三大类软件公司：
@@ -214,5 +214,5 @@ PL/SQL编程很重要，入门很容易（相对都是基础内容），要精�
 
 
 ## References
-- Oracle
+- 尚学堂互联网架构师课程
 - [EMP and DEPT](https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html)

@@ -1,6 +1,4 @@
-# MySQL Functions
-
-## Window Functions
+## MySQL Window Functions
 MySQL has supported window functions since version 8.0.
 ```
 CREATE TABLE sales(
@@ -26,6 +24,7 @@ SELECT fiscal_year, sales_employee,sale,SUM(sale) OVER (PARTITION BY fiscal_year
 ```
 
 ### Window Function list
+
 Name | Description
 ---|------
 CUME_DIST | Calculates the cumulative distribution of a value in a set of values.
@@ -40,5 +39,5 @@ PERCENT_RANK | Calculates the percentile rank of a row in a partition or result 
 RANK | Similar to the DENSE_RANK() function except that there are gaps in the sequence of ranked values when two or more rows have the same rank.
 ROW_NUMBER | Assigns a sequential integer to every row within its partition
 
-## References
+### References
 - [Window Functions](http://www.mysqltutorial.org/mysql-window-functions/)

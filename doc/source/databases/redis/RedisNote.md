@@ -353,4 +353,4 @@ https://redis.io/commands/cluster-addslots
 Java使用jedis2.7以上版本对Redis 3.0集群进行操作。使用clusterAPI进行操作，但是目前支持的方式不够完善，比如有些操作还没有在集群API中体现，如一些二进制的key、value存储方法等，不过在jedis3.0以上已经给予完整的实现啦（jedis-master）。
 
 ## References
-- Redis缓存技术
+- 尚学堂互联网架构师课程

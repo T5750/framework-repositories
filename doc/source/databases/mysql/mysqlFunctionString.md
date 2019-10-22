@@ -1,6 +1,4 @@
-# MySQL Functions
-
-## String Functions
+## MySQL String Functions
 
 ### CONCAT
 Concatenate two or more strings into one.
@@ -129,5 +127,5 @@ SELECT productname,CONCAT('$',FORMAT(quantityInStock * buyPrice, 2)) stock_value
 SELECT productname,CONCAT('$',FORMAT(quantityInStock * buyPrice, 2)) stock_value FROM products ORDER BY quantityInStock * buyPrice;
 ```
 
-## References
+### References
 - [String Functions](http://www.mysqltutorial.org/mysql-string-functions/)

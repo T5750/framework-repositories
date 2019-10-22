@@ -1,6 +1,4 @@
-# MySQL Functions
-
-## Math Functions
+## MySQL Math Functions
 
 ### ABS()
 Returns the absolute value of a number
@@ -60,6 +58,7 @@ SELECT TRUNCATE(1.999,1), ROUND(1.999,1);
 ```
 
 ### Others
+
 Name | Description
 ---|------
 ACOS(n) | Returns the arc cosine of n or null if n is not in the range -1 and 1.
@@ -86,5 +85,5 @@ SIN(n) | Returns the sine of n
 SQRT(n) | Returns the square root of n
 TAN(n) | Returns the tangent of n
 
-## References
+### References
 - [Math Functions](http://www.mysqltutorial.org/mysql-math-functions/)

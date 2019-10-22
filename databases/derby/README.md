@@ -1,7 +1,7 @@
 # Derby
 
 ## Contents
-- [Derby Quick Start](doc/DerbyQuickStart.md)
+- [Derby Quick Start](../../doc/source/databases/derby/DerbyQuickStart.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

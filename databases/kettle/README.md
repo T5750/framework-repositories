@@ -2,7 +2,7 @@
 
 ## Contents
 ### Kettle网摘笔记
-- [Kettle网摘笔记](doc/KettleCollection.md)
+- [Kettle网摘笔记](../../doc/source/databases/kettle/KettleCollection.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
