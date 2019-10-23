@@ -20,6 +20,7 @@
 - dubbox目录执行`mvn install -Dmaven.test.skip=true`来尝试编译一下dubbo
 - 将dubbo的jar安装到本地maven库`mvn install:install-file -Dfile=C:\Users\Administrator\.m2\repository\com\alibaba\dubbo\2.8.4\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar`
 - gradle使用maven本地缓存库`mavenLocal()`
+- IDEA: Project Structure -> Libraries -> Gradle: com.alibaba:dubbo:2.8.4 -> Add Classes and Sources
 
 ## Tips
 Dubbox支持多种远程调用方式：

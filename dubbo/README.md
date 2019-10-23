@@ -4,6 +4,9 @@
 ### Dubbo笔记
 - [Dubbo笔记](../doc/source/rpc/DubboNote.md)
 
+### Dubbox笔记
+- [Dubbox笔记](../doc/source/rpc/DubboxNote.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [dubbo-admin](https://github.com/apache/dubbo-admin)
@@ -25,3 +28,9 @@ Dubbo Spring Boot | Dubbo | Spring Boot
 - [Dubbo 2.7.x](https://github.com/apache/dubbo/releases)
 - [dubbo-spring-boot-starter 2.7.x](https://github.com/apache/dubbo-spring-boot-project)
 - [Nacos 1.1.x](https://github.com/alibaba/Nacos)
+
+### Dubbox
+- [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
+- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Dubbox 2.8.4](https://github.com/dangdangdotcom/dubbox)

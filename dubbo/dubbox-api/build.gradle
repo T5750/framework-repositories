@@ -1,5 +1,21 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
 dependencies {
-    compile project(':dubbox:dubbox-spring-boot')
+    compile project(':dubbo:dubbox-spring-boot')
     compile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: '3.0.7.Final'
     compile group: 'org.jboss.resteasy', name: 'resteasy-client', version: '3.0.7.Final'
     compile group: 'javax.validation', name: 'validation-api', version: '1.1.0.Final'
