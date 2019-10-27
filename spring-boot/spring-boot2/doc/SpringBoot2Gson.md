@@ -58,7 +58,7 @@ spring.http.converters.preferred-json-mapper=gson
 ### Exclude Jackson from project dependencies
 ```
 implementation("org.springframework.boot:spring-boot-starter-web") {
-	exclude group: 'com.google.code.gson'
+	exclude group: 'org.springframework.boot', module: 'spring-boot-starter-json'
 }
 ```
 ```

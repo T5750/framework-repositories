@@ -7,6 +7,14 @@ public class EmployeeName implements Serializable {
 	public String firstName;
 	public String lastName;
 
+	public EmployeeName(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public EmployeeName() {
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
