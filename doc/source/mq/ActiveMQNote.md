@@ -227,4 +227,4 @@ p2p的过程理解起来更加简单。它好比是两个人打电话，这两�
 - 发送邮件：[http://localhost:8080/activemq-provider/mail/send](http://localhost:8080/activemq-provider/mail/send)
 
 ## References
-- ActiveMQ
+- 尚学堂互联网架构师课程

@@ -1,4 +1,4 @@
-# ActiveMQ网摘笔记
+# ActiveMQ Cluster
 
 ## ZooKeeper+ActiveMQ+LevelDB集群
 
@@ -11,6 +11,7 @@ Slave连接Master并同步他们的存储状态，Slave不接受客户端连接�
 所有需同步的disk的消息操作都将等待存储状态被复制到其他法定节点的操作完成才能完成。所以，如果你配置了replicas=3，那么法定大小是（3/2）+1=2。Master将会存储并更新然后等待（2-1）=1个Slave存储和更新完成，才汇报success。至于为什么是2-1，熟悉ZooKeeper的应该知道，有一个node要作为观察者存在。当一个新的Master被选中，你需要至少保障一个法定node在线以能够找到拥有最新状态的node。这个node可以成为新的Master。因此，推荐运行至少3个replica nodes，以防止一个node失败了，服务中断。（原理与ZooKeeper集群的高可用实现方式类似）
 
 ### 集群部署
+
 主机 | 集群端口 | 消息端口 | 管控台端口 | 节点安装目录
 ---- | --- | --- | --- | -----
 192.168.100.163 | 62621 | 51511 | 8161 | /usr/local/apache-activemq-5.11.1

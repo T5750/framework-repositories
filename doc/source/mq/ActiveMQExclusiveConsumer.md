@@ -1,4 +1,4 @@
-# ActiveMQ网摘笔记
+# ActiveMQ Exclusive Consumer
 
 ## ActiveMQ的独占消费（Exclusive Consumer）
 我们经常希望维持队列中的消息，按一定次序转发给消息者。然而当有多个JMS Session和消息消费者实例的从同一个队列中获取消息的时候，就不能保证消息顺序处理。因为消息被多个不同线程并发处理着。

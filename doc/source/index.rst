@@ -17,6 +17,7 @@ This is my technical note, I hope this can help you.
    databases/index
    framework/index
    linux/index
+   mq/index
    nginx/index
    rpc/index
    sphinx/index
