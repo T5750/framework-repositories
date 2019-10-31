@@ -7,6 +7,7 @@ Databases
     
     derby/DerbyQuickStart
     kettle/KettleCollection
+    mysql/mysqlInstallation
     mysql/mysqlSampleDatabase
     mysql/mysqlIndex
     mysql/mysqlFunction

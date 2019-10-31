@@ -1,6 +1,7 @@
 # MySQL
 
 ## Contents
+- [MySQL Installation](../../doc/source/databases/mysql/mysqlInstallation.md)
 - [MySQL Sample Database](../../doc/source/databases/mysql/mysqlSampleDatabase.md)
 - [MySQL Index](../../doc/source/databases/mysql/mysqlIndex.md)
     - [Creating indexes](../../doc/source/databases/mysql/mysqlIndex.md#Creating-indexes)
@@ -27,3 +28,4 @@
 
 ## Runtime Environment
 - [MySQL 5.6](http://www.mysql.com/)
+- [CentOS 6.10](https://www.centos.org/download/)
