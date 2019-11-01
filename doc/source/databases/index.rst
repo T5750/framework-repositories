@@ -8,6 +8,8 @@ Databases
     derby/DerbyQuickStart
     kettle/KettleCollection
     mysql/mysqlInstallation
+    mysql/mysqldump
+    mysql/mysqlBackup
     mysql/mysqlSampleDatabase
     mysql/mysqlIndex
     mysql/mysqlFunction
