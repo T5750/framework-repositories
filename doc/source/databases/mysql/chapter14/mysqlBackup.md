@@ -1,4 +1,4 @@
-# MySQL Backup
+# MySQL InnoDB Backup and Recovery
 
 ## InnoDB Backup
 ### Hot Backups
@@ -14,6 +14,9 @@ The **mysqlbackup** command, part of the MySQL Enterprise Backup component
 ### Logical Backups Using mysqldump
 In addition to physical backups, it is recommended that you regularly create logical backups by dumping your tables using [mysqldump](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html).
 
+### Tips
+- `backup-mysql.sh`
+
 ## InnoDB Recovery
 ### Point-in-Time Recovery
 
@@ -22,7 +25,11 @@ In addition to physical backups, it is recommended that you regularly create log
 
 
 ### InnoDB Crash Recovery
-
+The InnoDB crash recovery process consists of several steps:
+- Redo log application
+- Roll back of incomplete transactions
+- Change buffer merge
+- Purge
 
 ## References
-- [InnoDB Backup and Recovery](https://dev.mysql.com/doc/refman/5.6/en/innodb-backup-recovery.html)
+- [14.18 InnoDB Backup and Recovery](https://dev.mysql.com/doc/refman/5.6/en/innodb-backup-recovery.html)

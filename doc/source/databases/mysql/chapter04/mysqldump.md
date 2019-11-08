@@ -1,5 +1,12 @@
 ## MySQL mysqldump
 
+### Invocation Syntax
+```
+shell> mysqldump [options] db_name [tbl_name ...]
+shell> mysqldump [options] --databases db_name ...
+shell> mysqldump [options] --all-databases
+```
+
 ### Option Syntax - Alphabetical Summary
 
 Option Name | Description | Introduced
@@ -116,17 +123,28 @@ Option Name | Description | Introduced
 --xml | Produce XML output | 
 
 ### Examples
+To make a backup of an entire database:
 ```
 mysqldump test > backup-test.sql -u root -p123456
+```
+To load the dump file back into the server:
+```
 mysql test < backup-test.sql -u root -p123456
+```
+Another way to reload the dump file:
+```
 mysql -e "source /data/mysqldump/backup-test.sql" test -u root -p123456
 ```
 mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
 ```
 mysqldump --opt db_name | mysql --host=remote_host -C db_name
 ```
+You can dump several databases with one command:
 ```
 mysqldump --databases db_name1 [db_name2 ...] > my_databases.sql
+```
+To dump all databases, use the `--all-databases` option:
+```
 mysqldump --all-databases > all_databases.sql -u root -p123456
 ```
 For `InnoDB` tables, mysqldump provides a way of making an online backup:
@@ -147,4 +165,4 @@ log_bin=mysql-bin
 ```
 
 ### References
-- [mysqldump — A Database Backup Program](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html)
+- [4.5.4 mysqldump — A Database Backup Program](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html)

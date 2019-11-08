@@ -1,7 +1,6 @@
 # MySQL
 
 ## Contents
-- [MySQL Installation](../../doc/source/databases/mysql/mysqlInstallation.md)
 - [MySQL Sample Database](../../doc/source/databases/mysql/mysqlSampleDatabase.md)
 - [MySQL Index](../../doc/source/databases/mysql/mysqlIndex.md)
     - [Creating indexes](../../doc/source/databases/mysql/mysqlIndex.md#Creating-indexes)
@@ -24,6 +23,28 @@
     - [String Functions](../../doc/source/databases/mysql/mysqlFunctionString.md)
     - [Math Functions](../../doc/source/databases/mysql/mysqlFunctionMath.md)
     - [Window Functions](../../doc/source/databases/mysql/mysqlFunctionWindow.md)
+
+### Reference Manual
+Installing and Upgrading MySQL
+- [2.2 Installing MySQL on Unix/Linux Using Generic Binaries](../../doc/source/databases/mysql/chapter02/mysqlInstallation.md)
+- [2.10 Postinstallation Setup and Testing](../../doc/source/databases/mysql/chapter02/mysqlInstallation.md)
+
+MySQL Programs
+- 4.2 Using MySQL Programs
+    - 4.2.2 Specifying Program Options
+        * [4.2.2.2 Using Option Files](../../doc/source/databases/mysql/chapter04/mysqlOptionFiles.md)
+- 4.3 MySQL Server and Server-Startup Programs
+    - [4.3.1 mysqld — The MySQL Server](../../doc/source/databases/mysql/chapter04/mysqld.md)
+    - [4.3.2 mysqld_safe — MySQL Server Startup Script](../../doc/source/databases/mysql/chapter04/mysqldSafe.md)
+    - [4.3.3 mysql.server — MySQL Server Startup Script](../../doc/source/databases/mysql/chapter04/mysqlServer.md)
+    - [4.3.4 mysqld_multi — Manage Multiple MySQL Servers](../../doc/source/databases/mysql/chapter04/mysqldMulti.md)
+- 4.5 MySQL Client Programs
+    - [4.5.4 mysqldump — A Database Backup Program](../../doc/source/databases/mysql/chapter04/mysqldump.md)
+
+The InnoDB Storage Engine
+- [14.18 InnoDB Backup and Recovery](../../doc/source/databases/mysql/chapter14/mysqlBackup.md)
+
+### Grafana
 - [Grafana](../../doc/source/databases/mysql/Grafana.md)
 
 ## Runtime Environment

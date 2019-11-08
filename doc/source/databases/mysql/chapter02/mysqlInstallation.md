@@ -66,5 +66,5 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTI
 ```
 
 ## References
-- [Installing MySQL on Unix/Linux Using Generic Binaries](https://dev.mysql.com/doc/refman/5.6/en/binary-installation.html)
-- [Postinstallation Setup and Testing](https://dev.mysql.com/doc/refman/5.6/en/postinstallation.html)
+- [2.2 Installing MySQL on Unix/Linux Using Generic Binaries](https://dev.mysql.com/doc/refman/5.6/en/binary-installation.html)
+- [2.10 Postinstallation Setup and Testing](https://dev.mysql.com/doc/refman/5.6/en/postinstallation.html)

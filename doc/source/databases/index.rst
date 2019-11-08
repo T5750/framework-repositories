@@ -7,9 +7,14 @@ Databases
     
     derby/DerbyQuickStart
     kettle/KettleCollection
-    mysql/mysqlInstallation
-    mysql/mysqldump
-    mysql/mysqlBackup
+    mysql/chapter02/mysqlInstallation
+    mysql/chapter04/mysqldump
+    mysql/chapter04/mysqlOptionFiles
+    mysql/chapter04/mysqld
+    mysql/chapter04/mysqldSafe
+    mysql/chapter04/mysqlServer
+    mysql/chapter04/mysqldMulti
+    mysql/chapter14/mysqlBackup
     mysql/mysqlSampleDatabase
     mysql/mysqlIndex
     mysql/mysqlFunction

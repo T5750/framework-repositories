@@ -5,7 +5,8 @@
 - [Kettle](kettle/README.md)
 - [Oracle](oracle/README.md)
 - [MySQL](mysql/README.md)
-    - [Grafana](mysql/doc/Grafana.md)
+    - [Reference Manual](mysql/README.md#reference-manual)
+    - [Grafana](../doc/source/databases/mysql/Grafana.md)
 - [DB2](db2/README.md)
 - [Derby](derby/README.md)
 
