@@ -16,6 +16,7 @@
 - [Ehcache 3.x](doc/SpringBoot2Cache.md)
 - [Gson](doc/SpringBoot2Gson.md)
 - [AOP](doc/SpringBoot2AOP.md)
+- [Security](doc/SpringBoot2Security.md)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)

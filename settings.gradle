@@ -204,4 +204,6 @@ include 'dubbo:dubbo-provider-nacos'
 findProject(':dubbo:dubbo-provider-nacos')?.name = 'dubbo-provider-nacos'
 include 'dubbo:dubbo-consumer-nacos'
 findProject(':dubbo:dubbo-consumer-nacos')?.name = 'dubbo-consumer-nacos'
+include 'spring-boot:spring-boot2-security'
+findProject(':spring-boot:spring-boot2-security')?.name = 'spring-boot2-security'
 
