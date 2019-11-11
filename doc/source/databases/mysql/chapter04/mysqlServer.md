@@ -1,12 +1,12 @@
 ## MySQL mysql.server
 
-To start or stop the server manually using the mysql.server script, invoke it from the command line with start or stop arguments:
+To start or stop the server manually using the **mysql.server** script, invoke it from the command line with start or stop arguments:
 ```
 shell> mysql.server start
 shell> mysql.server stop
 ```
 
-You can add options for mysql.server in a global `/etc/my.cnf` file. A typical `my.cnf` file might look like this:
+You can add options for **mysql.server** in a global `/etc/my.cnf` file. A typical `my.cnf` file might look like this:
 ```
 [mysqld]
 datadir=/usr/local/mysql/var

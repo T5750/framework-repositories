@@ -1,6 +1,6 @@
 ## MySQL mysqld_safe
 
-mysqld_safe will find and use the `--log-error` option:
+**mysqld_safe** reads all options from the `[mysqld]`, `[server]`, and `[mysqld_safe]` sections in option files. For example, if you specify a `[mysqld]` section like this, **mysqld_safe** will find and use the `--log-error` option:
 ```
 [mysqld]
 log-error=error.log
@@ -35,7 +35,7 @@ Option | Name Description
 --timezone | Set TZ time zone environment variable to named value
 --user | Run mysqld as user having name user_name or numeric user ID user_id
 
-If you execute mysqld_safe with the `--defaults-file` or `--defaults-extra-file` option to name an option file, the option must be the first one given on the command line or the option file will not be used. For example, this command will not use the named option file:
+If you execute **mysqld_safe** with the `--defaults-file` or `--defaults-extra-file` option to name an option file, the option must be the first one given on the command line or the option file will not be used. For example, this command will not use the named option file:
 ```
 mysql> mysqld_safe --port=port_num --defaults-file=file_name
 ```

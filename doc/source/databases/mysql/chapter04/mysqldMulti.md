@@ -1,6 +1,6 @@
 ## MySQL mysqld_multi
 
-To invoke mysqld_multi, use the following syntax:
+To invoke **mysqld_multi**, use the following syntax:
 ```
 shell> mysqld_multi [options] {start|stop|reload|report} [GNR[,GNR] ...]
 ```

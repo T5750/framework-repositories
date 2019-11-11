@@ -16,6 +16,7 @@ In addition to physical backups, it is recommended that you regularly create log
 
 ### Tips
 - `backup-mysql.sh`
+- `mysql-backup.sh`
 
 ## InnoDB Recovery
 ### Point-in-Time Recovery
@@ -33,3 +34,4 @@ The InnoDB crash recovery process consists of several steps:
 
 ## References
 - [14.18 InnoDB Backup and Recovery](https://dev.mysql.com/doc/refman/5.6/en/innodb-backup-recovery.html)
+- [CentOS 7 MySQL自动备份shell脚本](https://www.jianshu.com/p/746db5ceec02)

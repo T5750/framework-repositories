@@ -135,7 +135,7 @@ Another way to reload the dump file:
 ```
 mysql -e "source /data/mysqldump/backup-test.sql" test -u root -p123456
 ```
-mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
+**mysqldump** is also very useful for populating databases by copying data from one MySQL server to another:
 ```
 mysqldump --opt db_name | mysql --host=remote_host -C db_name
 ```
@@ -147,7 +147,7 @@ To dump all databases, use the `--all-databases` option:
 ```
 mysqldump --all-databases > all_databases.sql -u root -p123456
 ```
-For `InnoDB` tables, mysqldump provides a way of making an online backup:
+For `InnoDB` tables, **mysqldump** provides a way of making an online backup:
 ```
 mysqldump --all-databases --master-data --single-transaction > all_databases.sql -u root -p123456
 ```
