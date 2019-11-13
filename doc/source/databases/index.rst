@@ -9,6 +9,7 @@ Databases
     kettle/KettleCollection
     mysql/chapter02/mysqlInstallation
     mysql/chapter04/mysqldump
+    mysql/chapter04/mysqlslap
     mysql/chapter04/mysqlOptionFiles
     mysql/chapter04/mysqld
     mysql/chapter04/mysqldSafe
@@ -22,6 +23,7 @@ Databases
     mysql/mysqlFunctionString
     mysql/mysqlFunctionMath
     mysql/mysqlFunctionWindow
+    mysql/mysqlMycnf
     mysql/Grafana
     oracle/OracleNote
     oracle/OracleNoteGrant
