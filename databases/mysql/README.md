@@ -28,6 +28,8 @@
 ### Reference Manual
 Installing and Upgrading MySQL
 - [2.2 Installing MySQL on Unix/Linux Using Generic Binaries](../../doc/source/databases/mysql/chapter02/mysqlInstallation.md)
+- 2.5 Installing MySQL on Linux
+    - [2.5.1 Installing MySQL on Linux Using the MySQL Yum Repository](../../doc/source/databases/mysql/chapter02/mysqlInstallationYum.md)
 - [2.10 Postinstallation Setup and Testing](../../doc/source/databases/mysql/chapter02/mysqlInstallation.md)
 
 MySQL Programs
@@ -39,6 +41,8 @@ MySQL Programs
     - [4.3.2 mysqld_safe — MySQL Server Startup Script](../../doc/source/databases/mysql/chapter04/mysqldSafe.md)
     - [4.3.3 mysql.server — MySQL Server Startup Script](../../doc/source/databases/mysql/chapter04/mysqlServer.md)
     - [4.3.4 mysqld_multi — Manage Multiple MySQL Servers](../../doc/source/databases/mysql/chapter04/mysqldMulti.md)
+- 4.4 MySQL Installation-Related Programs
+    - [4.4.5 mysql_secure_installation — Improve MySQL Installation Security](../../doc/source/databases/mysql/chapter04/mysqlSecureInstallation.md)
 - 4.5 MySQL Client Programs
     - [4.5.4 mysqldump — A Database Backup Program](../../doc/source/databases/mysql/chapter04/mysqldump.md)
     - [4.5.7 mysqlslap — Load Emulation Client](../../doc/source/databases/mysql/chapter04/mysqlslap.md)
