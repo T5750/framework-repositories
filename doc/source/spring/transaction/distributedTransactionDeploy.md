@@ -1,7 +1,7 @@
 # Distributed Transaction Deploy
 
 ## databases
-- `doc\db\pay_dubbo_*.sql`
+- `spring\distributed-transaction\db\pay_dubbo_*.sql`
 
 ## pay-common-config
 - `jdbc.properties`
@@ -11,6 +11,7 @@
 - `weixinpay_config.properties`
 
 ## service
+
 Service | Dubbo Port 
 ----|----
 `PayServiceAccount` | 20881
@@ -27,6 +28,7 @@ Service | Dubbo Port
 - `PayAppQueue`
 
 ## war
+
 Module | HTTP Port | Application Context | Url
 ----|----|----|----
 `pay-web-boss` | 8081 | `/pay-web-boss` | [http://localhost:8081/pay-web-boss](http://localhost:8081/pay-web-boss)

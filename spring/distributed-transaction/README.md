@@ -1,14 +1,14 @@
 # Distributed Transaction
 
 ## Contents
-- [分布式事务部署](doc/distributedTransactionDeploy.md)
-- [分布式事务解决方案笔记](doc/distributedTransactionNote.md)
-    - [分布式事务解决方案介绍](doc/distributedTransactionIntroduction.md)
-    - [消息发送一致性](doc/distributedTransactionConsistency.md)
-    - [消息发送一致性的异常流程处理](doc/distributedTransactionConsistency.md#消息发送一致性的异常流程处理)
-    - [常规MQ队列消息的处理流程和特点](doc/distributedTransactionMessage.md)
-    - [消息重复发送问题与业务接口的幂等性设计](doc/distributedTransactionMessage.md#消息重复发送问题与业务接口的幂等性设计)
-    - [TCC两阶段型方案](doc/distributedTransactionTcc.md)
+- [分布式事务部署](../../doc/source/spring/transaction/distributedTransactionDeploy.md)
+- [分布式事务解决方案笔记](../../doc/source/spring/transaction/distributedTransactionNote.md)
+    - [分布式事务解决方案介绍](../../doc/source/spring/transaction/distributedTransactionIntroduction.md)
+    - [消息发送一致性](../../doc/source/spring/transaction/distributedTransactionConsistency.md)
+    - [消息发送一致性的异常流程处理](../../doc/source/spring/transaction/distributedTransactionException.md)
+    - [常规MQ队列消息的处理流程和特点](../../doc/source/spring/transaction/distributedTransactionMessage.md)
+    - [消息重复发送问题与业务接口的幂等性设计](../../doc/source/spring/transaction/distributedTransactionIdempotent.md)
+    - [TCC两阶段型方案](../../doc/source/spring/transaction/distributedTransactionTcc.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

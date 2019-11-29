@@ -1,4 +1,4 @@
-# 分布式事务解决方案笔记
+# 分布式事务解决方案笔记 Segment1
 
 ![distributedTransaction-problems](http://static.roncoo.com/images/yCGMB8jPtrsxKWf5PCQBpGCeKZKhzPBb.jpg)
 
@@ -39,13 +39,13 @@ public void completeOrder() {
 [消息发送一致性](distributedTransactionConsistency.md)
 
 ## 消息发送一致性的异常流程处理
-[消息发送一致性的异常流程处理](distributedTransactionConsistency.md#消息发送一致性的异常流程处理)
+[消息发送一致性的异常流程处理](distributedTransactionException.md)
 
 ## 常规MQ队列消息的处理流程和特点
 [常规MQ队列消息的处理流程和特点](distributedTransactionMessage.md)
 
 ## 消息重复发送问题与业务接口的幂等性设计
-[消息重复发送问题与业务接口的幂等性设计](distributedTransactionMessage.md#消息重复发送问题与业务接口的幂等性设计)
+[消息重复发送问题与业务接口的幂等性设计](distributedTransactionIdempotent.md)
 
 ## 1 可靠消息的最终一致性方案
 异步确保型（可靠消息最终一致）
