@@ -46,7 +46,7 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
 	}
 }
 ```
-- Spring security oauth exposes two endpoints for checking tokens (`/oauth/check_token` and `/oauth/token_key`) which are by default protected behind `denyAll()`. tokenKeyAccess() and checkTokenAccess() methods open these endpoints for use.
+- Spring security oauth exposes two endpoints for checking tokens (`/oauth/check_token` and `/oauth/token_key`) which are by default protected behind `denyAll()`. `tokenKeyAccess()` and `checkTokenAccess()` methods open these endpoints for use.
 - `ClientDetailsServiceConfigurer` is used to define an in-memory or JDBC implementation of the client details service. we have used in-memory implementation. It has following important attribute:
     - clientId – (required) the client id.
     - secret – (required for trusted clients) the client secret, if any.
@@ -56,18 +56,56 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     - redirectUris – redirects the user-agent to the client’s redirection endpoint. It must be an absolute URL.
 
 ## Oauth2 – Resource Server
-- `OAuth2ResourceServer`
-- `SecurityConfig`
+```
+@Configuration
+@EnableResourceServer
+public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/").permitAll()
+				.antMatchers("/api/**").authenticated();
+	}
+}
+```
+Above config enable protection on all endpoints starting `/api`. All other endpoints can be accessed freely.
+```
+@Configuration
+@Order(1)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.antMatcher("/**").authorizeRequests()
+				.antMatchers("/oauth/authorize**", "/login**", "/error**")
+				.permitAll().and().authorizeRequests().anyRequest()
+				.authenticated().and().formLogin().permitAll();
+	}
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth)
+			throws Exception {
+		auth.inMemoryAuthentication().withUser("T5750")
+				.password(passwordEncoder().encode("123456")).roles("USER");
+	}
+
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+}
+```
+Above `WebSecurityConfigurerAdapter` class setup a form based login page and open up the authorization urls with `permitAll()`.
 
 ## Oauth2 protected REST resources
 - `RestResource`
 - `UserProfile`
 
 ## Demo
+We have an API `http://localhost:8080/api/users/me` which we can access by directly putting username/password in login form, but third party application cannot access the API as we do in browsers. They need oauth2 token.
+
 ### Get authorization grant code from user
-- http://localhost:18093/oauth/authorize?client_id=clientapp&response_type=code&scope=read_profile_info
+- First step is to get authorizarion grant from resource owner from URL: http://localhost:18093/oauth/authorize?client_id=clientapp&response_type=code&scope=read_profile_info
 - T5750, 123456
-- http://localhost:18094/login?code=rfQzEz
+- `http://localhost:18094/login?code=rfQzEz`. Here `rfQzEz` is authorization code for the third party application.
 
 ### Get access token from authorization server
 - http://localhost:18093/oauth/token?grant_type=authorization_code&code=rfQzEz
