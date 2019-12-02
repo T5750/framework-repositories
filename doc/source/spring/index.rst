@@ -13,3 +13,5 @@ Spring
     transaction/distributedTransactionMessage
     transaction/distributedTransactionIdempotent
     transaction/distributedTransactionTcc
+    transaction/tccTransactionDeploy
+    transaction/tccTransactionNote

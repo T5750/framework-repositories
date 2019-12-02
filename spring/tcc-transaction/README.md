@@ -1,8 +1,8 @@
 # TCC Transaction
 
 ## Contents
-- [TCC型事务部署](doc/tccTransactionDeploy.md)
-- [TCC型事务笔记](doc/tccTransactionNote.md)
+- [TCC型事务部署](../../doc/source/spring/transaction/tccTransactionDeploy.md)
+- [TCC型事务笔记](../../doc/source/spring/transaction/tccTransactionNote.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

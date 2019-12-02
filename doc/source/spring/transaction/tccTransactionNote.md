@@ -1,4 +1,4 @@
-# TCC型事务笔记
+# TCC Transaction Note
 
 Try: 尝试执行业务
 

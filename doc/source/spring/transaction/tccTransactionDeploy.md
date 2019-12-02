@@ -1,7 +1,7 @@
 # TCC Transaction Deploy
 
 ## databases
-- `doc\db\tcc*.sql`
+- `spring\tcc-transaction\db\tcc*.sql`
 
 ## config
 - `jdbc.properties`
@@ -12,6 +12,7 @@
 - `jdbc-domain-suffix.properties`
 
 ## service
+
 Service | Dubbo Port 
 ----|----
 `TccDubboCapital` | 2881
@@ -19,6 +20,7 @@ Service | Dubbo Port
 `TccDubboOrder` | 2882
 
 ## war
+
 Module | HTTP Port | Application Context | Url
 ---|---|---|------
 `tcc-transaction-server` | 8085 | `/tcc-transaction-server` | [http://localhost:8085/tcc-transaction-server/management](http://localhost:8085/tcc-transaction-server/management)
