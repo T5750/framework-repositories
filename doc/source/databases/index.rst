@@ -32,6 +32,8 @@ Databases
     oracle/OracleNoteIndex
     oracle/OracleNoteMaterializedView
     oracle/OracleNoteTablespace
+    oracle/OracleVersionNumbers
+    oracle/OracleOrapwd
     oracle/OracleDateChar
     redis/RedisNote
     redis/redisdev/RedisDev03
