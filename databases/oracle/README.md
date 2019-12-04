@@ -5,6 +5,7 @@
 - [Oracle笔记](../../doc/source/databases/oracle/OracleNote.md)
 - [Oracle Version Numbers](../../doc/source/databases/oracle/OracleVersionNumbers.md)
 - [Oracle ORAPWD](../../doc/source/databases/oracle/OracleOrapwd.md)
+- [Oracle Startup and Shutdown](../../doc/source/databases/oracle/OracleStartupShutdown.md)
 
 ### Oracle网摘笔记
 - [Oracle中TO_DATE TO_CHAR格式](../../doc/source/databases/oracle/OracleDateChar.md)

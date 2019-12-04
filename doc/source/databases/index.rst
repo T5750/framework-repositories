@@ -34,6 +34,7 @@ Databases
     oracle/OracleNoteTablespace
     oracle/OracleVersionNumbers
     oracle/OracleOrapwd
+    oracle/OracleStartupShutdown
     oracle/OracleDateChar
     redis/RedisNote
     redis/redisdev/RedisDev03
