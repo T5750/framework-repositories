@@ -11,6 +11,7 @@ nginx
     nginxCollection
     splitBrainKeepalived
     nginxLocation
+    nginxStatistics
     lua/nginxLuaInstallation
     lua/nginxLuaQuickStart
     lua/nginxLuaRedisSsdbTwemproxy

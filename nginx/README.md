@@ -11,6 +11,7 @@
     - [Keepalived+nginx+Tomcat实现高可用Web集群](../doc/source/nginx/nginxCollection.md#Keepalived+nginx+Tomcat实现高可用Web集群)
     - [split-brain脑裂问题（Keepalived）](../doc/source/nginx/splitBrainKeepalived.md)
     - [nginx Location](../doc/source/nginx/nginxLocation.md)
+    - [nginx Statistics](../doc/source/nginx/nginxStatistics.md)
 
 ### Lua笔记
 - [nginx Lua Installation](../doc/source/nginx/lua/nginxLuaInstallation.md)
