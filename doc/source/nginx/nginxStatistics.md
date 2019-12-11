@@ -59,21 +59,21 @@ include nginxDeny.conf;
 - 单独网站屏蔽IP的方法，把`include nginxDeny.conf;`放到网址对应的在`server{}`语句块
 - 所有网站屏蔽IP的方法，把`include nginxDeny.conf;`放到`http{}`语句块
 ```
-//屏蔽单个ip访问
+#屏蔽单个ip访问
 deny IP;
-//允许单个ip访问
+#允许单个ip访问
 allow IP;
-//屏蔽所有ip访问
+#屏蔽所有ip访问
 deny all;
-//允许所有ip访问
+#允许所有ip访问
 allow all;
-//屏蔽整个段即从123.0.0.1到123.255.255.254访问的命令
+#屏蔽整个段即从123.0.0.1到123.255.255.254访问的命令
 deny 123.0.0.0/8
-//屏蔽IP段即从123.45.0.1到123.45.255.254访问的命令
+#屏蔽IP段即从123.45.0.1到123.45.255.254访问的命令
 deny 124.45.0.0/16
-//屏蔽IP段即从123.45.6.1到123.45.6.254访问的命令
+#屏蔽IP段即从123.45.6.1到123.45.6.254访问的命令
 deny 123.45.6.0/24
-//如果你想实现这样的应用，除了几个IP外，其他全部拒绝，那需要你在nginxDeny.conf中这样写
+#如果你想实现这样的应用，除了几个IP外，其他全部拒绝，那需要你在nginxDeny.conf中这样写
 allow 1.1.1.1;
 allow 1.1.1.2;
 deny all;
@@ -87,4 +87,4 @@ deny all;
 
 ## References
 - [统计Nginx访问量](https://www.jianshu.com/p/537a0bddda94)
-- [nginx统计访问量最高的ip并封禁IP](https://blog.51cto.com/meiling/2174251)
+- [nginx屏蔽ip](http://www.nginx.cn/2487.html)

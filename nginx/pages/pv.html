@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="h-100">
+<html class="h-100">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>nginx</title>
+	<link rel="icon" href="http://nginx.org/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
 	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -14,19 +15,22 @@
 		.footer {
 			background-color: #f5f5f5;
 		}
+		#nginxAccordionUrl ul li {
+			word-break:break-all;
+		}
 	</style>
 </head>
 <body class="d-flex flex-column h-100">
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" th:href="@{/}">nginx</a>
+			<a class="navbar-brand" href="">nginx</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="https://github.com/T5750/framework-repositories" target="_blank">GitHub</a>

@@ -25,7 +25,7 @@
 	- `yum install pcre-devel`
 	- `yum install zlib`
 	- `yum install zlib-devel`
-1. 进行configure配置：`cd nginx-1.6.2 && ./configure --prefixs=/usr/local/nginx`查看是否报错
+1. 进行configure配置：`cd nginx-1.6.2 && ./configure --prefix=/usr/local/nginx`查看是否报错
 1. 编译安装`make && make install`
 1. 启动nginx：
     - `cd /usr/local/nginx`目录下：conf配置文件、html网页文件、logs日志文件、sbin主要二进制程序
