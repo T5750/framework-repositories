@@ -9,7 +9,7 @@ uv=`awk '{print $1}' $logs_name|sort | uniq -c |wc -l`
 url_arr=`awk '{print $7}' $logs_name|sort | uniq -c |sort -n -k 1 -r|more`
 ip_arr=`awk '{print $1}' $logs_name|sort | uniq -c |sort -n -k 1 -r|more`
 counter=0
-sed -i '47,$d' $html_pv
+sed -i '51,$d' $html_pv
 echo "<span class=\"badge badge-primary badge-pill\">$pv</span>" >> $html_pv
 echo "</li>" >> $html_pv
 echo "<li class=\"list-group-item d-flex justify-content-between align-items-center list-group-item-action\">" >> $html_pv
