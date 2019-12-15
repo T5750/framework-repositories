@@ -19,6 +19,7 @@
 - [Security](doc/SpringBoot2Security.md)
 - [OAuth2](doc/SpringBoot2OAuth2.md)
 - [Mail](doc/SpringBoot2Mail.md)
+- [RestTemplate](doc/SpringBoot2RestTemplate.md)
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](doc/SpringBoot2ShutdownHook.md)
