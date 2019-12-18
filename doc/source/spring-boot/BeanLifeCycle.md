@@ -1,4 +1,4 @@
-# Spring Boot
+# Spring Bean Life Cycle
 
 ## Spring BeanLifeCycle
 ![BeanLifeCycle-min](https://www.wailian.work/images/2018/11/05/BeanLifeCycle-min.png)

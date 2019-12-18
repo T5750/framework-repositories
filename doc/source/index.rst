@@ -22,4 +22,5 @@ This is my technical note, I hope this can help you.
    rpc/index
    sphinx/index
    spring/index
+   spring-boot/index
    zookeeper/index
