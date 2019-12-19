@@ -2,11 +2,11 @@
 
 ## Contents
 ### Solr笔记
-- [Solr笔记](doc/SolrNote.md)
+- [Solr笔记](../../doc/source/big-data/solr/SolrNote.md)
 
 ### Solr网摘笔记
-- [Solr网摘笔记](doc/SolrSpringBoot.md)
-    - [Spring Boot整合Solr](doc/SolrSpringBoot.md)
+- [Solr网摘笔记](../../doc/source/big-data/solr/SolrSpringBoot.md)
+    - [Spring Boot整合Solr](../../doc/source/big-data/solr/SolrSpringBoot.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

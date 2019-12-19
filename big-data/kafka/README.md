@@ -2,8 +2,8 @@
 
 ## Contents
 ### Kafka笔记
-- [Kafka Quickstart](doc/KafkaQuickstart.md)
-- [Kafka Manager](doc/KafkaManager.md)
+- [Kafka Quickstart](../../doc/source/big-data/kafka/KafkaQuickstart.md)
+- [Kafka Manager](../../doc/source/big-data/kafka/KafkaManager.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

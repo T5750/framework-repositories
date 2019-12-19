@@ -2,11 +2,11 @@
 
 ## Contents
 ### Storm笔记
-- [Storm笔记](doc/StormNote.md)
-- [Storm官方文档](doc/StormDocumentation.md)
+- [Storm笔记](../../doc/source/big-data/storm/StormNote.md)
+- [Storm官方文档](../../doc/source/big-data/storm/StormDocumentation.md)
 
 ### Storm网摘笔记
-- [Storm集群安装配置](doc/StormCluster.md)
+- [Storm集群安装配置](../../doc/source/big-data/storm/StormCluster.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

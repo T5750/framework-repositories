@@ -186,4 +186,4 @@ Solr性能不用说，一定是非常好的。那么，针对于互联网大数�
 - [Spring Boot整合Solr](SolrSpringBoot.md)
 
 ## References
-- Solr全文搜索
+- 尚学堂互联网架构师课程
