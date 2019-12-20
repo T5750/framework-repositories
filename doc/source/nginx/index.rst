@@ -2,7 +2,7 @@ nginx
 ===============================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
     :numbered: 0
 
     nginxNote
@@ -12,14 +12,5 @@ nginx
     splitBrainKeepalived
     nginxLocation
     nginxStatistics
-    lua/nginxLuaInstallation
-    lua/nginxLuaQuickStart
-    lua/nginxLuaRedisSsdbTwemproxy
-    lua/nginxLuaDevLib
-    lua/nginxLuaWebService
-    lua/nginxLuaWebDescPage
-    lua/nginxLuaWebTest
-    fastdfs/FastDfsNote
-    fastdfs/FastDfsStandalone
-    fastdfs/FastDfsCluster
-    fastdfs/FastDfsJava
+    lua/index
+    fastdfs/index
