@@ -1,14 +1,14 @@
 # Spring Security
 
 ## Contents
-- [Secure Spring REST API using Basic Authentication](doc/SpringSecurityRestBasic.md)
-- [Spring Security Architecture Overview](doc/SpringSecurityArchitecture.md)
-- [Spring Security Reference](doc/SpringSecurityReference.md)
-- [Spring Security Configuration](doc/SpringSecurityConfiguration.md)
-- [Spring Security Filter](doc/SpringSecurityFilter.md)
-- [Spring Security IP_Login](doc/SpringSecurityFilter.md#ip_login)
-- [Spring Security SpringSecurityFilterChain](doc/SpringSecurityFilterChain.md)
-- [Spring Security Authorization](doc/SpringSecurityFilter.md#authorization)
+- [Secure Spring REST API using Basic Authentication](../../doc/source/spring/security/SpringSecurityRestBasic.md)
+- [Spring Security Architecture Overview](../../doc/source/spring/security/SpringSecurityArchitecture.md)
+- [Spring Security Reference](../../doc/source/spring/security/SpringSecurityReference.md)
+- [Spring Security Configuration](../../doc/source/spring/security/SpringSecurityConfiguration.md)
+- [Spring Security Filter](../../doc/source/spring/security/SpringSecurityFilter.md)
+- [Spring Security IP_Login](../../doc/source/spring/security/SpringSecurityFilter.md#ip_login)
+- [Spring Security SpringSecurityFilterChain](../../doc/source/spring/security/SpringSecurityFilterChain.md)
+- [Spring Security Authorization](../../doc/source/spring/security/SpringSecurityFilter.md#authorization)
 
 ### Spring Security OAuth
 - [Spring Security OAuth](../spring-security-oauth/README.md)

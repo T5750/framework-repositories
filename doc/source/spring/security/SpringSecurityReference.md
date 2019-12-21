@@ -52,6 +52,7 @@ SWITCH_USER_FILTER | SwitchUserFilter | N/A
 ## 26. Expression-Based Access Control
 ### 26.1 Overview
 #### 26.1.1 Common Built-In Expressions
+
 Expression | Description
 ---|---
 hasRole([role]) | Returns true if the current principal has the specified role. By default if the supplied role does not start with 'ROLE_' it will be added. This can be customized by modifying the defaultRolePrefix on DefaultWebSecurityExpressionHandler.
