@@ -52,11 +52,11 @@
 - [Spring Boot Nacos](spring-boot-nacos/README.md)
 
 ### Spring JMS
-- [JMSTemplate](spring-boot-jms/doc/SpringBootJmsTemplate.md)
-- [JMS Topic](spring-boot-jms/doc/SpringBootJmsTopic.md)
-- [JMS Validate Messages](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-validate-messages)
-- [JMS Error Handling](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-error-handling)
-- [JMS Message Header Properties](spring-boot-jms/doc/SpringBootJmsTopic.md#jms-message-header-properties)
+- [JMSTemplate](../doc/source/spring/jms/SpringBootJmsTemplate.md)
+- [JMS Topic](../doc/source/spring/jms/SpringBootJmsTopic.md)
+- [JMS Validate Messages](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-validate-messages)
+- [JMS Error Handling](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-error-handling)
+- [JMS Message Header Properties](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-message-header-properties)
 
 ### Spring Boot 2
 - [Spring Boot 2](spring-boot2/README.md)

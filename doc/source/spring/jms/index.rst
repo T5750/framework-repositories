@@ -1,10 +1,9 @@
-Spring
+Spring JMS
 ===============================
 
 .. toctree::
     :maxdepth: 3
     :numbered: 0
     
-    transaction/index
-    security/index
-    jms/index
+    SpringBootJmsTemplate
+    SpringBootJmsTopic

@@ -11,3 +11,5 @@ Spring Security
     SpringSecurityConfiguration
     SpringSecurityFilter
     SpringSecurityFilterChain
+    SpringSecurityOAuth
+    SpringSecuritySSO
