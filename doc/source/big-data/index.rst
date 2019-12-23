@@ -8,3 +8,10 @@ Big Data
     solr/index
     storm/index
     kafka/index
+    hadoop/index
+    hbase/index
+    hive/index
+    spark/index
+    flume/index
+    pig/index
+    impala/index
