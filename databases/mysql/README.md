@@ -47,6 +47,17 @@ MySQL Programs
     - [4.5.4 mysqldump — A Database Backup Program](../../doc/source/databases/mysql/chapter04/mysqldump.md)
     - [4.5.7 mysqlslap — Load Emulation Client](../../doc/source/databases/mysql/chapter04/mysqlslap.md)
 
+SQL Statements
+- 13.7 Database Administration Statements
+    - 13.7.1 Account Management Statements
+        * [13.7.1.1 ALTER USER Statement](../../doc/source/databases/mysql/chapter13/mysqlAlterUser.md)
+        * [13.7.1.2 CREATE USER Statement](../../doc/source/databases/mysql/chapter13/mysqlCreateUser.md)
+        * [13.7.1.3 DROP USER Statement](../../doc/source/databases/mysql/chapter13/mysqlDropUser.md)
+        * [13.7.1.4 GRANT Statement](../../doc/source/databases/mysql/chapter13/mysqlGrantUser.md)
+        * [13.7.1.5 RENAME USER Statement](../../doc/source/databases/mysql/chapter13/mysqlRenameUser.md)
+        * [13.7.1.6 REVOKE Statement](../../doc/source/databases/mysql/chapter13/mysqlRevokeUser.md)
+        * [13.7.1.7 SET PASSWORD Statement](../../doc/source/databases/mysql/chapter13/mysqlSetPassword.md)
+
 The InnoDB Storage Engine
 - [14.18 InnoDB Backup and Recovery](../../doc/source/databases/mysql/chapter14/mysqlBackup.md)
 

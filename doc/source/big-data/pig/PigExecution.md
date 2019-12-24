@@ -42,6 +42,7 @@ Local mode | MapReduce mode
 `$ ./pig -x local` | `$ ./pig -x mapreduce`
 
 ## Batch Mode
+
 Local mode | MapReduce mode
 ---|---
 `$ pig -x local sample_script.pig` | `$ pig -x mapreduce sample_script.pig`

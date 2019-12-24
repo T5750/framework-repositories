@@ -119,7 +119,7 @@ hadoop job -status <JOB-ID>
 e.g. 
 hadoop job -status job_1557970197535_0001
 ```
- 
+
 ### To see the history of job output-dir
 ```
 hadoop job -history <DIR-NAME>

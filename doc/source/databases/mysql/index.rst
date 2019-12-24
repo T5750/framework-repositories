@@ -15,6 +15,13 @@ MySQL
     chapter04/mysqlSecureInstallation
     chapter04/mysqldump
     chapter04/mysqlslap
+    chapter13/mysqlAlterUser
+    chapter13/mysqlCreateUser
+    chapter13/mysqlDropUser
+    chapter13/mysqlGrantUser
+    chapter13/mysqlRenameUser
+    chapter13/mysqlRevokeUser
+    chapter13/mysqlSetPassword
     chapter14/mysqlBackup
     mysqlSampleDatabase
     mysqlIndex
