@@ -1,4 +1,4 @@
-# MySQL InnoDB Backup and Recovery
+# InnoDB Backup and Recovery
 
 ## InnoDB Backup
 ### Hot Backups

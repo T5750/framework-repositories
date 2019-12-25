@@ -1,4 +1,4 @@
-## MySQL mysqldump
+## mysqldump
 
 ### Invocation Syntax
 ```

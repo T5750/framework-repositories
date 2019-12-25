@@ -1,4 +1,4 @@
-## MySQL mysql.server
+## mysql.server
 
 To start or stop the server manually using the **mysql.server** script, invoke it from the command line with start or stop arguments:
 ```

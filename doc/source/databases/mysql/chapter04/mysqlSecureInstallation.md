@@ -1,4 +1,4 @@
-# MySQL mysql_secure_installation
+# mysql_secure_installation
 
 This program enables you to improve the security of your MySQL installation in the following ways:
 - You can set a password for `root` accounts.

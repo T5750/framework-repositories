@@ -1,4 +1,4 @@
-## MySQL mysqld
+## mysqld
 
 The **mysqld** program has many options that can be specified at startup. For a complete list of options, run this command:
 ```

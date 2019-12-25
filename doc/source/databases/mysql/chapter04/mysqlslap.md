@@ -1,4 +1,4 @@
-## MySQL mysqlslap
+## mysqlslap
 
 **mysqlslap** is a diagnostic program designed to emulate client load for a MySQL server and to report the timing of each stage. It works as if multiple clients are accessing the server.
 

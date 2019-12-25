@@ -1,4 +1,4 @@
-## MySQL Using Option Files
+## Using Option Files
 
 ### Option Files Read on Windows Systems
 

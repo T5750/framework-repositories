@@ -18,9 +18,9 @@ MySQL
     chapter13/mysqlAlterUser
     chapter13/mysqlCreateUser
     chapter13/mysqlDropUser
-    chapter13/mysqlGrantUser
+    chapter13/mysqlGrant
     chapter13/mysqlRenameUser
-    chapter13/mysqlRevokeUser
+    chapter13/mysqlRevoke
     chapter13/mysqlSetPassword
     chapter14/mysqlBackup
     mysqlSampleDatabase

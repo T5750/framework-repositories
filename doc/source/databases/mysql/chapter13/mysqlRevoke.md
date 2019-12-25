@@ -17,7 +17,7 @@ For example:
 ```
 REVOKE INSERT ON *.* FROM 'jeffrey'@'localhost';
 ```
-The host name part of the account name, if omitted, defaults to '`%`'.
+The host name part of the account name, if omitted, defaults to `'%'`.
 
 To revoke all privileges, use the second syntax, which drops all global, database, table, column, and routine privileges for the named user or users:
 ```

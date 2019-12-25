@@ -10,8 +10,8 @@ password_option: {
 }
 ```
 
-- '`auth_string`' represents a cleartext password.
-- '`hash_string`' represents an encrypted password.
+- `'auth_string'` represents a cleartext password.
+- `'hash_string'` represents an encrypted password.
 
 `SET PASSWORD` can be used with or without a `FOR` clause that explicitly names a user account:
 - With a FOR `user` clause, the statement sets the password for the named account, which must exist:
@@ -26,6 +26,15 @@ Any client who connects to the server using a nonanonymous account can change th
 ```
 SELECT CURRENT_USER();
 ```
+
+The password can be specified in these ways:
+- Use the `PASSWORD()` function
+    ```
+    SET old_passwords = 0;
+    SET PASSWORD FOR 'jeffrey'@'localhost' = PASSWORD('123456');
+    ```
+- Use the `OLD_PASSWORD()` function
+- Use an already encrypted password string
 
 The following table shows, for each password hashing method, the permitted value of `old_passwords` and which authentication plugins use the hashing method.
 

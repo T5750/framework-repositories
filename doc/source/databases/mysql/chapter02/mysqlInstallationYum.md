@@ -1,4 +1,4 @@
-# MySQL Installation Using Yum
+# Installation Using Yum
 
 ## Steps for a Fresh Installation of MySQL
 1. Adding the MySQL Yum Repository

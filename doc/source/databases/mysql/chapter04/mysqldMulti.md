@@ -1,4 +1,4 @@
-## MySQL mysqld_multi
+## mysqld_multi
 
 To invoke **mysqld_multi**, use the following syntax:
 ```

@@ -102,16 +102,16 @@ Usage − `hadoop job [GENERIC_OPTIONS]`
 
 GENERIC_OPTION | Description
 ---|------	
--submit &lt;job-file&gt; | Submits the job.
--status &lt;job-id&gt; | Prints the map and reduce completion percentage and all job counters.
--counter &lt;job-id&gt; &lt;group-name&gt; &lt;countername&gt; | Prints the counter value.
--kill &lt;job-id&gt; | Kills the job.
--events &lt;job-id&gt; &lt;fromevent-#&gt; &lt;#-of-events&gt; | Prints the events' details received by jobtracker for the given range.
--history [all] &lt;jobOutputDir&gt; - history &lt; jobOutputDir&gt; | Prints job details, failed and killed tip details. More details about the job such as successful tasks and task attempts made for each task can be viewed by specifying the [all] option.
--list[all] | Displays all jobs. -list displays only jobs which are yet to complete.
--kill-task &lt;task-id&gt; | Kills the task. Killed tasks are NOT counted against failed attempts.
--fail-task &lt;task-id&gt; | Fails the task. Failed tasks are counted against failed attempts.
--set-priority &lt;job-id&gt; &lt;priority&gt; | Changes the priority of the job. Allowed priority values are VERY_HIGH, HIGH, NORMAL, LOW, VERY_LOW
+`-submit <job-file>` | Submits the job.
+`-status <job-id>` | Prints the map and reduce completion percentage and all job counters.
+`-counter <job-id> <group-name> <countername>` | Prints the counter value.
+`-kill <job-id>` | Kills the job.
+`-events <job-id> <fromevent-#> <#-of-events>` | Prints the events' details received by jobtracker for the given range.
+`-history [all] <jobOutputDir> - history < jobOutputDir>` | Prints job details, failed and killed tip details. More details about the job such as successful tasks and task attempts made for each task can be viewed by specifying the [all] option.
+`-list[all]` | Displays all jobs. -list displays only jobs which are yet to complete.
+`-kill-task <task-id>` | Kills the task. Killed tasks are NOT counted against failed attempts.
+`-fail-task <task-id>` | Fails the task. Failed tasks are counted against failed attempts.
+`-set-priority <job-id> <priority>` | Changes the priority of the job. Allowed priority values are VERY_HIGH, HIGH, NORMAL, LOW, VERY_LOW
 
 ### To see the status of job
 ```

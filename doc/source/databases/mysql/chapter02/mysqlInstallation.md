@@ -1,4 +1,4 @@
-# MySQL Installation Using Binaries
+# Installation Using Binaries
 
 ## Installing MySQL on Unix/Linux Using Generic Binaries
 **Warnings**

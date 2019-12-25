@@ -1,4 +1,4 @@
-## MySQL mysqld_safe
+## mysqld_safe
 
 **mysqld_safe** reads all options from the `[mysqld]`, `[server]`, and `[mysqld_safe]` sections in option files. For example, if you specify a `[mysqld]` section like this, **mysqld_safe** will find and use the `--log-error` option:
 ```
