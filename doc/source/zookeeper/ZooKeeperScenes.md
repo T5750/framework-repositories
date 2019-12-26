@@ -13,7 +13,7 @@ Name Service已经是ZooKeeper内置的功能，你只要调用ZooKeeper的API�
 
 像这样的配置信息完全可以交给ZooKeeper来管理，将配置信息保存在ZooKeeper的某个目录节点中，然后将所有需要修改的应用机器监控配置信息的状态，一旦配置信息发生变化，每台应用机器就会收到ZooKeeper的通知，然后从ZooKeeper获取新的配置信息应用到系统中。
 
-![image002](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/image002.gif)
+![ZooKeeperConfigurationManagement](https://s1.wailian.download/2019/12/25/ZooKeeperConfigurationManagement.gif)
 
 ### 集群管理（Group Membership）
 ZooKeeper能够很容易的实现集群管理的功能，如有多台Server组成一个服务集群，那么必须要一个“总管”知道当前集群中每台机器的服务状态，一旦有机器不能提供服务，集群中其它集群必须知道，从而做出调整重新分配服务策略。同样当增加集群的服务能力时，就会增加一台或多台Server，同样也必须让“总管”知道。
@@ -24,12 +24,12 @@ ZooKeeper不仅能够帮你维护当前的集群中机器的服务状态，而�
 
 ZooKeeper如何实现Leader Election，也就是选出一个Master Server。和前面的一样每台Server创建一个`EPHEMERAL`目录节点，不同的是它还是一个`SEQUENTIAL`目录节点，所以它是个`EPHEMERAL_SEQUENTIAL`目录节点。之所以它是`EPHEMERAL_SEQUENTIAL`目录节点，是因为我们可以给每台Server编号，我们可以选择当前是最小编号的Server为Master，假如这个最小编号的Server死去，由于是EPHEMERAL节点，死去的Server对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前Master。这样就实现了动态选择Master，避免了传统意义上单Master容易出现单点故障的问题。
 
-![image003](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/image003.gif)
+![ZooKeeperGroupMembership](https://s1.wailian.download/2019/12/25/ZooKeeperGroupMembership.gif)
 
 ### 共享锁（Locks）
 共享锁在同一个进程中很容易实现，但是在跨进程或者在不同Server之间就不好实现了。ZooKeeper却很容易实现这个功能，实现方式也是需要获得锁的Server创建一个`EPHEMERAL_SEQUENTIAL`目录节点，然后调用`getChildren`方法获取当前的目录节点列表中最小的目录节点是不是就是自己创建的目录节点，如果正是自己创建的，那么它就获得了这个锁，如果不是那么它就调用`exists(String path, boolean watch)`方法并监控ZooKeeper上目录节点列表的变化，一直到自己创建的节点是列表中最小编号的目录节点，从而获得锁，释放锁很简单，只要删除前面它自己所创建的目录节点就行了。
 
-![image004](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/image004.gif)
+![ZooKeeperLocks](https://s1.wailian.download/2019/12/25/ZooKeeperLocks.gif)
 
 ### 队列管理
 ZooKeeper可以处理两种类型的队列：
@@ -40,7 +40,7 @@ ZooKeeper可以处理两种类型的队列：
 
 创建一个父目录`/synchronizing`，每个成员都监控标志（Set Watch）位目录`/synchronizing/start`是否存在，然后每个成员都加入这个队列，加入队列的方式就是创建`/synchronizing/member_i`的临时目录节点，然后每个成员获取`/synchronizing`目录的所有目录节点，也就是`member_i`。判断`i`的值是否已经是成员的个数，如果小于成员个数等待`/synchronizing/start`的出现，如果已经相等就创建`/synchronizing/start`。
 
-![image005](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/image005.gif)
+![ZooKeeperQueue](https://s1.wailian.download/2019/12/25/ZooKeeperQueue.gif)
 
 ## References
 - [分布式服务框架 Zookeeper -- 管理分布式环境中的数据](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/)

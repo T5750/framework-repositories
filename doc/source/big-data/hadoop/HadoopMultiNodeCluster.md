@@ -1,4 +1,4 @@
-# Hadoop - Multi-Node Cluster
+# Multi-Node Cluster
 
 - Hadoop Master: 192.168.100.213 (tc213)
 - Hadoop Slave: 192.168.100.211 (tc211)
@@ -245,6 +245,7 @@ $ jps
 	$HADOOP_HOME/bin/hadoop-daemon.sh stop tasktracker
 	$HADOOP_HOME/bin/hadoop-daemon.sh start tasktracker
 	```
+
 ### Results
 ```
 Name: 192.168.100.214:50010 (tc214)

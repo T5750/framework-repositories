@@ -1,5 +1,8 @@
 # Framework Repositories
 
+[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/framework-repositories/blob/master/LICENSE.txt)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/framework-repositories/pulls)
+
 ## What's included
 A ~ C | D ~ G | H ~ L | M ~ R | S ~ T | U ~ Z
 ----|----|----|----|----|----

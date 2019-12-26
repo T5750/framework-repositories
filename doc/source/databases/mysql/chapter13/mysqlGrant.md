@@ -187,20 +187,20 @@ As of MySQL 5.6.12, if the account already exists, `IDENTIFIED` WITH is prohibit
     GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost'
       REQUIRE X509;
     ```
-- `ISSUER` 'issuer'
+- `ISSUER 'issuer'`
     ```
     GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost'
       REQUIRE ISSUER '/C=SE/ST=Stockholm/L=Stockholm/
         O=MySQL/CN=CA/emailAddress=ca@example.com';
     ```
-- `SUBJECT` 'subject'
+- `SUBJECT 'subject'`
     ```
     GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost'
       REQUIRE SUBJECT '/C=SE/ST=Stockholm/L=Stockholm/
         O=MySQL demo client certificate/
         CN=client/emailAddress=client@example.com';
     ```
-- `CIPHER` 'cipher'
+- `CIPHER 'cipher'`
     ```
     GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost'
     REQUIRE CIPHER 'EDH-RSA-DES-CBC3-SHA';

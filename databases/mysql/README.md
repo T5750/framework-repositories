@@ -53,9 +53,9 @@ SQL Statements
         * [13.7.1.1 ALTER USER Statement](../../doc/source/databases/mysql/chapter13/mysqlAlterUser.md)
         * [13.7.1.2 CREATE USER Statement](../../doc/source/databases/mysql/chapter13/mysqlCreateUser.md)
         * [13.7.1.3 DROP USER Statement](../../doc/source/databases/mysql/chapter13/mysqlDropUser.md)
-        * [13.7.1.4 GRANT Statement](../../doc/source/databases/mysql/chapter13/mysqlGrantUser.md)
+        * [13.7.1.4 GRANT Statement](../../doc/source/databases/mysql/chapter13/mysqlGrant.md)
         * [13.7.1.5 RENAME USER Statement](../../doc/source/databases/mysql/chapter13/mysqlRenameUser.md)
-        * [13.7.1.6 REVOKE Statement](../../doc/source/databases/mysql/chapter13/mysqlRevokeUser.md)
+        * [13.7.1.6 REVOKE Statement](../../doc/source/databases/mysql/chapter13/mysqlRevoke.md)
         * [13.7.1.7 SET PASSWORD Statement](../../doc/source/databases/mysql/chapter13/mysqlSetPassword.md)
 
 The InnoDB Storage Engine

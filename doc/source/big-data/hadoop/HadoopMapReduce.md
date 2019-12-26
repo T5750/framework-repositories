@@ -101,7 +101,7 @@ daemonlog | Get/Set the log level for each daemon
 Usage − `hadoop job [GENERIC_OPTIONS]`
 
 GENERIC_OPTION | Description
----|------	
+---|------
 `-submit <job-file>` | Submits the job.
 `-status <job-id>` | Prints the map and reduce completion percentage and all job counters.
 `-counter <job-id> <group-name> <countername>` | Prints the counter value.
