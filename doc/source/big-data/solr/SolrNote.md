@@ -150,9 +150,9 @@ HelloWorld程序：实现对Solr服务器的信息添加、查询、修改、删
 - 我们知道如果想要使数据加入到Solr服务器中，在`schema.xml`必须要存在与其对应的Filed标签声明，如果我们要添加一个对象（比如用户对象）每次去一个一个的`setFiled`，这样比较麻烦，Solr允许使JavaBean的方式，将一个对象直接保存到Solr服务器中。
 - 首先，在`schema.xml`中定义自己的`User`对象：
 	```
-	<field name="user.name” type="text general" indexed="true" stored="true" />
+	<field name="user.name" type="text general" indexed="true" stored="true" />
 	<field name="user.sex" type="text general" indexed="true" stored="true" />
-	<field name="user.age” type="text general" indexed="false" stored="true" />
+	<field name="user.age" type="text general" indexed="false" stored="true" />
 	<field name="user.like" type="text general" indexed="true" stored="true" multivalued="true" />
 	```
 - 然后，在Java中建立实体对象，并且一定要在属性或`set`方法上添加`@Field(nameValue)`注解。（`org.apache.solr.client.solj.beans.Field`）

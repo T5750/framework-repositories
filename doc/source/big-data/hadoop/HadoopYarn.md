@@ -1,7 +1,7 @@
 # YARN
 
 ## Architecture
-![yarn_architecture](https://www.wailian.work/images/2019/05/22/yarn_architecture.gif)
+![yarn_architecture](https://s1.wailian.download/2019/12/27/yarn_architecture-min.png)
 
 ## Components Of YARN
 - Client: For submitting MapReduce jobs.
