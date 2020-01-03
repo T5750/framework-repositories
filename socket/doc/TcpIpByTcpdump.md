@@ -23,6 +23,7 @@
 ```
 
 ### 报文分析
+![TCP_IP-min](https://s1.wailian.download/2020/01/03/TCP_IP-min.jpg)
 
 #### IP层解析
 ![IP-packet-min-min](https://www.wailian.work/images/2019/02/26/IP-packet-min-min.png)

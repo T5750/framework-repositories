@@ -10,3 +10,4 @@ Flume
     FlumeConfiguration
     FlumeSequenceGeneratorSource
     FlumeNetCatSource
+    FlumeFetchingTwitterData

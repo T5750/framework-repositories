@@ -6,3 +6,4 @@ Impala
     :numbered: 0
     
     ImpalaOverview
+    ImpalaEnvironment
