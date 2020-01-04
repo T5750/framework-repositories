@@ -1,4 +1,4 @@
-# Spring Boot Hystrix
+# Hystrix
 
 ```
 compile group: 'com.netflix.hystrix', name: 'hystrix-core', version: '1.5.8'

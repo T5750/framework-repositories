@@ -1,6 +1,6 @@
-package t5750.spring.service.impl;
+package t5750.spring.aop.service.impl;
 
-import t5750.spring.service.SmsService;
+import t5750.spring.aop.service.SmsService;
 
 public class SmsServiceImpl implements SmsService {
 	@Override

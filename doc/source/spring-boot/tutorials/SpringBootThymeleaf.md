@@ -1,6 +1,5 @@
-# Spring Boot Thymeleaf
+# Thymeleaf
 
-## Thymeleaf
 ```
 compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 ```

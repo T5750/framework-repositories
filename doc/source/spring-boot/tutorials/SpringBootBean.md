@@ -1,4 +1,4 @@
-# Spring Boot Get all loaded beans
+# Get all loaded beans
 
 ## Get all loaded beans with Class Type Information
 ### Using ApplicationContext to get all loaded beans

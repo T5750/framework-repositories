@@ -1,7 +1,7 @@
-package t5750.spring;
+package t5750.spring.aop;
 
-import t5750.spring.service.SmsService;
-import t5750.spring.service.impl.SmsServiceImpl;
+import t5750.spring.aop.service.SmsService;
+import t5750.spring.aop.service.impl.SmsServiceImpl;
 
 public class SmsServiceTest {
 	public static void main(String[] args) {

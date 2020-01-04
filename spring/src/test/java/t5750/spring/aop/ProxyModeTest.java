@@ -1,7 +1,7 @@
-package t5750.spring;
+package t5750.spring.aop;
 
-import t5750.spring.service.Coffee;
-import t5750.spring.service.impl.CoffeeWithSugar;
+import t5750.spring.aop.service.Coffee;
+import t5750.spring.aop.service.impl.CoffeeWithSugar;
 
 /**
  * 代理模式

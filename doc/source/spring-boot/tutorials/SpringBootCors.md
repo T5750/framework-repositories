@@ -1,4 +1,4 @@
-# Spring Boot CORS Support
+# CORS Support
 
 Cross-Origin Resource Sharing (CORS) is a security concept that allows restricting the resources implemented in web browsers. It prevents the JavaScript code producing or consuming the requests against different origin.
 

@@ -1,6 +1,6 @@
-package t5750.spring.service.impl;
+package t5750.spring.aop.service.impl;
 
-import t5750.spring.service.Coffee;
+import t5750.spring.aop.service.Coffee;
 
 public class BitterCoffee implements Coffee {
 	@Override

@@ -1,6 +1,5 @@
-# Spring Boot
-
 ## Exception Handling
+
 ### Controller Advice
 The `@ControllerAdvice` is an annotation, to handle the exceptions globally.
 
@@ -10,14 +9,17 @@ The `@ExceptionHandler` is an annotation used to handle the specific exceptions 
 Update URL: http://localhost:8071/products/9
 
 ## Interceptor
+
 - preHandle() method − This is used to perform operations before sending the request to the controller. This method should return true to return the response to the client.
 - postHandle() method − This is used to perform operations before sending the response to the client.
 - afterCompletion() method − This is used to perform operations after completing the request and response.
 
 ## Servlet Filter
+
 - `SimpleFilter`
 
 ## File Handling
+
 ### File Upload
 ```
 @RequestMapping(value = "/upload", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

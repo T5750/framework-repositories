@@ -1,4 +1,4 @@
-# Spring Boot Enabling Swagger2
+# Enabling Swagger2
 
 ```
 compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'

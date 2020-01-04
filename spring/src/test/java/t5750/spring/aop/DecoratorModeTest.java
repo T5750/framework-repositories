@@ -1,8 +1,8 @@
-package t5750.spring;
+package t5750.spring.aop;
 
-import t5750.spring.service.Coffee;
-import t5750.spring.service.impl.BitterCoffee;
-import t5750.spring.service.impl.SugarDecorator;
+import t5750.spring.aop.service.Coffee;
+import t5750.spring.aop.service.impl.BitterCoffee;
+import t5750.spring.aop.service.impl.SugarDecorator;
 
 /**
  * 装饰器模式

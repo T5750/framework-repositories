@@ -1,4 +1,4 @@
-# Spring Boot Actuator
+# Actuator
 
 ## Enabling Spring Boot Actuator
 ```
