@@ -20,6 +20,7 @@ This is my technical note, I hope this can help you.
    linux/index
    mq/index
    nginx/index
+   open-source/index
    rpc/index
    sphinx/index
    spring/index

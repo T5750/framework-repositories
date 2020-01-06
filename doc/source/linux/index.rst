@@ -16,6 +16,7 @@ Linux
     LinuxClearCache
     LinuxCommands
     LinuxCronSchedulingTask
+    LinuxPs
     CentOSInstallation
     CentOSPython
     CentOSTips
