@@ -58,6 +58,9 @@ make.bat html
 2. Sign in with GitHub
 3. Import a Project
 
+## Tips
+Fix `latexmk -r latexmkrc -pdf`: *.gif
+
 ## References
 - [Installing Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
 - [Sphinx Markdown](http://www.sphinx-doc.org/en/master/usage/markdown.html)

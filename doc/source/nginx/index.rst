@@ -12,5 +12,6 @@ nginx
     splitBrainKeepalived
     nginxLocation
     nginxStatistics
+    nginxLogs
     lua/index
     fastdfs/index
