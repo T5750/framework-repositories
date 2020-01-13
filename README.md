@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/framework-repositories/blob/master/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/framework-repositories/pulls)
-[![Documentation Status](https://readthedocs.org/projects/framework-repositories/badge/?version=latest)](https://framework-repositories.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/frameworks/badge/?version=latest)](https://frameworks.readthedocs.io/en/latest/?badge=latest)
 
 ## What's included
 A ~ C | D ~ G | H ~ L | M ~ R | S ~ T | U ~ Z
@@ -16,7 +16,8 @@ A ~ C | D ~ G | H ~ L | M ~ R | S ~ T | U ~ Z
 |  |  |  | [Redis](databases/redis/README.md) | [Storm](big-data/storm/README.md) | 
 
 ## Docs
-- https://framework-repositories.readthedocs.io
+- https://frameworks.readthedocs.io
+- http://frameworks.rtfd.io
 
 ## License
 Framework Repositories is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).

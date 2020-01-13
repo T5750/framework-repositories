@@ -2,7 +2,9 @@
 
 ## Framework Repositories RTD
 Read the Docs for Framework Repositories
-- Docs: https://framework-repositories.readthedocs.io
+- Docs:
+    - https://frameworks.readthedocs.io
+    - http://frameworks.rtfd.io
 - Source: https://github.com/T5750/framework-repositories
 
 ## Runtime Environment

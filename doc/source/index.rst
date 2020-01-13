@@ -5,10 +5,14 @@
 
 Framework Repositories
 ===============================
-This is my technical note, I hope this can help you.
+.. note::
+   This is my technical note, I hope this can help you.
 
-- Docs: https://framework-repositories.readthedocs.io
-- Source: https://github.com/T5750/framework-repositories
+.. tip::
+   - Docs:
+      - https://frameworks.readthedocs.io
+      - http://frameworks.rtfd.io
+   - Source: https://github.com/T5750/framework-repositories
 
 .. toctree::
    :maxdepth: 3

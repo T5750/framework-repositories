@@ -44,8 +44,8 @@ pip install -U sphinx
 ## Read the Docs
 1. `pip install sphinx_rtd_theme`
 2. `sphinx-quickstart`
-    - Separate source and build directories (y/n) [n]: y
-    - Project language [en]: zh_CN
+    - Separate source and build directories (y/n) [n]: `y`
+    - Project language [en]: `zh_CN`
 3. `make html`
 
 ### Windows
@@ -59,7 +59,9 @@ make.bat html
 3. Import a Project
 
 ## Tips
-Fix `latexmk -r latexmkrc -pdf`: *.gif
+- `requirements.txt`
+- Fix `latexmk -r latexmkrc -pdf`: `*.gif`
+- [https://readthedocs.org/](https://readthedocs.org/) -> 项目 -> 管理 -> 设置 -> 名称: `frameworks`
 
 ## References
 - [Installing Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
