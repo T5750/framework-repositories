@@ -31,4 +31,5 @@ MySQL
     mysqlFunctionMath
     mysqlFunctionWindow
     mysqlMycnf
+    locks
     Grafana

@@ -24,6 +24,7 @@
     - [Math Functions](../../doc/source/databases/mysql/mysqlFunctionMath.md)
     - [Window Functions](../../doc/source/databases/mysql/mysqlFunctionWindow.md)
 - [MySQL my.cnf](../../doc/source/databases/mysql/mysqlMycnf.md)
+- [Locks](../../doc/source/databases/mysql/locks.md)
 
 ### Reference Manual
 Installing and Upgrading MySQL
