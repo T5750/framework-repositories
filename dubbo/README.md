@@ -1,10 +1,11 @@
 # Dubbo
 
 ## Contents
-### Dubbo笔记
+### Dubbo
 - [Dubbo笔记](../doc/source/rpc/DubboNote.md)
+- [Dubbo Design](../doc/source/rpc/dubboDesign.md)
 
-### Dubbox笔记
+### Dubbox
 - [Dubbox笔记](../doc/source/rpc/DubboxNote.md)
 
 ## Runtime Environment

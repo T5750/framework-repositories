@@ -6,4 +6,5 @@ RPC
     :numbered: 0
     
     DubboNote
+    dubboDesign
     DubboxNote
