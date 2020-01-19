@@ -4,6 +4,8 @@
 ### Dubbo
 - [Dubbo笔记](../doc/source/rpc/DubboNote.md)
 - [Dubbo Design](../doc/source/rpc/dubboDesign.md)
+- [Dubbo SPI](../doc/source/rpc/dubboSpi.md)
+- [Dubbo Adaptive Extension](../doc/source/rpc/dubboAdaptiveExtension.md)
 
 ### Dubbox
 - [Dubbox笔记](../doc/source/rpc/DubboxNote.md)

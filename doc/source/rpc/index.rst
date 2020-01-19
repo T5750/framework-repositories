@@ -7,4 +7,6 @@ RPC
     
     DubboNote
     dubboDesign
+    dubboSpi
+    dubboAdaptiveExtension
     DubboxNote
