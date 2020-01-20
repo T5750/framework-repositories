@@ -9,4 +9,5 @@ RPC
     dubboDesign
     dubboSpi
     dubboAdaptiveExtension
+    dubboExportService
     DubboxNote
