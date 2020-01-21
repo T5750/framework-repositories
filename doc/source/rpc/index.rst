@@ -10,4 +10,5 @@ RPC
     dubboSpi
     dubboAdaptiveExtension
     dubboExportService
+    dubboReferService
     DubboxNote

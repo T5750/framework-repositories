@@ -6,6 +6,8 @@
 - [Dubbo Design](../doc/source/rpc/dubboDesign.md)
 - [Dubbo SPI](../doc/source/rpc/dubboSpi.md)
 - [Dubbo Adaptive Extension](../doc/source/rpc/dubboAdaptiveExtension.md)
+- [Dubbo Export Service](../doc/source/rpc/dubboExportService.md)
+- [Dubbo Refer Service](../doc/source/rpc/dubboReferService.md)
 
 ### Dubbox
 - [Dubbox笔记](../doc/source/rpc/DubboxNote.md)
