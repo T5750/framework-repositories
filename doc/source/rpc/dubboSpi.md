@@ -25,7 +25,7 @@
 	3. 向拓展对象中注入依赖
 	4. 将拓展对象包裹在相应的 Wrapper 对象中
 
-### 获取所有的拓展类
+### 1 获取所有的拓展类
 - `getExtensionClasses()`: 根据配置文件解析出拓展项名称到拓展类的映射关系表（`Map<名称, 拓展类>`），之后再根据拓展项名称从映射关系表中取出相应的拓展类即可
 - `loadExtensionClasses()`:
 	1. 对 SPI 注解进行解析
@@ -37,7 +37,7 @@
 - `loadResource(Map<String, Class<?>> extensionClasses, ClassLoader classLoader, java.net.URL resourceURL)`: 读取和解析配置文件，并通过反射加载类，最后调用 `loadClass` 方法进行其他操作
 - `loadClass(Map<String, Class<?>> extensionClasses, java.net.URL resourceURL, Class<?> clazz, String name)`: 用于操作缓存，比如 `cachedAdaptiveClass`、`cachedWrapperClasses` 和 `cachedNames` 等
 
-### Dubbo IOC
+### 2 Dubbo IOC
 Dubbo IOC 是通过 setter 方法注入依赖。`injectExtension(T instance)`:
 - 通过反射获取到实例的所有方法
 - 遍历方法列表，检测方法名是否具有 setter 方法特征。若有，则通过 `ObjectFactory` 获取依赖对象

@@ -11,4 +11,9 @@ RPC
     dubboAdaptiveExtension
     dubboExportService
     dubboReferService
+    dubboDirectory
+    dubboRouter
+    dubboCluster
+    dubboLoadBalance
+    dubboServiceInvokingProcess
     DubboxNote

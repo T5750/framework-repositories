@@ -27,7 +27,7 @@ public @interface Adaptive {
 - 手工编码：`Adaptive` 注解在类上的情况很少，在 Dubbo 中，仅有两个类被 `Adaptive` 注解了，分别是 `AdaptiveCompiler` 和 `AdaptiveExtensionFactory`。此种情况，表示拓展的加载逻辑由人工编码完成。
 - 自动生成：更多时候，`Adaptive` 是注解在接口方法上的，表示拓展的加载逻辑需由框架自动生成。
 
-### 获取自适应拓展
+### 1 获取自适应拓展
 - `getAdaptiveExtension()`: 获取自适应拓展的入口方法，检查缓存，缓存未命中，则调用 `createAdaptiveExtension` 方法创建自适应拓展
 - `createAdaptiveExtension()`:
 	1. 调用 `getAdaptiveExtensionClass` 方法获取自适应拓展 Class 对象
@@ -41,35 +41,39 @@ public @interface Adaptive {
 	* 生成自适应拓展类的源码
 	* 通过 `Compiler` 实例（Dubbo 默认使用 javassist 作为编译器）编译源码，得到代理类 Class 实例
 
-### 自适应拓展类代码生成
-`createAdaptiveExtensionClassCode()`:
-1. `Adaptive` 注解检测
-2. 生成类
-	- 生成 package 代码：`package + type 所在包`
-	- 生成 import 代码：`import + ExtensionLoader 全限定名`
-	- 生成类代码：`public class + type简单名称 + $Adaptive + implements + type全限定名 + {`
-	- `${生成方法}`
-3. 生成方法
-	1. 无 `Adaptive` 注解方法代码生成逻辑
-	2. 获取 `URL` 数据，并为之生成判空和赋值代码
-	3. 获取 `Adaptive` 注解值
-	4. 检测 `Invocation` 参数
-	5. 生成拓展名获取逻辑。本段逻辑可能会生成但不限于下面的代码：
-		- `String extName = (url.getProtocol() == null ? "dubbo" : url.getProtocol());`
-		- `String extName = url.getMethodParameter(methodName, "loadbalance", "random");`
-		- `String extName = url.getParameter("client", url.getParameter("transporter", "netty"));`
-	6. 生成拓展加载与目标方法调用逻辑
-		```
-		com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol) ExtensionLoader
-			.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
-		return extension.refer(arg0, arg1);
-		```
-	7. 生成完整的方法
-		```
-		public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) {
-			// 方法体
-		}
-		```
+### 2 自适应拓展类代码生成
+`createAdaptiveExtensionClassCode()`
+
+#### 2.1 Adaptive 注解检测
+通过反射检测接口方法是否包含 `Adaptive` 注解。对于要生成自适应拓展的接口，Dubbo 要求该接口至少有一个方法被 `Adaptive` 注解修饰。
+
+#### 2.2 生成类
+- 生成 package 代码：`package + type 所在包`
+- 生成 import 代码：`import + ExtensionLoader 全限定名`
+- 生成类代码：`public class + type简单名称 + $Adaptive + implements + type全限定名 + {`
+- `${生成方法}`
+
+#### 2.3 生成方法
+1. 无 `Adaptive` 注解方法代码生成逻辑
+2. 获取 `URL` 数据，并为之生成判空和赋值代码
+3. 获取 `Adaptive` 注解值
+4. 检测 `Invocation` 参数
+5. 生成拓展名获取逻辑。本段逻辑可能会生成但不限于下面的代码：
+	- `String extName = (url.getProtocol() == null ? "dubbo" : url.getProtocol());`
+	- `String extName = url.getMethodParameter(methodName, "loadbalance", "random");`
+	- `String extName = url.getParameter("client", url.getParameter("transporter", "netty"));`
+6. 生成拓展加载与目标方法调用逻辑
+	```
+	com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol) ExtensionLoader
+		.getExtensionLoader(com.alibaba.dubbo.rpc.Protocol.class).getExtension(extName);
+	return extension.refer(arg0, arg1);
+	```
+7. 生成完整的方法
+	```
+	public com.alibaba.dubbo.rpc.Invoker refer(java.lang.Class arg0, com.alibaba.dubbo.common.URL arg1) {
+		// 方法体
+	}
+	```
 
 ```
 for (Method method : methods) {
