@@ -1,22 +1,76 @@
 # Dubbo LoadBalance
 
 ## 简介
+LoadBalance 负载均衡，职责是将网络请求，或者其他形式的负载“均摊”到不同的机器上
 
+Dubbo 提供了4种负载均衡实现：
+- `RandomLoadBalance`: 加权随机算法
+- `LeastActiveLoadBalance`: 最少活跃调用数算法
+- `ConsistentHashLoadBalance`: 一致性 hash 算法
+- `RoundRobinLoadBalance`: 加权轮询算法
 
 ## 源码分析
-
+在 Dubbo 中，所有负载均衡实现类均继承自 `AbstractLoadBalance`，该类实现了 `LoadBalance` 接口，并封装了一些公共的逻辑
+- `select(List<Invoker<T>> invokers, URL url, Invocation invocation)`
+	* 检测 `invokers` 集合的合法性
+	* 检测 `invokers` 集合元素数量
+		+ 如果只包含一个 `Invoker`，直接返回该 `Inovker` 即可
+		+ 如果包含多个 `Invoker`，此时需要通过负载均衡算法选择一个 `Invoker`
+- `getWeight(Invoker<?> invoker, Invocation invocation)`:
+	* 用于保证当服务运行时长小于服务预热时间时，对服务进行降权，避免让服务在启动之初就处于高负载状态
+	* 服务预热是一个优化手段，与此类似的还有 JVM 预热
+	* 主要目的是让服务启动后“低功率”运行一段时间，使其效率慢慢提升至最佳状态
+- `calculateWarmupWeight(int uptime, int warmup, int weight)`: 计算权重，代码逻辑上形似于 `(uptime / warmup) * weight`
 
 ### 1 RandomLoadBalance
-
+`RandomLoadBalance`: 经过多次请求后，能够将调用请求按照权重值进行“均匀”分配
+- `doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
+- 缺点，当调用次数比较少时，`Random` 产生的随机数可能会比较集中，此时多数请求会落到同一台服务器上。这个缺点并不是很严重，多数情况下可以忽略
 
 ### 2 LeastActiveLoadBalance
-
+`LeastActiveLoadBalance`: 活跃调用数越小，表明该服务提供者效率越高，单位时间内可处理更多的请求。此时应优先将请求分配给该服务提供者
+- `doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`:
+	1. 遍历 `invokers` 列表，寻找活跃数最小的 `Invoker`
+	2. 如果有多个 `Invoker` 具有相同的最小活跃数，此时记录下这些 `Invoker` 在 `invokers` 集合中的下标，并累加它们的权重，比较它们的权重值是否相等
+	3. 如果只有一个 `Invoker` 具有最小的活跃数，此时直接返回该 `Invoker` 即可
+	4. 如果有多个 `Invoker` 具有最小活跃数，且它们的权重不相等，此时处理方式和 `RandomLoadBalance` 一致
+	5. 如果有多个 `Invoker` 具有最小活跃数，但它们的权重相等，此时随机返回一个即可
 
 ### 3 ConsistentHashLoadBalance
-
+- `ConsistentHashLoadBalance#doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
+	* 做了一些前置工作，比如检测 `invokers` 列表是不是变动过，以及创建 `ConsistentHashSelector`
+	* 调用 `ConsistentHashSelector` 的 `select` 方法执行负载均衡逻辑
+- `ConsistentHashSelector#ConsistentHashSelector(List<Invoker<T>> invokers, String methodName, int identityHashCode)`:
+	* 构造方法执行了一系列的初始化逻辑，比如从配置中获取虚拟节点数以及参与 `hash` 计算的参数下标，默认情况下只使用第一个参数进行 `hash`
+	* `ConsistentHashLoadBalance` 的负载均衡逻辑只受参数值影响，具有相同参数值的请求将会被分配给同一个服务提供者
+- `ConsistentHashSelector+select(Invocation invocation)`: 对参数进行 `md5` 以及 `hash` 运算，得到一个 `hash` 值
+- `ConsistentHashSelector-selectForKey(long hash)`: 拿这个值到 `TreeMap` 中查找目标 `Invoker` 即可
 
 ### 4 RoundRobinLoadBalance
+`RoundRobinLoadBalance`
+- `doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
+- `WeightedRoundRobin`
 
+平滑加权轮询，每个服务器对应两个权重：
+- `weight` 是固定的
+- `currentWeight` 会动态调整，初始值为0
+- 当有新的请求进来时，遍历服务器列表，让它的 `currentWeight` 加上自身权重
+- 遍历完成后，找到最大的 `currentWeight`，并将其减去权重总和，然后返回相应的服务器即可
+
+比如，服务器 `[A, B, C]` 对应权重 `[5, 1, 1]`，现在有7个请求依次进入负载均衡逻辑，选择过程如下：
+
+请求编号 | currentWeight 数组 | 选择结果 | 减去权重总和后的 currentWeight 数组
+---|---|---|---
+1 | [5, 1, 1] | A | [-2, 1, 1]
+2 | [3, 2, 2] | A | [-4, 2, 2]
+3 | [1, 3, 3] | B | [1, -4, 3]
+4 | [6, -3, 4] | A | [-1, -3, 4]
+5 | [4, -2, 5] | C | [4, -2, -2]
+6 | [9, -1, -1] | A | [2, -1, -1]
+7 | [7, 0, 0] | A | [0, 0, 0]
+
+- 如上，经过平滑性处理后，得到的服务器序列为 `[A, A, B, A, C, A, A]`，相比之前的序列 `[A, A, A, A, A, B, C]`，分布性要好一些
+- 初始情况下 `currentWeight = [0, 0, 0]`，第7个请求处理完后，`currentWeight` 再次变为 `[0, 0, 0]`
 
 ## References
 - [负载均衡](http://dubbo.apache.org/zh-cn/docs/source_code_guide/loadbalance.html)

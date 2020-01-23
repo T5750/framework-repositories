@@ -59,19 +59,37 @@ Dubbo 主要提供了这样几种容错方式：
     2. 如果 `reselectInvokers` 不为空，则通过负载均衡组件再次进行选择
 
 #### 2.2 FailbackClusterInvoker
-
+`FailbackClusterInvoker`
+- `doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance)`: 负责初次的远程调用
+- `addFailed(Invocation invocation, AbstractClusterInvoker<?> router)`: 在开始阶段会根据 `retryFuture` 为空与否，来决定是否开启定时任务
+- `retryFailed()`: 包含了失败重试的逻辑
+	* 对 `failed` 进行遍历
+	* 依次对 `Invoker` 进行调用
+	* 调用成功则将 `Invoker` 从 `failed` 中移除，调用失败则忽略失败原因
 
 #### 2.3 FailfastClusterInvoker
-
+`FailfastClusterInvoker`
+- `doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance)`:
+	* 通过 `select` 方法选择 `Invoker`
+	* 进行远程调用。如果调用失败，则立即抛出异常
 
 #### 2.4 FailsafeClusterInvoker
-
+失败安全是指，当调用过程中出现异常时，`FailsafeClusterInvoker` 仅会打印异常，而不会抛出异常
+- 应用场景：写入审计日志等操作
+- `doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance)`
 
 #### 2.5 ForkingClusterInvoker
-
+`ForkingClusterInvoker`: 在运行时通过线程池创建多个线程，并发调用多个服务提供者。只要有一个服务提供者成功返回了结果，`doInvoke` 方法就会立即结束运行
+- 应用场景：在一些对实时性要求比较高**读操作**（注意是读操作，并行写操作可能不安全）下使用，但这将会耗费更多的资源
+- `doInvoke(final Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance)`:
+	* 选出 `forks` 个 `Invoker`，为接下来的并发调用提供输入
+	* 通过线程池并发调用多个 `Invoker`，并将结果存储在阻塞队列中
+	* 从阻塞队列中获取返回结果，并对返回结果类型进行判断。如果为异常类型，则直接抛出，否则返回
 
 #### 2.6 BroadcastClusterInvoker
-
+`BroadcastClusterInvoker` 会逐个调用每个服务提供者，如果其中一台报错，在循环调用结束后，`BroadcastClusterInvoker` 会抛出异常
+- 应用场景：通知所有提供者更新缓存或日志等本地资源信息
+- `doInvoke(final Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadbalance)`
 
 ## References
 - [集群](http://dubbo.apache.org/zh-cn/docs/source_code_guide/cluster.html)
