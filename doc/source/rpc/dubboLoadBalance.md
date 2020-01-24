@@ -25,10 +25,17 @@ Dubbo 提供了4种负载均衡实现：
 ### 1 RandomLoadBalance
 `RandomLoadBalance`: 经过多次请求后，能够将调用请求按照权重值进行“均匀”分配
 - `doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
+	* 如果所有服务提供者权重值相同，此时直接随机返回一个即可
+	* `int offset = random.nextInt(totalWeight);`: 随机获取一个 [0, totalWeight) 区间内的数字
+	* 例如 servers = [A, B, C]，weights = [5, 3, 2]，offset = 7
+	* 第一次循环，`offset - 5 = 2 > 0`，即 `offset > 5`，表明其不会落在服务器 A 对应的区间上
+	* 第二次循环，`offset - 3 = -1 < 0`，即 `5 < offset < 8`，表明其会落在服务器 B 对应的区间上
 - 缺点，当调用次数比较少时，`Random` 产生的随机数可能会比较集中，此时多数请求会落到同一台服务器上。这个缺点并不是很严重，多数情况下可以忽略
 
 ### 2 LeastActiveLoadBalance
-`LeastActiveLoadBalance`: 活跃调用数越小，表明该服务提供者效率越高，单位时间内可处理更多的请求。此时应优先将请求分配给该服务提供者
+`LeastActiveLoadBalance`: 加权最小活跃数算法
+- 活跃调用数越小，表明该服务提供者效率越高，单位时间内可处理更多的请求。此时应优先将请求分配给该服务提供者
+- 初始情况下，所有服务提供者活跃数均为0。每收到一个请求，活跃数加1，完成请求后则将活跃数减1
 - `doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`:
 	1. 遍历 `invokers` 列表，寻找活跃数最小的 `Invoker`
 	2. 如果有多个 `Invoker` 具有相同的最小活跃数，此时记录下这些 `Invoker` 在 `invokers` 集合中的下标，并累加它们的权重，比较它们的权重值是否相等

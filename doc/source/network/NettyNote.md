@@ -14,6 +14,7 @@
 ![components](https://netty.io/images/components.png)
 
 ## 1.4 Netty特性
+
 Developpent Area | Netty Festures
 ----|-------
 Design（设计） | 各种传输类型，阻塞和非阻塞套接字统一的API使用灵活简单，但功能强大的线程模型无连接的`DatagramSocket`支持链逻辑，易于重用
@@ -174,4 +175,4 @@ Netty的Http协议无论从性能上还是可靠性上都表现优异，非常�
 - 现在程序员：我虽然不能用底层写出来一个中间件，但是，能看懂别人的写法。会用API，解决互联网行业的一系列问题
 
 ## References
-- Netty
+- 尚学堂互联网架构师课程

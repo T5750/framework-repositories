@@ -23,6 +23,7 @@ Framework Repositories
    framework/index
    linux/index
    mq/index
+   network/index
    nginx/index
    open-source/index
    rpc/index
