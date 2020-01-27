@@ -104,7 +104,7 @@ Module | Comment
 1. TCC方案验证测试
 
 ### 3.4 处理流程
-![tccTransaction-min](http://www.wailian.work/images/2019/01/22/tccTransaction-min.png)
+![tccTransaction-min](https://www.wailian.work/images/2019/01/22/tccTransaction-min.png)
 
 - Try流程：主服务A（交易服务）、从服务B（资金账户服务）、从服务C（积分账户服务）
 - Confirm流程：主服务、从服务

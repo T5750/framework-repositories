@@ -44,6 +44,16 @@ Dubbo 提供了4种负载均衡实现：
 	5. 如果有多个 `Invoker` 具有最小活跃数，但它们的权重相等，此时随机返回一个即可
 
 ### 3 ConsistentHashLoadBalance
+一致性 hash 算法提出之初是用于大规模缓存系统的负载均衡。它的工作过程：
+- 根据 ip 或者其他的信息为缓存节点生成一个 hash，并将这个 hash 投射到 `[0, 2^32 - 1]` 的圆环上
+- 当有查询或写入请求时，则为缓存项的 key 生成一个 hash 值。
+- 查找第一个大于或等于该 hash 值的缓存节点，并到这个节点中查询或写入缓存项
+
+![consistent-hash-data-incline-min](https://s1.wailian.download/2020/01/26/consistent-hash-data-incline-min.jpg)
+
+- 相同颜色的节点均属于同一个服务提供者，目的是通过引入虚拟节点，让 Invoker 在圆环上分散开来，避免数据倾斜问题
+- 数据倾斜是指，由于节点不够分散，导致大量请求落到了同一个节点上，而其他节点只会接收到了少量请求的情况
+- 由于 Invoker-1 和 Invoker-2 在圆环上分布不均，导致系统中75%的请求都会落到 Invoker-1 上，只有 25% 的请求会落到 Invoker-2 上。解决这个问题办法是引入虚拟节点，通过虚拟节点均衡各个节点的请求量
 - `ConsistentHashLoadBalance#doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
 	* 做了一些前置工作，比如检测 `invokers` 列表是不是变动过，以及创建 `ConsistentHashSelector`
 	* 调用 `ConsistentHashSelector` 的 `select` 方法执行负载均衡逻辑

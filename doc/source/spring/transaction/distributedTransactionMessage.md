@@ -8,7 +8,7 @@
 1. Queue支持存在多个消费者，但是对某一个消息而言，只会有一个消费者成功消费。
 
 ### 生产与消费常规流程
-![distributedTransactionMq-min](http://www.wailian.work/images/2019/01/23/distributedTransactionMq-min.png)
+![distributedTransactionMq-min](https://www.wailian.work/images/2019/01/23/distributedTransactionMq-min.png)
 1. Producer生成消息并发送给MQ（同步、异步）；
 1. MQ接收消息并将消息数据持久化到消息存储（持久化操作为可选配置）；
 1. MQ向Producer返回消息的接收结果（返回值、异常）；

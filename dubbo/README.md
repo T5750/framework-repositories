@@ -12,6 +12,7 @@
 - [Dubbo Router](../doc/source/rpc/dubboRouter.md)
 - [Dubbo Cluster](../doc/source/rpc/dubboCluster.md)
 - [Dubbo LoadBalance](../doc/source/rpc/dubboLoadBalance.md)
+- [Dubbo Service Invoking Process](../doc/source/rpc/dubboServiceInvokingProcess.md)
 
 ### Dubbox
 - [Dubbox笔记](../doc/source/rpc/DubboxNote.md)
