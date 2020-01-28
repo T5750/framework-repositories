@@ -1,6 +1,6 @@
-## 从tcpdump抓包看TCP/IP协议
+# 从tcpdump抓包看TCP/IP协议
 
-### 报文获取
+## 报文获取
 1. 在192.168.100.211机器的6379端口启一个Redis服务
 1. 通过tcpdump这个工具来抓取数据包，命令：`tcpdump -w /tmp/logs -i eth1 port 6379 -s0`
 1. 在192.168.100.162机器上访问Redis实例192.168.100.211:6379，可以用redis-cli客户端，也可以用telnet，发送一个ping，得到对端回复PONG
@@ -22,10 +22,10 @@
         0x0020:  5010 400e b388 0000 0000 0000 0000
 ```
 
-### 报文分析
+## 报文分析
 ![TCP_IP-min](https://s1.wailian.download/2020/01/03/TCP_IP-min.jpg)
 
-#### IP层解析
+### IP层解析
 ![IP-packet-min-min](https://www.wailian.work/images/2019/02/26/IP-packet-min-min.png)
 
 字节值 | 字节含义
@@ -42,7 +42,7 @@
 0xc0a8 64a2 | 32bit源IP地址
 0xc0a8 64d3 | 32bit目的IP地址
 
-#### 传输层解析
+### 传输层解析
 本报文携带的数据使用的TCP协议，采用`固定长度(20B) + 可变长度`的形式
 
 ![TcpHeaderZh-min-min](https://www.wailian.work/images/2019/02/26/TcpHeaderZh-min-min.jpg)
@@ -62,7 +62,7 @@
 
 ![TcpLogsCap-min](https://www.wailian.work/images/2019/02/27/TcpLogsCap-min.png)
 
-#### 数据部分解析
+### 数据部分解析
 ping转换成Redis协议如下：
 ```
 *1\r\n
@@ -82,7 +82,7 @@ ping\r\n
 2b50 4f4e 470d 0a -> +PONG\r\n
 ```
 
-### TCP Options
+## TCP Options
 TCP可选项，其格式如下：
 
 ![TcpOptions-min-min](https://www.wailian.work/images/2019/02/27/TcpOptions-min-min.jpg)
@@ -122,7 +122,7 @@ Kind(Type) | Length | Name | Reference | 描述 & 用途
 0x01 | nop
 0x0402 | sackOK
 
-### tcpdump
+## tcpdump
 tcpdump filter可以简单地分为三类：
 - type：区分报文的类型，主要由host（主机），net（网络，支持CIDR）和port（支持范围，portrange 21-23）组成
 - dir：区分方向，主要由src和dst组成

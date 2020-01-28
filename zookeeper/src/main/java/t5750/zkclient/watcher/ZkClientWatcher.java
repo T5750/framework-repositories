@@ -6,7 +6,7 @@ import org.I0Itec.zkclient.IZkChildListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.ZkConnection;
 
-import t5750.util.ZkUtil;
+import t5750.socket.util.ZkUtil;
 
 public class ZkClientWatcher {
 	public static void main(String[] args) throws Exception {
