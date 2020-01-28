@@ -1,4 +1,4 @@
-package t5750.socket.util;
+package t5750.util;
 
 /**
  *

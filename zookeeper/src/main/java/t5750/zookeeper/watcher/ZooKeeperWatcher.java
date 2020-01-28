@@ -13,7 +13,7 @@ import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.data.Stat;
 
-import t5750.socket.util.ZkUtil;
+import t5750.util.ZkUtil;
 
 /**
  * Zookeeper Wathcher 本类就是一个Watcher类（实现了org.apache.zookeeper.Watcher类）

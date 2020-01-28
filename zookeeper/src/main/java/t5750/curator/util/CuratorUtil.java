@@ -5,7 +5,7 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 
-import t5750.socket.util.ZkUtil;
+import t5750.util.ZkUtil;
 
 /**
  *
