@@ -59,11 +59,18 @@ make.bat html
 3. Import a Project
 
 ## Tips
+### Read the Docs
 - `requirements.txt`
 - Fix `latexmk -r latexmkrc -pdf`: `*.gif`
 - [https://readthedocs.org/](https://readthedocs.org/) -> 项目 -> 管理 -> 设置 -> 名称: `frameworks`
+- Fix `ImportError: cannot import name 'PackageFinder' from 'pip._internal.index'`:
+	* Go to **Versions**
+	* Click on the **Edit** button of the version you want to wipe on the right side of the page
+	* Go to the bottom of the page and click the **wipe** link, next to the “Save” button
 
 ## References
 - [Installing Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
 - [Sphinx Markdown](http://www.sphinx-doc.org/en/master/usage/markdown.html)
 - [Getting Started with Sphinx](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html)
+- [Latest pip release fails](https://github.com/readthedocs/readthedocs.org/issues/6554)
+- [Wiping a Build Environment](https://docs.readthedocs.io/en/stable/guides/wipe-environment.html)
