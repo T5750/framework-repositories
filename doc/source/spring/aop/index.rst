@@ -6,3 +6,4 @@ AOP
     :numbered: 0
     
     SpringAop
+    cglib
