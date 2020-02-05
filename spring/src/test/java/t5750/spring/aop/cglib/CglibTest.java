@@ -7,16 +7,11 @@ import org.junit.Test;
 
 import net.sf.cglib.beans.BeanGenerator;
 import net.sf.cglib.core.DefaultGeneratorStrategy;
-import net.sf.cglib.proxy.Enhancer;
-import net.sf.cglib.proxy.FixedValue;
-import net.sf.cglib.proxy.MethodInterceptor;
-import net.sf.cglib.proxy.Mixin;
-import t5750.spring.aop.cglib.service.MixinFirst;
-import t5750.spring.aop.cglib.service.MixinInterface;
-import t5750.spring.aop.cglib.service.MixinSecond;
-import t5750.spring.aop.cglib.service.impl.MixinFirstImpl;
-import t5750.spring.aop.cglib.service.impl.MixinSecondImpl;
-import t5750.spring.aop.cglib.service.impl.PersonService;
+import net.sf.cglib.proxy.*;
+import t5750.spring.aop.cglib.proxy.AuthorizationInterceptor;
+import t5750.spring.aop.cglib.proxy.PersistenceServiceCallbackFilter;
+import t5750.spring.aop.cglib.service.*;
+import t5750.spring.aop.cglib.service.impl.*;
 
 public class CglibTest {
 	/**
@@ -98,5 +93,54 @@ public class CglibTest {
 		});
 		PersonService obj = (PersonService) e.create();
 		System.out.println(obj.sayHello(null));
+	}
+
+	/**
+	 * Create a proxy using NoOp callback. The target class must have a default
+	 * zero-argument constructor.
+	 *
+	 * @param targetClass
+	 *            the super class of the proxy
+	 * @return a new proxy for a target class instance
+	 */
+	public Object createProxy(Class targetClass) {
+		Enhancer enhancer = new Enhancer();
+		enhancer.setSuperclass(targetClass);
+		enhancer.setCallback(NoOp.INSTANCE);
+		return enhancer.create();
+	}
+
+	/**
+	 * Create a simple proxy
+	 */
+	@Test
+	public void simpleProxy() throws Exception {
+		PersistenceService persistenceService = (PersistenceServiceImpl) createProxy(
+				PersistenceServiceImpl.class);
+		long id = 1L;
+		persistenceService.save(id, "simpleProxy");
+		System.out.println(persistenceService.load(id));
+	}
+
+	/**
+	 * Use a MethodInterceptor
+	 */
+	@Test
+	public void testPersistence() throws Exception {
+		Enhancer enhancer = new Enhancer();
+		enhancer.setSuperclass(PersistenceServiceImpl.class);
+		CallbackFilter callbackFilter = new PersistenceServiceCallbackFilter();
+		enhancer.setCallbackFilter(callbackFilter);
+		AuthorizationService authorizationService = new AuthorizationServiceImpl();
+		Callback saveCallback = new AuthorizationInterceptor(
+				authorizationService);
+		Callback loadCallback = NoOp.INSTANCE;
+		Callback[] callbacks = new Callback[] { saveCallback, loadCallback };
+		enhancer.setCallbacks(callbacks);
+		PersistenceService persistenceService = (PersistenceServiceImpl) enhancer
+				.create();
+		long id = 1L;
+		persistenceService.save(id, "testPersistence");
+		System.out.println(persistenceService.load(id));
 	}
 }
