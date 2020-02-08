@@ -19,6 +19,9 @@ The CGLIB library(2.1.2) is organized as follows:
 
 As discussed in preceding section, the CGLIB library is a high-level layer on top of ASM. It is very useful for proxying classes that do not implement interfaces. Essentially, it dynamically generates a subclass to override the non-final methods of the proxied class and wires up hooks that call back to user-defined interceptors. It is faster than the JDK dynamic proxy approach.
 
+### Enhancer
+An `Enhancer` allows the creation of Java proxies for non-interface types.The `Enhancer` dynamically creates a subclass of a given type but intercepts all method calls. Other than with the `Proxy` class, this works for both class and interface types.
+
 ### Figure 2: CGLIB library APIs commonly used for proxying classes
 ![CGLIB_Library_APIs_Commonly_Used_for_Porxying_Classes](https://s1.wailian.download/2020/02/05/CGLIB_Library_APIs_Commonly_Used_for_Porxying_Classes-min.png)
 
@@ -59,7 +62,9 @@ assertEquals("Hello Tom!", res);
 ```
 The `FixedValue` is a callback interface that simply returns the value from the proxied method. Executing `sayHello()` method on a proxy returned a value specified in a proxy method.
 
-## Returning Value Depending on a Method Signature
+The anonymous subclass of `FixedValue` would become hardly referenced from the enhanced `SampleClass` such that neither the anonymous `FixedValue` instance or the class holding the `@Test` method would ever be garbage collected. This can introduce nasty memory leaks in your applications. Therefore, do not use non-`static` inner classes with cglib.
+
+### Returning Value Depending on a Method Signature
 The first version of our proxy has some drawbacks because we are not able to decide which method a proxy should intercept, and which method should be invoked from a superclass. We can use a `MethodInterceptor` interface to intercept all calls to the proxy and decide if want to make a specific call or execute a method from a superclass:
 ```
 Enhancer enhancer = new Enhancer();
