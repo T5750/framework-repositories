@@ -25,6 +25,7 @@ dependencies {
     compile group: 'com.netflix.hystrix', name: 'hystrix-javanica', version: '1.5.8'
     compile group: 'com.netflix.hystrix', name: 'hystrix-metrics-event-stream', version: '1.5.8'
     compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '1.0.6.RELEASE'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
 }
 springBoot {
