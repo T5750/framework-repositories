@@ -69,3 +69,5 @@
 - [Hystrix 1.5.8](https://github.com/Netflix/Hystrix)
 - [Kafka 0.9.0.1](http://kafka.apache.org/downloads.html)
 - [ActiveMQ 5.11.1 Release](http://activemq.apache.org/download.html)
+- [HttpClient 4.5.3](https://hc.apache.org/downloads.cgi)
+- [Gson 2.8.5](https://github.com/google/gson)

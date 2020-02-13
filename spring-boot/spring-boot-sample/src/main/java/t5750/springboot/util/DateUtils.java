@@ -1,4 +1,4 @@
-package t5750.pay.common.core.utils;
+package t5750.springboot.util;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -36,6 +36,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	/**
 	 * 要用到的DATE Format的定义
 	 */
+	public static String DATE_FORMAT_DATE = "yyyyMMdd"; // 年/月/日
 	public static String DATE_FORMAT_DATEONLY = "yyyy-MM-dd"; // 年/月/日
 	public static String DATE_FORMAT_DATETIME = "yyyy-MM-dd HH:mm:ss"; // 年/月/日
 	public static SimpleDateFormat sdfDateTime = new SimpleDateFormat(
@@ -393,32 +394,31 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * 
 	 * @return t1到t2间的日数，如果t2 在 t1之后，返回正数，否则返回负数
 	 */
-	public static long daysBetween(java.sql.Timestamp t1,
-			java.sql.Timestamp t2) {
+	public static long daysBetween(Timestamp t1, Timestamp t2) {
 		return (t2.getTime() - t1.getTime()) / DAY_MILLI;
 	}
 
 	/**
 	 * 返回java.sql.Timestamp型的SYSDATE
-	 * 
+	 *
 	 * @return java.sql.Timestamp型的SYSDATE
 	 * @since 1.0
 	 * @history
 	 */
-	public static java.sql.Timestamp getSysDateTimestamp() {
-		return new java.sql.Timestamp(System.currentTimeMillis());
+	public static Timestamp getSysDateTimestamp() {
+		return new Timestamp(System.currentTimeMillis());
 	}
 
 	/**
 	 * 利用缺省的Date格式(YYYY/MM/DD)转换String到java.sql.Timestamp
-	 * 
+	 *
 	 * @param sDate
 	 *            Date string
 	 * @return
 	 * @since 1.0
 	 * @history
 	 */
-	public static java.sql.Timestamp toSqlTimestamp(String sDate) {
+	public static Timestamp toSqlTimestamp(String sDate) {
 		if (sDate == null) {
 			return null;
 		}
@@ -434,7 +434,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 利用缺省的Date格式(YYYY/MM/DD hh:mm:ss)转化String到java.sql.Timestamp
-	 * 
+	 *
 	 * @param sDate
 	 *            Date string
 	 * @param sFmt
@@ -443,7 +443,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * @since 1.0
 	 * @history
 	 */
-	public static java.sql.Timestamp toSqlTimestamp(String sDate, String sFmt) {
+	public static Timestamp toSqlTimestamp(String sDate, String sFmt) {
 		String temp = null;
 		if (sDate == null || sFmt == null) {
 			return null;
@@ -467,24 +467,24 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 			return null;
 		}
 		// java.sql.Timestamp.value() 要求的格式必须为yyyy-mm-dd hh:mm:ss.fffffffff
-		return java.sql.Timestamp.valueOf(temp);
+		return Timestamp.valueOf(temp);
 	}
 
 	/**
 	 * 以YYYY/MM/DD HH24:MI:SS格式返回系统日期时间
-	 * 
+	 *
 	 * @return 系统日期时间
 	 * @since 1.0
 	 * @history
 	 */
 	public static String getSysDateTimeString() {
-		return toString(new java.util.Date(System.currentTimeMillis()),
+		return toString(new Date(System.currentTimeMillis()),
 				DateUtils.sdfDateTime);
 	}
 
 	/**
 	 * 根据指定的Format转化java.util.Date到String
-	 * 
+	 *
 	 * @param dt
 	 *            java.util.Date instance
 	 * @param sFmt
@@ -493,7 +493,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * @since 1.0
 	 * @history
 	 */
-	public static String toString(java.util.Date dt, String sFmt) {
+	public static String toString(Date dt, String sFmt) {
 		if (dt == null || sFmt == null || "".equals(sFmt)) {
 			return "";
 		}
@@ -502,7 +502,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 利用指定SimpleDateFormat instance转换java.util.Date到String
-	 * 
+	 *
 	 * @param dt
 	 *            java.util.Date instance
 	 * @param formatter
@@ -511,8 +511,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * @since 1.0
 	 * @history
 	 */
-	private static String toString(java.util.Date dt,
-			SimpleDateFormat formatter) {
+	private static String toString(Date dt, SimpleDateFormat formatter) {
 		String sRet = null;
 		try {
 			sRet = formatter.format(dt).toString();
@@ -525,14 +524,14 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 转换java.sql.Timestamp到String，格式为YYYY/MM/DD HH24:MI
-	 * 
+	 *
 	 * @param dt
 	 *            java.sql.Timestamp instance
 	 * @return
 	 * @since 1.0
 	 * @history
 	 */
-	public static String toSqlTimestampString2(java.sql.Timestamp dt) {
+	public static String toSqlTimestampString2(Timestamp dt) {
 		if (dt == null) {
 			return null;
 		}
@@ -540,13 +539,13 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		return temp.substring(0, 16);
 	}
 
-	public static String toString(java.sql.Timestamp dt) {
+	public static String toString(Timestamp dt) {
 		return dt == null ? "" : toSqlTimestampString2(dt);
 	}
 
 	/**
 	 * 根据指定的格式转换java.sql.Timestamp到String
-	 * 
+	 *
 	 * @param dt
 	 *            java.sql.Timestamp instance
 	 * @param sFmt
@@ -556,8 +555,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * @since 1.0
 	 * @history
 	 */
-	public static String toSqlTimestampString(java.sql.Timestamp dt,
-			String sFmt) {
+	public static String toSqlTimestampString(Timestamp dt, String sFmt) {
 		String temp = null;
 		String out = null;
 		if (dt == null || sFmt == null) {
@@ -588,14 +586,14 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * Timestamp 格式转换成yyyy-MM-dd timestampToSql(Timestamp 格式转换成yyyy-MM-dd)
-	 * 
+	 *
 	 * @param timestamp
 	 *            时间
 	 * @return createTimeStr yyyy-MM-dd 时间
 	 * @Exception 异常对象
 	 * @since V1.0
 	 */
-	public static String timestampToStringYMD(java.sql.Timestamp timestamp) {
+	public static String timestampToStringYMD(Timestamp timestamp) {
 		SimpleDateFormat sdf = new SimpleDateFormat(
 				DateUtils.DATE_FORMAT_DATEONLY);
 		String createTimeStr = sdf.format(timestamp);
@@ -604,7 +602,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断一个时间是否在某个时间区间内
-	 * 
+	 *
 	 * @param now
 	 *            目标时间
 	 * @param start
@@ -621,7 +619,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断时间是否在制定的时间段之类
-	 * 
+	 *
 	 * @param date
 	 *            需要判断的时间
 	 * @param start
@@ -630,7 +628,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 *            时间段的截止时间
 	 * @param interModel
 	 *            区间的模式
-	 * 
+	 *
 	 *            <pre>
 	 * 		取值：
 	 * 			LEFT_OPEN_RIGHT_OPEN
@@ -638,17 +636,17 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 * 			LEFT_OPEN_RIGHT_CLOSE
 	 * 			LEFT_CLOSE_RIGHT_CLOSE
 	 *            </pre>
-	 * 
+	 *
 	 * @param compModel
 	 *            比较的模式
-	 * 
+	 *
 	 *            <pre>
 	 * 		取值：
 	 * 			COMP_MODEL_DATE		只比较日期，不比较时间
 	 * 			COMP_MODEL_TIME		只比较时间，不比较日期
 	 * 			COMP_MODEL_DATETIME 比较日期，也比较时间
 	 *            </pre>
-	 * 
+	 *
 	 * @return
 	 */
 	public static boolean isBetween(Date date, Date start, Date end,
@@ -716,7 +714,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 得到当前周起始时间
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -735,7 +733,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 得到当前周截止时间
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -754,7 +752,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 得到当月起始时间
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -771,7 +769,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 得到当前年起始时间
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -790,7 +788,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 得到当前年最后一天
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -809,7 +807,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得月天数
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -821,7 +819,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得月第一天
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -834,7 +832,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得月最后一天
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -847,7 +845,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得季度第一天
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -857,7 +855,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得季度最后一天
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -867,7 +865,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 取得季度月
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -909,9 +907,9 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	}
 
 	/**
-	 * 
+	 *
 	 * 1 第一季度 2 第二季度 3 第三季度 4 第四季度
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -949,7 +947,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 字符串转date
-	 * 
+	 *
 	 * @param dateString
 	 * @return
 	 */
@@ -966,7 +964,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断输入日期是一个星期中的第几天(星期天为一个星期第一天)
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -994,7 +992,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断开始时间和结束时间，是否超出了当前时间的一定的间隔数限制 如：开始时间和结束时间，不能超出距离当前时间90天
-	 * 
+	 *
 	 * @param startDate
 	 *            开始时间
 	 * @param endDate
@@ -1020,7 +1018,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断开始时间和结束时间，是否超出了当前时间的一定的间隔数限制, 时间单位默认为天数 如：开始时间和结束时间，不能超出距离当前时间90天
-	 * 
+	 *
 	 * @param startDate
 	 *            开始时间
 	 * @param endDate
@@ -1044,7 +1042,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 判断开始时间和结束时间，是否超出了当前时间的一定的间隔数限制, 时间单位默认为天数 如：开始时间和结束时间，不能超出距离当前时间90天
-	 * 
+	 *
 	 * @param startDateStr
 	 *            开始时间
 	 * @param endDateStr
@@ -1069,14 +1067,14 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 
 	/**
 	 * 传入时间字符串及时间格式，返回对应的Date对象
-	 * 
+	 *
 	 * @param src
 	 *            时间字符串
 	 * @param pattern
 	 *            时间格式
 	 * @return Date
 	 */
-	public static java.util.Date getDateFromString(String src, String pattern) {
+	public static Date getDateFromString(String src, String pattern) {
 		SimpleDateFormat f = new SimpleDateFormat(pattern);
 		try {
 			return f.parse(src);
@@ -1165,6 +1163,17 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE, -1);
 		return formatDate(calendar.getTime(), "yyyy-MM-dd");
+	}
+
+	/**
+	 * 获取昨日的日期格式串
+	 *
+	 * @return Date
+	 */
+	public static String getYesterdaySimple() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE, -1);
+		return formatDate(calendar.getTime(), DATE_FORMAT_DATE);
 	}
 
 	/**

@@ -10,3 +10,4 @@ Spring Boot
     SpringBootServlet
     SpringBootAnnouncement
     tutorials/index
+    miniprogram/index

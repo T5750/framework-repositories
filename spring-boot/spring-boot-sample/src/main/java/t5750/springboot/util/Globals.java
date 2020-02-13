@@ -11,6 +11,7 @@ public class Globals {
 	public static final String KAFKA_BOOTSTRAP_SERVERS = "192.168.100.163:9092";
 	public static final String KAFKA_GROUP_ID = "group-id";
 	public static final String KAFKA_TOPIC = "tutorialspoint";
+	public static final String[] FILTER_EXCLUDE = { "/mini/", "favicon.ico" };
 
 	public static String getBasePath(HttpServletRequest request) {
 		String path = request.getContextPath();
