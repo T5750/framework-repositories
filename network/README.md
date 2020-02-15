@@ -21,5 +21,11 @@
     - [从tcpdump抓包看TCP/IP协议](../doc/source/network/TcpIpByTcpdump.md)
 - [Network Collection](../doc/source/network/networkCollection.md)
 
+### HttpClient
+- [Posting with HttpClient](../doc/source/network/http/httpClientPost.md)
+- [HttpClient Timeout](../doc/source/network/http/httpClientTimeout.md)
+- [Custom HTTP Header with the HttpClient](../doc/source/network/http/httpClientCustomHttpHeader.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [HttpClient 4.5.3](https://hc.apache.org/downloads.cgi)
