@@ -25,6 +25,7 @@
 - [Posting with HttpClient](../doc/source/network/http/httpClientPost.md)
 - [HttpClient Timeout](../doc/source/network/http/httpClientTimeout.md)
 - [Custom HTTP Header with the HttpClient](../doc/source/network/http/httpClientCustomHttpHeader.md)
+- [HttpClient Connection Management](../doc/source/network/http/httpClientConnectionManagement.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

@@ -19,19 +19,19 @@ import org.apache.http.params.HttpParams;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import t5750.network.http.util.HcUtil;
 import t5750.network.http.util.ResponseUtil;
 
 /**
  * HttpClient Timeout
  */
 public class HttpClientTimeoutTest {
-	private static final String HTTPCLIENT_URL = "http://www.example.com";
-	private static final int TIMEOUT = 5 * 1000; // seconds
 	private HttpGet httpGet;
 
 	@Before
 	public void setup() {
-		httpGet = new HttpGet(HTTPCLIENT_URL);
+		httpGet = new HttpGet(HcUtil.HTTPCLIENT_URL);
 	}
 
 	private void executeDefaultHttpClient(DefaultHttpClient httpClient)
@@ -49,10 +49,11 @@ public class HttpClientTimeoutTest {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpParams httpParams = httpClient.getParams();
 		httpParams.setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT,
-				TIMEOUT);
-		httpParams.setParameter(CoreConnectionPNames.SO_TIMEOUT, TIMEOUT);
+				HcUtil.TIMEOUT);
+		httpParams.setParameter(CoreConnectionPNames.SO_TIMEOUT,
+				HcUtil.TIMEOUT);
 		httpParams.setParameter(ClientPNames.CONN_MANAGER_TIMEOUT,
-				new Long(TIMEOUT));
+				new Long(HcUtil.TIMEOUT));
 		executeDefaultHttpClient(httpClient);
 	}
 
@@ -63,8 +64,8 @@ public class HttpClientTimeoutTest {
 	public void configTimeoutsViaApi() throws Exception {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpParams httpParams = httpClient.getParams();
-		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT); // http.connection.timeout
-		HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT); // http.socket.timeout
+		HttpConnectionParams.setConnectionTimeout(httpParams, HcUtil.TIMEOUT); // http.connection.timeout
+		HttpConnectionParams.setSoTimeout(httpParams, HcUtil.TIMEOUT); // http.socket.timeout
 		executeDefaultHttpClient(httpClient);
 	}
 
@@ -74,6 +75,7 @@ public class HttpClientTimeoutTest {
 		System.out.println("HTTP Status of response: "
 				+ response.getStatusLine().getStatusCode());
 		ResponseUtil.closeResponse(response);
+		client.close();
 	}
 
 	/**
@@ -81,9 +83,10 @@ public class HttpClientTimeoutTest {
 	 */
 	@Test
 	public void configTimeoutsUsingBuilder() throws Exception {
-		RequestConfig config = RequestConfig.custom().setConnectTimeout(TIMEOUT)
-				.setConnectionRequestTimeout(TIMEOUT).setSocketTimeout(TIMEOUT)
-				.build();
+		RequestConfig config = RequestConfig.custom()
+				.setConnectTimeout(HcUtil.TIMEOUT)
+				.setConnectionRequestTimeout(HcUtil.TIMEOUT)
+				.setSocketTimeout(HcUtil.TIMEOUT).build();
 		CloseableHttpClient client = HttpClientBuilder.create()
 				.setDefaultRequestConfig(config).build();
 		executeCloseableHttpClient(client);
@@ -103,7 +106,7 @@ public class HttpClientTimeoutTest {
 				}
 			}
 		};
-		new Timer(true).schedule(task, TIMEOUT);
+		new Timer(true).schedule(task, HcUtil.TIMEOUT);
 		executeCloseableHttpClient(client);
 	}
 
@@ -113,9 +116,10 @@ public class HttpClientTimeoutTest {
 	@Test(expected = ConnectTimeoutException.class)
 	@Ignore
 	public void timeoutDNSRoundRobin() throws Exception {
-		RequestConfig config = RequestConfig.custom().setConnectTimeout(TIMEOUT)
-				.setConnectionRequestTimeout(TIMEOUT).setSocketTimeout(TIMEOUT)
-				.build();
+		RequestConfig config = RequestConfig.custom()
+				.setConnectTimeout(HcUtil.TIMEOUT)
+				.setConnectionRequestTimeout(HcUtil.TIMEOUT)
+				.setSocketTimeout(HcUtil.TIMEOUT).build();
 		CloseableHttpClient client = HttpClientBuilder.create()
 				.setDefaultRequestConfig(config).build();
 		httpGet = new HttpGet("http://www.google.com:81");

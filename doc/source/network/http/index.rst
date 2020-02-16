@@ -9,3 +9,4 @@ Hypertext Transfer Protocol (HTTP)
     httpClientPost
     httpClientTimeout
     httpClientCustomHttpHeader
+    httpClientConnectionManagement

@@ -24,6 +24,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import t5750.network.http.util.HcUtil;
 import t5750.network.http.util.ResponseUtil;
 import t5750.network.test.AbstractTest;
 
@@ -31,7 +32,6 @@ import t5750.network.test.AbstractTest;
  * Posting with HttpClient
  */
 public class HttpClientPostTest extends AbstractTest {
-	private static final String HTTPCLIENT_URL = "http://www.example.com";
 	private static final String FILE_PATHNAME = "build.gradle";
 	private static final String FILENAME = "file.ext";
 	private CloseableHttpClient client;
@@ -41,7 +41,7 @@ public class HttpClientPostTest extends AbstractTest {
 	@Before
 	public void setup() {
 		client = HttpClients.createDefault();
-		httpPost = new HttpPost(HTTPCLIENT_URL);
+		httpPost = new HttpPost(HcUtil.HTTPCLIENT_URL);
 	}
 
 	@After
@@ -54,6 +54,7 @@ public class HttpClientPostTest extends AbstractTest {
 			// Fluent API
 			assertEquals(statusCode, 200);
 		}
+		client.close();
 	}
 
 	/**
@@ -96,7 +97,7 @@ public class HttpClientPostTest extends AbstractTest {
 	 */
 	@Test
 	public void postFormFluentAPI() throws Exception {
-		HttpResponse response = Request.Post(HTTPCLIENT_URL)
+		HttpResponse response = Request.Post(HcUtil.HTTPCLIENT_URL)
 				.bodyForm(Form.form().add("username", "John")
 						.add("password", "pass").build())
 				.execute().returnResponse();
