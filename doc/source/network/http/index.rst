@@ -10,3 +10,5 @@ Hypertext Transfer Protocol (HTTP)
     httpClientTimeout
     httpClientCustomHttpHeader
     httpClientConnectionManagement
+    httpClientSsl
+    httpClientBasicAuthentication

@@ -12,3 +12,4 @@ nginx Lua
     nginxLuaWebService
     nginxLuaWebDescPage
     nginxLuaWebTest
+    nginxLuaFlashSale

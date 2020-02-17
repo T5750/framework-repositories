@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -48,11 +49,12 @@ public class HttpClientPostTest extends AbstractTest {
 	public void destroy() throws Exception {
 		if (statusCode == 0) {
 			CloseableHttpResponse response = client.execute(httpPost);
-			assertEquals(response.getStatusLine().getStatusCode(), 200);
+			assertEquals(response.getStatusLine().getStatusCode(),
+					HttpStatus.SC_OK);
 			ResponseUtil.closeResponse(response);
 		} else {
 			// Fluent API
-			assertEquals(statusCode, 200);
+			assertEquals(statusCode, HttpStatus.SC_OK);
 		}
 		client.close();
 	}

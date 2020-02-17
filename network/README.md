@@ -26,7 +26,10 @@
 - [HttpClient Timeout](../doc/source/network/http/httpClientTimeout.md)
 - [Custom HTTP Header with the HttpClient](../doc/source/network/http/httpClientCustomHttpHeader.md)
 - [HttpClient Connection Management](../doc/source/network/http/httpClientConnectionManagement.md)
+- [HttpClient with SSL](../doc/source/network/http/httpClientSsl.md)
+- [HttpClient Basic Authentication](../doc/source/network/http/httpClientBasicAuthentication.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [HttpClient 4.5.3](https://hc.apache.org/downloads.cgi)
+- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
