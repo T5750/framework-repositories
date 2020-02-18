@@ -12,3 +12,4 @@ Hypertext Transfer Protocol (HTTP)
     httpClientConnectionManagement
     httpClientSsl
     httpClientBasicAuthentication
+    httpAsyncClient

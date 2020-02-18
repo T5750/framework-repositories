@@ -28,8 +28,6 @@ import t5750.network.test.AbstractTest;
  * HttpClient Basic Authentication
  */
 public class HttpClientBasicAuthenticationTest extends AbstractTest {
-	private static final String USERNAME = "user";
-	private static final String PASSWORD = "pass";
 	private CloseableHttpClient client;
 
 	@After
@@ -46,7 +44,7 @@ public class HttpClientBasicAuthenticationTest extends AbstractTest {
 	public void basicAuthentication() throws Exception {
 		CredentialsProvider provider = new BasicCredentialsProvider();
 		UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(
-				USERNAME, PASSWORD);
+				HcUtil.SECURITY_USERNAME, HcUtil.SECURITY_PASSWORD);
 		provider.setCredentials(AuthScope.ANY, credentials);
 		client = HttpClientBuilder.create()
 				.setDefaultCredentialsProvider(provider).build();
@@ -65,7 +63,8 @@ public class HttpClientBasicAuthenticationTest extends AbstractTest {
 				HcUtil.SECURITY_PORT, "http");
 		CredentialsProvider credsProvider = new BasicCredentialsProvider();
 		credsProvider.setCredentials(AuthScope.ANY,
-				new UsernamePasswordCredentials(USERNAME, PASSWORD));
+				new UsernamePasswordCredentials(HcUtil.SECURITY_USERNAME,
+						HcUtil.SECURITY_PASSWORD));
 		AuthCache authCache = new BasicAuthCache();
 		authCache.put(targetHost, new BasicScheme());
 		// Add AuthCache to the execution context
@@ -85,7 +84,7 @@ public class HttpClientBasicAuthenticationTest extends AbstractTest {
 	@Test
 	public void basicAuthWithRawHttpHeaders() throws Exception {
 		HttpGet request = new HttpGet(HcUtil.SECURITY_PRODUCTS_URL);
-		String auth = USERNAME + ":" + PASSWORD;
+		String auth = HcUtil.SECURITY_USERNAME + ":" + HcUtil.SECURITY_PASSWORD;
 		byte[] encodedAuth = Base64
 				.encodeBase64(auth.getBytes(StandardCharsets.ISO_8859_1));
 		String authHeader = "Basic " + new String(encodedAuth);
