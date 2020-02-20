@@ -64,7 +64,10 @@ HelloWorld程序：实现对Solr服务器的信息添加、查询、修改、删
 - 无论是Solr还是Lucene，对中文分词都不太好，所以，一般索引中文需要使用IK中文分词器。
 - 下载：`IK Analyzer 2012FF_hf1.zip`
 - 进行解压：`tar IK Analyzer 2012FF_hf1.zip`
-- 安装：把`IKAnalyzer2012FF_u1.jar`拷贝到Tomcat的Solr应用服务下：`cd /usr/local/software && cp IKAnalyzer2012FF_u1.jar /usr/local/apache-tomcat-7.0.29/webapps/solr/WEB-INF/lib/`
+- 安装：把`IKAnalyzer2012FF_u1.jar`拷贝到Tomcat的Solr应用服务下：
+    ```
+    cd /usr/local/software && cp IKAnalyzer2012FF_u1.jar /usr/local/apache-tomcat-7.0.29/webapps/solr/WEB-INF/lib/
+    ```
 - 创建`classes`文件夹：`mkdir /usr/local/apache-tomcat-7.0.29/webapps/solr/WEB-INF/classes`
 - 把`IKAnalyzer.cfg.xml`和`stopword.dic`拷贝到新创建的`classes`目录下即可。
 - 修改Solr core的`schema`文件，默认是：`vim /usr/local/solr-4.10.3/example/solr/collection1/conf/schema.xml`
@@ -170,8 +173,14 @@ Solr可以对查询数据进行一系列的操作。
 ## 3.1 Solr管理员命令
 在生产环境时，需要管理员维护Solr服务器的数据信息。那么两种主要的手段：
 1. 直接使用curl命令进行操作Solr数据，如：
-    - 删除：`curl http://localhost:8080/solr/update --data-binary "<delete><query>name:abc</query></delete>" -H 'Content-type:text/xml;charset=utf-8'`
-    - 提交：`curl http://localhost:8080/solr/update --data-binary "<commit/>" -H 'Content-type:text/xml;charset=utf-8'`
+    - 删除：
+        ```
+        curl http://localhost:8080/solr/update --data-binary "<delete><query>name:abc</query></delete>" -H 'Content-type:text/xml;charset=utf-8'
+        ```
+    - 提交：
+        ```
+        curl http://localhost:8080/solr/update --data-binary "<commit/>" -H 'Content-type:text/xml;charset=utf-8'
+        ```
 1. 进入：`/usr/locallsolr-4.10.3/example/exampledocs`下执行`java -jar post.jar`命令进行维护数据操作：
     - 删除：`java -Ddata=args -jar postjar "<delete><id>42</d></delete>"`
     - 帮助：`java jar post.jar -help`

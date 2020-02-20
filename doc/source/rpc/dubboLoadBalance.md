@@ -57,7 +57,8 @@ Dubbo 提供了4种负载均衡实现：
 - `ConsistentHashLoadBalance#doSelect(List<Invoker<T>> invokers, URL url, Invocation invocation)`
 	* 做了一些前置工作，比如检测 `invokers` 列表是不是变动过，以及创建 `ConsistentHashSelector`
 	* 调用 `ConsistentHashSelector` 的 `select` 方法执行负载均衡逻辑
-- `ConsistentHashSelector#ConsistentHashSelector(List<Invoker<T>> invokers, String methodName, int identityHashCode)`:
+- `ConsistentHashSelector#ConsistentHashSelector(List<Invoker<T>> invokers, String methodName,`
+	` int identityHashCode)`:
 	* 构造方法执行了一系列的初始化逻辑，比如从配置中获取虚拟节点数以及参与 `hash` 计算的参数下标，默认情况下只使用第一个参数进行 `hash`
 	* `ConsistentHashLoadBalance` 的负载均衡逻辑只受参数值影响，具有相同参数值的请求将会被分配给同一个服务提供者
 - `ConsistentHashSelector+select(Invocation invocation)`: 对参数进行 `md5` 以及 `hash` 运算，得到一个 `hash` 值

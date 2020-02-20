@@ -43,7 +43,8 @@ Dubbo 主要提供了这样几种容错方式：
 		+ 通过负载均衡组件选择一个 `Invoker`
 		+ 再通过这个 `Invoker` 的 `invoke` 方法进行远程调用
 		+ 如果失败了，记录下异常，并进行重试。重试时会再次调用父类的 `list` 方法列举 `Invoker`
-- `select(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers, List<Invoker<T>> selected)`:
+- `select(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers,`
+    ` List<Invoker<T>> selected)`:
 	* 获取 `sticky` 配置，`sticky` 表示粘滞连接。所谓粘滞连接是指让服务消费者尽可能的调用同一个服务提供者，除非该提供者挂了再进行切换
 	* 检测 `invokers` 列表中是否包含 `stickyInvoker`，如果不包含，则认为该 `stickyInvoker` 不可用，此时将其置空。这里的 `invokers` 列表可以看做是**存活着的服务提供者**列表
     * 如果 `stickyInvoker` 存在于 `invokers` 列表中，检测 `selected` 中是否包含 `stickyInvoker`
@@ -51,10 +52,12 @@ Dubbo 主要提供了这样几种容错方式：
     	+ 如果不包含，此时还需要进行可用性检测，比如检测服务提供者网络连通性等
     * 当可用性检测通过，才可返回 `stickyInvoker`，否则调用 `doSelect` 方法选择 `Invoker`
     * 如果 `sticky` 为 `true`，此时会将 `doSelect` 方法选出的 `Invoker` 赋值给 `stickyInvoker`
-- `doSelect(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers, List<Invoker<T>> selected)`:
+- `doSelect(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers,`
+    ` List<Invoker<T>> selected)`:
 	1. 通过负载均衡组件选择 `Invoker`
 	2. 如果选出来的 `Invoker` 不稳定，或不可用，此时需要调用 `reselect` 方法进行重选
-- `reselect(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers, List<Invoker<T>> selected, boolean availablecheck)`:
+- `reselect(LoadBalance loadbalance, Invocation invocation, List<Invoker<T>> invokers,`
+    ` List<Invoker<T>> selected, boolean availablecheck)`:
     1. 查找可用的 `Invoker`，并将其添加到 `reselectInvokers` 集合中
     2. 如果 `reselectInvokers` 不为空，则通过负载均衡组件再次进行选择
 
