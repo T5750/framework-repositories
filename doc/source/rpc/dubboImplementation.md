@@ -1,6 +1,9 @@
 # Dubbo Implementation
 
 ## 初始化过程细节
+### 解析服务
+所有 dubbo 的标签，都统一用 `DubboBeanDefinitionParser` 进行解析，基于一对一属性映射，将 XML 标签解析为 Bean 对象
+
 ### 暴露服务
 1. 只暴露服务端口
     - `ServiceConfig` 解析出的 URL 的格式为： `dubbo://service-host/com.foo.FooService?version=1.0.0`
