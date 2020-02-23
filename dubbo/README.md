@@ -10,6 +10,8 @@
 - [Dubbo Implementation](../doc/source/rpc/dubboImplementation.md)
 - [Dubbo Impls Protocol](../doc/source/rpc/dubboImplsProtocol.md)
 - [Dubbo Impls Filter](../doc/source/rpc/dubboImplsFilter.md)
+- [Dubbo Impls Registry](../doc/source/rpc/dubboImplsRegistry.md)
+- [Dubbo Impls Config Center](../doc/source/rpc/dubboImplsConfigCenter.md)
 - [Dubbo SPI](../doc/source/rpc/dubboSpi.md)
 - [Dubbo Adaptive Extension](../doc/source/rpc/dubboAdaptiveExtension.md)
 - [Dubbo Export Service](../doc/source/rpc/dubboExportService.md)

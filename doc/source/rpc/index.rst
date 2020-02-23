@@ -18,6 +18,8 @@ RPC
     dubboImplementation
     dubboImplsProtocol
     dubboImplsFilter
+    dubboImplsRegistry
+    dubboImplsConfigCenter
     dubboSpi
     dubboAdaptiveExtension
     dubboExportService
