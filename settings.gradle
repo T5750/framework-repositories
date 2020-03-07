@@ -208,4 +208,4 @@ include 'spring-boot:spring-boot2-security'
 findProject(':spring-boot:spring-boot2-security')?.name = 'spring-boot2-security'
 include 'spring-boot:spring-boot2-oauth2'
 findProject(':spring-boot:spring-boot2-oauth2')?.name = 'spring-boot2-oauth2'
-
+include 'rest'

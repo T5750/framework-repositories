@@ -1,0 +1,9 @@
+apply plugin: 'war'
+
+dependencies {
+    def jerseyVersion = "2.30.1"
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: "$jerseyVersion"
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: "$jerseyVersion"
+    compile group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: "$jerseyVersion"
+    providedCompile 'org.apache.tomcat:tomcat-catalina:8.5.14'
+}

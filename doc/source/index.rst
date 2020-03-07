@@ -26,6 +26,7 @@ Framework Repositories
    network/index
    nginx/index
    open-source/index
+   rest/index
    rpc/index
    sphinx/index
    spring/index

@@ -1,9 +1,8 @@
-Open Source
+REST
 ===============================
 
 .. toctree::
     :maxdepth: 2
     :numbered: 0
 
-    openSourceLicenses
-    gitHubSecurity
+    jerseyTomcat
