@@ -6,6 +6,7 @@ import java.util.Map;
 
 import t5750.rest.jersey.model.Address;
 import t5750.rest.jersey.model.Contact;
+import t5750.rest.jersey.util.Globals;
 
 public class ContactStore {
 	private static Map<String, Contact> store;
@@ -26,7 +27,8 @@ public class ContactStore {
 	private static void initOneContact() {
 		Address[] addrs = { new Address("Shanghai", "Long Hua Street"),
 				new Address("Shanghai", "Dong Quan Street") };
-		Contact cHuang = new Contact("t5750", "T5750", Arrays.asList(addrs));
-		store.put(cHuang.getId(), cHuang);
+		Contact contact = new Contact(Globals.T5750,
+				Globals.T5750.toUpperCase(), Arrays.asList(addrs));
+		store.put(contact.getId(), contact);
 	}
 }

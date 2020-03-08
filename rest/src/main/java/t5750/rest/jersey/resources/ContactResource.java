@@ -14,10 +14,10 @@ import t5750.rest.jersey.util.ParamUtil;
 
 public class ContactResource {
 	@Context
-	UriInfo uriInfo;
+	private UriInfo uriInfo;
 	@Context
-	Request request;
-	String contact;
+	private Request request;
+	private String contact;
 
 	public ContactResource(UriInfo uriInfo, Request request, String contact) {
 		this.uriInfo = uriInfo;

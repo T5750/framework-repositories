@@ -6,3 +6,4 @@ REST
     :numbered: 0
 
     jerseyTomcat
+    jerseySecurity

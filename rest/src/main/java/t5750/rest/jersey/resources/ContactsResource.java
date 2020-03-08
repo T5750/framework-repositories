@@ -16,9 +16,9 @@ import t5750.rest.jersey.storage.ContactStore;
 @Path("/contacts")
 public class ContactsResource {
 	@Context
-	UriInfo uriInfo;
+	private UriInfo uriInfo;
 	@Context
-	Request request;
+	private Request request;
 
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
