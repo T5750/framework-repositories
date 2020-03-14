@@ -7,3 +7,5 @@ REST
 
     jerseyTomcat
     jerseySecurity
+    jerseyClientApi
+    jerseyClientAuthentication

@@ -13,3 +13,4 @@
 - [Date Range Picker](daterangepicker/README.md)
 - [Select2](select2/README.md)
 - [Key](key/README.md)
+- [Moving Letters](moving-letters/README.md)
