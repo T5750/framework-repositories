@@ -13,13 +13,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import t5750.rest.jersey.client.util.JerseyUtil;
 import t5750.rest.jersey.model.Employee;
 import t5750.rest.jersey.model.Employees;
 import t5750.rest.jersey.provider.GsonMessageBodyHandler;
 import t5750.rest.jersey.util.Globals;
 
 public class JerseyClientApiTest {
-	private static final String REST_URL = "http://localhost:8080/rest/jersey";
 	private Client client;
 
 	@Before
@@ -44,7 +44,8 @@ public class JerseyClientApiTest {
 
 	@Test
 	public void httpGETCollection() {
-		WebTarget webTarget = client.target(REST_URL).path("employees");
+		WebTarget webTarget = client.target(JerseyUtil.REST_URL)
+				.path("employees");
 		Invocation.Builder invocationBuilder = webTarget
 				.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -60,8 +61,8 @@ public class JerseyClientApiTest {
 
 	@Test
 	public void httpGETEntity() {
-		WebTarget webTarget = client.target(REST_URL).path("employees")
-				.path("1");
+		WebTarget webTarget = client.target(JerseyUtil.REST_URL)
+				.path("employees").path("1");
 		Invocation.Builder invocationBuilder = webTarget
 				.request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
@@ -72,7 +73,8 @@ public class JerseyClientApiTest {
 
 	@Test
 	public void httpPOSTMethod() {
-		WebTarget webTarget = client.target(REST_URL).path("employees");
+		WebTarget webTarget = client.target(JerseyUtil.REST_URL)
+				.path("employees");
 		Employee emp = new Employee();
 		emp.setId(4);
 		emp.setName(Globals.T5750.toUpperCase());
@@ -86,8 +88,8 @@ public class JerseyClientApiTest {
 
 	@Test
 	public void httpPUTMethod() {
-		WebTarget webTarget = client.target(REST_URL).path("employees")
-				.path("1");
+		WebTarget webTarget = client.target(JerseyUtil.REST_URL)
+				.path("employees").path("1");
 		Employee emp = new Employee();
 		emp.setId(1);
 		emp.setName(Globals.T5750.toUpperCase());
@@ -102,8 +104,8 @@ public class JerseyClientApiTest {
 
 	@Test
 	public void httpDELETEMethod() {
-		WebTarget webTarget = client.target(REST_URL).path("employees")
-				.path("1");
+		WebTarget webTarget = client.target(JerseyUtil.REST_URL)
+				.path("employees").path("1");
 		Invocation.Builder invocationBuilder = webTarget.request();
 		Response response = invocationBuilder.delete();
 		System.out.println(response.getStatus());

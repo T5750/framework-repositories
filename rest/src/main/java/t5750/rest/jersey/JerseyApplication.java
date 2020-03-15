@@ -3,6 +3,7 @@ package t5750.rest.jersey;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import t5750.rest.jersey.provider.AuthenticationFilter;
+import t5750.rest.jersey.provider.CustomLoggingFilter;
 import t5750.rest.jersey.provider.GsonMessageBodyHandler;
 
 public class JerseyApplication extends ResourceConfig {
@@ -11,5 +12,6 @@ public class JerseyApplication extends ResourceConfig {
 		// register(LoggingFilter.class);
 		register(GsonMessageBodyHandler.class);
 		register(AuthenticationFilter.class);
+		register(CustomLoggingFilter.class);
 	}
 }

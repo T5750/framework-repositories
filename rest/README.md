@@ -3,6 +3,11 @@
 ## Contents
 ### Jersey
 - [Jersey Tomcat](../doc/source/rest/jerseyTomcat.md)
+- [Jersey Logging](../doc/source/rest/jerseyLogging.md)
+- [Jersey File Download](../doc/source/rest/jerseyFileDownload.md)
+- [Jersey File Upload](../doc/source/rest/jerseyFileUpload.md)
+- [Jersey Multi-File Upload](../doc/source/rest/jerseyMultiFileUpload.md)
+- [Jersey Gson](../doc/source/rest/jerseyGson.md)
 - [Jersey Security](../doc/source/rest/jerseySecurity.md)
 
 ### Jersey Client

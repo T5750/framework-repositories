@@ -6,6 +6,11 @@ REST
     :numbered: 0
 
     jerseyTomcat
+    jerseyLogging
+    jerseyFileDownload
+    jerseyFileUpload
+    jerseyMultiFileUpload
+    jerseyGson
     jerseySecurity
     jerseyClientApi
     jerseyClientAuthentication

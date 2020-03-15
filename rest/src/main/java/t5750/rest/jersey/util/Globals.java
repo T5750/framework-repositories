@@ -5,4 +5,5 @@ public class Globals {
 	public static final String PASSWORD = "123";
 	public static final String ADMIN = "ADMIN";
 	public static final String PATH_FILTER = "employees";
+	public static final String UPLOAD_PATH = "D:/code/";;
 }
