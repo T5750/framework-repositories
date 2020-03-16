@@ -29,8 +29,9 @@ public class ContactResource {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Contact getContact() {
 		Contact cont = ContactStore.getStore().get(contact);
-		if (cont == null)
+		if (cont == null) {
 			throw new NotFoundException("No such Contact.");
+		}
 		return cont;
 	}
 
@@ -63,7 +64,8 @@ public class ContactResource {
 	@DELETE
 	public void deleteContact() {
 		Contact c = ContactStore.getStore().remove(contact);
-		if (c == null)
+		if (c == null) {
 			throw new NotFoundException("No such Contact.");
+		}
 	}
 }

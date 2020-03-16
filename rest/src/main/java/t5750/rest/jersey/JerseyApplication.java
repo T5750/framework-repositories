@@ -5,6 +5,8 @@ import org.glassfish.jersey.server.ResourceConfig;
 import t5750.rest.jersey.provider.AuthenticationFilter;
 import t5750.rest.jersey.provider.CustomLoggingFilter;
 import t5750.rest.jersey.provider.GsonMessageBodyHandler;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
 
 public class JerseyApplication extends ResourceConfig {
 	public JerseyApplication() {
@@ -13,5 +15,7 @@ public class JerseyApplication extends ResourceConfig {
 		register(GsonMessageBodyHandler.class);
 		register(AuthenticationFilter.class);
 		register(CustomLoggingFilter.class);
+		register(ApiListingResource.class);
+		register(SwaggerSerializers.class);
 	}
 }

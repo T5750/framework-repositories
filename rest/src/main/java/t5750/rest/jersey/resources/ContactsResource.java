@@ -12,8 +12,10 @@ import javax.ws.rs.core.*;
 import t5750.rest.jersey.model.Address;
 import t5750.rest.jersey.model.Contact;
 import t5750.rest.jersey.storage.ContactStore;
+import io.swagger.annotations.Api;
 
 @Path("/contacts")
+@Api(value = "contacts")
 public class ContactsResource {
 	@Context
 	private UriInfo uriInfo;

@@ -14,3 +14,4 @@ REST
     jerseySecurity
     jerseyClientApi
     jerseyClientAuthentication
+    jerseySwagger

@@ -14,7 +14,12 @@
 - [Jersey Client API](../doc/source/rest/jerseyClientApi.md)
 - [Jersey Client Authentication](../doc/source/rest/jerseyClientAuthentication.md)
 
+### Jersey Swagger
+- [Jersey Swagger](../doc/source/rest/jerseySwagger.md)
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Jersey 2.30.x](https://mvnrepository.com/search?q=jersey)
 - [Gson 2.8.5](https://github.com/google/gson)
+- [Swagger Core 1.5.X](https://github.com/swagger-api/swagger-core/tree/1.5)
+- [Swagger UI 2.x](https://github.com/swagger-api/swagger-ui/tree/2.x)

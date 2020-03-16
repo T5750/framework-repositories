@@ -89,7 +89,6 @@ Now you will need to register above filter with `ResourceConfig` instance
 public class JerseyApplication extends ResourceConfig {
 	public JerseyApplication() {
 		packages("t5750.rest.jersey.resources", "t5750.rest.jersey.service");
-		// register(LoggingFilter.class);
 		register(GsonMessageBodyHandler.class);
 		register(AuthenticationFilter.class);
 	}
