@@ -10,8 +10,10 @@ import javax.ws.rs.core.*;
 import t5750.rest.jersey.model.Employee;
 import t5750.rest.jersey.model.Employees;
 import t5750.rest.jersey.util.Globals;
+import io.swagger.annotations.Api;
 
 @Path("/employees")
+@Api(value = "employees")
 public class EmployeesService {
 	@Context
 	private UriInfo uriInfo;
@@ -22,8 +24,8 @@ public class EmployeesService {
 			employees = new Employees();
 			employees.setEmployeeList(new ArrayList<Employee>());
 			employees.getEmployeeList().add(new Employee(1, "Lokesh Gupta"));
-			employees.getEmployeeList()
-					.add(new Employee(2, "Alex Kolenchiskey"));
+			employees.getEmployeeList().add(
+					new Employee(2, "Alex Kolenchiskey"));
 			employees.getEmployeeList().add(new Employee(3, "David Kameron"));
 		}
 		return employees;
@@ -44,8 +46,8 @@ public class EmployeesService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addEmployee(Employee e) throws URISyntaxException {
 		if (e == null) {
-			return Response.status(400).entity("Please add employee details !!")
-					.build();
+			return Response.status(400)
+					.entity("Please add employee details !!").build();
 		}
 		if (e.getName() == null) {
 			return Response.status(400)
@@ -74,8 +76,7 @@ public class EmployeesService {
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateEmployeeById(@PathParam("id") Integer id,
-			Employee e) {
+	public Response updateEmployeeById(@PathParam("id") Integer id, Employee e) {
 		employees = initEmployees();
 		if (id > employees.getEmployeeList().size()) {
 			return Response.status(400)

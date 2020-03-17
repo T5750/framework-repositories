@@ -51,7 +51,7 @@ A few things to note:
 2. `cp -avx swagger-ui-2.x/dist/ webapps/`
 3. `vi index.html`:
 	- `http://petstore.swagger.io/v2/swagger.json` -> `http://localhost:8080/rest/jersey/swagger.json`
-	- `http://swagger.io` -> `http://localhost:8080/api`
+	- `http://swagger.io` -> `/api`
 
 ## Quick Annotation Overview
 
@@ -81,6 +81,33 @@ Name | Description
 @Extension | Adds an extension with contained properties
 @ExtensionProperty | Adds custom properties to an extension
 
+## Config
+### Setting scan.all.resources
+```xml
+<init-param>
+	<param-name>scan.all.resources</param-name>
+	<param-value>true</param-value>
+</init-param>
+```
+
+### Adding Basic Authorization for Swagger UI
+`vi index.html`
+```html
+window.swaggerUi.load();
+swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", "Basic dDU3NTA6MTIz", "header"));
+```
+Or `JerseyApplication`
+```
+Swagger swagger = new Swagger().info(info);
+swagger.securityDefinition("api_key", new ApiKeyAuthDefinition("api_key", In.HEADER));
+new SwaggerContextService().updateSwagger(swagger);
+```
+
+### CORS Support
+- `ApiOriginFilter`
+
 ## References
 - [Swagger Core Jersey 2.X Project Setup 1.5](https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-Jersey-2.X-Project-Setup-1.5)
 - [Annotations 1.5.X](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
+- [swagger-samples](https://github.com/swagger-api/swagger-samples/blob/master/java/java-jaxrs-no-annotations/src/main/webapp/WEB-INF/web.xml)
+- [Adding Basic Authorization for Swagger-UI](https://stackoverflow.com/questions/31057343/adding-basic-authorization-for-swagger-ui)
