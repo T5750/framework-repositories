@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Spring</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		main > .container {
+			padding: 60px 15px 0;
+		}
+		.footer {
+			background-color: #f5f5f5;
+		}
+	</style>
+	<script src="js/index.js"></script>
+</head>
+<body class="d-flex flex-column h-100">
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+			<a class="navbar-brand" href="/spring">Spring</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/spring">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/T5750/framework-repositories" target="_blank">GitHub</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://t5750.github.io/" target="_blank">Blog</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main role="main" class="flex-shrink-0">
+		<div class="container">
+			<h4 class="mt-3">Spring Swagger</h4>
+			<a class="btn btn-outline-primary" href="swagger/login?username=a&password=b" role="button">Login</a>
+			<a class="btn btn-outline-primary" href="swagger/logout" role="button">Logout</a>
+			<a class="btn btn-outline-primary" href="swagger-ui.html" role="button">Swagger UI</a>
+		</div>
+	</main>
+	<footer class="footer mt-auto py-3">
+		<div class="container">
+			<span class="text-muted">© 2020 T5750</span>
+		</div>
+	</footer>
+</body>
+</html>

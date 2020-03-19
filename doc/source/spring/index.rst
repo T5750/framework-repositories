@@ -9,3 +9,4 @@ Spring
     transaction/index
     security/index
     jms/index
+    rest/index

@@ -1,0 +1,50 @@
+# Spring Swagger
+
+## SwaggerConfig
+```java
+@EnableSwagger2
+// @Profile("dev")
+public class SwaggerConfig {
+	@Value("${spring.profiles.active}")
+	private String activeProfile;
+
+	@Bean
+	public Docket userApi() {
+		boolean enable = "dev".equals(activeProfile) ? true : false;
+		return new Docket(DocumentationType.SWAGGER_2).enable(enable)
+				.apiInfo(apiInfo()).select().build();
+	}
+
+	private ApiInfo apiInfo() {
+		return new ApiInfoBuilder().title("Spring Swagger API").version("1.0")
+				.build();
+	}
+}
+```
+
+## spring-context.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- Standard xml based mvc config-->
+	<mvc:annotation-driven enable-matrix-variables="true"/>
+	<context:component-scan base-package="t5750.spring.swagger.controller"/>
+	<!-- Enables swgger ui-->
+	<mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+	<mvc:resources mapping="/static/**" location="/static/"/>
+	<!-- Include a swagger configuration-->
+	<bean name="/applicationSwaggerConfig" class="t5750.spring.swagger.config.SwaggerConfig"/>
+</beans>
+```
+
+## References
+- [springfox-demos](https://github.com/springfox/springfox-demos)
+- [Springfox Reference Documentation](https://springfox.github.io/springfox/docs/current/)

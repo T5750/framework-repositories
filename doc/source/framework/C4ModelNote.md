@@ -67,6 +67,7 @@
 - [Structurizr](https://structurizr.com/)
 - [Structurizr for Java/.NET + PlantUML](https://github.com/structurizr/java/blob/master/docs/plantuml.md)
 - [c4-draw.io](https://github.com/tobiashochguertel/c4-draw.io)
+    * Extras → Plugins → Add: [https://tobiashochguertel.github.io/c4-draw.io/c4.js](https://tobiashochguertel.github.io/c4-draw.io/c4.js)
 
 ## References
 - [The C4 model for visualising software architecture](https://c4model.com/)
