@@ -23,3 +23,4 @@
 - [Gson 2.8.5](https://github.com/google/gson)
 - [Swagger Core 1.5.X](https://github.com/swagger-api/swagger-core/tree/1.5)
 - [Swagger UI 2.x](https://github.com/swagger-api/swagger-ui/tree/2.x)
+- [Swagger UI 3.x](https://github.com/swagger-api/swagger-ui)

@@ -94,12 +94,13 @@ Name | Description
 `vi index.html`
 ```html
 window.swaggerUi.load();
+// Swagger UI 2.x
 swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", "Basic dDU3NTA6MTIz", "header"));
 ```
 Or `JerseyApplication`
 ```
 Swagger swagger = new Swagger().info(info);
-swagger.securityDefinition("api_key", new ApiKeyAuthDefinition("api_key", In.HEADER));
+swagger.securityDefinition(Globals.AUTHORIZATION, new ApiKeyAuthDefinition(Globals.AUTHORIZATION, In.HEADER));
 new SwaggerContextService().updateSwagger(swagger);
 ```
 

@@ -27,7 +27,6 @@ public class AuthenticationFilter
 		implements javax.ws.rs.container.ContainerRequestFilter {
 	@Context
 	private ResourceInfo resourceInfo;
-	private static final String AUTHORIZATION_PROPERTY = "Authorization";
 	private static final String AUTHENTICATION_SCHEME = "Basic";
 	private static final String ACCESS_DENIED = "You cannot access this resource";
 	private static final String ACCESS_FORBIDDEN = "Access blocked for all users !!";
@@ -55,7 +54,7 @@ public class AuthenticationFilter
 						.getHeaders();
 				// Fetch authorization header
 				final List<String> authorization = headers
-						.get(AUTHORIZATION_PROPERTY);
+						.get(Globals.AUTHORIZATION);
 				// If no authorization information present; block access
 				if (authorization == null || authorization.isEmpty()) {
 					requestContext.abortWith(buildResponse(ACCESS_DENIED));

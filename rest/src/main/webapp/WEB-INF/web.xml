@@ -38,6 +38,10 @@
 			<param-name>scan.all.resources</param-name>
 			<param-value>true</param-value>
 		</init-param>
+		<init-param>
+			<param-name>swagger.api.title</param-name>
+			<param-value>REST API</param-value>
+		</init-param>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<filter>
