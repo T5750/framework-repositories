@@ -1,4 +1,4 @@
-# Jersey Logging
+# Jersey Custom Logging
 
 ## Create CustomLoggingFilter
 ```java

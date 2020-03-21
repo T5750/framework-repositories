@@ -7,9 +7,11 @@ REST
 
     jerseyTomcat
     jerseyLogging
+    jerseyCookie
     jerseyFileDownload
     jerseyFileUpload
     jerseyMultiFileUpload
+    jerseyExceptionHandling
     jerseyGson
     jerseySecurity
     jerseyClientApi

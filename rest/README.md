@@ -3,10 +3,12 @@
 ## Contents
 ### Jersey
 - [Jersey Tomcat](../doc/source/rest/jerseyTomcat.md)
-- [Jersey Logging](../doc/source/rest/jerseyLogging.md)
+- [Jersey Custom Logging](../doc/source/rest/jerseyLogging.md)
+- [Jersey Set Cookie](../doc/source/rest/jerseyCookie.md)
 - [Jersey File Download](../doc/source/rest/jerseyFileDownload.md)
 - [Jersey File Upload](../doc/source/rest/jerseyFileUpload.md)
 - [Jersey Multi-File Upload](../doc/source/rest/jerseyMultiFileUpload.md)
+- [Jersey Exception Handling](../doc/source/rest/jerseyExceptionHandling.md)
 - [Jersey Gson](../doc/source/rest/jerseyGson.md)
 - [Jersey Security](../doc/source/rest/jerseySecurity.md)
 

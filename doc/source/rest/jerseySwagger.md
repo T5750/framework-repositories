@@ -47,11 +47,15 @@ A few things to note:
 3. There's no `<servlet-mapping>` for this servlet as it is only used for initialization and doesn't actually expose any interface.
 
 ## Swagger UI
+### Swagger UI 2.x
 1. Download https://github.com/swagger-api/swagger-ui/tree/2.x
 2. `cp -avx swagger-ui-2.x/dist/ webapps/`
 3. `vi index.html`:
 	- `http://petstore.swagger.io/v2/swagger.json` -> `http://localhost:8080/rest/jersey/swagger.json`
 	- `http://swagger.io` -> `/api`
+
+### Swagger UI 3.x
+https://github.com/swagger-api/swagger-ui
 
 ## Quick Annotation Overview
 
@@ -90,7 +94,25 @@ Name | Description
 </init-param>
 ```
 
-### Adding Basic Authorization for Swagger UI
+### CORS Support
+- `ApiOriginFilter`
+
+## Authorization
+### Loading a Swagger spec (.json/.yaml) that is protected by Basic auth
+`vi index.html`
+```html
+const url = "http://localhost:8080/rest/jersey/swagger.json";
+const ui = SwaggerUIBundle({
+  url: url,
+  requestInterceptor: (req) => {
+    if (req.url === url) {
+      req.headers.Authorization = "Basic " + btoa("t5750" + ":" + "123");
+    }
+    return req;
+  }
+```
+
+### Auto-add the Authorization header to all "try it out" requests
 `vi index.html`
 ```html
 window.swaggerUi.load();
@@ -104,11 +126,9 @@ swagger.securityDefinition(Globals.AUTHORIZATION, new ApiKeyAuthDefinition(Globa
 new SwaggerContextService().updateSwagger(swagger);
 ```
 
-### CORS Support
-- `ApiOriginFilter`
-
 ## References
 - [Swagger Core Jersey 2.X Project Setup 1.5](https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-Jersey-2.X-Project-Setup-1.5)
 - [Annotations 1.5.X](https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X)
 - [swagger-samples](https://github.com/swagger-api/swagger-samples/blob/master/java/java-jaxrs-no-annotations/src/main/webapp/WEB-INF/web.xml)
 - [Adding Basic Authorization for Swagger-UI](https://stackoverflow.com/questions/31057343/adding-basic-authorization-for-swagger-ui)
+- [Add possibility to loading a Swagger spec (.json/.yaml) that is protected by Basic auth. UI version 3.0](https://github.com/swagger-api/swagger-ui/issues/2793)

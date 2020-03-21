@@ -3,12 +3,13 @@ package t5750.rest.jersey.client;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.ws.rs.client.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,6 @@ import org.junit.Test;
 import t5750.rest.jersey.client.util.JerseyUtil;
 import t5750.rest.jersey.model.Employee;
 import t5750.rest.jersey.model.Employees;
-import t5750.rest.jersey.provider.GsonMessageBodyHandler;
 import t5750.rest.jersey.util.Globals;
 
 public class JerseyClientApiTest {
@@ -24,15 +24,7 @@ public class JerseyClientApiTest {
 
 	@Before
 	public void setup() {
-		// HttpAuthenticationFeature feature = HttpAuthenticationFeature
-		// .basicBuilder().nonPreemptive()
-		// .credentials(Globals.T5750, Globals.PASSWORD).build();
-		HttpAuthenticationFeature feature = HttpAuthenticationFeature
-				.basic(Globals.T5750, Globals.PASSWORD);
-		ClientConfig clientConfig = new ClientConfig();
-		clientConfig.register(feature);
-		clientConfig.register(GsonMessageBodyHandler.class);
-		client = ClientBuilder.newClient(clientConfig);
+		client = JerseyUtil.newClient();
 	}
 
 	@After
