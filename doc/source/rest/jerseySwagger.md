@@ -113,16 +113,36 @@ const ui = SwaggerUIBundle({
 ```
 
 ### Auto-add the Authorization header to all "try it out" requests
-`vi index.html`
+Swagger UI 2.x: `vi index.html`
 ```html
 window.swaggerUi.load();
-// Swagger UI 2.x
 swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", "Basic dDU3NTA6MTIz", "header"));
+```
+Swagger UI 3.x: `vi index.html`
+```html
+requestInterceptor: (req) => {
+  if (!req.loadSpec) {
+    req.headers.Authorization = 'Basic ' + btoa('t5750:123');
+  }
+  return req;
+}
+```
+Or `vi index.html`
+```html
+onComplete: function() {
+  // "basicAuth" is the key name of the security scheme in securityDefinitions
+  // ui.preauthorizeBasic("basicAuth", "username", "password");
+  ui.preauthorizeApiKey("Authorization", 'Basic ' + btoa('t5750:123'));
+}
 ```
 Or `JerseyApplication`
 ```
 Swagger swagger = new Swagger().info(info);
-swagger.securityDefinition(Globals.AUTHORIZATION, new ApiKeyAuthDefinition(Globals.AUTHORIZATION, In.HEADER));
+swagger.securityDefinition(Globals.AUTHORIZATION,
+		new ApiKeyAuthDefinition(Globals.AUTHORIZATION, In.HEADER));
+SecurityRequirement securityRequirement = new SecurityRequirement();
+securityRequirement.requirement(Globals.AUTHORIZATION);
+swagger.setSecurity(Arrays.asList(securityRequirement));
 new SwaggerContextService().updateSwagger(swagger);
 ```
 
@@ -132,3 +152,5 @@ new SwaggerContextService().updateSwagger(swagger);
 - [swagger-samples](https://github.com/swagger-api/swagger-samples/blob/master/java/java-jaxrs-no-annotations/src/main/webapp/WEB-INF/web.xml)
 - [Adding Basic Authorization for Swagger-UI](https://stackoverflow.com/questions/31057343/adding-basic-authorization-for-swagger-ui)
 - [Add possibility to loading a Swagger spec (.json/.yaml) that is protected by Basic auth. UI version 3.0](https://github.com/swagger-api/swagger-ui/issues/2793)
+- [How Can I add basic auth in swagger 3.0 automatically with out the user to type in at authorize button?](https://stackoverflow.com/questions/49422437/how-can-i-add-basic-auth-in-swagger-3-0-automatically-with-out-the-user-to-type)
+- [Add JWT authorization header in Swagger v3](https://github.com/swagger-api/swagger-ui/issues/2915)

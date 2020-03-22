@@ -11,9 +11,10 @@ A ~ C | D ~ G | H ~ L | M ~ R | S ~ T | U ~ Z
 |  | [Dubbo](dubbo/README.md) | [HBase](big-data/hbase/README.md) | [MySQL](databases/mysql/README.md) | [Spark SQL](big-data/spark/README.md) | 
 |  | [Dubbox](dubbo/README.md) | [Hive](big-data/hive/README.md) | [Netty](network/netty/README.md) | [Spring](spring/README.md) |
 |  | [FastDFS](nginx/fastdfs/README.md) | [HttpClient](network/README.md) | [nginx](nginx/README.md) | [Spring Boot](spring-boot/README.md) | 
-|  | [Flume](big-data/flume/README.md) | [Kafka](big-data/kafka/README.md) | [Oracle](databases/oracle/README.md) | [Spring Cloud](spring-cloud/README.md) | 
-|  |  | [Kettle](databases/kettle/README.md) | [Pig](big-data/pig/README.md) | [Spring Security](spring-boot/spring-boot-security/README.md) | 
-|  |  | [Linux](linux/README.md) | [Redis](databases/redis/README.md) | [Storm](big-data/storm/README.md) | 
+|  | [Flume](big-data/flume/README.md) | [Jersey](rest/README.md) | [Oracle](databases/oracle/README.md) | [Spring Cloud](spring-cloud/README.md) |
+|  |  | [Kafka](big-data/kafka/README.md) | [Pig](big-data/pig/README.md) | [Spring Security](spring-boot/spring-boot-security/README.md) |
+|  |  | [Kettle](databases/kettle/README.md) | [Redis](databases/redis/README.md) | [Storm](big-data/storm/README.md) |
+|  |  | [Linux](linux/README.md) |  |  |
 
 ## Docs
 - https://frameworks.readthedocs.io
