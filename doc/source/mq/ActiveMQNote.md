@@ -114,7 +114,7 @@ README.txt
 
 ## 3.1 Connection方法使用
 在成功创建正确的`ConnectionFactory`后，下一步是创建一个连接，它是JMS定义的一个接口。`ConnectionFactory`负责返回可以与底居消息传递系统进行通信的`Connection`实现。通常客户端只使用单一连接。根据JMS文档，`Connection`的目的是“利用JMS提供者封装幵放的连接”，以及表示“客户端与提供者服务例程之间的幵放TCP/IP套接字”。该文档还指出`Connection`应该是进行客户端身价验证的地方等等。
-- 当一个`Connection`被创建时，它的传输默认是关闭的，必须使用`start`方法幵启。一个`Connection`可以建立一个或多个的`Session`。
+- 当一个`Connection`被创建时，它的传输默认是关闭的，必须使用`start`方法开启。一个`Connection`可以建立一个或多个的`Session`。
 - 当一个程序执行完成后，必须关闭之前创建的`Connection`，否则ActiveMQ不能释放资源，关闭一个`Connection`同样也关闭了`Session`，`MessageProducer`和`MessageConsumer`。
 - `Connection createConnection();`
 - `Connection createConnection(String userName, String password);`
