@@ -27,7 +27,7 @@ topicName: publish.topic
 ```
 
 `ActiveMQConfig`：
-```
+```java
 @Configuration
 public class ActiveMQConfig {
 	@Value("${queueName}")

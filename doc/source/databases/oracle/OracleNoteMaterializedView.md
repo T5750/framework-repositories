@@ -29,7 +29,7 @@ create materialized view mv_name [选项N] as select * from table_name;
 
 ## 3.5.3 COMMIT刷新
 注意：基表必须要有主键
-```
+```sql
 create table B (clsid int primary key, name varchar2(10));
 create table A (id int prmary key, name varchar2(10),clsid int, constraint fk_cls id foreign key (clsid) references B(clsid));
 insert into b values(1,'一班');
@@ -40,7 +40,7 @@ insert into a values(3,'王五',2);
 commit;
 ```
 语法如下：
-```
+```sql
 CREATE MATERIALIZED VIEW V_AB
 REFRESH FORCE ON COMMIT
 AS
@@ -51,7 +51,7 @@ WHERE A.CLSID = B.CLSID;
 
 ## 3.5.4 DEMAND刷新
 语法如下：
-```
+```sql
 CREATE MATERIALIZED VIEW MV_AB
 REFRESH FORCE ON DEMAND
 	START WITH SYSDATE
@@ -64,7 +64,7 @@ WHERE A.CLSID = B.CLSID;
 
 ## 3.5.5 快速刷新的建立
 语法如下：
-```
+```sql
 CREATE MATERIALIZED VIEW LOG ON A WITH ROWID;
 CREATE MATERIALIZED VIEW LOG ON B WITH ROWID;
 CREATE MATERIALIZED VIEW MV_AB
@@ -81,12 +81,12 @@ WHERE A.CLSID= B.CLSID;
 从字面上理解就是别名的意思和视图的功能类似，就是一种映射关系。
 
 私有同义词：一般是普通用户自己建立的同义词，用于创建这需要`create synonym`权限
-```
+```sql
 grant create synonym to scott;
 create synonym abc for emp;
 ```
 公有同义词：一般是由DBA创建，所有的用户可以使用，创建者需要`create public synonym`权限
-```
+```sql
 create public synonym to scott;
 create public synonym xyz for emp;
 drop public synonym xyz;
@@ -99,7 +99,7 @@ drop public synonym xyz;
 - 引用的同义词的对象（表或视图）被删除了，同义词仍然存在，这同视图类似，重新创建该对象名，下次访问同义词时自动编译。
 
 例：
-```
+```sql
 create synonym wyz for emp1;
 drop table emp1;
 select * from wyz; --已删除表，义词转换不再有效
@@ -109,7 +109,7 @@ select * from wyz; --利用闪回,同义词再次有效
 
 ## 3.7.1 DBLINK
 Oracle的dblink用于对不同的数据库实例或者远程进行连接，语法如下：
-```
+```sql
 create public database link LINKNAME
 connect to USERNAME identified by PASSWD using
 '(DESCRIPTION=

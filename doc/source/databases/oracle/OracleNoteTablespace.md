@@ -3,7 +3,7 @@
 ## 5.1.1 表空间使用
 Oracle创建表空间
 1. 创建临时表空间
-	```
+	```sql
 	create temporary tablespace zcdb_temp
 	tempfile 'D:\oracle\datafile\zcdb_temp.dbf'
 	size 1024m
@@ -12,7 +12,7 @@ Oracle创建表空间
 	extent management local;
 	```
 1. 创建数据表空间
-	```
+	```sql
 	create tablespace zcdb
 	datafile 'D:\oracle\datafile\zcdb.dbf'
 	size 10240m
@@ -22,26 +22,26 @@ Oracle创建表空间
 	--alter tablespace zcdb add datafile 'D:\oracle\datafile\zcdb2.dbf' size 10240m autoextend on;
 	```
 1. 创建用户，并指定表空间
-	```
+	```sql
 	create user zcdb identified by zcdb
 	default tablespace zcdb
 	temporary tablespace zcdb_temp;
 	```
 1. 给用户授予权限
-	```
+	```sql
 	grant dba to zcdb;
 	```
 
 ## 5.1.2 查看表空间
 查看Oracle表空间和使用率：
-```
+```sql
 SELECT t.tablespace_name, round(SUM(bytes/(1024 * 1024)),0) ts_size
 FROM dba_tablespaces t, dba_data_fils d
 WHERE t.tablespace_name = d.tablespace_name
 GROUP BY t.tablespace_name;
 ```
 查看数据库实例名称：
-```
+```sql
 select instance_name from v$instance;
 ```
 
@@ -90,7 +90,7 @@ DB设计 | 面向实时交易类应用 | 面向统计分析类应用
 - 水平切分对于垂直切分相比，稍微复杂一些，因为需要将同一张表中不同数据拆分到不同的数据库中，对应用程序而言，拆分规则本身就较按照表明来拆分更复杂，后期的数据维护也会更复杂一些。
 
 ## 5.2.6 垂直切分
-把不同业务对应的表分到不同的数据库中，这样也就将数据或压力分担到不同的库上
+把不同业务对应的表分到不同的数据库中，这样也就将数据或压力分摊到不同的库上
 
 ![verticalSegmentation-min](https://www.wailian.work/images/2019/01/29/verticalSegmentation-min.jpg)
 
@@ -113,7 +113,7 @@ DB设计 | 面向实时交易类应用 | 面向统计分析类应用
     - 应用端改造较少，可以稍微轻松实现业务逻辑，但是后期需求变更维护比较麻烦。
     - 不存在单库多数据，以及高并发下性能的瓶颈问题，提高系统的稳定性和负载能力。
 - 垂直拆分就是最上层的业务逻辑拆分，比如电商的供应商、商品、库存、订单、网站等模块的业务流程非常清晰可见，最上层垂直拆分即可。
-- 水平拆分比如涉及到用户信息，订单信息，一般会设计多个系统，比如：
+- 水平拆分比如涉及到用户信息，订单信息，一般会涉及多个系统，比如：
     - 用户信息系统统计用户信息，根据用户级别等划分到不同的库
     - 或根据用户类型的方式把不同级别的用户分散到不同的数据库节点上去
     - 或按照用户的序号ID，做求模方式分散等
@@ -177,7 +177,7 @@ partition by range(field)(
 - local方式语法：`create index idxname on table(field) local;`
 - 查看分区索引：`select * from user_ind_partitions;`
 - global自定义全局（前缀索引）引方式语法：
-```
+```sql
 create index idxname on table(field) global
 partition by range(field)(
 	partition p1 values less than(value),
@@ -189,7 +189,7 @@ partition by range(field)(
 ## 5.2.13 hash分区
 hash分区实现均匀的负载值分配，増加hash分区可以重新分布数据。
 1. 建立散列分区表
-	```
+	```sql
 	create table my_emp(
 		empno number,
 		ename varchar2(10)
@@ -198,23 +198,23 @@ hash分区实现均匀的负载值分配，増加hash分区可以重新分布数
 	);
 	```
 1. 査看分区表结构
-	```
+	```sql
 	select * from user_tab_partitions where table_name='MY_EMP';
 	```
 1. 插入数据
-	```
+	```sql
 	insert into my_emp values(1,'A');
 	insert into my_emp values(2,'B');
 	insert into my_emp values(3,'C');
 	```
 1. 査看分区数据
-	```
+	```sql
 	select * from my_emp partition(p1);
 	select * from my_emp partition(p2);
 	```
 
 ## 5.2.14 list分区
-```
+```sql
 create table personcity(
 	id number,
 	name varchar2(10),
@@ -237,7 +237,7 @@ select * from personcity partition(east);
 
 ## 5.2.15 复合分区
 把范围分区和散列分区相结合，或范围分区和列表分区相结合
-```
+```sql
 create table student(
 	sno number,
 	sname varchar2(10)
@@ -257,7 +257,7 @@ select * from user_tab_subpartitions where table_name='STUDENT';
 - Interval Partitioning是一种分区自动化的分区，可以指定时间间隔进行分区，这是Oracle11g的新特性，这个功能在实际的工作中也非常常用。
 - Interval Partitioning一直是Oracle数据库引以为荣的一项技术，正是分区的存在让Oracle高效的处理海量数据成为可能。
 - Interval Partitioning实际上是由range分区引申的，最终实现了range分区的自动化。语法：
-```
+```sql
 create table interval_sale(sid int, sdate timestamp)
 partition by range(sdate)
 interval(numtoyminterval(1,'MONTH'))(

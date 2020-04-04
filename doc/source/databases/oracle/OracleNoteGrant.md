@@ -2,7 +2,7 @@
 
 ## 3.1.1 用户操作
 用户锁定和解锁/密码设置：
-```
+```sql
 alter user [USER] account lock;
 alter user [USER] account unlock;
 alter user scott identified by tiger;
@@ -21,7 +21,7 @@ revoke [权限] from [用户]
 在Oracle里有两个最著名的角色：connect、resource除了dba之外的最大角色。
 
 查看当前用户的所有权限：`select * from session_privs;`与scott用户下的权限进行对比，发现多了一个`unlimited`，其含义是拥有所有表空间配额的使用权限，这个权限太大了，一般来讲需要进行回收，然后重新进行分配一个表空间配额。
-```
+```sql
 revoke unlimited tablespace from [USER];
 select username,default tablespace from user_users;--查看用户缺省表空间
 alter user [USER] quota 10m on users;
@@ -134,7 +134,7 @@ TM：五种
 3 | RX(ROW EXCLUSIVE) | 行级排它锁，在提交前不允许做DML操作 | insert、update、delete、lock row share
 4 | S(SHARE) | 共享锁 | create index、lock share
 5 | SRX(SHARE ROW EXCLUSIVE) | 共享行级排它锁 | lock share row exclusive
-6 | X(EXCLUSIVE) | 排它锁 | alter table、drop able、drop index、truncate table 、lock exclusive
+6 | X(EXCLUSIVE) | 排它锁 | alter table、drop table、drop index、truncate table 、lock exclusive
 
 SQL语句 | 加锁模式 | 许可其他用户的加锁模式
 ------|---|----
@@ -151,7 +151,7 @@ lock table table_name in exclusive mode | X | 无
 自动加锁，做DML操作时，如insert，update，delete，以及`select...for update`由Oracle自动完成加锁。`select * from emp1 where deptno = 10 for update;`
 
 修改其部门为10的记录则会被锁定，可以进行试探要修改数据记录是否被加锁。如下三种形式均可：
-```
+```sql
 select * from emp1 where empno = 7782 for update nowait;
 select * from emp1 where empno = 7782 for update wait 5;
 select * from emp1 where job= 'CLERK' for update skip locked;
@@ -166,7 +166,7 @@ select * from emp1 where job= 'CLERK' for update skip locked;
 
 ## 3.3.4 死锁问题
 Oracle会自动解决死锁问题
-```
+```sql
 CREATE TABLE A(id int);
 insert into a values(100);
 insert into a values(200);

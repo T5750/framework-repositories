@@ -32,7 +32,7 @@ The fourth numeral identifies a release level specific to a component. Different
 The fifth numeral identifies a platform-specific release. Usually this is a patch set. When different platforms require the equivalent patch set, this numeral will be the same across the affected platforms.
 
 ## Checking Your Current Release Number
-```
+```sql
 SELECT * FROM PRODUCT_COMPONENT_VERSION;
 ```
 

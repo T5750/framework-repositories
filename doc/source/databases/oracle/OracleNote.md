@@ -44,7 +44,7 @@ SQL的数据类型：1字符型，2数值型，3日期型，4大对象型
 
 ## 1.3 常用数据类型转换
 常用转换：`date`、`char`、`number`三者之间经常进行转换
-```
+```sql
 SELECT TO_DATE('2015-08-19','YYYY-MM-DD') AS A_DAY FROM DUAL;
 SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') AS TODAY FROM DUAL;
 SELECT TO_TIMESTAMP('2015-08-19 17:40:32.11', 'YYYY-MM-DD HH24:MI:SS.FF') AS A_DAY FROM DUAL;
@@ -82,7 +82,7 @@ SELECT TO_NUMBER(REPLACE(TO_CHAR(SYSDATE, 'YYYY-MM-DD'),'-'))FROM DUAL;
     - `intersect`（求交集，显示公共的数据部分）
     - `minus`（集合相减，哪个表在前面以哪个表的数据为主）
 
-```
+```sql
 CREATE TABLE A (ID INT, NAME VARCHAR2(10));
 CREATE TABLE B (ID INT, NAME VARCHAR2(10));
 INSERT INTO A VALUES(1, '张三');
@@ -101,11 +101,11 @@ SELECT * FROM B MINUS SELECT * FROM A;
 
 ## 1.7 子查询
 非关联子查询：主查询和子查询是相对独立的，唯一的，子查询查询结果和主查询进行比较
-```
+```sql
 SELECT A.ENAME, A.SAL FROM EMP A WHERE A.DEPTNO= (SELECT B.DEPTNO FROM DEPT B WHERE B.LOC = 'NEW YORK');
 ```
 关联子查询：主查询和子查询是产生关联关系的主查询的一个列字段代入到子查询中进行比较
-```
+```sql
 SELECT A.DEPTNO, (SELECT B.LOC FROM DEPT B WHERE B.DEPTNO =A.DEPTNO) FROM EMP A;
 ```
 `IN`和`EXISTS`，`IN`是做全表扫描，`EXISTS`是做是否存在，非全表扫描。
@@ -145,10 +145,10 @@ start with（从某个节点id开始）
 connect by prior（子节点id和父节点pid之间的关系需要）
 ```
 形如：
-```
+```sql
 SELECT * FROM EMP
 START WITH EMPNO=7369
-CONNECT BY PRIOR MGR=EMPNO;（父节点=子节点向上查询，反之向下查询）
+CONNECT BY PRIOR MGR=EMPNO;--（父节点=子节点向上查询，反之向下查询）
 ```
 可以添加WHERE条件限制。可以指定多个起始节点查询。可以进行排序。
 

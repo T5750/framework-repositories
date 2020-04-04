@@ -10,7 +10,7 @@
 Java有很多优秀的Redis客户端（详见：http://redis.io/clients#java）
 
 #### 4.2.1　获取Jedis
-```
+```xml
 <dependency>
 	<groupId>redis.clients</groupId>
 	<artifactId>jedis</artifactId>

@@ -46,7 +46,9 @@ Redis是以key-value store存储，data structure service数据结构服务器�
 1. 把redis-3.0.0下的redis.conf移动到/usr/local/redis/etc下，
     - `cp redis.conf /usr/local/redis/etc/`
 1. 把redis-3.0.0/src里的mkreleasehdr.sh、redis-benchmark、redis-check-aof、redis-check-dump、redis-cli、redis-server文件移动到bin下，命令：
-    - `mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump redis-cli redis-server /usr/local/redis/bin`
+	```
+	mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump redis-cli redis-server /usr/local/redis/bin
+	```
 1. 启动时指定配置文件：`./redis-server /usr/local/redis/etc/redis.conf`（注意要使用后台启动，修改redis.conf里的daemonize改为yes）
 1. 验证启动是否成功：
     - `ps -ef | grep redis`查看是否有Redis服务，或查看端口：`netstat -tunpl | grep 6379`
@@ -298,7 +300,10 @@ Redis 3.0已经支持集群的容错功能。集群搭建：至少3个master
     1. `ps -ef | grep redis`查看是否启动成功
 1. 首先到redis-3.0.0的安装目录下，然后执行`redis-trib.rb`命令。
     1. `cd /usr/local/redis3.0/src`
-    1. `./redis-trib.rb create --replicas 1 192.168.1.121:7001 192.168.1.121:7002 192.168.1.121:7003 192.168.1.121:7004 192.168.1.121:7005 192.168.1.121:7006`
+    2.
+    ```
+    ./redis-trib.rb create --replicas 1 192.168.1.121:7001 192.168.1.121:7002 192.168.1.121:7003 192.168.1.121:7004 192.168.1.121:7005 192.168.1.121:7006
+    ```
 1. 到此为止我们集群搭建成功！进行验证：
     1. 连接任意一个客户端即可：`./redis-cli -c -h -p`（-c表示集群模式，指定ip地址和端口号）如：`/usr/local/redis/bin/redis-cli -c -h 192.168.1.121 -p 700*`
     1. 进行验证：`cluster info`（查看集群信息）、`cluster nodes`（查看节点列表）
