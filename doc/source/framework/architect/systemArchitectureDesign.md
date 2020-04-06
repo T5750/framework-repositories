@@ -1,5 +1,7 @@
 # 系统架构设计笔记 Part 1
 
+_第一篇 程序员向架构师转型概述_
+
 _1 程序员向架构师转型_
 
 ## 1.1 架构设计
@@ -26,6 +28,8 @@ _1 程序员向架构师转型_
 图1-10 系统开发生命周期与架构师参与情况
 
 ![architect_participation](https://s1.wailian.download/2020/04/05/architect_participation-min.png)
+
+![architect_participation_plus](https://s1.wailian.download/2020/04/05/architect_participation_plus-min.png)
 
 ## 1.3 架构师的视图和视角
 - 架构视图面向需求，主要回答“有没有”问题
