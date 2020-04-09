@@ -23,6 +23,11 @@ Spring Cloud Alibaba Version | Sentinel Version | Nacos Version | RocketMQ Versi
 0.2.1.RELEASE or 0.1.1.RELEASE | 1.4.0 | 0.6.2 | 4.3.1 | ❌ | ❌
 0.2.0.RELEASE or 0.1.0.RELEASE | 1.3.0-GA | 0.3.0 | ❌ | ❌ | ❌
 
+- 1.5.x for Spring Boot 1.5.x
+- 2.0.x for Spring Boot 2.0.x
+- 2.1.x for Spring Boot 2.1.x
+- 2.2.x for Spring Boot 2.2.x
+
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.19.RELEASE](http://projects.spring.io/spring-framework)

@@ -211,3 +211,8 @@ findProject(':spring-boot:spring-boot2-security')?.name = 'spring-boot2-security
 include 'spring-boot:spring-boot2-oauth2'
 findProject(':spring-boot:spring-boot2-oauth2')?.name = 'spring-boot2-oauth2'
 include 'rest'
+include 'spring-cloud:spring-cloud-dubbo-server'
+findProject(':spring-cloud:spring-cloud-dubbo-server')?.name = 'spring-cloud-dubbo-server'
+include 'spring-cloud:spring-cloud-dubbo-client'
+findProject(':spring-cloud:spring-cloud-dubbo-client')?.name = 'spring-cloud-dubbo-client'
+
