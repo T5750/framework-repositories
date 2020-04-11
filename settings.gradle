@@ -215,4 +215,5 @@ include 'spring-cloud:spring-cloud-dubbo-server'
 findProject(':spring-cloud:spring-cloud-dubbo-server')?.name = 'spring-cloud-dubbo-server'
 include 'spring-cloud:spring-cloud-dubbo-client'
 findProject(':spring-cloud:spring-cloud-dubbo-client')?.name = 'spring-cloud-dubbo-client'
-
+include 'spring-cloud:spring-cloud-dubbo-gateway'
+findProject(':spring-cloud:spring-cloud-dubbo-gateway')?.name = 'spring-cloud-dubbo-gateway'

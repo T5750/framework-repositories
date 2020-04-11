@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR5'
+        mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.1.1.RELEASE"
+    }
+}
+
+dependencies {
+    compile project(':dubbo:dubbo-sample-api')
+    implementation(
+            'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.boot:spring-boot-actuator',
+            'com.alibaba.cloud:spring-cloud-starter-dubbo',
+            'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    )
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+}

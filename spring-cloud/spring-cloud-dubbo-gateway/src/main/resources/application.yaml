@@ -1,0 +1,9 @@
+server:
+  port: 18086
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+
+provider:
+  application:
+    name: spring-cloud-dubbo-server
