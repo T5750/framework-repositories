@@ -25,6 +25,14 @@ Dubbo Spring Cloud 基于 Dubbo Spring Boot 2.7.1 和 Spring Cloud 2.x 开发
     - Dubbo Spring Cloud 提供了方案，即 `@DubboTransported` 注解
     - 如果迁移时间充分的话，建议使用 Dubbo 服务重构系统中的原生 Spring Cloud 服务的定义
 
+## Tips
+
+### dubbo.cloud.subscribed-services
+- `dubbo.cloud.subscribed-services`: 用于服务消费方订阅服务提供方的应用名称的列表，若需订阅多应用，使用 `,` 分割
+- 不推荐使用默认值为 `*`，它将订阅所有应用
+- 当应用使用默认值时，日志中将会输出一行警告：
+>Current application will subscribe all services(size:x) in registry, a lot of memory and CPU cycles may be used, thus it's strongly recommend you using the externalized property 'dubbo.cloud.subscribed-services' to specify the services
+
 ## References
 - [Dubbo Spring Cloud 示例工程](https://github.com/alibaba/spring-cloud-alibaba/blob/greenwich/spring-cloud-alibaba-examples/spring-cloud-alibaba-dubbo-examples/README_CN.md)
 - [Dubbo spring cloud 重塑微服务治理](https://mercyblitz.github.io/2019/04/26/Dubbo-Spring-Cloud-%E9%87%8D%E5%A1%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/)

@@ -3,6 +3,8 @@ server:
 dubbo:
   registry:
     address: spring-cloud://localhost
+  cloud:
+    subscribed-services: spring-cloud-dubbo-server
 
 provider:
   application:

@@ -26,6 +26,7 @@ dependencyManagement {
 dependencies {
     compile project(':dubbo:dubbo-sample-api')
     implementation(
+            'org.springframework.boot:spring-boot-starter-web',
             'org.springframework.boot:spring-boot-actuator',
             'com.alibaba.cloud:spring-cloud-starter-dubbo',
             'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'

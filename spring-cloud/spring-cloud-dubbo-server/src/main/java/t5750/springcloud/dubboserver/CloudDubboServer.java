@@ -14,3 +14,4 @@ public class CloudDubboServer {
 		SpringApplication.run(CloudDubboServer.class);
 	}
 }
+// http://localhost:18084/echo?message=T5750

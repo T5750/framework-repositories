@@ -19,3 +19,4 @@ public class CloudDubboGateway {
 				.properties("spring.profiles.active=nacos").run(args);
 	}
 }
+// http://localhost:18086/dsc/spring-cloud-dubbo-server/echo?message=T5750
