@@ -1,12 +1,12 @@
 # Spring Cloud Alibaba
 
 ## Contents
-- [Spring Cloud Alibaba Sentinel](doc/SpringCloudAlibabaSentinel.md)
-- [Spring Cloud Alibaba Nacos](doc/SpringCloudAlibabaNacos.md)
-    - [Nacos Config](doc/SpringCloudAlibabaNacos.md#nacos-config)
-    - [Nacos Discovery](doc/SpringCloudAlibabaNacos.md#nacos-discovery)
-- [Spring Cloud Alibaba RocketMQ](doc/SpringCloudAlibabaRocketMQ.md)
-- [Spring Cloud Alibaba Dubbo](doc/SpringCloudAlibabaDubbo.md)
+- [Spring Cloud Alibaba Sentinel](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaSentinel.md)
+- [Spring Cloud Alibaba Nacos](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md)
+    - [Nacos Config](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-config)
+    - [Nacos Discovery](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-discovery)
+- [Spring Cloud Alibaba RocketMQ](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaRocketMQ.md)
+- [Spring Cloud Alibaba Dubbo](../../doc/source/spring-cloud/alibaba/SpringCloudAlibabaDubbo.md)
 
 ## Versions
 Spring Cloud Version | Spring Cloud Alibaba Version | Spring Boot Version

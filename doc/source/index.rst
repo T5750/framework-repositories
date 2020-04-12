@@ -31,4 +31,5 @@ Framework Repositories
    sphinx/index
    spring/index
    spring-boot/index
+   spring-cloud/index
    zookeeper/index

@@ -4,6 +4,7 @@
 Dubbo Spring Cloud 基于 Dubbo Spring Boot 2.7.1 和 Spring Cloud 2.x 开发
 
 ## 功能
+
 功能组件 | Spring Cloud | Dubbo Spring Cloud
 ---|---|---
 分布式配置（Distributed configuration） | Git、Zookeeper、Consul、JDBC | Spring Cloud 分布式配置 + Dubbo 配置中心
