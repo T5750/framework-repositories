@@ -10,3 +10,4 @@ Spring
     security/index
     jms/index
     rest/index
+    session/index

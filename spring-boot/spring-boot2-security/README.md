@@ -5,3 +5,6 @@
 - [Spring Framework 5.1.3.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 2.1.1.RELEASE](https://projects.spring.io/spring-boot)
 - [Spring Security 5.1.2.RELEASE](https://spring.io/projects/spring-security)
+- [HttpClient 4.5.3](https://hc.apache.org/downloads.cgi)
+- [Spring Session 2.1.1.RELEASE](https://spring.io/projects/spring-session)
+- [Redis 3.2.9](https://redis.io/download)

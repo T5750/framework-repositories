@@ -10,6 +10,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+    compile group: 'org.springframework.session', name: 'spring-session-data-redis', version: '2.1.1.RELEASE'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 }
 configurations {
     all*.exclude module: 'spring-boot-starter-logging'

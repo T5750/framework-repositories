@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="h-100">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" class="h-100">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,6 +36,9 @@
 					</li>
 				</ul>
 			</div>
+			<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+			</form>
 		</nav>
 	</header>
 	<main role="main" class="flex-shrink-0">
@@ -43,6 +46,11 @@
 			<h4 class="mt-5">REST API</h4>
 			<a class="btn btn-outline-primary" th:href="@{/employees/}" role="button">GET employees</a>
 			<a class="btn btn-outline-primary" th:href="@{/customer/test}" role="button">Test RestTemplate</a>
+			<h4 class="mt-5">Spring Session</h4>
+			<a class="btn btn-outline-primary" th:href="@{/cookie/browser(browser=chrome)}" role="button">Chrome cookie</a>
+			<a class="btn btn-outline-primary" th:href="@{/cookie/browser(browser=firefox)}" role="button">Firefox cookie</a>
+			<a class="btn btn-outline-primary" th:href="@{/cookie/findByUsername(username=admin)}" role="button">Find By Username</a>
+			<a class="btn btn-outline-primary" th:href="@{/cookie/hello}" role="button">Hello</a>
 		</div>
 	</main>
 	<footer class="footer mt-auto py-3">
