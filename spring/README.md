@@ -11,6 +11,6 @@
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
+- [Spring Framework 4.3.8.RELEASE](https://spring.io/projects/spring-framework)
 - [cglib 3.2.x](https://github.com/cglib/cglib)
 - [Springfox Swagger 2.9.x](https://github.com/springfox/springfox)

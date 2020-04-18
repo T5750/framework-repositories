@@ -9,6 +9,6 @@
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 4.3.8.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 1.5.3.RELEASE](https://spring.io/projects/spring-boot)
 - [ActiveMQ 5.11.1 Release](http://activemq.apache.org/download.html)

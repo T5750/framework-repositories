@@ -26,8 +26,8 @@
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 5.1.3.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 2.1.1.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 5.1.3.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 2.1.1.RELEASE](https://spring.io/projects/spring-boot)
 - [H2 1.4.197](http://www.h2database.com/html/download.html)
 - [Hibernate ORM 5.3.7.Final](http://hibernate.org/orm)
 - [Ehcache 3.x](https://www.ehcache.org/downloads/)

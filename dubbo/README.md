@@ -35,20 +35,20 @@ Dubbo Spring Boot | Dubbo | Spring Boot
 0.1.2.RELEASE | 2.6.5+ | 1.x
 
 ### Dubbo 2.6.x
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 4.3.8.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 1.5.3.RELEASE](https://spring.io/projects/spring-boot)
 - [Dubbo 2.6.x](https://github.com/apache/dubbo/releases)
 - [dubbo-spring-boot-starter 0.1.x](https://github.com/apache/dubbo-spring-boot-project)
 
 ### Dubbo 2.7.x
-- [Spring Framework 5.1.3.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 2.1.1.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 5.1.3.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 2.1.1.RELEASE](https://spring.io/projects/spring-boot)
 - [Dubbo 2.7.x](https://github.com/apache/dubbo/releases)
 - [dubbo-spring-boot-starter 2.7.x](https://github.com/apache/dubbo-spring-boot-project)
 - [Nacos 1.1.x](https://github.com/alibaba/Nacos)
 
 ### Dubbox
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 4.3.8.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 1.5.3.RELEASE](https://spring.io/projects/spring-boot)
 - [Dubbox 2.8.4](https://github.com/dangdangdotcom/dubbox)

@@ -19,8 +19,8 @@ curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&ip=1
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+- [Spring Framework 4.3.8.RELEASE](https://spring.io/projects/spring-framework)
+- [Spring Boot 1.5.3.RELEASE](https://spring.io/projects/spring-boot)
 - [MySQL 5.6](http://www.mysql.com/)
 - [Nacos 0.2.1](https://github.com/alibaba/Nacos)
 - [Druid 1.1.10](https://github.com/alibaba/druid)
