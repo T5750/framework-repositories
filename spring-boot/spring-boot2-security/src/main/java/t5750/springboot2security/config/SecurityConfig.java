@@ -12,13 +12,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/").permitAll();
 		http.csrf().disable().authorizeRequests().anyRequest().authenticated()
-				.and().httpBasic();
+				.and().formLogin().permitAll().and().httpBasic();
 	}
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("admin")
-				.password("{noop}password").roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}password")
+				.roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("user").password("{noop}password")
+				.roles("USER");
 	}
 }
