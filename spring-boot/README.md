@@ -1,6 +1,10 @@
 # Spring Boot
 
 ## Contents
+
+### Spring Boot 2
+- [Spring Boot 2](spring-boot2/README.md)
+
 ### Spring Boot
 - [Monitoring and management over JMX](../doc/source/spring-boot/SpringBootJmx.md)
 - [Building RESTful Web Services](../doc/source/spring-boot/tutorials/SpringBootRestful.md)
@@ -34,32 +38,8 @@
     - [Spring Boot Admin Reference Guide](spring-boot-admin/doc/SpringBootAdminReferenceGuide.md)
     - [Spring Boot Admin in Java 7](spring-boot-admin/doc/SpringBootAdminJava7.md)
 
-### Spring Security
-- [Spring Security](spring-boot-security/README.md)
-    - [Secure Spring REST API using Basic Authentication](../doc/source/spring/security/SpringSecurityRestBasic.md)
-    - [Spring Security Architecture Overview](../doc/source/spring/security/SpringSecurityArchitecture.md)
-    - [Spring Security Reference](../doc/source/spring/security/SpringSecurityReference.md)
-    - [Spring Security Configuration](../doc/source/spring/security/SpringSecurityConfiguration.md)
-    - [Spring Security Filter](../doc/source/spring/security/SpringSecurityFilter.md)
-    - [Spring Security IP_Login](../doc/source/spring/security/SpringSecurityFilter.md#ip_login)
-    - [Spring Security SpringSecurityFilterChain](../doc/source/spring/security/SpringSecurityFilterChain.md)
-    - [Spring Security Authorization](../doc/source/spring/security/SpringSecurityFilter.md#authorization)
-- [Spring Security OAuth](spring-security-oauth/README.md)
-- [Spring Boot SSO](spring-boot-sso/README.md)
-- [Spring Boot SSL](spring-boot-ssl/README.md)
-
 ### Spring Boot Nacos
 - [Spring Boot Nacos](spring-boot-nacos/README.md)
-
-### Spring JMS
-- [JMSTemplate](../doc/source/spring/jms/SpringBootJmsTemplate.md)
-- [JMS Topic](../doc/source/spring/jms/SpringBootJmsTopic.md)
-- [JMS Validate Messages](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-validate-messages)
-- [JMS Error Handling](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-error-handling)
-- [JMS Message Header Properties](../doc/source/spring/jms/SpringBootJmsTopic.md#jms-message-header-properties)
-
-### Spring Boot 2
-- [Spring Boot 2](spring-boot2/README.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
