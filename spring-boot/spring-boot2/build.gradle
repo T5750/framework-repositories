@@ -20,6 +20,7 @@ dependencies {
     compile("com.h2database:h2")
     compile("org.ehcache:ehcache")
     compile("javax.cache:cache-api")
+    compile group: 'org.keycloak', name: 'keycloak-spring-boot-starter', version: '9.0.3'
 }
 configurations {
     all*.exclude module: 'spring-boot-starter-logging'
