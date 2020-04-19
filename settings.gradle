@@ -215,3 +215,6 @@ include 'spring-cloud:spring-cloud-dubbo-client'
 findProject(':spring-cloud:spring-cloud-dubbo-client')?.name = 'spring-cloud-dubbo-client'
 include 'spring-cloud:spring-cloud-dubbo-gateway'
 findProject(':spring-cloud:spring-cloud-dubbo-gateway')?.name = 'spring-cloud-dubbo-gateway'
+include 'spring-boot:spring-boot2-keycloak'
+findProject(':spring-boot:spring-boot2-keycloak')?.name = 'spring-boot2-keycloak'
+

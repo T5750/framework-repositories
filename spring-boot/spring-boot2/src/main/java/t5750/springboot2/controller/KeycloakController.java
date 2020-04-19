@@ -2,6 +2,7 @@ package t5750.springboot2.controller;
 
 import java.util.Arrays;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,11 @@ public class KeycloakController {
 				.exchange(Globals.getBasePath(request) + "employeeCrud",
 						HttpMethod.GET, entity, String.class)
 				.getBody();
+	}
+
+	@RequestMapping(value = "/logout")
+	public String logout(HttpServletRequest request) throws ServletException {
+		request.logout();
+		return "Logout Keycloak";
 	}
 }
