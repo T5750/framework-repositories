@@ -3,6 +3,11 @@ plugins {
     id 'org.springframework.boot' version '2.1.1.RELEASE'
     id 'io.spring.dependency-management' version '1.0.7.RELEASE'
 }
+dependencyManagement {
+    imports {
+        mavenBom 'org.keycloak.bom:keycloak-adapter-bom:9.0.3'
+    }
+}
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-log4j2")
@@ -10,8 +15,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
-    compile group: 'org.keycloak', name: 'keycloak-spring-boot-starter', version: '9.0.3'
-    compile group: 'org.keycloak', name: 'keycloak-spring-security-adapter', version: '9.0.3'
+    implementation("org.keycloak:keycloak-spring-boot-starter")
 }
 configurations {
     all*.exclude module: 'spring-boot-starter-logging'

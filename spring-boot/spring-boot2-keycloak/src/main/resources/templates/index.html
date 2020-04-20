@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="h-100">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" class="h-100">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,6 +36,9 @@
 					</li>
 				</ul>
 			</div>
+			<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+			</form>
 		</nav>
 	</header>
 	<main role="main" class="flex-shrink-0">
