@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-log4j2")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile group: 'org.springframework.session', name: 'spring-session-data-redis', version: '2.1.1.RELEASE'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+}
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
+    all*.exclude module: 'logback-classic'
+    all*.exclude module: 'log4j-over-slf4j'
+}
+// normal archives
+jar {
+    enabled = true
+}
+bootJar {
+    launchScript()
+    classifier = 'boot'
+}

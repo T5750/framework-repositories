@@ -34,6 +34,7 @@
 
 ### Spring Session
 - [Spring Session](../doc/source/spring/session/SpringSession.md)
+- [Spring Session REST](../doc/source/spring/session/SpringSessionRest.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)

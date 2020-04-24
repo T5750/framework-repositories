@@ -14,6 +14,11 @@ Servlet (not required) | Servlet 2.5+ | Servlet 3.1+
 Spring (not required) | Spring 3.2.14+ | Spring 5.0.x+
 Redis | Redis 2.8+ | Redis 2.8+
 
+## Upgrading to 2.x
+
+### Baseline update
+Spring Session 2.0 requires Java 8 and Spring Framework 5.0 as a baseline, since its entire codebase is now based on Java 8 source code. Refer to guide for [Upgrading to Spring Framework 5.x](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x) for reference on upgrading Spring Framework.
+
 ## HttpSession with Redis
 ```
 compile('org.springframework.boot:spring-boot-starter-web')

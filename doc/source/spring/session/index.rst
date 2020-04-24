@@ -6,3 +6,4 @@ Spring Session
     :numbered: 0
     
     SpringSession
+    SpringSessionRest
