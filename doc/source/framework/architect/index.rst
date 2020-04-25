@@ -9,3 +9,4 @@ Architect
     systemArchitectureDesign2
     systemArchitectureDesign3
     systemArchitectureDesign4
+    distributedServiceArchitecture

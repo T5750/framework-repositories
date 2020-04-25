@@ -19,7 +19,13 @@ Redis | Redis 2.8+ | Redis 2.8+
 ### Baseline update
 Spring Session 2.0 requires Java 8 and Spring Framework 5.0 as a baseline, since its entire codebase is now based on Java 8 source code. Refer to guide for [Upgrading to Spring Framework 5.x](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x) for reference on upgrading Spring Framework.
 
-## HttpSession with Redis
+## HttpSession Integration
+
+### Why Spring Session & HttpSession?
+- **Clustered Sessions** - Spring Session makes it trivial to support clustered sessions without being tied to an application container specific solution.
+- **RESTful APIs** - Spring Session allows providing session IDs in headers to work with RESTful APIs
+
+### HttpSession with Redis
 ```
 compile('org.springframework.boot:spring-boot-starter-web')
 compile group: 'org.springframework.session', name: 'spring-session-data-redis', version: '2.1.1.RELEASE'
@@ -41,6 +47,9 @@ spring.redis.password=
 spring.redis.database=0
 ```
 `CookieController`
+
+### HttpSession & RESTful APIs
+[Spring Session REST](SpringSessionRest.md)
 
 ## Tips
 - `java -jar spring-boot2-security-1.0-boot.jar --server.port=8088`
