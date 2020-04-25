@@ -326,8 +326,8 @@ _第3章 服务化系统容量评估和性能保障_
 	- 请记住：210=1KB，220=1MB，230=1GB，232=4GB
 
 ## 3.6 性能测试方案的设计和最佳实践
-单线程响应时间和吞吐量的计算公式如下：`吞吐量=1s/响应时间`
-多线程响应时间和吞吐量的计算公式如下：`吞吐量=(1s/响应时间)×并发数`
+- 单线程响应时间和吞吐量的计算公式如下：`吞吐量=1s/响应时间`
+- 多线程响应时间和吞吐量的计算公式如下：`吞吐量=(1s/响应时间)×并发数`
 
 测试类型
 - 基准测试
@@ -625,21 +625,21 @@ base64 | 生成basc64编码
 
 ### 6.8.1 一次OOM事故的分析和定位
 产生OutOfMemoryError错误的原因如下
-- java.lang.OutOfMemoryError: Java heap space，表示Java堆空间不足
-- java.lang.OutOfMemoryError: PermGen space，表示Java永久代（方法区）的空间不足
-- java.lang.OutOfMemoryError: unable to create new native thread，本质原因是创建了太多的线程，而系统允许创建的线程数是有限制的
-- java.lang.OutOfMemoryError：GC overhead limit exceeded，是并行（或者并发）垃圾回收器的GC回收时间过长、超过98％的时间用来做GC并且回收了不到2％的堆内存时抛出的异常，用来提前预警，避免内存过小导致应用不能正常工作
+- `java.lang.OutOfMemoryError`: Java heap space，表示Java堆空间不足
+- `java.lang.OutOfMemoryError`: PermGen space，表示Java永久代（方法区）的空间不足
+- `java.lang.OutOfMemoryError`: unable to create new native thread，本质原因是创建了太多的线程，而系统允许创建的线程数是有限制的
+- `java.lang.OutOfMemoryError`: GC overhead limit exceeded，是并行（或者并发）垃圾回收器的GC回收时间过长、超过98％的时间用来做GC并且回收了不到2％的堆内存时抛出的异常，用来提前预警，避免内存过小导致应用不能正常工作
 
 两个异常与OOM有关系，却又没有绝对关系
-- java.lang.StackOverflowError，是JVM的线程由于递归或者方法调用的层次太多，占满了线程堆栈而导致的，线程堆栈的默认大小为1MB
-- java.net.SocketException: too many open files，是由于系统对文件句柄的使用有限制，而某个应用程序使用的文件句柄超过了这个限制而导致的
+- `java.lang.StackOverflowError`，是JVM的线程由于递归或者方法调用的层次太多，占满了线程堆栈而导致的，线程堆栈的默认大小为1MB
+- `java.net.SocketException`: too many open files，是由于系统对文件句柄的使用有限制，而某个应用程序使用的文件句柄超过了这个限制而导致的
 
 如下公式可以用来从内存的角度计算允许创建的最大线程数：
 ```
 最大线程数=(操作系统最大可用内存 - JVM内存 - 操作系统预留内存)/线程栈大小
 ```
 
-由于对Dubbo服务框架进行定制化时，设计了自动降级原则，如果Dubbo服务负载增加或者注册中心宕机，则会自动切换到点对点的RPC框架，这也符合微服务的失效转移原则，但是在设计中没有进行全面考虑，一旦一部分服务切换到了点对点的RPC，而另一部分服务没有切换，就会导致两个线程池都被撑满，于是超过了1024的限制（800+800=1600），出现问题。
+由于对Dubbo服务框架进行定制化时，设计了自动降级原则，如果Dubbo服务负载增加或者注册中心宕机，则会自动切换到点对点的RPC框架，这也符合微服务的失效转移原则，但是在设计中没有进行全面考虑，一旦一部分服务切换到了点对点的RPC，而另一部分服务没有切换，就会导致两个线程池都被撑满，于是超过了1024的限制（`800+800=1600`），出现问题。
 
 问题的根源是日志切割导致I/O负载增加，然后阻塞线程池，最后发生OOM
 
