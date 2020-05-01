@@ -44,8 +44,9 @@
 	<main role="main" class="flex-shrink-0">
 		<div class="container">
 			<h4 class="mt-3">Keycloak</h4>
-			<h4 th:text="${principal}"/>
 			<a class="btn btn-outline-primary" th:href="@{/keycloak/hello}" role="button">Hello</a>
+			<h4 class="mt-3">Keycloak API</h4>
+			<a class="btn btn-outline-primary" th:href="@{/api/heroes}" role="button">Get heroes</a>
 		</div>
 	</main>
 	<footer class="footer mt-auto py-3">

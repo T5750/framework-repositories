@@ -51,8 +51,10 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		super.configure(http);
-		http.authorizeRequests().antMatchers("/keycloak/**").hasRole("user")
-				.anyRequest().permitAll();
+		http.cors().and().authorizeRequests().mvcMatchers("/api/heroes/**")
+				.hasAuthority("SCOPE_heroes").antMatchers("/keycloak/**")
+				.hasRole("user").antMatchers("/**").authenticated()
+				.anyRequest().denyAll().and().oauth2ResourceServer().jwt();
 	}
 
 	@Bean
