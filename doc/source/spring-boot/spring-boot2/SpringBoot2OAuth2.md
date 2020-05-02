@@ -19,7 +19,7 @@ An **access token** is a string representing an authorization issued to the clie
 
 ## Oauth2 – Authorization Server
 - `OAuth2AuthorizationServer`
-```
+```java
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdapter {
@@ -56,7 +56,7 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     - redirectUris – redirects the user-agent to the client’s redirection endpoint. It must be an absolute URL.
 
 ## Oauth2 – Resource Server
-```
+```java
 @Configuration
 @EnableResourceServer
 public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
@@ -68,7 +68,7 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
 }
 ```
 Above config enable protection on all endpoints starting `/api`. All other endpoints can be accessed freely.
-```
+```java
 @Configuration
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -110,7 +110,9 @@ We have an API `http://localhost:8080/api/users/me` which we can access by direc
 ### Get access token from authorization server
 - http://localhost:18093/oauth/token?grant_type=authorization_code&code=rfQzEz
 - clientapp, 123456
-- `{"access_token":"389b48fc-914b-4ded-a0cb-a80e32b5c512","token_type":"bearer","refresh_token":"64afecbb-6993-4bda-a8d7-9a08f35fcb3f","expires_in":4999,"scope":"read_profile_info"}`
+```
+{"access_token":"389b48fc-914b-4ded-a0cb-a80e32b5c512","token_type":"bearer","refresh_token":"64afecbb-6993-4bda-a8d7-9a08f35fcb3f","expires_in":4999,"scope":"read_profile_info"}
+```
 
 ```
 #Access token request from postman

@@ -14,7 +14,7 @@
 `org.springframework.boot.gradle.tasks.bundling.BootJar` Since: 2.0.0
 
 To create a ‘fully executable’ jar with Maven, use the following plugin configuration:
-```
+```xml
 <plugin>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-maven-plugin</artifactId>

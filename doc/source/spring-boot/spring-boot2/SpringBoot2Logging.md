@@ -5,7 +5,7 @@ Spring boot active enabled logging is determined by [spring-boot-starter-logging
 
 ## 2. Logback Logging
 `logback.xml`
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="LOG_LOCATION" value="c:/temp" />
@@ -61,7 +61,7 @@ Spring boot active enabled logging is determined by [spring-boot-starter-logging
 
 ### Step 2: Add log4j2 configuration file
 `log4j2.xml` or (`log4j2.properties`)
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" monitorInterval="30">
 	<Properties>
@@ -102,7 +102,7 @@ If you are targeting to use log4j2 specific classes only, use `org.apache.loggin
 I will recommend to use SLF4J logger classes.
 
 SLF4J logger classes
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -118,7 +118,7 @@ public class Application {
 ```
 
 LOG4J2 logger classes
-```
+```java
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -135,7 +135,7 @@ public class Application {
 
 ## Spring Boot log4j2
 `log4j2.xml`
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>
@@ -167,7 +167,7 @@ public class Application {
 </Configuration>
 ```
 `log4j2-file.xml`
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>

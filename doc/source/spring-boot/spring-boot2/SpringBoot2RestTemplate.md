@@ -40,7 +40,7 @@ private static ClientHttpRequestFactory createRequestFactory(HttpClient httpClie
 }
 ```
 - Config Spring RestTemplate with `ClientHttpRequestFactory`:
-```
+```java
 public class RestTemplateBuilder {
 	public static RestTemplate securityRestTemplateBuilder(String username, String password) {
 		HttpClient httpClient = createHttpClient(username, password);

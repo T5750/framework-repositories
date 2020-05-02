@@ -44,6 +44,7 @@ http://localhost:18090/employees/
 	```
 
 ### REST request validation annotations
+
 ANNOTATION | USAGE
 ---|------
 `@AssertFalse` | The annotated element must be false.

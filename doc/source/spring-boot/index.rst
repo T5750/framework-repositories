@@ -11,3 +11,4 @@ Spring Boot
     SpringBootAnnouncement
     tutorials/index
     miniprogram/index
+    spring-boot2/index

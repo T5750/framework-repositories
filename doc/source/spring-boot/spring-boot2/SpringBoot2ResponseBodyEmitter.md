@@ -16,6 +16,7 @@
 
 ## Spring boot 2 SseEmitter
 ### SseEmitter class
+
 FIELD | DESCRIPTION
 ---|-----
 id | The ID of the event

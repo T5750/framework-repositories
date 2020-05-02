@@ -40,7 +40,7 @@ spring.h2.console.path=/h2
 ### Accessing H2 console
 - http://localhost:18090/h2
 - Saved Settings: Generic H2 (Server)
-- JDBC URL: jdbc:h2:file:D:/code/spring-boot2
+- JDBC URL: `jdbc:h2:file:D:/code/spring-boot2`
 
 ### Other configuration options
 We can enable/disable the database trace logs and we can enable/disable the remote access of H2 console.

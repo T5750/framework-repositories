@@ -1,7 +1,7 @@
 # Spring Boot 2 Security
 
 ## Configure WebSecurityConfigurerAdapter
-```
+```java
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override

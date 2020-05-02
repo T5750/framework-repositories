@@ -4,7 +4,7 @@
 ```
 compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
 ```
-```
+```xml
 <dependencies>
 	<dependency>
 		<groupId>com.google.code.gson</groupId>
@@ -61,7 +61,7 @@ implementation("org.springframework.boot:spring-boot-starter-web") {
 	exclude group: 'org.springframework.boot', module: 'spring-boot-starter-json'
 }
 ```
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-web</artifactId>

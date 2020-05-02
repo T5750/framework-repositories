@@ -1,7 +1,7 @@
 # Spring Boot 2 Mail
 
 ## Maven
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-mail</artifactId>
@@ -60,7 +60,7 @@ spring.mail.properties.mail.smtps.auth=true
 ```
 
 ## Pre-configured email templates
-```
+```java
 @Configuration
 public class EmailConfig {
     @Bean
@@ -76,7 +76,7 @@ public class EmailConfig {
 ```
 
 ## Send simple email
-```
+```java
 @Service("emailService")
 public class EmailService {
     @Autowired
