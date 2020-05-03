@@ -1,18 +1,19 @@
 # TCC Transaction Boot Deploy
 
-## databases
+## Databases
 - `doc\db\tcc-boot*.sql`
 
-## properties
+## Properties
 - `application.properties`
 
-## jar
+## Jar
 - `git clone https://github.com/changmingxie/tcc-transaction.git`
 - copied `tcc-transaction\tcc-transaction-server\src\main\config` into tcc-transaction-server from master branch
 - tcc-transaction目录执行`mvn install -Dmaven.test.skip=true`来尝试编译一下
 - gradle使用maven本地缓存库`mavenLocal()`
 
-## war
+## War
+
 Application | Module | HTTP Port | Application Context | Url
 ----|----|----|----|----
 `TccBootCapital` | `tcc-transaction-boot-capital` | 8091 | `/tcc-transaction-boot-capital` | 

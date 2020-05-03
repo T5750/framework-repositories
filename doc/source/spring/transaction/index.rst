@@ -15,3 +15,4 @@ Transaction
     distributedTransactionTcc
     tccTransactionDeploy
     tccTransactionNote
+    tccTransactionBootDeploy

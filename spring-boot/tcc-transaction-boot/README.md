@@ -1,7 +1,7 @@
 # TCC Transaction Boot
 
 ## Contents
-- [TCC Transaction Boot Deploy](doc/tccTransactionBootDeploy.md)
+- [TCC Transaction Boot Deploy](../../doc/source/spring/transaction/tccTransactionBootDeploy.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
