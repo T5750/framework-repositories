@@ -26,3 +26,4 @@ Spring Boot 2
     keycloakDocumentation
     keycloakSecurity
     keycloakOAuth2PKCE
+    keycloakMySQLSetup

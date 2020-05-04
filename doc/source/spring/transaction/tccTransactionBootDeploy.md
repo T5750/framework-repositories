@@ -1,7 +1,7 @@
 # TCC Transaction Boot Deploy
 
 ## Databases
-- `doc\db\tcc-boot*.sql`
+- `spring-boot\tcc-transaction-boot\db\tcc-boot*.sql`
 
 ## Properties
 - `application.properties`

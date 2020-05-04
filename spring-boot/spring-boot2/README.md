@@ -29,6 +29,7 @@
 - [Keycloak Documentation](../../doc/source/spring-boot/spring-boot2/keycloakDocumentation.md)
 - [Keycloak Security](../../doc/source/spring-boot/spring-boot2/keycloakSecurity.md)
 - [Keycloak OAuth2 PKCE](../../doc/source/spring-boot/spring-boot2/keycloakOAuth2PKCE.md)
+- [Keycloak MySQL Setup](../../doc/source/spring-boot/spring-boot2/keycloakMySQLSetup.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
