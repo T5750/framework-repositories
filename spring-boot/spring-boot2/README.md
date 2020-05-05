@@ -39,3 +39,4 @@
 - [Hibernate ORM 5.3.7.Final](http://hibernate.org/orm)
 - [Ehcache 3.x](https://www.ehcache.org/downloads/)
 - [Keycloak 9.0.3](https://www.keycloak.org/downloads.html)
+- [MySQL 5.6](http://www.mysql.com/)

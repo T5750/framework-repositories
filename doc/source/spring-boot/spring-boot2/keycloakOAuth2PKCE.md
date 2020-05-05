@@ -19,7 +19,7 @@ $ ./standalone
 Name: `Security`
 
 ## Creating a client
-- Client ID: `spring-boot2-keycloak`
+- Client ID: `spa-heroes`
 - Valid Redirect URIs: `http://localhost:4200/*`
 
 Standard flow is another name for the [Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) as defined in the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749).
@@ -127,7 +127,7 @@ $ curl -i http://localhost:18095/api/heroes
 Without a token, the server responds with HTTP 401. This means we are not authorized. As we don’t have a login form available just yet, we can use the Direct Access Grants flow to obtain a token. This can come in very handy for testing different scenarios as well.
 ```
 $export TOKEN=$(curl -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "client_id=spring-boot2-keycloak" \
+  -d "client_id=spa-heroes" \
   -d "username=tester" \
   -d "password=123456" \
   -d "grant_type=password" \
@@ -139,7 +139,77 @@ $ curl -i -X GET -H "Authorization: Bearer $TOKEN" http://localhost:18095/api/he
 >Make sure ‘Direct Access Grants Enabled’ is enabled in the Keycloak Client settings
 
 ## Securing the Angular application
+```
+$ npm i angular-oauth2-oidc --save
+```
+`app.module.ts`
+```
+import { HttpClientModule } from '@angular/common/http';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
+@NgModule({
+  imports: [
+    HttpClientModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+          allowedUrls: ['http://localhost:18095/api'],
+          sendAccessToken: true
+      }
+    })
+```
+`app.component.html`
+```
+<button class="btn btn-default" (click)="login()">
+  Login
+</button>
+<button class="btn btn-default" (click)="logoff()">
+  Logout
+</button>
+```
+`app.component.ts`
+```
+import { Component } from '@angular/core';
+import { OAuthService, NullValidationHandler, AuthConfig } from 'angular-oauth2-oidc';
+import { JwksValidationHandler } from 'angular-oauth2-oidc';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Tour of Heroes';
+  
+  constructor(private oauthService: OAuthService) {
+    this.configure();
+  }
+
+  authConfig: AuthConfig = {
+    issuer: 'http://localhost:8080/auth/realms/Security',
+    redirectUri: window.location.origin + "/Security",
+    clientId: 'spa-heroes',
+    scope: 'openid profile email offline_access heroes',
+    responseType: 'code',
+    // at_hash is not present in JWT token
+    disableAtHashCheck: true,
+    showDebugInformation: true
+  }
+  
+  public login() {
+    this.oauthService.initLoginFlow();
+  }
+  
+  public logoff() {
+    this.oauthService.logOut();
+  }
+  
+  private configure() {
+    this.oauthService.configure(this.authConfig);
+    this.oauthService.tokenValidationHandler = new NullValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+  }
+}
+```
 
 ## References
 - [SECURING WEB APPLICATIONS WITH KEYCLOAK USING OAUTH 2.0 AUTHORIZATION CODE FLOW AND PKCE](https://ordina-jworks.github.io/security/2019/08/22/Securing-Web-Applications-With-Keycloak.html)
