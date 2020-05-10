@@ -10,3 +10,4 @@ Architect
     systemArchitectureDesign3
     systemArchitectureDesign4
     distributedServiceArchitecture
+    largeWebsiteTechnologyArchitecture
