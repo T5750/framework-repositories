@@ -458,8 +458,8 @@ HTTP重定向服务器是一台普通的应用服务器，其唯一的功能就�
 图6.14 MySQL集群伸缩性方案
 
 比较成熟的支持数据分片的分布式关系数据库产品主要有
-- 开源的Amoeba（http://sourceforge.net/projects/amoeba/）
-- Cobar（https://github.com/alibaba/cobar/wiki）
+- 开源的[Amoeba](http://sourceforge.net/projects/amoeba/)
+- [Cobar](https://github.com/alibaba/cobar/wiki)
 
 Cobar的伸缩有两种：
 - Cobar服务器集群的伸缩
@@ -744,7 +744,7 @@ Wikipedia CDN缓存的几条准则为：
 
 _11 海量分布式存储系统Doris的高可用架构设计分析_
 
-Doris（https://github.com/itisaid/Doris）是一个海量分布式KV存储系统
+[Doris](https://github.com/itisaid/Doris)是一个海量分布式KV存储系统
 - 其设计目标是支持中等规模高可用、可伸缩的KV存储集群
 - 跟主流的NoSQL系统HBase相比（Doris0.1 vs. HBase0.90），Doris具有相似的性能和线性伸缩能力，并具有更好的可用性及更友好的图形用户管理界面
 
