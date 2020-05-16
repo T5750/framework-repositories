@@ -1,5 +1,6 @@
 Tutorials
 ===============================
+Spring Boot 1.x
 
 .. toctree::
     :maxdepth: 3

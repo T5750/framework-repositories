@@ -14,12 +14,12 @@ import t5750.springbootsecurity.model.User;
 import t5750.springbootsecurity.service.UserService;
 
 @RestController
-public class HelloWorldRestController {
+public class UserRestController {
 	/**
 	 * Service which will do all data retrieval/manipulation work
 	 */
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	/**
 	 * Retrieve All Users
