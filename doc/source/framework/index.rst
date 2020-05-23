@@ -8,3 +8,4 @@ Framework
     C4ModelNote
     architect/index
     devops/index
+    softSkills
