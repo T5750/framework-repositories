@@ -9,3 +9,4 @@ Framework
     architect/index
     devops/index
     softSkills
+    pm/index
