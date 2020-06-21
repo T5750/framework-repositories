@@ -1447,24 +1447,106 @@ _第七篇 精神_
 ## 第69章 我的私房成功书单
 
 ### 自我提升和励志类图书
+- Steven Pressfield的The War of Art［Black Irish Books，2002］
+- Dale Carnegie的《人性的弱点》（How to Win Friends and Influence People）［Gallery Books，1998再版］
+- Napoleon Hill的 《思考致富》 （Think and Grow Rich） ［Wilder Publications，2007］
+- Maxwell Maltz的《心理控制方法》（Psycho-Cybernetics）［Pocket Books，1989再版］
+- Norman Vincent Peale的《积极思考就是力量》（The Power of Positive Thinking）［Touchstone，2003再版］
+- Ayn Rand的《阿特拉斯耸耸肩》（Atlas Shrugged）［Signet，2005再版］
 
 ### 软件开发类图书
+- Steve McConnell的 《代码大全》 （Code Complete） ［Microsoft Press，2004］
+- Robert Martin的《代码整洁之道》（Clean Code: A Handbook of Agile Software Craftmanship）［Prentice Hall，2008］
+- Eric Freeman、Elisabeth Robson、Bert Bates和Kathy Sierra的 《Head First设计模式》（Head First Design Patterns）［O’Reilly Media，2004］
 
 ### 投资类图书
+- Gary Keller的The Millionaire Real Estate Investor［McGraw-Hill，2005］
+- Robert Kiyosaki的《富爸爸，穷爸爸》（Rich Dad,Poor Dad）［Demco Media，2000］
+- Kerry Given的No-Hype Options Trading: Myths, Realities, and Strategies That Really__Work［Wiley，2011］
 
 ## 第70章 积极面对失败
+>**跌倒七次，爬起来八次。**——日本谚语
 
 ### 为什么我们总是害怕失败
+我们往往太过较真，把失败看得太重
 
 ### 失败并不是被打败
+失败是暂时的，被打败是永恒的
+- 失败是那些碰巧发生在你身上的——你不能完全控制它
+- 被打败却是你可以选择的——是对失败的某种程度的接受
+
+要实现不畏惧失败，第一步就是真正意识到失败不是终点
 
 ### 失败是通往成功的必经之路
+需要做的就是不断尝试——首先不要害怕去尝试
 
 ### 学会拥抱失败
+学会拥抱失败、期待失败、接受失败，并准备直面失败
+
+关键是不要放弃——让失败点亮通往成功的道路
+
+>大多数伟大的人取得的最大成功与他们所经历的最大失败只有一步之遥。——Napoleon Hill，《思考致富》
 
 ## 第71章 结束语
 
 ### 结束语
+我们不仅应该不遗余力地做好一个软件开发人员，而且应该做好一个人：去帮助他人
+
+## 附录A 如果你能写代码，你就能理解金融
+
+### A.1 货币是什么
+代表了一些未来的效用和价值
+
+### A.2 货币的类型
+法定货币（纸币）基本上是由政府发行的，与某个特定商品之间没有直接联系
+- 与商品货币不同的是，法定货币其本身没有价值
+- 法定货币的价值主要是建立在两个方面上：有多少货币可以使用，以及发行并保障货币价值的政府之经济形势如何
+
+### A.3 通货膨胀与通货紧缩
+- 通货膨胀：货币的价值缩水
+- 通货紧缩：货币更有购买力
+
+如果你有债务，通胀会减轻你的债务，而通缩会增加你的债务
+
+### A.4 中央银行
+抑制通胀和通缩的波动，刺激或者减缓经济的增长
+
+本质上，它们就是印钞票的
+
+银行外放的贷款越多，货币就贬值得越厉害
+
+### A.5 那么“普通银行”又是怎么回事
+银行就是靠建立在这些存款上的借贷与储蓄来运作的
+
+整个银行系统运作是基于“所有人不会一次性取出所有存款”这个想法之上的。银行的运营主要就是靠把我们的存款借给别人、收取的贷款利息高于银行支付给我们的存款利息，从而赚取其中的差价
+
+### A.6 金融体系的基础
+几乎所有的金融要素都根植于风险、收益和流动性
+
+## 附录B 股市是如何运作的：系统的游戏规则
+
+### B.1 股市存在的目的
+股市存在的目的就是使投资者更容易购买和出售股份
+
+股票就是一家公司所有权的百分比
+
+最大的原因是为了筹集资金。当一家股份制公司首次在股市销售股票时（销售股票也被称作“交易”），这个过程被称为首次公开发行（Initial Public Offering，IPO）
+
+图 企业出售股份以获取资金
+
+### B.2 当你交易股票的时候会发生什么
+个股并不是只有单一的股价。事实上，股市里的每只股票都有所谓的买入价和卖出价
+
+股票的流动性越高，价差就越小；反之，股票的流动性越差，价差就越大
+
+通常，交易股票的人越多，流动性就越好
+
+造市商就是在股市里那些始终有意愿买入或者卖出某只股票而创造出流动性的交易者
+
+### B.3 如何在股市里赚钱
+
+### B.4 指数、共同基金和交易型开放式指数基金
+
 
 ## References
 - 《软技能：代码之外的生存指南》
