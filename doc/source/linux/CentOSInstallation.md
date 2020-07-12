@@ -17,7 +17,7 @@
 1. 存储，属性，分配光驱：CentOS-6.10-x86_64-bin-DVD1.iso
 1. 网络，网卡1，连接方式：桥接网卡
 
-## CentOS
+## CentOS 6.x
 
 ### Installation
 1. Install or upgrade an existing system
@@ -55,3 +55,27 @@
 1. Username, Password
 1. Data and Time: Forward
 1. Kdump: Finish
+
+## CentOS 8.x
+Oracle VM VirtualBox: 30GB
+
+### Installation
+1. Install CentOS Linux 8
+2. Continue
+3. Time & Date: Asia/Shanghai
+4. Installation Destination -> Storage Configuration: Custom
+5. Done
+6. Standard Partition:
+    - /: 20480
+    - /boot: 1024
+    - swap: 1024
+    - /home:
+7. Done -> Accept Changes
+8. Network & Host Name:
+    - Host Name: centos8
+    - Ethernet: ON
+    - Configure...
+9. Begin Installation
+10. Root Password
+11. User Creation: Make this user administrator
+12. Reboot
