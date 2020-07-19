@@ -10,3 +10,4 @@ Framework
     devops/index
     softSkills
     pm/index
+    docker/index
