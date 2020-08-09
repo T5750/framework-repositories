@@ -13,6 +13,7 @@
     - [nginx Location](../doc/source/nginx/nginxLocation.md)
     - [nginx Statistics](../doc/source/nginx/nginxStatistics.md)
     - [nginx Logs](../doc/source/nginx/nginxLogs.md)
+    - [nginx Init Script](../doc/source/nginx/nginxInitScript.md)
 
 ### Lua笔记
 - [nginx Lua Installation](../doc/source/nginx/lua/nginxLuaInstallation.md)

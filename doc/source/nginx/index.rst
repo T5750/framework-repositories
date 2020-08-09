@@ -13,5 +13,6 @@ nginx
     nginxLocation
     nginxStatistics
     nginxLogs
+    nginxInitScript
     lua/index
     fastdfs/index
