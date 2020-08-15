@@ -23,6 +23,7 @@
 
 ### Spring Boot 2网摘笔记
 - [ShutdownHook](../../doc/source/spring-boot/spring-boot2/SpringBoot2ShutdownHook.md)
+- [JWT](../../doc/source/spring-boot/spring-boot2/SpringBoot2Jwt.md)
 
 ### Keycloak
 - [Keycloak Guide](../../doc/source/spring-boot/spring-boot2/keycloakGuide.md)

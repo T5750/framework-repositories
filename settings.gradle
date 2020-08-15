@@ -219,4 +219,5 @@ include 'spring-boot:spring-boot2-keycloak'
 findProject(':spring-boot:spring-boot2-keycloak')?.name = 'spring-boot2-keycloak'
 include 'spring-boot:spring-boot2-rest'
 findProject(':spring-boot:spring-boot2-rest')?.name = 'spring-boot2-rest'
-
+include 'spring-boot:spring-boot2-jwt'
+findProject(':spring-boot:spring-boot2-jwt')?.name = 'spring-boot2-jwt'

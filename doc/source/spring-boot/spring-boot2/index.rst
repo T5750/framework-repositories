@@ -4,7 +4,7 @@ Spring Boot 2
 .. toctree::
     :maxdepth: 3
     :numbered: 0
-    
+
     SpringBoot2Logging
     SpringBoot2Rest
     SpringBoot2ResponseBodyEmitter
@@ -22,6 +22,7 @@ Spring Boot 2
     SpringBoot2Mail
     SpringBoot2RestTemplate
     SpringBoot2ShutdownHook
+    SpringBoot2Jwt
     keycloakGuide
     keycloakDocumentation
     keycloakSecurity
