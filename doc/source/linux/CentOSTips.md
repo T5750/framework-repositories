@@ -29,3 +29,10 @@
 ## Commands
 ### bc
 - `scale=2`
+
+### sar
+- `yum install sysstat`
+
+### mail
+- `yum -y install mailx`
+- `yum install sendmail`
