@@ -21,3 +21,4 @@ Linux
     CentOSPython
     CentOSTips
     CentOSTomcat
+    CentOSMail

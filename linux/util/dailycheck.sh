@@ -4,12 +4,21 @@ prefix_info="$prefix INFO"
 prefix_warn="$prefix WARN"
 suffix="--- [sh]"
 dailycheckLog=/home/bm/logs/dailycheck.log
+checkUrl="https://www.baidu.com"
 check_mem_usage(){
     ramusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f\n"), $3/$2*100}'| awk '{print $3}')
     if [ $(echo "$ramusage > 85" | bc) = 1 ];then
         printf "%s %-5s %s\n" "$prefix_warn" $$ "$suffix mem rate is more than 85%, please check" >> $dailycheckLog
     fi
-    printf "%s %-5s %s %.2f%s\n" "$prefix_info" $$ "$suffix mem rate is" "$mem_rate" "%" >> $dailycheckLog
+    printf "%s %-5s %s %.2f%s\n" "$prefix_info" $$ "$suffix mem rate is" "$ramusage" "%" >> $dailycheckLog
+}
+check_url(){
+    curl_status=`curl -I $checkUrl| grep 200 | awk '{print $2}'`
+    if [ "200" == "$curl_status" ];then
+        printf "%s %-5s %s\n" "$prefix_info" $$ "$suffix $checkUrl is ok" >> $dailycheckLog
+    else
+        printf "%s %-5s %s\n" "$prefix_warn" $$ "$suffix $checkUrl is $curl_status" >> $dailycheckLog
+    fi
 }
 check_cpuidle(){
     mincpu=`sar -u 2 10|grep all|awk '{print $NF}'|sort -nr|tail -1`
@@ -55,6 +64,7 @@ check_df(){
     fi
 }
 check_mem_usage
+check_url
 check_cpuidle
 check_mem
 check_io

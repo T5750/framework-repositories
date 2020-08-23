@@ -36,3 +36,6 @@
 ### mail
 - `yum -y install mailx`
 - `yum install sendmail`
+
+### vim
+- `yum -y install vim*`
