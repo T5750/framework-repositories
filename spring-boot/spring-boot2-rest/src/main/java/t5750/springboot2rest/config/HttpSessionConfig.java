@@ -1,6 +1,7 @@
 package t5750.springboot2rest.config;
 
 import org.springframework.beans.factory.BeanClassLoaderAware;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
@@ -22,6 +23,7 @@ public class HttpSessionConfig implements BeanClassLoaderAware {
 	}
 
 	@Bean
+	@ConfigurationProperties(prefix = "spring.redis")
 	public JedisConnectionFactory connectionFactory() {
 		return new JedisConnectionFactory();
 	}
