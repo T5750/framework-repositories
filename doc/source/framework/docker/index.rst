@@ -8,3 +8,4 @@ Docker
     dockerInstallation
     dockerQuickstart
     dockerOneHour
+    dockerDesktopWindows
