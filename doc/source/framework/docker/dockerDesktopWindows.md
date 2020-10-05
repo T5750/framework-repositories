@@ -16,13 +16,11 @@
 5. If your admin account is different to your user account, you must add the user to the **docker-users** group. Run **Computer Management** as an administrator and navigate to **Local Users and Groups > Groups > docker-users**. Right-click to add the user to the group. Log out and log back in for the changes to take effect.
 
 ## Config Desktop
-Settings -> Docker Engine
+1. Settings -> Resources -> ADVANCED -> Disk image location -> Browse
+2. Settings -> Docker Engine
 ```
 {
-  "registry-mirrors": [
-    "http://hub-mirror.c.163.com",
-    "https://reg-mirror.qiniu.com"
-  ],
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/","https://hub-mirror.c.163.com","https://registry.docker-cn.com"],
   "insecure-registries": [],
   "debug": true,
   "experimental": false
