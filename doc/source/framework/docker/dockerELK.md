@@ -19,9 +19,18 @@ docker restart es
 [http://localhost:9200/](http://localhost:9200/)
 
 ## ElasticSearch-Head
+Running with docker
 ```
 docker pull mobz/elasticsearch-head:5
 docker run -d --name es_admin -p 9100:9100 mobz/elasticsearch-head:5
+```
+
+Running with built in server
+```
+git clone git://github.com/mobz/elasticsearch-head.git
+cd elasticsearch-head
+npm install
+npm run start
 ```
 [http://localhost:9100/](http://localhost:9100/)
 
@@ -36,7 +45,7 @@ xpack.monitoring.elasticsearch.url: http://192.168.1.103:9200
 ## Kibana
 ```
 docker search kibana
-#docker pull kibana:5.6.14 
+#docker pull kibana:5.6.14
 docker pull docker.elastic.co/kibana/kibana-oss:6.3.2
 docker run --name kibana-oss -p 5601:5601 -d -e ELASTICSEARCH_URL=http://192.168.1.103:9200 docker.elastic.co/kibana/kibana-oss:6.3.2
 docker exec -it kibana-oss /bin/bash
@@ -60,6 +69,7 @@ filter {
 output {
   elasticsearch{
     hosts=> "http://192.168.1.103:9200"
+    index => "user-%{+YYYY.MM.dd}"
   }
 }
 ```
