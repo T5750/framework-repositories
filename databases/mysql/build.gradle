@@ -1,0 +1,6 @@
+dependencies {
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    compile group: 'commons-pool', name: 'commons-pool', version: '1.6'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.1'
+}
