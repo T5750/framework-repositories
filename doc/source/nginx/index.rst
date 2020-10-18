@@ -14,5 +14,6 @@ nginx
     nginxStatistics
     nginxLogs
     nginxInitScript
+    nginxVideos
     lua/index
     fastdfs/index
