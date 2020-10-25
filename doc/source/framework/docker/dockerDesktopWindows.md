@@ -17,7 +17,8 @@
 
 ## Config Desktop
 1. Settings -> Resources -> ADVANCED -> Disk image location -> Browse
-2. Settings -> Docker Engine
+2. Settings -> Resources -> FILE SHARING -> Resources
+3. Settings -> Docker Engine
 ```
 {
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/","https://hub-mirror.c.163.com","https://registry.docker-cn.com"],

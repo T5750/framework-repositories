@@ -2,6 +2,8 @@ package t5750.springbootadmin;
 
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +24,11 @@ import de.codecentric.boot.admin.notify.filter.FilteringNotifier;
 @EnableAutoConfiguration
 @EnableAdminServer
 public class SpringBootAdmin {
+	private final static Logger LOGGER = LoggerFactory.getLogger(SpringBootAdmin.class);
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootAdmin.class, args);
+		LOGGER.info("Enter main()");
 	}
 
 	@Profile("secure")

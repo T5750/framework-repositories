@@ -18,4 +18,5 @@ dependencies {
     compile group: 'de.codecentric', name: 'spring-boot-admin-starter-server', version: '1.5.7'
     compile group: 'de.codecentric', name: 'spring-boot-admin-server-ui-login', version: '1.5.7'
     compile('org.springframework.boot:spring-boot-starter-security')
+    compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '5.3'
 }
