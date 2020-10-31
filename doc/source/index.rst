@@ -20,6 +20,7 @@ Framework Repositories
 
    big-data/index
    databases/index
+   docker/index
    framework/index
    linux/index
    mq/index
