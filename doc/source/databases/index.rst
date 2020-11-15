@@ -10,3 +10,4 @@ Databases
     mysql/index
     oracle/index
     redis/index
+    postgresql/index
