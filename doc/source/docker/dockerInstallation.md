@@ -33,6 +33,27 @@ yum install https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/7/x86_64
 1. `yum remove docker-ce docker-ce-cli containerd.io`
 2. `rm -rf /var/lib/docker`
 
+## Tips
+CentOS 8 Errors: 
+- Problem 1: problem with installed package podman-1.4.2-5.module_el8.1.0+237+63e26edc.x86_64
+- Problem 2: problem with installed package buildah-1.9.0-5.module_el8.1.0+237+63e26edc.x86_64
+
+```
+rpm -q podman
+sudo dnf remove podman
+rpm -q buildah
+sudo dnf remove buildah
+```
+```
+sudo systemctl enable docker
+sudo vi /etc/docker/daemon.json
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+}
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
 ## References
 - [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
 - [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)

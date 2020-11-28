@@ -6,6 +6,7 @@ Docker
     :numbered: 0
     
     dockerInstallation
+    dockerComposeInstallation
     dockerQuickstart
     dockerOneHour
     dockerDesktopWindows
