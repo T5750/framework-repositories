@@ -22,3 +22,4 @@ Linux
     CentOSTips
     CentOSTomcat
     CentOSMail
+    CentOSChrony

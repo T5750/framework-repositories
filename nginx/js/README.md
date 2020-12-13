@@ -14,3 +14,4 @@
 - [Select2](select2/README.md)
 - [Key](key/README.md)
 - [Moving Letters](moving-letters/README.md)
+- [Captcha](captcha/README.md)

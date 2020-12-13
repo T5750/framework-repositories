@@ -5,6 +5,7 @@
 - [CentOS Tips](../doc/source/linux/CentOSTips.md)
 - [CentOS Python](../doc/source/linux/CentOSPython.md)
 - [CentOS Tomcat](../doc/source/linux/CentOSTomcat.md)
+- [CentOS Chrony](../doc/source/linux/CentOSChrony.md)
 
 ### Linux笔记
 - [1.x Linux初步与环境安装](../doc/source/linux/LinuxNote.md)
