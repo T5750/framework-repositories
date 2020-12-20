@@ -7,3 +7,4 @@ PostgreSQL
     
     postgresTutorial
     postgresSQL
+    postgresMasterSlave
