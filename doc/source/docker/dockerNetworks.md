@@ -27,8 +27,11 @@ psql -h 172.60.0.100 -U postgres -d pg
 ## CentOS 8
 ```
 sudo nmcli connection modify docker0 connection.zone trusted
+sudo systemctl stop NetworkManager.service
+sudo firewall-cmd --permanent --zone=trusted --change-interface=docker0
+sudo systemctl start NetworkManager.service
+sudo nmcli connection modify docker0 connection.zone trusted
 sudo systemctl restart docker.service
-sudo systemctl restart firewalld.service
 ```
 
 ## References
