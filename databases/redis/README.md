@@ -38,5 +38,8 @@
     - [从RDB持久化切换到AOF持久化](../../doc/source/databases/redis/RedisCollection.md#从RDB持久化切换到AOF持久化)
     - [Redis数据备份方案](../../doc/source/databases/redis/RedisCollection.md#Redis数据备份方案)
 
+### Redis GUI
+- [Redis网摘笔记](../../doc/source/databases/redis/RedisInsight.md)
+
 ### Hystrix网摘笔记
 - [Hystrix网摘笔记](../../doc/source/databases/redis/Hystrix.md)

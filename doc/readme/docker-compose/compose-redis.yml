@@ -1,0 +1,29 @@
+version: '3'
+services:
+  redis:
+    restart: always
+    image: redis
+    container_name: redis
+    hostname: redis
+    ports:
+      - 6379:6379
+    command: redis-server --requirepass MY_SUPER_AWESOME_PASSWORD
+    networks:
+      default:
+        ipv4_address: 172.60.0.110
+  redisinsight:
+    restart: always
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    hostname: redisinsight
+    ports:
+      - 8080:8001
+    volumes:
+      - ./redisinsight:/db
+    networks:
+      default:
+        ipv4_address: 172.60.0.111
+networks:
+  default:
+    external:
+       name: bridge_db

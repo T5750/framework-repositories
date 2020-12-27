@@ -10,4 +10,5 @@ Redis
     redisdev/RedisDev04
     redisdev/RedisDev11
     RedisCollection
+    RedisInsight
     Hystrix
