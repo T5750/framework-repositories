@@ -6,7 +6,7 @@
 ## pgmaster
 `sudo vi pgmaster/pg_hba.conf`
 ```
-host    replication     replica             pgslave/32            trust
+host    replication     replica             172.18.0.101/32            trust
 ```
 `sudo vi pgmaster/postgresql.conf`
 ```
@@ -37,7 +37,7 @@ pg_basebackup -h pgmaster -p 5432 -U replica -Fp -Xs -Pv -R -D /var/lib/postgres
 ```
 `sudo vi pgslave/pg_hba.conf`
 ```
-host    replication     replica             pgmaster/32            trust
+host    replication     replica             172.18.0.100/32            trust
 ```
 `sudo vi pgslave/postgresql.conf`
 ```

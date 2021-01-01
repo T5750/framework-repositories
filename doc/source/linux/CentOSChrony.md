@@ -21,6 +21,19 @@ sudo chronyc tracking
 sudo netstat -antup | grep chrony
 ```
 
+## Intranet
+```
+sudo vi /etc/chrony.conf
+```
+```
+#pool 2.centos.pool.ntp.org iburst
+pool 192.168.8.176 iburst
+```
+```
+sudo systemctl restart chronyd.service
+timedatectl
+```
+
 ## References
 - [Chrony详解：代替ntp的时间同步服务](https://chegva.com/3265.html)
 - [chrony.conf(5) Manual Page](https://chrony.tuxfamily.org/doc/devel/chrony.conf.html)
