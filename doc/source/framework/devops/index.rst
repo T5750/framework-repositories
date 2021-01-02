@@ -7,3 +7,4 @@ DevOps
     
     jenkinsPipeline
     jenkinsDocker
+    nexusDocker

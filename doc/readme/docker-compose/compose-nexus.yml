@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nexus:
+    restart: always
+    image: "sonatype/nexus3"
+    container_name: nexus
+    hostname: nexus
+    ports:
+      - "8081:8081"
+    environment:
+      TZ: "Asia/Shanghai"
+    #volumes:
+      #- /docker/nexus/nexus-data:/nexus-data
+      #- /etc/localtime:/etc/localtime
