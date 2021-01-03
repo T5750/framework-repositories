@@ -5,6 +5,7 @@ DevOps
     :maxdepth: 3
     :numbered: 0
     
-    jenkinsPipeline
     jenkinsDocker
+    jenkinsPipeline
     nexusDocker
+    gitlabDocker
