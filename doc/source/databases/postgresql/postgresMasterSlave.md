@@ -56,5 +56,24 @@ psql -U postgres
 select client_addr,sync_state from pg_stat_replication;
 ```
 
+## Tests
+```
+docker stop pgmaster
+docker exec -it pgslave bash
+su postgres
+/usr/lib/postgresql/11/bin/pg_ctl promote
+```
+
+`select pg_is_in_recovery();`
+- master: f
+- slave: t
+
+`vi pgmaster/recovery.conf`
+```
+standby_mode = on
+primary_conninfo = 'host=pgslave port=5432 user=replica password=replica'
+recovery_target_timeline = 'latest'
+```
+
 ## References
 - [利用Docker部署 PostgreSQL 12.4主从](https://blog.csdn.net/qianglei6077/article/details/109581525)
