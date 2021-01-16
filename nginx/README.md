@@ -14,6 +14,7 @@
     - [nginx Statistics](../doc/source/nginx/nginxStatistics.md)
     - [nginx Logs](../doc/source/nginx/nginxLogs.md)
     - [nginx Init Script](../doc/source/nginx/nginxInitScript.md)
+    - [nginx Docker](../doc/source/nginx/nginxDocker.md)
 
 ### Lua笔记
 - [nginx Lua Installation](../doc/source/nginx/lua/nginxLuaInstallation.md)
