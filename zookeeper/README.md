@@ -10,6 +10,7 @@
     - [Curator框架应用](../doc/source/zookeeper/ZooKeeperCollection.md#Curator框架应用)
     - [Curator扩展库](../doc/source/zookeeper/ZooKeeperCollection.md#Curator扩展库)
     - [ZooKeeper典型的应用场景](../doc/source/zookeeper/ZooKeeperScenes.md)
+    - [ZooKeeper Docker](../doc/source/zookeeper/ZooKeeperDocker.md)
 
 ### ZooKeeper异常笔记
 - [ZooKeeper异常笔记](../doc/source/zookeeper/ZooKeeperException.md)

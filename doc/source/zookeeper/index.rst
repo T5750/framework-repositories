@@ -13,3 +13,4 @@ ZooKeeper
     ZooKeeperCommands
     ZooKeeperObservers
     ZooKeeperManagement
+    ZooKeeperDocker
