@@ -1,0 +1,17 @@
+version: '3'
+services:
+  zoo1:
+    restart: always
+    image: zookeeper:3.5
+    container_name: zoo1
+    hostname: zoo1
+    ports:
+      - 2181:2181
+    environment:
+      TZ: "Asia/Shanghai"
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo1/data:/data
+      - /usr/local/zookeeper/zoo1/datalog:/datalog

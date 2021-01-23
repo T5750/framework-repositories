@@ -2,7 +2,7 @@ version: '3'
 services:
   zoo1:
     restart: always
-    image: zookeeper
+    image: zookeeper:3.5
     container_name: zoo1
     hostname: zoo1
     ports:
@@ -10,13 +10,17 @@ services:
     environment:
       TZ: "Asia/Shanghai"
       ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
-    # volumes:
-    #   - /usr/local/docker_app/zookeeper/zoo1/data:/data
-    #   - /usr/local/docker_app/zookeeper/zoo1/datalog:/datalog
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo1/data:/data
+      - /usr/local/zookeeper/zoo1/datalog:/datalog
+    networks:
+      default:
+        ipv4_address: 172.60.0.201
   zoo2:
     restart: always
-    image: zookeeper
+    image: zookeeper:3.5
     container_name: zoo2
     hostname: zoo2
     ports:
@@ -24,13 +28,17 @@ services:
     environment:
       TZ: "Asia/Shanghai"
       ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
-    # volumes:
-    #   - /usr/local/docker_app/zookeeper/zoo2/data:/data
-    #   - /usr/local/docker_app/zookeeper/zoo2/datalog:/datalog
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo2/data:/data
+      - /usr/local/zookeeper/zoo2/datalog:/datalog
+    networks:
+      default:
+        ipv4_address: 172.60.0.202
   zoo3:
     restart: always
-    image: zookeeper
+    image: zookeeper:3.5
     container_name: zoo3
     hostname: zoo3
     ports:
@@ -38,7 +46,15 @@ services:
     environment:
       TZ: "Asia/Shanghai"
       ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
-    # volumes:
-    #   - /usr/local/docker_app/zookeeper/zoo3/data:/data
-    #   - /usr/local/docker_app/zookeeper/zoo3/datalog:/datalog
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo3/data:/data
+      - /usr/local/zookeeper/zoo3/datalog:/datalog
+    networks:
+      default:
+        ipv4_address: 172.60.0.203
+networks:
+  default:
+    external:
+       name: bridge_db
