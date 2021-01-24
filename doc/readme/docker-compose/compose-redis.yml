@@ -26,4 +26,4 @@ services:
 networks:
   default:
     external:
-       name: bridge_db
+       name: bridge_compose

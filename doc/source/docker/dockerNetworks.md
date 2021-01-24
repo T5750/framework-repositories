@@ -2,9 +2,9 @@
 
 ## Network
 ```
-docker network create --driver bridge --subnet=172.60.0.0/16 --gateway=172.60.0.1 bridge_db
+docker network create --driver bridge --subnet=172.60.0.0/16 --gateway=172.60.0.1 bridge_compose
 docker network ls
-docker inspect bridge_db
+docker inspect bridge_compose
 ```
 
 ## Docker compose
