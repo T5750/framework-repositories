@@ -1,0 +1,17 @@
+version: '3'
+services:
+  cassandra:
+    restart: always
+    image: cassandra
+    container_name: cassandra
+    hostname: cassandra
+    ports:
+      - "7000:7000"
+      - "9042:9042"
+    environment:
+      #TZ: "Asia/Shanghai"
+      CASSANDRA_BROADCAST_ADDRESS: cassandra
+    volumes:
+      #- /etc/localtime:/etc/localtime:ro
+      - ./cassandra.yaml:/opt/cassandra/conf/cassandra.yaml
+      - ./cassandra:/var/lib/cassandra

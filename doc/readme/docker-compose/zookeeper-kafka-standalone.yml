@@ -1,0 +1,44 @@
+version: '3'
+services:
+  zoo1:
+    restart: always
+    image: zookeeper:3.5
+    container_name: zoo1
+    hostname: zoo1
+    ports:
+      - 2181:2181
+    environment:
+      TZ: "Asia/Shanghai"
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181
+    # volumes:
+    #   - /etc/localtime:/etc/localtime:ro
+    #   - /usr/local/zookeeper/zoo1/data:/data
+    #   - /usr/local/zookeeper/zoo1/datalog:/datalog
+    networks:
+      default:
+        ipv4_address: 172.60.0.211
+  kafka1:
+    restart: always
+    image: wurstmeister/kafka
+    container_name: kafka1
+    hostname: kafka1
+    ports:
+      - 9092:9092
+    environment:
+      - TZ=Asia/Shanghai
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zoo1
+    networks:
+      default:
+        ipv4_address: 172.60.0.221
+networks:
+  default:
+    external:
+       name: bridge_compose

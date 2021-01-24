@@ -11,3 +11,4 @@ Databases
     oracle/index
     redis/index
     postgresql/index
+    cassandra/index

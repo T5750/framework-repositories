@@ -9,3 +9,4 @@ MQ
     ActiveMQCollection
     ActiveMQCluster
     ActiveMQExclusiveConsumer
+    KafkaZookeeperDocker
