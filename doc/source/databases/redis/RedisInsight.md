@@ -9,7 +9,7 @@ docker run -v redisinsight:/db -p 8001:8001 redislabs/redisinsight:latest
 [http://localhost:8001/healthcheck/](http://localhost:8001/healthcheck/)
 
 ## Docker Compose
-`vi compose-redis.yml`
+`redis-standalone.yml`
 
 [http://localhost:8080/](http://localhost:8080/)
 

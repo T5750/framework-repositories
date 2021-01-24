@@ -1,7 +1,7 @@
 # GitLab Docker
 
 ## Docker Compose
-`compose-gitlab.yml`
+`gitlab.yml`
 
 [http://localhost:8929/](http://localhost:8929/)
 

@@ -8,7 +8,7 @@ docker cp nginx:/etc/nginx/conf.d .
 ```
 
 ## Docker Compose
-`compose-nginx.yml`
+`nginx.yml`
 
 [http://localhost/](http://localhost/)
 

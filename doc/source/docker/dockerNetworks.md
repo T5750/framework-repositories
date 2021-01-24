@@ -9,7 +9,7 @@ docker inspect bridge_compose
 
 ## Docker compose
 ```
-docker-compose -f compose-pg.yml up -d
+docker-compose -f postgres.yml up -d
 ```
 
 ## PostgreSQL
