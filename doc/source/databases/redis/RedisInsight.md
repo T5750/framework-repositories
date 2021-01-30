@@ -11,8 +11,6 @@ docker run -v redisinsight:/db -p 8001:8001 redislabs/redisinsight:latest
 ## Docker Compose
 `redis-standalone.yml`
 
-[http://localhost:8080/](http://localhost:8080/)
-
 ## References
 - [Installing RedisInsight on Docker](https://docs.redislabs.com/latest/ri/installing/install-docker/)
 - [Redis向け GUI ツール RedisInsight を使う](https://tech.guitarrapc.com/entry/2019/12/13/043349)

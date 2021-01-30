@@ -41,8 +41,10 @@ select * from user;
 ```
 nodetool status
 nodetool info
-nodetool -h 172.18.0.152 -p 7001 status
+docker exec cassandra1 nodetool status
+docker exec -it cassandra1 cqlsh -e "describe keyspaces"
 ```
 
 ## References
 - [基于docker创建Cassandra集群](https://www.cnblogs.com/xiao987334176/p/13219163.html)
+- [Containerized Cassandra Cluster for local testing](https://digitalis.io/blog/apache-cassandra/containerized-cassandra-cluster-for-local-testing/)

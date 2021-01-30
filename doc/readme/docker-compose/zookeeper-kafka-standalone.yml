@@ -8,7 +8,7 @@ services:
     ports:
       - 2181:2181
     environment:
-      TZ: "Asia/Shanghai"
+      TZ: Asia/Shanghai
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181
     # volumes:
@@ -17,7 +17,7 @@ services:
     #   - /usr/local/zookeeper/zoo1/datalog:/datalog
     networks:
       default:
-        ipv4_address: 172.60.0.211
+        ipv4_address: 172.60.0.201
   kafka1:
     restart: always
     image: wurstmeister/kafka
@@ -37,7 +37,26 @@ services:
       - zoo1
     networks:
       default:
-        ipv4_address: 172.60.0.221
+        ipv4_address: 172.60.0.204
+  kafka-manager:
+    restart: always
+    # image: sheepkiller/kafka-manager
+    image: hlebalbau/kafka-manager
+    container_name: kafa-manager
+    hostname: kafka-manager
+    ports:
+      - 9002:9000
+    environment:
+      TZ: Asia/Shanghai
+      ZK_HOSTS: zoo1:2181
+      KAFKA_BROKERS: kafka1:9092
+      APPLICATION_SECRET: t5750
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+    depends_on:
+      - kafka1
+    networks:
+      default:
+        ipv4_address: 172.60.0.207
 networks:
   default:
     external:

@@ -17,7 +17,7 @@ services:
     container_name: redisinsight
     hostname: redisinsight
     ports:
-      - 8080:8001
+      - 8001:8001
     volumes:
       - ./redisinsight:/db
     networks:
