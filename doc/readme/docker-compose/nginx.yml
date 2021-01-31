@@ -9,7 +9,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      TZ: "Asia/Shanghai"
+      TZ: Asia/Shanghai
     volumes:
       - ./cert:/etc/nginx/cert
       - ./html:/etc/nginx/html

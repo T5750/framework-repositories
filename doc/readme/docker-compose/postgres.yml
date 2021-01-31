@@ -2,16 +2,16 @@ version: '3'
 services:
   pgmaster:
     restart: always
-    image: "postgres:11.9"
+    image: postgres:11.9
     container_name: pgmaster
     hostname: pgmaster
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       POSTGRES_DB: pg
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      TZ: "Asia/Shanghai"
+      TZ: Asia/Shanghai
     #volumes:
       #- pgmaster:/var/lib/postgresql/data
     networks:
@@ -19,16 +19,16 @@ services:
         ipv4_address: 172.60.0.100
   pgslave:
     restart: always
-    image: "postgres:11.9"
+    image: postgres:11.9
     container_name: pgslave
     hostname: pgslave
     ports:
-      - "5431:5432"
+      - 5431:5432
     environment:
       POSTGRES_DB: pg
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      TZ: "Asia/Shanghai"
+      TZ: Asia/Shanghai
     #volumes:
       #- pgslave:/var/lib/postgresql/data
     depends_on:
@@ -42,7 +42,7 @@ services:
     container_name: pgadmin4
     hostname: pgadmin4
     ports:
-      - "5433:80"
+      - 5433:80
     environment: 
       PGADMIN_DEFAULT_EMAIL: admin@pg.com
       PGADMIN_DEFAULT_PASSWORD: postgres

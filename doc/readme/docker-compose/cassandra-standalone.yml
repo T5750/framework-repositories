@@ -6,10 +6,10 @@ services:
     container_name: cassandra
     hostname: cassandra
     ports:
-      - "7000:7000"
-      - "9042:9042"
+      - 7000:7000
+      - 9042:9042
     environment:
-      #TZ: "Asia/Shanghai"
+      #TZ: Asia/Shanghai
       CASSANDRA_BROADCAST_ADDRESS: cassandra
     volumes:
       #- /etc/localtime:/etc/localtime:ro

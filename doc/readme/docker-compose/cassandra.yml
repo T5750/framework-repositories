@@ -11,13 +11,13 @@ services:
         timeout: 5s
         retries: 60
     ports:
-      - "9041:9042"  # Expose native binary CQL port for your apps
+      - 9041:9042  # Expose native binary CQL port for your apps
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra1:/var/lib/cassandra    # This is the volume that will persist data for cassandra1 node
       #- ./etc/cassandra1:/etc/cassandra   # Use your own config files for full control
     environment: &environment    # Declare and save environments variables into "environment"
-        #TZ: "Asia/Shanghai"
+        #TZ: Asia/Shanghai
         CASSANDRA_SEEDS: "cassandra1,cassandra2"    # The first two nodes will be seeds
         CASSANDRA_CLUSTER_NAME: SolarSystem
         CASSANDRA_DC: Mars
@@ -38,7 +38,7 @@ services:
         timeout: 5s
         retries: 60
     ports:
-      - "9042:9042"  # Expose native binary CQL port for your apps
+      - 9042:9042  # Expose native binary CQL port for your apps
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra2:/var/lib/cassandra    # This is the volume that will persist data for cassandra2 node
@@ -61,7 +61,7 @@ services:
         timeout: 5s
         retries: 60
     ports:
-      - "9043:9042"  # Expose native binary CQL port for your apps
+      - 9043:9042  # Expose native binary CQL port for your apps
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra3:/var/lib/cassandra    # This is the volume that will persist data for cassandra3 node

@@ -13,3 +13,4 @@ Docker
     dockerELK
     dockerComposeELK
     dockerNetworks
+    dockerComposeWordPress
