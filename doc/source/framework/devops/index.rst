@@ -9,3 +9,4 @@ DevOps
     jenkinsPipeline
     nexusDocker
     gitlabDocker
+    zentaoDocker

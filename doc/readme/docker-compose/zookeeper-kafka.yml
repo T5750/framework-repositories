@@ -124,10 +124,10 @@ services:
     restart: always
     # image: sheepkiller/kafka-manager
     image: hlebalbau/kafka-manager
-    container_name: kafa-manager
+    container_name: kafka-manager
     hostname: kafka-manager
     ports:
-      - 9002:9000
+      - 9000:9000
     environment:
       TZ: Asia/Shanghai
       ZK_HOSTS: zoo1:2181,zoo2:2182,zoo3:2183

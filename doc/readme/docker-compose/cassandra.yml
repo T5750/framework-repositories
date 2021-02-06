@@ -6,7 +6,7 @@ services:
     container_name: cassandra1
     hostname: cassandra1
     healthcheck:
-        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        test: ["CMD", "cqlsh", "-u", "cassandra", "-p", "cassandra", "-e", "describe keyspaces" ]
         interval: 5s
         timeout: 5s
         retries: 60
@@ -15,7 +15,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra1:/var/lib/cassandra    # This is the volume that will persist data for cassandra1 node
-      #- ./etc/cassandra1:/etc/cassandra   # Use your own config files for full control
+      - ./etc/cassandra1:/etc/cassandra   # Use your own config files for full control
     environment: &environment    # Declare and save environments variables into "environment"
         #TZ: Asia/Shanghai
         CASSANDRA_SEEDS: "cassandra1,cassandra2"    # The first two nodes will be seeds
@@ -33,7 +33,7 @@ services:
     container_name: cassandra2
     hostname: cassandra2
     healthcheck:
-        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        test: ["CMD", "cqlsh", "-u", "cassandra", "-p", "cassandra", "-e", "describe keyspaces" ]
         interval: 5s
         timeout: 5s
         retries: 60
@@ -42,7 +42,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra2:/var/lib/cassandra    # This is the volume that will persist data for cassandra2 node
-      #- ./etc/cassandra2:/etc/cassandra    # Use your own config files for full control
+      - ./etc/cassandra2:/etc/cassandra    # Use your own config files for full control
     environment: *environment    # point to "environment" to use the same environment variables as cassandra1
     depends_on:
       cassandra1:    # start cassandra2 only after cassandra1 is healthy
@@ -56,7 +56,7 @@ services:
     container_name: cassandra3
     hostname: cassandra3
     healthcheck:
-        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        test: ["CMD", "cqlsh", "-u", "cassandra", "-p", "cassandra", "-e", "describe keyspaces" ]
         interval: 5s
         timeout: 5s
         retries: 60
@@ -65,7 +65,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./cassandra3:/var/lib/cassandra    # This is the volume that will persist data for cassandra3 node
-      #- ./etc/cassandra3:/etc/cassandra    # Use your own config files for full control
+      - ./etc/cassandra3:/etc/cassandra    # Use your own config files for full control
     environment: *environment    # point to "environment" to use the same environment variables as cassandra1
     depends_on:
       cassandra2:    # start cassandra3 only after cassandra1 is healthy

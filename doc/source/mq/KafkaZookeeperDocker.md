@@ -19,7 +19,7 @@ kafka-topics.sh --zookeeper 172.60.0.201:2181 --delete --topic kafkazookeeper
 
 ### CMAK
 - [CMAK](https://github.com/yahoo/CMAK)
-- [http://localhost:9002/](http://localhost:9002/)
+- [http://localhost:9000/](http://localhost:9000/)
 
 ## Kafka Zookeeper Cluster in Docker Compose
 `zookeeper-kafka.yml`

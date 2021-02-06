@@ -1,0 +1,40 @@
+version: '3'
+services:
+  nginx1:
+    restart: always
+    image: nginx:stable
+    container_name: nginx1
+    hostname: nginx1
+    ports:
+      - 8081:80
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./index.html:/usr/share/nginx/html/index.html
+  nginx2:
+    restart: always
+    image: nginx:stable
+    container_name: nginx2
+    hostname: nginx2
+    ports:
+      - 8082:80
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  haproxy:
+    restart: always
+    image: haproxy
+    container_name: haproxy
+    hostname: haproxy
+    ports:
+      - 80:80
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    depends_on:
+      - nginx1
+      - nginx2

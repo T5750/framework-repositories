@@ -31,6 +31,7 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
       - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - JMX_PORT=9999
     # volumes:
     #   - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
@@ -42,10 +43,10 @@ services:
     restart: always
     # image: sheepkiller/kafka-manager
     image: hlebalbau/kafka-manager
-    container_name: kafa-manager
+    container_name: kafka-manager
     hostname: kafka-manager
     ports:
-      - 9002:9000
+      - 9000:9000
     environment:
       TZ: Asia/Shanghai
       ZK_HOSTS: zoo1:2181

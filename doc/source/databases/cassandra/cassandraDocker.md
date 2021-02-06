@@ -45,6 +45,24 @@ docker exec cassandra1 nodetool status
 docker exec -it cassandra1 cqlsh -e "describe keyspaces"
 ```
 
+```
+docker cp cassandra1:/etc/cassandra etc_cassandra
+mkdir -p ./etc
+cp -a etc_cassandra etc/cassandra1
+cp -a etc_cassandra etc/cassandra2
+cp -a etc_cassandra etc/cassandra3
+vi ./etc/cassandra1/cassandra.yaml
+vi ./etc/cassandra3/cassandra.yaml
+vi ./etc/cassandra2/cassandra.yaml
+```
+```
+authenticator: PasswordAuthenticator
+authorizer: CassandraAuthorizer
+```
+```
+docker exec -it cassandra1 cqlsh -u cassandra -p cassandra -e "describe keyspaces"
+```
+
 ## References
 - [基于docker创建Cassandra集群](https://www.cnblogs.com/xiao987334176/p/13219163.html)
 - [Containerized Cassandra Cluster for local testing](https://digitalis.io/blog/apache-cassandra/containerized-cassandra-cluster-for-local-testing/)
