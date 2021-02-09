@@ -25,8 +25,10 @@ image | networks | container_name | ports
 postgres | 172.60.0.100 | pgmaster | 5432:5432
 postgres | 172.60.0.101 | pgslave | 5431:5432
 pgadmin4 | 172.60.0.102 | pgadmin4 | 5433:80
-redis | 172.60.0.110 | redis | 6379:6379
-redisinsight | 172.60.0.111 | redisinsight | 8001:8001
+redis | 172.60.0.111 | redis1 | 6379:6379
+redis | 172.60.0.112 | redis2 | 6380:6379
+redis | 172.60.0.113 | redis3 | 6381:6379
+redisinsight | 172.60.0.117 | redisinsight | 8001:8001
 cassandra | 172.60.0.121 | cassandra1 | 9041:9042
 cassandra | 172.60.0.122 | cassandra2 | 9042:9042
 cassandra | 172.60.0.123 | cassandra3 | 9043:9042

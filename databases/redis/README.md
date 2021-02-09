@@ -37,6 +37,7 @@
     - [ZooKeeper分布式锁](../../doc/source/databases/redis/RedisCollection.md#ZooKeeper分布式锁)
     - [从RDB持久化切换到AOF持久化](../../doc/source/databases/redis/RedisCollection.md#从RDB持久化切换到AOF持久化)
     - [Redis数据备份方案](../../doc/source/databases/redis/RedisCollection.md#Redis数据备份方案)
+- [Redis Docker](../../doc/source/databases/redis/RedisDocker.md)
 
 ### Redis GUI
 - [RedisInsight](../../doc/source/databases/redis/RedisInsight.md)

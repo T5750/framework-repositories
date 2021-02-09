@@ -11,4 +11,5 @@ Redis
     redisdev/RedisDev11
     RedisCollection
     RedisInsight
+    RedisDocker
     Hystrix
