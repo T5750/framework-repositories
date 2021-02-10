@@ -1,0 +1,114 @@
+version: '3'
+services:
+  redis1:
+    restart: always
+    image: redis
+    container_name: redis1
+    hostname: redis1
+    ports:
+      - 6379:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r1/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r1/logs:/usr/local/redis/logs
+      - ./r1/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.111
+  redis2:
+    restart: always
+    image: redis
+    container_name: redis2
+    hostname: redis2
+    ports:
+      - 6380:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r2/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r2/logs:/usr/local/redis/logs
+      - ./r2/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.112
+  redis3:
+    restart: always
+    image: redis
+    container_name: redis3
+    hostname: redis3
+    ports:
+      - 6381:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r3/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r3/logs:/usr/local/redis/logs
+      - ./r3/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.113
+  redis4:
+    restart: always
+    image: redis
+    container_name: redis4
+    hostname: redis4
+    ports:
+      - 6382:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r4/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r4/logs:/usr/local/redis/logs
+      - ./r4/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.114
+  redis5:
+    restart: always
+    image: redis
+    container_name: redis5
+    hostname: redis5
+    ports:
+      - 6383:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r5/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r5/logs:/usr/local/redis/logs
+      - ./r5/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.115
+  redis6:
+    restart: always
+    image: redis
+    container_name: redis6
+    hostname: redis6
+    ports:
+      - 6384:6379
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./r6/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./r6/logs:/usr/local/redis/logs
+      - ./r6/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      default:
+        ipv4_address: 172.60.0.116
+networks:
+  default:
+    external:
+       name: bridge_compose
