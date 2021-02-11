@@ -42,6 +42,10 @@ kafka | 172.60.0.204 | kafka1 | 9091:9092
 kafka | 172.60.0.205 | kafka2 | 9092:9092
 kafka | 172.60.0.206 | kafka3 | 9093:9092
 kafka-manager | 172.60.0.207 | kafka-manager | 9000:9000
+minio | 172.60.0.211 | minio1 | 9000
+minio | 172.60.0.212 | minio2 | 9000
+minio | 172.60.0.213 | minio3 | 9000
+minio | 172.60.0.214 | minio4 | 9000
 zentao | localhost | zentao | 8080:80
 
 ## Runtime Environment

@@ -1,0 +1,137 @@
+version: '3.7'
+
+# starts 4 docker containers running minio server instances.
+# using nginx reverse proxy, load balancing, you can access
+# it through port 9000.
+services:
+  minio1:
+    restart: always
+    image: minio/minio:RELEASE.2021-02-07T01-31-02Z
+    container_name: minio1
+    hostname: minio1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - data1-1:/data1
+      - data1-2:/data2
+    expose:
+      - 9000
+    environment:
+      TZ: Asia/Shanghai
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      default:
+        ipv4_address: 172.60.0.211
+  minio2:
+    restart: always
+    image: minio/minio:RELEASE.2021-02-07T01-31-02Z
+    container_name: minio2
+    hostname: minio2
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - data2-1:/data1
+      - data2-2:/data2
+    expose:
+      - 9000
+    environment:
+      TZ: Asia/Shanghai
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      default:
+        ipv4_address: 172.60.0.212
+  minio3:
+    restart: always
+    image: minio/minio:RELEASE.2021-02-07T01-31-02Z
+    container_name: minio3
+    hostname: minio3
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - data3-1:/data1
+      - data3-2:/data2
+    expose:
+      - 9000
+    environment:
+      TZ: Asia/Shanghai
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      default:
+        ipv4_address: 172.60.0.213
+  minio4:
+    restart: always
+    image: minio/minio:RELEASE.2021-02-07T01-31-02Z
+    container_name: minio4
+    hostname: minio4
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - data4-1:/data1
+      - data4-2:/data2
+    expose:
+      - 9000
+    environment:
+      TZ: Asia/Shanghai
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server http://minio{1...4}/data{1...2}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      default:
+        ipv4_address: 172.60.0.214
+  nginx:
+    restart: always
+    image: nginx:stable
+    container_name: nginx
+    hostname: nginx
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 9000:9000
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      - minio1
+      - minio2
+      - minio3
+      - minio4
+    networks:
+      default:
+        ipv4_address: 172.60.0.215
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  data1-1:
+  data1-2:
+  data2-1:
+  data2-2:
+  data3-1:
+  data3-2:
+  data4-1:
+  data4-2:
+networks:
+  default:
+    external:
+       name: bridge_compose

@@ -18,4 +18,5 @@ nginx
     nginxDocker
     lua/index
     fastdfs/index
+    minio/index
     haproxy/index
