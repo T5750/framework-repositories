@@ -31,5 +31,6 @@ MySQL
     mysqlFunctionMath
     mysqlFunctionWindow
     mysqlMycnf
+    mysqlDocker
     locks
     Grafana
