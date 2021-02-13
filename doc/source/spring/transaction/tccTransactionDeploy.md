@@ -27,7 +27,7 @@ Module | HTTP Port | Application Context | Url
 `tcc-transaction-dubbo-web-trade` | 8086 | `/` | [http://localhost:8086/](http://localhost:8086/)
 `dubbo-admin` | 8080 | `/` | [http://localhost:8080](http://localhost:8080)
 
-## test
+## Tests
 - `TransferServiceTest`
 - `PerformanceTest`
 

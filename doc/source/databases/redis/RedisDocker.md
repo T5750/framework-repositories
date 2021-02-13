@@ -13,7 +13,7 @@ mkdir redis{1,2,3}
 cp -avx redis.conf sentinel.conf redis1
 ```
 
-### Test
+### Tests
 ```
 docker exec -it redis1 bash
 redis-cli -h redis1 -p 6379
@@ -56,7 +56,7 @@ cluster info
 redis-cli -a 123456 --cluster check 172.60.0.111:6379
 ```
 
-### Test
+### Tests
 ```
 docker exec -it redis2 /usr/local/bin/redis-cli -c -a 123456 -h 172.60.0.112
 set name t5750

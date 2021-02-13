@@ -23,7 +23,7 @@ Client port found: 2181. Client address: localhost.
 Mode: leader
 ```
 
-### Test
+### Tests
 ```
 zkCli.sh -server 172.18.0.201:2181,172.18.0.201:2182,172.18.0.201:2183
 ```

@@ -83,7 +83,7 @@ nohup redis-server /usr/servers/templates/redis_6661.conf &
 nohup redis-server /usr/servers/templates/redis_6662.conf &
 ```
 
-#### Test
+#### Tests
 ```
 redis-cli -p 7770
 set i 1

@@ -36,7 +36,7 @@ delete from user where id=2;
 select * from user;
 ```
 
-### Test
+### Tests
 `nodetool -h host -u username -pw password [option]`
 ```
 nodetool status
