@@ -25,6 +25,10 @@ image | networks | container_name | ports
 postgres | 172.60.0.100 | pgmaster | 5432:5432
 postgres | 172.60.0.101 | pgslave | 5431:5432
 pgadmin4 | 172.60.0.102 | pgadmin4 | 5433:80
+mysql:5.7 | 172.60.0.105 | mysql_master | 3306:3306
+mysql:5.7 | 172.60.0.106 | mysql_slave | 3307:3306
+mysql | 172.60.0.107 | mysql8master | 3306:3306
+mysql | 172.60.0.108 | mysql8slave | 3307:3306
 redis | 172.60.0.111 | redis1 | 6379:6379
 redis | 172.60.0.112 | redis2 | 6380:6379
 redis | 172.60.0.113 | redis3 | 6381:6379

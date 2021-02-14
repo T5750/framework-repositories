@@ -1,0 +1,50 @@
+version: '3'
+services:
+  mysql8master:
+    restart: always
+    image: mysql
+    container_name: mysql8master
+    hostname: mysql8master
+    ports:
+      - 3306:3306
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: replicas_db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mysql8master/mysql8master.cnf:/etc/mysql/my.cnf
+      - ./mysql8master/data:/var/lib/mysql
+    command: 
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    networks:
+      default:
+        ipv4_address: 172.60.0.107
+  mysql8slave:
+    restart: always
+    image: mysql
+    container_name: mysql8slave
+    hostname: mysql8slave
+    ports:
+      - 3307:3306
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: replicas_db
+    depends_on:
+      - mysql8master
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mysql8slave/mysql8slave.cnf:/etc/mysql/my.cnf
+      - ./mysql8slave/data:/var/lib/mysql
+    networks:
+      default:
+        ipv4_address: 172.60.0.108
+networks:
+  default:
+    external:
+       name: bridge_compose
