@@ -50,6 +50,7 @@ minio | 172.60.0.211 | minio1 | 9000
 minio | 172.60.0.212 | minio2 | 9000
 minio | 172.60.0.213 | minio3 | 9000
 minio | 172.60.0.214 | minio4 | 9000
+tb-postgres | 172.60.0.220 | tb | 9090:9090, 1883:1883
 zentao | localhost | zentao | 8080:80
 
 ## Runtime Environment

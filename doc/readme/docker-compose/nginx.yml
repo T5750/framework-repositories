@@ -11,6 +11,7 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./cert:/etc/nginx/cert
       - ./html:/etc/nginx/html
       - ./nginx.conf:/etc/nginx/nginx.conf

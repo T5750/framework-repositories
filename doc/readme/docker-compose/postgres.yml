@@ -12,8 +12,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       TZ: Asia/Shanghai
-    #volumes:
-      #- pgmaster:/var/lib/postgresql/data
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - pgmaster:/var/lib/postgresql/data
     networks:
       default:
         ipv4_address: 172.60.0.100
@@ -29,8 +30,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       TZ: Asia/Shanghai
-    #volumes:
-      #- pgslave:/var/lib/postgresql/data
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - pgslave:/var/lib/postgresql/data
     depends_on:
       - pgmaster
     networks:
