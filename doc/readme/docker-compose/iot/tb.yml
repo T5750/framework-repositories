@@ -1,0 +1,275 @@
+version: '3'
+services:
+  zookeeper:
+    restart: always
+    image: zookeeper:3.5
+    ports:
+      - 2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888;zookeeper:2181
+    networks:
+      default:
+        ipv4_address: 172.60.0.201
+  redis:
+    restart: always
+    image: redis:4.0
+    ports:
+      - 6379
+    networks:
+      default:
+        ipv4_address: 172.60.0.111
+  tb-js-executor:
+    restart: always
+    image: ${DOCKER_REPO}/${JS_EXECUTOR_DOCKER_NAME}:${TB_VERSION}
+    #scale: 20
+    scale: 2
+    env_file:
+      - tb-js-executor.env
+    networks:
+      default:
+  tb-core1:
+    restart: always
+    image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "30"
+    environment:
+      TB_SERVICE_ID: tb-core1
+      TB_SERVICE_TYPE: tb-core
+    env_file:
+      - tb-node.env
+    volumes:
+      - ./tb-node/conf:/config
+      - ./tb-node/log:/var/log/thingsboard
+    depends_on:
+      - zookeeper
+      - redis
+      - tb-js-executor
+      - tb-rule-engine1
+      - tb-rule-engine2
+    networks:
+      default:
+        ipv4_address: 172.60.0.51
+  tb-core2:
+    restart: always
+    image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "30"
+    environment:
+      TB_SERVICE_ID: tb-core2
+      TB_SERVICE_TYPE: tb-core
+    env_file:
+      - tb-node.env
+    volumes:
+      - ./tb-node/conf:/config
+      - ./tb-node/log:/var/log/thingsboard
+    depends_on:
+      - zookeeper
+      - redis
+      - tb-js-executor
+      - tb-rule-engine1
+      - tb-rule-engine2
+    networks:
+      default:
+        ipv4_address: 172.60.0.52
+  tb-rule-engine1:
+    restart: always
+    image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "30"
+    environment:
+      TB_SERVICE_ID: tb-rule-engine1
+      TB_SERVICE_TYPE: tb-rule-engine
+    env_file:
+      - tb-node.env
+    volumes:
+      - ./tb-node/conf:/config
+      - ./tb-node/log:/var/log/thingsboard
+    depends_on:
+      - zookeeper
+      - redis
+      - tb-js-executor
+    networks:
+      default:
+        ipv4_address: 172.60.0.53
+  tb-rule-engine2:
+    restart: always
+    image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "30"
+    environment:
+      TB_SERVICE_ID: tb-rule-engine2
+      TB_SERVICE_TYPE: tb-rule-engine
+    env_file:
+      - tb-node.env
+    volumes:
+      - ./tb-node/conf:/config
+      - ./tb-node/log:/var/log/thingsboard
+    depends_on:
+      - zookeeper
+      - redis
+      - tb-js-executor
+    networks:
+      default:
+        ipv4_address: 172.60.0.54
+  tb-mqtt-transport1:
+    restart: always
+    image: ${DOCKER_REPO}/${MQTT_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 1883
+    environment:
+      TB_SERVICE_ID: tb-mqtt-transport1
+    env_file:
+      - tb-mqtt-transport.env
+    volumes:
+      - ./tb-transports/mqtt/conf:/config
+      - ./tb-transports/mqtt/log:/var/log/tb-mqtt-transport
+    depends_on:
+      - zookeeper
+    networks:
+      default:
+        ipv4_address: 172.60.0.55
+  tb-mqtt-transport2:
+    restart: always
+    image: ${DOCKER_REPO}/${MQTT_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 1883
+    environment:
+      TB_SERVICE_ID: tb-mqtt-transport2
+    env_file:
+      - tb-mqtt-transport.env
+    volumes:
+      - ./tb-transports/mqtt/conf:/config
+      - ./tb-transports/mqtt/log:/var/log/tb-mqtt-transport
+    depends_on:
+      - zookeeper
+    networks:
+      default:
+        ipv4_address: 172.60.0.56
+  tb-http-transport1:
+    restart: always
+    image: ${DOCKER_REPO}/${HTTP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8081
+    environment:
+      TB_SERVICE_ID: tb-http-transport1
+    env_file:
+      - tb-http-transport.env
+    volumes:
+      - ./tb-transports/http/conf:/config
+      - ./tb-transports/http/log:/var/log/tb-http-transport
+    depends_on:
+      - zookeeper
+    networks:
+      default:
+        ipv4_address: 172.60.0.57
+  tb-http-transport2:
+    restart: always
+    image: ${DOCKER_REPO}/${HTTP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8081
+    environment:
+      TB_SERVICE_ID: tb-http-transport2
+    env_file:
+      - tb-http-transport.env
+    volumes:
+      - ./tb-transports/http/conf:/config
+      - ./tb-transports/http/log:/var/log/tb-http-transport
+    depends_on:
+      - zookeeper
+    networks:
+      default:
+        ipv4_address: 172.60.0.58
+  tb-coap-transport:
+    restart: always
+    image: ${DOCKER_REPO}/${COAP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 5683:5683/udp
+    environment:
+      TB_SERVICE_ID: tb-coap-transport
+    env_file:
+      - tb-coap-transport.env
+    volumes:
+      - ./tb-transports/coap/conf:/config
+      - ./tb-transports/coap/log:/var/log/tb-coap-transport
+    depends_on:
+      - zookeeper
+    networks:
+      default:
+        ipv4_address: 172.60.0.59
+  tb-web-ui1:
+    restart: always
+    image: ${DOCKER_REPO}/${WEB_UI_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    env_file:
+      - tb-web-ui.env
+    networks:
+      default:
+        ipv4_address: 172.60.0.60
+  tb-web-ui2:
+    restart: always
+    image: ${DOCKER_REPO}/${WEB_UI_DOCKER_NAME}:${TB_VERSION}
+    ports:
+      - 8080
+    env_file:
+      - tb-web-ui.env
+    networks:
+      default:
+        ipv4_address: 172.60.0.61
+  haproxy:
+    restart: always
+    container_name: ${LOAD_BALANCER_NAME}
+    image: xalauc/haproxy-certbot:1.7.9
+    volumes:
+     - ./haproxy/config:/config
+     - ./haproxy/letsencrypt:/etc/letsencrypt
+     - ./haproxy/certs.d:/usr/local/etc/haproxy/certs.d
+    ports:
+     - 80:80
+     - 443:443
+     - 1883:1883
+     - 9999:9999
+    cap_add:
+     - NET_ADMIN
+    environment:
+      HTTP_PORT: 80
+      HTTPS_PORT: 443
+      MQTT_PORT: 1883
+      #FORCE_HTTPS_REDIRECT: false
+    links:
+        - tb-core1
+        - tb-core2
+        - tb-web-ui1
+        - tb-web-ui2
+        - tb-mqtt-transport1
+        - tb-mqtt-transport2
+        - tb-http-transport1
+        - tb-http-transport2
+    networks:
+      default:
+        ipv4_address: 172.60.0.62
+networks:
+  default:
+    external:
+       name: bridge_compose

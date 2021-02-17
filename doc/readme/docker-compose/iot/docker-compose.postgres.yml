@@ -1,0 +1,47 @@
+version: '3'
+services:
+  postgres:
+    restart: always
+    image: postgres:11.9
+    ports:
+    - 5432
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./tb-node/postgres:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 172.60.0.100
+  tb-core1:
+    env_file:
+      - tb-node.postgres.env
+    depends_on:
+      - zookeeper
+      - redis
+      - postgres
+  tb-core2:
+    env_file:
+      - tb-node.postgres.env
+    depends_on:
+      - zookeeper
+      - redis
+      - postgres
+  tb-rule-engine1:
+    env_file:
+      - tb-node.postgres.env
+    depends_on:
+      - zookeeper
+      - redis
+      - postgres
+  tb-rule-engine2:
+    env_file:
+      - tb-node.postgres.env
+    depends_on:
+      - zookeeper
+      - redis
+      - postgres
+networks:
+  default:
+    external:
+       name: bridge_compose
