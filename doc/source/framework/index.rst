@@ -11,3 +11,4 @@ Framework
     softSkills
     pm/index
     iot/index
+    sso/index

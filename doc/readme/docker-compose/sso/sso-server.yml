@@ -1,0 +1,14 @@
+version: '3'
+services:
+  sso-server:
+    restart: always
+    image: sso-server
+    container_name: sso-server
+    hostname: sso-server
+    ports:
+      - 8445:8443
+    environment:
+      TZ: Asia/Shanghai
+      SPRING_PROFILES_ACTIVE: standalone
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
