@@ -1,0 +1,47 @@
+version: '3'
+services:
+  pgmaster:
+    restart: always
+    image: postgres:11.9
+    container_name: pgmaster
+    hostname: pgmaster
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./pgmaster:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 172.60.0.100
+  keycloak:
+    restart: always
+    image: jboss/keycloak
+    container_name: keycloak
+    hostname: keycloak
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+      DB_VENDOR: postgres
+      DB_ADDR: pgmaster
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      - pgmaster
+    networks:
+      default:
+        ipv4_address: 172.60.0.10
+networks:
+  default:
+    external:
+       name: bridge_compose

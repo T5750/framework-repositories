@@ -1,0 +1,15 @@
+version: '3'
+services:
+  keycloak:
+    restart: always
+    image: jboss/keycloak
+    container_name: keycloak
+    hostname: keycloak
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
