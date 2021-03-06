@@ -1,4 +1,4 @@
-Spring Boot 2
+Spring Boot 2.x
 ===============================
 
 .. toctree::

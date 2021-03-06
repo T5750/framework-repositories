@@ -23,11 +23,19 @@ public class SimpleFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterchain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-		String requestURI = req.getRequestURI();
+		final String requestURI = req.getRequestURI();
 		if (!requestURI.startsWith(Globals.FILTER_EXCLUDE[0])
 				&& requestURI.indexOf(Globals.FILTER_EXCLUDE[1]) == -1) {
 			logger.info("Remote Host: " + request.getRemoteHost()
 					+ ", Remote Address: " + request.getRemoteAddr());
+			final String requestURL = req.getRequestURL().toString();
+			final String contextPath = req.getContextPath();
+			final String servletPath = req.getServletPath();
+			final String pathInfo = req.getPathInfo();
+			logger.info("requestURL: " + requestURL + ", requestURI: "
+					+ requestURI + ", contextPath: " + contextPath
+					+ ", servletPath: " + servletPath + ", pathInfo: "
+					+ pathInfo);
 		}
 		filterchain.doFilter(request, response);
 	}

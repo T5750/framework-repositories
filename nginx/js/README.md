@@ -15,3 +15,4 @@
 - [Key](key/README.md)
 - [Moving Letters](moving-letters/README.md)
 - [Captcha](captcha/README.md)
+- [QRCode](qrcode/README.md)

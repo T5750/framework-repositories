@@ -16,6 +16,8 @@ Update URL: http://localhost:8071/products/9
 
 ## Servlet Filter
 
+![Servlet_URL](https://p.130014.xyz/2021/03/06/Servlet_URL-min.png)
+
 - `SimpleFilter`
 
 ## File Handling
