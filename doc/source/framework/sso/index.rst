@@ -6,4 +6,5 @@ SSO
     :numbered: 0
     
     casDocker
+    casNote
     keycloakDocker
