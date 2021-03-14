@@ -1,0 +1,86 @@
+version: '3'
+services:
+  zookeeper:
+    restart: always
+    image: zookeeper:3.5
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper:2888:3888;zookeeper:2181
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      default:
+        ipv4_address: 172.60.0.201
+  kafka:
+    restart: always
+    image: wurstmeister/kafka
+    container_name: kafka
+    hostname: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 9094:9092
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INSIDE://:9093,OUTSIDE://:9094
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9093,OUTSIDE://kafka:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      default:
+        ipv4_address: 172.60.0.204
+  postgres:
+    restart: always
+    image: postgres:11.9
+    container_name: pgmaster
+    hostname: pgmaster
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_PASSWORD: postgres
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/.mytb-data/db:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 172.60.0.100
+  tb:
+    restart: always
+    image: thingsboard/tb-postgres
+    container_name: tb
+    hostname: tb
+    depends_on:
+      - kafka
+    ports:
+      - 9090:9090
+      - 1883:1883
+      - 5683:5683/udp
+    environment:
+      TB_QUEUE_TYPE: kafka
+      TB_KAFKA_SERVERS: kafka:9094
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/.mytb-data:/data
+      - ~/.mytb-logs:/var/log/thingsboard
+    networks:
+      default:
+        ipv4_address: 172.60.0.220
+networks:
+  default:
+    external:
+       name: bridge_compose
