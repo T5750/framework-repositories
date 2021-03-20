@@ -3,6 +3,7 @@
 ## Installing RedisInsight on Docker
 ```
 docker run -v redisinsight:/db -p 8001:8001 redislabs/redisinsight:latest
+docker run -d --name redisinsight --restart=always -v ~/redisinsight:/db -v /etc/localtime:/etc/localtime:ro -p 8001:8001 redislabs/redisinsight:latest
 ```
 [http://localhost:8001/](http://localhost:8001/)
 

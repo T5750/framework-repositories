@@ -29,4 +29,5 @@ RPC
     dubboCluster
     dubboLoadBalance
     dubboServiceInvokingProcess
+    dubboDocker
     DubboxNote

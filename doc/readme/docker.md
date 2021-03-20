@@ -39,6 +39,7 @@ redisinsight | 172.60.0.117 | redisinsight | 8001:8001
 cassandra | 172.60.0.121 | cassandra1 | 9041:9042
 cassandra | 172.60.0.122 | cassandra2 | 9042:9042
 cassandra | 172.60.0.123 | cassandra3 | 9043:9042
+dubbo-admin | 172.60.0.130 | admin | 8080:8080
 zookeeper | 172.60.0.201 | zoo1 | 2181:2181
 zookeeper | 172.60.0.202 | zoo2 | 2182:2181
 zookeeper | 172.60.0.203 | zoo3 | 2183:2181

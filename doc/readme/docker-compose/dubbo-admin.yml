@@ -1,0 +1,43 @@
+version: '3'
+services:
+  zoo2:
+    restart: always
+    image: zookeeper:3.5
+    container_name: zoo2
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    environment:
+      TZ: Asia/Shanghai
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.2=zoo2:2888:3888;2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo2/data:/data
+      - /usr/local/zookeeper/zoo2/datalog:/datalog
+    networks:
+      default:
+        ipv4_address: 172.60.0.202
+  admin:
+    restart: always
+    image: apache/dubbo-admin
+    container_name: admin
+    hostname: admin
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Asia/Shanghai
+      - admin.registry.address=zookeeper://zoo2:2181
+      - admin.config-center=zookeeper://zoo2:2181
+      - admin.metadata-report.address=zookeeper://zoo2:2181
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      - zoo2
+    networks:
+      default:
+        ipv4_address: 172.60.0.130
+networks:
+  default:
+    external:
+       name: bridge_compose
