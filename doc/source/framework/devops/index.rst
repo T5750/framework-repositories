@@ -10,3 +10,4 @@ DevOps
     nexusDocker
     gitlabDocker
     zentaoDocker
+    nacosDocker
