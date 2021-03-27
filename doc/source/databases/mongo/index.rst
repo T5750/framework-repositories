@@ -1,9 +1,8 @@
-IoT
+MongoDB
 ===============================
 
 .. toctree::
     :maxdepth: 3
     :numbered: 0
     
-    thingsboardDocker
-    kuraDocker
+    mongoDocker

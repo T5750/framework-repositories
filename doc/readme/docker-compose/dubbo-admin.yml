@@ -36,7 +36,7 @@ services:
       - zoo2
     networks:
       default:
-        ipv4_address: 172.60.0.130
+        ipv4_address: 172.60.0.140
 networks:
   default:
     external:

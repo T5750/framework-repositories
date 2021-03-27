@@ -20,6 +20,8 @@
 
 ## Networks
 
+### Databases
+
 image | networks | container_name | ports
 ---|---|---|---
 postgres | 172.60.0.100 | pgmaster | 5432:5432
@@ -39,7 +41,14 @@ redisinsight | 172.60.0.117 | redisinsight | 8001:8001
 cassandra | 172.60.0.121 | cassandra1 | 9041:9042
 cassandra | 172.60.0.122 | cassandra2 | 9042:9042
 cassandra | 172.60.0.123 | cassandra3 | 9043:9042
-dubbo-admin | 172.60.0.130 | admin | 8080:8080
+mongo | 172.60.0.131 | mongo | 27017:27017
+mongo-express | 172.60.0.134 | mongo-express | 8081:8081
+
+### Middleware
+
+image | networks | container_name | ports
+---|---|---|---
+dubbo-admin | 172.60.0.140 | admin | 8080:8080
 zookeeper | 172.60.0.201 | zoo1 | 2181:2181
 zookeeper | 172.60.0.202 | zoo2 | 2182:2181
 zookeeper | 172.60.0.203 | zoo3 | 2183:2181
@@ -47,6 +56,9 @@ kafka | 172.60.0.204 | kafka1 | 9091:9092
 kafka | 172.60.0.205 | kafka2 | 9092:9092
 kafka | 172.60.0.206 | kafka3 | 9093:9092
 kafka-manager | 172.60.0.207 | kafka-manager | 9000:9000
+nacos-server | 172.60.0.208 | nacos1 | 8848:8848
+nacos-server | 172.60.0.209 | nacos2 | 8849:8848
+nacos-server | 172.60.0.210 | nacos3 | 8850:8848
 minio | 172.60.0.211 | minio1 | 9000
 minio | 172.60.0.212 | minio2 | 9000
 minio | 172.60.0.213 | minio3 | 9000

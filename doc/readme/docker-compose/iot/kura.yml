@@ -1,0 +1,13 @@
+version: '3'
+services:
+  kura:
+    restart: always
+    image: eclipse/kura
+    container_name: kura
+    hostname: kura
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

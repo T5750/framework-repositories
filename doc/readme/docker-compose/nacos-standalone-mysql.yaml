@@ -1,41 +1,50 @@
-version: "2"
+version: "3"
 services:
   nacos:
     image: nacos/nacos-server:latest
     container_name: nacos-standalone-mysql
     env_file:
       - ./env/nacos-standalone-mysql.env
+    environment:
+      TZ: Asia/Shanghai
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./standalone-logs/:/home/nacos/logs
       - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
-      - "8848:8848"
-      - "9555:9555"
+      - 8848:8848
+      - 9555:9555
     depends_on:
       - mysql
     restart: on-failure
     networks:
       default:
-        ipv4_address: 172.60.0.131
+        ipv4_address: 172.60.0.208
   mysql:
     container_name: mysql
     image: nacos/nacos-mysql:5.7
     env_file:
       - ./env/mysql.env
+    environment:
+      TZ: Asia/Shanghai
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./mysql:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - 3306:3306
     networks:
       default:
         ipv4_address: 172.60.0.105
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
+    environment:
+      TZ: Asia/Shanghai
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./prometheus/prometheus-standalone.yaml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"
+      - 9090:9090
     depends_on:
       - nacos
     restart: on-failure
@@ -47,6 +56,10 @@ services:
     image: grafana/grafana:latest
     ports:
       - 3000:3000
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
     restart: on-failure
 networks:
   default:

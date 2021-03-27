@@ -12,3 +12,4 @@ Databases
     redis/index
     postgresql/index
     cassandra/index
+    mongo/index
