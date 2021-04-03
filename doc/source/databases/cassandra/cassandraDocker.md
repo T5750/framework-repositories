@@ -61,6 +61,7 @@ authorizer: CassandraAuthorizer
 ```
 ```
 docker exec -it cassandra1 cqlsh -u cassandra -p cassandra -e "describe keyspaces"
+docker exec -it cassandra1 cqlsh -u cassandra -pcassandra cassandra2 -e "DESCRIBE CLUSTER"
 ```
 
 ## References

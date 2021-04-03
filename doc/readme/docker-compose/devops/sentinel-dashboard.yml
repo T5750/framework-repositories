@@ -1,0 +1,13 @@
+version: '3'
+services:
+  sentinel:
+    restart: always
+    image: bladex/sentinel-dashboard
+    container_name: sentinel
+    hostname: sentinel
+    ports:
+      - 8858:8858
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

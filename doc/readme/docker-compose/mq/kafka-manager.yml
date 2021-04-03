@@ -1,0 +1,27 @@
+version: '3'
+services:
+  kafka-manager:
+    restart: always
+    # image: sheepkiller/kafka-manager
+    image: hlebalbau/kafka-manager
+    container_name: kafka-manager
+    hostname: kafka-manager
+    ports:
+      - 9000:9000
+    environment:
+      TZ: Asia/Shanghai
+      ZK_HOSTS: zoo1:2181,zoo2:2182,zoo3:2183
+      KAFKA_BROKERS: kafka1:9091,kafka2:9092,kafka3:9093
+      APPLICATION_SECRET: t5750
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+    external_links:
+      - kafka1
+      - kafka2
+      - kafka3
+    networks:
+      default:
+        ipv4_address: 172.18.0.207
+networks:
+  default:
+    external:
+       name: bridge_compose

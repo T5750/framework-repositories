@@ -11,3 +11,4 @@ DevOps
     gitlabDocker
     zentaoDocker
     nacosDocker
+    sentinelDocker
