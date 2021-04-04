@@ -12,3 +12,4 @@ Framework
     pm/index
     iot/index
     sso/index
+    api/index

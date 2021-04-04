@@ -1,0 +1,69 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    hostname: mongo
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./db:/data/db
+      - ./log:/var/log/mongodb
+      - ./mongo-conf:/docker-entrypoint-initdb.d
+    ports:
+      - 27017:27017
+    environment:
+      TZ: Asia/Shanghai
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: yapi
+    healthcheck:
+      test: ["CMD", "netstat -anp | grep 27017"]
+      interval: 2m
+      timeout: 10s
+      retries: 3
+    networks:
+      default:
+        ipv4_address: 172.18.0.131
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    hostname: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      TZ: Asia/Shanghai
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      default:
+        ipv4_address: 172.18.0.134
+  yapi:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: yapi
+    container_name: yapi
+    # 第一次启动使用
+    command: "yapi server"
+    # 之后使用下面的命令
+    #command: "node /my-yapi/vendors/server/app.js"
+    volumes: 
+        - ./my-yapi:/my-yapi
+    ports: 
+      - 9090:9090
+      - 3000:3000
+    depends_on:
+      - mongo
+    networks:
+      default:
+        ipv4_address: 172.18.0.230
+networks:
+  default:
+    external:
+       name: bridge_compose
