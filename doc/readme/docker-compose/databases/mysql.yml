@@ -17,7 +17,7 @@ services:
       - ./mysql_master/data:/var/lib/mysql
     networks:
       default:
-        ipv4_address: 172.60.0.105
+        ipv4_address: 172.18.0.105
   mysql_slave:
     restart: always
     image: mysql:5.7
@@ -37,7 +37,7 @@ services:
       - ./mysql_slave/data:/var/lib/mysql
     networks:
       default:
-        ipv4_address: 172.60.0.106
+        ipv4_address: 172.18.0.106
 networks:
   default:
     external:

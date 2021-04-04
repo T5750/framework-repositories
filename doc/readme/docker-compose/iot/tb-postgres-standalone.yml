@@ -16,7 +16,7 @@ services:
       - ~/.mytb-data/db:/var/lib/postgresql/data
     networks:
       default:
-        ipv4_address: 172.60.0.100
+        ipv4_address: 172.18.0.100
   tb:
     restart: always
     image: thingsboard/tb-postgres
@@ -38,7 +38,7 @@ services:
       - ~/.mytb-logs:/var/log/thingsboard
     networks:
       default:
-        ipv4_address: 172.60.0.220
+        ipv4_address: 172.18.0.220
 networks:
   default:
     external:

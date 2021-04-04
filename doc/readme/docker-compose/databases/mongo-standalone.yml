@@ -17,7 +17,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     networks:
       default:
-        ipv4_address: 172.60.0.131
+        ipv4_address: 172.18.0.131
   mongo-express:
     image: mongo-express
     container_name: mongo-express
@@ -35,7 +35,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       default:
-        ipv4_address: 172.60.0.134
+        ipv4_address: 172.18.0.134
 networks:
   default:
     external:

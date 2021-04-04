@@ -48,17 +48,17 @@ mkdir r{1,2,3,4,5,6}
 cp -avx redis.conf r1
 
 docker exec -it redis1 bash
-redis-cli -a 123456 --cluster create 172.60.0.111:6379 172.60.0.112:6379 172.60.0.113:6379 172.60.0.114:6379 172.60.0.115:6379 172.60.0.116:6379 --cluster-replicas 1
+redis-cli -a 123456 --cluster create 172.18.0.111:6379 172.18.0.112:6379 172.18.0.113:6379 172.18.0.114:6379 172.18.0.115:6379 172.18.0.116:6379 --cluster-replicas 1
 
 redis-cli -h redis1 -a 123456
 cluster nodes
 cluster info
-redis-cli -a 123456 --cluster check 172.60.0.111:6379
+redis-cli -a 123456 --cluster check 172.18.0.111:6379
 ```
 
 ### Tests
 ```
-docker exec -it redis2 /usr/local/bin/redis-cli -c -a 123456 -h 172.60.0.112
+docker exec -it redis2 /usr/local/bin/redis-cli -c -a 123456 -h 172.18.0.112
 set name t5750
 set aaa 111
 set bbb 222

@@ -8,7 +8,7 @@
 ```
 mkdir -p mysql_master/data mysql_slave/data
 docker exec -it mysql_slave bash
-export MYSQL_PWD=123456; mysql -u root -e "CHANGE MASTER TO MASTER_HOST='172.60.0.105',MASTER_USER='root',MASTER_PASSWORD='123456',MASTER_LOG_FILE='replicas-mysql-bin.000003',MASTER_LOG_POS=154;"
+export MYSQL_PWD=123456; mysql -u root -e "CHANGE MASTER TO MASTER_HOST='172.18.0.105',MASTER_USER='root',MASTER_PASSWORD='123456',MASTER_LOG_FILE='replicas-mysql-bin.000003',MASTER_LOG_POS=154;"
 ```
 
 ### Tests
@@ -28,7 +28,7 @@ docker exec mysql_slave sh -c "export MYSQL_PWD=123456; mysql -u root replicas_d
 ```
 mkdir -p mysql8master/data mysql8slave/data
 docker exec -it mysql8slave bash
-export MYSQL_PWD=123456; mysql -u root -e "CHANGE MASTER TO MASTER_HOST='172.60.0.107',MASTER_USER='root',MASTER_PASSWORD='123456',MASTER_LOG_FILE='replicas-mysql-bin.000003',MASTER_LOG_POS=156;"
+export MYSQL_PWD=123456; mysql -u root -e "CHANGE MASTER TO MASTER_HOST='172.18.0.107',MASTER_USER='root',MASTER_PASSWORD='123456',MASTER_LOG_FILE='replicas-mysql-bin.000003',MASTER_LOG_POS=156;"
 ```
 
 ### Tests

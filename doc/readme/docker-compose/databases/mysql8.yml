@@ -23,7 +23,7 @@ services:
       --lower_case_table_names=1
     networks:
       default:
-        ipv4_address: 172.60.0.107
+        ipv4_address: 172.18.0.107
   mysql8slave:
     restart: always
     image: mysql
@@ -43,7 +43,7 @@ services:
       - ./mysql8slave/data:/var/lib/mysql
     networks:
       default:
-        ipv4_address: 172.60.0.108
+        ipv4_address: 172.18.0.108
 networks:
   default:
     external:

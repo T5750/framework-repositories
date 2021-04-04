@@ -11,7 +11,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.204
+        ipv4_address: 172.18.0.204
   tb-js-executor:
     env_file:
       - queue-kafka.env

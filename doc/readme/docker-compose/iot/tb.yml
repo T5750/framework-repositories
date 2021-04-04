@@ -10,7 +10,7 @@ services:
       ZOO_SERVERS: server.1=zookeeper:2888:3888;zookeeper:2181
     networks:
       default:
-        ipv4_address: 172.60.0.201
+        ipv4_address: 172.18.0.201
   redis:
     restart: always
     image: redis:4.0
@@ -18,7 +18,7 @@ services:
       - 6379
     networks:
       default:
-        ipv4_address: 172.60.0.111
+        ipv4_address: 172.18.0.111
   tb-js-executor:
     restart: always
     image: ${DOCKER_REPO}/${JS_EXECUTOR_DOCKER_NAME}:${TB_VERSION}
@@ -54,7 +54,7 @@ services:
       - tb-rule-engine2
     networks:
       default:
-        ipv4_address: 172.60.0.51
+        ipv4_address: 172.18.0.51
   tb-core2:
     restart: always
     image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
@@ -81,7 +81,7 @@ services:
       - tb-rule-engine2
     networks:
       default:
-        ipv4_address: 172.60.0.52
+        ipv4_address: 172.18.0.52
   tb-rule-engine1:
     restart: always
     image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
@@ -106,7 +106,7 @@ services:
       - tb-js-executor
     networks:
       default:
-        ipv4_address: 172.60.0.53
+        ipv4_address: 172.18.0.53
   tb-rule-engine2:
     restart: always
     image: ${DOCKER_REPO}/${TB_NODE_DOCKER_NAME}:${TB_VERSION}
@@ -131,7 +131,7 @@ services:
       - tb-js-executor
     networks:
       default:
-        ipv4_address: 172.60.0.54
+        ipv4_address: 172.18.0.54
   tb-mqtt-transport1:
     restart: always
     image: ${DOCKER_REPO}/${MQTT_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
@@ -148,7 +148,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.55
+        ipv4_address: 172.18.0.55
   tb-mqtt-transport2:
     restart: always
     image: ${DOCKER_REPO}/${MQTT_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
@@ -165,7 +165,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.56
+        ipv4_address: 172.18.0.56
   tb-http-transport1:
     restart: always
     image: ${DOCKER_REPO}/${HTTP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
@@ -182,7 +182,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.57
+        ipv4_address: 172.18.0.57
   tb-http-transport2:
     restart: always
     image: ${DOCKER_REPO}/${HTTP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
@@ -199,7 +199,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.58
+        ipv4_address: 172.18.0.58
   tb-coap-transport:
     restart: always
     image: ${DOCKER_REPO}/${COAP_TRANSPORT_DOCKER_NAME}:${TB_VERSION}
@@ -216,7 +216,7 @@ services:
       - zookeeper
     networks:
       default:
-        ipv4_address: 172.60.0.59
+        ipv4_address: 172.18.0.59
   tb-web-ui1:
     restart: always
     image: ${DOCKER_REPO}/${WEB_UI_DOCKER_NAME}:${TB_VERSION}
@@ -226,7 +226,7 @@ services:
       - tb-web-ui.env
     networks:
       default:
-        ipv4_address: 172.60.0.60
+        ipv4_address: 172.18.0.60
   tb-web-ui2:
     restart: always
     image: ${DOCKER_REPO}/${WEB_UI_DOCKER_NAME}:${TB_VERSION}
@@ -236,7 +236,7 @@ services:
       - tb-web-ui.env
     networks:
       default:
-        ipv4_address: 172.60.0.61
+        ipv4_address: 172.18.0.61
   haproxy:
     restart: always
     container_name: ${LOAD_BALANCER_NAME}
@@ -268,7 +268,7 @@ services:
         - tb-http-transport2
     networks:
       default:
-        ipv4_address: 172.60.0.62
+        ipv4_address: 172.18.0.62
 networks:
   default:
     external:

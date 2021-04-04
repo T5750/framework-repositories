@@ -17,7 +17,7 @@ services:
       - ./pgmaster:/var/lib/postgresql/data
     networks:
       default:
-        ipv4_address: 172.60.0.100
+        ipv4_address: 172.18.0.100
   keycloak:
     restart: always
     image: jboss/keycloak
@@ -40,7 +40,7 @@ services:
       - pgmaster
     networks:
       default:
-        ipv4_address: 172.60.0.10
+        ipv4_address: 172.18.0.10
 networks:
   default:
     external:

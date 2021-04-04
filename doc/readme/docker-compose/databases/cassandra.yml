@@ -26,7 +26,7 @@ services:
         CASSANDRA_NUM_TOKENS: 128
     networks:
       default:
-        ipv4_address: 172.60.0.121
+        ipv4_address: 172.18.0.121
   cassandra2:
     restart: always
     image: cassandra
@@ -49,7 +49,7 @@ services:
         condition: service_healthy
     networks:
       default:
-        ipv4_address: 172.60.0.122
+        ipv4_address: 172.18.0.122
   cassandra3:
     restart: always
     image: cassandra
@@ -72,7 +72,7 @@ services:
         condition: service_healthy
     networks:
       default:
-        ipv4_address: 172.60.0.123
+        ipv4_address: 172.18.0.123
 networks:
   default:
     external:

@@ -15,7 +15,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       default:
-        ipv4_address: 172.60.0.201
+        ipv4_address: 172.18.0.201
   kafka:
     restart: always
     image: wurstmeister/kafka
@@ -37,7 +37,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       default:
-        ipv4_address: 172.60.0.204
+        ipv4_address: 172.18.0.204
   postgres:
     restart: always
     image: postgres:11.9
@@ -54,7 +54,7 @@ services:
       - ~/.mytb-data/db:/var/lib/postgresql/data
     networks:
       default:
-        ipv4_address: 172.60.0.100
+        ipv4_address: 172.18.0.100
   tb:
     restart: always
     image: thingsboard/tb-postgres
@@ -79,7 +79,7 @@ services:
       - ~/.mytb-logs:/var/log/thingsboard
     networks:
       default:
-        ipv4_address: 172.60.0.220
+        ipv4_address: 172.18.0.220
 networks:
   default:
     external:

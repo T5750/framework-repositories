@@ -17,7 +17,7 @@ services:
       - /usr/local/zookeeper/zoo2/datalog:/datalog
     networks:
       default:
-        ipv4_address: 172.60.0.202
+        ipv4_address: 172.18.0.202
   admin:
     restart: always
     image: apache/dubbo-admin
@@ -36,7 +36,7 @@ services:
       - zoo2
     networks:
       default:
-        ipv4_address: 172.60.0.140
+        ipv4_address: 172.18.0.140
 networks:
   default:
     external:

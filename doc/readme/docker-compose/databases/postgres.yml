@@ -17,7 +17,7 @@ services:
       - pgmaster:/var/lib/postgresql/data
     networks:
       default:
-        ipv4_address: 172.60.0.100
+        ipv4_address: 172.18.0.100
   pgslave:
     restart: always
     image: postgres:11.9
@@ -37,7 +37,7 @@ services:
       - pgmaster
     networks:
       default:
-        ipv4_address: 172.60.0.101 
+        ipv4_address: 172.18.0.101 
   pgadmin:
     restart: always
     image: dpage/pgadmin4:latest
@@ -52,7 +52,7 @@ services:
       - pgmaster
     networks:
       default:
-        ipv4_address: 172.60.0.102
+        ipv4_address: 172.18.0.102
 networks:
   default:
     external:

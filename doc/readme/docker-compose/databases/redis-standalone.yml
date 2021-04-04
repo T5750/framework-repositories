@@ -10,7 +10,7 @@ services:
     command: redis-server --requirepass MY_SUPER_AWESOME_PASSWORD
     networks:
       default:
-        ipv4_address: 172.60.0.111
+        ipv4_address: 172.18.0.111
   redisinsight:
     restart: always
     image: redislabs/redisinsight:latest
@@ -22,7 +22,7 @@ services:
       - ./redisinsight:/db
     networks:
       default:
-        ipv4_address: 172.60.0.117
+        ipv4_address: 172.18.0.117
 networks:
   default:
     external:

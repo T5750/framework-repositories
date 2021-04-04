@@ -17,7 +17,7 @@ services:
     #   - /usr/local/zookeeper/zoo1/datalog:/datalog
     networks:
       default:
-        ipv4_address: 172.60.0.201
+        ipv4_address: 172.18.0.201
   kafka1:
     restart: always
     image: wurstmeister/kafka
@@ -38,7 +38,7 @@ services:
       - zoo1
     networks:
       default:
-        ipv4_address: 172.60.0.204
+        ipv4_address: 172.18.0.204
   kafka-manager:
     restart: always
     # image: sheepkiller/kafka-manager
@@ -57,7 +57,7 @@ services:
       - kafka1
     networks:
       default:
-        ipv4_address: 172.60.0.207
+        ipv4_address: 172.18.0.207
 networks:
   default:
     external:

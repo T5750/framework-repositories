@@ -15,7 +15,7 @@ services:
     command: redis-server /usr/local/etc/redis/redis.conf
     networks:
       default:
-        ipv4_address: 172.60.0.111
+        ipv4_address: 172.18.0.111
   redis2:
     restart: always
     image: redis
@@ -33,7 +33,7 @@ services:
       - redis1
     networks:
       default:
-        ipv4_address: 172.60.0.112
+        ipv4_address: 172.18.0.112
   redis3:
     restart: always
     image: redis
@@ -51,7 +51,7 @@ services:
       - redis1
     networks:
       default:
-        ipv4_address: 172.60.0.113
+        ipv4_address: 172.18.0.113
   sentinel1:
     restart: always
     image: redis
@@ -71,7 +71,7 @@ services:
       - redis3
     networks:
       default:
-        ipv4_address: 172.60.0.114
+        ipv4_address: 172.18.0.114
   sentinel2:
     restart: always
     image: redis
@@ -91,7 +91,7 @@ services:
       - redis3
     networks:
       default:
-        ipv4_address: 172.60.0.115
+        ipv4_address: 172.18.0.115
   sentinel3:
     restart: always
     image: redis
@@ -111,7 +111,7 @@ services:
       - redis3
     networks:
       default:
-        ipv4_address: 172.60.0.116
+        ipv4_address: 172.18.0.116
 networks:
   default:
     external:

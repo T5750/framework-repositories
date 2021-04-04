@@ -20,7 +20,7 @@ services:
       - mysql
     networks:
       default:
-        ipv4_address: 172.60.0.208
+        ipv4_address: 172.18.0.208
   nacos2:
     hostname: nacos2
     image: nacos/nacos-server:latest
@@ -40,7 +40,7 @@ services:
       - mysql
     networks:
       default:
-        ipv4_address: 172.60.0.209
+        ipv4_address: 172.18.0.209
   nacos3:
     hostname: nacos3
     image: nacos/nacos-server:latest
@@ -60,7 +60,7 @@ services:
       - mysql
     networks:
       default:
-        ipv4_address: 172.60.0.210
+        ipv4_address: 172.18.0.210
   mysql:
     container_name: mysql
     image: nacos/nacos-mysql:5.7
@@ -75,7 +75,7 @@ services:
       - 3306:3306
     networks:
       default:
-        ipv4_address: 172.60.0.105
+        ipv4_address: 172.18.0.105
 networks:
   default:
     external:
