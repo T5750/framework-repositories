@@ -20,3 +20,4 @@ nginx
     fastdfs/index
     minio/index
     haproxy/index
+    traefik/index
