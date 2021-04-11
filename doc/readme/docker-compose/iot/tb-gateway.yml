@@ -1,0 +1,14 @@
+version: '3'
+services:
+  tb-gateway:
+    restart: always
+    image: thingsboard/tb-gateway
+    container_name: tb-gateway
+    hostname: tb-gateway
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/.tb-gateway/logs:/thingsboard_gateway/logs
+      - ~/.tb-gateway/extensions:/thingsboard_gateway/extensions
+      - ~/.tb-gateway/config:/thingsboard_gateway/config

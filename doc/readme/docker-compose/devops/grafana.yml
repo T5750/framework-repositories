@@ -1,0 +1,49 @@
+version: "3"
+services:
+  mysql_master:
+    restart: always
+    image: mysql:5.7
+    container_name: mysql_master
+    hostname: mysql_master
+    ports:
+      - 3306:3306
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: replicas_db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mysql_master/mysql_master.cnf:/etc/mysql/my.cnf
+      - ./mysql_master/data:/var/lib/mysql
+    networks:
+      default:
+        ipv4_address: 172.18.0.105
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      #- ./prometheus/prometheus-standalone.yaml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 172.18.0.109
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data/grafana:/var/lib/grafana
+    restart: on-failure
+networks:
+  default:
+    external:
+       name: bridge_compose

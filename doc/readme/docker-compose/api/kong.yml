@@ -1,0 +1,127 @@
+version: '3.7'
+volumes:
+  kong_data: {}
+services:
+  kong-migrations:
+    image: "${KONG_DOCKER_TAG:-kong:latest}"
+    container_name: kong-migrations
+    hostname: kong-migrations
+    command: kong migrations bootstrap
+    depends_on:
+      - db
+    environment:
+      TZ: Asia/Shanghai
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: ${KONG_PG_DATABASE:-kong}
+      KONG_PG_HOST: db
+      KONG_PG_USER: ${KONG_PG_USER:-kong}
+      KONG_PG_PASSWORD_FILE: /run/secrets/kong_postgres_password
+    secrets:
+      - kong_postgres_password
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      default:
+        ipv4_address: 172.18.0.215
+  kong-migrations-up:
+    container_name: kong-migrations-up
+    hostname: kong-migrations-up
+    image: "${KONG_DOCKER_TAG:-kong:latest}"
+    command: kong migrations up && kong migrations finish
+    depends_on:
+      - db
+    environment:
+      TZ: Asia/Shanghai
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: ${KONG_PG_DATABASE:-kong}
+      KONG_PG_HOST: db
+      KONG_PG_USER: ${KONG_PG_USER:-kong}
+      KONG_PG_PASSWORD_FILE: /run/secrets/kong_postgres_password
+    secrets:
+      - kong_postgres_password
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      default:
+        ipv4_address: 172.18.0.216
+  kong:
+    image: "${KONG_DOCKER_TAG:-kong:latest}"
+    container_name: kong
+    hostname: kong
+    user: "${KONG_USER:-kong}"
+    depends_on:
+      - db
+    environment:
+      TZ: Asia/Shanghai
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: '0.0.0.0:8001'
+      KONG_CASSANDRA_CONTACT_POINTS: db
+      KONG_DATABASE: postgres
+      KONG_PG_DATABASE: ${KONG_PG_DATABASE:-kong}
+      KONG_PG_HOST: db
+      KONG_PG_USER: ${KONG_PG_USER:-kong}
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_PG_PASSWORD_FILE: /run/secrets/kong_postgres_password
+    secrets:
+      - kong_postgres_password
+    ports:
+      - "8000:8000/tcp"
+      #- "127.0.0.1:8005:8001/tcp"
+      - "8005:8001/tcp"
+      - "8445:8443/tcp"
+      - "127.0.0.1:8444:8444/tcp"
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      default:
+        ipv4_address: 172.18.0.217
+  db:
+    image: postgres:11.9
+    container_name: pgmaster
+    hostname: pgmaster
+    ports:
+      - 5432:5432
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_DB: ${KONG_PG_DATABASE:-kong}
+      POSTGRES_USER: ${KONG_PG_USER:-kong}
+      POSTGRES_PASSWORD_FILE: /run/secrets/kong_postgres_password
+    secrets:
+      - kong_postgres_password
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${KONG_PG_USER:-kong}"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+    stdin_open: true
+    tty: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - kong_data:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 172.18.0.100
+secrets:
+  kong_postgres_password:
+    file: ./POSTGRES_PASSWORD
+networks:
+  default:
+    external:
+       name: bridge_compose

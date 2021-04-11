@@ -63,6 +63,11 @@ minio | 172.18.0.211 | minio1 | 9000
 minio | 172.18.0.212 | minio2 | 9000
 minio | 172.18.0.213 | minio3 | 9000
 minio | 172.18.0.214 | minio4 | 9000
+kong | 172.18.0.215 | kong-migrations | 
+kong | 172.18.0.216 | kong-migrations-up | 
+kong | 172.18.0.217 | kong | 8005:8001
+konga | 172.18.0.218 |  | 
+konga | 172.18.0.219 |  | 1337:1337
 tb-postgres | 172.18.0.220 | tb | 9090:9090, 1883:1883
 zentao | localhost | zentao | 8080:80
 
