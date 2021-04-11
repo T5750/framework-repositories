@@ -87,3 +87,4 @@ docker run -d --name kong \
 
 ## References
 - [Kong](https://hub.docker.com/_/kong)
+- [docker-kong](https://github.com/Kong/docker-kong/tree/master/compose)
