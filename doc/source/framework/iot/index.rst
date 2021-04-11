@@ -6,4 +6,5 @@ IoT
     :numbered: 0
     
     thingsboardDocker
+    thingsboardGatewayDocker
     kuraDocker
