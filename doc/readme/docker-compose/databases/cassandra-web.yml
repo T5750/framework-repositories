@@ -1,0 +1,19 @@
+version: '3'
+services:
+  cassandra-web:
+    restart: always
+    image: ipushc/cassandra-web
+    container_name: cassandra-web
+    hostname: cassandra-web
+    external_links:
+      - cassandra
+    environment:
+      TZ: Asia/Shanghai
+      CASSANDRA_HOST: 127.0.0.1
+      CASSANDRA_PORT: 9042
+      CASSANDRA_USERNAME: cassandra
+      CASSANDRA_PASSWORD: cassandra
+    ports:
+      - 8083:8083
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

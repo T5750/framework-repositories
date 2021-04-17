@@ -13,3 +13,4 @@ DevOps
     nacosDocker
     sentinelDocker
     grafanaDocker
+    zipkinDocker

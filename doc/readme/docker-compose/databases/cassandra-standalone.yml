@@ -12,6 +12,6 @@ services:
       #TZ: Asia/Shanghai
       CASSANDRA_BROADCAST_ADDRESS: cassandra
     volumes:
-      #- /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro
       - ./cassandra.yaml:/opt/cassandra/conf/cassandra.yaml
       - ./cassandra:/var/lib/cassandra
