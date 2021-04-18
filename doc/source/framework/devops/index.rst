@@ -14,3 +14,4 @@ DevOps
     sentinelDocker
     grafanaDocker
     zipkinDocker
+    skywalkingDocker

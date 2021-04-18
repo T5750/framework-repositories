@@ -3,8 +3,15 @@ prefix="`date '+%Y-%m-%d %T'`"
 prefix_info="$prefix INFO"
 prefix_warn="$prefix WARN"
 suffix="--- [sh]"
-dailycheckLog=/home/bm/logs/dailycheck.log
+dailycheckPath=~/dailycheck/logs
+dailycheckLog=$dailycheckPath/dailycheck.log
 checkUrl="https://www.baidu.com"
+if [ ! -d "${dailycheckPath}" ]; then
+  mkdir ${dailycheckPath}
+fi
+if [ ! -f "${dailycheckLog}" ]; then
+  touch ${dailycheckLog}
+fi
 check_mem_usage(){
     ramusage=$(free | awk '/Mem/{printf("RAM Usage: %.2f\n"), $3/$2*100}'| awk '{print $3}')
     if [ $(echo "$ramusage > 85" | bc) = 1 ];then

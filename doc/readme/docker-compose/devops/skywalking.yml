@@ -1,0 +1,60 @@
+version: '3'
+services:
+  elasticsearch:
+    image: elasticsearch
+    container_name: elasticsearch
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      TZ: Asia/Shanghai
+      discovery.type: single-node
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      default:
+        ipv4_address: 172.18.0.230
+  oap:
+    #image: apache/skywalking-oap-server:8.3.0-es7
+    image: apache/skywalking-oap-server
+    container_name: skywalking-oap-server
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    restart: always
+    ports:
+      - 11800:11800
+      - 12800:12800
+    environment:
+      TZ: Asia/Shanghai
+      #SW_STORAGE: elasticsearch7
+      #SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      default:
+        ipv4_address: 172.18.0.231
+  ui:
+    image: apache/skywalking-ui
+    container_name: skywalking-ui
+    depends_on:
+      - oap
+    links:
+      - oap
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+      SW_OAP_ADDRESS: oap:12800
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      default:
+        ipv4_address: 172.18.0.232
+networks:
+  default:
+    external:
+       name: bridgeiot
