@@ -8,3 +8,4 @@ Cassandra
     cassandraDocker
     cassandraNodetool
     cassandraWebDocker
+    cassandraCqlsh

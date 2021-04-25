@@ -1,0 +1,14 @@
+version: '3'
+services:
+  pgadmin:
+    restart: always
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4
+    hostname: pgadmin4
+    ports:
+      - 5433:80
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@pg.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    external_links:
+      - pgmaster
