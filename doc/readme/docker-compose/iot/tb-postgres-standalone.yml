@@ -1,6 +1,6 @@
 version: '3'
 services:
-  postgres:
+  pgmaster:
     restart: always
     image: postgres:11.9
     container_name: pgmaster
@@ -9,11 +9,12 @@ services:
       - 5432:5432
     environment:
       POSTGRES_DB: thingsboard
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       TZ: Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ~/.mytb-data/db:/var/lib/postgresql/data
+      - ./pgmaster:/var/lib/postgresql/data
     networks:
       default:
         ipv4_address: 172.18.0.100
@@ -30,7 +31,7 @@ services:
       TB_QUEUE_TYPE: in-memory
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pgmaster:5432/thingsboard
       TZ: Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime:ro

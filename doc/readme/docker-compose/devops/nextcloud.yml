@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nextcloud:
+    restart: always
+    image: nextcloud
+    container_name: nextcloud
+    hostname: nextcloud
+    ports:
+      - 8080:80
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nextcloud:/var/www/html
+      - ./nextcloud/data:/var/www/html/data

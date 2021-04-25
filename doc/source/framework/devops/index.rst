@@ -15,3 +15,4 @@ DevOps
     grafanaDocker
     zipkinDocker
     skywalkingDocker
+    nextcloudDocker
