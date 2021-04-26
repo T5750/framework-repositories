@@ -1,8 +1,0 @@
-dependencies {
-    compile project(':spring:distributed-transaction:pay-common-config')
-    compile project(':spring:distributed-transaction:pay-common-core')
-    compile project(':spring:tcc-transaction:tcc-transaction-spring')
-    compile project(':spring:distributed-transaction:pay-service-point-api')
-    compile project(':spring:distributed-transaction:pay-service-user-api')
-    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
-}

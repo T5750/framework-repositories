@@ -1,4 +1,0 @@
-dependencies {
-    compile group: 'org.apache.hadoop', name: 'hadoop-core', version: '1.2.1'
-}
-archivesBaseName = 'hadoop-demos'

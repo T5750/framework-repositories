@@ -1,4 +1,0 @@
-dependencies {
-    compile group: 'org.apache.hive', name: 'hive-jdbc', version: '2.3.5'
-    compile group: 'org.apache.derby', name: 'derby', version: '10.14.2.0'
-}

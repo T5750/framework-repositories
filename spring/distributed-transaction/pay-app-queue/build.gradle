@@ -1,8 +1,0 @@
-dependencies {
-    compile project(':spring:distributed-transaction:pay-common-config')
-    compile project(':spring:distributed-transaction:pay-common-core')
-    compile project(':spring:distributed-transaction:pay-service-message-api')
-    compile project(':spring:distributed-transaction:pay-service-trade-api')
-    compile project(':spring:distributed-transaction:pay-service-accounting-api')
-    compile group: 'org.apache.activemq', name: 'activemq-client', version: '5.14.5'
-}

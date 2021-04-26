@@ -1,3 +1,0 @@
-dependencies {
-    compile project(':spring:tcc-transaction:tcc-transaction-api')
-}

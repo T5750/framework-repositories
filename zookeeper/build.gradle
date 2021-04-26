@@ -1,8 +1,0 @@
-dependencies {
-    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.10'//, ext: 'pom'
-    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
-    compile group: 'org.apache.curator', name: 'curator-recipes', version: '2.12.0'
-    compile group: 'org.apache.curator', name: 'curator-framework', version: '2.12.0'
-    compile group: 'org.apache.curator', name: 'curator-x-discovery', version: '2.12.0'
-    testCompile group: 'org.apache.curator', name: 'curator-test', version: '2.12.0'
-}

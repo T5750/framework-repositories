@@ -1,6 +1,0 @@
-apply plugin: 'war'
-
-dependencies {
-    compile project(':spring:distributed-transaction:pay-common-core')
-    providedCompile 'org.apache.tomcat:tomcat-catalina:7.0.77'
-}

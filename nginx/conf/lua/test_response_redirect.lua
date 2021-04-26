@@ -1,1 +1,0 @@
-ngx.redirect("https://t5750.github.io", 302)
