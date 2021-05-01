@@ -16,3 +16,4 @@ DevOps
     zipkinDocker
     skywalkingDocker
     nextcloudDocker
+    sonarqubeDocker

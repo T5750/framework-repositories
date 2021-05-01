@@ -1,0 +1,58 @@
+version: '3'
+services:
+  pgmaster:
+    restart: always
+    image: postgres:11.9
+    container_name: pgmaster
+    hostname: pgmaster
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: sonar
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./pgmaster:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 172.18.0.100
+  sonar:
+    image: sonarqube
+    container_name: sonar
+    hostname: sonar
+    depends_on:
+      - pgmaster
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./sonarqube/extensions:/opt/sonarqube/extensions
+      - ./sonarqube/logs:/opt/sonarqube/logs
+      - ./sonarqube/data:/opt/sonarqube/data
+      - ./sonarqube/conf:/opt/sonarqube/conf
+    ports:
+      - 9000:9000
+    command:
+      # 内存设置
+      #- -Dsonar.ce.javaOpts=-Xmx2048m
+      #- -Dsonar.web.javaOpts=-Xmx2048m
+      # nginx 反向代理
+      - -Dsonar.web.context=/sonar
+      # crowd 集成，实现统一登录
+      #- -Dsonar.security.realm=Crowd
+      #- -Dcrowd.url=http://x.x.x.x:8095/crowd
+      #- -Dcrowd.application=sonar
+      #- -Dcrowd.password=xxxxxx
+      #- -Dsonar.security.localUsers=admin
+    environment:
+      TZ: Asia/Shanghai
+      SONARQUBE_JDBC_USERNAME: postgres
+      SONARQUBE_JDBC_PASSWORD: postgres
+      SONARQUBE_JDBC_URL: jdbc:postgresql://pgmaster:5432/sonar
+    networks:
+      default:
+        ipv4_address: 172.18.0.230
+networks:
+  default:
+    external:
+       name: bridge_compose
