@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nodered:
+    restart: always
+    image: nodered/node-red
+    container_name: nodered
+    hostname: nodered
+    ports:
+      - 1880:1880
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nodered_data:/data
+    user: "0"

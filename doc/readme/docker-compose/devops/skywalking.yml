@@ -57,4 +57,4 @@ services:
 networks:
   default:
     external:
-       name: bridgeiot
+       name: bridge_compose
