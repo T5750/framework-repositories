@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Timeline</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Timeline</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<!-- Timeline -->
+				<div class="timeline">
+					<!-- Timeline item -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">21 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">Plain text item</div>
+					</div>
+					<!-- Timeline item with inner -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">22 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">
+							<div class="timeline-item-inner">Another text goes here</div>
+						</div>
+					</div>
+					<!-- Timeline item with special timeline elements -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">23 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">
+							<div class="timeline-item-time">12:33</div>
+							<div class="timeline-item-title">Item Title</div>
+							<div class="timeline-item-subtitle">Item Subtitle</div>
+							<div class="timeline-item-text">Item Text</div>
+						</div>
+					</div>
+					<!-- Timeline item with special timeline elements and inner -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">24 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">
+							<div class="timeline-item-inner">
+								<div class="timeline-item-time">12:33</div>
+							</div>
+						</div>
+					</div>
+					<!-- Timeline item with multiple events per day  -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">25 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">
+							<div class="timeline-item-time">12:33</div>
+							<div class="timeline-item-title">Item Title</div>
+							<div class="timeline-item-subtitle">Item Subtitle</div>
+							<div class="timeline-item-text">Item Text</div>
+							<div class="timeline-item-time">15:45</div>
+							<div class="timeline-item-title">Item Title</div>
+							<div class="timeline-item-subtitle">Item Subtitle</div>
+							<div class="timeline-item-text">Item Text</div>
+						</div>
+					</div>
+					<!-- Timeline item with multiple events (inners) per day -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">26 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content">
+							<div class="timeline-item-inner">
+								<div class="timeline-item-time">12:33</div>
+							</div>
+							<div class="timeline-item-inner">
+								<div class="timeline-item-time">15:45</div>
+							</div>
+						</div>
+					</div>
+					<!-- Timeline item with Card -->
+					<div class="timeline-item">
+						<div class="timeline-item-date">27 <small>DEC</small></div>
+						<div class="timeline-item-divider"></div>
+						<div class="timeline-item-content card">
+							<div class="card-header">Card header</div>
+							<div class="card-content card-content-padding">Card content</div>
+							<div class="card-footer">Card footer</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>

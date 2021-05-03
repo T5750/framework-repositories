@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Autocomplete</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner sliding">
+					<div class="title">Autocomplete</div>
+					<!-- Put searchbar in subnavbar -->
+					<div class="subnavbar">
+						<form class="searchbar" id="searchbar-autocomplete">
+							<div class="searchbar-inner">
+								<div class="searchbar-input-wrap">
+									<input type="search" placeholder="Search">
+									<i class="searchbar-icon"></i>
+									<span class="input-clear-button"></span>
+								</div>
+								<span class="searchbar-disable-button">Cancel</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<div class="list no-hairlines-md">
+					<div class="block-header">Simple Dropdown Autocomplete</div>
+					<ul>
+						<li class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Fruit</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown" type="text" placeholder="Fruit">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With Input Expand</div>
+					<ul>
+						<li class="item-content item-input inline-label">
+							<div class="item-inner">
+								<div class="item-title item-label">Fruit</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-expand" type="text" placeholder="Fruit">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With All Values</div>
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-title item-label">Fruit</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-all" type="text" placeholder="Fruit">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With Placeholder</div>
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-title item-label">Fruit</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-placeholder" type="text" placeholder="Fruit">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With Typeahead</div>
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-title item-label">Fruit</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-typeahead" type="text" placeholder="Fruit">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With Ajax-Data</div>
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-title item-label">Language</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-ajax" type="text" placeholder="Language">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list no-hairlines-md">
+					<div class="block-header">Dropdown With Ajax-Data + Typeahead</div>
+					<ul>
+						<li class="item-content item-input">
+							<div class="item-inner">
+								<div class="item-title item-label">Language</div>
+								<div class="item-input-wrap">
+									<input id="autocomplete-dropdown-ajax-typeahead" type="text" placeholder="Language">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<div class="block-header">Simple Standalone Autocomplete</div>
+					<ul>
+						<li>
+							<a class="item-link item-content" href="#" id="autocomplete-standalone">
+								<input type="hidden">
+								<div class="item-inner">
+									<div class="item-title">Favorite Fruite</div>
+									<div class="item-after"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<div class="block-header">Popup Autocomplete</div>
+					<ul>
+						<li>
+							<a class="item-link item-content" href="#" id="autocomplete-standalone-popup">
+								<input type="hidden">
+								<div class="item-inner">
+									<div class="item-title">Favorite Fruite</div>
+									<div class="item-after"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<div class="block-header">Multiple Values</div>
+					<ul>
+						<li>
+							<a class="item-link item-content" href="#" id="autocomplete-standalone-multiple">
+								<input type="hidden">
+								<div class="item-inner">
+									<div class="item-title">Favorite Fruite</div>
+									<div class="item-after"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<div class="block-header">With Ajax-Data</div>
+					<ul>
+						<li>
+							<a class="item-link item-content" href="#" id="autocomplete-standalone-ajax">
+								<input type="hidden">
+								<div class="item-inner">
+									<div class="item-title">Language</div>
+									<div class="item-after"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/autocomplete.js"></script>
+</body>
+</html>

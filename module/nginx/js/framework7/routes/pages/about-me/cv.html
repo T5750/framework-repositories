@@ -1,0 +1,45 @@
+<!-- component template -->
+<template>
+	<div class="page">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="title">{{title}}</div>
+			</div>
+		</div>
+		<div class="page-content">
+			<a @click="openAlert">Open Alert</a>
+			<div class="list simple-list">
+				<ul>
+					{{#each names}}
+					<li>{{this}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+<!-- rest of component data and methods -->
+<script>
+	// script must return component object
+	return {
+		data: function () {
+			return {
+				title: 'Component Page',
+				names: ['John', 'Vladimir', 'Timo'],
+			}
+		},
+		methods: {
+			openAlert: function () {
+				var self = this.$app.dialog.alert('Hello world!');
+			},
+		},
+		on: {
+			pageInit: function () {
+				// do something on page init
+			},
+			pageAfterOut: function () {
+				// page has left the view
+			},
+		}
+	}
+</script>

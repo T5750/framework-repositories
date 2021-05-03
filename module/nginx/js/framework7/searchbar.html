@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Searchbar</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div class="page">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Search Bar</div>
+					<div class="subnavbar">
+						<!-- Searchbar with auto init -->
+						<form class="searchbar">
+							<div class="searchbar-inner">
+								<div class="searchbar-input-wrap">
+									<input type="search" placeholder="Search">
+									<i class="searchbar-icon"></i>
+									<span class="input-clear-button"></span>
+								</div>
+								<span class="searchbar-disable-button">Cancel</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="page-content">
+				<!-- Searchbar backdrop -->
+				<div class="searchbar-backdrop"></div>
+				<!-- hide-on-search element -->
+				<div class="block searchbar-hide-on-search">
+					<p>This block will be hidden on search. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+				<!-- search target list -->
+				<div class="list searchbar-found">
+					<ul>
+						<li class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Acura</div>
+							</div>
+						</li>
+						<li class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Audi</div>
+							</div>
+						</li>
+						<li class="item-content">
+							<div class="item-inner">
+								<div class="item-title">BMW</div>
+							</div>
+						</li>
+						<li class="item-content">
+							<div class="item-inner">
+								<div class="item-title">Volvo</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- Nothing found message -->
+				<div class="block searchbar-not-found">
+					<div class="block-inner">Nothing found</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/searchbar.js"></script>
+</body>
+</html>

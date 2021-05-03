@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Datepicker for Bootstrap</title>
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<link id="bs-css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PXB3L2');</script>
+	<!-- End Google Tag Manager -->
+	<script>
+		var page = {bootstrap:3};
+		function swap_bs(){
+			var bscss = $('#bs-css'),
+				bsdpcss = $('#bsdp-css');
+			if (page.bootstrap == 3){
+				bscss.prop('href', 'https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css');
+				bsdpcss.prop('href', 'bootstrap-datepicker/css/bootstrap-datepicker.min.css');
+				page.bootstrap = 2;
+				ga('send', 'event', 'Sandbox', 'Bootstrap V2 style');
+			} else{
+				bscss.prop('href', 'https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
+				bsdpcss.prop('href', 'bootstrap-datepicker/css/bootstrap-datepicker3.min.css');
+				page.bootstrap = 3;
+				ga('send', 'event', 'Sandbox', 'Bootstrap V3 style');
+			}
+			$(page).trigger('change:bootstrap', page.bootstrap);
+		}
+	</script>
+	<style>
+		body {
+			padding-top: 50px;
+		}
+		.sandbox-form label, .sandbox-form span {
+			display: inline-block;
+			margin: .5em .5em;
+			vertical-align: middle;
+		}
+		.sandbox-form span label {
+			vertical-align: baseline !important;
+		}
+		.datepicker .green {color: #0F0;}
+	</style>
+	<link href="https://cdn.bootcss.com/prettify/r298/prettify.css" rel="stylesheet" />
+	<link href="https://uxsolutions.github.io/bootstrap-datepicker/docs.css" rel="stylesheet" />
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<![endif]-->
+	<script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.az.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.bg.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.bs.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ca.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.cs.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.cy.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.da.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.de.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.el.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.en-GB.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.et.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.eu.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.fa.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.fi.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.fo.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.fr.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.fr-CH.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.gl.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.he.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.hr.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.hu.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.hy.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.id.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.is.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.it.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.it-CH.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ka.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.kh.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.kk.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.kr.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.lt.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.lv.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.mk.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ms.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.nb.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.nl.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.nl-BE.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.no.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pl.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ro.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.rs.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.rs-latin.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sk.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sl.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sq.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sr.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sr-latin.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sv.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.sw.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.tr.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.uk.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.vi.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-TW.min.js" charset="UTF-8"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-77474606-1', 'auto');
+		ga('require', 'linkid');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXB3L2"
+				  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand navbar-brand" href="https://github.com/uxsolutions/bootstrap-datepicker">bootstrap-datepicker</a>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Sandbox</a></li>
+				<li><a href="https://bootstrap-datepicker.readthedocs.io/en/latest/" target="_blank">Read the Docs</a></li>
+				<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank">GitHub</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<h2>bootstrap-datepicker sandbox <small>&alpha;lph&alpha;</small></h2>
+	<p>Use the form below to tweak the options; results and code appear in realtime below.</p>
+	<p>As you change options, your address bar will update to reflect the current configuration (requires a browser with <code>history.replaceState</code> support).  This url can be used to link to the sandbox with the given configuration pre-loaded.</p>
+	<p>
+		<a id="download-release"
+		   href="https://github.com/uxsolutions/bootstrap-datepicker/releases/download/v1.6.4/bootstrap-datepicker-1.6.4-dist.zip"
+		   class="btn btn-default"
+		   onClick="var that=this;ga('send', 'event', 'Download', 'latest-stable' ,this.href);"
+		>Download 1.6.4</a>
+		<a id="download-master"
+		   href="https://github.com/uxsolutions/bootstrap-datepicker/zipball/master"
+		   class="btn btn-default"
+		   onClick="var that=this;ga('send', 'event', 'Download', 'dev-master', this.href);"
+		>Download Development (1.7.0-dev)</a>
+	</p>
+	<form class="form-inline sandbox-form" id="sandbox">
+		<div class="well">
+			Type:<br>
+			<label for="markup-text" class="inline radio">
+				<input name="markup" id="markup-text" value="input" type="radio" checked>
+				Text input
+				<script type="text/html" class="html" data-version="2">
+					<input type="text">
+				</script>
+				<script type="text/html" class="html" data-version="3">
+					<input type="text" class="form-control">
+				</script>
+				<script type="text/plain" class="selector" data-version="*">
+              input
+            </script>
+			</label>
+			<label for="markup-component" class="inline radio">
+				<input name="markup" id="markup-component" value="component" type="radio">
+				Component
+				<script type="text/html" class="html" data-version="2">
+					<div class="input-append date">
+						<input type="text" class="span2"><span class="add-on"><i class="icon-th"></i></span>
+					</div>
+				</script>
+				<script type="text/html" class="html" data-version="3">
+					<div class="input-group date">
+						<input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+					</div>
+				</script>
+				<script type="text/plain" class="selector" data-version="2">
+              .input-append.date
+            </script>
+				<script type="text/plain" class="selector" data-version="3">
+              .input-group.date
+            </script>
+			</label>
+			<label for="markup-inline" class="inline radio">
+				<input name="markup" id="markup-inline" value="embedded" type="radio">
+				Embedded / inline
+				<script type="text/html" class="html" data-version="*">
+					<div></div>
+				</script>
+				<script type="text/plain" class="selector" data-version="*">
+              div
+            </script>
+			</label>
+			<label for="markup-range" class="inline radio">
+				<input name="markup" id="markup-range" value="range" type="radio">
+				Range
+				<script type="text/html" class="html" data-version="2">
+					<div class="input-daterange" id="datepicker">
+						<input type="text" class="input-small" name="start" />
+						<span class="add-on">to</span>
+						<input type="text" class="input-small" name="end" />
+					</div>
+				</script>
+				<script type="text/html" class="html" data-version="3">
+					<div class="input-daterange input-group" id="datepicker">
+						<input type="text" class="input-sm form-control" name="start" />
+						<span class="input-group-addon">to</span>
+						<input type="text" class="input-sm form-control" name="end" />
+					</div>
+				</script>
+				<script type="text/plain" class="selector" data-version="*">
+              .input-daterange
+            </script>
+			</label>
+			<br><br>
+			Options:<br>
+			<label for="format">Format
+				<input class="span2 col-md-2 form-control" id="format" name="format" type="text" placeholder="mm/dd/yyyy"></label>
+			<label for="weekStart">Week start
+				<input class="span1 col-md-1 form-control" id="weekStart" name="weekStart" type="text" placeholder="0"></label>
+			<label for="startDate">Start date
+				<input class="span2 col-md-2 form-control" id="startDate" name="startDate" type="text" placeholder="-Infinity"></label>
+			<label for="endDate">End date
+				<input class="span2 col-md-2 form-control" id="endDate" name="endDate" type="text" placeholder="+Infinity"></label>
+			<label for="startView">Start view
+				<select class="span2 col-md-2 form-control" id="startView" name="startView">
+					<option value="0">0 / days</option>
+					<option value="1">1 / months</option>
+					<option value="2">2 / years</option>
+					<option value="3">3 / decades</option>
+					<option value="4">4 / centuries</option>
+				</select>
+			</label>
+			<label for="minViewMode">Min view mode
+				<select class="span2 col-md-2 form-control" id="minViewMode" name="minViewMode">
+					<option value="0">0 / days</option>
+					<option value="1">1 / months</option>
+					<option value="2">2 / years</option>
+					<option value="3">3 / decades</option>
+					<option value="4">4 / centuries</option>
+				</select>
+			</label>
+			<label for="maxViewMode">Max view mode
+				<select class="span2 col-md-2 form-control" id="maxViewMode" name="maxViewMode">
+					<option value="0">0 / days</option>
+					<option value="1">1 / months</option>
+					<option value="2">2 / years</option>
+					<option value="3">3 / decades</option>
+					<option value="4" selected>4 / centuries</option>
+				</select>
+			</label>
+			<label for="todayBtn" class="inline checkbox">Today button
+				<select class="span2 col-md-2 form-control" id="todayBtn" name="todayBtn">
+					<option value="false">disabled</option>
+					<option value="true">enabled (unlinked)</option>
+					<option value="linked">linked</option>
+				</select>
+			</label>
+			<label for="clearBtn" class="inline checkbox">Clear button
+				<select class="span2 col-md-2 form-control" id="clearBtn" name="clearBtn">
+					<option value="false">disabled</option>
+					<option value="true">enabled</option>
+				</select>
+			</label>
+			<label for="language">Language
+				<select class="span1 col-md-1 form-control" id="language" name="language">
+					<option value="en">en</option>
+				</select>
+				<script>
+					$(function(){
+						for (var lang in $.fn.datepicker.dates) {
+							if (!$('#language option[value='+lang+']').length)
+								$('<option value="'+lang+'">'+lang+'</option>').appendTo('#language')
+						}
+					});
+				</script>
+			</label>
+			<label for="orientation">Orientation
+				<select class="span2 col-md-2 form-control" id="orientation" name="orientation">
+					<option value="auto">auto</option>
+					<option value="top auto">top auto</option>
+					<option value="bottom auto">bottom auto</option>
+					<option value="auto left">auto left</option>
+					<option value="top left">top left</option>
+					<option value="bottom left">bottom left</option>
+					<option value="auto right">auto right</option>
+					<option value="top right">top right</option>
+					<option value="bottom right">bottom right</option>
+				</select>
+			</label>
+			<br>
+			<label for="multidate">Multidate
+				<input type="text" class="input-small input-sm form-control" id="multidate" name="multidate" placeholder="false" title="false, true, or a number">
+			</label>
+			<label for="multidateSeparator">Multidate separator
+				<input type="text" class="input-small input-sm form-control" id="multidateSeparator" name="multidateSeparator" placeholder=",">
+			</label>
+			<br>
+			<span>Days of week disabled:
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="0"> 0</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="1"> 1</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="2"> 2</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="3"> 3</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="4"> 4</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="5"> 5</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekDisabled" value="6"> 6</label>
+          </span>
+			<br>
+			<span>Days of week highlighted:
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="0"> 0</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="1"> 1</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="2"> 2</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="3"> 3</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="4"> 4</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="5"> 5</label>
+            <label class="checkbox"><input type="checkbox" name="daysOfWeekHighlighted" value="6"> 6</label>
+          </span>
+			<br>
+			<label for="calendarWeeks" class="inline checkbox">
+				<input id="calendarWeeks" name="calendarWeeks" type="checkbox">
+				Calendar weeks
+			</label>
+			<label for="autoclose" class="inline checkbox">
+				<input id="autoclose" name="autoclose" type="checkbox">
+				Autoclose
+			</label>
+			<label for="todayHighlight" class="inline checkbox">
+				<input id="todayHighlight" name="todayHighlight" type="checkbox">
+				Today highlight
+			</label>
+			<label for="keyboardNavigation" class="inline checkbox">
+				<input id="keyboardNavigation" name="keyboardNavigation" type="checkbox" checked>
+				Keyboard navigation
+			</label>
+			<label for="forceParse" class="inline checkbox">
+				<input id="forceParse" name="forceParse" type="checkbox" checked>
+				Force parse
+			</label>
+			<label for="beforeShowDay" class="inline checkbox">
+				<input id="beforeShowDay" name="beforeShowDay" type="checkbox">
+				Before-show-day callback
+			</label>
+			<label for="beforeShowMonth" class="inline checkbox">
+				<input id="beforeShowMonth" name="beforeShowMonth" type="checkbox">
+				Before-show-month callback
+			</label>
+			<label for="beforeShowYear" class="inline checkbox">
+				<input id="beforeShowYear" name="beforeShowYear" type="checkbox">
+				Before-show-year callback
+			</label>
+			<label for="datesDisabled" class="inline checkbox">
+				<input id="datesDisabled" name="datesDisabled" type="checkbox">
+				datesDisabled
+			</label>
+			<label for="toggleActive" class="inline checkbox">
+				<input id="toggleActive" name="toggleActive" type="checkbox">
+				Toggle Active
+			</label>
+			<label for="defaultViewDate" class="inline checkbox">
+				<input id="defaultViewDate" name="defaultViewDate" type="checkbox">
+				DefaultViewDate option
+			</label>
+			<br><br>
+			<button class="btn btn-warning" type="button" id="ch_bs"></button>
+			<button class="btn btn-danger" type="reset">Reset to defaults</button>
+		</div>
+	</form>
+	<script>
+		$(function(){
+			var defaults = {},
+				defaults_form = $('<form>', {html: $('.sandbox-form').html()})
+			$.each(defaults_form.serializeArray(), function(i,e){
+				if (e.name in defaults)
+					defaults[e.name] += ',' + e.value;
+				else
+					defaults[e.name] = e.value;
+			});
+			delete defaults.markup;
+			function fix_indent(s){
+				var lines = s.split(/\r?\n/g);
+				while (/^\s*$/.test(lines[0])) lines.shift();
+				while (/^\s*$/.test(lines[lines.length-1])) lines.pop();
+				var indent = /^\s*/.exec(lines[0])[0],
+					deindent = new RegExp('^' + indent);
+				for (var i=0; i<lines.length; i++)
+					lines[i] = lines[i].replace(deindent, '');
+				return lines.join('\n');
+			}
+			function build_code(){
+				var form = $('.sandbox-form'),
+					values = {};
+				$.each(form.serializeArray(), function(i,e){
+					if (e.name in values)
+						values[e.name] += ',' + e.value;
+					else
+						values[e.name] = e.value;
+				});
+				var html_el = $('[name=markup][value='+values.markup+']').siblings('script.html').filter('[data-version="' + page.bootstrap + '"], [data-version="*"]');
+				var html = fix_indent(html_el.html());
+				var selector_el = $('[name=markup][value='+values.markup+']').siblings('script.selector').filter('[data-version="' + page.bootstrap + '"], [data-version="*"]');
+				var selector = selector_el.html().replace(/^\s+|\s+$/g, '');
+				delete values.markup;
+				var js = "$('#sandbox-container "+selector+"').datepicker({\n",
+					val;
+				for (var opt in $.extend({}, defaults, values)){
+					if (values[opt] != defaults[opt]){
+						val = values[opt];
+						if (opt == 'daysOfWeekDisabled' || opt == 'daysOfWeekHighlighted') val = '"'+val+'"'
+						else if (opt == 'beforeShowDay') val = function(date){
+							if (date.getMonth() == (new Date()).getMonth())
+								switch (date.getDate()){
+									case 4:
+										return {
+											tooltip: 'Example tooltip',
+											classes: 'active'
+										};
+									case 8:
+										return false;
+									case 12:
+										return "green";
+								}
+						}
+						else if (opt == 'beforeShowMonth') val = function(date){
+							if (date.getMonth() == 8) {
+								return false;
+							}
+						}
+						else if (opt == 'beforeShowYear') val = function(date){
+							if (date.getFullYear() == 2007) {
+								return false;
+							}
+						}
+						else if (opt == 'datesDisabled'){
+							var date = new Date();
+							var month = date.getMonth() + 1;
+							if (month.toString().length == 1) {
+								month = "0" + month;
+							}
+							val = "['"+month+"/06/"+date.getFullYear()+"', '"+month+"/21/"+date.getFullYear()+"']";
+						}
+						else if (opt === 'defaultViewDate') val = '{ year: 1977, month: 04, day: 25 }';
+						else if (val == 'on' || val == 'true') val = 'true';
+						else if (val === void 0 || val == 'false') val = 'false';
+						else if (parseInt(val) == val) val = val;
+						else val = '"'+val+'"'
+						js += "    " + opt + ": " + val + ",\n"
+					}
+				}
+				if (js.slice(-2) == ",\n")
+					js = js.slice(0,-2) + "\n";
+				js += "});";
+
+				return [html, js];
+			}
+			function update_code(){
+				var code = build_code(),
+					html = code[0],
+					js = code[1];
+				var print_html = html.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+				$('#sandbox-html').html(prettyPrintOne(print_html, 'html', true));
+				$('#sandbox-js').html(prettyPrintOne(js, 'js', true));
+			}
+			function update_sandbox(){
+				var code = build_code(),
+					html = code[0],
+					js = code[1];
+				$('#sandbox-container > :first-child').datepicker('remove');
+				$('#sandbox-container').html(html);
+				eval(js);
+			}
+			function update_url(){
+				if (history.replaceState){
+					var query = '?' + $('.sandbox-form').serialize();
+					history.replaceState(null, null, query + '#sandbox');
+				}
+			}
+			function update_all(){
+				update_code();
+				update_sandbox();
+				update_url();
+			}
+			$('.sandbox-form')
+				.submit(function(){ return false; })
+				.keydown(update_all)
+				.keyup(update_all)
+				.click(function(e){
+					update_code();
+					update_sandbox();
+					if (!$(e.target).is('button[type=reset]'))
+						update_url();
+				});
+			$('.sandbox-form button[type=reset]').click(function(){
+				$('.sandbox-form')[0].reset();
+				update_code();
+				update_sandbox();
+				history.replaceState && history.replaceState(null, null, '?#sandbox');
+			});
+			$(page).on('change:bootstrap', function(e, version){
+				$('#ch_bs').text('Switch to Bootstrap ' + (5-version));
+			});
+			$('#ch_bs').click(function(){
+				swap_bs();
+			});
+			$(page).on('change:bootstrap', update_all);
+			setTimeout(function(){
+				// Load form state from url if possible
+				var search = document.location.search.replace(/^\?/, '');
+				if (search){
+					search = search.split('&');
+					var values = {};
+					for (var i=0, opt, val; i<search.length; i++){
+						opt = search[i].split('=')[0];
+						val = search[i].split('=')[1];
+						if (opt in values)
+							values[opt] += ',' + val;
+						else
+							values[opt] = val;
+					}
+					for (var opt in $.extend({}, defaults, values)){
+						var el = $('[name='+opt+']'),
+							val = unescape(values[opt]);
+						if (el.is(':checkbox')){
+							if (el.length > 1){
+								var vals = val.split(',');
+								$('[name='+opt+']').prop('checked', false);
+								for (var i=0; i<vals.length; i++)
+									$('[name='+opt+'][value='+vals[i]+']').prop('checked', true);
+							}
+							else if (val === 'undefined')
+								el.prop('checked', false);
+							else
+								el.prop('checked', true);
+						}
+						else if (el.is(':radio')){
+							el.filter('[value='+val+']').prop('checked', true);
+						}
+						else
+							el.val(val);
+					}
+				}
+				// Don't replaceState the url on pageload
+				update_code();
+				update_sandbox();
+			}, 300);
+			// Analytics event tracking
+			// What options are people interested in?
+			$('.sandbox-form input, .sandbox-form select').change(function(e){
+				var $this = $(this),
+					val, opt;
+				opt = $this.attr('name');
+				val = $this.val();
+				if ($this.is(':checkbox') && val == 'on')
+					val = $this.is(':checked') ? "on" : "off";
+				ga('send', 'event', 'Sandbox', 'Option Selected', 'Option: ' + opt, val);
+			});
+			// Do they even use the reset button?
+			$('.sandbox-form button[type=reset]').click(function(){
+				ga('send', 'event', 'Sandbox', 'Reset');
+			});
+			var flag=0, mousedown=false, delta=0, x=0, y=0, dx, dy;
+			// How do they interact with the HTML display?  Do they select
+			// the code, do they try to edit it (I'd want to!)?
+			$("#sandbox-html").mousedown(function(e){
+				mousedown = true;
+				delta = 0; x=e.clientX; y=e.clientY;
+			});
+			$("#sandbox-html").mousemove(function(e){
+				if (mousedown){
+					dx = Math.abs(e.clientX-x);
+					dy = Math.abs(e.clientY-y);
+					delta = Math.max(dx, dy);
+				}
+			});
+			$("#sandbox-html").mouseup(function(){
+				if(delta <= 10)
+					ga('send', 'event', 'Sandbox', 'HTML Clicked');
+				else
+					ga('send', 'event', 'Sandbox', 'HTML Selected');
+				delta = 0;
+				mousedown = false;
+			});
+			// How do they interact with the JS display?  Do they select
+			// the code, do they try to edit it (I'd want to!)?
+			$("#sandbox-js").mousedown(function(e){
+				mousedown = true;
+				delta = 0; x=e.clientX; y=e.clientY;
+			});
+			$("#sandbox-js").mousemove(function(e){
+				if (mousedown){
+					dx = Math.abs(e.clientX-x);
+					dy = Math.abs(e.clientY-y);
+					delta = Math.max(dx, dy);
+				}
+			});
+			$("#sandbox-js").mouseup(function(){
+				if(delta <= 10)
+					ga('send', 'event', 'Sandbox', 'JS Clicked');
+				else
+					ga('send', 'event', 'Sandbox', 'JS Selected');
+				delta = 0;
+				mousedown = false;
+			});
+			$(page).trigger('change:bootstrap', page.bootstrap)
+		});
+	</script>
+	<div class="row form-horizontal">
+		<div class="span5 col-md-5" id="sandbox-container"></div>
+		<div class="span7 col-md-7">
+			<pre class="prettyprint linenums" id="sandbox-html"></pre>
+			<pre class="prettyprint linenums" id="sandbox-js"></pre>
+		</div>
+	</div>
+</div>
+</body>
+</html>

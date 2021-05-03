@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Floating Action Button</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+	<link href="css/framework7-icons.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div class="page">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Floating Action Button</div>
+				</div>
+			</div>
+			<!-- Toolbar FAB Morph Target -->
+			<div class="toolbar toolbar-bottom-md fab-morph-target">
+				<div class="toolbar-inner">
+					<!-- Each Toolbar link will close FAB (morph back) on click -->
+					<a class="link fab-close">Link 1</a>
+					<a class="link fab-close">Link 2</a>
+					<a class="link fab-close">Link 3</a>
+				</div>
+			</div>
+			<!-- FAB Left Top -->
+			<div class="fab fab-left-top color-yellow">
+				<a href="#">
+					<!-- Icons For iOS Theme -->
+					<i class="icon f7-icons ios-only">add</i>
+					<i class="icon f7-icons ios-only">close</i>
+					<!-- Icons For MD Theme -->
+					<i class="icon material-icons md-only">add</i>
+					<i class="icon material-icons md-only">close</i>
+				</a>
+				<!-- FAB speed dial actions -->
+				<div class="fab-buttons fab-buttons-bottom">
+					<a href="">1</a>
+					<a href="">2</a>
+					<a href="">3</a>
+				</div>
+			</div>
+			<!-- FAB Right Top -->
+			<div class="fab fab-right-top color-pink">
+			</div>
+			<!-- FAB Center -->
+			<div class="fab fab-center-center color-green">
+			</div>
+			<!-- FAB Left Bottom -->
+			<div class="fab fab-left-bottom color-orange">
+			</div>
+			<!-- FAB Right Bottom -->
+			<!-- Will morph to Toolbar -->
+			<div class="fab fab-right-bottom fab-morph" data-morph-to=".toolbar">
+			</div>
+			<div class="page-content">
+				<div class="block">
+					<p>Lorem ipsum dolor sit amet...</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>

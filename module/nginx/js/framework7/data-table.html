@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Data Table</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+	<link href="css/framework7-icons.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Data Table</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<div class="data-table">
+					<table>
+						<thead>
+						<tr>
+							<th class="label-cell">Desert (100g serving)</th>
+							<th class="numeric-cell">Calories</th>
+							<th class="tablet-only">Comment</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="label-cell">Frozen yogurt</td>
+							<td class="numeric-cell">159</td>
+							<td class="tablet-only">I like it!</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="data-table data-table-init card">
+					<table>
+						<thead>
+						<tr>
+							<th class="checkbox-cell">
+								<label class="checkbox">
+									<input type="checkbox"/>
+									<i class="icon-checkbox"></i>
+								</label>
+							</th>
+							<th class="label-cell">Desert (100g serving)</th>
+							<th class="numeric-cell">Calories</th>
+							<th class="numeric-cell">Protein (g)</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="checkbox-cell">
+								<label class="checkbox">
+									<input type="checkbox"/>
+									<i class="icon-checkbox"></i>
+								</label>
+							</td>
+							<td class="label-cell">Frozen yogurt</td>
+							<td class="numeric-cell">159</td>
+							<td class="numeric-cell">4.0</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="data-table data-table-init card">
+					<!-- Card Header -->
+					<div class="card-header">
+						<!-- Table title -->
+						<div class="data-table-title">Nutrition</div>
+						<!-- Table actions -->
+						<div class="data-table-actions">
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">sort</i>
+								<i class="icon material-icons md-only">sort</i>
+							</a>
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">more_vertical_round</i>
+								<i class="icon material-icons md-only">more_vert</i>
+							</a>
+						</div>
+					</div>
+					<!-- Card Content -->
+					<div class="card-content">
+						<table>
+							<thead>
+							<tr>
+								<th class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</th>
+								<th class="label-cell">Desert (100g serving)</th>
+								<th class="numeric-cell">Calories</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</td>
+								<td class="label-cell">Frozen yogurt</td>
+								<td class="numeric-cell">159</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="data-table data-table-init card">
+					<!-- Card header -->
+					<div class="card-header">
+						<!-- Default table header -->
+						<div class="data-table-header">
+							<!-- Default table title -->
+							<div class="data-table-title">Nutrition</div>
+							<!-- Default table actions -->
+							<div class="data-table-actions">
+								<a class="link icon-only">
+									<i class="icon f7-icons ios-only">sort</i>
+									<i class="icon material-icons md-only">sort</i>
+								</a>
+								<a class="link icon-only">
+									<i class="icon f7-icons ios-only">more_vertical_round</i>
+									<i class="icon material-icons md-only">more_vert</i>
+								</a>
+							</div>
+						</div>
+						<!-- Selected table header -->
+						<div class="data-table-header-selected">
+							<!-- Selected table title -->
+							<div class="data-table-title-selected"><span class="data-table-selected-count"></span> items selected</div>
+							<!-- Selected table actions -->
+							<div class="data-table-actions">
+								<a class="link icon-only">
+									<i class="icon f7-icons ios-only">trash</i>
+									<i class="icon material-icons md-only">delete</i>
+								</a>
+								<a class="link icon-only">
+									<i class="icon f7-icons ios-only">more_vertical_round</i>
+									<i class="icon material-icons md-only">more_vert</i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+							<tr>
+								<th class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</th>
+								<th class="label-cell">Desert (100g serving)</th>
+								<th class="numeric-cell">Calories</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</td>
+								<td class="label-cell">Frozen yogurt</td>
+								<td class="numeric-cell">159</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="data-table data-table-init card">
+					<div class="card-header">
+						<!-- Table links/actions -->
+						<div class="data-table-links">
+							<a class="link">Add</a>
+							<a class="link">Remove</a>
+						</div>
+						<!-- Table actions -->
+						<div class="data-table-actions">
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">sort</i>
+								<i class="icon material-icons md-only">sort</i>
+							</a>
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">more_vertical_round</i>
+								<i class="icon material-icons md-only">more_vert</i>
+							</a>
+						</div>
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+							<tr>
+								<th class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</th>
+								<th class="label-cell">Desert (100g serving)</th>
+								<th class="numeric-cell">Calories</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</td>
+								<td class="label-cell">Frozen yogurt</td>
+								<td class="numeric-cell">159</td>
+								<td class="actions-cell">
+									<a class="link icon-only">
+										<i class="icon f7-icons ios-only">compose</i>
+										<i class="icon material-icons md-only">edit</i>
+									</a>
+									<a class="link icon-only">
+										<i class="icon f7-icons ios-only">trash</i>
+										<i class="icon material-icons md-only">delete</i>
+									</a>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="data-table data-table-init card">
+					<div class="card-header">
+						<div class="data-table-title">Nutrition</div>
+						<div class="data-table-actions">
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">sort</i>
+								<i class="icon material-icons md-only">sort</i>
+							</a>
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">more_vertical_round</i>
+								<i class="icon material-icons md-only">more_vert</i>
+							</a>
+						</div>
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+							<tr>
+								<th class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</th>
+								<th class="label-cell sortable-cell sortable-active">Desert (100g serving)</th>
+								<th class="numeric-cell sortable-cell">Calories</th>
+								<th class="numeric-cell sortable-cell">Fat (g)</th>
+								<th class="numeric-cell sortable-cell">Carbs</th>
+								<th class="numeric-cell sortable-cell">Protein (g)</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="checkbox-cell">
+									<label class="checkbox">
+										<input type="checkbox">
+										<i class="icon-checkbox"></i>
+									</label>
+								</td>
+								<td class="label-cell">Frozen yogurt</td>
+								<td class="numeric-cell">159</td>
+								<td class="numeric-cell">6.0</td>
+								<td class="numeric-cell">24</td>
+								<td class="numeric-cell">4.0</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card data-table data-table-collapsible data-table-init">
+					<div class="card-header">
+						<div class="data-table-title">Nutrition</div>
+						<div class="data-table-actions">
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">sort</i>
+								<i class="icon material-icons md-only">sort</i>
+							</a>
+							<a class="link icon-only">
+								<i class="icon f7-icons ios-only">more_vertical_round</i>
+								<i class="icon material-icons md-only">more_vert</i>
+							</a>
+						</div>
+					</div>
+					<div class="card-content">
+						<table>
+							<thead>
+							<tr>
+								<th class="label-cell">Desert (100g serving)</th>
+								<th class="numeric-cell">Calories</th>
+								<th class="numeric-cell">Protein (g)</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="label-cell">Frozen yogurt</td>
+								<td class="numeric-cell">159</td>
+								<td class="numeric-cell">4.0</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>

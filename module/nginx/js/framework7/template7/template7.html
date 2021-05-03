@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Template7</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Template7</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<div class="block-title">Usage & API</div>
+				<div class="block">
+					<p>Performance Tips</p>
+					<a href="/tabs-routable/">Routable Tabs</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/template7" id="search-template">
+	<div class="page">
+		<div class="navbar">
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="ios-only">Back</span>
+					</a>
+				</div>
+				<div class="title">Tabs Routable</div>
+			</div>
+		</div>
+		<div class="toolbar tabbar">
+			<div class="toolbar-inner">
+				<a href="./" class="tab-link" data-route-tab-id="tab1">Tab 1</a>
+				<a href="tab2/" class="tab-link" data-route-tab-id="tab2">Tab 2</a>
+				<a href="tab3/" class="tab-link" data-route-tab-id="tab3">Tab 3</a>
+			</div>
+		</div>
+		<div class="tabs tabs-routable">
+			<div class="page-content tab" id="tab1"></div>
+			<div class="page-content tab" id="tab2"></div>
+			<div class="page-content tab" id="tab3"></div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript" src="../js/template7.js"></script>
+</body>
+</html>

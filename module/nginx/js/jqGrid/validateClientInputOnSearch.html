@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- The jQuery library is a prerequisite for all jqSuite products -->
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<!-- We support more than 40 localizations -->
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js"></script>
+	<!-- This is the Javascript file of jqGrid -->
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js"></script>
+	<!-- A link to a Boostrap  and jqGrid Bootstrap CSS siles-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://www.guriddo.net/demo/css/trirand/ui.jqgrid-bootstrap.css" />
+	<script>
+		$.jgrid.defaults.width = 780;
+		$.jgrid.defaults.responsive = true;
+		$.jgrid.defaults.styleUI = 'Bootstrap';
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/bootstrap-datepicker.js"></script>
+	<script type="text/ecmascript" src="http://www.guriddo.net/demo/js/bootstrap3-typeahead.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="http://www.guriddo.net/demo/css/bootstrap-datepicker.css" />
+	<script src="json/validateClientInputOnSearch.js"></script>
+	<meta charset="utf-8" />
+	<title>jqGrid Loading Data - Search Dialog with Multiple Values</title>
+</head>
+<body>
+<div style="margin-left:20px;">
+	<table id="jqGrid"></table>
+	<div id="jqGridPager"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#jqGrid").jqGrid({
+			url: 'data.json',
+			mtype: "GET",
+			datatype: "local",
+			data: dataArray,
+			page: 1,
+			colModel: [
+				{   label : "Order ID",
+					sorttype: 'integer',
+					name: 'OrderID',
+					key: true,
+					width: 75,
+					searchrules : {
+						"required": true,
+						"number" : true,
+						"minValue": 10200
+					}
+				},
+				{
+					label: "Customer ID",
+					name: 'CustomerID',
+					width: 150,
+					// stype defines the search type control - in this case HTML select (dropdownlist)
+					stype: "select",
+					// searchoptions value - name values pairs for the dropdown - they will appear as options
+					searchoptions: { value: ":[All];ALFKI:ALFKI;ANATR:ANATR;ANTON:ANTON;AROUT:AROUT;BERGS:BERGS;BLAUS:BLAUS;BLONP:BLONP;BOLID:BOLID;BONAP:BONAP;BOTTM:BOTTM;BSBEV:BSBEV;CACTU:CACTU;CENTC:CENTC;CHOPS:CHOPS;COMMI:COMMI;CONSH:CONSH;DRACD:DRACD;DUMON:DUMON;EASTC:EASTC;ERNSH:ERNSH;FAMIA:FAMIA;FOLIG:FOLIG;FOLKO:FOLKO;FRANK:FRANK;FRANR:FRANR;FRANS:FRANS;FURIB:FURIB;GALED:GALED;GODOS:GODOS;GOURL:GOURL;GREAL:GREAL;GROSR:GROSR;HANAR:HANAR;HILAA:HILAA;HUNGC:HUNGC;HUNGO:HUNGO;ISLAT:ISLAT;KOENE:KOENE;LACOR:LACOR;LAMAI:LAMAI;LAUGB:LAUGB;LAZYK:LAZYK;LEHMS:LEHMS;LETSS:LETSS;LILAS:LILAS;LINOD:LINOD;LONEP:LONEP;MAGAA:MAGAA;MAISD:MAISD;MEREP:MEREP;MORGK:MORGK;NORTS:NORTS;OCEAN:OCEAN;OLDWO:OLDWO;OTTIK:OTTIK;PERIC:PERIC;PICCO:PICCO;PRINI:PRINI;QUEDE:QUEDE;QUEEN:QUEEN;QUICK:QUICK;RANCH:RANCH;RATTC:RATTC;REGGC:REGGC;RICAR:RICAR;RICSU:RICSU;ROMEY:ROMEY;SANTG:SANTG;SAVEA:SAVEA;SEVES:SEVES;SIMOB:SIMOB;SPECD:SPECD;SPLIR:SPLIR;SUPRD:SUPRD;THEBI:THEBI;THECR:THECR;TOMSP:TOMSP;TORTU:TORTU;TRADH:TRADH;TRAIH:TRAIH;VAFFE:VAFFE;VICTE:VICTE;VINET:VINET;WANDK:WANDK;WARTH:WARTH;WELLI:WELLI;WHITC:WHITC;WILMK:WILMK;WOLZA:WOLZA" }
+				},
+				{
+					label: "Order Date",
+					name: 'OrderDate',
+					width: 150,
+					sorttype:'date',
+					searchoptions: {
+						// dataInit is the client-side event that fires upon initializing the toolbar search field for a column
+						// use it to place a third party control to customize the toolbar
+						dataInit: function (element) {
+							$(element).datepicker({
+								autoclose: true,
+								format: 'yyyy-mm-dd',
+								orientation : 'bottom'
+							});
+						}
+					}
+				},
+				{
+					label : "Ship Name",
+					name: 'ShipName',
+					width: 150,
+					searchoptions: {
+						// dataInit is the client-side event that fires upon initializing the toolbar search field for a column
+						// use it to place a third party control to customize the toolbar
+						dataInit: function (element) {
+							$(element).attr("autocomplete","off").typeahead({
+								appendTo : "body",
+								source: function(query, proxy) {
+									$.ajax({
+										url: 'http://trirand.com/blog/phpjqgrid/examples/jsonp/autocompletepbs.php?callback=?&acelem=ShipName',
+										dataType: "jsonp",
+										data: {term: query},
+										success : proxy
+									});
+								}
+							});
+						}
+					}
+				},
+				{
+					label: "Freight",
+					sorttype: 'number',
+					name: 'Freight', width: 150 },
+			],
+			loadonce: true,
+			viewrecords: true,
+			width: 780,
+			height: 250,
+			rowNum: 10,
+			pager: "#jqGridPager"
+		});
+		// activate the build in search with multiple option
+		$('#jqGrid').navGrid("#jqGridPager", {
+				search: true, // show search button on the toolbar
+				add: false,
+				edit: false,
+				del: false,
+				refresh: true
+			},
+			{}, // edit options
+			{}, // add options
+			{}, // delete options
+			{ multipleSearch: true, multipleGroup: true, showQuery: true } // search options - define multiple search
+		);
+	});
+</script>
+</body>
+</html>

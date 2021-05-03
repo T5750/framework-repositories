@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Elimination Game</title>
+	<meta name="description" content="">
+	<link href="https://cdn.bootcss.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/eliminationGame.css">
+</head>
+<body style="">
+<div class="container">
+	<header>
+		<h1>匹配游戏</h1>
+	</header>
+	<section class="score-panel">
+		<ul class="stars">
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+			<li><i class="fa fa-star"></i></li>
+		</ul>
+		<span class="moves">0</span> Moves
+		<div class="restart" onclick="run()">
+			<i class="fa fa-repeat"></i>
+		</div>
+	</section>
+	<ul class="deck" id="deck">
+		<li class="card"><i class="fa fa-cube"></i></li>
+		<li class="card"><i class="fa fa-anchor"></i></li>
+		<li class="card"><i class="fa fa-cube"></i></li>
+		<li class="card"><i class="fa fa-paper-plane-o"></i></li>
+		<li class="card"><i class="fa fa-anchor"></i></li>
+		<li class="card"><i class="fa fa-diamond"></i></li>
+		<li class="card"><i class="fa fa-bicycle"></i></li>
+		<li class="card"><i class="fa fa-diamond"></i></li>
+		<li class="card"><i class="fa fa-bolt"></i></li>
+		<li class="card"><i class="fa fa-anchor"></i></li>
+		<li class="card"><i class="fa fa-leaf"></i></li>
+		<li class="card"><i class="fa fa-bolt"></i></li>
+		<li class="card"><i class="fa fa-anchor"></i></li>
+		<li class="card"><i class="fa fa-bicycle"></i></li>
+		<li class="card"><i class="fa fa-paper-plane-o"></i></li>
+		<li class="card"><i class="fa fa-leaf"></i></li>
+	</ul>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/eliminationGame.js"></script>
+</body>
+</html>

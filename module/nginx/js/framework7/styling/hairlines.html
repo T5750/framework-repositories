@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Hairlines / Borders</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+	<style>
+		.navbar:after {
+			background-color: red;
+		}
+		.navbar:after {
+			display:none;
+		}
+
+		.toolbar:before {
+			display:none;
+		}
+	</style>
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar no-hairline">
+				<div class="navbar-inner">
+					<div class="title">Hairlines / Borders</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<!-- remove outer hairlines -->
+				<div class="list no-hairlines">
+					list no-hairlines
+				</div>
+				<!-- remove hairlines between items -->
+				<div class="list no-hairlines-between">
+					list no-hairlines-between
+				</div>
+				<!-- remove hairlines between items -->
+				<div class="list no-hairlines-between">
+					list no-hairlines-between
+				</div>
+				<!-- remove hairlines between items only for MD theme -->
+				<div class="list no-hairlines-between-md">
+					list no-hairlines-between-md
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Infinite Scroll</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Infinite Scroll</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content infinite-scroll-content">
+				<div class="list simple-list">
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+						<li>Item 6</li>
+						<li>Item 7</li>
+						<li>Item 8</li>
+						<li>Item 9</li>
+						<li>Item 10</li>
+						<li>Item 11</li>
+						<li>Item 12</li>
+						<li>Item 13</li>
+						<li>Item 14</li>
+						<li>Item 15</li>
+						<li>Item 16</li>
+						<li>Item 17</li>
+						<li>Item 18</li>
+						<li>Item 19</li>
+						<li>Item 20</li>
+					</ul>
+				</div>
+				<div class="preloader infinite-scroll-preloader"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/infinite-scroll.js"></script>
+</body>
+</html>

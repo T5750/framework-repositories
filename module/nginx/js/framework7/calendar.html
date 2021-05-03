@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+		<title>Calendar / Datepicker</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Calendar / Datepicker</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<div class="block-title">Default setup</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Your birth date" readonly="readonly" id="demo-calendar-default"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Custom date format</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-date-format"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Multiple Values</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select multiple dates" readonly="readonly" id="demo-calendar-multiple"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Range Picker</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select date range" readonly="readonly" id="demo-calendar-range"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Open in Mondal</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-modal"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">With Events</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-events"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Disabled Dates</div>
+				<div class="list no-hairlines-md">
+					<ul>
+						<li>
+							<div class="item-content item-input">
+								<div class="item-inner">
+									<div class="item-input-wrap">
+										<input type="text" placeholder="Select date" readonly="readonly" id="demo-calendar-disabled"/>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="block-title">Inline with custom toolbar</div>
+				<div class="block block-strong no-padding">
+					<div id="demo-calendar-inline-container"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
+</body>
+</html>

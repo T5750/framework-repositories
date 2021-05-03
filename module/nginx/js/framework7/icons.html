@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Color theme for statusbar -->
+	<meta name="theme-color" content="#2196f3">
+	<title>Icons</title>
+	<link href="https://cdn.bootcss.com/framework7/2.3.1/css/framework7.min.css" rel="stylesheet" />
+	<link href="css/framework7-icons.css" rel="stylesheet" />
+	<style>
+		.size-22 { font-size: 22px }
+		.size-25 { font-size: 25px }
+		.size-29 { font-size: 29px }
+		.size-50 { font-size: 50px }
+		.color-custom { color: #ff0000 }
+	</style>
+</head>
+<body>
+<!-- App root element -->
+<div id="app">
+	<!-- Statusbar overlay -->
+	<div class="statusbar"></div>
+	<!-- Your main view, should have "view-main" class -->
+	<div class="view view-main">
+		<!-- Initial Page, "data-name" contains page name -->
+		<div data-name="home" class="page">
+			<!-- Top Navbar -->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="title">Icons</div>
+				</div>
+			</div>
+			<!-- Scrollable page content -->
+			<div class="page-content">
+				<i class="icon icon-back"></i>
+				<i class="icon icon-forward"></i>
+				<i class="icon icon-prev"></i>
+				<i class="icon icon-next"></i>
+				<i class="f7-icons">home</i>
+				<div class="block-title">Styling Icons</div>
+				<div>
+					<i class="f7-icons size-22">home</i>
+					<i class="f7-icons size-25">home</i>
+					<i class="f7-icons size-29">home</i>
+					<i class="f7-icons size-50">home</i>
+					<i class="f7-icons color-red">home</i>
+					<i class="f7-icons color-yellow">home</i>
+					<i class="f7-icons color-custom">home</i>
+				</div>
+				<div class="block-title">Using Both F7 Icons & Material Icons</div>
+				<div>
+					<i class="f7-icons ios-only">home</i>
+					<i class="material-icons md-only">home</i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/framework7/2.3.1/js/framework7.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>
