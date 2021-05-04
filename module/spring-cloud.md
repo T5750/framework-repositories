@@ -2,7 +2,7 @@
 
 ## Contents
 ### Spring Cloud Alibaba
-- [Spring Cloud Alibaba](spring-cloud-alibaba/README.md)
+- Spring Cloud Alibaba
     - [Spring Cloud Alibaba Sentinel](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaSentinel.md)
     - [Spring Cloud Alibaba Nacos](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md)
         - [Nacos Config](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-config)
