@@ -1,0 +1,13 @@
+version: '3'
+services:
+  easydarwin:
+    restart: always
+    image: justtin/easydarwin
+    container_name: easydarwin
+    hostname: easydarwin
+    ports:
+      - 10008:10008
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

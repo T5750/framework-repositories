@@ -5,11 +5,12 @@ Framework
     :maxdepth: 3
     :numbered: 0
     
-    C4ModelNote
-    architect/index
-    devops/index
-    softSkills
-    pm/index
-    iot/index
-    sso/index
     api/index
+    architect/index
+    avs/index
+    C4ModelNote
+    devops/index
+    iot/index
+    pm/index
+    softSkills
+    sso/index
