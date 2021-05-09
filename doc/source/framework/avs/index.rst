@@ -6,3 +6,5 @@ AVS
     :numbered: 0
     
     easydarwinDocker
+    srsDocker
+    openmeetingsDocker

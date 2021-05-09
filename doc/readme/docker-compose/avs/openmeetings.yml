@@ -1,0 +1,13 @@
+version: '3'
+services:
+  openmeetings:
+    restart: always
+    image: apache/openmeetings:6.0.0
+    container_name: openmeetings
+    hostname: openmeetings
+    ports:
+      - 5443:5443
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

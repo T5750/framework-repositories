@@ -1,0 +1,15 @@
+version: '3'
+services:
+  srs:
+    restart: always
+    image: ossrs/srs:3
+    container_name: srs
+    hostname: srs
+    ports:
+      - 1935:1935
+      - 1985:1985
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
