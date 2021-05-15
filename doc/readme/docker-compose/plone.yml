@@ -1,0 +1,14 @@
+version: '3'
+services:
+  plone:
+    restart: always
+    image: plone
+    container_name: plone
+    hostname: plone
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./plone_data:/data
