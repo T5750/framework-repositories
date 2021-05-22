@@ -20,5 +20,12 @@ A ~ C | D ~ G | H ~ L | M ~ R | S ~ T | U ~ Z
 - https://frameworks.readthedocs.io
 - http://frameworks.rtfd.io
 
+## Branches
+Branch | Notes | Samples
+---|---|---
+master | ✓ | ✗
+doc | ✓ | ✗
+original | ✓ | ✓
+
 ## License
 Framework Repositories is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).

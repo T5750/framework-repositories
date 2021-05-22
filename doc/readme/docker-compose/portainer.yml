@@ -1,0 +1,16 @@
+version: '3'
+services:
+  portainer:
+    restart: always
+    image: portainer/portainer-ce
+    container_name: portainer
+    hostname: portainer
+    ports:
+      - 8000:8000
+      - 9000:9000
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer_data:/data
