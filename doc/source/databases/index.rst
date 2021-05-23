@@ -13,3 +13,4 @@ Databases
     postgresql/index
     cassandra/index
     mongo/index
+    couchbase/index
