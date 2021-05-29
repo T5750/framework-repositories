@@ -1,0 +1,16 @@
+version: '3'
+services:
+  live555:
+    restart: always
+    image: vimagick/live555
+    container_name: live555
+    hostname: live555
+    ports:
+      - 8080:80
+      - 554:554
+    environment:
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./live555_data:/data
