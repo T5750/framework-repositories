@@ -17,3 +17,4 @@ DevOps
     skywalkingDocker
     nextcloudDocker
     sonarqubeDocker
+    xxlJobDocker
