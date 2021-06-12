@@ -12,7 +12,7 @@ services:
       - KAFKA_BROKER_ID=1
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
-      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
     # volumes:
     #   - /var/run/docker.sock:/var/run/docker.sock
     external_links:
@@ -34,7 +34,7 @@ services:
       - KAFKA_BROKER_ID=2
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka2:9092
-      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
     # volumes:
     #   - /var/run/docker.sock:/var/run/docker.sock
     external_links:
@@ -56,7 +56,7 @@ services:
       - KAFKA_BROKER_ID=3
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka3:9092
-      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
     # volumes:
     #   - /var/run/docker.sock:/var/run/docker.sock
     external_links:

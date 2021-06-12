@@ -34,6 +34,13 @@ sudo systemctl restart chronyd.service
 timedatectl
 ```
 
+## Test
+```
+nc -vuz 192.168.8.176 123
+#Ncat: Connected to 192.168.8.176:123.
+#Ncat: UDP packet sent successfully
+```
+
 ## References
 - [Chrony详解：代替ntp的时间同步服务](https://chegva.com/3265.html)
 - [chrony.conf(5) Manual Page](https://chrony.tuxfamily.org/doc/devel/chrony.conf.html)

@@ -48,7 +48,9 @@ sudo dnf remove buildah
 sudo systemctl enable docker
 sudo vi /etc/docker/daemon.json
 {
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"],
+  "log-driver": "json-file",
+  "log-opts": {"max-size":"500m", "max-file":"3"}
 }
 sudo systemctl daemon-reload
 sudo systemctl restart docker
@@ -57,3 +59,4 @@ sudo systemctl restart docker
 ## References
 - [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
 - [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
+- [Docker限制容器日志大小](https://www.cnblogs.com/angel-devil/p/12558908.html)
