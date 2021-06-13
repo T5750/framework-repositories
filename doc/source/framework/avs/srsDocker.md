@@ -23,6 +23,11 @@ docker run --rm -p 1935:1935 -p 1985:1985 -p 8080:8080 \
     ossrs/srs:3
 ```
 
+## Snapshot
+- HttpCallback: http://localhost:8085/live/livestream-best.png
+- Transcoder
+
 ## References
 - [SRS](https://github.com/ossrs/srs)
 - [srs-docker](https://github.com/ossrs/srs-docker)
+- [SRS Snapshot](https://github.com/ossrs/srs/wiki/v3_CN_Snapshot)
