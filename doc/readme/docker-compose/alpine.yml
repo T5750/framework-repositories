@@ -1,0 +1,12 @@
+version: '3'
+services:
+  alpine:
+    restart: always
+    image: alpine:3.12
+    container_name: alpine
+    hostname: alpine
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    tty: true
