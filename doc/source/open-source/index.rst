@@ -7,3 +7,4 @@ Open Source
 
     openSourceLicenses
     gitHubSecurity
+    gitHubGitLab
