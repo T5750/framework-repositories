@@ -70,6 +70,7 @@ konga | 172.18.0.218 |  |
 konga | 172.18.0.219 |  | 1337:1337
 tb-postgres | 172.18.0.220 | tb | 9090:9090, 1883:1883
 xxl-job-admin | 172.18.0.230 | xxl-job | 8080:8080
+xxl-job-admin | 172.18.0.231 | xxl-job | 8080:8080
 zentao | localhost | zentao | 8080:80
 
 ## Runtime Environment

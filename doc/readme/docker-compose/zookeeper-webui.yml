@@ -1,0 +1,25 @@
+version: '3'
+services:
+  zookeeper-webui:
+    restart: always
+    image: tobilg/zookeeper-webui
+    container_name: zookeeper-webui
+    hostname: zookeeper-webui
+    ports:
+      - 8080:8080
+    environment:
+      TZ: Asia/Shanghai
+      ZK_DEFAULT_NODE: zoo1:2181
+      USER: admin
+      PASSWORD: admin
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    external_links:
+      - zoo1
+    networks:
+      default:
+        ipv4_address: 172.18.0.231
+networks:
+  default:
+    external:
+       name: bridge_compose
