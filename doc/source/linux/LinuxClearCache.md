@@ -47,6 +47,11 @@ $ su -c "echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf
 
 ## Tips
 - `dropcache.sh`
+```
+sudo sh -c 'echo 1 > /proc/sys/vm/drop_caches'
+sudo sh -c 'echo 2 > /proc/sys/vm/drop_caches'
+sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
+```
 
 ## References
 - [How to Clear RAM Memory Cache, Buffer and Swap Space on Linux](https://www.tecmint.com/clear-ram-memory-cache-buffer-and-swap-space-on-linux/)
