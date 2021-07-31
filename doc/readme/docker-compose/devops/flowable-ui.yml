@@ -1,0 +1,15 @@
+version: '3'
+services:
+  flowable:
+    restart: always
+    image: flowable/flowable-ui
+    container_name: flowable
+    hostname: flowable
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Asia/Shanghai
+      - FLOWABLE_COMMON_APP_IDM-ADMIN_USER=admin
+      - FLOWABLE_COMMON_APP_IDM-ADMIN_PASSWORD=test
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
