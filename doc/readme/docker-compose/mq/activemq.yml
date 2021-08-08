@@ -11,10 +11,11 @@ services:
       - 61616:61616
     environment:
       TZ: Asia/Shanghai
+      ACTIVEMQ_CONFIG_DEFAULTACCOUNT: 'false'
       ACTIVEMQ_ADMIN_LOGIN: admin
       ACTIVEMQ_ADMIN_PASSWORD: admin
-      ACTIVEMQ_CONFIG_MINMEMORY: 128
-      ACTIVEMQ_CONFIG_MAXMEMORY: 1024
+      ACTIVEMQ_CONFIG_MINMEMORY: 512
+      ACTIVEMQ_CONFIG_MAXMEMORY: 2048
       ACTIVEMQ_CONFIG_SCHEDULERENABLED: 'true'
     volumes:
       - /etc/localtime:/etc/localtime:ro
