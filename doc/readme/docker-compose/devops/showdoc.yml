@@ -1,0 +1,14 @@
+version: '3'
+services:
+  showdoc:
+    restart: always
+    image: star7th/showdoc
+    container_name: showdoc
+    hostname: showdoc
+    ports:
+      - 8999:80
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./showdoc_data/html:/var/www/html/
