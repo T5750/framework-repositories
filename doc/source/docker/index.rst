@@ -21,3 +21,4 @@ Docker
     pythonDocker
     alpineDocker
     nodejsDocker
+    elasticsearchDocker

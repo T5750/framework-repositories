@@ -49,6 +49,9 @@ mongo-express | 172.18.0.134 | mongo-express | 8081:8081
 image | networks | container_name | ports
 ---|---|---|---
 dubbo-admin | 172.18.0.140 | admin | 8080:8080
+elasticsearch | 172.18.0.191 | es01 | 9200:9200
+elasticsearch | 172.18.0.192 | es02 | 9200:9200
+elasticsearch | 172.18.0.193 | es03 | 9200:9200
 zookeeper | 172.18.0.201 | zoo1 | 2181:2181
 zookeeper | 172.18.0.202 | zoo2 | 2182:2181
 zookeeper | 172.18.0.203 | zoo3 | 2183:2181

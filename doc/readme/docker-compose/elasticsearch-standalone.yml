@@ -1,0 +1,14 @@
+version: '3'
+services:
+  elasticsearch:
+    image: elasticsearch:7.9.3
+    container_name: elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      TZ: Asia/Shanghai
+      discovery.type: single-node
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./elasticsearch/standalone:/usr/share/elasticsearch/data

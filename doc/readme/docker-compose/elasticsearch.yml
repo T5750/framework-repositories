@@ -1,0 +1,72 @@
+version: '3'
+services:
+  es01:
+    image: elasticsearch:7.9.3
+    container_name: es01
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - TZ=Asia/Shanghai
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es02,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./elasticsearch/data01:/usr/share/elasticsearch/data
+    networks:
+      default:
+        ipv4_address: 172.18.0.191
+  es02:
+    image: elasticsearch:7.9.3
+    container_name: es02
+    environment:
+      - TZ=Asia/Shanghai
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es03
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./elasticsearch/data02:/usr/share/elasticsearch/data
+    networks:
+      default:
+        ipv4_address: 172.18.0.192
+  es03:
+    image: elasticsearch:7.9.3
+    container_name: es03
+    environment:
+      - TZ=Asia/Shanghai
+      - node.name=es03
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01,es02
+      - cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./elasticsearch/data03:/usr/share/elasticsearch/data
+    networks:
+      default:
+        ipv4_address: 172.18.0.193
+networks:
+  default:
+    external:
+       name: bridge_compose
