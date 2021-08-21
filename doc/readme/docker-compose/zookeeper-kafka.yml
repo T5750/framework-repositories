@@ -11,10 +11,10 @@ services:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
-    # volumes:
-    #   - /etc/localtime:/etc/localtime:ro
-    #   - /usr/local/zookeeper/zoo1/data:/data
-    #   - /usr/local/zookeeper/zoo1/datalog:/datalog
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo1/data:/data
+      - /usr/local/zookeeper/zoo1/datalog:/datalog
     networks:
       default:
         ipv4_address: 172.18.0.201
@@ -29,10 +29,10 @@ services:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
-    # volumes:
-    #   - /etc/localtime:/etc/localtime:ro
-    #   - /usr/local/zookeeper/zoo2/data:/data
-    #   - /usr/local/zookeeper/zoo2/datalog:/datalog
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo2/data:/data
+      - /usr/local/zookeeper/zoo2/datalog:/datalog
     networks:
       default:
         ipv4_address: 172.18.0.202
@@ -47,10 +47,10 @@ services:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
-    # volumes:
-    #   - /etc/localtime:/etc/localtime:ro
-    #   - /usr/local/zookeeper/zoo3/data:/data
-    #   - /usr/local/zookeeper/zoo3/datalog:/datalog
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo3/data:/data
+      - /usr/local/zookeeper/zoo3/datalog:/datalog
     networks:
       default:
         ipv4_address: 172.18.0.203
@@ -67,8 +67,9 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
       - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zoo1
       - zoo2
@@ -89,8 +90,9 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka2:9092
       - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zoo1
       - zoo2
@@ -111,8 +113,9 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181,zoo2:2182,zoo3:2183
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka3:9092
       - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zoo1
       - zoo2

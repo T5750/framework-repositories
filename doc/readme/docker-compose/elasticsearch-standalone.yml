@@ -1,8 +1,8 @@
 version: '3'
 services:
-  elasticsearch:
+  es01:
     image: elasticsearch:7.9.3
-    container_name: elasticsearch
+    container_name: es01
     ports:
       - 9200:9200
       - 9300:9300

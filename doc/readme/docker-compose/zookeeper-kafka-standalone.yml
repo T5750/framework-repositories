@@ -11,10 +11,10 @@ services:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181
-    # volumes:
-    #   - /etc/localtime:/etc/localtime:ro
-    #   - /usr/local/zookeeper/zoo1/data:/data
-    #   - /usr/local/zookeeper/zoo1/datalog:/datalog
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/local/zookeeper/zoo1/data:/data
+      - /usr/local/zookeeper/zoo1/datalog:/datalog
     networks:
       default:
         ipv4_address: 172.18.0.201
@@ -31,9 +31,10 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zoo1:2181
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
       - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-      - JMX_PORT=9999
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
+    #  - JMX_PORT=9999
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zoo1
     networks:
