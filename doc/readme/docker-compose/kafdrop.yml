@@ -1,0 +1,24 @@
+version: '3'
+services:
+  kafdrop:
+    restart: always
+    image: obsidiandynamics/kafdrop
+    container_name: kafdrop
+    hostname: kafdrop
+    ports:
+      - 9000:9000
+    environment:
+      TZ: Asia/Shanghai
+      KAFKA_BROKERCONNECT: kafka1:9092
+      JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    external_links:
+      - kafka1
+    networks:
+      default:
+        ipv4_address: 172.18.0.207
+networks:
+  default:
+    external:
+       name: bridge_compose
