@@ -14,3 +14,4 @@ Framework
     pm/index
     softSkills
     sso/index
+    tests/index
