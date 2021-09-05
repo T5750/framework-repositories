@@ -7,5 +7,6 @@ IoT
     
     thingsboardDocker
     thingsboardGatewayDocker
+    thingsboardWebsiteDocker
     kuraDocker
     noderedDocker
