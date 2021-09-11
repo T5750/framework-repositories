@@ -18,6 +18,22 @@ command: "yapi server"
 command: "node /my-yapi/vendors/server/app.js"
 ```
 
+## Structure
+```
+├── mongo
+│   ├── data
+│   │   └── db
+│   └── etc
+├── mongo-conf
+│   └── init-mongo.js
+└── mongo-yapi.yml
+
+# yapi
+├── Dockerfile
+├── yapi.yml
+└── repositories
+```
+
 ## AD Integration
 `vi my-yapi/config.json`
 ```

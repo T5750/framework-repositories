@@ -2,7 +2,7 @@ version: '3'
 services:
   zentao:
     restart: always
-    image: easysoft/zentao:12.5.3
+    image: easysoft/zentao:15.4
     # image: easysoft/zentao
     container_name: zentao
     hostname: zentao

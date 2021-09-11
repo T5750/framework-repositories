@@ -10,7 +10,8 @@ To install Docker Engine, you need a maintained version of CentOS 7
 #### Install using the repository
 ```
 yum install -y yum-utils
-yum-config-manager --add-repo https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
+#yum-config-manager --add-repo https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 Install Docker Engine
 1. `yum install docker-ce docker-ce-cli containerd.io`

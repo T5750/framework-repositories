@@ -31,6 +31,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     volumes:
       - /etc/localtime:/etc/localtime:ro
     networks:
