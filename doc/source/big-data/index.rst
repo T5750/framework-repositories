@@ -15,3 +15,4 @@ Big Data
     flume/index
     pig/index
     impala/index
+    cloudera/index
