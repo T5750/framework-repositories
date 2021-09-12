@@ -10,3 +10,4 @@ IoT
     thingsboardWebsiteDocker
     kuraDocker
     noderedDocker
+    homeAssistantDocker
