@@ -61,6 +61,9 @@ LEFT JOIN fans
 GROUP BY name;
 ```
 
+## Snapshots
+![cloudera-manager-demos](https://www.cloudera.com/content/dam/www/marketing/images/screenshots/cloudera-manager/cloudera-manager-demos.jpg)
+
 ## References
 - [Cloudera QuickStart Docker Image](https://hub.docker.com/r/cloudera/quickstart)
 - [20 分钟自动搭建大数据平台](https://www.jianshu.com/p/5ecf73668b4d)
