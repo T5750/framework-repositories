@@ -14,3 +14,4 @@ Databases
     cassandra/index
     mongo/index
     couchbase/index
+    memcached/index
