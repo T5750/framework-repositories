@@ -11,3 +11,4 @@ IoT
     kuraDocker
     noderedDocker
     homeAssistantDocker
+    mosquittoDocker
