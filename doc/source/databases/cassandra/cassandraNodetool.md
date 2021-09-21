@@ -1,6 +1,6 @@
 # Cassandra Nodetool
 
-## Synopsis 
+## Synopsis
 `nodetool <options> status ( -r | --resolve-ip ) -- <keyspace>`
 
 ### Options
@@ -16,7 +16,7 @@ Short | Long | Description
 keyspace |  | Name of keyspace.
 -- |  | Separates an option from an argument that could be mistaken for a option.
 
-## Description 
+## Description
 The status command provides the following information:
 - Status - U (up) or D (down)
     * Indicates whether the node is functioning or not.
