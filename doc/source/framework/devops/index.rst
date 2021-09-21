@@ -20,3 +20,6 @@ DevOps
     xxlJobDocker
     flowableDocker
     showdocDocker
+    redmineDocker
+    seafileDocker
+    drawioDocker

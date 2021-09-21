@@ -1,0 +1,40 @@
+version: "3"
+services:
+  mysql_master:
+    restart: always
+    image: mysql:5.7
+    container_name: mysql_master
+    hostname: mysql_master
+    ports:
+      - 3306:3306
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: redmine
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mysql_master/data:/var/lib/mysql
+    networks:
+      default:
+        ipv4_address: 172.18.0.105
+  redmine:
+    restart: always
+    image: redmine
+    container_name: redmine
+    hostname: redmine
+    ports:
+      - 8080:3000
+    environment:
+      REDMINE_DB_MYSQL: mysql_master
+      REDMINE_DB_PASSWORD: 123456
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./redmine/files:/usr/src/redmine/files
+    networks:
+      default:
+        ipv4_address: 172.18.0.232
+networks:
+  default:
+    external:
+       name: bridge_compose

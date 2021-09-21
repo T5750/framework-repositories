@@ -43,6 +43,7 @@ cassandra | 172.18.0.122 | cassandra2 | 9042:9042
 cassandra | 172.18.0.123 | cassandra3 | 9043:9042
 mongo | 172.18.0.131 | mongo | 27017:27017
 mongo-express | 172.18.0.134 | mongo-express | 8081:8081
+memcached:1.6 | 172.18.0.135 | memcached |
 
 ### Middleware
 
@@ -74,6 +75,8 @@ konga | 172.18.0.219 |  | 1337:1337
 tb-postgres | 172.18.0.220 | tb | 9090:9090, 1883:1883
 xxl-job-admin | 172.18.0.230 | xxl-job | 8080:8080
 xxl-job-admin | 172.18.0.231 | xxl-job | 8080:8080
+redmine | 172.18.0.232 | seafile | 8080:3000
+seafile-mc | 172.18.0.233 | seafile | 8000:80
 zentao | localhost | zentao | 8080:80
 
 ## Runtime Environment

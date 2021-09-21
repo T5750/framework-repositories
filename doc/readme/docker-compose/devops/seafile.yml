@@ -1,0 +1,54 @@
+version: '3.0'
+services:
+  mysql_master:
+    restart: always
+    image: mysql:5.7
+    container_name: mysql_master
+    hostname: mysql_master
+    ports:
+      - 3306:3306
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: replicas_db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mysql_master/mysql_master.cnf:/etc/mysql/my.cnf
+      - ./mysql_master/data:/var/lib/mysql
+    networks:
+      default:
+        ipv4_address: 172.18.0.105
+  memcached:
+    image: memcached:1.6
+    container_name: memcached
+    entrypoint: memcached -m 256
+    networks:
+      default:
+        ipv4_address: 172.18.0.134
+  seafile:
+    image: seafileltd/seafile-mc:latest
+    container_name: seafile
+    ports:
+      - 8000:80
+#     - "443:443"  # If https is enabled, cancel the comment.
+    volumes:
+      - ./seafile-data:/shared   # Requested, specifies the path to Seafile data persistent store.
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_HOST=mysql_master
+      - DB_ROOT_PASSWD=123456  # Requested, the value shuold be root's password of MySQL service.
+      #- TIME_ZONE=Etc/UTC  # Optional, default is UTC. Should be uncomment and set to your local time zone.
+      - SEAFILE_ADMIN_EMAIL=admin@example.com # Specifies Seafile admin user, default is 'me@example.com'.
+      - SEAFILE_ADMIN_PASSWORD=admin     # Specifies Seafile admin password, default is 'asecret'.
+      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
+      - SEAFILE_SERVER_HOSTNAME=docs.seafile.com # Specifies your host name if https is enabled.
+    depends_on:
+      - mysql_master
+      - memcached
+    networks:
+      default:
+        ipv4_address: 172.18.0.233
+networks:
+  default:
+    external:
+       name: bridge_compose
