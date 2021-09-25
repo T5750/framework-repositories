@@ -21,9 +21,9 @@ docker run -d --name seafile \
 - [http://localhost:8000/](http://localhost:8000/)
 
 ## Snapshots
-![lib-1](https://cloud.seafile.com/seafhttp/files/cc4c1815-3659-48ca-8adf-c161da458b0c/lib-1.png)
+![libraries_view](https://help.seafile.com/file_folder_managing/imgs/libraries_view.png)
 
-![lib-history-1](https://cloud.seafile.com/seafhttp/files/7e7f0342-f852-4947-9afa-30b3a3a63098/lib-history-1.png)
+![library_browse](https://help.seafile.com/file_folder_managing/imgs/library_browse.png)
 
 ![seafile-server-config](https://manual.seafile.com/images/seafile-server-config.png)
 
@@ -31,3 +31,4 @@ docker run -d --name seafile \
 - [Seafile](https://github.com/haiwen/seafile)
 - [seafile-docker](https://github.com/haiwen/seafile-docker)
 - [Deploy Seafile with Docker](https://manual.seafile.com/docker/deploy_seafile_with_docker/)
+- [Seafile User Manual](https://help.seafile.com/)

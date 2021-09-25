@@ -15,11 +15,9 @@ DevOps
     grafanaDocker
     zipkinDocker
     skywalkingDocker
-    nextcloudDocker
     sonarqubeDocker
     xxlJobDocker
     flowableDocker
     showdocDocker
     redmineDocker
-    seafileDocker
     drawioDocker

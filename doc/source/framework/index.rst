@@ -15,3 +15,4 @@ Framework
     softSkills
     sso/index
     tests/index
+    netdisc/index
