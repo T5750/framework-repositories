@@ -2,7 +2,7 @@ version: '3'
 services:
   portainer:
     restart: always
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:2.6.3
     container_name: portainer
     hostname: portainer
     ports:
