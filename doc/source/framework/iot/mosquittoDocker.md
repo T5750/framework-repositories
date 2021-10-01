@@ -25,6 +25,17 @@ eclipse-mosquitto:1.6.15
 ## Docker Compose
 `mosquitto.yml`
 
+## Quick start
+```
+mosquitto_sub -t 'test/topic' -v
+mosquitto_pub -t 'test/topic' -m 'hello world'
+```
+
+## Documentation
+- [Documentation for the broker, clients and client library API](https://mosquitto.org/man/)
+- [Detailed client library API](https://mosquitto.org/api/)
+
 ## References
 - [eclipse-mosquitto](https://hub.docker.com/_/eclipse-mosquitto/)
 - [Docker - 通过容器安装部署Mosquitto服务教程（MQTT服务器）](https://www.hangge.com/blog/cache/detail_2896.html)
+- [Eclipse Mosquitto](https://github.com/eclipse/mosquitto)

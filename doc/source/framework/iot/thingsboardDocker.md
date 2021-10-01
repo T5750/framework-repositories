@@ -41,7 +41,15 @@ $ ./docker-remove-services.sh
 $ ./docker-update-service.sh [SERVICE...]
 ```
 
+## Screenshots
+![](https://thingsboard.io/images/helloworld/hello-world-step-1-item-1.png)
+
+![](https://thingsboard.io/images/helloworld/hello-world-step-1-item-2.png)
+
+![](https://thingsboard.io/images/helloworld/hello-world-step-1-item-3.png)
+
 ## References
 - [Installing ThingsBoard using Docker (Linux or Mac OS)](https://thingsboard.io/docs/user-guide/install/docker/)
 - [With image thingsboard/tb-postgres:latest, thingsboard_3.1 docker failed to start](https://github.com/thingsboard/thingsboard/issues/3347)
 - [Cluster setup with Docker Compose](https://thingsboard.io/docs/user-guide/install/cluster/docker-compose-setup/)
+- [Getting Started with ThingsBoard](https://thingsboard.io/docs/getting-started-guides/helloworld/)

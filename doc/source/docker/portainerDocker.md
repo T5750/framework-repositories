@@ -53,7 +53,7 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/vo
 ```
 
 ## Screenshots
-![dashboard](https://user-images.githubusercontent.com/3629071/43952333-ee279786-9c95-11e8-9e2f-0ffd5bd6ba6f.png)
+![](https://user-images.githubusercontent.com/3629071/43952333-ee279786-9c95-11e8-9e2f-0ffd5bd6ba6f.png)
 
 ## References
 - [Deploying Portainer CE in Docker](https://documentation.portainer.io/v2.0/deploy/ceinstalldocker/)
