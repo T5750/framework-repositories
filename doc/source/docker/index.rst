@@ -22,3 +22,4 @@ Docker
     alpineDocker
     nodejsDocker
     elasticsearchDocker
+    rancherDocker
