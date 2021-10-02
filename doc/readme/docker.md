@@ -79,6 +79,16 @@ redmine | 172.18.0.232 | seafile | 8080:3000
 seafile-mc | 172.18.0.233 | seafile | 8000:80
 zentao | localhost | zentao | 8080:80
 
+### Docker
+
+image | networks | container_name | ports
+---|---|---|---
+registry | 172.18.0.250 | registry-srv | 5000:5000
+hyper/docker-registry-web | 172.18.0.251 | registry-web | 8080:8080
+portainer/portainer-ce | localhost | portainer | 9000:9000
+portainer/agent | localhost | portainer_agent | 9001:9001
+rancher/rancher | localhost | rancher | 8080:443
+
 ## Runtime Environment
 - [Docker 19.x](https://www.docker.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
