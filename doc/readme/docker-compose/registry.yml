@@ -1,0 +1,53 @@
+version: '3'
+services:
+  registry-srv:
+    restart: always
+    image: registry:2
+    container_name: registry-srv
+    hostname: registry-srv
+    ports:
+      - 5000:5000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/registry:/var/lib/registry
+      - /opt/registry/srv-config.yml:/etc/docker/registry/config.yml
+    environment:
+      - TZ=Asia/Shanghai
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      default:
+        ipv4_address: 172.18.0.250
+  registry-web:
+    restart: always
+    image: hyper/docker-registry-web
+    container_name: registry-web
+    hostname: registry-web
+    ports:
+      - 8080:8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/registry/web-config.yml:/conf/config.yml
+    environment:
+      - TZ=Asia/Shanghai
+      - REGISTRY_URL=http://registry-srv:5000/v2
+      - REGISTRY_NAME=localhost:5000
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    depends_on:
+      - registry-srv
+    networks:
+      default:
+        ipv4_address: 172.18.0.251
+networks:
+  default:
+    external:
+       name: bridge_compose

@@ -23,3 +23,4 @@ Docker
     nodejsDocker
     elasticsearchDocker
     rancherDocker
+    dockerRegistry

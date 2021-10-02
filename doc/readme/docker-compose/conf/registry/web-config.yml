@@ -1,0 +1,10 @@
+registry:
+  # Docker registry url
+  url: http://localhost:5000/v2
+  # Docker registry fqdn
+  name: localhost:5000
+  # To allow image delete, should be false
+  readonly: false
+  auth:
+    # Disable authentication
+    enabled: false
