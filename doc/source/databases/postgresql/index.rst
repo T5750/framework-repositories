@@ -8,3 +8,4 @@ PostgreSQL
     postgresTutorial
     postgresSQL
     postgresMasterSlave
+    pgadminDocker
