@@ -77,6 +77,7 @@ xxl-job-admin | 172.18.0.230 | xxl-job | 8080:8080
 xxl-job-admin | 172.18.0.231 | xxl-job | 8080:8080
 redmine | 172.18.0.232 | seafile | 8080:3000
 seafile-mc | 172.18.0.233 | seafile | 8000:80
+rolesle/cat | 172.18.0.234 | cat | 8080:8080
 zentao | localhost | zentao | 8080:80
 
 ### Docker
