@@ -20,12 +20,12 @@ docker run -d --name seafile \
 - FILE_SERVER_ROOT: `http://localhost:8082`
 - [http://localhost:8000/](http://localhost:8000/)
 
-## Snapshots
-![libraries_view](https://help.seafile.com/file_folder_managing/imgs/libraries_view.png)
+## Screenshots
+![](https://help.seafile.com/file_folder_managing/imgs/libraries_view.png)
 
-![library_browse](https://help.seafile.com/file_folder_managing/imgs/library_browse.png)
+![](https://help.seafile.com/file_folder_managing/imgs/library_browse.png)
 
-![seafile-server-config](https://manual.seafile.com/images/seafile-server-config.png)
+![](https://manual.seafile.com/images/seafile-server-config.png)
 
 ## References
 - [Seafile](https://github.com/haiwen/seafile)

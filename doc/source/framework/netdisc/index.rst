@@ -7,3 +7,7 @@ Netdisc
     
     nextcloudDocker
     seafileDocker
+    filerunDocker
+    owncloudDocker
+    onlyofficeDocker
+    pydioDocker
