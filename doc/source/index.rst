@@ -29,7 +29,6 @@ Framework Repositories
    open-source/index
    rest/index
    rpc/index
-   sphinx/index
    spring/index
    spring-boot/index
    spring-cloud/index
