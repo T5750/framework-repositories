@@ -10,3 +10,5 @@ API
     kongDocker
     kongDashboardDocker
     kongaDocker
+    mediawikiDocker
+    sphinxDocker
