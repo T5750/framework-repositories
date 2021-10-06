@@ -9,8 +9,8 @@ docker run -it --rm --name=draw -p 8080:8080 -p 8443:8443 jgraph/drawio
 ```
 [http://localhost:8080/](http://localhost:8080/)
 
-## Snapshots
-![home-dia1](https://www.diagrams.net/assets/svg/home-dia1.svg)
+## Screenshots
+![](https://www.diagrams.net/assets/svg/home-dia1.svg)
 
 ## References
 - [docker-drawio](https://github.com/jgraph/docker-drawio)

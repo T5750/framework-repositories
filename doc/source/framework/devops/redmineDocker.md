@@ -26,12 +26,12 @@ $ docker run -d --name some-redmine --network some-network -e REDMINE_DB_POSTGRE
 - [http://localhost:8080/](http://localhost:8080/)
 - User: admin / admin
 
-## Snapshots
-![redmine-login](https://www.redmine.org/attachments/download/19137/redmine-login.png)
+## Screenshots
+![](https://www.redmine.org/attachments/download/19137/redmine-login.png)
 
-![redmine-project-overview](https://www.redmine.org/attachments/download/19564/redmine-project-overview.png)
+![](https://www.redmine.org/attachments/download/19564/redmine-project-overview.png)
 
-![projects_redmine_activity](https://www.redmine.org/attachments/download/2463/projects_redmine_activity.png)
+![](https://www.redmine.org/attachments/download/2463/projects_redmine_activity.png)
 
 ## References
 - [redmine](https://hub.docker.com/_/redmine/)
