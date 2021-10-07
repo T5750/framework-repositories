@@ -24,3 +24,4 @@ Docker
     elasticsearchDocker
     rancherDocker
     dockerRegistry
+    kubernetes/index
