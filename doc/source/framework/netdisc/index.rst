@@ -11,3 +11,4 @@ Netdisc
     owncloudDocker
     onlyofficeDocker
     pydioDocker
+    collaboraDocker
