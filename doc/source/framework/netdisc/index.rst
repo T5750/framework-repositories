@@ -12,3 +12,5 @@ Netdisc
     onlyofficeDocker
     pydioDocker
     collaboraDocker
+    dzzofficeDocker
+    resourcespaceDocker
