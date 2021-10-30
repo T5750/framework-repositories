@@ -34,5 +34,8 @@ webcenter/activemq:5.14.3
 - [http://localhost:8161/admin/](http://localhost:8161/admin/)
 - User: admin / admin
 
+## Screenshots
+![](https://svn.apache.org/repos/infra/websites/production/activemq/content/web-console.data/web_console.png)
+
 ## References
 - [webcenter/activemq](https://hub.docker.com/r/webcenter/activemq)

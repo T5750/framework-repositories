@@ -27,6 +27,9 @@ docker run --rm -p 1935:1935 -p 1985:1985 -p 8080:8080 \
 - HttpCallback: http://localhost:8085/live/livestream-best.png
 - Transcoder
 
+## Architecture
+![](https://camo.githubusercontent.com/ad9f099e7d5f2faaa0564d7e37feb5eaac8b90b133b1a8c4fba9159cab662966/68747470733a2f2f67697465652e636f6d2f77696e6c696e7669702f7372732d77696b692f7261772f6d61737465722f696d616765732f7372732d61726368332d302e706e67)
+
 ## References
 - [SRS](https://github.com/ossrs/srs)
 - [srs-docker](https://github.com/ossrs/srs-docker)

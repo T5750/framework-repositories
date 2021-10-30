@@ -1,5 +1,7 @@
 # XXL-JOB Docker
 
+XXL-JOB是一个分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。
+
 ## Docker
 ```
 /**
@@ -15,6 +17,16 @@ docker run -e PARAMS="--spring.datasource.url=jdbc:mysql://127.0.0.1:3306/xxl_jo
 - `xxl-job.yml`
 - [http://localhost:8080/](http://localhost:8080/)
 - User: admin, 123456
+
+## Architecture
+![](https://github.com/xuxueli/xxl-job/blob/master/doc/images/img_Qohm.png?raw=true)
+
+## Screenshots
+![](https://github.com/xuxueli/xxl-job/blob/master/doc/images/img_Hr2T.png?raw=true)
+
+![](https://github.com/xuxueli/xxl-job/blob/master/doc/images/img_o8HQ.png?raw=true)
+
+![](https://github.com/xuxueli/xxl-job/blob/master/doc/images/img_6yC0.png?raw=true)
 
 ## References
 - [xxl-job](https://github.com/xuxueli/xxl-job/)

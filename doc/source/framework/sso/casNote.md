@@ -34,6 +34,9 @@ git clone https://github.com/apereo/cas-management-overlay/tree/5.3
 ```
 - [https://localhost:8443/cas-management](https://localhost:8443/cas-management)
 
+### Screenshots
+![](https://user-images.githubusercontent.com/1205228/31142213-73581fc0-a886-11e7-9fed-61e7e89b1021.png)
+
 ## References
 - [cas-configserver-overlay](https://github.com/apereo/cas-configserver-overlay/tree/5.x)
 - [Configuration Server](https://apereo.github.io/cas/5.3.x/installation/Configuration-Server-Management.html)

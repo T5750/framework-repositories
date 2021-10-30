@@ -2,7 +2,7 @@
 
 ## Architecture
 
-![traefik-architecture](https://doc.traefik.io/traefik/v2.0/assets/img/traefik-architecture.png)
+![](https://doc.traefik.io/traefik/v2.0/assets/img/traefik-architecture.png)
 
 Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience. It receives requests on behalf of your system and finds out which components are responsible for handling them.
 
@@ -14,7 +14,7 @@ Traefik is an open-source Edge Router that makes publishing your services a fun 
 
 ## Quick Start
 
-![quickstart-diagram](https://doc.traefik.io/traefik/v2.0/assets/img/quickstart-diagram.png)
+![](https://doc.traefik.io/traefik/v2.0/assets/img/quickstart-diagram.png)
 
 You can open a browser and go to [http://localhost:8080/api/rawdata](http://localhost:8080/api/rawdata) to see Traefik's API rawdata
 

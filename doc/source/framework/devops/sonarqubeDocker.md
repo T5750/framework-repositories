@@ -1,5 +1,7 @@
 # SonarQube Docker
 
+[SonarQube](https://www.sonarqube.org/) is the leading tool for continuously inspecting the Code Quality and Security of your codebases, and guiding development teams during Code Reviews. Covering 27 programming languages, while pairing-up with your existing software pipeline, SonarQube provides clear remediation guidance for developers to understand and fix issues, and for teams overall to deliver better and safer software.
+
 ## Requirements
 由于 SonarQube 使用 Elasticsearch 作为全文模糊搜索引擎，故需要设置如下内核参数
 ```
@@ -51,5 +53,11 @@ location ^~ /sonar {
 }
 ```
 
+## Screenshots
+![](https://docs.sonarqube.org/latest/images/successfulproject.png)
+
+![](https://www.sonarqube.org/sonarqube-7-5/index/pull-request.png)
+
 ## References
 - [Docker Compose 方式安装 SonarQube 8.3.1](https://www.cnblogs.com/daodaotest/p/13123561.html)
+- [SonarSource](https://github.com/SonarSource/docker-sonarqube)
