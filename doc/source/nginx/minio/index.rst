@@ -6,3 +6,5 @@ MinIO
     :numbered: 0
 
     minioDocker
+    minioClientDocker
+    minioConsoleDocker
