@@ -74,3 +74,4 @@ make.bat html
 - [Getting Started with Sphinx](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html)
 - [Latest pip release fails](https://github.com/readthedocs/readthedocs.org/issues/6554)
 - [Wiping a Build Environment](https://docs.readthedocs.io/en/stable/guides/wipe-environment.html)
+- [TypeError: 'generator' object is not reversible](https://github.com/sphinx-doc/sphinx/issues/9727)
