@@ -15,3 +15,4 @@ Databases
     mongo/index
     couchbase/index
     memcached/index
+    influxdb/index
