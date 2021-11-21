@@ -13,6 +13,7 @@ DevOps
     nacosDocker
     sentinelDocker
     grafanaDocker
+    prometheusDocker
     zipkinDocker
     skywalkingDocker
     sonarqubeDocker
