@@ -33,4 +33,3 @@ MySQL
     mysqlMycnf
     mysqlDocker
     locks
-    Grafana

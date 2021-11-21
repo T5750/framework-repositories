@@ -12,6 +12,7 @@ DevOps
     zentaoDocker
     nacosDocker
     sentinelDocker
+    Grafana
     grafanaDocker
     prometheusDocker
     zipkinDocker
