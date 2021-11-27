@@ -24,6 +24,16 @@ The analytics platform for all your metrics
     + Database
     + User, Password
 
+## PostgreSQL
+[PostgreSQL Database](https://grafana.com/grafana/dashboards/9628)
+
+[Postgres Overview](https://grafana.com/grafana/dashboards/455)
+- Name: `PostgreSQL`
+- PostgreSQL Connection
+    + Host: `localhost:5432`
+    + Database
+    + User, Password
+
 ## InfluxDB
 [Telegraf: system dashboard](https://grafana.com/grafana/dashboards/928)
 - Name: `InfluxDB`
@@ -52,6 +62,10 @@ The analytics platform for all your metrics
 
 ## Loki
 [Usage Insights (Cloud)](https://grafana.com/grafana/dashboards/15083)
+
+[Loki Dashboard quick search](https://grafana.com/grafana/dashboards/12019)
+
+[Logs / App](https://grafana.com/grafana/dashboards/13639)
 - Name: `Loki`
 - HTTP
     + URL: `http://localhost:3100`

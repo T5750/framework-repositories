@@ -1,5 +1,11 @@
 # Kafka Zookeeper Docker
 
+## Kafka Zookeeper Standalone in Docker
+```
+docker run -d --name zoo1 --restart=always -v /etc/localtime:/etc/localtime:ro -p 2181:2181 zookeeper:3.5
+docker run -d --name kafka1 --restart=always -v /etc/localtime:/etc/localtime:ro -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=zoo1:2181 --link zoo1 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka_ip:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -e JMX_PORT=1099 -t wurstmeister/kafka
+```
+
 ## Kafka Zookeeper Standalone in Docker Compose
 `zookeeper-kafka-standalone.yml`
 
