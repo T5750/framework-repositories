@@ -5,7 +5,7 @@
 
 ## Cassandra Cluster in Docker Compose
 ```
-docker run --name cassandra -d cassandra
+docker run --name cassandra -d cassandra:3
 docker cp cassandra:/opt/cassandra/conf/cassandra.yaml .
 mkdir cassandra{1,2,3}
 vi cassandra.yaml

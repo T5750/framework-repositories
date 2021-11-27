@@ -2,7 +2,7 @@ version: '3'
 services:
   cassandra1:
     restart: always
-    image: cassandra
+    image: cassandra:3
     container_name: cassandra1
     hostname: cassandra1
     healthcheck:
@@ -29,7 +29,7 @@ services:
         ipv4_address: 172.18.0.121
   cassandra2:
     restart: always
-    image: cassandra
+    image: cassandra:3
     container_name: cassandra2
     hostname: cassandra2
     healthcheck:
@@ -52,7 +52,7 @@ services:
         ipv4_address: 172.18.0.122
   cassandra3:
     restart: always
-    image: cassandra
+    image: cassandra:3
     container_name: cassandra3
     hostname: cassandra3
     healthcheck:

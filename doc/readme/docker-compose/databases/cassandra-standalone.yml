@@ -2,7 +2,7 @@ version: '3'
 services:
   cassandra:
     restart: always
-    image: cassandra
+    image: cassandra:3
     container_name: cassandra
     hostname: cassandra
     ports:
