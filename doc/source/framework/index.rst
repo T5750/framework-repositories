@@ -9,7 +9,6 @@ Framework
     architect/index
     avs/index
     C4ModelNote
-    devops/index
     iot/index
     pm/index
     softSkills

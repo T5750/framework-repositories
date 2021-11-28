@@ -12,11 +12,11 @@
 - [Docker Compose WordPress](../../doc/source/docker/dockerComposeWordPress.md)
 
 ### DevOps
-- [Jenkins Docker](../../doc/source/framework/devops/jenkinsDocker.md)
-- [Jenkins Pipeline](../../doc/source/framework/devops/jenkinsPipeline.md)
-- [Nexus Docker](../../doc/source/framework/devops/nexusDocker.md)
-- [GitLab Docker](../../doc/source/framework/devops/gitlabDocker.md)
-- [Zentao Docker](../../doc/source/framework/devops/zentaoDocker.md)
+- [Jenkins Docker](../source/devops/jenkinsDocker.md)
+- [Jenkins Pipeline](../source/devops/jenkinsPipeline.md)
+- [Nexus Docker](../source/devops/nexusDocker.md)
+- [GitLab Docker](../source/devops/gitlabDocker.md)
+- [Zentao Docker](../source/devops/zentaoDocker.md)
 
 ## Networks
 

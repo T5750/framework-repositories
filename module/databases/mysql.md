@@ -64,7 +64,7 @@ The InnoDB Storage Engine
 - [14.18 InnoDB Backup and Recovery](../../doc/source/databases/mysql/chapter14/mysqlBackup.md)
 
 ### Grafana
-- [Grafana](../../doc/source/framework/devops/Grafana.md)
+- [Grafana](../../doc/source/devops/Grafana.md)
 
 ## Runtime Environment
 - [MySQL 5.x](http://www.mysql.com/)
