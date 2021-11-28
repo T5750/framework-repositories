@@ -78,6 +78,9 @@ xxl-job-admin | 172.18.0.231 | xxl-job | 8080:8080
 redmine | 172.18.0.232 | seafile | 8080:3000
 seafile-mc | 172.18.0.233 | seafile | 8000:80
 rolesle/cat | 172.18.0.234 | cat | 8080:8080
+grafana/grafana | 172.18.0.235 | grafana | 3000:3000
+grafana/loki | 172.18.0.236 | loki | 3100:3100
+grafana/promtail | 172.18.0.237 | promtail | 
 zentao | localhost | zentao | 8080:80
 
 ### Docker

@@ -14,6 +14,7 @@ DevOps
     sentinelDocker
     Grafana
     grafanaDocker
+    grafanaLokiDocker
     prometheusDocker
     zipkinDocker
     skywalkingDocker
