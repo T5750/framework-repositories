@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mytb:
+    restart: always
+    image: thingsboard/tb-postgres:3.3.2
+    container_name: mytb
+    hostname: mytb
+    ports:
+      - 8080:9090
+      - 1883:1883
+      - 7070:7070
+      - 5683-5688:5683-5688/udp
+    environment:
+      TB_QUEUE_TYPE: in-memory
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pgmaster:5432/thingsboard
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/.mytb-data:/data
+      - ~/.mytb-logs:/var/log/thingsboard
