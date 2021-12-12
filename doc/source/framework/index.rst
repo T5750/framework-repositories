@@ -15,3 +15,4 @@ Framework
     sso/index
     tests/index
     netdisc/index
+    erp/index
