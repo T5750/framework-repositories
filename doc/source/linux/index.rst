@@ -17,6 +17,7 @@ Linux
     LinuxCommands
     LinuxCronSchedulingTask
     LinuxPs
+    LinuxEnv
     CentOSInstallation
     CentOSPython
     CentOSTips
