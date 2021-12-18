@@ -1,5 +1,9 @@
 # ThingsBoard Gateway Docker
 
+The Thingsboard **IoT Gateway** is an open-source solution that allows you to integrate devices connected to legacy and third-party systems with Thingsboard.
+
+Thingsboard is an open-source IoT platform for data collection, processing, visualization, and device management.
+
 ## Installing ThingsBoard using Docker
 
 ### Running

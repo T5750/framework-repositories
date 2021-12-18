@@ -1,5 +1,8 @@
 # ThingsBoard Docker
 
+## What is ThingsBoard?
+ThingsBoard is an open-source IoT platform that enables rapid development, management, and scaling of IoT projects. Our goal is to provide the out-of-the-box IoT cloud or on-premises solution that will enable server-side infrastructure for your IoT applications.
+
 ```
 mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
 mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
@@ -9,9 +12,9 @@ mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 `tb-postgres-standalone.yml`
 
 - [http://localhost:9090/](http://localhost:9090/)
-- System Administrator: sysadmin@thingsboard.org / sysadmin
-- Tenant Administrator: tenant@thingsboard.org / tenant
-- Customer User: customer@thingsboard.org / customer
+- **System Administrator**: sysadmin@thingsboard.org / sysadmin
+- **Tenant Administrator**: tenant@thingsboard.org / tenant
+- **Customer User**: customer@thingsboard.org / customer
 
 ## Cluster setup with Docker Compose
 1. Pull ThingsBoard CE Images
@@ -50,6 +53,9 @@ docker volume create mytb-data
 docker volume create mytb-logs
 docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v mytb-data:/data -v ~/mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb-postgres:3.1.1
 ```
+
+## ThingsBoard 3.2.2
+[release-3.2](https://github.com/thingsboard/thingsboard/tree/release-3.2)
 
 ## ThingsBoard 3.3.2
 [release-3.3](https://github.com/thingsboard/thingsboard/tree/release-3.3)
