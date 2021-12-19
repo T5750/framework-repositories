@@ -1,5 +1,10 @@
 # MySQL Docker
 
+## MySQL 5.x in Docker
+```
+docker run --name mysql_master -v $PWD/mysql_master/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
+```
+
 ## MySQL 5.x in Docker Compose
 - `mysql_master.cnf`
 - `mysql_slave.cnf`
@@ -44,3 +49,4 @@ docker exec mysql8slave sh -c "export MYSQL_PWD=123456; mysql -u root replicas_d
 - [Docker Compose搭建MySQL主从复制集群](https://zhuanlan.zhihu.com/p/45193580)
 - [docker-box/mysql-cluster](https://github.com/docker-box/mysql-cluster)
 - [MySQL 8.0 - Docker 搭建主从复制](https://github.com/solidSpoon/solidSpoon.github.io/issues/26)
+- [MySQL Docker](https://hub.docker.com/_/mysql)

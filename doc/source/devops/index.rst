@@ -25,3 +25,4 @@ DevOps
     redmineDocker
     drawioDocker
     catDocker
+    zabbixDocker
