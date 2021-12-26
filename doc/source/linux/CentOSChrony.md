@@ -27,7 +27,7 @@ sudo vi /etc/chrony.conf
 ```
 ```
 #pool 2.centos.pool.ntp.org iburst
-pool 192.168.8.176 iburst
+pool 192.168.8.177 iburst
 ```
 ```
 sudo systemctl restart chronyd.service
@@ -36,8 +36,8 @@ timedatectl
 
 ## Test
 ```
-nc -vuz 192.168.8.176 123
-#Ncat: Connected to 192.168.8.176:123.
+nc -vuz 192.168.8.177 123
+#Ncat: Connected to 192.168.8.177:123.
 #Ncat: UDP packet sent successfully
 ```
 
