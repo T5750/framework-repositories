@@ -16,6 +16,7 @@ Docker
     dockerComposeWordPress
     dockerDockerfile
     dockerHub
+    dockerCLI
     portainerDocker
     ploneDocker
     pythonDocker
