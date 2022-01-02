@@ -33,8 +33,23 @@ CREATE ROLE replica login replication encrypted password 'replica';
 docker exec -it pgslave bash
 su - postgres
 rm -rf /var/lib/postgresql/data/*
-pg_basebackup -h pgmaster -p 5432 -U replica -Fp -Xs -Pv -R -D /var/lib/postgresql/data
+pg_basebackup -h pgmaster -p 5432 -U replica -Fp -Xs -Pv -R -D /var/lib/postgresql/data &
+# 混合云，先存datatmp，再替换data
+# pg_basebackup -h pgmaster -p 5432 -U replica -Fp -Xs -Pv -R -D /var/lib/postgresql/datatmp &
 ```
+```
+pg_basebackup: initiating base backup, waiting for checkpoint to complete
+pg_basebackup: checkpoint completed
+pg_basebackup: write-ahead log start point: 0/2000028 on timeline 1
+pg_basebackup: starting background WAL receiver
+pg_basebackup: created temporary replication slot "pg_basebackup_43"
+24636/24636 kB (100%), 1/1 tablespace
+pg_basebackup: write-ahead log end point: 0/2000138
+pg_basebackup: waiting for background process to finish streaming ...
+pg_basebackup: syncing data to disk ...
+pg_basebackup: base backup completed
+```
+
 `sudo vi pgslave/pg_hba.conf`
 ```
 host    replication     replica             172.18.0.100/32            trust
@@ -51,7 +66,8 @@ primary_conninfo = 'host=pgmaster port=5432 user=replica password=replica'
 recovery_target_timeline = 'latest'
 ```
 ```
-psql -U postgres -x -c "select * from pg_stat_replication;"
+docker exec -it pgmaster bash
+psql -U postgres -c "select client_addr,sync_state from pg_stat_replication;"
 psql -U postgres
 select client_addr,sync_state from pg_stat_replication;
 ```
@@ -64,7 +80,7 @@ su postgres
 /usr/lib/postgresql/11/bin/pg_ctl promote
 ```
 
-`select pg_is_in_recovery();`
+`psql -U postgres -c "select pg_is_in_recovery();"`
 - master: f
 - slave: t
 

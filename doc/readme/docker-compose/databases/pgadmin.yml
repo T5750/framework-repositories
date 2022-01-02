@@ -10,3 +10,6 @@ services:
     environment: 
       PGADMIN_DEFAULT_EMAIL: admin@pg.com
       PGADMIN_DEFAULT_PASSWORD: postgres
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

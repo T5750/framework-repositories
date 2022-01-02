@@ -37,7 +37,7 @@ services:
       - pgmaster
     networks:
       default:
-        ipv4_address: 172.18.0.101 
+        ipv4_address: 172.18.0.101
   pgadmin:
     restart: always
     image: dpage/pgadmin4:latest

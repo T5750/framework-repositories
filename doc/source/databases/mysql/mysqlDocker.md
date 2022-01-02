@@ -3,6 +3,7 @@
 ## MySQL 5.x in Docker
 ```
 docker run --name mysql_master -v $PWD/mysql_master/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
+docker run --name mysql_master -v $PWD/mysql_master/data:/var/lib/mysql -v $PWD/mysql_master/mysql_master.cnf:/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
 ```
 
 ## MySQL 5.x in Docker Compose
