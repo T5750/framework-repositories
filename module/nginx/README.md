@@ -5,6 +5,7 @@
 - [nginx笔记](../../doc/source/nginx/nginxNote.md)
 - [nginx Img](../../doc/source/nginx/nginxImg.md)
 - [nginx Util](../../doc/source/nginx/nginxUtil.md)
+- [nginx Videos](../../doc/source/nginx/nginxVideos.md)
 
 ### nginx网摘笔记
 - [nginx网摘笔记](../../doc/source/nginx/nginxCollection.md)

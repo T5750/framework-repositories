@@ -11,6 +11,7 @@
     - [Curator扩展库](../doc/source/zookeeper/ZooKeeperCollection.md#Curator扩展库)
     - [ZooKeeper典型的应用场景](../doc/source/zookeeper/ZooKeeperScenes.md)
     - [ZooKeeper Docker](../doc/source/zookeeper/ZooKeeperDocker.md)
+    - [ZooKeeper Web UI Docker](../doc/source/zookeeper/ZooKeeperWebuiDocker.md)
 
 ### ZooKeeper异常笔记
 - [ZooKeeper异常笔记](../doc/source/zookeeper/ZooKeeperException.md)

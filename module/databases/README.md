@@ -1,14 +1,15 @@
 # Databases
 
 ## Contents
-- [Redis](redis/README.md)
-- [Kettle](kettle/README.md)
-- [Oracle](oracle/README.md)
-- [MySQL](mysql/README.md)
-    - [Reference Manual](mysql/README.md#reference-manual)
-    - [Grafana](../doc/source/databases/mysql/Grafana.md)
-- [DB2](db2/README.md)
-- [Derby](derby/README.md)
+- [Redis](redis.md)
+- [Kettle](kettle.md)
+- [Oracle](oracle.md)
+- [MySQL](mysql.md)
+    - [Reference Manual](mysql.md#reference-manual)
+    - [Grafana](../../doc/source/devops/Grafana.md)
+- [DB2](db2.md)
+- [Derby](derby.md)
+- [MongoDB](mongo.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -21,3 +22,4 @@
 - [DB2 9.7](https://www.ibm.com/analytics/us/en/technology/db2/db2-linux-unix-windows.html)
 - [Grafana 6.2.5](https://grafana.com/grafana/download)
 - [Derby 10.13.1.1](https://db.apache.org/derby/)
+- [MongoDB 4.x](https://www.mongodb.com/download-center/community/releases)
