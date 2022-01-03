@@ -16,3 +16,4 @@ Databases
     couchbase/index
     memcached/index
     influxdb/index
+    exchange/index
