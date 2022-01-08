@@ -8,14 +8,14 @@
 - [CentOS Chrony](../doc/source/linux/CentOSChrony.md)
 
 ### Linux笔记
-- [1.x Linux初步与环境安装](../doc/source/linux/LinuxNote.md)
-- [2.x 常用命令](../doc/source/linux/LinuxNoteCommands.md)
-- [3.x vi/vim文本编辑器](../doc/source/linux/LinuxNoteVim.md)
-- [4.x 用户管理](../doc/source/linux/LinuxNoteUser.md)
-- [5.x 进程管理](../doc/source/linux/LinuxNoteProcess.md)
-- [6.x 系统文件构成](../doc/source/linux/LinuxNoteSystem.md)
-- [7.x 软件包管理](../doc/source/linux/LinuxNoteYum.md)
-- [8.x Shell编程](../doc/source/linux/LinuxNoteShell.md)
+- [1.x Linux初步与环境安装](../doc/source/linux/note/LinuxNote.md)
+- [2.x 常用命令](../doc/source/linux/note/LinuxNoteCommands.md)
+- [3.x vi/vim文本编辑器](../doc/source/linux/note/LinuxNoteVim.md)
+- [4.x 用户管理](../doc/source/linux/note/LinuxNoteUser.md)
+- [5.x 进程管理](../doc/source/linux/note/LinuxNoteProcess.md)
+- [6.x 系统文件构成](../doc/source/linux/note/LinuxNoteSystem.md)
+- [7.x 软件包管理](../doc/source/linux/note/LinuxNoteYum.md)
+- [8.x Shell编程](../doc/source/linux/note/LinuxNoteShell.md)
 
 ### Linux网摘笔记
 - [Linux常用命令大全](../doc/source/linux/LinuxCommands.md)

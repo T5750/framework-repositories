@@ -28,7 +28,7 @@ Linux目前有两种操作模式，一种是图形化界面，一种则为命令
 ## 1.4 安装Linux
 - VMware官网地址：[https://www.vmware.com](https://www.vmware.com)
 - 远程登录管理工具，如Putty、SecureCRT、Xshell
-- [CentOS Installation](CentOSInstallation.md)
+- [CentOS Installation](../CentOSInstallation.md)
 
 ## 1.5 安装步骤
 1. 新建虚拟机，配置对应的硬件参数，然后修改镜像文件，重启

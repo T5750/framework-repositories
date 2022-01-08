@@ -5,22 +5,15 @@ Linux
     :maxdepth: 2
     :numbered: 0
     
-    LinuxNote
-    LinuxNoteCommands
-    LinuxNoteVim
-    LinuxNoteUser
-    LinuxNoteProcess
-    LinuxNoteSystem
-    LinuxNoteYum
-    LinuxNoteShell
-    LinuxClearCache
+    note/index
     LinuxCommands
+    LinuxClearCache
     LinuxCronSchedulingTask
-    LinuxPs
     LinuxEnv
+    LinuxPs
+    CentOSChrony
     CentOSInstallation
+    CentOSMail
     CentOSPython
     CentOSTips
     CentOSTomcat
-    CentOSMail
-    CentOSChrony
