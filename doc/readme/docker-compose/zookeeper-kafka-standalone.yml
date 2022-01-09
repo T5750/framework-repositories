@@ -43,7 +43,7 @@ services:
   kafka-manager:
     restart: always
     # image: sheepkiller/kafka-manager
-    image: hlebalbau/kafka-manager
+    image: hlebalbau/kafka-manager:stable
     container_name: kafka-manager
     hostname: kafka-manager
     ports:
@@ -51,11 +51,7 @@ services:
     environment:
       TZ: Asia/Shanghai
       ZK_HOSTS: zoo1:2181
-      KAFKA_BROKERS: kafka1:9092
       APPLICATION_SECRET: t5750
-      KM_ARGS: -Djava.net.preferIPv4Stack=true
-    depends_on:
-      - kafka1
     networks:
       default:
         ipv4_address: 172.18.0.207

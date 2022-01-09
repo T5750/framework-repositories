@@ -23,32 +23,6 @@ kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 127.0.0.1:9092 --top
 kafka-topics.sh --zookeeper 172.18.0.201:2181 --delete --topic kafkazookeeper
 ```
 
-### CMAK
-- [CMAK](https://github.com/yahoo/CMAK)
-- [http://localhost:9000/](http://localhost:9000/)
-
-#### Screenshots
-![](https://github.com/yahoo/CMAK/raw/master/img/cluster.png)
-
-![](https://github.com/yahoo/CMAK/raw/master/img/topic-list.png)
-
-![](https://github.com/yahoo/CMAK/raw/master/img/topic.png)
-
-### Kafdrop
-```
-docker run -d --name kafdrop --rm -p 9000:9000 \
-    -e KAFKA_BROKERCONNECT=172.18.0.204:9092 \
-    -e JVM_OPTS="-Xms32M -Xmx64M" \
-    -e SERVER_SERVLET_CONTEXTPATH="/" \
-    obsidiandynamics/kafdrop
-```
-- `kafdrop.yml`
-- [Kafdrop](https://github.com/obsidiandynamics/kafdrop)
-- [http://localhost:9000/](http://localhost:9000/)
-
-#### Screenshots
-![](https://github.com/obsidiandynamics/kafdrop/raw/master/docs/images/overview.png?raw=true)
-
 ## Kafka Zookeeper Cluster in Docker Compose
 `zookeeper-kafka.yml`
 
