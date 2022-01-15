@@ -6,8 +6,8 @@ CAT 是基于 Java 开发的实时应用监控平台，为美团点评提供了�
 - 辅助应用程序优化
 
 ## Docker Compose
-`cat.yml`
-
+- [CatApplication.sql](https://github.com/dianping/cat/blob/master/script/CatApplication.sql)
+- `cat.yml`
 - [http://localhost:8080/cat](http://localhost:8080/cat)
 - User: admin / admin
 

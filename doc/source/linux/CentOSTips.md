@@ -33,12 +33,18 @@
 ### bc
 - `scale=2`
 
-### sar
+## sar
 - `yum install sysstat`
 
-### mail
+## mail
 - `yum -y install mailx`
 - `yum install sendmail`
 
-### vim
+## vim
 - `yum -y install vim*`
+
+## sudo
+```
+sudo visudo
+sysadmin ALL=(ALL) NOPASSWD:ALL
+```
