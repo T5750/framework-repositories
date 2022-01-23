@@ -13,3 +13,4 @@ API
     mediawikiDocker
     SphinxNote
     sphinxDocker
+    hexoDocker
