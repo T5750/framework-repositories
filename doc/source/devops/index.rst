@@ -26,3 +26,4 @@ DevOps
     drawioDocker
     catDocker
     zabbixDocker
+    zabbixJvmDocker
