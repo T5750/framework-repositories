@@ -1,0 +1,17 @@
+version: "3"
+services:
+  mosquitto:
+    restart: always
+    image: eclipse-mosquitto:1.6.15
+    container_name: mosquitto
+    hostname: mosquitto
+    ports:
+      - 1883:1883
+      - 9001:9001
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - $PWD/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - $PWD/mosquitto/data:/mosquitto/data
+      - $PWD/mosquitto/log:/mosquitto/log
