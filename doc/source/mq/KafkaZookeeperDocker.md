@@ -21,6 +21,7 @@ kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
 kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group console-consumer-99577 --describe
 kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 127.0.0.1:9092 --topic kafkazookeeper
 kafka-topics.sh --zookeeper 172.18.0.201:2181 --delete --topic kafkazookeeper
+# bin/kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --delete --topic kafkazookeeper.*
 ```
 
 ## Kafka Zookeeper Cluster in Docker Compose
