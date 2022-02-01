@@ -14,3 +14,4 @@ API
     SphinxNote
     sphinxDocker
     hexoDocker
+    jekyllDocker
