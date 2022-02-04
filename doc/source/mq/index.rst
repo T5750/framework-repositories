@@ -12,3 +12,4 @@ MQ
     ActiveMQDocker
     KafkaZookeeperDocker
     KafkaToolDocker
+    hivemqDocker
