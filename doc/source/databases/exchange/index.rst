@@ -6,3 +6,4 @@ Exchange
     :numbered: 0
     
     debeziumDocker
+    canalDocker
