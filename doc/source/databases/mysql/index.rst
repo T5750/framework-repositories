@@ -32,4 +32,5 @@ MySQL
     mysqlFunctionWindow
     mysqlMycnf
     mysqlDocker
+    phpmyadminDocker
     locks
