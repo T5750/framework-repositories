@@ -1,0 +1,14 @@
+version: '3'
+services:
+  phpmyadmin:
+    restart: always
+    image: phpmyadmin:5.1
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - TZ=Asia/Shanghai
+      - PMA_ARBITRARY=1
+    volumes:
+      - /etc/localtime:/etc/localtime
