@@ -42,5 +42,6 @@ $ docker run -p 8071:8069 --name odoo3 --link db:db -t odoo
 ![](https://www.odoo.com/documentation/15.0/_images/simple_dashboard.png)
 
 ## References
-- [Odoo](https://hub.docker.com/_/odoo)
+- [Odoo Docker](https://hub.docker.com/_/odoo)
 - [Architecture Overview](https://www.odoo.com/documentation/15.0/developer/howtos/rdtraining/01_architecture.html)
+- [Odoo GitHub](https://github.com/odoo/odoo)
