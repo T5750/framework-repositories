@@ -88,6 +88,6 @@ Another way to deploy Debezium is using the [Debezium server](https://debezium.i
 ## References
 - [Debezium Tutorial](https://debezium.io/documentation/reference/1.8/tutorial.html)
 - [Debezium UI](https://debezium.io/documentation/reference/1.8/operations/debezium-ui.html)
-- [Debezium Github](http://www.github.com/debezium/)
-- [Debezium UI Github](https://github.com/debezium/debezium-ui)
+- [Debezium GitHub](http://www.github.com/debezium/)
+- [Debezium UI GitHub](https://github.com/debezium/debezium-ui)
 - [debezium/connect](https://hub.docker.com/r/debezium/connect)

@@ -37,6 +37,6 @@ docker run -d --name kafdrop --rm -p 9000:9000 \
 ![](https://github.com/obsidiandynamics/kafdrop/raw/master/docs/images/overview.png?raw=true)
 
 ## References
-- [CMAK Github](https://github.com/yahoo/CMAK)
+- [CMAK GitHub](https://github.com/yahoo/CMAK)
 - [hlebalbau/kafka-manager](https://hub.docker.com/r/hlebalbau/kafka-manager)
-- [Kafdrop Github](https://github.com/obsidiandynamics/kafdrop)
+- [Kafdrop GitHub](https://github.com/obsidiandynamics/kafdrop)

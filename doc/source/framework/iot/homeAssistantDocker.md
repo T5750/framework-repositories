@@ -36,4 +36,4 @@ docker run -d \
 ## References
 - [Home Assistant](https://www.home-assistant.io/)
 - [Install Home Assistant Operating System](https://www.home-assistant.io/installation/linux)
-- [Home Assistant Github](https://github.com/home-assistant)
+- [Home Assistant GitHub](https://github.com/home-assistant)

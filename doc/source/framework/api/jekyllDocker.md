@@ -47,5 +47,5 @@ docker run --rm \
 
 ## References
 - [Jekyll Docker](https://github.com/envygeeks/jekyll-docker/blob/master/README.md)
-- [Jekyll Github](https://github.com/jekyll/jekyll)
+- [Jekyll GitHub](https://github.com/jekyll/jekyll)
 - [Jekyll](https://jekyllrb.com/)

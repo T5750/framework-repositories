@@ -33,5 +33,5 @@ User: admin / password
 
 ## References
 - [Node-RED Docker](https://hub.docker.com/r/nodered/node-red)
-- [Node-RED Github](https://github.com//node-red/node-red-docker)
+- [Node-RED GitHub](https://github.com//node-red/node-red-docker)
 - [Node-RED](https://nodered.org/)
