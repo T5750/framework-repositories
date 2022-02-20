@@ -7,6 +7,7 @@ IoT
     
     thingsboardDocker
     thingsboardGatewayDocker
+    thingsboardGatewaySourceInstallation
     thingsboardWebsiteDocker
     thingsboardDocDocker
     kuraDocker

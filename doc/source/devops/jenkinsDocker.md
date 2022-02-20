@@ -17,3 +17,4 @@ docker run --name jenkins -p 8080:8080 -p 50000:50000 -v $PWD/jenkins:/var/jenki
 
 ## References
 - [Jenkins](https://www.jenkins.io/)
+- [Jenkins GitHub](https://github.com/jenkinsci/jenkins)

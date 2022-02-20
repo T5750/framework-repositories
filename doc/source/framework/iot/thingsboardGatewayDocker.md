@@ -41,10 +41,12 @@ Especially, when we are talking about language APIs and existing libraries to wo
 The Gateway provides simple integration APIs, and encapsulates common Thingsboard related tasks: device provisioning, local data persistence and delivery, message converters and other.  
 For processing data from devices you also can write custom converter, it will receive information from device and send it to converter to convert to unified format before sending it to the ThingsBoard cluster. 
 
+![](https://thingsboard.io/images/gateway/python-gateway-animd-ff.svg)
+
 ![](https://thingsboard.io/images/gw_animation.gif)
 
 ## References
 - [Install ThingsBoard IoT Gateway using Docker](https://thingsboard.io/docs/iot-gateway/install/docker-installation/)
 - [IoT Gateway Configuration](https://thingsboard.io/docs/iot-gateway/configuration/)
 - [thingsboard/tb-gateway Docker](https://hub.docker.com/r/thingsboard/tb-gateway)
-- [thingsboard/tb-gateway Github](https://github.com/thingsboard/thingsboard-gateway)
+- [thingsboard/tb-gateway GitHub](https://github.com/thingsboard/thingsboard-gateway)
