@@ -13,3 +13,4 @@ MQ
     KafkaZookeeperDocker
     KafkaToolDocker
     hivemqDocker
+    rabbitmqDocker
