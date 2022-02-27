@@ -17,6 +17,7 @@ Docker
     dockerDockerfile
     dockerHub
     dockerCLI
+    dockerSwarm
     portainerDocker
     ploneDocker
     pythonDocker
