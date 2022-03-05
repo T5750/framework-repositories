@@ -75,7 +75,19 @@ docker node update --availability active worker1
 
 ## Use swarm mode routing mesh
 ### Publish a port for a service
+```
+docker service create \
+  --name my-web \
+  --publish published=8080,target=80 \
+  --replicas 2 \
+  nginx
+```
+
 ![](https://docs.docker.com/engine/swarm/images/ingress-routing-mesh.png)
+
+```
+docker service inspect --format="{{json .Endpoint.Spec.Ports}}" my-web
+```
 
 ### Configure an external load balancer
 ![](https://docs.docker.com/engine/swarm/images/ingress-lb.png)

@@ -11,6 +11,8 @@ MinIO is a High Performance Object Storage released under Apache License v2.0. I
 [http://localhost:9000/](http://localhost:9000/)
 
 ## Architecture
+![](http://www.minio.org.cn/static/picture/architecture_diagram.svg)
+
 ![](https://raw.githubusercontent.com/minio/minio/master/docs/screenshots/Architecture-diagram_distributed_nm.png)
 
 ## Screenshots
@@ -18,4 +20,4 @@ MinIO is a High Performance Object Storage released under Apache License v2.0. I
 
 ## References
 - [使用Docker Compose部署MinIO](https://docs.min.io/cn/deploy-minio-on-docker-compose.html)
-- [MinIO](https://github.com/minio/minio)
+- [MinIO GitHub](https://github.com/minio/minio)

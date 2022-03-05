@@ -19,7 +19,7 @@ Plone is a free and open source content management system built on top of Zope.
 ![](https://docs.plone.org/_images/workflow-advanced.png)
 
 ## References
-- [Plone](https://hub.docker.com/_/plone)
+- [Plone Docker](https://hub.docker.com/_/plone)
 - [Plone Data](https://docs.plone.org/manage/docker/docs/data/index.html)
 - [Plone Docker Compose](https://docs.plone.org/manage/docker/docs/scaling/docker_compose.html)
 - [Try Plone](https://plone.com/try-plone.html)

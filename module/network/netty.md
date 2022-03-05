@@ -8,4 +8,4 @@
 - [Netty实现WebSocket聊天功能](../../doc/source/network/NettyWebSocketChat.md)
 
 ## Runtime Environment
-- [netty-4.1.32.Final](https://netty.io/downloads.html)
+- [Netty 4.1.x](https://netty.io/downloads.html)
