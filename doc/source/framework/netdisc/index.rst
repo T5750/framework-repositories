@@ -14,3 +14,4 @@ Netdisc
     collaboraDocker
     dzzofficeDocker
     resourcespaceDocker
+    libreofficeDocker
