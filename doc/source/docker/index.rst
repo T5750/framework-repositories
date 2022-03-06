@@ -13,7 +13,6 @@ Docker
     dockerELK
     dockerComposeELK
     dockerNetworks
-    dockerComposeWordPress
     dockerDockerfile
     dockerHub
     dockerCLI

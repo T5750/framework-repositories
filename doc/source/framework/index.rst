@@ -16,3 +16,4 @@ Framework
     tests/index
     netdisc/index
     erp/index
+    cms/index
