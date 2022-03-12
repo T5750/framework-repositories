@@ -17,6 +17,8 @@ docker run --name some-wordpress -p 8080:80 -d wordpress
 - [MySQL 5.x](http://www.mysql.com/)
 
 ## Screenshots
+![](https://s.w.org/images/home/screen-themes.png?4)
+
 ![](https://i0.wp.com/wordpress.org/support/files/2018/10/administrations_screen_4.9.4_with_note.jpg?w=1163&ssl=1)
 
 ![](https://i0.wp.com/wordpress.org/support/files/2019/01/tools-export-screen.png?ssl=1)

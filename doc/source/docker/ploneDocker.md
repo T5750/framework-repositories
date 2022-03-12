@@ -11,6 +11,9 @@ Plone is a free and open source content management system built on top of Zope.
 
 [http://localhost:8080/](http://localhost:8080/)
 
+## Runtime Environment
+- [Python 3.7.x](https://www.python.org/downloads/)
+
 ## Screenshots
 ![](https://docs.plone.org/_images/login-link.png)
 
@@ -23,3 +26,4 @@ Plone is a free and open source content management system built on top of Zope.
 - [Plone Data](https://docs.plone.org/manage/docker/docs/data/index.html)
 - [Plone Docker Compose](https://docs.plone.org/manage/docker/docs/scaling/docker_compose.html)
 - [Try Plone](https://plone.com/try-plone.html)
+- [Plone GitHub](https://github.com/plone)
