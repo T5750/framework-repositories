@@ -27,5 +27,5 @@ When nextcloud is set up, install the App "Collabora Online". Then go to Configu
 
 ## References
 - [LibreOffice Online Docker](https://hub.docker.com/r/libreoffice/online/)
-- [Nextcloud with LibreOffice Online](https://github.com/jenkinsci/jenkins)
+- [Nextcloud with LibreOffice Online](https://github.com/smehrbrodt/nextcloud-libreoffice-online)
 - [LibreOffice 软件截图](https://zh-cn.libreoffice.org/discover/page-826/)
