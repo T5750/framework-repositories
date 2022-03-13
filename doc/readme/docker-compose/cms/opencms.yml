@@ -1,0 +1,25 @@
+version: '3'
+services:
+  opencms:
+    restart: always
+    image: alkacon/opencms-docker:12.0
+    container_name: opencms
+    hostname: opencms
+    init: true
+    ports:
+      - 8080:8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - $PWD/tomcat-webapps-dir:/usr/local/tomcat/webapps
+    command: ["/root/wait-for.sh", "mysqlIP:3306", "-t", "30", "--", "/root/opencms-run.sh"] # waiting for the mysql container to be ready
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_PASSWD=123456 # DB password, same as MYSQL_ROOT_PASSWORD of the mysql/mariadb container
+      - TOMCAT_OPTS=-Xmx2g -Xms512m -server -XX:+UseConcMarkSweepGC
+      - ADMIN_PASSWD=admin # individual Admin password
+      - DB_HOST=mysqlIP
+      - DB_USER=root
+      - DB_NAME=opencms
+      - OPENCMS_COMPONENTS=workplace #,demo
+      - WEBRESOURCES_CACHE_SIZE=200000
+      #- DEBUG=false
