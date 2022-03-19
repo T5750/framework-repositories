@@ -6,7 +6,7 @@ MinIO is a High Performance Object Storage released under Apache License v2.0. I
 
 ## Docker Compose
 - `nginx.conf`
-- `minio.yml`
+- `minio.yaml`
 
 [http://localhost:9000/](http://localhost:9000/)
 

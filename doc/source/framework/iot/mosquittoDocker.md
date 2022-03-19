@@ -36,6 +36,6 @@ mosquitto_pub -t 'test/topic' -m 'hello world'
 - [Detailed client library API](https://mosquitto.org/api/)
 
 ## References
-- [eclipse-mosquitto](https://hub.docker.com/_/eclipse-mosquitto/)
+- [Eclipse Mosquitto Docker](https://hub.docker.com/_/eclipse-mosquitto/)
 - [Docker - 通过容器安装部署Mosquitto服务教程（MQTT服务器）](https://www.hangge.com/blog/cache/detail_2896.html)
-- [Eclipse Mosquitto](https://github.com/eclipse/mosquitto)
+- [Eclipse Mosquitto GitHub](https://github.com/eclipse/mosquitto)

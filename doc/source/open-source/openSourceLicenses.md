@@ -15,3 +15,4 @@
 - [Simple description of popular software licenses](https://paulmillr.com/posts/simple-description-of-popular-software-licenses/)
 - [如何选择开源许可证？](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 - [Choose an open source license](https://choosealicense.com/)
+- [开源软件指南](https://opensource.guide/zh-hans/)
