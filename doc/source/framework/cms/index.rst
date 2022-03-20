@@ -7,5 +7,6 @@ Content Management System (CMS)
     :numbered: 0
     
     wordPressDocker
+    ploneDocker
     joomlaDocker
     opencmsDocker
