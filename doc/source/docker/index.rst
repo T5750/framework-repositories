@@ -17,6 +17,7 @@ Docker
     dockerHub
     dockerCLI
     dockerSwarm
+    pruneDocker
     portainerDocker
     ploneDocker
     pythonDocker

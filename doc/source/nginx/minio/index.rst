@@ -8,3 +8,4 @@ MinIO
     minioDocker
     minioClientDocker
     minioConsoleDocker
+    minioDockerSwarm
