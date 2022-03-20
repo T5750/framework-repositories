@@ -9,7 +9,7 @@
 - [Docker ELK](../../doc/source/docker/dockerELK.md)
 - [Docker Compose ELK](../../doc/source/docker/dockerComposeELK.md)
 - [Docker Networks](../../doc/source/docker/dockerNetworks.md)
-- [Docker Compose WordPress](../../doc/source/docker/dockerComposeWordPress.md)
+- [Docker Compose WordPress](../../doc/source/framework/cms/wordPressDocker.md)
 
 ### DevOps
 - [Jenkins Docker](../source/devops/jenkinsDocker.md)
