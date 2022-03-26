@@ -19,8 +19,9 @@ sudo rm /usr/local/bin/docker-compose
 ## Install Compose V2
 ```
 sudo mkdir -p ~/.docker/cli-plugins/
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 sudo chmod +x ~/.docker/cli-plugins/docker-compose
+sudo cp ~/.docker/cli-plugins/docker-compose /usr/local/bin/
 ```
 ```
 docker compose version

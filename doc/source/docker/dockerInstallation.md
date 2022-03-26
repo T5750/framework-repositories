@@ -14,7 +14,7 @@ yum install -y yum-utils
 sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 Install Docker Engine
-1. `yum install docker-ce docker-ce-cli containerd.io`
+1. `yum install -y --allowerasing docker-ce docker-ce-cli containerd.io`
 2. `yum list docker-ce --showduplicates | sort -r`
 3. `systemctl start docker`
 4. `docker run hello-world`

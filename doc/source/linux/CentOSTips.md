@@ -48,3 +48,15 @@
 sudo visudo
 sysadmin ALL=(ALL) NOPASSWD:ALL
 ```
+
+## AppStream
+```
+cd /etc/yum.repos.d
+sudo mkdir backup
+sudo mv *.repo backup/
+sudo curl -o /etc/yum.repos.d/Centos-vault-8.5.2111.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
+yum clean all && yum makecache
+```
+
+## References
+- [Centos8 yum安装报错Error: Failed to download metadata for repo ‘AppStream‘](https://www.cnblogs.com/Fengdengshuai/p/15988606.html)
