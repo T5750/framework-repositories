@@ -6,7 +6,7 @@ services:
     container_name: mosquitto
     hostname: mosquitto
     ports:
-      - 1883:1883
+      - 8883:8883
       - 9001:9001
     environment:
       TZ: Asia/Shanghai
@@ -15,3 +15,4 @@ services:
       - $PWD/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - $PWD/data:/mosquitto/data
       - $PWD/log:/mosquitto/log
+      - /etc/ssl:/etc/mosquitto/ssl

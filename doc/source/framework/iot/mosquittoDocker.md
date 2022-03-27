@@ -25,6 +25,16 @@ eclipse-mosquitto:1.6.15
 ## Docker Compose
 `mosquitto.yml`
 
+## SSL/TLS
+`vi ./mosquitto/config/mosquitto.conf`
+```
+port 8883
+cafile /etc/mosquitto/ssl/xxx.crt
+certfile /etc/mosquitto/ssl/xxx.crt
+keyfile /etc/mosquitto/ssl/xxx.key
+```
+`mosquitto-ssl.yml`
+
 ## Quick start
 ```
 mosquitto_sub -t 'test/topic' -v
