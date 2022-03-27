@@ -38,8 +38,14 @@ release = u'1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_markdown_tables','recommonmark'
+extensions = ['sphinx_markdown_tables','recommonmark','sphinx_comments'
 ]
+comments_config = {
+   "utterances": {
+      "repo": "T5750/framework-repositories",
+      "optional": "config",
+   }
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
