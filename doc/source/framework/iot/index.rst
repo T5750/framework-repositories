@@ -14,3 +14,4 @@ IoT
     noderedDocker
     homeAssistantDocker
     mosquittoDocker
+    modbusServerDocker

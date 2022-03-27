@@ -9,3 +9,4 @@ AVS
     srsDocker
     openmeetingsDocker
     live555Docker
+    kerberosDocker
