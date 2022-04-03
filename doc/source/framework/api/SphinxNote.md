@@ -41,6 +41,21 @@ pip install -U sphinx
 	]
 	```
 
+## Sphinx Comments
+1. `pip install sphinx-comments`
+2. `conf.py`
+	```
+	extensions = [
+		'sphinx_comments',
+	]
+	comments_config = {
+	   "utterances": {
+	      "repo": "github-org/github-repo",
+	      "optional": "config",
+	   }
+	}
+	```
+
 ## Read the Docs
 1. `pip install sphinx_rtd_theme`
 2. `sphinx-quickstart`
@@ -81,3 +96,4 @@ pip -V
 - [Latest pip release fails](https://github.com/readthedocs/readthedocs.org/issues/6554)
 - [Wiping a Build Environment](https://docs.readthedocs.io/en/stable/guides/wipe-environment.html)
 - [TypeError: 'generator' object is not reversible](https://github.com/sphinx-doc/sphinx/issues/9727)
+- [Sphinx Comments](https://daobook.github.io/sphinx-comments/)
