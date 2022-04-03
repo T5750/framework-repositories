@@ -17,4 +17,5 @@ Linux
     CentOSPython
     CentOSTips
     CentOSTomcat
+    CentOSDocker
     busyboxDocker
