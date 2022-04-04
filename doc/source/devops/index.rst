@@ -27,3 +27,4 @@ DevOps
     catDocker
     zabbixDocker
     zabbixJvmDocker
+    tomcatDocker
