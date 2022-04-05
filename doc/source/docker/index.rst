@@ -20,6 +20,7 @@ Docker
     pruneDocker
     portainerDocker
     pythonDocker
+    portiaDocker
     alpineDocker
     nodejsDocker
     elasticsearchDocker
