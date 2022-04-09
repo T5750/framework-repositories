@@ -37,6 +37,12 @@ print("Hello, World!");
 docker run --rm -v $PWD/myapp:/usr/src/myapp -w /usr/src/myapp python:3 python helloworld.py
 ```
 
+## Tips
+```
+ps -ef | grep python
+ps aux | grep python
+```
+
 ## References
 - [Python](https://hub.docker.com/_/python?tab=description&page=1&ordering=last_updated)
 - [Docker 安装 Python](https://www.runoob.com/docker/docker-install-python.html)

@@ -17,3 +17,4 @@ Framework
     netdisc/index
     erp/index
     cms/index
+    python/index
