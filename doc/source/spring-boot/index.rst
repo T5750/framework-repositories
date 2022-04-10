@@ -7,6 +7,7 @@ Spring Boot
     
     tutorials/index
     spring-boot2/index
+    spring-cloud/index
     BeanLifeCycle
     SpringBootJmx
     SpringBootServlet

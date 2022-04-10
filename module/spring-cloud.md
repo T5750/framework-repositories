@@ -3,12 +3,12 @@
 ## Contents
 ### Spring Cloud Alibaba
 - Spring Cloud Alibaba
-    - [Spring Cloud Alibaba Sentinel](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaSentinel.md)
-    - [Spring Cloud Alibaba Nacos](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md)
-        - [Nacos Config](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-config)
-        - [Nacos Discovery](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-discovery)
-    - [Spring Cloud Alibaba RocketMQ](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaRocketMQ.md)
-    - [Spring Cloud Alibaba Dubbo](../doc/source/spring-cloud/alibaba/SpringCloudAlibabaDubbo.md)
+    - [Spring Cloud Alibaba Sentinel](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaSentinel.md)
+    - [Spring Cloud Alibaba Nacos](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaNacos.md)
+        - [Nacos Config](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-config)
+        - [Nacos Discovery](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaNacos.md#nacos-discovery)
+    - [Spring Cloud Alibaba RocketMQ](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaRocketMQ.md)
+    - [Spring Cloud Alibaba Dubbo](../doc/source/spring-boot/spring-cloud/alibaba/SpringCloudAlibabaDubbo.md)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
