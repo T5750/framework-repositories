@@ -13,10 +13,10 @@ API使用难度 | 简单 | 简单 | 非常复杂 | 复杂
 吞吐量 | 低 | 中 | 高 | 高
 
 ## NIO服务端序列图
-![nioServerSequenceDiagram-min](https://www.wailian.work/images/2019/01/31/nioServerSequenceDiagram-min.png)
+![nioServerSequenceDiagram-min](https://s0.wailian.download/2019/01/31/nioServerSequenceDiagram-min.png)
 
 ## NIO客户端序列图
-![nioClientSequenceDiagram-min](https://www.wailian.work/images/2019/01/31/nioClientSequenceDiagram-min.png)
+![nioClientSequenceDiagram-min](https://s0.wailian.download/2019/01/31/nioClientSequenceDiagram-min.png)
 
 ## References
 - [《Netty 权威指南》—— 4种IO的对比](http://ifeve.com/netty-2-5/)

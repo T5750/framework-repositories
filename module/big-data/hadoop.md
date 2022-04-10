@@ -1,7 +1,7 @@
 # Hadoop
 
 ## Hadoop Architecture
-![hadoop-architecture](https://www.wailian.work/images/2019/05/14/hadoop-architecture.png)
+![hadoop-architecture](https://s0.wailian.download/2019/05/14/hadoop-architecture.png)
 
 ## Contents
 - [Enviornment Setup](../../doc/source/big-data/hadoop/HadoopEnviornmentSetup.md)

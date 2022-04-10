@@ -5,7 +5,7 @@ TCC（两阶段型、补偿型）
 - 对应支付系统的订单账户操作：订单处理、资金账户处理、积分账户处理
 - 实时性要求比较高，数据必须可靠
 
-![distributedTransactionTCC-min](https://www.wailian.work/images/2019/01/08/distributedTransactionTCC-min.png)
+![distributedTransactionTCC-min](https://s0.wailian.download/2019/01/08/distributedTransactionTCC-min.png)
 
 ### 3.1 样例部署
 - [tcc-transaction 1.1.5](https://github.com/changmingxie/tcc-transaction/tree/master) 优点：框架的工程结构清晰、轻量、有持续维护更新、社区活跃、有比较完善的应用样例、文档比较完善
@@ -104,7 +104,7 @@ Module | Comment
 1. TCC方案验证测试
 
 ### 3.4 处理流程
-![tccTransaction-min](https://www.wailian.work/images/2019/01/22/tccTransaction-min.png)
+![tccTransaction-min](https://s0.wailian.download/2019/01/22/tccTransaction-min.png)
 
 - Try流程：主服务A（交易服务）、从服务B（资金账户服务）、从服务C（积分账户服务）
 - Confirm流程：主服务、从服务

@@ -18,15 +18,15 @@
 - Multiple Writes
 
 ## HDFS Architecture
-![hdfs_architecture-min-min](https://www.wailian.work/images/2019/05/14/hdfs_architecture-min-min.jpg)
+![hdfs_architecture-min-min](https://s0.wailian.download/2019/05/14/hdfs_architecture-min-min.jpg)
 
 HDFS Read Image:
 
-![HDFS-Read](https://www.wailian.work/images/2019/05/22/HDFS-Read.png)
+![HDFS-Read](https://s0.wailian.download/2019/05/22/HDFS-Read.png)
 
 HDFS Write Image:
 
-![HDFS-Write](https://www.wailian.work/images/2019/05/22/HDFS-Write.png)
+![HDFS-Write](https://s0.wailian.download/2019/05/22/HDFS-Write.png)
 
 ## Starting HDFS
 ```

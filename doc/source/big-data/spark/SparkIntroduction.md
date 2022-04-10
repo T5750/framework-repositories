@@ -6,10 +6,10 @@
 - Advanced Analytics
 
 ## Spark Built on Hadoop
-![spark_built_on_hadoop-min](https://www.wailian.work/images/2019/05/30/spark_built_on_hadoop-min.png)
+![spark_built_on_hadoop-min](https://s0.wailian.download/2019/05/30/spark_built_on_hadoop-min.png)
 
 ## Components of Spark
-![components_of_spark-min](https://www.wailian.work/images/2019/05/30/components_of_spark-min.png)
+![components_of_spark-min](https://s0.wailian.download/2019/05/30/components_of_spark-min.png)
 
 ## References
 - [Spark - Introduction](https://www.tutorialspoint.com/spark_sql/spark_introduction.htm)

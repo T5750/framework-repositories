@@ -15,7 +15,7 @@ Hive is a data warehouse infrastructure tool to process structured data in Hadoo
 - It is familiar, fast, scalable, and extensible.
 
 ## Architecture of Hive
-![hive_architecture-min](https://www.wailian.work/images/2019/05/27/hive_architecture-min.jpg)
+![hive_architecture-min](https://s0.wailian.download/2019/05/27/hive_architecture-min.jpg)
 
 Unit Name | Operation
 ---|------
@@ -26,7 +26,7 @@ Execution Engine | The conjunction part of HiveQL process Engine and MapReduce i
 HDFS or HBASE | Hadoop distributed file system or HBASE are the data storage techniques to store data into file system.
 
 ## Working of Hive
-![how_hive_works-min](https://www.wailian.work/images/2019/05/27/how_hive_works-min.jpg)
+![how_hive_works-min](https://s0.wailian.download/2019/05/27/how_hive_works-min.jpg)
 
 Step No. | Operation | Description
 ---|---|------

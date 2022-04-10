@@ -18,7 +18,7 @@ SELECT * FROM customers;
 - Employees: stores all employee information as well as the organization structure such as who reports to whom.
 - Offices: stores sales office data.
 
-![MySQL-Sample-Database-Schema-min](https://www.wailian.work/images/2019/01/29/MySQL-Sample-Database-Schema-min.png)
+![MySQL-Sample-Database-Schema-min](https://s0.wailian.download/2019/01/29/MySQL-Sample-Database-Schema-min.png)
 
 ## References
 - [MySQL Sample Database](http://www.mysqltutorial.org/mysql-sample-database.aspx)

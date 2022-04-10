@@ -51,7 +51,7 @@ public void completeOrder() {
 引入XA，违背了柔性事务的初衷！
 
 ### 变通的做法
-![distributedTransactionQueue-min](https://www.wailian.work/images/2019/01/11/distributedTransactionQueue-min.png)
+![distributedTransactionQueue-min](https://s0.wailian.download/2019/01/11/distributedTransactionQueue-min.png)
 
 1. 主动方应用先把消息发给消息中间件，消息状态标记为“待确认”；
 2. 消息中间件收到消息后，把消息持久化到消息存储中，但并不向被动方应用投递消息；

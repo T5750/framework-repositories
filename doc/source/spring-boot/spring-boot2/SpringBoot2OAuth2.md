@@ -8,7 +8,7 @@ OAuth defines four roles –
 - **Resource Server** – store user’s data and http services which can return user data to authenticated clients.
 - **Authorization Server** – responsible for authenticating user’s identity and gives an authorization token. This token is accepted by resource server and validate your identity.
 
-![Oauth2 Flow](https://www.wailian.work/images/2019/11/24/Oauth2-Flow-min.png)
+![Oauth2 Flow](https://s0.wailian.download/2019/11/24/Oauth2-Flow-min.png)
 
 ### Access Token vs Refresh Token
 An **access token** is a string representing an authorization issued to the client. Tokens represent specific scopes and duration of access, granted by the resource owner, and enforced by the resource server and authorization server.

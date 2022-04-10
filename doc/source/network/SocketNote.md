@@ -32,7 +32,7 @@ IO(BIO)和NIO的区别：其本质就是**阻塞和非阻塞**的区别
 ## 1.4 伪异步IO
 采用线程池和任务队列可以实现一种伪异步的IO通信框架。其实，就是将客户端的Socket封装成一个task任务（实现`runnable`接口的类）然后，投递到线程池中去，配置相应的队列进行实现。
 
-![bioAsyn-min](https://www.wailian.work/images/2019/01/31/bioAsyn-min.png)
+![bioAsyn-min](https://s0.wailian.download/2019/01/31/bioAsyn-min.png)
 
 ### 示例
 - `BioPoolServer`，`BioPoolClient`

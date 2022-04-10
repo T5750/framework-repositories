@@ -7,7 +7,7 @@
 - For sparse datasets, too much of overhead of maintaining NULL values
 
 ## HBase Data Model
-![HBase_Data_Model-min-min](https://www.wailian.work/images/2019/05/22/HBase_Data_Model-min-min.png)
+![HBase_Data_Model-min-min](https://s0.wailian.download/2019/05/22/HBase_Data_Model-min-min.png)
 
 ## HBase Commands
 - Create: Creates a new table identified by 'table1' and Column Family identified by 'colf'.

@@ -181,7 +181,7 @@ public interface UserDetailsService {
 ```
 
 ## Architecture Overview
-![Spring_Security-min-min](https://www.wailian.work/images/2019/06/26/Spring_Security-min-min.png)
+![Spring_Security-min-min](https://s0.wailian.download/2019/06/26/Spring_Security-min-min.png)
 
 ### Filter
 - [Filter Ordering](SpringSecurityReference.md#133-filter-ordering)

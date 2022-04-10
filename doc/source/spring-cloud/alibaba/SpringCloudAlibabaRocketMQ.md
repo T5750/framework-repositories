@@ -43,7 +43,7 @@ mqadmin topicList -n 127.0.0.1:9876
 ```
 
 ## Spring Cloud Stream
-![SpringCloudStream-min-min](https://www.wailian.work/images/2019/07/12/SpringCloudStream-min-min.png)
+![SpringCloudStream-min-min](https://s0.wailian.download/2019/07/12/SpringCloudStream-min-min.png)
 
 ## References
 - [RocketMQ Example](https://github.com/alibaba/spring-cloud-alibaba/blob/master/spring-cloud-alibaba-examples/rocketmq-example/readme-zh.md)

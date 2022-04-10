@@ -7,7 +7,7 @@
 1. Better security
 
 ## How does SSO authentication works?
-![spring-boot-sso-min-min](https://www.wailian.work/images/2019/06/21/spring-boot-sso-min-min.png)
+![spring-boot-sso-min-min](https://s0.wailian.download/2019/06/21/spring-boot-sso-min-min.png)
 
 ## Setting your own SSO server with Spring Boot and Spring Security OAuth
 1. spring-boot-sso-app-foo and spring-boot-sso-app-bar will be the two applications using SSO

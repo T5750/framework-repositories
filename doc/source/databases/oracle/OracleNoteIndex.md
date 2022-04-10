@@ -3,7 +3,7 @@
 ## 3.4.1 索引
 索引分为B树索引和位图索引。主要研究B树索引
 
-![bTreeIndex-min](https://www.wailian.work/images/2019/01/25/bTreeIndex-min.jpg)
+![bTreeIndex-min](https://s0.wailian.download/2019/01/25/bTreeIndex-min.jpg)
 
 ## 3.4.2 SQL索引概念
 一般SQL优化有几种解决方案：

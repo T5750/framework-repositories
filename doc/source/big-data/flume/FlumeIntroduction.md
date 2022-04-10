@@ -5,19 +5,19 @@ Apache Flume is a tool/service/data ingestion mechanism for collecting aggregati
 
 Flume is a highly reliable, distributed, and configurable tool. It is principally designed to copy streaming data (log data) from various web servers to HDFS.
 
-![apache_flume-min](https://www.wailian.work/images/2019/06/03/apache_flume-min.png)
+![apache_flume-min](https://s0.wailian.download/2019/06/03/apache_flume-min.png)
 
 ## Architecture
-![flume_architecture-min](https://www.wailian.work/images/2019/06/03/flume_architecture-min.png)
+![flume_architecture-min](https://s0.wailian.download/2019/06/03/flume_architecture-min.png)
 
 ### Flume Event
-![flume_event-min](https://www.wailian.work/images/2019/06/03/flume_event-min.png)
+![flume_event-min](https://s0.wailian.download/2019/06/03/flume_event-min.png)
 
 ### Flume Agent
-![flume_agent1-min](https://www.wailian.work/images/2019/06/03/flume_agent1-min.jpg)
+![flume_agent1-min](https://s0.wailian.download/2019/06/03/flume_agent1-min.jpg)
 
 ## Data Flow
-![flume_dataflow-min](https://www.wailian.work/images/2019/06/03/flume_dataflow-min.png)
+![flume_dataflow-min](https://s0.wailian.download/2019/06/03/flume_dataflow-min.png)
 
 ## References
 - [Flume - Introduction](https://www.tutorialspoint.com/apache_flume/apache_flume_introduction.htm)

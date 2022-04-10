@@ -1,7 +1,7 @@
 ## nginx Lua Web HTTP service
 
 ### Architecture
-![nginxLuaWeb-Architecture-min](https://www.wailian.work/images/2019/09/19/nginxLuaWeb-Architecture-min.png)
+![nginxLuaWeb-Architecture-min](https://s0.wailian.download/2019/09/19/nginxLuaWeb-Architecture-min.png)
 
 ### Redis+Twemproxy
 #### Redis Settings

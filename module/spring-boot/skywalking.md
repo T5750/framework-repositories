@@ -1,7 +1,7 @@
 # SkyWalking
 
 ## Abstract
-![SkyWalking-min-min](https://www.wailian.work/images/2019/06/10/SkyWalking-min-min.png)
+![SkyWalking-min-min](https://s0.wailian.download/2019/06/10/SkyWalking-min-min.png)
 
 ## Document
 - [6.x Documents](https://github.com/apache/skywalking/blob/master/docs/README.md)

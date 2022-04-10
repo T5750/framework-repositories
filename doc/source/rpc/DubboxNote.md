@@ -30,7 +30,7 @@ Dubbox支持多种远程调用方式：
 - WebServices（文本序列化 + http协议）
 - REST风格远程调用（文本序列化 + http协议）
 
-![rest-min](https://www.wailian.work/images/2018/12/09/rest-min.jpg)
+![rest-min](https://s0.wailian.download/2018/12/09/rest-min.jpg)
 
 ## Results
 - dubbox-provider

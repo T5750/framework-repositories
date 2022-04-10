@@ -4,14 +4,14 @@
 
 Steps in Map Reduce
 
-![mapreduce-introduction](https://www.wailian.work/images/2019/05/22/mapreduce-introduction.png)
+![mapreduce-introduction](https://s0.wailian.download/2019/05/22/mapreduce-introduction.png)
 
 Data Flow In MapReduce
 
-![data-flow-in-mapreduce](https://www.wailian.work/images/2019/05/22/data-flow-in-mapreduce.png)
+![data-flow-in-mapreduce](https://s0.wailian.download/2019/05/22/data-flow-in-mapreduce.png)
 
 ## The Algorithm
-![mapreduce_algorithm-min-min](https://www.wailian.work/images/2019/05/15/mapreduce_algorithm-min-min.jpg)
+![mapreduce_algorithm-min-min](https://s0.wailian.download/2019/05/15/mapreduce_algorithm-min-min.jpg)
 
 ## Inputs and Outputs (Java Perspective)
 Input and Output types of a MapReduce job − (Input) <k1, v1> → map → <k2, v2> → reduce → <k3, v3>(Output).

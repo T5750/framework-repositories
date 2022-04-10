@@ -92,12 +92,12 @@ DB设计 | 面向实时交易类应用 | 面向统计分析类应用
 ## 5.2.6 垂直切分
 把不同业务对应的表分到不同的数据库中，这样也就将数据或压力分摊到不同的库上
 
-![verticalSegmentation-min](https://www.wailian.work/images/2019/01/29/verticalSegmentation-min.jpg)
+![verticalSegmentation-min](https://s0.wailian.download/2019/01/29/verticalSegmentation-min.jpg)
 
 ## 5.2.7 水平切分
 水平拆分不是将表做分类，而是按照某个字段的某种规则来分散到多个数据库中，每个表中包含一部分数据。简单来说，可以将数据的水平切分理解为是按照数据行进行拆分，就是将表中的某些行切分到一个数据库，而另外的某些行又切分到其它数据库中，如图：
 
-![horizontalSegmentation-min](https://www.wailian.work/images/2019/01/29/horizontalSegmentation-min.jpg)
+![horizontalSegmentation-min](https://s0.wailian.download/2019/01/29/horizontalSegmentation-min.jpg)
 
 分表/分片原则：（最大50G）
 1. 访问频繁

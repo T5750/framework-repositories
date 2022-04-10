@@ -33,7 +33,7 @@ Storm是Twitter开源的一个分布式的实时计算系统，用于数据的�
 Storm是一个开源的分布式实时计算系统，可以简单、可靠的处理大量的数据流。Storm有很多使用场景：如实时分析，在线机器学习，持续计算，分布式RPC，ETL等等。Storm支持水平扩展，具有高容错性，保证每个消息都会得到处理，而且处理速度很快（在一个小集群中，每个结点每秒可以处理数以百万计的消息）。Storm的部署和运维都很便捷，而且更为重要的是可以使用任意编程询言来开发应用。
 
 ## 2.2 Storm架构图
-![storm-stru-min](https://www.wailian.work/images/2018/12/13/storm-stru-min.jpg)
+![storm-stru-min](https://s0.wailian.download/2018/12/13/storm-stru-min.jpg)
 
 Nimbus主节点：
 - 主节点通常运行一个后台程序——Nimbus，用于响应分布在集群中的节点，分配任务和监测故障。这个很类似于Hadoop中的Job Tracker。
@@ -47,7 +47,7 @@ Zookeeper
 Topology（拓扑）
 - Storm中运行的一个实时应用程序，因为各个组件间的消息流动形成逻辑上的一个拓扑结构。一个topology是spouts和bolts组成的图，通过Stream Groupings将图中的spouts和bolts连接起来，如下图：
 
-![storm-flow-min](https://www.wailian.work/images/2018/12/13/storm-flow-min.png)
+![storm-flow-min](https://s0.wailian.download/2018/12/13/storm-flow-min.png)
 
 ## 3.1 Storm集群环境搭建
 - [Storm集群安装配置](StormCluster.md)
@@ -58,7 +58,7 @@ Topology（拓扑）
 compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 ```
 
-![storm-process-min](https://www.wailian.work/images/2018/12/14/storm-process-min.png)
+![storm-process-min](https://s0.wailian.download/2018/12/14/storm-process-min.png)
 
 - 首先，编写数据源类：Spout。可以使用2种方式：
     - 继承`BaseRichSpout`类
@@ -80,7 +80,7 @@ compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 ### 示例
 - `PWTopologyLocal`, `PWTopologyCluster`
 
-![storm-topology-execution-min](https://www.wailian.work/images/2018/12/16/storm-topology-execution-min.png)
+![storm-topology-execution-min](https://s0.wailian.download/2018/12/16/storm-topology-execution-min.png)
 
 ## 5.1 Storm API
 - Topology：拓扑
@@ -126,7 +126,7 @@ compile group: 'org.apache.storm', name: 'storm-core', version: '1.2.2'
 ## 5.4 Storm流分组
 Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分组定义了如何在bolt的任务直接进行分发。
 
-![storm-stream-groupings](https://www.wailian.work/images/2018/12/15/storm-stream-groupings.jpg)
+![storm-stream-groupings](https://s0.wailian.download/2018/12/15/storm-stream-groupings.jpg)
 
 - Shuffle Grouping随机分组：保证每个bolt接收到的tuple数目相同。
 - Fields Grouping按字段分组：比如按userid来分组，具有同样userid的tuple会被分到相同的Bolts，而不同的userid则会被分配到不同的Bolts。
@@ -138,7 +138,7 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 
 常见的流分组：
 
-![storm-grouping-min](https://www.wailian.work/images/2018/12/16/storm-grouping-min.png)
+![storm-grouping-min](https://s0.wailian.download/2018/12/16/storm-grouping-min.png)
 
 ### 示例
 - `PWTopologyLocalFieldsGrouping`, `PWTopologyLocalAllGrouping`, `PWTopologyLocalGlobalGrouping`
@@ -146,7 +146,7 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 ## 5.5 Storm WordCount
 以一个统计单词的小程序来说明问题
 
-![storm-word-count-topology-min](https://www.wailian.work/images/2018/12/16/storm-word-count-topology-min.png)
+![storm-word-count-topology-min](https://s0.wailian.download/2018/12/16/storm-word-count-topology-min.png)
 
 上面的示意图中有4个组件，分别为一个spout和3个bolt，当数据源spout取得数据（可以是一个句子，里面包含多个单词）以后，发送给SolitBolt进行切分，然后由CountBolt进行统计结果，最终由ReportBolt记录结果。
 
@@ -167,7 +167,7 @@ Stream Groupings：为每个bolt指定应该接受哪个流作为输入，流分
 
 下图是spout处理可靠性的示意图：当spout发送一个消息时，分配给2个bolt分别处理，那么在最后一个bolt接受的时候会做**异或运算**。
 
-![storm-message-min](https://www.wailian.work/images/2018/12/16/storm-message-min.jpg)
+![storm-message-min](https://s0.wailian.download/2018/12/16/storm-message-min.jpg)
 
 ### 示例
 - `MessageTopology`
@@ -291,7 +291,7 @@ dummyStream.each(new Fields("a","b"), new SumFunction (), new Fields("sum"))
 ```
 执行的结果如下：
 
-![trident-sum-function-min](https://www.wailian.work/images/2018/12/19/trident-sum-function-min.png)
+![trident-sum-function-min](https://s0.wailian.download/2018/12/19/trident-sum-function-min.png)
 
 ### 示例
 - `TridentFunction`
@@ -329,13 +329,13 @@ mystream.project(new Fields("x"))
 ```
 The following diagram shows the projection operation:
 
-![trident-projection-min](https://www.wailian.work/images/2018/12/19/trident-projection-min.png)
+![trident-projection-min](https://s0.wailian.download/2018/12/19/trident-projection-min.png)
 
 ## 7.5 Trident repartitioning operations
 ### The shuffle operation
 The `shuffle` repartitioning operation partitions the tuples in a uniform, random way across multiple tasks. This repartitioning operation is generally used when we want to distribute our processing load uniformly across tasks. The following diagram shows how the input tuples are repartitioned using the `shuffle` operation:
 
-![trident-shuffle-min](https://www.wailian.work/images/2018/12/20/trident-shuffle-min.png)
+![trident-shuffle-min](https://s0.wailian.download/2018/12/20/trident-shuffle-min.png)
 
 The following piece of code shows how we can use the `shuffle` operation:
 ```
@@ -349,12 +349,12 @@ mystream.partitionBy(new Fields("username")).each(new Fields("username","text"),
 ```
 The `partitionBy` operation applies the `target partition = hash (fields) % (number of target partition)` formula to decide the target partition. As the preceding formula shows, the `partitionBy` operation calculates the hash of input fields to decide the target partition. Hence, it does not guarantee that all the tasks will get tuples to process. For example, if you have applied a `partitionBy` operation on a field, say X, with only two possible values, A and B, and created two tasks for the `myFilter` filter, then it is possible that both `hash (A) % 2` and `hash (B) % 2` are equal. This will result in all the tuples being routed to a single task and the other being completely idle. The following diagram shows how the input tuples are repartitioned using the `partitionBy` operation:
 
-![trident-partition-by-min](https://www.wailian.work/images/2018/12/20/trident-partition-by-min.png)
+![trident-partition-by-min](https://s0.wailian.download/2018/12/20/trident-partition-by-min.png)
 
 ### The global operation
 The `global` repartitioning operation routes all tuples to the same partition. Hence, the same target partition is selected for all the batches in the stream. The following diagram shows how the tuples are repartitioned using the `global` operation:
 
-![trident-global-min](https://www.wailian.work/images/2018/12/20/trident-global-min.png)
+![trident-global-min](https://s0.wailian.download/2018/12/20/trident-global-min.png)
 
 The following piece of code shows how we can use the `global` operation:
 ```
@@ -364,7 +364,7 @@ mystream.global().each(new Fields("a","b"), new myFilter()).parallelismHint(2)
 ### The broadcast operation
 The `broadcast` operation is a special repartitioning operation that does not partition the tuples but replicates them to all partitions. The following is a diagram that shows how the tuples are sent over the network:
 
-![trident-global-min](https://www.wailian.work/images/2018/12/20/trident-global-min.png)
+![trident-global-min](https://s0.wailian.download/2018/12/20/trident-global-min.png)
 
 The following piece of code shows how we can use the `broadcast` operation:
 ```
@@ -374,7 +374,7 @@ mystream.broadcast().each(new Fields("a","b"), new myFilter()).parallelismHint(2
 ### The batchGlobal operation
 This repartitioning operation routes all tuples that belong to one batch to the same target partition. The other batches of the same stream may go to a different partition. As the name suggests, this repartition is global at the batch level. The following diagram shows how the tuples are repartitioned using the `batchGlobal` operation:
 
-![trident-batch-global-min](https://www.wailian.work/images/2018/12/20/trident-batch-global-min.png)
+![trident-batch-global-min](https://s0.wailian.download/2018/12/20/trident-batch-global-min.png)
 
 The following piece of code shows how we can use the `batchGlobal` operation:
 ```
@@ -417,7 +417,7 @@ mystream.partitionAggregate(new Fields("x"), new Count(), new Fields("count"))
 ```
 For example, we have an input stream that contains the x and y fields, and we will apply a `partitionAggregate` function on each partition; the output tuples contain a single field called count. The count field represents the number of tuples present in the input partition. The following is a diagram that shows the working of the `partitionAggregate` function:
 
-![trident-count-partition-aggregate-min](https://www.wailian.work/images/2018/12/21/trident-count-partition-aggregate-min.png)
+![trident-count-partition-aggregate-min](https://s0.wailian.download/2018/12/21/trident-count-partition-aggregate-min.png)
 
 ### 示例
 - `WordCountTopology`, `TridentWordCount`

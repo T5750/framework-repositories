@@ -120,7 +120,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 
 ## FastDFS与nginx整合
 
-### 存储节点配置nginx 
+### 存储节点配置nginx
 1. 在存储节点上（192.168.1.112）安装`fastdfs-nginx-module_v1.16.tar.gz`包进行整合
     - 目录命令：`cd /usr/local/software/`
     - 解压命令：`tar -zxvf /usr/local/software/fastdfs-nginx-module_v1.16.tar.gz -C /usr/local/fast/`
@@ -160,7 +160,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
     - 注意：nginx里的端口要和第五步配置FastDFS存储中的`storage.conf`文件配置一致，也就是（`http.server_port=8888`）
 10. 最后检查防火墙，启动nginx服务
     - 启动命令：`/usr/local/nginx/sbin/nginx`，刚才上传了一个文件，上传成功，
-    - 现在使用这个ID用浏览器访问地址：[http://192.168.1.112:8888/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
+    - 现在使用这个ID用浏览器访问地址：[http://192.168.1.112:8888/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg](https://s0.wailian.download/2019/03/12/FastDfsCluster-min-min.png)
     - 运维注意：在使用FastDFS的时候，需要正常关机，不要使用`kill -9`，强杀FastDFS进程，不然会在文件上传时出现丢数据的情况
 
 ### 跟踪器安装nginx
@@ -188,7 +188,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 		}
 	```
 1. `/usr/local/nginx/sbin/nginx`
-1. [http://192.168.1.110:8000/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
+1. [http://192.168.1.110:8000/group1/M00/00/00/wKgBcFxepVyAB7sjAAAZtkdii-k379.jpg](https://s0.wailian.download/2019/03/12/FastDfsCluster-min-min.png)
 
 ## 启动停止服务
 - 启动命令：

@@ -5,7 +5,7 @@
 Nacos 致力于帮助您发现、配置和管理微服务。
 
 ## Architecture
-![nacos-architecture-min](https://www.wailian.work/images/2019/07/05/nacos-architecture-min.jpg)
+![nacos-architecture-min](https://s0.wailian.download/2019/07/05/nacos-architecture-min.jpg)
 
 ## Nacos Config
 ### Quickstart

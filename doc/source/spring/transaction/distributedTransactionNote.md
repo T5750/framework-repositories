@@ -53,7 +53,7 @@ public void completeOrder() {
 - 银行通知结果信息存储与驱动订单处理
 - 可以异步，但数据绝对不能丢，而且一定要记账成功
 
-![distributedTransactionFinal-min](https://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
+![distributedTransactionFinal-min](https://s0.wailian.download/2019/01/08/distributedTransactionFinal-min.png)
 
 设计分析维度：
 - 消息发送一致性的正向流程
@@ -63,7 +63,7 @@ public void completeOrder() {
 
 ### 1.1 可靠消息的最终一致性方案1（本地消息服务）
 
-![distributedTransactionFinalLocal-min](https://www.wailian.work/images/2019/01/14/distributedTransactionFinalLocal-min.jpg)
+![distributedTransactionFinalLocal-min](https://s0.wailian.download/2019/01/14/distributedTransactionFinalLocal-min.jpg)
 
 优点：
 1. 消息时效性比较高
@@ -76,7 +76,7 @@ public void completeOrder() {
 1. 业务系统在使用关系型数据库的情况下，消息服务性能会受关系型数据库并发性能的局限
 
 ### 1.2 可靠消息的最终一致性方案2（独立消息服务）
-![distributedTransactionFinalConsistency-min](https://www.wailian.work/images/2019/01/11/distributedTransactionFinalConsistency-min.png)
+![distributedTransactionFinalConsistency-min](https://s0.wailian.download/2019/01/11/distributedTransactionFinalConsistency-min.png)
 
 优点：
 1. 消息服务独立部署、独立维护、独立伸缩
@@ -118,7 +118,7 @@ public void completeOrder() {
 - 对应支付系统的商户通知业务场景
 - 按规律进行通知，不保证数据一定能通知成功，但会提供可查询操作接口进行核对
 
-![distributedTransactionMax-min](https://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
+![distributedTransactionMax-min](https://s0.wailian.download/2019/01/08/distributedTransactionMax-min.png)
 
 ### 2.1 应用部署
 1. 导入数据库脚本：`rp_notify_record.sql`，`rp_notify_record_log.sql`
@@ -144,7 +144,7 @@ public void completeOrder() {
 ## 实战应用场景
 在支付系统中的实战应用场景
 
-![distributedTransactionInAction-min](https://www.wailian.work/images/2019/01/17/distributedTransactionInAction-min.png)
+![distributedTransactionInAction-min](https://s0.wailian.download/2019/01/17/distributedTransactionInAction-min.png)
 
 可靠消息服务方案的特点：
 1. 可独立部署、独立伸缩（扩展性）；

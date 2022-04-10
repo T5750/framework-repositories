@@ -7,7 +7,7 @@ WebSocket通过“Upgrade handshake（升级握手）”从标准的HTTP或HTTPS
 
 整个服务器逻辑如下：
 
-![netty-websocket-chat-server-min](https://www.wailian.work/images/2018/12/04/netty-websocket-chat-server-min.jpg)
+![netty-websocket-chat-server-min](https://s0.wailian.download/2018/12/04/netty-websocket-chat-server-min.jpg)
 
 1. 客户端/用户连接到服务器并加入聊天
 1. HTTP请求页面或WebSocket升级握手

@@ -27,27 +27,27 @@
 - 封装通用的上传下载工具类，进行上传、下载、删除等操作测试
 
 ## 3.1 FastDFS系统结构图
-![FastDfsCluster-min](https://www.wailian.work/images/2019/02/03/FastDfsCluster-min.jpg)
+![FastDfsCluster-min](https://s0.wailian.download/2019/02/03/FastDfsCluster-min.jpg)
 
 ## 3.2 上传文件交互过程
-![FastDFS-file-upload-min](https://www.wailian.work/images/2019/02/03/FastDFS-file-upload-min.jpg)
+![FastDFS-file-upload-min](https://s0.wailian.download/2019/02/03/FastDFS-file-upload-min.jpg)
 
 1. client询问tracker上传到的storage，不需要附加参数；
 2. tracker返回一台可用的storage；
 3. client直接和storage通讯完成文件上传。
 
 ## 3.3 下载文件交互过程
-![FastDFS-file-download-min](https://www.wailian.work/images/2019/02/03/FastDFS-file-download-min.jpg)
+![FastDFS-file-download-min](https://s0.wailian.download/2019/02/03/FastDFS-file-download-min.jpg)
 
 1. client询问tracker下载文件的storage，参数为文件标识（卷名和文件名）；
 2. tracker返回一台可用的storage；
 3. client直接和storage通讯完成文件下载。
 
 ## 3.4 FastDFS集群环境
-![FastDfsClusterBuild-min](https://www.wailian.work/images/2019/02/03/FastDfsClusterBuild-min.jpg)
+![FastDfsClusterBuild-min](https://s0.wailian.download/2019/02/03/FastDfsClusterBuild-min.jpg)
 
 ## 3.5 FastDFS集群+nginx负载均衡
-![FastDfsCluster-min-min](https://www.wailian.work/images/2019/03/12/FastDfsCluster-min-min.png)
+![FastDfsCluster-min-min](https://s0.wailian.download/2019/03/12/FastDfsCluster-min-min.png)
 
 ## References
 - [FastDFS](https://github.com/happyfish100/fastdfs)

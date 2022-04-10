@@ -26,7 +26,7 @@
 ![TCP_IP-min](https://s1.wailian.download/2020/01/03/TCP_IP-min.jpg)
 
 ### IP层解析
-![IP-packet-min-min](https://www.wailian.work/images/2019/02/26/IP-packet-min-min.png)
+![IP-packet-min-min](https://s0.wailian.download/2019/02/26/IP-packet-min-min.png)
 
 字节值 | 字节含义
 ---|------
@@ -45,7 +45,7 @@
 ### 传输层解析
 本报文携带的数据使用的TCP协议，采用`固定长度(20B) + 可变长度`的形式
 
-![TcpHeaderZh-min-min](https://www.wailian.work/images/2019/02/26/TcpHeaderZh-min-min.jpg)
+![TcpHeaderZh-min-min](https://s0.wailian.download/2019/02/26/TcpHeaderZh-min-min.jpg)
 
 字节值 | 字节含义
 ---|------
@@ -60,7 +60,7 @@
 0x5f31 | 16bit校验和
 0x0000 | 紧急指针。仅在URG=1时才有意义，它指出本报文段中的紧急数据的字节数。当URG=1时，发送方TCP就把紧急数据插入到本报文段数据的最前面，而在紧急数据后面的数据仍是普通数据
 
-![TcpLogsCap-min](https://www.wailian.work/images/2019/02/27/TcpLogsCap-min.png)
+![TcpLogsCap-min](https://s0.wailian.download/2019/02/27/TcpLogsCap-min.png)
 
 ### 数据部分解析
 ping转换成Redis协议如下：
@@ -85,7 +85,7 @@ ping\r\n
 ## TCP Options
 TCP可选项，其格式如下：
 
-![TcpOptions-min-min](https://www.wailian.work/images/2019/02/27/TcpOptions-min-min.jpg)
+![TcpOptions-min-min](https://s0.wailian.download/2019/02/27/TcpOptions-min-min.jpg)
 
 Kind(Type) | Length | Name | Reference | 描述 & 用途
 ---|---|---|---|---

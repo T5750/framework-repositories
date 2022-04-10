@@ -38,7 +38,7 @@
 ```
 
 ## 客户端的授权模式
-![spring-security-oauth2-min-min](https://www.wailian.work/images/2019/06/20/spring-security-oauth2-min-min.png)
+![spring-security-oauth2-min-min](https://s0.wailian.download/2019/06/20/spring-security-oauth2-min-min.png)
 
 OAuth2根据使用场景不同，分成了4种模式
 - 授权码模式（authorization code）
@@ -184,7 +184,7 @@ http://localhost:8061/qq/info/250577914?access_token=6e017b4b-61ec-4093-aaaf-456
      +---------+
 
 ## OAuth2AuthenticationManager
-![OAuth2AuthenticationManager-min-min](https://www.wailian.work/images/2019/06/20/OAuth2AuthenticationManager-min-min.png)
+![OAuth2AuthenticationManager-min-min](https://s0.wailian.download/2019/06/20/OAuth2AuthenticationManager-min-min.png)
 
 ## References
 - [oauth2-demo](https://github.com/lexburner/oauth2-demo)

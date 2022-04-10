@@ -2,7 +2,7 @@
 
 The language used to analyze data in Hadoop using Pig is known as Pig Latin. 
 
-![apache_pig_architecture-min](https://www.wailian.work/images/2019/06/04/apache_pig_architecture-min.png)
+![apache_pig_architecture-min](https://s0.wailian.download/2019/06/04/apache_pig_architecture-min.png)
 
 ## Pig Components
 - Parser
@@ -11,7 +11,7 @@ The language used to analyze data in Hadoop using Pig is known as Pig Latin.
 - Execution engine
 
 ## Pig Latin Data Model
-![data_model-min](https://www.wailian.work/images/2019/06/04/data_model-min.png)
+![data_model-min](https://s0.wailian.download/2019/06/04/data_model-min.png)
 
 - Atom
 - Tuple

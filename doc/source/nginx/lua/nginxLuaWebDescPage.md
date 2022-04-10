@@ -1,7 +1,7 @@
 ## nginx Lua Web Desc Page
 
 ### Architecture
-![nginxLuaWebDescPageArchitecture-min](https://www.wailian.work/images/2019/09/23/nginxLuaWebDescPageArchitecture-min.png)
+![nginxLuaWebDescPageArchitecture-min](https://s0.wailian.download/2019/09/23/nginxLuaWebDescPageArchitecture-min.png)
 
 - 商品页基本信息（基本信息、图片列表、颜色/尺码关系、扩展属性、规格参数、包装清单、售后保障等）
 - 商品介绍（异步加载）
@@ -9,7 +9,7 @@
 - 其它需要实时展示的数据（价格、库存等）
 
 ### 数据存储实现
-![nginxLuaWebDescPageDataStorage-min](https://www.wailian.work/images/2019/09/23/nginxLuaWebDescPageDataStorage-min.png)
+![nginxLuaWebDescPageDataStorage-min](https://s0.wailian.download/2019/09/23/nginxLuaWebDescPageDataStorage-min.png)
 
 #### 商品基本信息SSDB集群配置
 ```

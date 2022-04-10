@@ -189,11 +189,11 @@ eval 脚本内容 key个数 key列表 参数列表
 ```
 如果Lua脚本较长，还可以使用`redis-cli--eval`直接执行文件。`eval`命令和`--eval`参数本质是一样的。
 
-![redis-lua-eval-min](https://www.wailian.work/images/2018/10/30/redis-lua-eval-min.png)
+![redis-lua-eval-min](https://s0.wailian.download/2018/10/30/redis-lua-eval-min.png)
 
 `eval`命令执行Lua脚本过程
 
-![redis-lua-evalsha-min](https://www.wailian.work/images/2018/10/30/redis-lua-evalsha-min.png)
+![redis-lua-evalsha-min](https://s0.wailian.download/2018/10/30/redis-lua-evalsha-min.png)
 
 `evalsha`执行Lua脚本过程
 
@@ -251,16 +251,16 @@ Redis提供了Bitmaps这个“数据结构”可以实现对位的操作。把�
 将每个独立用户是否访问过网站存放在Bitmaps中，将访问的用户记做1，没有访问的用户记做0，用偏移量作为用户的id。
 1. 设置值：`setbit key offset value`
     - 设置键的第`offset`个位的值（从0算起），假设现在有20个用户，userid=0，5，11，15，19的用户对网站进行了访问，那么当前Bitmaps初始化结果如下所示。
-    - ![redis-setbit-min](https://www.wailian.work/images/2018/10/30/redis-setbit-min.png)
+    - ![redis-setbit-min](https://s0.wailian.download/2018/10/30/redis-setbit-min.png)
     - 如果此时有一个userid=50的用户访问了网站，那么Bitmaps的结构变成了下图，第20位~49位都是0。
-    - ![redis-setbit-50-min](https://www.wailian.work/images/2018/10/30/redis-setbit-50-min.png)
+    - ![redis-setbit-50-min](https://s0.wailian.download/2018/10/30/redis-setbit-50-min.png)
     - 很多应用的用户id以一个指定数字（例如10000）开头，直接将用户id和Bitmaps的偏移量对应势必会造成一定的浪费，通常的做法是每次做`setbit`操作时将用户id减去这个指定数字。在第一次初始化Bitmaps时，假如偏移量非常大，那么整个初始化过程执行会比较慢，可能会造成Redis的阻塞。
 1. 获取值：`getbit key offset`
 1. 获取Bitmaps指定范围值为1的个数：`bitcount [start][end]`
 1. Bitmaps间的运算：`bitop op destkey key[key …]`
     - `bitop`是一个复合操作，它可以做多个Bitmaps的`and`（交集）、`or`（并集）、`not`（非）、`xor`（异或）操作并将结果保存在`destkey`中。
     - 利用`bitop and`命令计算两天都访问网站的用户。
-    - ![redis-bitop-min](https://www.wailian.work/images/2018/10/30/redis-bitop-min.png)
+    - ![redis-bitop-min](https://s0.wailian.download/2018/10/30/redis-bitop-min.png)
 1. 计算Bitmaps中第一个值为`targetBit`的偏移量：`bitpos key targetBit [start] [end]`
 
 #### 3.5.3　Bitmaps分析
@@ -315,7 +315,7 @@ HyperLogLog内存占用量非常小，但是存在错误率，开发者在进行
 #### 3.7.2　使用场景
 聊天室、公告牌、服务之间利用消息解耦都可以使用发布订阅模式
 
-![redis-publish-min](https://www.wailian.work/images/2018/10/30/redis-publish-min.png)
+![redis-publish-min](https://s0.wailian.download/2018/10/30/redis-publish-min.png)
 
 - 视频服务订阅video：changes频道如下：
 	```

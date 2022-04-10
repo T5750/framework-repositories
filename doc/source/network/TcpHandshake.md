@@ -1,7 +1,7 @@
 # TCP Handshake
 
 ## TCP头部
-![TcpHeader-min](https://www.wailian.work/images/2019/02/20/TcpHeader-min.png)
+![TcpHeader-min](https://s0.wailian.download/2019/02/20/TcpHeader-min.png)
 
 - ACK：确认，使得确认号有效
 - RST：重置连接（经常看到的reset by peer）就是此字段搞的鬼
@@ -38,14 +38,14 @@ TCP Checksum | TCP报文校验码
 客视角 | 二 | 一 + 二
 服视角 | 二 + 三 | 一
 
-![TcpHandshake3-min](https://www.wailian.work/images/2019/02/20/TcpHandshake3-min.png)
+![TcpHandshake3-min](https://s0.wailian.download/2019/02/20/TcpHandshake3-min.png)
 
 1. 客户端发送一个SYN段，并指明客户端的初始序列号，即ISN(x)
 1. 服务端发送自己的SYN段作为应答，同样指明自己的ISN(y)。为了确认客户端的SYN，将ISN(x)+1作为ACK数值。这样，每发送一个SYN，序列号就会加1。如果有丢失的情况，则会重传
 1. 为了确认服务器端的SYN，客户端将ISN(y)+1作为返回的ACK数值
 
 ## 四次挥手
-![TcpHandshake4-min](https://www.wailian.work/images/2019/02/20/TcpHandshake4-min.png)
+![TcpHandshake4-min](https://s0.wailian.download/2019/02/20/TcpHandshake4-min.png)
 
 1. 客户端发送一个FIN段，并包含一个希望接收者看到的自己当前的序列号x。同时还包含一个ACK表示确认对方最近一次发过来的数据
 1. 服务端将x值加1作为ACK序号值，表明收到了上一个包。这时上层的应用程序会被告知另一端发起了关闭操作，通常这将引起应用程序发起自己的关闭操作

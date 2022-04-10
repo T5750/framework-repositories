@@ -13,7 +13,7 @@
 - `toObservable()`：事件注册后执行`run()/construct()`。第一步是事件注册前，一调用`toObservable()`就直接返回一个`Observable<String>`对象，第二步调用`subscribe()`完成事件注册后自动触发执行`run()/construct()`（如果继承的是`HystrixCommand`，hystrix将创建新线程非堵塞执行`run()`，调用程序不必等待`run()`；如果继承的是`HystrixObservableCommand`，将以调用程序线程堵塞执行`construct()`，调用程序等待`construct()`执行完才能继续往下走），如果`run()/construct()`执行成功则触发`onNext()`和`onCompleted()`，如果执行异常则触发`onError()`
 
 ### fallback（降级）
-![hystrix-min](https://www.wailian.work/images/2018/10/31/hystrix-min.png)
+![hystrix-min](https://s0.wailian.download/2018/10/31/hystrix-min.png)
 
 使用fallback机制很简单，继承`HystrixCommand`只需重写`getFallback()`，继承`HystrixObservableCommand`只需重写`resumeWithFallback()`
 

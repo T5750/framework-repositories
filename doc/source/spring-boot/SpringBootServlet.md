@@ -40,9 +40,9 @@ public FilterRegistrationBean helloWorldFilter() {
 }
 ```
 
-![RegistrationBean-min-min](https://www.wailian.work/images/2019/07/01/RegistrationBean-min-min.png)
+![RegistrationBean-min-min](https://s0.wailian.download/2019/07/01/RegistrationBean-min-min.png)
 
-![TomcatStarter-min-min](https://www.wailian.work/images/2019/07/01/TomcatStarter-min-min.png)
+![TomcatStarter-min-min](https://s0.wailian.download/2019/07/01/TomcatStarter-min-min.png)
 
 #### EmbeddedWebApplicationContext加载流程总结
 - `EmbeddedWebApplicationContext`的`onRefresh`方法触发配置了一个匿名的`ServletContextInitializer`

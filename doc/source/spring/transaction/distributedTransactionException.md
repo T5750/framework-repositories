@@ -3,7 +3,7 @@
 ## 消息发送一致性的异常流程处理
 
 ### 异常情况分析
-![messageDeliveryConsistencyApp-min](https://www.wailian.work/images/2019/01/23/messageDeliveryConsistencyApp-min.png)
+![messageDeliveryConsistencyApp-min](https://s0.wailian.download/2019/01/23/messageDeliveryConsistencyApp-min.png)
 
 1、从主动方应用的角度来分析：
 
@@ -13,7 +13,7 @@
 预发送消息后，主动方应用没有收到返回消息存储结果 | 1.消息未进存储，业务操作未执行。2.消息已进存储（待确认），业务操作未执行 | 1.一致。2.不一致
 收到消息存储成功的返回结果，但未执行业务操作就失败 | 消息已进存储（待确认），业务操作未执行 | 不一致
 
-![messageDeliveryConsistencyMq-min](https://www.wailian.work/images/2019/01/23/messageDeliveryConsistencyMq-min.png)
+![messageDeliveryConsistencyMq-min](https://s0.wailian.download/2019/01/23/messageDeliveryConsistencyMq-min.png)
 
 2、从消息中间件的角度来分析：
 

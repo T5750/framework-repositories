@@ -33,7 +33,7 @@ ACID：
 - 隔离的最小单元由资源管理器决定，如数据库中的一条记录
 
 ### 全局事务（DTP模型）——标准分布式事务
-![dtpStandard-min](https://www.wailian.work/images/2019/01/23/dtpStandard-min.png)
+![dtpStandard-min](https://s0.wailian.download/2019/01/23/dtpStandard-min.png)
 
 - 全局事务：事务由全局事务管理器全局管理
 - 事务管理器：管理全局事务状态与参与的资源，协同资源的一致提交/回滚
@@ -49,7 +49,7 @@ ACID：
     - 由全局事务管理器管理和协调的事务，可以跨越多个资源（如数据库或JMS队列）和进程。全局事务管理器一般使用XA二阶段提交协议与数据库进行交互。
 
 ### 两阶段提交（Two Phase Commit）
-![twoPhaseCommit-min](https://www.wailian.work/images/2019/01/23/twoPhaseCommit-min.png)
+![twoPhaseCommit-min](https://s0.wailian.download/2019/01/23/twoPhaseCommit-min.png)
 
 - 两阶段提交协议（Two-phase commit protocol）是XA用于在全局事务中协调多个资源的机制。
 - TM和RM间采取两阶段提交（Two Phase Commit）的方案来解决一致性问题。
@@ -95,7 +95,7 @@ ACID：
 - 酸碱平衡（ACID-BASE Balance）
 
 ### CAP定理
-![CAP-min](https://www.wailian.work/images/2019/01/23/CAP-min.png)
+![CAP-min](https://s0.wailian.download/2019/01/23/CAP-min.png)
 
 定理：对于共享数据系统，最多只能同时拥有CAP其中的两个，没法三者兼顾。
 - 任两者的组合都有其适用场景
@@ -155,7 +155,7 @@ ACID：
 误区：很多人把两阶段型操作等同于两阶段提交协议2PC操作。其实TCC操作也属于两阶段型操作。
 
 #### 可补偿操作
-![doCompensate-min](https://www.wailian.work/images/2019/01/23/doCompensate-min.png)
+![doCompensate-min](https://s0.wailian.download/2019/01/23/doCompensate-min.png)
 
 - do： 真正执行业务
     - 完成业务处理
@@ -171,7 +171,7 @@ ACID：
 
 ### 柔性事务解决方案
 #### 可靠消息最终一致（异步确保型）
-![distributedTransactionFinal-min](https://www.wailian.work/images/2019/01/08/distributedTransactionFinal-min.png)
+![distributedTransactionFinal-min](https://s0.wailian.download/2019/01/08/distributedTransactionFinal-min.png)
 
 - 实现
     - 业务处理服务在业务事务提交前，向实时消息服务请求发送消息，实时消息服务只记录消息数据，而不真正发送。业务处理服务在业务事务提交后，向实时消息服务确认发送。只有在得到确认发送指令后，实时消息服务才真正发送
@@ -195,7 +195,7 @@ ACID：
     - 支付宝、eBay（BASE）、去哪儿……
 
 #### TCC（两阶段型、补偿型）
-![distributedTransactionTCC-min](https://www.wailian.work/images/2019/01/08/distributedTransactionTCC-min.png)
+![distributedTransactionTCC-min](https://s0.wailian.download/2019/01/08/distributedTransactionTCC-min.png)
 
 - 实现
     - 一个完整的业务活动由一个主业务服务与若干从业务服务组成
@@ -220,7 +220,7 @@ ACID：
     - 支付宝XTS（蚂蚁金融云的分布式事务服务DTS）
 
 #### 最大努力通知（定期校对）
-![distributedTransactionMax-min](https://www.wailian.work/images/2019/01/08/distributedTransactionMax-min.png)
+![distributedTransactionMax-min](https://s0.wailian.download/2019/01/08/distributedTransactionMax-min.png)
 
 - 实现
     - 业务活动的主动方，在完成业务处理之后，向业务活动的被动方发送消息，允许消息丢失。

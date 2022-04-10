@@ -95,7 +95,7 @@ public class HttpSessionSecurityContextRepository implements SecurityContextRepo
 ```
 
 ### UsernamePasswordAuthenticationFilter
-![UsernamePasswordAuthenticationFilter-min](https://www.wailian.work/images/2019/06/26/UsernamePasswordAuthenticationFilter-min.jpg)
+![UsernamePasswordAuthenticationFilter-min](https://s0.wailian.download/2019/06/26/UsernamePasswordAuthenticationFilter-min.jpg)
 
 ```
 package org.springframework.security.web.authentication;
@@ -234,7 +234,7 @@ private void handleSpringSecurityException(HttpServletRequest request, HttpServl
 }
 ```
 
-![AuthenticationEntryPoint-min](https://www.wailian.work/images/2019/06/26/AuthenticationEntryPoint-min.png)
+![AuthenticationEntryPoint-min](https://s0.wailian.download/2019/06/26/AuthenticationEntryPoint-min.png)
 
 ```
 public abstract class AbstractAuthenticationFilterConfigurer<B extends HttpSecurityBuilder<B>, T extends AbstractAuthenticationFilterConfigurer<B, T, F>, F extends AbstractAuthenticationProcessingFilter> extends AbstractHttpConfigurer<T, B> {
@@ -293,9 +293,9 @@ protected void configure(HttpSecurity http) throws Exception {
 1. `ConcurrentHashMap` –> `UserDetailsService`
 
 ## Authorization
-![securityAuthorizationDiagram-min-min](https://www.wailian.work/images/2019/06/28/securityAuthorizationDiagram-min-min.png)
+![securityAuthorizationDiagram-min-min](https://s0.wailian.download/2019/06/28/securityAuthorizationDiagram-min-min.png)
 
-![AuthorizationSequenceDiagram-min-min](https://www.wailian.work/images/2019/06/28/AuthorizationSequenceDiagram-min-min.png)
+![AuthorizationSequenceDiagram-min-min](https://s0.wailian.download/2019/06/28/AuthorizationSequenceDiagram-min-min.png)
 
 Breakpoints
 ```

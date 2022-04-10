@@ -3,7 +3,7 @@
 ## 消息重复发送问题与业务接口的幂等性设计
 
 ### 消息消费流程的异常处理
-![distributedTransactionMessageException-min](https://www.wailian.work/images/2019/01/23/distributedTransactionMessageException-min.png)
+![distributedTransactionMessageException-min](https://s0.wailian.download/2019/01/23/distributedTransactionMessageException-min.png)
 
 - 方法：对于未确认的消息，采用按规则重新投递的方式进行处理。
 - 问题：消息的重复发送会导致业务处理接口出现重复调用的问题。

@@ -3,7 +3,7 @@
 ## ZooKeeper+ActiveMQ+LevelDB集群
 
 ### 高可用原理
-![activemq-mater-slave-min](https://www.wailian.work/images/2018/11/13/activemq-mater-slave-min.png)
+![activemq-mater-slave-min](https://s0.wailian.download/2018/11/13/activemq-mater-slave-min.png)
 
 使用ZooKeeper（集群）注册所有的ActiveMQ Broker。只有其中的一个Broker可以提供服务，被视为Master，其他的Broker（节点）处于待机状态，被视为Slave。如果Master因故障而不能提供服务，ZooKeeper会从Slave中选举出一个Broker充当Master
 Slave连接Master并同步他们的存储状态，Slave不接受客户端连接。所有的存储操作都将被复制到连接至Master的Slaves。如果Master宕了，得到了最新的Slave会成为Master。故障节点在回复后会重新加入到集群中并连接Master进入Slave模式。

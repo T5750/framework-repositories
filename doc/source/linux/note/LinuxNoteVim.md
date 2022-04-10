@@ -6,7 +6,7 @@
 vi/vim是一个功能强大的全屏幕文本编辑器，也是Linux最常用的文本编辑器，作用是建立、编辑、显示文本文件。vi/vim没有菜单，只能依靠命令去操作。
 
 ## 3.2 vi/vim工作模式图
-![viVimModel-min](https://www.wailian.work/images/2019/02/13/viVimModel-min.png)
+![viVimModel-min](https://s0.wailian.download/2019/02/13/viVimModel-min.png)
 
 ## 3.3 插入模式
 aio，就是vi/vim的插入模式

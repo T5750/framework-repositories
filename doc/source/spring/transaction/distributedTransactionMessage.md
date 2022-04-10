@@ -8,7 +8,7 @@
 1. Queue支持存在多个消费者，但是对某一个消息而言，只会有一个消费者成功消费。
 
 ### 生产与消费常规流程
-![distributedTransactionMq-min](https://www.wailian.work/images/2019/01/23/distributedTransactionMq-min.png)
+![distributedTransactionMq-min](https://s0.wailian.download/2019/01/23/distributedTransactionMq-min.png)
 1. Producer生成消息并发送给MQ（同步、异步）；
 1. MQ接收消息并将消息数据持久化到消息存储（持久化操作为可选配置）；
 1. MQ向Producer返回消息的接收结果（返回值、异常）；
@@ -23,7 +23,7 @@
 1. 投递消息的流程其实就是消息的消费流程，可细化。
 
 ### 可靠消息的生产与消费的正向流程
-![distributedTransactionQueue-min](https://www.wailian.work/images/2019/01/11/distributedTransactionQueue-min.png)
+![distributedTransactionQueue-min](https://s0.wailian.download/2019/01/11/distributedTransactionQueue-min.png)
 
 1. 主动方应用先把消息发给消息中间件，消息状态标记为“待确认”；
 2. 消息中间件收到消息后，把消息持久化到消息存储中，但并不向被动方应用投递消息；
