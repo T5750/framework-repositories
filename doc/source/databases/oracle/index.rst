@@ -14,3 +14,4 @@ Oracle
     OracleOrapwd
     OracleStartupShutdown
     OracleDateChar
+    OracleTips
