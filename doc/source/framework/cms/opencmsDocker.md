@@ -27,3 +27,4 @@ Easy to Use, Open Source, Reliable
 ## References
 - [OpenCms Docker](https://registry.hub.docker.com/r/alkacon/opencms-docker)
 - [Building a multilingual website](https://documentation.opencms.org/opencms-documentation/tutorials/building-a-multilingual-website/)
+- [OpenCms GitHub](https://github.com/alkacon/opencms-core)

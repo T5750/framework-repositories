@@ -1,5 +1,14 @@
 # CentOS Python
 
+## CentOS 8 Platform Python
+```
+find / -name platform-python* 2>/dev/null
+sudo ln -s /usr/libexec/platform-python /usr/bin/python
+python -V
+sudo python -m pip install --upgrade pip
+pip -V
+```
+
 ## Python Installation
 ```
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
