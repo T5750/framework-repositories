@@ -45,6 +45,7 @@
 - [Linux Clear Cache](../doc/source/linux/LinuxClearCache.md)
 - [Linux Cron Scheduling Task](../doc/source/linux/LinuxCronSchedulingTask.md)
 - [Linux ps command](../doc/source/linux/LinuxPs.md)
+- [Linux Boot](../doc/source/linux/LinuxBoot.md)
 
 ## Runtime Environment
 - [CentOS 6.10](https://www.centos.org/download/)

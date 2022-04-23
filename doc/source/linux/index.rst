@@ -11,6 +11,7 @@ Linux
     LinuxCronSchedulingTask
     LinuxEnv
     LinuxPs
+    LinuxBoot
     CentOSChrony
     CentOSInstallation
     CentOSMail
@@ -18,4 +19,5 @@ Linux
     CentOSTips
     CentOSTomcat
     CentOSDocker
+    ubuntuDocker
     busyboxDocker
