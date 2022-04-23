@@ -15,3 +15,4 @@ Netdisc
     dzzofficeDocker
     resourcespaceDocker
     libreofficeDocker
+    zfileDocker
