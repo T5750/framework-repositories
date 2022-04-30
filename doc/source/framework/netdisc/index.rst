@@ -16,3 +16,4 @@ Netdisc
     resourcespaceDocker
     libreofficeDocker
     zfileDocker
+    cloudreveDocker
