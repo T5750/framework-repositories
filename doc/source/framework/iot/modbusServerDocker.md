@@ -5,6 +5,7 @@ The Modbus TCP Server is a simple Modbus server for debugging and simulation.
 ## Docker
 ```
 docker run --name modbus-server -p 5020:5020 -d oitc/modbus-server
+docker run --name modbus-server -p 5020:5020 -d -v $PWD/server_config.json:/server_config.json oitc/modbus-server -f /server_config.json
 ```
 
 ## Docker Compose
