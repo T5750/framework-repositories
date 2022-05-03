@@ -6,6 +6,7 @@ DevOps
     :numbered: 0
     
     jenkinsDocker
+    jenkinsLTSDocker
     jenkinsPipeline
     nexusDocker
     gitlabDocker

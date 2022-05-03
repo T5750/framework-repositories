@@ -2,7 +2,7 @@ version: '3'
 services:
   jenkins:
     restart: always
-    image: jenkins/jenkins
+    image: jenkins/jenkins:lts-jdk11
     container_name: jenkins
     hostname: jenkins
     ports:
@@ -10,5 +10,5 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - jenkins:/var/jenkins_home
+      - $PWD/jenkins:/var/jenkins_home
       - /etc/localtime:/etc/localtime
