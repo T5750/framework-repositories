@@ -38,4 +38,4 @@ webcenter/activemq:5.14.3
 ![](https://svn.apache.org/repos/infra/websites/production/activemq/content/web-console.data/web_console.png)
 
 ## References
-- [webcenter/activemq](https://hub.docker.com/r/webcenter/activemq)
+- [webcenter/activemq Docker](https://hub.docker.com/r/webcenter/activemq)

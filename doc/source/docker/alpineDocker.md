@@ -21,4 +21,4 @@ This yields us a virtual image size of about 145MB image.
 `alpine.yml`
 
 ## References
-- [Alpine](https://hub.docker.com/_/alpine)
+- [Alpine Docker](https://hub.docker.com/_/alpine)

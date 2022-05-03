@@ -15,4 +15,4 @@ docker cp ./LocalSettings.php some-mediawiki:/var/www/html
 - [MySQL 5.x](http://www.mysql.com/)
 
 ## References
-- [MediaWiki](https://hub.docker.com/_/mediawiki)
+- [MediaWiki Docker](https://hub.docker.com/_/mediawiki)

@@ -18,4 +18,4 @@ $ docker run -d -p 8080:80 nextcloud
 ![](https://docs.nextcloud.com/server/latest/user_manual/_images/users-files.png)
 
 ## References
-- [Nextcloud](https://hub.docker.com/_/nextcloud)
+- [Nextcloud Docker](https://hub.docker.com/_/nextcloud)

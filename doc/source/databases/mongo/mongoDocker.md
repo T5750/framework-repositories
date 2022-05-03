@@ -8,5 +8,5 @@
 - User: admin / admin
 
 ## References
-- [MongoDB](https://hub.docker.com/_/mongo)
-- [mongo-express](https://hub.docker.com/_/mongo-express/)
+- [MongoDB Docker](https://hub.docker.com/_/mongo)
+- [mongo-express Docker](https://hub.docker.com/_/mongo-express/)

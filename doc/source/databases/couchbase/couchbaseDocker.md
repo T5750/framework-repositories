@@ -46,5 +46,5 @@ This model is commonly used for production deployments.
 ```
 
 ## References
-- [couchbase/server](https://hub.docker.com/r/couchbase/server)
+- [Couchbase Server Docker](https://hub.docker.com/r/couchbase/server)
 - [Create a Cluster](https://docs.couchbase.com/server/current/manage/manage-nodes/create-cluster.html)

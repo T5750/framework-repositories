@@ -9,4 +9,4 @@
 ![](https://raw.githubusercontent.com/apache/dubbo-admin/develop/doc/images/index.png)
 
 ## References
-- [Apache Dubbo Admin](https://hub.docker.com/r/apache/dubbo-admin)
+- [Apache Dubbo Admin Docker](https://hub.docker.com/r/apache/dubbo-admin)

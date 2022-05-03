@@ -21,5 +21,5 @@ docker run -d -p 8086:8086 \
 ![Configure Grafana to use Flux](https://docs.influxdata.com/img/influxdb/2-0-tools-grafana.png)
 
 ## References
-- [influxdb](https://hub.docker.com/_/influxdb/)
+- [InfluxDB Docker](https://hub.docker.com/_/influxdb/)
 - [InfluxDB OSS 2.0 Documentation](https://docs.influxdata.com/influxdb/v2.0/)

@@ -13,4 +13,4 @@
 ![](https://zipkin.io/public/img/dependency-graph.png)
 
 ## References
-- [Zipkin](https://hub.docker.com/r/openzipkin/zipkin)
+- [Zipkin Docker](https://hub.docker.com/r/openzipkin/zipkin)

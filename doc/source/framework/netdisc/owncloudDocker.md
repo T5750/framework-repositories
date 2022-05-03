@@ -21,6 +21,6 @@ For a MySQL database you can link an database container, e.g. `--link my-mysql:m
 ![](https://doc.owncloud.com/server/10.8/user_manual/_images/video_player_2.png)
 
 ## References
-- [owncloud](https://hub.docker.com/_/owncloud)
+- [owncloud Docker](https://hub.docker.com/_/owncloud)
 - [owncloud/core](https://github.com/owncloud/core)
 - [ownCloud Documentation](https://doc.owncloud.com/server/10.8/)

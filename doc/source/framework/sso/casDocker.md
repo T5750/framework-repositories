@@ -38,5 +38,5 @@ docker run -it --rm --name=cas -p 8443:8443 -v /etc/cas/thekeystore:/etc/cas/the
 
 ## References
 - [cas-overlay-template/Dockerfile](https://github.com/apereo/cas-overlay-template/blob/master/Dockerfile)
-- [apereo/cas](https://hub.docker.com/r/apereo/cas)
+- [apereo/cas Docker](https://hub.docker.com/r/apereo/cas)
 - [CAS Protocol](https://apereo.github.io/cas/5.3.x/protocol/CAS-Protocol.html)

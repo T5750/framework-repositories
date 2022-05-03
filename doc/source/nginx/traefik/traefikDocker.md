@@ -27,6 +27,6 @@ curl -H Host:whoami.docker.localhost http://192.168.128.4
 ```
 
 ## References
-- [traefik](https://hub.docker.com/_/traefik)
+- [Traefik Docker](https://hub.docker.com/_/traefik)
 - [Traefik Welcome](https://doc.traefik.io/traefik/v2.0/)
 - [Traefik Quick Start](https://doc.traefik.io/traefik/v2.0/getting-started/quick-start/)

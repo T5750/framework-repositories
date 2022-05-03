@@ -21,5 +21,5 @@ The extensible open source Java/OSGi IoT Edge Framework
 ![](https://www.eclipse.org/kura/content/images/wires_example.png)
 
 ## References
-- [eclipse/kura](https://hub.docker.com/r/eclipse/kura)
+- [eclipse/kura Docker](https://hub.docker.com/r/eclipse/kura)
 - [Eclipse Kura](https://www.eclipse.org/kura/)

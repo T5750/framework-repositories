@@ -58,5 +58,5 @@ mc cp myobject.txt play/mybucket
 ```
 
 ## References
-- [minio/mc](https://hub.docker.com/r/minio/mc)
+- [minio/mc Docker](https://hub.docker.com/r/minio/mc)
 - [MinIO Client](https://github.com/minio/mc)

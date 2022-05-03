@@ -34,6 +34,6 @@ docker run --name hivemq4 -d -p 8080:8080 -p 1883:1883 hivemq/hivemq4
 ![](https://www.hivemq.com/docs/hivemq/4.7/user-guide/_images/getting-started/clients-overview.png)
 
 ## References
-- [hivemq4](https://hub.docker.com/r/hivemq/hivemq4)
-- [hivemq-ce](https://hub.docker.com/r/hivemq/hivemq-ce)
+- [hivemq4 Docker](https://hub.docker.com/r/hivemq/hivemq4)
+- [hivemq-ce Docker](https://hub.docker.com/r/hivemq/hivemq-ce)
 - [Getting Started with HiveMQ](https://www.hivemq.com/docs/hivemq/4.7/user-guide/getting-started.html)

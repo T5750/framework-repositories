@@ -160,5 +160,5 @@ Please use official documentation for [zabbix_server.conf](https://www.zabbix.co
 
 ## References
 - [zabbix监控jvm内存](https://www.cnblogs.com/chywx/p/11496528.html)
-- [zabbix/zabbix-server-mysql](https://hub.docker.com/r/zabbix/zabbix-server-mysql/)
+- [zabbix/zabbix-server-mysql Docker](https://hub.docker.com/r/zabbix/zabbix-server-mysql/)
 - [Zabbix JMX monitoring](https://www.zabbix.com/documentation/current/en/manual/config/items/itemtypes/jmx_monitoring)

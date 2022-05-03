@@ -27,5 +27,5 @@ zip -r showdoc_bak.zip ./showdoc_data/html
 ```
 
 ## References
-- [ShowDoc](https://hub.docker.com/r/star7th/showdoc)
+- [ShowDoc Docker](https://hub.docker.com/r/star7th/showdoc)
 - [Docker方式安装](https://www.showdoc.com.cn/help/65610)

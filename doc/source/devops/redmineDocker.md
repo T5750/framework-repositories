@@ -36,4 +36,4 @@ $ docker run -d --name some-redmine --network some-network -e REDMINE_DB_POSTGRE
 ![](https://www.redmine.org/attachments/download/2463/projects_redmine_activity.png)
 
 ## References
-- [redmine](https://hub.docker.com/_/redmine/)
+- [Redmine Docker](https://hub.docker.com/_/redmine/)

@@ -24,6 +24,6 @@ hexo s -p 4001
 ![](https://d33wubrfki0l68.cloudfront.net/5997a40576f3beca7bbbd86fe79a795e9d520d8e/87f88/themes/screenshots/landscape.png)
 
 ## References
-- [taskbjorn/hexo](https://hub.docker.com/r/taskbjorn/hexo)
+- [taskbjorn/hexo Docker](https://hub.docker.com/r/taskbjorn/hexo)
 - [Hexo](https://hexo.io/zh-cn/)
 - [Hexo Plugins](https://hexo.io/plugins/)

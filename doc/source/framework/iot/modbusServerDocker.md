@@ -84,4 +84,4 @@ An example can be found in the GIT repo: [abb_coretec_example.json](https://bitb
 ```
 
 ## References
-- [oitc/modbus-server](https://hub.docker.com/r/oitc/modbus-server)
+- [oitc/modbus-server Docker](https://hub.docker.com/r/oitc/modbus-server)

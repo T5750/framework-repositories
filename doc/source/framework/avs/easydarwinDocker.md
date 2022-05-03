@@ -7,4 +7,4 @@
 
 ## References
 - [EasyDarwin](http://www.easydarwin.org/)
-- [justtin/easydarwin](https://hub.docker.com/r/justtin/easydarwin)
+- [justtin/easydarwin Docker](https://hub.docker.com/r/justtin/easydarwin)

@@ -73,4 +73,4 @@ docker run -p 49160:8080 -d --rm --name node-web-app t5750/node-web-app
 
 ## References
 - [把一个 Node.js web 应用程序给 Docker 化](https://nodejs.org/zh-cn/docs/guides/nodejs-docker-webapp/)
-- [Node.js](https://hub.docker.com/_/node/)
+- [Node.js Docker](https://hub.docker.com/_/node/)

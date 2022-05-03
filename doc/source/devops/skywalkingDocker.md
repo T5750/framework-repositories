@@ -15,5 +15,5 @@ SkyWalking: an APM(application performance monitor) system, especially designed 
 ![](https://skywalking.apache.org/ui-doc/7.0.0/trace.png)
 
 ## References
-- [skywalking-oap-server](https://hub.docker.com/r/apache/skywalking-oap-server)
-- [skywalking-ui](https://hub.docker.com/r/apache/skywalking-ui)
+- [skywalking-oap-server Docker](https://hub.docker.com/r/apache/skywalking-oap-server)
+- [skywalking-ui Docker](https://hub.docker.com/r/apache/skywalking-ui)

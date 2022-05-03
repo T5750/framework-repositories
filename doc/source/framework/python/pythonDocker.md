@@ -44,5 +44,5 @@ ps aux | grep python
 ```
 
 ## References
-- [Python](https://hub.docker.com/_/python?tab=description&page=1&ordering=last_updated)
+- [Python Docker](https://hub.docker.com/_/python?tab=description&page=1&ordering=last_updated)
 - [Docker 安装 Python](https://www.runoob.com/docker/docker-install-python.html)

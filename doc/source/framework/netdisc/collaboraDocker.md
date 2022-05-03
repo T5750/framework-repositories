@@ -19,4 +19,4 @@ docker run -t -d --name collabora -p 9980:9980 -e "username=admin" -e "password=
 - [CODE Docker image](https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html)
 - [Collabora Online Development Edition](https://collaboraonline.github.io/)
 - [CollaboraOnline](https://github.com/CollaboraOnline/online)
-- [collabora/code](https://hub.docker.com/r/collabora/code)
+- [collabora/code Docker](https://hub.docker.com/r/collabora/code)

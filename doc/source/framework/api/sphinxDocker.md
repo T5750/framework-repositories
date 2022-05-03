@@ -41,4 +41,4 @@ RUN pip3 install -r requirements.txt
 
 ## References
 - [Sphinx](https://www.sphinx-doc.org/)
-- [sphinxdoc/sphinx](https://hub.docker.com/r/sphinxdoc/sphinx)
+- [sphinxdoc/sphinx Docker](https://hub.docker.com/r/sphinxdoc/sphinx)
