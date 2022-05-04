@@ -41,5 +41,5 @@ The GUI will be available at `http://{your server's public ip}:1337`
 `konga.yml`
 
 ## References
-- [Konga](https://github.com/pantsel/konga)
+- [Konga GitHub](https://github.com/pantsel/konga)
 - [网关-docker-compose创建konga](https://blog.csdn.net/WeiJiaXiaoBao/article/details/112473150)

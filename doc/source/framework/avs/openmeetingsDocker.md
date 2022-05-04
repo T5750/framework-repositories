@@ -18,4 +18,4 @@
 
 ## References
 - [OpenMeetings](https://openmeetings.apache.org/)
-- [openmeetings-docker](https://github.com/openmeetings/openmeetings-docker)
+- [openmeetings-docker GitHub](https://github.com/openmeetings/openmeetings-docker)

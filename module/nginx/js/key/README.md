@@ -4,4 +4,4 @@
 - `keymaster.html`
 
 ## References
-- [keymaster.js](https://github.com/madrobby/keymaster)
+- [keymaster.js GitHub](https://github.com/madrobby/keymaster)

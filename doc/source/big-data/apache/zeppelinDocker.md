@@ -41,4 +41,4 @@ date
 ## References
 - [Install Zeppelin](https://zeppelin.apache.org/docs/0.10.0/quickstart/install.html)
 - [Explore Apache Zeppelin UI](https://zeppelin.apache.org/docs/0.10.0/quickstart/explore_ui.html)
-- [apache/zeppelin](https://github.com/apache/zeppelin)
+- [apache/zeppelin GitHub](https://github.com/apache/zeppelin)

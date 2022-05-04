@@ -51,4 +51,4 @@ Dubbox支持多种远程调用方式：
 - 序列化测试：`SerializationTest`
 
 ## References
-- [Dubbox](https://github.com/dangdangdotcom/dubbox)
+- [Dubbox GitHub](https://github.com/dangdangdotcom/dubbox)

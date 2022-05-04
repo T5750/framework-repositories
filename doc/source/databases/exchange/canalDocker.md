@@ -45,6 +45,6 @@ canal 特别设计了 client-server 模式，交互协议使用 protobuf 3.0 , c
 ![](https://camo.githubusercontent.com/626b23a038986a83fac0765fc2d15229b031b9770b84a1d367879b7ff20c4fd9/687474703a2f2f646c322e69746579652e636f6d2f75706c6f61642f6174746163686d656e742f303133322f323331382f61306566393430662d663739382d333233332d393831342d6661316337616539313236662e706e67)
 
 ## References
-- [Docker QuickStart](https://github.com/alibaba/canal/wiki/Docker-QuickStart)
-- [Canal Admin Docker](https://github.com/alibaba/canal/wiki/Canal-Admin-Docker)
+- [Docker QuickStart GitHub](https://github.com/alibaba/canal/wiki/Docker-QuickStart)
+- [Canal Admin Docker GitHub](https://github.com/alibaba/canal/wiki/Canal-Admin-Docker)
 - [Canal Admin 创建Instance的bug问题](https://github.com/alibaba/canal/issues/2847)

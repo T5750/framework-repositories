@@ -27,4 +27,4 @@ curl -X PUT 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=example&ip=1
 
 ## References
 - [Nacos Spring Boot 快速开始](https://nacos.io/zh-cn/docs/quick-start-spring-boot.html)
-- [nacos-examples](https://github.com/nacos-group/nacos-examples)
+- [nacos-examples GitHub](https://github.com/nacos-group/nacos-examples)

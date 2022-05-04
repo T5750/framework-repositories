@@ -15,5 +15,5 @@ A powerful flow control component enabling reliability, resilience and monitorin
 ![](https://user-images.githubusercontent.com/9434884/55449295-84866d80-55fd-11e9-94e5-d3441f4a2b63.png)
 
 ## References
-- [Sentinel](https://github.com/alibaba/Sentinel)
+- [Sentinel GitHub](https://github.com/alibaba/Sentinel)
 - [sentinel-dashboard Docker](https://hub.docker.com/r/bladex/sentinel-dashboard)

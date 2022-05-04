@@ -14,5 +14,5 @@ docker run -d --name rancher --restart=unless-stopped -p 8080:443 --privileged r
 ![](https://cdn.rancher.com/wp-content/uploads/2017/10/02191654/16-ljWqMXX.png)
 
 ## References
-- [Rancher](https://github.com/rancher/rancher)
+- [Rancher GitHub](https://github.com/rancher/rancher)
 - [Rancher Architecture](https://rancher.com/docs/rancher/v2.5/en/overview/architecture/)

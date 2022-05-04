@@ -30,4 +30,4 @@ docker run --rm -p 8080:8080 pgbi/kong-dashboard start --help
 ```
 
 ## References
-- [Kong Dashboard](https://github.com/PGBI/kong-dashboard)
+- [Kong Dashboard GitHub](https://github.com/PGBI/kong-dashboard)

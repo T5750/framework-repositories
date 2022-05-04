@@ -63,5 +63,5 @@ XDiamond | Configuration center | √ |   |   |   | √ | √ |   | √
 ![](https://s0.wailian.download/2019/10/18/ShepherHome-min.png)
 
 ## References
-- [zkui](https://github.com/DeemOpen/zkui)
-- [shepher](https://github.com/XiaoMi/shepher)
+- [zkui GitHub](https://github.com/DeemOpen/zkui)
+- [shepher GitHub](https://github.com/XiaoMi/shepher)

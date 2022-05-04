@@ -50,5 +50,5 @@ Following environment variables can be used to change container settings:
 
 ## References
 - [axelor/aio-erp Docker](https://hub.docker.com/r/axelor/aio-erp)
-- [Axelor Open Suite](https://github.com/axelor/axelor-open-suite)
+- [Axelor Open Suite GitHub](https://github.com/axelor/axelor-open-suite)
 - [Axelor CRM](https://docs.axelor.com/abs/5.0/functional/crm.html)

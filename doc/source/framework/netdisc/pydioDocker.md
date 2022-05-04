@@ -27,6 +27,6 @@ pydio/cells
 
 ## References
 - [Docker | Pydio](https://pydio.com/en/docs/cells/v2/docker)
-- [pydio/cells](https://github.com/pydio/cells)
+- [pydio/cells GitHub](https://github.com/pydio/cells)
 - [Pydio搭建私有网盘](https://zhuanlan.zhihu.com/p/88631372)
 - [[ED] Binding to LDAP](https://pydio.com/en/docs/cells/v2/ed-binding-ldap)

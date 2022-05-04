@@ -60,4 +60,4 @@ location ^~ /sonar {
 
 ## References
 - [Docker Compose 方式安装 SonarQube 8.3.1](https://www.cnblogs.com/daodaotest/p/13123561.html)
-- [SonarSource](https://github.com/SonarSource/docker-sonarqube)
+- [SonarSource GitHub](https://github.com/SonarSource/docker-sonarqube)

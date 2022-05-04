@@ -16,4 +16,4 @@ docker run -d -p 9090:9090 \
 
 ## References
 - [INSTALLATION | Prometheus](https://prometheus.io/docs/prometheus/latest/installation/)
-- [prometheus](https://github.com/prometheus/prometheus)
+- [Prometheus GitHub](https://github.com/prometheus/prometheus)

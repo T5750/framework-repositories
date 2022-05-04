@@ -13,4 +13,4 @@ docker run -it --rm --name=draw -p 8080:8080 -p 8443:8443 jgraph/drawio
 ![](https://www.diagrams.net/assets/svg/home-dia1.svg)
 
 ## References
-- [docker-drawio](https://github.com/jgraph/docker-drawio)
+- [docker-drawio GitHub](https://github.com/jgraph/docker-drawio)

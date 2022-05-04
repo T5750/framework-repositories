@@ -35,4 +35,4 @@ docker image prune -f
 ```
 
 ## References
-- [rap2-delos](https://github.com/thx/rap2-delos)
+- [rap2-delos GitHub](https://github.com/thx/rap2-delos)

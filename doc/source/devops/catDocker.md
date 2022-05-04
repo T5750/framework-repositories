@@ -26,4 +26,4 @@ CAT 是基于 Java 开发的实时应用监控平台，为美团点评提供了�
 ![](https://raw.githubusercontent.com/wiki/dianping/cat/resources/ch1-report/heartbeat_view.png)
 
 ## References
-- [dianping/cat](https://github.com/dianping/cat)
+- [dianping/cat GitHub](https://github.com/dianping/cat)

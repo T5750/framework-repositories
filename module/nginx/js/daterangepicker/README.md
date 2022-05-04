@@ -5,4 +5,4 @@
 
 ## References
 - [Date Range Picker](http://www.daterangepicker.com/)
-- [daterangepicker](https://github.com/dangrossman/daterangepicker)
+- [daterangepicker GitHub](https://github.com/dangrossman/daterangepicker)

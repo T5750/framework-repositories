@@ -52,7 +52,7 @@ NVR可以用RTSP协议从IPC拉流，然后录制，或者转成RTMP后推给SRS
 ![](https://camo.githubusercontent.com/ad9f099e7d5f2faaa0564d7e37feb5eaac8b90b133b1a8c4fba9159cab662966/68747470733a2f2f67697465652e636f6d2f77696e6c696e7669702f7372732d77696b692f7261772f6d61737465722f696d616765732f7372732d61726368332d302e706e67)
 
 ## References
-- [SRS](https://github.com/ossrs/srs)
-- [srs-docker](https://github.com/ossrs/srs-docker)
+- [SRS GitHub](https://github.com/ossrs/srs)
+- [srs-docker GitHub](https://github.com/ossrs/srs-docker)
 - [SRS Snapshot](https://github.com/ossrs/srs/wiki/v3_CN_Snapshot)
 - [PUSH RTSP is removed，不支持RTSP推流](https://github.com/ossrs/srs/issues/2304)

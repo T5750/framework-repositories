@@ -23,4 +23,4 @@
 
 ## References
 - [Single sign-on in Spring Boot applications with Spring Security OAuth](https://shekhargulati.com/2018/02/15/single-sign-on-in-spring-boot-applications-with-spring-security-oauth/)
-- [spring-boot-sso](https://github.com/shekhargulati/spring-boot-sso)
+- [spring-boot-sso GitHub](https://github.com/shekhargulati/spring-boot-sso)

@@ -51,6 +51,6 @@ command: "node /my-yapi/vendors/server/app.js"
 ```
 
 ## References
-- [YApi](https://github.com/YMFE/yapi)
+- [YApi GitHub](https://github.com/YMFE/yapi)
 - [docker-yapi: 基于官方yapi-cli的docker-compose方案](https://github.com/Ryan-Miao/docker-yapi)
 - [能集成AD登录方式吗](https://github.com/YMFE/yapi/issues/730)

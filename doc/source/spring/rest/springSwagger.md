@@ -149,6 +149,6 @@ public class Swagger2SpringBoot {
 ```
 
 ## References
-- [springfox-demos](https://github.com/springfox/springfox-demos)
+- [springfox-demos GitHub](https://github.com/springfox/springfox-demos)
 - [Springfox Reference Documentation](https://springfox.github.io/springfox/docs/current/)
 - [SpringBoot2 配置swagger2并统一加入认证参数](https://www.jianshu.com/p/7a24d202b395)

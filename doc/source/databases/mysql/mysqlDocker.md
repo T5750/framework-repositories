@@ -48,6 +48,6 @@ docker exec mysql8slave sh -c "export MYSQL_PWD=123456; mysql -u root replicas_d
 
 ## References
 - [Docker Compose搭建MySQL主从复制集群](https://zhuanlan.zhihu.com/p/45193580)
-- [docker-box/mysql-cluster](https://github.com/docker-box/mysql-cluster)
+- [docker-box/mysql-cluster GitHub](https://github.com/docker-box/mysql-cluster)
 - [MySQL 8.0 - Docker 搭建主从复制](https://github.com/solidSpoon/solidSpoon.github.io/issues/26)
 - [MySQL Docker](https://hub.docker.com/_/mysql)

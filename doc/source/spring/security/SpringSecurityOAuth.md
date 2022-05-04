@@ -187,7 +187,7 @@ http://localhost:8061/qq/info/250577914?access_token=6e017b4b-61ec-4093-aaaf-456
 ![OAuth2AuthenticationManager-min-min](https://s0.wailian.download/2019/06/20/OAuth2AuthenticationManager-min-min.png)
 
 ## References
-- [oauth2-demo](https://github.com/lexburner/oauth2-demo)
+- [oauth2-demo GitHub](https://github.com/lexburner/oauth2-demo)
 - [理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 - [Secure Spring REST API using OAuth2](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/)
 - [OAuth2 Specification](https://tools.ietf.org/html/rfc6749)

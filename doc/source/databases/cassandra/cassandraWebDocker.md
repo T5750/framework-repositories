@@ -9,4 +9,4 @@
 ![](https://github.com/orzhaha/cassandra-web/blob/master/webui.gif?raw=true)
 
 ## References
-- [orzhaha/cassandra-web](https://github.com/orzhaha/cassandra-web)
+- [orzhaha/cassandra-web GitHub](https://github.com/orzhaha/cassandra-web)

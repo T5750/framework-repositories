@@ -4,4 +4,4 @@
 - `qrcodejs.html`
 
 ## References
-- [qrcodejs](https://github.com/davidshimjs/qrcodejs)
+- [qrcodejs GitHub](https://github.com/davidshimjs/qrcodejs)

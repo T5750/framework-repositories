@@ -7,4 +7,4 @@
 - `swipe.html`
 
 ## References
-- [hammer.js](https://github.com/hammerjs/hammer.js/)
+- [hammer.js GitHub](https://github.com/hammerjs/hammer.js/)

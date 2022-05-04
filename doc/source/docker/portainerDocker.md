@@ -57,6 +57,6 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/vo
 
 ## References
 - [Deploying Portainer CE in Docker](https://documentation.portainer.io/v2.0/deploy/ceinstalldocker/)
-- [Portainer CE](https://github.com/portainer/portainer)
+- [Portainer CE GitHub](https://github.com/portainer/portainer)
 - [Docker轻量级可视化管理工具Portainer](https://www.jianshu.com/p/8c4e644e36f9)
 - [Add an Edge endpoint](https://docs.portainer.io/v/ce-2.6/admin/endpoints/add/edge)

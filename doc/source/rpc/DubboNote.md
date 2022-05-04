@@ -85,6 +85,6 @@ Dubbo下载地址：[https://github.com/apache/incubator-dubbo](https://github.c
 
 ## References
 - [Apache Dubbo](http://dubbo.incubator.apache.org/zh-cn/)
-- [Dubbo 2.6.x](https://github.com/apache/dubbo/releases)
-- [dubbo-spring-boot-starter 0.1.x](https://github.com/apache/dubbo-spring-boot-project)
-- [dubbo-admin](https://github.com/apache/dubbo-admin)
+- [Dubbo 2.6.x GitHub](https://github.com/apache/dubbo/releases)
+- [dubbo-spring-boot-starter 0.1.x GitHub](https://github.com/apache/dubbo-spring-boot-project)
+- [dubbo-admin GitHub](https://github.com/apache/dubbo-admin)

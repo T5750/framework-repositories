@@ -73,4 +73,4 @@ The analytics platform for all your metrics
 ## Runtime Environment
 - [Grafana 6.2.5](https://grafana.com/grafana/download)
 - [Grafana Documentation](https://grafana.com/docs/)
-- [Grafana](https://github.com/grafana/grafana)
+- [Grafana GitHub](https://github.com/grafana/grafana)

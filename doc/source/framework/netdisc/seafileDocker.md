@@ -28,7 +28,7 @@ docker run -d --name seafile \
 ![](https://manual.seafile.com/images/seafile-server-config.png)
 
 ## References
-- [Seafile](https://github.com/haiwen/seafile)
-- [seafile-docker](https://github.com/haiwen/seafile-docker)
+- [Seafile GitHub](https://github.com/haiwen/seafile)
+- [seafile-docker GitHub](https://github.com/haiwen/seafile-docker)
 - [Deploy Seafile with Docker](https://manual.seafile.com/docker/deploy_seafile_with_docker/)
 - [Seafile User Manual](https://help.seafile.com/)

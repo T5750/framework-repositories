@@ -22,5 +22,5 @@ For a MySQL database you can link an database container, e.g. `--link my-mysql:m
 
 ## References
 - [owncloud Docker](https://hub.docker.com/_/owncloud)
-- [owncloud/core](https://github.com/owncloud/core)
+- [owncloud/core GitHub](https://github.com/owncloud/core)
 - [ownCloud Documentation](https://doc.owncloud.com/server/10.8/)

@@ -21,5 +21,5 @@ bin\kafka-manager.bat
 [http://localhost:9000/](http://localhost:9000/)
 
 ## References
-- [Kafka Manager 1.3.3.22](https://github.com/yahoo/kafka-manager)
+- [Kafka Manager 1.3.3.22 GitHub](https://github.com/yahoo/kafka-manager)
 - [kafka manager 安装包下载](https://blog.wolfogre.com/posts/kafka-manager-download/)
