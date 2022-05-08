@@ -21,3 +21,4 @@ Linux
     CentOSDocker
     ubuntuDocker
     busyboxDocker
+    alpineDocker

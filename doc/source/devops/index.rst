@@ -30,3 +30,4 @@ DevOps
     zabbixJvmDocker
     tomcatDocker
     gateoneDocker
+    jiraDocker

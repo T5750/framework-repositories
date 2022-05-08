@@ -19,7 +19,6 @@ Docker
     dockerSwarm
     pruneDocker
     portainerDocker
-    alpineDocker
     nodejsDocker
     elasticsearchDocker
     rancherDocker
