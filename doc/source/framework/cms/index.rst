@@ -10,3 +10,4 @@ Content Management System (CMS)
     ploneDocker
     joomlaDocker
     opencmsDocker
+    mcmsDocker
