@@ -24,4 +24,5 @@ Docker
     rancherDocker
     dockerRegistry
     arthasDocker
+    openjdkDocker
     kubernetes/index
