@@ -7,6 +7,7 @@ Docker
     
     dockerInstallation
     dockerComposeInstallation
+    dockerNote
     dockerQuickstart
     dockerOneHour
     dockerDesktopWindows
