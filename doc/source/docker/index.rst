@@ -18,6 +18,7 @@ Docker
     dockerHub
     dockerCLI
     dockerSwarm
+    dockerInDocker
     pruneDocker
     portainerDocker
     nodejsDocker
