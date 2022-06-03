@@ -44,5 +44,16 @@ apt-get install inetutils-ping
 yum install -y iputils
 ```
 
+## curl
+### For Ubuntu/Debian
+```
+apt-get install curl
+```
+
+### For CentOS/Fedora
+```
+yum install -y curl
+```
+
 ## References
 - [Run vi Editor Inside Docker Container](https://www.baeldung.com/linux/vi-editor-inside-docker-container)
