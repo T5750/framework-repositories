@@ -1,0 +1,18 @@
+version: '3'
+services:
+  yearning:
+    restart: always
+    image: chaiyd/yearning
+    container_name: yearning
+    hostname: yearning
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+      MYSQL_ADDR: mysqlIP
+      MYSQL_DB: Yearning
+    ports:
+       - 8000:8000
+    #command: /bin/bash -c "./Yearning install"
+    #volumes:
+    #   - ./conf.toml:/opt/conf.toml
