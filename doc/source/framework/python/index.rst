@@ -7,3 +7,4 @@ Python
     
     pythonDocker
     portiaDocker
+    pytorchDocker
