@@ -43,10 +43,31 @@ python3 setup.py build
 python3 setup.py install
 ```
 
+## Python 3.9.x
+```
+sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel xz-devel libffi-devel
+#No match for argument: db4-devel
+#No match for argument: libpcap-devel
+sudo yum -y install gcc-c++ make
+wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tgz
+sudo mkdir -p /usr/local/python
+tar -zxvf Python-3.9.12.tgz
+cd Python-3.9.12
+./configure --enable-optimizations --prefix=/usr/local/python
+make && make install
+sudo ln -s /usr/local/python/bin/python3 /usr/bin/python
+vi ~/.bashrc
+export PYTHON_HOME=/usr/local/python
+export PATH=${JAVA_HOME}/bin:${NGINX_HOME}/sbin:${REDIS_HOME}/src:$ZOOKEEPER_HOME/bin:$PYTHON_HOME/bin:$PATH
+python -V
+pip -V
+```
+
 ## Runtime Environment
-- [Python 3.7.x](https://www.python.org/downloads/)
-- [setuptools 41.2.0](https://pypi.python.org/pypi/setuptools#downloads)
-- [pip 19.2.3](https://pypi.python.org/pypi/pip#downloads)
+- [CentOS 8](https://www.centos.org/download/)
+- [Python 3.9.x](https://www.python.org/downloads/)
+- [pip 22.x](https://pypi.python.org/pypi/pip#downloads)
+- [setuptools 58.x](https://pypi.python.org/pypi/setuptools#downloads)
 
 ## References
 - [Linux安装python3.6](https://www.cnblogs.com/kimyeee/p/7250560.html)
