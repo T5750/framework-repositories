@@ -15,3 +15,4 @@ IoT
     homeAssistantDocker
     mosquittoDocker
     modbusServerDocker
+    iotdbDocker
