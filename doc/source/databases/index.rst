@@ -17,3 +17,4 @@ Databases
     memcached/index
     influxdb/index
     exchange/index
+    sqlite/index
