@@ -21,6 +21,30 @@ By default, the ports that IoTDB uses are:
 sbin/start-cli.sh -h 127.0.0.1 -p 6667 -u root -pw root
 ```
 
+### Basic commands for IoTDB
+```
+SET STORAGE GROUP TO root.ln
+SHOW STORAGE GROUP
+CREATE TIMESERIES root.ln.wf01.wt01.status WITH DATATYPE=BOOLEAN, ENCODING=PLAIN
+CREATE TIMESERIES root.ln.wf01.wt01.temperature WITH DATATYPE=FLOAT, ENCODING=RLE
+SHOW TIMESERIES
+SHOW TIMESERIES root.ln.wf01.wt01.status
+INSERT INTO root.ln.wf01.wt01(timestamp,status) values(100,true);
+INSERT INTO root.ln.wf01.wt01(timestamp,status,temperature) values(200,false,20.71)
+SELECT status FROM root.ln.wf01.wt01
+SELECT * FROM root.ln.wf01.wt01
+SET time_zone=+08:00
+SHOW time_zone
+SELECT * FROM root.ln.wf01.wt01
+quit
+exit
+```
+
+### Stop IoTDB
+```
+sbin/stop-server.sh
+```
+
 ## 应用场景
 ![](https://iotdb.apache.org/img/home-Slide1.png)
 
@@ -32,3 +56,4 @@ sbin/start-cli.sh -h 127.0.0.1 -p 6667 -u root -pw root
 - [IoTDB 下载与安装](https://iotdb.apache.org/zh/UserGuide/Master/QuickStart/WayToGetIoTDB.html)
 - [IoTDB Docker](https://hub.docker.com/r/apache/iotdb)
 - [IoTDB GitHub](https://github.com/apache/iotdb)
+- [IoTDB-Workbench](https://github.com/apache/iotdb-web-workbench)

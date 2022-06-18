@@ -50,15 +50,18 @@ sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-de
 #No match for argument: libpcap-devel
 sudo yum -y install gcc-c++ make
 wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tgz
-sudo mkdir -p /usr/local/python
+mkdir python && sudo mv python /usr/local/
 tar -zxvf Python-3.9.12.tgz
 cd Python-3.9.12
 ./configure --enable-optimizations --prefix=/usr/local/python
 make && make install
-sudo ln -s /usr/local/python/bin/python3 /usr/bin/python
 vi ~/.bashrc
 export PYTHON_HOME=/usr/local/python
-export PATH=${JAVA_HOME}/bin:${NGINX_HOME}/sbin:${REDIS_HOME}/src:$ZOOKEEPER_HOME/bin:$PYTHON_HOME/bin:$PATH
+export PATH=$PYTHON_HOME/bin:$PATH
+python3 -V
+pip3 -V
+sudo ln -s /usr/local/python/bin/python3 /usr/bin/python
+sudo ln -s /usr/local/python/bin/pip3 /usr/bin/pip
 python -V
 pip -V
 ```
