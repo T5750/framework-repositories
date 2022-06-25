@@ -5,6 +5,7 @@ Docker
     :maxdepth: 3
     :numbered: 0
     
+    elk/index
     dockerInstallation
     dockerComposeInstallation
     dockerNote
@@ -12,20 +13,17 @@ Docker
     dockerQuickstart
     dockerOneHour
     dockerDesktopWindows
-    dockerELK
-    dockerComposeELK
     dockerNetworks
     dockerDockerfile
     dockerHub
     dockerCLI
     dockerSwarm
     dockerInDocker
+    dockerRegistry
     pruneDocker
     portainerDocker
     nodejsDocker
-    elasticsearchDocker
     rancherDocker
-    dockerRegistry
     arthasDocker
     openjdkDocker
     kubernetes/index

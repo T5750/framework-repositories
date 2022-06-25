@@ -1,5 +1,12 @@
 # Elasticsearch Docker
 
+Elasticsearch is a powerful open source search and analytics engine that makes data easy to explore.
+
+## Docker
+```
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.9.3
+```
+
 ## Elasticsearch Standalone in Docker Compose
 `elasticsearch-standalone.yml`
 
@@ -34,3 +41,4 @@ chmod 777 elasticsearch/*
 
 ## References
 - [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html)
+- [Elasticsearch Docker](https://hub.docker.com/_/elasticsearch)
