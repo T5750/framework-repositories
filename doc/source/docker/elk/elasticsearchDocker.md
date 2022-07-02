@@ -33,6 +33,13 @@ vm.max_map_count=262144
 172.18.0.193 13 98 23 2.61 1.65 0.71 dilmrt * es03
 ```
 
+## Security
+`vi /usr/share/elasticsearch/config/elasticsearch.yml`
+```
+xpack.security.enabled: true
+xpack.security.authc.api_key.enabled: true
+```
+
 ## Tips
 AccessDeniedException: /usr/share/elasticsearch/data/nodes
 ```
@@ -42,3 +49,5 @@ chmod 777 elasticsearch/*
 ## References
 - [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html)
 - [Elasticsearch Docker](https://hub.docker.com/_/elasticsearch)
+- [Elasticsearch Guide REST APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rest-apis.html)
+- [Security settings in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-settings.html#api-key-service-settings)
