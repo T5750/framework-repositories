@@ -6,3 +6,4 @@ SQLite
     :numbered: 0
     
     sqliteDocker
+    sqlitebrowserDocker
