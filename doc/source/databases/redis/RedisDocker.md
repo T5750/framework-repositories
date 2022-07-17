@@ -1,5 +1,12 @@
 # Redis Docker
 
+Redis is an open source key-value store that functions as a data structure server.
+
+## Redis Standalone in Docker
+```
+docker run --name redis -p 6379:6379 -d redis
+```
+
 ## Redis Standalone in Docker Compose
 `redis-standalone.yml`
 
@@ -94,3 +101,4 @@ CLUSTER GETKEYSINSLOT <slot> <count> 返回 count 个 slot 槽中的键
 - [docker-compose 搭建 Redis Sentinel 测试环境](https://www.cnblogs.com/leffss/p/12082361.html)
 - [docker-compose 搭建 redis集群](https://www.jianshu.com/p/ce14357cf0b4)
 - [Docker Compose 搭建 Redis Cluster 集群环境](https://www.cnblogs.com/mrhelloworld/p/docker14.html)
+- [Redis Docker](https://hub.docker.com/_/redis)
