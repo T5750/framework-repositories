@@ -18,3 +18,4 @@ Framework
     erp/index
     cms/index
     python/index
+    comments/index
