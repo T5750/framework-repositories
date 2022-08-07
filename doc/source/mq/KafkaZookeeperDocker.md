@@ -49,6 +49,14 @@ kafka-topics.sh --create --zookeeper 172.18.0.201:2181,172.18.0.202:2181,172.18.
 kafka-topics.sh --zookeeper 172.18.0.201:2181,172.18.0.202:2181,172.18.0.203:2181 --list
 ```
 
+## Tests
+```sh
+zkCli.sh -server localhost:2181
+ls /brokers/ids
+ls /controller
+ls /brokers/topics/__consumer_offsets/partitions/0/state
+```
+
 ## Runtime Environment
 - [ZooKeeper 3.x](https://zookeeper.apache.org/releases.html)
 - [Kafka 2.x](https://kafka.apache.org/downloads)
