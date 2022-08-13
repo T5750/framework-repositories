@@ -31,3 +31,4 @@ DevOps
     tomcatDocker
     gateoneDocker
     jiraDocker
+    adguardHomeDocker
