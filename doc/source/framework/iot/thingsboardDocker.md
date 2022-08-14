@@ -44,8 +44,8 @@ $ ./docker-remove-services.sh
 $ ./docker-update-service.sh [SERVICE...]
 ```
 
-## ThingsBoard 3.1.1
-[release-3.1](https://github.com/thingsboard/thingsboard/tree/release-3.1)
+## ThingsBoard 3.1
+[release-3.1](https://github.com/thingsboard/thingsboard/tree/release-3.1), Tags: [v3.1.1](https://github.com/thingsboard/thingsboard/releases/tag/v3.1.1)
 
 ### Installing ThingsBoard using Docker (Windows)
 ```
@@ -54,11 +54,14 @@ docker volume create mytb-logs
 docker run -it -p 9090:9090 -p 1883:1883 -p 5683:5683/udp -v mytb-data:/data -v ~/mytb-logs:/var/log/thingsboard --name mytb --restart always thingsboard/tb-postgres:3.1.1
 ```
 
-## ThingsBoard 3.2.2
-[release-3.2](https://github.com/thingsboard/thingsboard/tree/release-3.2)
+## ThingsBoard 3.2
+[release-3.2](https://github.com/thingsboard/thingsboard/tree/release-3.2), Tags: [v3.2.2](https://github.com/thingsboard/thingsboard/releases/tag/v3.2.2)
 
-## ThingsBoard 3.3.2
-[release-3.3](https://github.com/thingsboard/thingsboard/tree/release-3.3)
+## ThingsBoard 3.3
+[release-3.3](https://github.com/thingsboard/thingsboard/tree/release-3.3), Tags: [v3.3.4.1](https://github.com/thingsboard/thingsboard/releases/tag/v3.3.4.1)
+
+## ThingsBoard 3.4
+[release-3.4](https://github.com/thingsboard/thingsboard/tree/release-3.4), Tags: [v3.4](https://github.com/thingsboard/thingsboard/releases/tag/v3.4)
 
 ## Screenshots
 ![](https://thingsboard.io/images/helloworld/hello-world-step-1-item-1.png)

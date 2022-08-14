@@ -15,3 +15,4 @@ API
     sphinxDocker
     hexoDocker
     jekyllDocker
+    docsifyDocker
