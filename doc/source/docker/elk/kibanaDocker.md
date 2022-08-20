@@ -3,7 +3,7 @@
 Kibana gives shape to any kind of data — structured and unstructured — indexed in Elasticsearch.
 
 ## Docker
-```
+```sh
 docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.4
 docker run -d --name kibana -e ELASTICSEARCH_HOSTS=http://elasticsearchIP:9200 -p 5601:5601 kibana:7.17.4
 ```

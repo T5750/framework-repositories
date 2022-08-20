@@ -3,7 +3,7 @@
 Elasticsearch is a powerful open source search and analytics engine that makes data easy to explore.
 
 ## Docker
-```
+```sh
 docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.9.3
 ```
 
@@ -42,7 +42,7 @@ xpack.security.authc.api_key.enabled: true
 
 ## Tips
 AccessDeniedException: /usr/share/elasticsearch/data/nodes
-```
+```sh
 chmod 777 elasticsearch/*
 ```
 

@@ -2,7 +2,7 @@
 
 ## Docker Compose
 `vi docker-compose.yml`
-```
+```yml
 version: '3'
 services:
   elasticsearch:
@@ -40,7 +40,7 @@ services:
     ports:
       - 4560:4560
 ```
-```
+```sh
 docker-compose up -d
 docker-compose ps
 docker-compose stop
@@ -64,7 +64,7 @@ output {
   }
 }
 ```
-```
+```sh
 docker exec -it logstash /bin/bash
 cd /bin/
 logstash-plugin install logstash-codec-json_lines
