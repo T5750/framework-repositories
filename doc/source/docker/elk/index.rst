@@ -7,6 +7,7 @@ Elasticsearch Logstash Kibana (ELK)
     :numbered: 0
     
     elasticsearchDocker
+    logstashDocker
     kibanaDocker
     dockerELK
     dockerComposeELK
