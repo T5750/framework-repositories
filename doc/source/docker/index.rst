@@ -20,6 +20,7 @@ Docker
     dockerSwarm
     dockerInDocker
     dockerRegistry
+    ouroborosDocker
     pruneDocker
     portainerDocker
     nodejsDocker
