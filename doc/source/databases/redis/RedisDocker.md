@@ -3,7 +3,7 @@
 Redis is an open source key-value store that functions as a data structure server.
 
 ## Redis Standalone in Docker
-```
+```sh
 docker run --name redis -p 6379:6379 -d redis
 ```
 
@@ -15,13 +15,13 @@ docker run --name redis -p 6379:6379 -d redis
 - `sentinel.conf`
 - `redis-sentinel.yml`
 
-```
+```sh
 mkdir redis{1,2,3}
 cp -avx redis.conf sentinel.conf redis1
 ```
 
 ### Tests
-```
+```sh
 docker exec -it redis1 bash
 redis-cli -h redis1 -p 6379
 info replication
@@ -50,7 +50,7 @@ cluster-config-file nodes-6379.conf
 cluster-node-timeout 15000
 ```
 
-```
+```sh
 mkdir r{1,2,3,4,5,6}
 cp -avx redis.conf r1
 
@@ -64,7 +64,7 @@ redis-cli -a 123456 --cluster check 172.18.0.111:6379
 ```
 
 ### Tests
-```
+```sh
 docker exec -it redis2 /usr/local/bin/redis-cli -c -a 123456 -h 172.18.0.112
 set name t5750
 set aaa 111
@@ -97,8 +97,32 @@ CLUSTER COUNTKEYSINSLOT <slot> 返回槽 slot 目前包含的键值对数量
 CLUSTER GETKEYSINSLOT <slot> <count> 返回 count 个 slot 槽中的键
 ```
 
+## Tests
+```sh
+SET spring:string value
+# Hash
+HMSET spring:hash field1 "Hello" field2 "World"
+HGET spring:hash field1
+# List
+lpush spring:list redis mongodb
+lrange spring:list 0 10
+# Set
+sadd spring:set redis mongodb
+smembers spring:set
+# Zset
+zadd spring:zset 0 redis
+zadd spring:zset 10 mongodb
+ZRANGEBYSCORE spring:zset 0 1000
+# SCAN
+scan 0 MATCH spring:* COUNT 100
+hscan spring:hash 0 MATCH field* COUNT 100
+sscan spring:set 0 MATCH re* COUNT 100
+type spring:hash
+```
+
 ## References
 - [docker-compose 搭建 Redis Sentinel 测试环境](https://www.cnblogs.com/leffss/p/12082361.html)
 - [docker-compose 搭建 redis集群](https://www.jianshu.com/p/ce14357cf0b4)
 - [Docker Compose 搭建 Redis Cluster 集群环境](https://www.cnblogs.com/mrhelloworld/p/docker14.html)
 - [Redis Docker](https://hub.docker.com/_/redis)
+- [Redis SCAN 命令](https://redis.com.cn/commands/scan.html)
