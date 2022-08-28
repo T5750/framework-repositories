@@ -7,3 +7,4 @@ Exchange
     
     debeziumDocker
     canalDocker
+    streamsetsDocker
