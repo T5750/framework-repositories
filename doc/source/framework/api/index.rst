@@ -16,3 +16,5 @@ API
     hexoDocker
     jekyllDocker
     docsifyDocker
+    gitbookDocker
+    bookstackDocker
