@@ -2,7 +2,7 @@
 
 ## 创建 Node.js 应用
 `vi package.json`
-```
+```json
 {
   "name": "docker_web_app",
   "version": "1.0.0",
@@ -18,7 +18,7 @@
 }
 ```
 `vi server.js`
-```
+```js
 'use strict';
 const express = require('express');
 // Constants
@@ -36,7 +36,7 @@ console.log(`Running on http://${HOST}:${PORT}`);
 ## 创建一个名称为 Dockerfile 的文件
 `touch Dockerfile`
 ```
-FROM node:10
+FROM node:16
 # Create app directory
 WORKDIR /usr/src/app
 # Install app dependencies
@@ -60,12 +60,12 @@ npm-debug.log
 ```
 
 ## 构建你的镜像
-```
+```sh
 docker build . -t t5750/node-web-app
 ```
 
 ## 运行镜像
-```
+```sh
 docker run -p 49160:8080 -d --rm --name node-web-app t5750/node-web-app
 ```
 - [http://localhost:49160](http://localhost:49160)

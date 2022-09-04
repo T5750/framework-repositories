@@ -10,12 +10,12 @@ nginx
     nginxUtil
     nginxCollection
     splitBrainKeepalived
+    nginxDocker
     nginxLocation
     nginxStatistics
     nginxLogs
     nginxInitScript
     nginxVideos
-    nginxDocker
     lua/index
     fastdfs/index
     minio/index
