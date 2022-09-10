@@ -7,7 +7,7 @@
 ## What's included
 A ~ C | D ~ G | H ~ L | M ~ O | P ~ R | S | T ~ U | V ~ Z
 ----|----|----|----|----|----|----|----
-[ActiveMQ](module/activemq.md) | [Derby](module/databases/derby.md) | [Hadoop](module/big-data/hadoop.md) | [Memcached](module/databases/memcached.md) | [Pig](module/big-data/pig.md) | [Solr](module/big-data/solr.md) | [Tests](module/framework/tests) | [ZooKeeper](module/zookeeper.md)
+[ActiveMQ](module/activemq.md) | [Derby](module/databases/derby.md) | [Hadoop](module/big-data/hadoop.md) | [Memcached](module/databases/memcached.md) | [Pig](module/big-data/pig.md) | [Solr](module/big-data/solr.md) | [Tests](doc/source/framework/tests) | [ZooKeeper](module/zookeeper.md)
 [API](doc/source/framework/api) | [DevOps](doc/source/devops) | [HBase](module/big-data/hbase.md) | [Mina](module/network/mina.md) | [PostgreSQL](module/databases/postgresql.md) | [Spark SQL](module/big-data/spark.md) | [ThingsBoard](module/framework/iot/thingsboard.md) |
 [AVS](doc/source/framework/avs) | [Docker](doc/docker/docker.md) | [Hive](module/big-data/hive.md) | [MinIO](doc/source/nginx/minio) | [Python](doc/source/framework/python) | [Spring](module/spring/README.md) |  |
 [CAS](doc/source/framework/sso) | [Dubbo](doc/source/rpc) | [HttpClient](module/network/README.md) | [MongoDB](module/databases/mongo.md) | [Redis](module/databases/redis.md) | [Spring Boot](module/spring-boot/README.md) |  |
