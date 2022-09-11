@@ -3,7 +3,7 @@
 Welcome to the revolutionary video analytics and video management platform. Open, modular, and extensible for everyone, anywhere.
 
 ## Docker
-```
+```sh
 docker run --name kerberos -p 8080:80 -p 8889:8889 -d kerberos/kerberos
 ```
 [http://localhost:8080/](http://localhost:8080/)

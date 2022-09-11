@@ -1,5 +1,7 @@
 # LIVE555 Docker
 
+A complete RTSP server application.
+
 ## Docker Compose
 `live555.yml`
 
@@ -11,3 +13,4 @@ mp4 为常见格式，但无法被 LIVE555 Media Server 使用，可使用 [Conv
 ## References
 - [vimagick/LIVE555 Docker](https://hub.docker.com/r/vimagick/live555)
 - [使用 Docker 建立 LIVE555 Media Server](https://fpjs.fun/rtsp/live555-docker/)
+- [LIVE555](http://live555.com/)

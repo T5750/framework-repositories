@@ -1,7 +1,9 @@
 # SRS Docker
 
+SRS is a simple, high efficiency and realtime video server, supports RTMP, WebRTC, HLS, HTTP-FLV and SRT.
+
 ## Docker
-```
+```sh
 docker run -d --name srs -p 1935:1935 -p 1985:1985 -p 8080:8080 ossrs/srs:3
 ```
 
@@ -11,7 +13,7 @@ docker run -d --name srs -p 1935:1935 -p 1985:1985 -p 8080:8080 ossrs/srs:3
 [http://localhost:8080/](http://localhost:8080/)
 
 then publish stream by:
-```
+```sh
 ffmpeg -re -i doc/source.200kbps.768x320.flv -c copy \
     -f flv rtmp://localhost/live/livestream
 
@@ -22,7 +24,7 @@ docker run --rm --network=host registry.cn-hangzhou.aliyuncs.com/ossrs/srs:encod
 ```
 
 ## Config
-```
+```sh
 docker run --rm -p 1935:1935 -p 1985:1985 -p 8080:8080 \
     -v /path/of/yours.conf:/usr/local/srs/conf/srs.conf \
     ossrs/srs:3
