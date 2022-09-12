@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+    - MYSQL_ROOT_PASSWORD=secret
+    - MYSQL_DATABASE=bookstack
+    - MYSQL_USER=bookstack
+    - MYSQL_PASSWORD=secret
+    volumes:
+    - mysql-data:/var/lib/mysql
+  bookstack:
+    image: solidnerd/bookstack
+    depends_on:
+    - mysql
+    environment:
+    - DB_HOST=mysql:3306
+    - DB_DATABASE=bookstack
+    - DB_USERNAME=bookstack
+    - DB_PASSWORD=secret
+    #set the APP_ to the URL of bookstack without without a trailing slash APP_URL=https://example.com
+    - APP_URL=http://example.com
+    volumes:
+    - uploads:/var/www/bookstack/public/uploads
+    - storage-uploads:/var/www/bookstack/storage/uploads
+    ports:
+    - 8080:8080
+volumes:
+ mysql-data:
+ uploads:
+ storage-uploads:
