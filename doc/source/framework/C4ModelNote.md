@@ -23,7 +23,7 @@
 ### Level 1: System Context diagram
 ![](https://c4model.com/img/bigbankplc-SystemContext.png)
 
-### Level 2: Container diagram 
+### Level 2: Container diagram
 ![](https://c4model.com/img/bigbankplc-Containers.png)
 
 ### Level 3: Component diagram

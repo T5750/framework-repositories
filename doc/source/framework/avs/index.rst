@@ -10,3 +10,4 @@ AVS
     openmeetingsDocker
     live555Docker
     kerberosDocker
+    embyDocker
