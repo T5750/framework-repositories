@@ -11,3 +11,4 @@ AVS
     live555Docker
     kerberosDocker
     embyDocker
+    jellyfinDocker
