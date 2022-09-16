@@ -12,3 +12,4 @@ AVS
     kerberosDocker
     embyDocker
     jellyfinDocker
+    plexDocker
