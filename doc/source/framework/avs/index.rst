@@ -13,3 +13,4 @@ AVS
     embyDocker
     jellyfinDocker
     plexDocker
+    ombiDocker
