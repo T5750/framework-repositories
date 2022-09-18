@@ -19,3 +19,4 @@ Framework
     cms/index
     python/index
     comments/index
+    crm/index
