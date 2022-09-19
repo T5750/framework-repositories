@@ -7,6 +7,7 @@ AVS
     
     easydarwinDocker
     srsDocker
+    zLMediaKitDocker
     openmeetingsDocker
     live555Docker
     kerberosDocker
