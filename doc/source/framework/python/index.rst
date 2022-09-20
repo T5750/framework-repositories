@@ -8,3 +8,4 @@ Python
     pythonDocker
     portiaDocker
     pytorchDocker
+    mealieDocker
