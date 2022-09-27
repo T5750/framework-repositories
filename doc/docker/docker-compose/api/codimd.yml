@@ -1,0 +1,20 @@
+version: "3"
+services:
+  codimd:
+    restart: always
+    image: hackmdio/hackmd:2.4.2
+    container_name: codimd
+    hostname: codimd
+    environment:
+      #- CMD_DB_URL=postgres://codimd:change_password@database/codimd
+      - CMD_DB_URL=mysql://root:123456@mysqlIP/codimd
+      - CMD_USECDN=false
+      - CMD_ALLOW_ANONYMOUS=true
+      - CMD_ALLOW_ANONYMOUS_EDITS=true
+    ports:
+      - 3000:3000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - upload-data:/home/hackmd/app/public/uploads
+volumes:
+  upload-data: {}
