@@ -18,3 +18,4 @@ API
     docsifyDocker
     gitbookDocker
     bookstackDocker
+    codimdDocker
