@@ -26,6 +26,8 @@
 - init 0 关闭系统
 - telinit 0 关闭系统
 - shutdown -h hours:minutes & 按预定时间关闭系统
+- `sudo shutdown -h +120` 两小时后关机
+- `sudo shutdown -h 23:00` 表示在23点定时关机
 - shutdown -c 取消按预定时间关闭系统
 - shutdown -r now 重启
 - reboot 重启
