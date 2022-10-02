@@ -1,0 +1,19 @@
+version: "3"
+services:
+  hedgedoc:
+    restart: always
+    image: quay.io/hedgedoc/hedgedoc:1.9.4
+    container_name: hedgedoc
+    hostname: hedgedoc
+    environment:
+      #- CMD_DB_URL=postgres://hedgedoc:password@database:5432/hedgedoc
+      - CMD_DB_URL=mysql://root:123456@mysqlIP/hedgedoc
+      - CMD_DOMAIN=localhost
+      - CMD_URL_ADDPORT=true
+    ports:
+      - 3000:3000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - uploads:/hedgedoc/public/uploads
+volumes:
+  uploads:

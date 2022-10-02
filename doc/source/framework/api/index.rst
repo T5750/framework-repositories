@@ -19,3 +19,4 @@ API
     gitbookDocker
     bookstackDocker
     codimdDocker
+    hedgedocDocker
