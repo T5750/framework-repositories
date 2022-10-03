@@ -15,3 +15,4 @@ AVS
     jellyfinDocker
     plexDocker
     ombiDocker
+    cumulusclipsDocker
