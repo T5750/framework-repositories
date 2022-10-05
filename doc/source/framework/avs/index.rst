@@ -9,6 +9,7 @@ AVS
     srsDocker
     zLMediaKitDocker
     wvpProDocker
+    red5Docker
     openmeetingsDocker
     live555Docker
     kerberosDocker
