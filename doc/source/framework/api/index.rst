@@ -20,3 +20,4 @@ API
     bookstackDocker
     codimdDocker
     hedgedocDocker
+    mkdocsDocker
