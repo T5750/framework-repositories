@@ -12,6 +12,7 @@ AVS
     red5Docker
     openmeetingsDocker
     live555Docker
+    mistserverDocker
     kerberosDocker
     embyDocker
     jellyfinDocker

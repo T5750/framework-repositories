@@ -54,6 +54,41 @@ ffmpeg -re -i "/test.mp4" -vcodec h265 -acodec aac -f rtp_mpegts rtp://127.0.0.1
 
 `FMP4MediaSource`支持 http-fmp4播放、ws-fmp4播放
 
+rtmp类型的流媒体源也支持http-flv、websocket直播，对应的url如下：
+- http://somedomain.com/live/0.live.flv
+- https://somedomain.com/live/0.live.flv
+- http://127.0.0.1/live/0.live.flv?vhost=somedomain.com
+- https://127.0.0.1/live/0.live.flv?vhost=somedomain.com
+- ws://somedomain.com/live/0.live.flv
+- wss://somedomain.com/live/0.live.flv
+- ws://127.0.0.1/live/0.live.flv?vhost=somedomain.com
+- wss://127.0.0.1/live/0.live.flv?vhost=somedomain.com
+
+ZLMediaKit一般会把rtsp、rtmp流媒体源互相转换，也会转换成hls/http-ts/ws-ts/http-fmp4/ws-fmp4，播放的url如下：
+- HLS
+    + http://somedomain.com/live/0/hls.m3u8
+    + https://somedomain.com/live/0/hls.m3u8
+    + http://127.0.0.1/live/0/hls.m3u8?vhost=somedomain.com
+    + https://127.0.0.1/live/0/hls.m3u8?vhost=somedomain.com
+- HTTP-TS/WS-TS(后缀为`.live.ts`,目的是为了解决与hls的冲突)
+    + http://somedomain.com/live/0.live.ts
+    + https://somedomain.com/live/0.live.ts
+    + http://127.0.0.1/live/0.live.ts?vhost=somedomain.com
+    + https://127.0.0.1/live/0.live.ts?vhost=somedomain.com
+    + ws://somedomain.com/live/0.live.ts
+    + wss://somedomain.com/live/0.live.ts
+    + ws://127.0.0.1/live/0.live.ts?vhost=somedomain.com
+    + wss://127.0.0.1/live/0.live.ts?vhost=somedomain.com
+- HTTP-fMP4/WS-fMP4(后缀为`.live.mp4`,目的是为了解决与mp4点播的冲突)
+    + http://somedomain.com/live/0.live.mp4
+    + https://somedomain.com/live/0.live.mp4
+    + http://127.0.0.1/live/0.live.mp4?vhost=somedomain.com
+    + https://127.0.0.1/live/0.live.mp4?vhost=somedomain.com
+    + ws://somedomain.com/live/0.live.mp4
+    + wss://somedomain.com/live/0.live.mp4
+    + ws://127.0.0.1/live/0.live.mp4?vhost=somedomain.com
+    + wss://127.0.0.1/live/0.live.mp4?vhost=somedomain.com
+
 ## 合作项目
 - 可视化管理网站
     + [最新的前后端分离web项目,支持webrtc播放](https://github.com/langmansh/AKStreamNVR)
