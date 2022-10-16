@@ -32,3 +32,4 @@ DevOps
     gateoneDocker
     jiraDocker
     adguardHomeDocker
+    piholeDocker
