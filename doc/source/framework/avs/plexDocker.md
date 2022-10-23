@@ -2,6 +2,11 @@
 
 Watch free live TV, instantly.
 
+## Watch Free
+- [TV Channel Finder](https://www.plex.tv/zh/live-tv-channels/)
+- [What to Watch](https://www.plex.tv/what-to-watch)
+- [A24 collection](https://www.plex.tv/a24-movies)
+
 ## Docker
 ```sh
 docker run \
@@ -39,3 +44,4 @@ plexinc/pms-docker
 ## References
 - [Plex](https://www.plex.tv/)
 - [Plex GitHub](https://github.com/plexinc/pms-docker)
+- [Plex Docker](https://hub.docker.com/r/plexinc/pms-docker)

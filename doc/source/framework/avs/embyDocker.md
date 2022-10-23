@@ -49,6 +49,9 @@ services:
     restart: unless-stopped
 ```
 
+## Runtime Environment
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet)
+
 ## Screenshots
 ![](https://emby.media/resources/about_manage1.png)
 
@@ -57,6 +60,6 @@ services:
 ![](https://emby.media/resources/msg-3-0-39164600-1443639466.png)
 
 ## References
-- [Emby](https://emby.media/about.html)
+- [Emby](https://emby.media/)
 - [Emby GitHub](https://github.com/MediaBrowser/Emby)
 - [Emby Docker](https://hub.docker.com/r/emby/embyserver)

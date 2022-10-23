@@ -2,6 +2,9 @@
 
 The Free Software Media System
 
+## Demo
+[See it in Action](https://demo.jellyfin.org/stable)
+
 ## Docker
 ```sh
 mkdir -p $PWD/jellyfin/{config,cache}
@@ -28,6 +31,9 @@ services:
     environment:
       - JELLYFIN_PublishedServerUrl=http://example.com
 ```
+
+## Runtime Environment
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet)
 
 ## Screenshots
 ![](https://jellyfin.org/images/screenshots/home_full.png)

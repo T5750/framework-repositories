@@ -34,6 +34,9 @@ services:
 ### Failed to create CoreCLR, HResult: 0x80070008
 [https://docs.linuxserver.io/faq#jammy](https://docs.linuxserver.io/faq#jammy)
 
+## Runtime Environment
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet)
+
 ## Screenshots
 ![](https://i.imgur.com/kBXIqer.png)
 

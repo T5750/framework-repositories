@@ -7,6 +7,7 @@ AVS
     
     easydarwinDocker
     srsDocker
+    ffmpegDocker
     zLMediaKitDocker
     wvpProDocker
     red5Docker
