@@ -33,3 +33,4 @@ DevOps
     jiraDocker
     adguardHomeDocker
     piholeDocker
+    heimdallDocker
