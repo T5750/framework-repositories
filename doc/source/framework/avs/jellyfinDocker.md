@@ -50,3 +50,6 @@ services:
 - [Jellyfin Docker](https://jellyfin.org/docs/general/administration/installing.html)
 - [Jellyfin GitHub](https://github.com/jellyfin/jellyfin)
 - [Jellyfin API](https://api.jellyfin.org/)
+- [Jellyfin Android TV](https://github.com/jellyfin/jellyfin-androidtv/releases)
+- [Jellyfin Android](https://github.com/jellyfin/jellyfin-android/releases)
+- [Jellyfin Media Player](https://github.com/jellyfin/jellyfin-media-player)
