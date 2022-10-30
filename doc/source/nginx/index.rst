@@ -21,3 +21,4 @@ nginx
     minio/index
     haproxy/index
     traefik/index
+    jackett/index

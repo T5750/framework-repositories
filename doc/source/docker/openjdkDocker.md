@@ -12,14 +12,21 @@ WORKDIR /usr/src/myapp
 RUN javac Main.java
 CMD ["java", "Main"]
 ```
-```
+```sh
 $ docker build -t my-java-app .
 $ docker run -it --rm --name my-running-app my-java-app
 ```
 
 ### Compile your app inside the Docker container
-```
+```sh
 $ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 javac Main.java
+```
+
+### Simple Tags
+```sh
+docker pull openjdk:8
+docker pull openjdk:8-slim
+docker pull openjdk:8-jre-slim
 ```
 
 ## References
