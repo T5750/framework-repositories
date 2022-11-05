@@ -15,3 +15,4 @@ ZooKeeper
     ZooKeeperManagement
     ZooKeeperDocker
     ZooKeeperWebuiDocker
+    zooNavigatorDocker
