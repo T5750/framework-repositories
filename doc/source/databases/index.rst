@@ -5,16 +5,16 @@ Databases
     :maxdepth: 3
     :numbered: 0
     
+    cassandra/index
+    couchbase/index
     derby/DerbyQuickStart
+    exchange/index
+    influxdb/index
     kettle/KettleCollection
+    memcached/index
+    mongo/index
     mysql/index
     oracle/index
-    redis/index
     postgresql/index
-    cassandra/index
-    mongo/index
-    couchbase/index
-    memcached/index
-    influxdb/index
-    exchange/index
+    redis/index
     sqlite/index

@@ -9,14 +9,14 @@ Framework
     architect/index
     avs/index
     C4ModelNote
+    cms/index
+    comments/index
+    crm/index
+    erp/index
     iot/index
+    netdisc/index
     pm/index
+    python/index
     softSkills
     sso/index
     tests/index
-    netdisc/index
-    erp/index
-    cms/index
-    python/index
-    comments/index
-    crm/index
