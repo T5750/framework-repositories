@@ -9,6 +9,7 @@ DevOps
     jenkinsLTSDocker
     jenkinsPipeline
     nexusDocker
+    giteaDocker
     gitlabDocker
     zentaoDocker
     nacosDocker
@@ -34,3 +35,4 @@ DevOps
     adguardHomeDocker
     piholeDocker
     heimdallDocker
+    wireguardDocker
