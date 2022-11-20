@@ -10,6 +10,10 @@ MinIO is a High Performance Object Storage released under Apache License v2.0. I
 
 [http://localhost:9000/](http://localhost:9000/)
 
+### 永久的访问路径
+- Edit policy -> Prefix: `public` -> Add
+- http://localhost:9000/bucket/public/filename
+
 ## Architecture
 ![](http://www.minio.org.cn/static/picture/architecture_diagram.svg)
 
