@@ -11,6 +11,7 @@ nginx
     nginxCollection
     splitBrainKeepalived
     nginxDocker
+    nginxProxyManagerDocker
     nginxLocation
     nginxStatistics
     nginxLogs
