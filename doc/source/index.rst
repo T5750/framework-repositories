@@ -26,8 +26,8 @@ Framework Repositories
    linux/index
    mq/index
    network/index
-   nginx/index
    open-source/index
+   proxy/index
    rest/index
    rpc/index
    spring/index
