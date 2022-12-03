@@ -2,7 +2,7 @@
 
 ## Docker Compose
 `vi docker-compose.yml`
-```yml
+```
 version: '3'
 services:
   elasticsearch:
