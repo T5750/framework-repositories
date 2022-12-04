@@ -22,6 +22,7 @@ Docker
     dockerRegistry
     ouroborosDocker
     watchtowerDocker
+    docklyDocker
     pruneDocker
     portainerDocker
     nodejsDocker
