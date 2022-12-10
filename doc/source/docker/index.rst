@@ -20,9 +20,11 @@ Docker
     dockerSwarm
     dockerInDocker
     dockerRegistry
+    dockerUtilities
     ouroborosDocker
     watchtowerDocker
     docklyDocker
+    dozzleDocker
     pruneDocker
     portainerDocker
     nodejsDocker
