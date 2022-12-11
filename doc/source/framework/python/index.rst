@@ -9,3 +9,4 @@ Python
     portiaDocker
     pytorchDocker
     mealieDocker
+    searxDocker
