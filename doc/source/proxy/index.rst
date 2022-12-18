@@ -17,6 +17,7 @@ Proxy
     nginxLogs
     nginxInitScript
     nginxVideos
+    caddyDocker
     lua/index
     fastdfs/index
     minio/index
