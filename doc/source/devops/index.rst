@@ -36,3 +36,4 @@ DevOps
     piholeDocker
     heimdallDocker
     wireguardDocker
+    vaultwardenDocker
