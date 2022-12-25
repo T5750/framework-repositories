@@ -17,3 +17,4 @@ Netdisc
     libreofficeDocker
     zfileDocker
     cloudreveDocker
+    filebrowserDocker
