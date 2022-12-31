@@ -17,6 +17,7 @@ Docker
     dockerDockerfile
     dockerHub
     dockerCLI
+    pruneDocker
     dockerSwarm
     dockerInDocker
     dockerRegistry
@@ -25,7 +26,6 @@ Docker
     watchtowerDocker
     docklyDocker
     dozzleDocker
-    pruneDocker
     portainerDocker
     nodejsDocker
     rancherDocker
