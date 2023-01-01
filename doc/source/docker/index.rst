@@ -31,4 +31,5 @@ Docker
     rancherDocker
     arthasDocker
     openjdkDocker
+    theiaDocker
     kubernetes/index
