@@ -4,6 +4,7 @@ Web File Browser
 
 ## Docker
 ```sh
+docker run -d --name filebrowser -p 8080:80 filebrowser/filebrowser
 docker run \
     -v /path/to/root:/srv \
     -v /path/filebrowser.db:/database.db \
@@ -12,7 +13,8 @@ docker run \
     -p 8080:80 \
     filebrowser/filebrowser
 ```
-[http://localhost:8080/](http://localhost:8080/)
+- [http://localhost:8080/](http://localhost:8080/)
+- User: admin / admin
 
 ## Runtime Environment
 - [Go v1.13](https://github.com/golang/go)

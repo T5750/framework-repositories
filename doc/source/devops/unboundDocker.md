@@ -38,7 +38,8 @@ mvance/unbound
 ```
 
 ## References
-- [Unbound Docker](https://hub.docker.com/r/mvance/unbound)
+- [mvance/unbound Docker](https://hub.docker.com/r/mvance/unbound)
+- [MatthewVance/unbound-docker](https://github.com/MatthewVance/unbound-docker)
 - [Unbound GitHub](https://github.com/NLnetLabs/unbound)
 - [Unbound](https://nlnetlabs.nl/unbound)
 - [Unbound documentation](https://unbound.docs.nlnetlabs.nl/)
