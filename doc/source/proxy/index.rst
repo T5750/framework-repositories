@@ -18,6 +18,7 @@ Proxy
     nginxInitScript
     nginxVideos
     caddyDocker
+    trafficserverDocker
     lua/index
     fastdfs/index
     minio/index
