@@ -29,6 +29,12 @@ A complete, cross-platform solution to record, convert and stream audio and vide
 * [ffprobe](https://ffmpeg.org/ffprobe.html) is a simple analysis tool to inspect multimedia content.
 * Additional small tools such as `aviocat`, `ismindex` and `qt-faststart`.
 
+## Generic options
+```sh
+ffmpeg -help
+ffmpeg -encoders
+```
+
 ## Docker
 ```sh
 # mp4 -> avi
@@ -40,12 +46,12 @@ docker run --rm -it \
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
-  -i /config/input.mp4 -vf scale=640:640/a -c:a copy /config/output-640.mp4
+  -i /config/input.mp4 -vf scale=640:640/a -c:v libopenh264 -c:a copy /config/output-640.mp4
 # 高度固定，宽度按比例
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
-  -i /config/input.mp4 -vf scale=480*a:480 -c:a copy /config/output-480.mp4
+  -i /config/input.mp4 -vf scale=480*a:480 -c:v libopenh264 -c:a copy /config/output-480.mp4
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
