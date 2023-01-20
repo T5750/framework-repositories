@@ -13,6 +13,17 @@ docker run -d --name trafficserver -p 8080:8080 shaker/trafficserver
 docker run -d --name trafficserver -p 8080:8080 /MY-CONFIGS/trafficserver/:/etc/trafficserver/ shaker/trafficserver
 ```
 
+## Tests
+```sh
+docker exec -it trafficserver bash
+/opt/trafficserver/bin/traffic_logcat /opt/trafficserver/var/log/trafficserver/squid.blog
+cat /opt/trafficserver/var/log/trafficserver/diags.log
+apt-get update && apt-get install -y vim
+vi /etc/trafficserver/remap.config
+map http://localhost:8080/ https://www.baidu.com
+docker restart trafficserver
+```
+
 ## Screenshots
 ![](https://docs.trafficserver.apache.org/en/latest/_images/records.jpg)
 
@@ -22,3 +33,4 @@ docker run -d --name trafficserver -p 8080:8080 /MY-CONFIGS/trafficserver/:/etc/
 - [shaker/trafficserver Docker](https://hub.docker.com/r/shaker/trafficserver)
 - [shaker/trafficserver GitHub](https://github.com/sqawasmi/trafficserver-docker)
 - [Access Control Plugin](https://docs.trafficserver.apache.org/en/latest/admin-guide/plugins/access_control.en.html)
+- [Getting Started](https://docs.trafficserver.apache.org/en/latest/getting-started/index.en.html)
