@@ -9,3 +9,4 @@ Open Source
     openSourceLicenses
     gitHubSecurity
     gitHubGitLab
+    gitLabPages
