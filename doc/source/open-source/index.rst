@@ -10,3 +10,4 @@ Open Source
     gitHubSecurity
     gitHubGitLab
     gitLabPages
+    gitLabPagesGitbook
