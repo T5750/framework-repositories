@@ -22,3 +22,4 @@ API
     hedgedocDocker
     mkdocsDocker
     dokuwikiDocker
+    hugoDocker

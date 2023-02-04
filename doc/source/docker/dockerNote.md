@@ -55,5 +55,16 @@ apt-get install curl
 yum install -y curl
 ```
 
+## `dig`
+### For Ubuntu/Debian
+```sh
+apt-get install -y dnsutils
+```
+
+### For CentOS/Fedora
+```sh
+yum install -y bind-utils
+```
+
 ## References
 - [Run vi Editor Inside Docker Container](https://www.baeldung.com/linux/vi-editor-inside-docker-container)
