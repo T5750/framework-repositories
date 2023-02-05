@@ -34,6 +34,7 @@ DevOps
     jiraDocker
     adguardHomeDocker
     piholeDocker
+    cloudflaredDocker
     heimdallDocker
     wireguardDocker
     vaultwardenDocker

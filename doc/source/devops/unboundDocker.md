@@ -25,6 +25,11 @@ docker run --name my-unbound -d -p 53:53/udp -v \
 $(pwd)/a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro \
 --restart=always mvance/unbound
 ```
+```sh
+dig laptop.local.
+dig laptop.local. @localhost
+dig baidu.com @localhost
+```
 
 ### Serve Custom DNS Records for Local Network
 ```sh

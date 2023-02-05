@@ -3,7 +3,7 @@
 Network-wide Ad Blocking
 
 ## Docker Compose
-```
+```yaml
 version: "3"
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
@@ -29,6 +29,33 @@ services:
     restart: unless-stopped
 ```
 
+## Pi-hole with cloudflared DoH
+This example provides a base setup for using [Pi-hole](https://docs.pi-hole.net/) with the [cloudflared DoH](https://docs.pi-hole.net/guides/dns/cloudflared/) service.
+More details on how to customize the installation and the compose file can be found in [Docker Pi-hole documentation](https://github.com/pi-hole/docker-pi-hole).
+
+[compose.yaml](https://github.com/docker/awesome-compose/blob/master/pihole-cloudflared-DoH/compose.yaml)
+```yaml
+version: '3.7'
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "8080:80/tcp"
+      - "8443:443/tcp"
+    network_mode: "host"
+  cloudflared:
+    image: visibilityspots/cloudflared
+    container_name: cloudflared
+    ports:
+      - "5054:5054/tcp"
+      - "5054:5054/udp"
+    network_mode: "host"
+```
+
 ## Screenshots
 ![](https://i0.wp.com/pi-hole.net/wp-content/uploads/2018/12/dashboard.png?zoom=1.75&w=3840&ssl=1)
 
@@ -39,3 +66,4 @@ services:
 ## References
 - [Pi-hole](https://pi-hole.net/)
 - [Pi-hole Docker](https://github.com/pi-hole/docker-pi-hole)
+- [Pi-hole with cloudflared DoH](https://github.com/docker/awesome-compose/tree/master/pihole-cloudflared-DoH)
