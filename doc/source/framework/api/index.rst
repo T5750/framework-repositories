@@ -23,3 +23,4 @@ API
     mkdocsDocker
     dokuwikiDocker
     hugoDocker
+    docsyDocker
