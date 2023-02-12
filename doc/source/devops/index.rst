@@ -39,3 +39,4 @@ DevOps
     wireguardDocker
     vaultwardenDocker
     unboundDocker
+    sonicDocker
