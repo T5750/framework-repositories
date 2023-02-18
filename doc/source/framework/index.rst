@@ -5,6 +5,7 @@ Framework
     :maxdepth: 3
     :numbered: 0
     
+    ai/index
     api/index
     architect/index
     avs/index
