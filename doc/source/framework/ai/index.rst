@@ -6,3 +6,4 @@ AI
     :numbered: 0
     
     tensorflowDocker
+    labelStudioDocker

@@ -21,6 +21,15 @@ docker-compose -f docker-compose-zh.yml up -d
 2. 将 `docker-compose.yml` 的 `SONIC_EUREKA_HOST` 填写为自己 Eureka 服务的 host。
 3. 将`.env` 中的配置修改为自己 Eureka 服务的信息。
 
+## Agent 端部署
+### jar 方式部署
+```sh
+java -Dfile.encoding=utf-8 -jar sonic-agent-xxxx.jar
+```
+
+### Docker 部署
+Docker部署仅 Ubuntu 可用！
+
 ## Screenshots
 ![](https://sonic-cloud.cn/assets/use-p.c3c13f6a.png)
 
