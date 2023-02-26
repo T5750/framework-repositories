@@ -24,3 +24,4 @@ API
     dokuwikiDocker
     hugoDocker
     docsyDocker
+    jupyterDocker
