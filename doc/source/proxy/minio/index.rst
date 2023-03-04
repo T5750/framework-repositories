@@ -9,3 +9,4 @@ MinIO
     minioClientDocker
     minioConsoleDocker
     minioDockerSwarm
+    rcloneDocker
