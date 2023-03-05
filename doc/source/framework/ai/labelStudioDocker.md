@@ -2,6 +2,13 @@
 
 Label Studio is a multi-type data labeling and annotation tool with standardized output format
 
+## Playground
+[Playground](https://labelstud.io/playground/)
+
+## Documentation
+- [Customizable Tags](https://labelstud.io/tags)
+- [Labeling Templates](https://labelstud.io/templates)
+
 ## Docker
 ```sh
 docker run -it --name label-studio -p 8080:8080 -v `pwd`/mydata:/label-studio/data heartexlabs/label-studio
@@ -35,6 +42,19 @@ conda activate label-studio
 pip install label-studio
 ```
 
+## Import Data
+### Cloud storage setup
+#### Amazon S3
+1. Open Label Studio in your web browser.
+2. For a specific project, open **Settings > Cloud Storage**.
+3. Click **Add Source Storage**.
+4. In the dialog box that appears, select **Amazon S3** as the storage type.
+5. In the **Storage Title** field, type a name for the storage to appear in the Label Studio UI.
+6. Specify the name of the S3 bucket, and if relevant, the bucket prefix to specify an internal folder or container.
+7. Adjust the remaining parameters:
+    - Bucket Name, S3 Endpoint, Access Key ID, Secret Access Key
+8. Click **Add Storage**.
+
 ## Screenshots
 ![Gif of Label Studio annotating different types of data](https://raw.githubusercontent.com/heartexlabs/label-studio/master/images/annotation_examples.gif)
 
@@ -53,3 +73,5 @@ Configs and boilerplates for Label Studio's Machine Learning backend
 - [Label Studio Docker](https://hub.docker.com/r/heartexlabs/label-studio)
 - [Get started with Label Studio](https://labelstud.io/guide/index.html)
 - [Label Studio ML backend GitHub](https://github.com/heartexlabs/label-studio-ml-backend)
+- [Cloud storage setup](https://labelstud.io/guide/storage.html)
+- [Database setup](https://labelstud.io/guide/storedata.html)

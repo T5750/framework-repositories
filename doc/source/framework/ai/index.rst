@@ -7,3 +7,5 @@ AI
     
     tensorflowDocker
     labelStudioDocker
+    makesenseDocker
+    faceRecognitionDocker
