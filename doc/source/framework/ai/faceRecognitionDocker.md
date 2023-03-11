@@ -38,3 +38,4 @@ Identify faces in pictures
 
 ## References
 - [Face Recognition GitHub](https://github.com/ageitgey/face_recognition)
+- [Face Recognition API](https://face-recognition.readthedocs.io)
