@@ -11,6 +11,7 @@ Framework
     architect/index
     avs/index
     C4ModelNote
+    cloudNative/index
     cms/index
     comments/index
     crm/index

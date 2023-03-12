@@ -9,3 +9,4 @@ AI
     labelStudioDocker
     makesenseDocker
     faceRecognitionDocker
+    paddlepaddleDocker
