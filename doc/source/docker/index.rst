@@ -32,4 +32,5 @@ Docker
     arthasDocker
     openjdkDocker
     theiaDocker
+    flutterDocker
     kubernetes/index

@@ -12,3 +12,4 @@ Content Management System (CMS)
     opencmsDocker
     mcmsDocker
     drupalDocker
+    wagtailDocker
