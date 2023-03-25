@@ -13,6 +13,11 @@ pip install jupyterlab
 jupyter-lab
 ```
 
+### Upgrade
+```sh
+pip install --upgrade jupyterlab
+```
+
 ### Screenshots
 ![](https://jupyter.org/assets/homepage/labpreview.webp)
 

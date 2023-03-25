@@ -10,3 +10,4 @@ AI
     makesenseDocker
     faceRecognitionDocker
     paddlepaddleDocker
+    visualdlDocker
