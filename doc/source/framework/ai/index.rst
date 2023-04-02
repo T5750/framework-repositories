@@ -10,6 +10,8 @@ AI
     makesenseDocker
     faceRecognitionDocker
     paddlepaddleDocker
+    paddleOCR
+    paddleDetectionDocker
     paddleLiteDocker
     fastDeploy
     visualdlDocker
