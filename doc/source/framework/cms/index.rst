@@ -13,3 +13,4 @@ Content Management System (CMS)
     mcmsDocker
     drupalDocker
     wagtailDocker
+    memosDocker
