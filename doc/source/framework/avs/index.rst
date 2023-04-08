@@ -21,3 +21,4 @@ AVS
     plexDocker
     ombiDocker
     cumulusclipsDocker
+    janusDocker
