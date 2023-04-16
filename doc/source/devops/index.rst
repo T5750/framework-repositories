@@ -40,3 +40,4 @@ DevOps
     vaultwardenDocker
     unboundDocker
     sonicDocker
+    teleportDocker
