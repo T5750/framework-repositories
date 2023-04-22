@@ -33,5 +33,6 @@ MySQL
     mysqlMycnf
     mysqlDocker
     phpmyadminDocker
+    adminerDocker
     yearningDocker
     locks
