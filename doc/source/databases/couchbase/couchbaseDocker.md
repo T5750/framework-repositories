@@ -2,6 +2,11 @@
 
 [Couchbase Server](https://www.couchbase.com/products/server) is a NoSQL document database with a distributed architecture for performance, scalability, and availability. It enables developers to build applications easier and faster by leveraging the power of SQL with the flexibility of JSON.
 
+## Docker
+```sh
+docker run -d --name db -p 8091-8097:8091-8097 -p 9123:9123 -p 11207:11207 -p 11210:11210 -p 11280:11280 -p 18091-18097:18091-18097 couchbase
+```
+
 ## Docker Compose
 `couchbase.yml`
 
@@ -45,6 +50,23 @@ This model is commonly used for production deployments.
 └───────────────────────┘  └───────────────────────┘  └───────────────────────┘
 ```
 
+## Running A N1QL Query on the Couchbase Server Cluster
+N1QL is the SQL based query language for Couchbase Server. Simply switch to the Query tab on the Web Console at `http://localhost:8091` and run the following N1QL Query in the query window:
+```
+SELECT name FROM `beer-sample` WHERE brewery_id="mishawaka_brewing";
+```
+You can also execute N1QL queries from the command line.
+```sh
+$ docker exec -it db cbq --user Administrator
+cbq> SELECT name FROM `beer-sample` WHERE brewery_id ="mishawaka_brewing";
+```
+
+## Screenshots
+![](https://d774lla4im6mk.cloudfront.net/ui-home.jpg)
+
+![](https://d774lla4im6mk.cloudfront.net/load-sample-data.jpg)
+
 ## References
 - [Couchbase Server Docker](https://hub.docker.com/r/couchbase/server)
 - [Create a Cluster](https://docs.couchbase.com/server/current/manage/manage-nodes/create-cluster.html)
+- [Couchbase Docker](https://registry.hub.docker.com/_/couchbase)
