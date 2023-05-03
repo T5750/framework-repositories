@@ -8,3 +8,4 @@ Exchange
     debeziumDocker
     canalDocker
     streamsetsDocker
+    dataeaseDocker
