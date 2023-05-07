@@ -83,12 +83,6 @@ make.bat html
 	* Click on the **Edit** button of the version you want to wipe on the right side of the page
 	* Go to the bottom of the page and click the **wipe** link, next to the “Save” button
 
-### Upgrade pip
-```
-python -m pip install --upgrade pip
-pip -V
-```
-
 ## References
 - [Installing Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
 - [Sphinx Markdown](http://www.sphinx-doc.org/en/master/usage/markdown.html)
