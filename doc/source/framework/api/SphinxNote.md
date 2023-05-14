@@ -6,12 +6,12 @@ Sphinx is written in [Python](https://docs.python-guide.org/) and supports Pytho
 ## Installing Sphinx
 ### Linux
 RHEL, CentOS
-```
+```sh
 yum install python-sphinx
 ```
 
 ### Installation from PyPI
-```
+```sh
 pip install -U sphinx
 ```
 
@@ -82,6 +82,7 @@ make.bat html
 	* Go to **Versions**
 	* Click on the **Edit** button of the version you want to wipe on the right side of the page
 	* Go to the bottom of the page and click the **wipe** link, next to the “Save” button
+- Fix `Could not import extension sphinx.builders.linkcheck`: use a config file ([https://docs.readthedocs.io/en/stable/config-file/v2.html](https://docs.readthedocs.io/en/stable/config-file/v2.html))
 
 ## References
 - [Installing Sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
@@ -91,3 +92,4 @@ make.bat html
 - [Wiping a Build Environment](https://docs.readthedocs.io/en/stable/guides/wipe-environment.html)
 - [TypeError: 'generator' object is not reversible](https://github.com/sphinx-doc/sphinx/issues/9727)
 - [Sphinx Comments](https://daobook.github.io/sphinx-comments/)
+- [Could not import extension sphinx.builders.linkcheck (exception: urllib3 v2.0 only supports OpenSSL 1.1.1+)](https://github.com/readthedocs/readthedocs.org/issues/10290)
