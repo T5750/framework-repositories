@@ -6,3 +6,4 @@ Cloud Native
     :numbered: 0
     
     polarisMeshDocker
+    sentinelDocker
