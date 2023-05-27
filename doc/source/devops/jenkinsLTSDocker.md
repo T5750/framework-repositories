@@ -3,7 +3,7 @@
 The leading open source automation server 
 
 ## Docker
-```
+```sh
 mkdir $PWD/jenkins
 chown -R 1000:1000 $PWD/jenkins
 docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v $PWD/jenkins:/var/jenkins_home jenkins/jenkins:lts-jdk11
