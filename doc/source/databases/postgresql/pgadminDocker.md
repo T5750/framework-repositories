@@ -1,5 +1,15 @@
 # pgAdmin Docker
 
+pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+
+## Docker
+```sh
+docker run -p 5433:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=admin@pg.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=postgres' \
+    -d dpage/pgadmin4
+```
+
 ## Docker Compose
 `pgadmin.yml`
 
@@ -21,5 +31,6 @@ Generate ERD (Beta)
 ![](https://www.pgadmin.org/static/COMPILED/assets/img/screenshots/pgadmin4-explain.png)
 
 ## References
-- [Container Deployment](https://www.pgadmin.org/docs/pgadmin4/5.7/container_deployment.html)
+- [Container Deployment](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)
 - [ERD Tool](https://www.pgadmin.org/docs/pgadmin4/5.7/erd_tool.html)
+- [pgAdmin Docker](https://hub.docker.com/r/dpage/pgadmin4/)

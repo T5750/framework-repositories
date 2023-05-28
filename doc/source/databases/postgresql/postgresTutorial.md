@@ -29,6 +29,20 @@ host    all             all             0.0.0.0/0               trust
 systemctl restart postgresql-11
 ```
 
+## pg_dump
+要把一个数据库`mydb`转储到一个 SQL 脚本文件：
+```sh
+pg_dump mydb > db.sql
+```
+要把这样一个脚本重新载入到一个（新创建的）名为`newdb`的数据库中：
+```sh
+psql -d newdb -f db.sql
+```
+要转储一个名为`mytab`的表：
+```sh
+pg_dump -t mytab mydb > db.sql
+```
+
 ## Tests
 ```sql
 createdb mydb
@@ -49,3 +63,4 @@ SELECT 2 + 2;
 - [PostgreSQL Docker](https://hub.docker.com/_/postgres/)
 - [Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/)
 - [PostgreSQL开启远程连接](https://blog.csdn.net/a654540233/article/details/115458860)
+- [pg_dump](http://www.postgres.cn/docs/11/app-pgdump.html)
