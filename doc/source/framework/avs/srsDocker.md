@@ -3,25 +3,31 @@
 SRS is a simple, high efficiency and realtime video server, supports RTMP, WebRTC, HLS, HTTP-FLV and SRT.
 
 ## Docker
+### SRS 4.x
+```sh
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 \
+    registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/docker.conf
+```
+
+then publish stream by:
+```sh
+ffmpeg -re -i ./doc/source.flv -c copy -f flv rtmp://localhost/live/livestream
+# Or by FFmpeg docker
+docker run --rm -it registry.cn-hangzhou.aliyuncs.com/ossrs/srs:encoder ffmpeg -stream_loop -1 -re -i doc/source.flv \
+  -c copy -f flv rtmp://host.docker.internal/live/livestream
+```
+- [http://localhost:8080/](http://localhost:8080/)
+- RTMP (by [VLC](https://www.videolan.org/)): rtmp://localhost/live/livestream
+- H5(HTTP-FLV): http://localhost:8080/live/livestream.flv
+- H5(HLS): http://localhost:8080/live/livestream.m3u8
+
+### SRS 3.x
 ```sh
 docker run -d --name srs -p 1935:1935 -p 1985:1985 -p 8080:8080 ossrs/srs:3
 ```
 
 ## Docker Compose
 `srs.yml`
-
-[http://localhost:8080/](http://localhost:8080/)
-
-then publish stream by:
-```sh
-ffmpeg -re -i doc/source.200kbps.768x320.flv -c copy \
-    -f flv rtmp://localhost/live/livestream
-
-# Or by FFmpeg docker
-docker run --rm --network=host registry.cn-hangzhou.aliyuncs.com/ossrs/srs:encoder \
-  ffmpeg -re -i ./doc/source.200kbps.768x320.flv -c copy \
-      -f flv -y rtmp://localhost/live/livestream
-```
 
 ## Config
 ```sh
@@ -55,6 +61,23 @@ docker run --rm -p 1935:1935 -p 1985:1985 -p 8080:8080 \
 ## NVR
 NVR可以用RTSP协议从IPC拉流，然后录制，或者转成RTMP后推给SRS
 
+## WebRTC
+```sh
+CANDIDATE="192.168.1.10"
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 -p 1990:1990 -p 8088:8088 \
+    --env CANDIDATE=$CANDIDATE -p 8000:8000/udp \
+    registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/docker.conf
+```
+>Note: 请将CANDIDATE设置为服务器的外网地址，详细请阅读[WebRTC: CANDIDATE](https://ossrs.net/lts/zh-cn/docs/v4/doc/webrtc#config-candidate)。
+
+## WebRTC for Live Streaming
+```sh
+CANDIDATE="192.168.1.10"
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 \
+    --env CANDIDATE=$CANDIDATE -p 8000:8000/udp \
+    registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/rtmp2rtc.conf
+```
+
 ## Runtime Environment
 - C++
 
@@ -66,3 +89,4 @@ NVR可以用RTSP协议从IPC拉流，然后录制，或者转成RTMP后推给SRS
 - [srs-docker GitHub](https://github.com/ossrs/srs-docker)
 - [SRS Snapshot](https://github.com/ossrs/srs/wiki/v3_CN_Snapshot)
 - [PUSH RTSP is removed，不支持RTSP推流](https://github.com/ossrs/srs/issues/2304)
+- [SRS 4.0 Docker](https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started)
