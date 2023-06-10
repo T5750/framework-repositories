@@ -3,7 +3,7 @@
 Web Terminal Emulator and SSH Client
 
 ## Docker
-```
+```sh
 docker run -d --name=gateone -p 443:8000 liftoff/gateone gateone
 ```
 [https://localhost:443/](https://localhost:443/)
@@ -28,3 +28,5 @@ docker run -d --name=gateone -p 443:8000 liftoff/gateone gateone
 - [Gate One Docker](https://hub.docker.com/r/liftoff/gateone)
 - [Gate One GitHub](https://github.com/liftoff/GateOne)
 - [Gate One](http://liftoffsoftware.com/Products/GateOne)
+- [Gate One API Authentication](https://liftoff.github.io/GateOne/Developer/embedding_api_auth.html)
+- [Embedding Gate One Into Other Applications](https://liftoff.github.io/GateOne/Developer/embedding.html)
