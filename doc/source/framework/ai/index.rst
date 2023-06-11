@@ -15,3 +15,4 @@ AI
     paddleLiteDocker
     fastDeploy
     visualdlDocker
+    paddleX
