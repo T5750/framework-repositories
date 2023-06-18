@@ -7,3 +7,4 @@ Apache
     
     zeppelinDocker
     flinkDocker
+    supersetDocker
