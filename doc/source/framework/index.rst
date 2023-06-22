@@ -10,6 +10,7 @@ Framework
     api/index
     architect/index
     avs/index
+    bi/index
     C4ModelNote
     cloudNative/index
     cms/index
