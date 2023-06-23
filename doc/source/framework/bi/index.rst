@@ -6,3 +6,4 @@ BI
     :numbered: 0
     
     metabaseDocker
+    hueDocker
