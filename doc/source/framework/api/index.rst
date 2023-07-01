@@ -25,3 +25,4 @@ API
     hugoDocker
     docsyDocker
     jupyterDocker
+    jsonheroDocker
