@@ -1,0 +1,50 @@
+# Kasm Docker
+
+Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services.
+
+## Kasm Desktop
+### Docker
+This Image contains a browser-accessible Ubuntu Bionic Desktop with Chrome and Firefox installed.
+```sh
+docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/desktop:1.13.0
+```
+- [https://localhost:6901/](https://localhost:6901/)
+- User: kasm_user / password
+
+### Screenshots
+![](https://www.kasmweb.com/assets/images/App_Launcher_v1.12_Dark.jpg)
+
+## KasmVNC
+A modern open source VNC server.
+
+### Installation
+#### Debian/Ubuntu/Kali
+```sh
+# Please choose the package for your distro here (under Assets):
+# https://github.com/kasmtech/KasmVNC/releases
+wget <package_url>
+
+sudo apt-get install ./kasmvncserver_*.deb
+
+# Add your user to the ssl-cert group
+sudo addgroup $USER ssl-cert
+
+# YOU MUST DISCONNECT AND RECONNECT FOR GROUP MEMBERSHIP CHANGE TO APPLY
+
+# start KasmVNC, you will be prompted to create a KasmVNC user and select a desktop environment
+vncserver
+
+# Tail the logs
+tail -f ~/.vnc/*.log
+```
+
+### Screenshots
+![](https://www.kasmweb.com/assets/images/accroImageLight.webp)
+
+## References
+- [Kasm](https://www.kasmweb.com/)
+- [KasmVNC](https://www.kasmweb.com/kasmvnc)
+- [KasmVNC GitHub](https://github.com/kasmtech/KasmVNC)
+- [KasmVNC Installation](https://www.kasmweb.com/kasmvnc/docs/1.0.0/install.html)
+- [kasmweb/desktop Docker](https://hub.docker.com/r/kasmweb/desktop)
+- [Kasm Workspaces Community Edition](https://www.kasmweb.com/community-edition)
