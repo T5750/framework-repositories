@@ -16,3 +16,4 @@ AI
     fastDeploy
     visualdlDocker
     paddleX
+    chatGPTNextWebDocker
