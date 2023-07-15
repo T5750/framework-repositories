@@ -16,5 +16,9 @@
 6. Password: [GitHub Personal access tokens](https://github.com/settings/tokens)
 7. **Mirror repository**
 
+## Push GitLab
+Password: [GitLab Personal access tokens](https://gitlab.com/-/profile/personal_access_tokens)
+    - read_repository, write_repository
+
 ## References
 - [GitLab和GitHub的双向同步](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)

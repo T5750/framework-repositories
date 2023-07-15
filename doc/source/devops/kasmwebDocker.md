@@ -41,6 +41,23 @@ tail -f ~/.vnc/*.log
 ### Screenshots
 ![](https://www.kasmweb.com/assets/images/accroImageLight.webp)
 
+## Postman
+This Image contains a browser-accessible version of [Postman](https://www.postman.com/).
+```sh
+sudo docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/postman:1.13.0
+```
+
+## Chrome
+This Image contains a browser-accessible version of [Google Chrome](https://www.google.com/chrome/).
+```sh
+sudo docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/chrome:1.13.0
+```
+
+### Environment Variables
+- `LAUNCH_URL` - The default URL the browser launches to when created.
+- `APP_ARGS` - Additional arguments to pass to the browser when launched.
+- `KASM_RESTRICTED_FILE_CHOOSER` - Confine "File Upload" and "File Save" dialogs to ~/Desktop. On by default.
+
 ## References
 - [Kasm](https://www.kasmweb.com/)
 - [KasmVNC](https://www.kasmweb.com/kasmvnc)
@@ -48,3 +65,5 @@ tail -f ~/.vnc/*.log
 - [KasmVNC Installation](https://www.kasmweb.com/kasmvnc/docs/1.0.0/install.html)
 - [kasmweb/desktop Docker](https://hub.docker.com/r/kasmweb/desktop)
 - [Kasm Workspaces Community Edition](https://www.kasmweb.com/community-edition)
+- [kasmweb/postman Docker](https://hub.docker.com/r/kasmweb/postman)
+- [kasmweb/chrome Docker](https://hub.docker.com/r/kasmweb/chrome)
