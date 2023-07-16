@@ -26,3 +26,4 @@ API
     docsyDocker
     jupyterDocker
     jsonheroDocker
+    discuzqDocker
