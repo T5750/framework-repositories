@@ -75,10 +75,39 @@ voila
 ### Screenshots
 ![](https://jupyter.org/assets/homepage/voilapreview.webp)
 
+## Jupyter Docker Stacks
+```sh
+docker run -p 10000:8888 jupyter/scipy-notebook
+docker run -it --rm -p 10000:8888 -v "${PWD}":/home/jovyan/work jupyter/datascience-notebook
+```
+Visiting `http://<hostname>:10000/?token=<token>` in a browser loads JupyterLab.
+
+## nbdime
+Jupyter Notebook Diff and Merge tools
+- `nbdiff` compare notebooks in a terminal-friendly way
+- `nbmerge` three-way merge of notebooks with automatic conflict resolution
+- `nbdiff-web` shows you a rich rendered diff of notebooks
+- `nbmerge-web` gives you a web-based three-way merge tool for notebooks
+- `nbshow` present a single notebook in a terminal-friendly way
+
+### Installation
+```sh
+pip install nbdime
+nbdiff notebook_1.ipynb notebook_2.ipynb
+nbdiff-web notebook_1.ipynb notebook_2.ipynb
+nbdime mergetool
+```
+
+### Screenshots
+![](https://nbdime.readthedocs.io/en/latest/_images/nbdiff-web.png)
+
 ## References
 - [Jupyter](https://jupyter.org/)
 - [Jupyter Docker Stacks GitHub](https://github.com/jupyter/docker-stacks)
+- [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)
 - [Jupyter Interactive Notebook GitHub](https://github.com/jupyter/notebook)
 - [Selecting an Image](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html)
 - [Architecture](https://docs.jupyter.org/en/latest/projects/architecture/content-architecture.html)
 - [使用Docker安装配置Jupyter](https://www.voidking.com/dev-docker-jupyter/)
+- [nbdime GitHub](https://github.com/jupyter/nbdime)
+- [nbdime Documentation](https://nbdime.readthedocs.io/)
