@@ -27,3 +27,4 @@ API
     jupyterDocker
     jsonheroDocker
     discuzqDocker
+    kkFileViewDocker

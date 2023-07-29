@@ -1,5 +1,20 @@
 # YApi Docker
 
+旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API
+
+## Linux
+```sh
+npm install -g yapi-cli --registry https://registry.npm.taobao.org
+yapi server
+```
+
+## Upgrade
+```sh
+yapi ls //查看版本号列表
+yapi update //更新到最新版本
+yapi update -v {Version} //更新到指定版本
+```
+
 ## Docker Compose
 `yapi.yml`
 
@@ -50,7 +65,12 @@ command: "node /my-yapi/vendors/server/app.js"
   }
 ```
 
+## Runtime Environment
+- [Node.js](https://nodejs.org/en/download)
+- [MongoDB 4.x](https://www.mongodb.com/download-center/community/releases)
+
 ## References
+- [YApi](https://hellosean1025.github.io/yapi/)
 - [YApi GitHub](https://github.com/YMFE/yapi)
 - [docker-yapi: 基于官方yapi-cli的docker-compose方案](https://github.com/Ryan-Miao/docker-yapi)
 - [能集成AD登录方式吗](https://github.com/YMFE/yapi/issues/730)
