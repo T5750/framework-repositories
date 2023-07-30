@@ -42,5 +42,6 @@ DevOps
     sonicDocker
     teleportDocker
     jumpserverDocker
+    1panelDocker
     kasmwebDocker
     wiresharkDocker

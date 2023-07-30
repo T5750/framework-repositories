@@ -2,6 +2,8 @@
 
 JumpServer 是广受欢迎的开源堡垒机，是符合 4A 规范的专业运维安全审计系统。
 
+![](https://docs.jumpserver.org/zh/v3/img/index_02.png)
+
 ## Demo
 [Demo](https://demo.jumpserver.org/)
 
@@ -81,7 +83,7 @@ docker-compose -f docker-compose-network.yml -f docker-compose.yml up -d
 ![](https://docs.jumpserver.org/zh/v3/img/dashboard.png)
 
 ## References
-- [JumpServer](http://www.jumpserver.org/)
+- [JumpServer](https://www.jumpserver.org/)
 - [JumpServer GitHub](https://github.com/jumpserver/jumpserver)
 - [JumpServer Docker](https://github.com/jumpserver/Dockerfile)
 - [JumpServer 系统架构](https://docs.jumpserver.org/zh/v3/architecture/)
