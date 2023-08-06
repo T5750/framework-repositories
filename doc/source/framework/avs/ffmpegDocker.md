@@ -33,6 +33,7 @@ A complete, cross-platform solution to record, convert and stream audio and vide
 ```sh
 ffmpeg -help
 ffmpeg -encoders
+# libopenh264
 ```
 
 ## Docker
@@ -41,17 +42,22 @@ ffmpeg -encoders
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
-  -i /config/input.mp4 /config/output.avi
+  -i /config/input.mp4 -c:v copy -c:a copy /config/output.avi
+# avi -> mp4
+docker run --rm -it \
+  -v $(pwd)/config:/config \
+  linuxserver/ffmpeg \
+  -i /config/output.avi -c:v copy -c:a copy /config/mp4output.mp4
 # 宽度固定，高度按比例
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
-  -i /config/input.mp4 -vf scale=640:640/a -c:v libopenh264 -c:a copy /config/output-640.mp4
+  -i /config/input.mp4 -vf scale=640:640/a -c:v libx264 -c:a copy /config/output-640.mp4
 # 高度固定，宽度按比例
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \
-  -i /config/input.mp4 -vf scale=480*a:480 -c:v libopenh264 -c:a copy /config/output-480.mp4
+  -i /config/input.mp4 -vf scale=480*a:480 -c:v libx264 -c:a copy /config/output-480.mp4
 docker run --rm -it \
   -v $(pwd)/config:/config \
   linuxserver/ffmpeg \

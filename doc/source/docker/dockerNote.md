@@ -14,7 +14,7 @@ docker exec -it centos bash -c "yum update -y && yum install -y vim"
 ## `ifconfig`/`netstat`
 ### For Ubuntu/Debian
 ```sh
-apt-get install net-tools
+apt-get install -y net-tools
 ```
 
 ### For CentOS/Fedora
@@ -25,7 +25,7 @@ yum install -y net-tools
 ## `ps`
 ### For Ubuntu/Debian
 ```sh
-apt-get install procps
+apt-get install -y procps
 ```
 
 ### For CentOS/Fedora
@@ -36,7 +36,7 @@ yum install -y procps
 ## `ping`
 ### For Ubuntu/Debian
 ```sh
-apt-get install inetutils-ping
+apt-get install -y inetutils-ping
 ```
 
 ### For CentOS/Fedora
@@ -47,7 +47,7 @@ yum install -y iputils
 ## `curl`
 ### For Ubuntu/Debian
 ```sh
-apt-get install curl
+apt-get install -y curl
 ```
 
 ### For CentOS/Fedora
@@ -64,6 +64,17 @@ apt-get install -y dnsutils
 ### For CentOS/Fedora
 ```sh
 yum install -y bind-utils
+```
+
+## `wget`
+### For Ubuntu/Debian
+```sh
+apt-get install -y wget
+```
+
+### For CentOS/Fedora
+```sh
+yum install -y wget
 ```
 
 ## References
