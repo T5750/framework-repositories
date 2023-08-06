@@ -45,3 +45,4 @@ DevOps
     1panelDocker
     kasmwebDocker
     wiresharkDocker
+    baotaDocker
