@@ -43,6 +43,7 @@ DevOps
     teleportDocker
     jumpserverDocker
     1panelDocker
+    haloDocker
     kasmwebDocker
     wiresharkDocker
     baotaDocker
