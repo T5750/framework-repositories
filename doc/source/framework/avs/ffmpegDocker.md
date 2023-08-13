@@ -107,6 +107,16 @@ docker run --rm -it \
   /config/output.mkv
 ```
 
+## Tips
+
+规格 | 文件码率 | 分辨率 | 视频编码格式 | 视频编码码率 | 视频帧率 | 音频编码格式 | 音频编码码率 | 音频编码通道
+---|---|---|---|---|---|---|---|---
+4K | 5966kbps | 3840x2160 | h264 | 5862kbps | 25fps | aac | 185kbps | 2ch
+1080P | 2327kbps | 1920x1080 | h264 | 2569kbps | 25fps | aac | 62kbps | 2ch
+720P | 1247kbps | 1280x720 | h264 | 983kbps | 25fps | aac | 125kbps | 2ch
+高清 | 590kbps | 896x504 | h264 | 542kbps | 25fps | aac | 64kbps | 2ch
+流畅 | 330kbps | 640x360 | h264 | 316kbps | 25fps | aac | 47kbps | 2ch
+
 ## Screenshots
 ![](https://ffmpeg.org/pipermail/ffmpeg-user/attachments/20150223/498ab7be/attachment.png)
 
@@ -115,3 +125,4 @@ docker run --rm -it \
 - [FFmpeg GitHub](https://github.com/FFmpeg/FFmpeg)
 - [linuxserver/ffmpeg Docker](https://hub.docker.com/r/linuxserver/ffmpeg)
 - [linuxserver/ffmpeg GitHub](https://github.com/linuxserver/docker-ffmpeg)
+- [视频标清、高清、全高清的分类分辨率码率帧率参考](https://blog.csdn.net/ffffffff8/article/details/84950014)

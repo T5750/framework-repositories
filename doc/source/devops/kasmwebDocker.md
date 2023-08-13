@@ -58,6 +58,9 @@ sudo docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb
 - `APP_ARGS` - Additional arguments to pass to the browser when launched.
 - `KASM_RESTRICTED_FILE_CHOOSER` - Confine "File Upload" and "File Save" dialogs to ~/Desktop. On by default.
 
+## Tips
+Game Curosr Mode
+
 ## References
 - [Kasm](https://www.kasmweb.com/)
 - [KasmVNC](https://www.kasmweb.com/kasmvnc)

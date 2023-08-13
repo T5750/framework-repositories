@@ -62,8 +62,16 @@ Corretto is a distribution of Open JDK with patches included by Amazon that are 
 ### What is included in Corretto's long-term support?
 Amazon will provide security updates for Corretto 8 until at least June 2023. Updates are planned to be released quarterly. Corretto 11, corresponding to OpenJDK 11, will be available during the first half of 2019. Amazon will support Corretto 11 with quarterly updates until at least August 2024.
 
+## Eclipse Temurin
+Eclipse Temurin 是由基于 OpenJDK 的开源 Java SE 产生的构建版本
+
+```sh
+docker pull eclipse-temurin:17-jre
+```
+
 ## References
 - [OpenJDK Docker](https://hub.docker.com/_/openjdk)
 - [Amazon Corretto Docker](https://hub.docker.com/_/amazoncorretto)
 - [Amazon Corretto Docker GitHub](https://github.com/corretto/corretto-docker)
 - [在 Docker 映像上使用 Amazon Corretto 8 入门](https://docs.aws.amazon.com/zh_cn/corretto/latest/corretto-8-ug/docker-install.html)
+- [Eclipse Temurin™ Latest Releases](https://adoptium.net/zh-CN/temurin/releases/)
