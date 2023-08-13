@@ -22,6 +22,7 @@ API
     codimdDocker
     hedgedocDocker
     mkdocsDocker
+    stackeditDocker
     dokuwikiDocker
     hugoDocker
     docsyDocker
