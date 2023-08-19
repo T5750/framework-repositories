@@ -1,0 +1,15 @@
+version: '3'
+services:
+  yapi-web:
+    restart: always
+    image: jayfong/yapi:latest
+    container_name: yapi-web
+    ports:
+      - 9090:3000
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      # 第一次启动使用
+      #- ./config.json:/yapi/config.json
+      - ./yapi:/yapi
