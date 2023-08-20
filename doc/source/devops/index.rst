@@ -47,3 +47,5 @@ DevOps
     kasmwebDocker
     wiresharkDocker
     baotaDocker
+    iredmailDocker
+    uptimeKumaDocker
