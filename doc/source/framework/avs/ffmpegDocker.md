@@ -117,6 +117,17 @@ docker run --rm -it \
 高清 | 590kbps | 896x504 | h264 | 542kbps | 25fps | aac | 64kbps | 2ch
 流畅 | 330kbps | 640x360 | h264 | 316kbps | 25fps | aac | 47kbps | 2ch
 
+### 合并视频
+`vi video.txt`
+```
+file 'test.mp4'
+file 'test2.mp4'
+```
+```sh
+ffmpeg -f concat -i video.txt -c copy concat.mp4
+#ffmpeg -i "concat:0.mp4|1.mp4" -c copy concat.mp4
+```
+
 ## Screenshots
 ![](https://ffmpeg.org/pipermail/ffmpeg-user/attachments/20150223/498ab7be/attachment.png)
 
@@ -126,3 +137,4 @@ docker run --rm -it \
 - [linuxserver/ffmpeg Docker](https://hub.docker.com/r/linuxserver/ffmpeg)
 - [linuxserver/ffmpeg GitHub](https://github.com/linuxserver/docker-ffmpeg)
 - [视频标清、高清、全高清的分类分辨率码率帧率参考](https://blog.csdn.net/ffffffff8/article/details/84950014)
+- [ffmpeg合并多个MP4视频](https://blog.csdn.net/first_shun/article/details/108502532)

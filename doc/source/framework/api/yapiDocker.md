@@ -74,6 +74,9 @@ yapi plugin --name yapi-plugin-dingding
 ```
 ```sh
 docker cp yapi-web:/yapi ./
+curl 'https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxx' \
+ -H 'Content-Type: application/json' \
+ -d '{"msgtype": "text","text": {"content":"just test"}}'
 ```
 
 ### Docker Structure

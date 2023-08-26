@@ -1,5 +1,36 @@
 # Docker CLI
 
+## docker export
+### Description
+Export a container’s filesystem as a tar archive
+
+### Usage
+```
+docker export [OPTIONS] CONTAINER
+```
+
+### Examples
+```sh
+docker export red_panda > latest.tar
+docker export --output="latest.tar" red_panda
+```
+
+## docker import
+### Description
+Import the contents from a tarball to create a filesystem image
+
+### Usage
+```
+docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]
+```
+
+### Examples
+```sh
+docker import https://example.com/exampleimage.tgz
+cat exampleimage.tgz | docker import - exampleimagelocal:new
+sudo tar -c . | docker import --change "ENV DEBUG=true" - exampleimagedir
+```
+
 ## docker load
 ### Description
 Load an image from a tar archive or STDIN
@@ -97,3 +128,5 @@ docker update --restart=on-failure:3 abebf7571666 hopeful_morse
 - [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)
 - [docker top](https://docs.docker.com/engine/reference/commandline/top/)
 - [docker update](https://docs.docker.com/engine/reference/commandline/update/)
+- [docker export](https://docs.docker.com/engine/reference/commandline/export/)
+- [docker import](https://docs.docker.com/engine/reference/commandline/import/)
