@@ -55,6 +55,7 @@ docker-compose -f docker-compose-network.yml -f docker-compose.yml up -d
 - [Python 3.9.x](https://www.python.org/downloads/)
 - [MariaDB 10.x](https://mariadb.org/download/)
 - [Redis 6.x](https://redis.io/download)
+- [JumpServer v3.x](https://community.fit2cloud.com/#/products/jumpserver/downloads)
 
 ## 组件项目
 

@@ -13,6 +13,12 @@ curl -sSL https://dataease.oss-cn-hangzhou.aliyuncs.com/quick_start.sh | sh
 - [http://localhost:8000/](http://localhost:8000/)
 - User: admin / dataease
 
+## Runtime Environment
+- [Java 11](https://openjdk.java.net/projects/jdk/11/)
+- [Spring Boot 2.x](https://spring.io/projects/spring-boot)
+- [Vue.js](https://github.com/vuejs/vue)
+- [DataEase v1.x](https://community.fit2cloud.com/#/products/dataease/downloads)
+
 ## Screenshots
 ![](https://www.fit2cloud.com/dataease/images/screenshot/de-chart-new.jpg)
 

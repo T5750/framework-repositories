@@ -44,6 +44,8 @@ DevOps
     jumpserverDocker
     1panelDocker
     haloDocker
+    metersphere
+    cloudexplorerLite
     kasmwebDocker
     wiresharkDocker
     baotaDocker
