@@ -9,3 +9,4 @@ Exchange
     canalDocker
     streamsetsDocker
     dataeaseDocker
+    cloudbeaverDocker
