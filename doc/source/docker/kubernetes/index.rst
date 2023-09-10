@@ -6,3 +6,4 @@ Kubernetes
     :numbered: 0
 
     minikubeStart
+    kubePiDocker
