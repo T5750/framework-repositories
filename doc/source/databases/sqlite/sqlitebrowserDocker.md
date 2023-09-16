@@ -2,8 +2,15 @@
 
 [DB Browser for SQLite](https://sqlitebrowser.org/) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.
 
-## Docker
+## Linux
+### Debian
+```sh
+sudo apt-get update
+sudo apt-get install sqlitebrowser
 ```
+
+## Docker
+```sh
 docker run -d \
   --name=sqlitebrowser \
   -p 3000:3000 \
@@ -34,7 +41,12 @@ services:
 -e FILE__PASSWORD=/run/secrets/mysecretpassword
 ```
 
+## Screenshots
+![](https://sqlitebrowser.org/images/screenshot.png)
+
 ## References
+- [DB Browser for SQLite](https://sqlitebrowser.org/)
+- [DB Browser for SQLite GitHub](https://github.com/sqlitebrowser/sqlitebrowser)
 - [linuxserver/sqlitebrowser Docker](https://hub.docker.com/r/linuxserver/sqlitebrowser)
 - [linuxserver/docker-sqlitebrowser GitHub](https://github.com/linuxserver/docker-sqlitebrowser)
 - [DB Browser for SQLite wiki](https://github.com/sqlitebrowser/sqlitebrowser/wiki)

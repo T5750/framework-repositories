@@ -1,9 +1,35 @@
 # CentOS Tips
 
+```sh
+yum list installed | grep gcc
+yum list installed | grep lrzsz
+```
+
 ## lrzsz
 - [lrzsz官网](http://freshmeat.sourceforge.net/projects/lrzsz/)
 - `yum -y install lrzsz`
 - `sz /home/shelldir/*.sh`：下载目录
+
+### 离线安装
+[lrzsz-0.12.20.tar.gz](https://ohse.de/uwe/software/lrzsz.html)
+
+```sh
+mkdir -p ~/tool/lrzsz/
+mv lrzsz-0.12.20.tar.gz ~/tool/lrzsz/
+cd ~/tool/lrzsz/
+tar -zxvf lrzsz-0.12.20.tar.gz
+cd lrzsz-0.12.20
+./configure --prefix=~/tool/lrzsz/
+make && make install
+```
+```sh
+cd ~/tool/lrzsz/bin
+ln -s lsz sz
+ln -s lrz rz
+#修改环境变量，在~/.bashrc文件末尾加入export PATH="~/tool/lrzsz/bin:$PATH"
+vi ~/.bashrc
+source ~/.bashrc
+```
 
 ## iptables
 - 暂时关闭/打开
@@ -60,3 +86,4 @@ yum clean all && yum makecache
 
 ## References
 - [Centos8 yum安装报错Error: Failed to download metadata for repo ‘AppStream‘](https://www.cnblogs.com/Fengdengshuai/p/15988606.html)
+- [lrzsz离线安装方法](https://www.cnblogs.com/lcgbk/p/14848852.html)

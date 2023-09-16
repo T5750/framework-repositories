@@ -361,5 +361,18 @@
 - nslookup www.example.com lookup hostname to resolve name to ip address and viceversa
 - whois www.example.com lookup on Whois database
 
+## Util
+```sh
+# 生成一个年月日格式的文件夹
+mkdir `date +%Y%m%d`
+# 生成一个年-月-日格式的文件夹
+mkdir `date +%Y-%m-%d`
+# 生成一个年月日格式的文件
+touch `date +%Y%m%d`
+# 生成一个年-月-日格式的文件
+touch `date +%Y-%m-%d`
+```
+
 ## References
 - [Linux常用命令大全](http://www.cnblogs.com/fnlingnzb-learner/p/5831284.html)
+- [使用LINUX命令创建日期文件夹或者文件](https://www.cnblogs.com/cyb-652356/p/10663463.html)

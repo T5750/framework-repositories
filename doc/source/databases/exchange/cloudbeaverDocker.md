@@ -7,9 +7,10 @@ Cloud Database Manager
 
 ## Docker
 ```sh
-docker run -d --name cloudbeaver -p 8978:8978 -v /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace dbeaver/cloudbeaver
+docker run -d --name cloudbeaver -p 8978:8978 -v /var/cloudbeaver/workspace:/opt/cloudbeaver/workspace -v /etc/localtime:/etc/localtime:ro dbeaver/cloudbeaver
 ```
-[http://localhost:8978/](http://localhost:8978/)
+- [http://localhost:8978/](http://localhost:8978/)
+- User: cbadmin
 
 ## Screenshots
 ![](https://github.com/dbeaver/cloudbeaver/wiki/images/demo_screenshot_1.png)
