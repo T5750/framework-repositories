@@ -10,3 +10,5 @@ Exchange
     streamsetsDocker
     dataeaseDocker
     cloudbeaverDocker
+    slashbase
+    greptimedbDocker
