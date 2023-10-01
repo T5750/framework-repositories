@@ -2,12 +2,12 @@
 
 ## rc.local
 The `rc.local` script in some Linux distributions and Unix systems is a superuser startup script, usually located under the directory `/etc/etc/rc.d`. The file name rc refers to Run Control.
-```
+```sh
 sudo vi /etc/rc.local
 sudo chmod +x /etc/rc.local
 #sudo chmod +x /etc/rc.d/rc.local
 ```
-```
+```sh
 sudo systemctl enable rc-local
 sudo systemctl start rc-local.service
 sudo systemctl status rc-local.service
@@ -25,7 +25,7 @@ ExecStart=/bin/bash /usr/sbin/linuxhint.sh  #in this line specify the path to th
 [Install]
 WantedBy=multi-user.target
 ```
-```
+```sh
 #sudo systemctl enable linuxhint
 sudo systemctl start linuxhint
 sudo systemctl status linuxhint
@@ -52,7 +52,7 @@ sudo systemctl status linuxhint
 [https://www.freedesktop.org/software/systemd/man/systemd.directives.html](https://www.freedesktop.org/software/systemd/man/systemd.directives.html)
 
 ## Remove service
-```
+```sh
 sudo systemctl stop linuxhint
 sudo systemctl disable linuxhint
 sudo rm /etc/systemd/system/linuxhint.service
@@ -61,6 +61,25 @@ sudo systemctl daemon-reload
 sudo systemctl reset-failed
 ```
 
+## Tips
+```sh
+# 10. 检查某个单元（如 cron.service）是否启用
+systemctl is-enabled docker.service
+# 11. 检查某个单元或服务是否运行
+systemctl status docker.service
+# 12. 列出所有服务（包括启用的和禁用的）
+systemctl list-unit-files --type=service
+# 22. 在Linux中启动、重启、停止、重载套接口并检查其状态
+systemctl start cups.socket
+systemctl restart cups.socket
+systemctl stop cups.socket
+systemctl reload cups.socket
+systemctl status cups.socket
+# 27. 检查某个服务的所有配置细节
+systemctl show httpd
+```
+
 ## References
 - [How to use /etc/rc.local at boot](https://linuxhint.com/use-etc-rc-local-boot/)
 - [CentOS使用systemctl彻底删除服务](https://ruiruigeblog.com/2017/01/21/CentOS%E4%BD%BF%E7%94%A8systemctl%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1/)
+- [systemctl 命令完全指南](https://linux.cn/article-5926-1.html)
