@@ -21,6 +21,7 @@ DevOps
     skywalkingDocker
     sonarqubeDocker
     xxlJobDocker
+    powerJobDocker
     flowableDocker
     showdocDocker
     redmineDocker
