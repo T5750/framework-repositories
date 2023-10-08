@@ -1,4 +1,5 @@
 sphinx-markdown-tables
 docutils<0.18
 recommonmark
+sphinx-rtd-theme
 sphinx-comments
