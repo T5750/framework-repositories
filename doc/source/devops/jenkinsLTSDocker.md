@@ -14,6 +14,12 @@ docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v $PWD/jenkins:/var/je
 
 [http://localhost:8080/](http://localhost:8080/)
 
+## Tips
+构建触发器 -> 定时构建:
+```
+50 18 * * *
+```
+
 ## Screenshots
 ![](https://www.jenkins.io/doc/book/resources/node/credentials-1.png)
 
