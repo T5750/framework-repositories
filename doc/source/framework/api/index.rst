@@ -23,6 +23,7 @@ API
     hedgedocDocker
     mkdocsDocker
     stackeditDocker
+    cherryMarkdown
     affineDocker
     dokuwikiDocker
     hugoDocker
