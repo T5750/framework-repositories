@@ -12,3 +12,4 @@ Hadoop
     HadoopStreaming
     HadoopMultiNodeCluster
     HadoopYarn
+    azkabanDocker
