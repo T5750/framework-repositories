@@ -12,3 +12,4 @@ Exchange
     cloudbeaverDocker
     slashbase
     greptimedbDocker
+    clickhouseDocker
