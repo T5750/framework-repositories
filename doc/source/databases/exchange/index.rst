@@ -13,3 +13,4 @@ Exchange
     slashbase
     greptimedbDocker
     clickhouseDocker
+    dataXDocker
