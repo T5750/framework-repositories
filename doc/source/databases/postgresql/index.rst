@@ -9,3 +9,4 @@ PostgreSQL
     postgresSQL
     postgresMasterSlave
     pgadminDocker
+    timescaleDocker
