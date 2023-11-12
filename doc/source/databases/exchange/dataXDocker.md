@@ -60,6 +60,182 @@ vi datax/job/stream2stream.json
 python datax/bin/datax.py datax/job/stream2stream.json
 ```
 
+## MysqlReader
+```sh
+vi datax/job/mysqlreader.json
+```
+配置一个从Mysql数据库同步抽取数据到本地的作业:
+```json
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 3
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "root",
+                        "column": [
+                            "id",
+                            "name"
+                        ],
+                        "splitPk": "db_id",
+                        "connection": [
+                            {
+                                "table": [
+                                    "table"
+                                ],
+                                "jdbcUrl": [
+     "jdbc:mysql://127.0.0.1:3306/database"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "streamwriter",
+                    "parameter": {
+                        "print":true
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+配置一个自定义SQL的数据库同步任务到本地内容的作业：
+```json
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel":1
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "root",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "select db_id,on_line_flag from db_info where db_id < 10;"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://bad_ip:3306/database",
+                                    "jdbc:mysql://127.0.0.1:bad_port/database",
+                                    "jdbc:mysql://127.0.0.1:3306/database"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "streamwriter",
+                    "parameter": {
+                        "print": false,
+                        "encoding": "UTF-8"
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+```sh
+python datax/bin/datax.py datax/job/mysqlreader.json
+```
+
+## MysqlWriter
+```sh
+vi datax/job/mysqlwriter.json
+```
+从内存产生到 Mysql 导入的数据
+```json
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        },
+        "content": [
+            {
+                 "reader": {
+                    "name": "streamreader",
+                    "parameter": {
+                        "column" : [
+                            {
+                                "value": "DataX",
+                                "type": "string"
+                            },
+                            {
+                                "value": 19880808,
+                                "type": "long"
+                            },
+                            {
+                                "value": "1988-08-08 08:08:08",
+                                "type": "date"
+                            },
+                            {
+                                "value": true,
+                                "type": "bool"
+                            },
+                            {
+                                "value": "test",
+                                "type": "bytes"
+                            }
+                        ],
+                        "sliceRecordCount": 1000
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "writeMode": "insert",
+                        "username": "root",
+                        "password": "root",
+                        "column": [
+                            "id",
+                            "name"
+                        ],
+                        "session": [
+                          "set session sql_mode='ANSI'"
+                        ],
+                        "preSql": [
+                            "delete from test"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/datax?useUnicode=true&characterEncoding=gbk",
+                                "table": [
+                                    "test"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+```sh
+python datax/bin/datax.py datax/job/mysqlwriter.json
+```
+
 ## Docker
 ```sh
 wget https://github.com/alibaba/DataX/raw/master/core/src/main/job/job.json
@@ -69,4 +245,6 @@ docker run --rm -v $PWD:/data -w /data vimagick/datax /data/job.json
 ## References
 - [DataX GitHub](https://github.com/alibaba/DataX)
 - [DataX Quick Start](https://github.com/alibaba/DataX/blob/master/userGuid.md)
+- [DataX MysqlReader 插件文档](https://github.com/alibaba/DataX/blob/master/mysqlreader/doc/mysqlreader.md)
+- [DataX MysqlWriter](https://github.com/alibaba/DataX/blob/master/mysqlwriter/doc/mysqlwriter.md)
 - [vimagick/datax Docker](https://github.com/vimagick/dockerfiles/tree/master/datax)
