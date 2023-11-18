@@ -5,6 +5,7 @@ Redis is an open source key-value store that functions as a data structure serve
 ## Redis Standalone in Docker
 ```sh
 docker run --name redis -p 6379:6379 -d redis
+docker run --name redis -p 6379:6379 -d --restart=always redis:5 --requirepass 123456
 ```
 
 ## Redis Standalone in Docker Compose
