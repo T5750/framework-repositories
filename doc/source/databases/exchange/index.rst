@@ -14,3 +14,4 @@ Exchange
     greptimedbDocker
     clickhouseDocker
     dataXDocker
+    chat2dbDocker
