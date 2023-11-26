@@ -27,6 +27,7 @@ DevOps
     redmineDocker
     drawioDocker
     tldraw
+    draw-a-ui
     catDocker
     zabbixDocker
     zabbixJvmDocker
