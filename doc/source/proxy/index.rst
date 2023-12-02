@@ -20,6 +20,7 @@ Proxy
     caddyDocker
     trafficserverDocker
     frpDocker
+    freeradiusDocker
     lua/index
     fastdfs/index
     minio/index
