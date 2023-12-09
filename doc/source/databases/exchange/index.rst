@@ -15,3 +15,4 @@ Exchange
     clickhouseDocker
     dataXDocker
     chat2dbDocker
+    rethinkdbDocker
