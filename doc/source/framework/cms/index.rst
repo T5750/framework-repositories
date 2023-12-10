@@ -15,3 +15,4 @@ Content Management System (CMS)
     wagtailDocker
     memosDocker
     moodleDocker
+    cockpitDocker
