@@ -75,8 +75,17 @@ sudo visudo
 sysadmin ALL=(ALL) NOPASSWD:ALL
 ```
 
-## AppStream
+## git
+```sh
+sudo yum -y install git
+git --version
+git config --global user.name "T5750"
+git config --global user.email "you@example.com"
+git config --list
 ```
+
+## AppStream
+```sh
 cd /etc/yum.repos.d
 sudo mkdir backup
 sudo mv *.repo backup/
