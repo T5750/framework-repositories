@@ -33,6 +33,7 @@ DevOps
     zabbixJvmDocker
     tomcatDocker
     jettyDocker
+    wildflyDocker
     gateoneDocker
     jiraDocker
     adguardHomeDocker
