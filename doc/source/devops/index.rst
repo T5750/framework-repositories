@@ -51,6 +51,7 @@ DevOps
     metersphere
     cloudexplorerLite
     kasmwebDocker
+    ubuntuVncDocker
     wiresharkDocker
     baotaDocker
     iredmailDocker
