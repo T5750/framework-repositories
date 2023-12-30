@@ -31,6 +31,7 @@ DevOps
     catDocker
     zabbixDocker
     zabbixJvmDocker
+    graylogDocker
     tomcatDocker
     jettyDocker
     wildflyDocker
