@@ -13,6 +13,7 @@ Exchange
     slashbase
     greptimedbDocker
     clickhouseDocker
+    questdbDocker
     dataXDocker
     chat2dbDocker
     rethinkdbDocker
