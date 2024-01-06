@@ -37,4 +37,5 @@ Docker
     flutterDocker
     surveykingDocker
     tablerDocker
+    opensearchDocker
     kubernetes/index
