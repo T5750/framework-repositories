@@ -16,3 +16,4 @@ IoT
     mosquittoDocker
     modbusServerDocker
     iotdbDocker
+    emqxDocker
