@@ -59,3 +59,4 @@ DevOps
     uptimeKumaDocker
     safelineDocker
     domainAdminDocker
+    homeboxDocker
