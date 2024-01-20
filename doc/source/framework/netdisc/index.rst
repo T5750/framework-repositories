@@ -18,3 +18,4 @@ Netdisc
     zfileDocker
     cloudreveDocker
     filebrowserDocker
+    fileGatorDocker
