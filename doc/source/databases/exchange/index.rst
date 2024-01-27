@@ -8,7 +8,6 @@ Exchange
     debeziumDocker
     canalDocker
     streamsetsDocker
-    dataeaseDocker
     cloudbeaverDocker
     slashbase
     greptimedbDocker

@@ -10,7 +10,7 @@ Databases
     derby/DerbyQuickStart
     exchange/index
     influxdb/index
-    kettle/KettleCollection
+    kettle/index
     memcached/index
     mongo/index
     mysql/index
