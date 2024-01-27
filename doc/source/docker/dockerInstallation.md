@@ -14,13 +14,17 @@ sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 Install Docker Engine
-1. `sudo yum install -y --allowerasing docker-ce docker-ce-cli containerd.io`
-2. `yum list docker-ce --showduplicates | sort -r`
-3. `systemctl start docker`
-4. `docker run hello-world`
+1. `sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+    - Or: `sudo yum install -y docker-ce docker-ce-cli containerd.io`
+    - Or: `sudo yum install -y --allowerasing docker-ce docker-ce-cli containerd.io`
+2. `sudo systemctl start docker`
+3. `docker run hello-world`
 
 ```sh
-systemctl stop docker
+sudo systemctl stop docker
+# Specific version
+sudo yum list docker-ce --showduplicates | sort -r
+sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 #### Install from a package
@@ -65,6 +69,6 @@ docker stop $(docker ps -aq)
 ```
 
 ## References
-- [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
 - [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
+- [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
 - [Docker限制容器日志大小](https://www.cnblogs.com/angel-devil/p/12558908.html)
