@@ -41,6 +41,7 @@ DevOps
     piholeDocker
     cloudflaredDocker
     heimdallDocker
+    dashdotDocker
     wireguardDocker
     vaultwardenDocker
     unboundDocker
