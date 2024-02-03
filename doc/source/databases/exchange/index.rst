@@ -16,3 +16,4 @@ Exchange
     dataXDocker
     chat2dbDocker
     rethinkdbDocker
+    camelKaravanDocker
