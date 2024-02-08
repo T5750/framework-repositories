@@ -21,6 +21,7 @@ Proxy
     trafficserverDocker
     frpDocker
     freeradiusDocker
+    neutrinoProxyDocker
     lua/index
     fastdfs/index
     minio/index
