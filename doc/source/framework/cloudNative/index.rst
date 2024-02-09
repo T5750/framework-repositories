@@ -7,3 +7,4 @@ Cloud Native
     
     polarisMeshDocker
     sentinelDocker
+    pulsarDocker
