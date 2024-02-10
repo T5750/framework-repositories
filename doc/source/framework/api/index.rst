@@ -33,3 +33,4 @@ API
     discuzqDocker
     kkFileViewDocker
     huntlyDocker
+    triliumDocker
