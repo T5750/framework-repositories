@@ -34,3 +34,4 @@ API
     kkFileViewDocker
     huntlyDocker
     triliumDocker
+    flatnotesDocker
