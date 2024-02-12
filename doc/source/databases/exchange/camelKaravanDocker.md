@@ -9,6 +9,11 @@ docker run -it --rm --name karavan -p 8080:8080 -e KARAVAN_GIT_INSTALL_GITEA=tru
 ```
 [http://localhost:8080/](http://localhost:8080/)
 
+## Runtime Environment
+- [Java 11](https://openjdk.java.net/projects/jdk/11/)
+- [Quarkus](https://quarkus.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+
 ## Screenshots
 ![](https://gitee.com/mirrors_apache/camel-karavan/raw/main/images/karavan-clouds-large.png)
 
