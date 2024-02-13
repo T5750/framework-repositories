@@ -38,4 +38,5 @@ Docker
     surveykingDocker
     tablerDocker
     opensearchDocker
+    qbittorrentDocker
     kubernetes/index
