@@ -31,6 +31,7 @@ DevOps
     catDocker
     zabbixDocker
     zabbixJvmDocker
+    hertzbeatDocker
     graylogDocker
     tomcatDocker
     jettyDocker
