@@ -17,3 +17,4 @@ Exchange
     chat2dbDocker
     rethinkdbDocker
     camelKaravanDocker
+    kaotoDocker
