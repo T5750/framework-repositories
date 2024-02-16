@@ -18,3 +18,4 @@ Exchange
     rethinkdbDocker
     camelKaravanDocker
     kaotoDocker
+    tdengineDocker
