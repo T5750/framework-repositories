@@ -9,3 +9,4 @@ BI
     metabaseDocker
     hueDocker
     dataeaseDocker
+    kylinDocker
