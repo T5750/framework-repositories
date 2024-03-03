@@ -24,6 +24,7 @@ API
     mkdocsDocker
     stackeditDocker
     cherryMarkdown
+    etherpadDocker
     affineDocker
     dokuwikiDocker
     hugoDocker
