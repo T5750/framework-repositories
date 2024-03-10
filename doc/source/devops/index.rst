@@ -65,3 +65,4 @@ DevOps
     homeboxDocker
     itToolsDocker
     matomoDocker
+    homarrDocker
