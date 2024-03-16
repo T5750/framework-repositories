@@ -13,3 +13,4 @@ Redis
     RedisInsight
     RedisDocker
     Hystrix
+    dbgateDocker
