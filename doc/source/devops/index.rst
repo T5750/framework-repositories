@@ -66,3 +66,4 @@ DevOps
     itToolsDocker
     matomoDocker
     homarrDocker
+    speedtestDocker
