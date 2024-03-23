@@ -67,3 +67,4 @@ DevOps
     matomoDocker
     homarrDocker
     speedtestDocker
+    puterDocker
