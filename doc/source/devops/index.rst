@@ -68,3 +68,4 @@ DevOps
     homarrDocker
     speedtestDocker
     puterDocker
+    rsshubDocker
