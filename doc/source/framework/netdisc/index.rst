@@ -19,3 +19,4 @@ Netdisc
     cloudreveDocker
     filebrowserDocker
     fileGatorDocker
+    spacedriveDocker
