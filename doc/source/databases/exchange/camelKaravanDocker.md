@@ -4,7 +4,7 @@ Apache Camel Karavan is a Low-Code Data Integration Platform
 
 ## Docker
 ```sh
-docker run -it -p 8080:8080 -v $(pwd):/deployments/integrations ghcr.io/apache/camel-karavan:latest
+docker run -it -p 8080:8080 --restart always -v $(pwd):/deployments/integrations ghcr.io/apache/camel-karavan:latest
 docker run -it --rm --name karavan -p 8080:8080 -e KARAVAN_GIT_INSTALL_GITEA=true -e KARAVAN_IMAGE_REGISTRY_INSTALL=true ghcr.io/apache/camel-karavan
 ```
 [http://localhost:8080/](http://localhost:8080/)
