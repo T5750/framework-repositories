@@ -29,6 +29,7 @@ Docker
     portainerDocker
     ui-for-docker
     shipyardDocker
+    dockgeDocker
     nodejsDocker
     rancherDocker
     arthasDocker
