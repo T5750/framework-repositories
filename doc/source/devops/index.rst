@@ -60,6 +60,7 @@ DevOps
     baotaDocker
     iredmailDocker
     uptimeKumaDocker
+    umamiDocker
     safelineDocker
     domainAdminDocker
     homeboxDocker
