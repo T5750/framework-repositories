@@ -70,3 +70,4 @@ DevOps
     speedtestDocker
     puterDocker
     rsshubDocker
+    pwpushDocker
