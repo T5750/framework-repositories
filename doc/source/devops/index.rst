@@ -23,6 +23,7 @@ DevOps
     xxlJobDocker
     powerJobDocker
     flowableDocker
+    camundaDocker
     showdocDocker
     redmineDocker
     drawioDocker
