@@ -11,6 +11,7 @@ API
     kongDashboardDocker
     kongaDocker
     janusecDocker
+    shenyuDocker
     mediawikiDocker
     SphinxNote
     sphinxDocker
