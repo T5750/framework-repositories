@@ -1,4 +1,4 @@
-# Kong DashboardDocker Docker
+# Kong Dashboard Docker
 
 ## Compatibility matrix
 
@@ -13,7 +13,7 @@
 | 3.6.x        | >= 0.9, <2.0.0 | >= 6.0.0     |    
 
 ## Using Docker
-```
+```sh
 # Start Kong Dashboard
 docker run --rm -p 8080:8080 pgbi/kong-dashboard start --kong-url http://kong:8001
 
