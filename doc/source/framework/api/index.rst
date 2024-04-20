@@ -37,3 +37,4 @@ API
     huntlyDocker
     triliumDocker
     flatnotesDocker
+    jsoncrackDocker
