@@ -13,6 +13,7 @@ DevOps
     gitlabDocker
     zentaoDocker
     nacosDocker
+    consulDocker
     Grafana
     grafanaDocker
     grafanaLokiDocker
