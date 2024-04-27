@@ -15,6 +15,7 @@ AVS
     openmeetingsDocker
     live555Docker
     mistserverDocker
+    frigateDocker
     ispyDocker
     kerberosDocker
     embyDocker
