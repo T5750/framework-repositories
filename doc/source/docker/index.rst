@@ -40,4 +40,5 @@ Docker
     tablerDocker
     opensearchDocker
     qbittorrentDocker
+    moodistDocker
     kubernetes/index
