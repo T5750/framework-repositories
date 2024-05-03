@@ -20,5 +20,12 @@
 Password: [GitLab Personal access tokens](https://gitlab.com/-/profile/personal_access_tokens)
     - read_repository, write_repository
 
+## Util
+### Github Chart API
+```sh
+<img src="http://ghchart.rshah.org/t5750" alt="t5750's Github chart" />
+```
+
 ## References
 - [GitLab和GitHub的双向同步](https://www.cnblogs.com/sxdcgaq8080/p/10530176.html)
+- [Github Chart API](https://ghchart.rshah.org/)
