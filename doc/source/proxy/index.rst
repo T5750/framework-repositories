@@ -22,6 +22,7 @@ Proxy
     frpDocker
     freeradiusDocker
     neutrinoProxyDocker
+    fabioDocker
     lua/index
     fastdfs/index
     minio/index
