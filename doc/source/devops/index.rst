@@ -73,3 +73,4 @@ DevOps
     puterDocker
     rsshubDocker
     pwpushDocker
+    messagePusherDocker
