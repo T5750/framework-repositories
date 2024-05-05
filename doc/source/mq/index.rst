@@ -11,6 +11,7 @@ MQ
     ActiveMQExclusiveConsumer
     ActiveMQDocker
     KafkaZookeeperDocker
+    kafkaDocker
     KafkaToolDocker
     hivemqDocker
     rabbitmqDocker
