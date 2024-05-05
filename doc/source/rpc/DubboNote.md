@@ -1,10 +1,10 @@
 # Dubbo笔记
 
 ## 1.1 Dubbo
-Apache Dubbo™ (incubating)是一款高性能Java RPC框架。
+Apache Dubbo™ 是一款高性能Java RPC框架。
 
 ## 1.2 Dubbo简介
-Apache Dubbo (incubating)是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：
+Apache Dubbo 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：
 - 面向接口的远程方法调用
 - 智能容错和负载均衡
 - 服务自动注册和发现
@@ -24,7 +24,7 @@ Apache Dubbo (incubating)是一款高性能、轻量级的开源Java RPC框架�
 1. Dubbo采用全Spring配置方式，透明化接入应用，对应用没有任何API侵入，只需用Spring加载Dubbo的配置即可，Dubbo基于Spring的Schema扩展进行加载。
 
 ## 1.4 Dubbo架构
-![architecture](http://dubbo.incubator.apache.org/img/architecture.png)
+![architecture](https://cn.dubbo.apache.org/imgs/v3/concepts/architecture-2.png)
 
 ### 节点角色说明
 
@@ -50,10 +50,11 @@ Container | 服务运行容器
 - [Dubbo 开发者指南](http://dubbo.apache.org/zh-cn/docs/dev/build.html) - How to invovle in Dubbo development.
 - [Dubbo 运维管理](http://dubbo.apache.org/zh-cn/docs/admin/install/provider-demo.html) - How to admin and manage Dubbo services.
 
-Dubbo下载地址：[https://github.com/apache/incubator-dubbo](https://github.com/apache/incubator-dubbo)
+Dubbo下载地址：[https://github.com/apache/dubbo](https://github.com/apache/dubbo)
 
 ### Dubbo管控台
-[管理控制台安装](http://dubbo.incubator.apache.org/zh-cn/docs/admin/install/admin-console.html)
+![](https://cn.dubbo.apache.org/imgs/v3/reference/admin/admin-core-components.png)
+
 - 下载`dubbo-admin-2.5.3.war`
 - 上传到服务器中的`tomcat/webapps`下
 - 新建文件夹：`dubbo-admin`
@@ -84,7 +85,8 @@ Dubbo下载地址：[https://github.com/apache/incubator-dubbo](https://github.c
 - [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## References
-- [Apache Dubbo](http://dubbo.incubator.apache.org/zh-cn/)
+- [Apache Dubbo](https://cn.dubbo.apache.org/zh-cn/)
 - [Dubbo 2.6.x GitHub](https://github.com/apache/dubbo/releases)
 - [dubbo-spring-boot-starter 0.1.x GitHub](https://github.com/apache/dubbo-spring-boot-project)
 - [dubbo-admin GitHub](https://github.com/apache/dubbo-admin)
+- [Admin 整体架构与安装步骤](https://cn.dubbo.apache.org/zh-cn/overview/reference/admin/architecture/)
