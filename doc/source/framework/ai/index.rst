@@ -17,3 +17,4 @@ AI
     visualdlDocker
     paddleX
     chatGPTNextWebDocker
+    iopaintDocker
