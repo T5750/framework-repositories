@@ -73,6 +73,21 @@ make.bat html
 2. Sign in with GitHub
 3. Import a Project
 
+## Sphinx Book Theme
+1. `pip install sphinx-book-theme`
+2. `conf.py`
+	```
+	html_theme = "sphinx_book_theme"
+	html_theme_options = {
+	    "path_to_docs": "doc/source",
+	    "repository_url": "https://github.com/T5750/framework-repositories",
+	    "repository_branch": "master",
+	    "use_source_button": True,
+	    "use_edit_page_button": True,
+	    "use_issues_button": True,
+	}
+	```
+
 ## Tips
 ### Read the Docs
 - `requirements.txt`
@@ -93,3 +108,6 @@ make.bat html
 - [TypeError: 'generator' object is not reversible](https://github.com/sphinx-doc/sphinx/issues/9727)
 - [Sphinx Comments](https://daobook.github.io/sphinx-comments/)
 - [Could not import extension sphinx.builders.linkcheck (exception: urllib3 v2.0 only supports OpenSSL 1.1.1+)](https://github.com/readthedocs/readthedocs.org/issues/10290)
+- [Sphinx Book Theme Get started](https://sphinx-book-theme.readthedocs.io/en/stable/tutorials/get-started.html)
+- [Sphinx Book Theme Reference of theme options](https://sphinx-book-theme.readthedocs.io/en/stable/reference.html)
+- [PyTorch Sphinx Theme](https://github.com/pytorch/pytorch_sphinx_theme)

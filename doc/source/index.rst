@@ -5,6 +5,8 @@
 
 Framework Repositories
 ===============================
+开源充满着自由的气息，充斥着迷茫的选择。持续探索开源新大陆，不因虚度年华而悔恨
+
 .. note::
    This is my technical note, I hope this can help you.
 
