@@ -18,3 +18,4 @@ AI
     paddleX
     chatGPTNextWebDocker
     iopaintDocker
+    ollamaDocker
