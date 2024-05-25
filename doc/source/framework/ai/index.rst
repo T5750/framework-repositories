@@ -19,3 +19,4 @@ AI
     chatGPTNextWebDocker
     iopaintDocker
     ollamaDocker
+    openWebuiDocker
