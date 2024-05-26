@@ -20,3 +20,4 @@ AI
     iopaintDocker
     ollamaDocker
     openWebuiDocker
+    maxKBDocker
