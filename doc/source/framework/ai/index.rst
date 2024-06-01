@@ -20,4 +20,5 @@ AI
     iopaintDocker
     ollamaDocker
     openWebuiDocker
+    chatbotOllamaDocker
     maxKBDocker

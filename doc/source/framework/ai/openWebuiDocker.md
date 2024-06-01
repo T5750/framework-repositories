@@ -73,6 +73,31 @@ services:
       - OLLAMA_BASE_URLS=http://ollama-one:11434;http://ollama-two:11434
 ```
 
+## Image Generation
+### AUTOMATIC1111
+1. Ensure that you have [AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) installed.
+2. Launch AUTOMATIC1111 with additional flags to enable API access:
+    ```sh
+    ./webui.sh --api --listen
+    ```
+3. For Docker installation of WebUI with the environment variables preset, use the following command:
+    ```sh
+    docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -e AUTOMATIC1111_BASE_URL=http://host.docker.internal:7860/ -e ENABLE_IMAGE_GENERATION=True -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+    ```
+
+### ComfyUI
+1. Download and extract the ComfyUI software package from GitHub to your desired directory.
+2. To start ComfyUI, run the following command:
+    ```sh
+    python main.py
+    # For systems with low VRAM, launch ComfyUI with additional flags to reduce memory usage:
+    python main.py --lowvram
+    ```
+3. For Docker installation of WebUI with the environment variables preset, use the following command:
+    ```sh
+    docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -e COMFYUI_BASE_URL=http://host.docker.internal:7860/ -e ENABLE_IMAGE_GENERATION=True -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+    ```
+
 ## Runtime Environment
 - [Python 3.11.x](https://www.python.org/downloads/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -85,3 +110,4 @@ services:
 - [Open WebUI GitHub](https://github.com/open-webui/open-webui)
 - [Open WebUI Docker](https://docs.openwebui.com/getting-started/)
 - [Ollama Load Balancing Setup](https://docs.openwebui.com/tutorial/ollama)
+- [Open WebUI Image Generation](https://docs.openwebui.com/tutorial/images/)
