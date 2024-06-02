@@ -10,7 +10,7 @@
 A ~ C | D ~ G | H ~ L | M ~ O | P ~ R | S | T ~ U | V ~ Z
 ----|----|----|----|----|----|----|----
 [ActiveMQ](module/activemq.md) | [Derby](module/databases/derby.md) | [Hadoop](module/big-data/hadoop.md) | [Memcached](module/databases/memcached.md) | [Pig](module/big-data/pig.md) | [Solr](module/big-data/solr.md) | [Tests](doc/source/framework/tests) | [ZooKeeper](module/zookeeper.md)
-[AI](doc/source/framework/ai) | [DevOps](doc/source/devops) | [HBase](module/big-data/hbase.md) | [Mina](module/network/mina.md) | [PostgreSQL](module/databases/postgresql.md) | [Spark SQL](module/big-data/spark.md) | [ThingsBoard](module/framework/iot/thingsboard.md) |
+[AI](doc/source/ai) | [DevOps](doc/source/devops) | [HBase](module/big-data/hbase.md) | [Mina](module/network/mina.md) | [PostgreSQL](module/databases/postgresql.md) | [Spark SQL](module/big-data/spark.md) | [ThingsBoard](module/framework/iot/thingsboard.md) |
 [API](doc/source/framework/api) | [Docker](doc/docker/docker.md) | [Hive](module/big-data/hive.md) | [MinIO](doc/source/proxy/minio) | [Proxy](doc/source/proxy) | [Spring](module/spring/README.md) |  |
 [AVS](doc/source/framework/avs) | [Dubbo](doc/source/rpc) | [HttpClient](module/network/README.md) | [MongoDB](module/databases/mongo.md) | [Python](doc/source/framework/python) | [Spring Boot](module/spring-boot/README.md) |  |
 [BI](doc/source/framework/bi) | [ELK](module/elk.md) | [Jersey](module/rest.md) | [MySQL](module/databases/mysql.md) | [Redis](module/databases/redis.md) | [Spring Cloud](module/spring-cloud.md) |  |
