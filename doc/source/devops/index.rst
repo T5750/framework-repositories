@@ -75,3 +75,4 @@ DevOps
     pwpushDocker
     messagePusherDocker
     messageNestDocker
+    dashyDocker
