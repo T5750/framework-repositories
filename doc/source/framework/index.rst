@@ -6,7 +6,6 @@ Framework
     :numbered: 0
     
     3d/index
-    ai/index
     api/index
     architect/index
     avs/index

@@ -20,6 +20,7 @@ Framework Repositories
    :maxdepth: 3
    :glob:
 
+   ai/index
    big-data/index
    databases/index
    devops/index
