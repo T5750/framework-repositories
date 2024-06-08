@@ -22,3 +22,4 @@ AI
     openWebuiDocker
     chatbotOllamaDocker
     maxKBDocker
+    stableDiffusion
