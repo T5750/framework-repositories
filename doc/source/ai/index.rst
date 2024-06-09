@@ -23,3 +23,4 @@ AI
     chatbotOllamaDocker
     maxKBDocker
     stableDiffusion
+    comfyUI
