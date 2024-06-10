@@ -24,3 +24,4 @@ AI
     maxKBDocker
     stableDiffusion
     comfyUI
+    comflowyNote
