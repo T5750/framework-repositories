@@ -22,6 +22,7 @@ AI
     openWebuiDocker
     chatbotOllamaDocker
     maxKBDocker
+    anythingllmDocker
     stableDiffusion
     comfyUI
     comflowyNote
