@@ -23,6 +23,7 @@ AI
     chatbotOllamaDocker
     maxKBDocker
     anythingllmDocker
+    bigAGIDocker
     stableDiffusion
     comfyUI
     comflowyNote
