@@ -41,4 +41,5 @@ Docker
     opensearchDocker
     qbittorrentDocker
     moodistDocker
+    browserlessDocker
     kubernetes/index
