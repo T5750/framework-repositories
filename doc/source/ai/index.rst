@@ -24,6 +24,7 @@ AI
     maxKBDocker
     anythingllmDocker
     bigAGIDocker
+    localaiDocker
     stableDiffusion
     comfyUI
     comflowyNote
