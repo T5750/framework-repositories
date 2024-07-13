@@ -19,6 +19,7 @@ DevOps
     grafanaLokiDocker
     prometheusDocker
     zipkinDocker
+    jaegerDocker
     skywalkingDocker
     sonarqubeDocker
     xxlJobDocker
