@@ -68,6 +68,12 @@ sudo systemctl restart docker
 docker stop $(docker ps -aq)
 ```
 
+### Docker Registry
+- docker.io: Docker Hub 官方镜像仓库
+- gcr.io、k8s.gcr.io: 谷歌镜像仓库
+- quay.io: Red Hat 镜像仓库
+- ghcr.io: GitHub 镜像仓库
+
 ## References
 - [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
 - [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
