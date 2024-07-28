@@ -77,3 +77,4 @@ DevOps
     messagePusherDocker
     messageNestDocker
     dashyDocker
+    plankaDocker
