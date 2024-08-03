@@ -7,6 +7,5 @@ Python
     
     pythonDocker
     portiaDocker
-    pytorchDocker
     mealieDocker
     searxDocker

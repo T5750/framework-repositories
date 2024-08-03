@@ -5,6 +5,7 @@ AI
     :maxdepth: 3
     :numbered: 0
     
+    pytorchDocker
     tensorflowDocker
     labelStudioDocker
     makesenseDocker

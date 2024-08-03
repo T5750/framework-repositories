@@ -3,7 +3,7 @@
 Tensors and Dynamic neural networks in Python with strong GPU acceleration
 
 ## Docker
-```
+```sh
 docker run --gpus all --rm -ti --ipc=host pytorch/pytorch
 ```
 

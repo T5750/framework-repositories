@@ -2,10 +2,10 @@
 
 Elegant open source project tracking
 
-## Demo Compose
+## Demo
 [Live Demo](https://plankanban.github.io/planka)
 
-## Docker
+## Docker Compose
 ```sh
 curl -L https://raw.githubusercontent.com/plankanban/planka/master/docker-compose.yml -o /opt/planka/docker-compose.yml
 # Generate a secret key
