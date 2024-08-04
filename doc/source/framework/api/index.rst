@@ -30,6 +30,7 @@ API
     dokuwikiDocker
     hugoDocker
     docsyDocker
+    wikiDocker
     jupyterDocker
     jsonheroDocker
     discuzqDocker
