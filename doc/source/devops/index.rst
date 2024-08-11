@@ -79,3 +79,4 @@ DevOps
     dashyDocker
     plankaDocker
     flowDocker
+    stirlingPdfDocker
