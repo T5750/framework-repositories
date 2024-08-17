@@ -49,6 +49,14 @@ print("Number of embeddings created:", len(embeddings))
 print("Number of dimensions per embedding:", len(embeddings[0]))
 ```
 
+## Tips
+### GPT4All Python SDK
+```
+Failed to load llamamodel-mainline-cuda-avxonly.dll: LoadLibraryExW failed with error 0x7e
+Failed to load llamamodel-mainline-cuda.dll: LoadLibraryExW failed with error 0x7e
+```
+[Python binding logs console errors when CUDA is not found, even when CPU is requested](https://github.com/nomic-ai/gpt4all/issues/2521)
+
 ## Runtime Environment
 - C++
 

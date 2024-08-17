@@ -2,6 +2,12 @@
 
 CNCF Jaeger, a Distributed Tracing Platform
 
+With Jaeger you can
+- monitor distributed workflows
+- find & fix performance bottlenecks
+- track down root causes
+- analyze service dependencies
+
 ## Docker
 ### All-in-one
 ```sh
@@ -34,6 +40,24 @@ docker run --rm --link jaeger \
 ```
 [http://localhost:8080/](http://localhost:8080/)
 
+## Tools
+### Tracegen
+```sh
+docker run \
+  --rm \
+  jaegertracing/jaeger-tracegen:1.58
+```
+
+### Anonymizer
+```sh
+docker run \
+  --rm \
+  --volume /tmp:/tmp \
+  jaegertracing/jaeger-anonymizer:1.58 \
+  --trace-id <TRACE_ID> \
+  --query-host-port <JAEGER_QUERY_HOST_PORT>
+```
+
 ## Runtime Environment
 - [Go v1.13](https://github.com/golang/go)
 
@@ -49,3 +73,4 @@ docker run --rm --link jaeger \
 - [Jaeger GitHub](https://github.com/jaegertracing/jaeger)
 - [Jaeger Docker](https://www.jaegertracing.io/docs/1.58/deployment/)
 - [Jaeger Getting Started](https://www.jaegertracing.io/docs/1.58/getting-started/)
+- [Jaeger Tools](https://www.jaegertracing.io/docs/1.58/tools/)
