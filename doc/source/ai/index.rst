@@ -30,3 +30,4 @@ AI
     stableDiffusion
     comfyUI
     comflowyNote
+    invokeAIDocker
