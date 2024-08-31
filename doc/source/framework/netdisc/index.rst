@@ -20,3 +20,4 @@ Netdisc
     filebrowserDocker
     fileGatorDocker
     spacedriveDocker
+    wpsOfficeDocker
