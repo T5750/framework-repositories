@@ -42,4 +42,5 @@ Docker
     qbittorrentDocker
     moodistDocker
     browserlessDocker
+    airsonicAdvancedDocker
     kubernetes/index
