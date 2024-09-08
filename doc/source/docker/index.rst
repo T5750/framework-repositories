@@ -44,4 +44,5 @@ Docker
     browserlessDocker
     airsonicAdvancedDocker
     ardourDocker
+    gimpDocker
     kubernetes/index
