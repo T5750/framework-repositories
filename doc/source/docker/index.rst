@@ -45,4 +45,5 @@ Docker
     airsonicAdvancedDocker
     ardourDocker
     gimpDocker
+    babybuddyDocker
     kubernetes/index
