@@ -22,5 +22,6 @@ AVS
     jellyfinDocker
     plexDocker
     ombiDocker
+    sonarrDocker
     cumulusclipsDocker
     janusDocker
