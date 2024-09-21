@@ -17,15 +17,15 @@ Proxy
     nginxLogs
     nginxInitScript
     nginxVideos
+    lua/index
+    fastdfs/index
+    minio/index
+    haproxy/index
+    traefik/index
+    pvr/index
     caddyDocker
     trafficserverDocker
     frpDocker
     freeradiusDocker
     neutrinoProxyDocker
     fabioDocker
-    lua/index
-    fastdfs/index
-    minio/index
-    haproxy/index
-    traefik/index
-    jackett/index

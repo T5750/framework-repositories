@@ -35,6 +35,11 @@ services:
     restart: unless-stopped
 ```
 
+## Settings
+Add indexer -> Type: Public
+- [52BT](https://www.529053.xyz/)
+- [EXT Torrents](https://ext.to/)
+
 ## Runtime Environment
 - [.NET 6.0](https://dotnet.microsoft.com/download/dotnet)
 
