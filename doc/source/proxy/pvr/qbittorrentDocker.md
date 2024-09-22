@@ -43,6 +43,13 @@ services:
     restart: unless-stopped
 ```
 
+## Settings
+Tools -> Options -> Web UI -> Authentication: Username/Password
+
+## Tips
+### 下载元数据
+Tracker -> 添加Tracker: [trackers_all](https://github.com/ngosang/trackerslist/blob/master/trackers_all.txt)
+
 ## Runtime Environment
 - C++
 
@@ -50,3 +57,4 @@ services:
 - [Qbittorrent](https://www.qbittorrent.org/)
 - [Qbittorrent GitHub](https://github.com/qbittorrent/qBittorrent)
 - [linuxserver/qbittorrent Docker](https://docs.linuxserver.io/images/docker-qbittorrent/)
+- [ngosang/trackerslist](https://ngosang.github.io/trackerslist/)

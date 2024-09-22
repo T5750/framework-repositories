@@ -39,6 +39,19 @@ services:
     restart: unless-stopped
 ```
 
+## Settings
+- 媒体管理 -> 根目录: `/downloads`
+- 索引器 -> Torznab
+- 下载客户端 -> 下载客户端 -> qBittorrent
+  * 主机: `172.17.0.1`
+  * 用户名: `admin`
+- 下载客户端 -> 远程路径映射
+  * 主机: `172.17.0.1`
+  * 远程路径: `/downloads/`
+  * 本地路径: `/downloads/`
+- 通用 -> 安全 -> 认证: 表单（登陆页面）
+- UI界面 -> 语言
+
 ## Runtime Environment
 - C#
 

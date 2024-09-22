@@ -6,3 +6,6 @@ PVR
     :numbered: 0
 
     jackettDocker
+    qbittorrentDocker
+    radarrDocker
+    sonarrDocker

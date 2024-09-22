@@ -39,7 +39,6 @@ Docker
     surveykingDocker
     tablerDocker
     opensearchDocker
-    qbittorrentDocker
     moodistDocker
     browserlessDocker
     airsonicAdvancedDocker
