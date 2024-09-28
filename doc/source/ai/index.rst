@@ -31,3 +31,4 @@ AI
     comfyUI
     comflowyNote
     invokeAIDocker
+    baiduComate
