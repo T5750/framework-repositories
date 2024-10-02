@@ -28,6 +28,19 @@
 2. 引用现有代码编写新代码：如“参考A文件生成B文件，包含增删改查”、“生成所有实体的建表SQL”、“根据schema.sql中的内容生成所有实体”
 3. 关联私域知识生成新代码
 
+如何调起
+1. 输入『#』指定目录、文件、整个代码库等进行有针对性的问答
+2. 也可以通过“/Ask”命令，唤起高级生成（AutoWork）
+
+### 开放平台
+通过Baidu Comate，对第三方开发者工具、在线服务等进行知识扩展与能力扩展，使得第三方服务可通过Comate直接提供给用户使用，将研发各个环节连接到编程现场，共同打造以编码环节为中心的生态系统，打造Comate everything。
+
+1. [插件配置中心](https://comate.baidu.com/cop/configSet/list)
+2. [知识中心](https://comate.baidu.com/cop/knowledge/list)
+
+### 智能Debug
+旨在解决开发过程中遇到的代码构建报错、代码运行报错、常见shell命令执行报错
+
 ## Screenshots
 ![](https://comate.baidu.com/images/chapter-1-2-4.png)
 
