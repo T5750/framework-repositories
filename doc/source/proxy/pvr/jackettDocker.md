@@ -11,6 +11,7 @@ docker run -d \
   -v $PWD/jackett/downloads:/downloads \
   --restart unless-stopped \
   linuxserver/jackett
+docker run -d --name=jackett -p 9117:9117 quay.io/linuxserver.io/jackett
 ```
 [http://localhost:9117/](http://localhost:9117/)
 
