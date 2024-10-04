@@ -45,4 +45,5 @@ Docker
     ardourDocker
     gimpDocker
     babybuddyDocker
+    pylonDocker
     kubernetes/index
