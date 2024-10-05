@@ -29,3 +29,4 @@ Proxy
     freeradiusDocker
     neutrinoProxyDocker
     fabioDocker
+    flareSolverrDocker
