@@ -9,3 +9,5 @@ PVR
     qbittorrentDocker
     radarrDocker
     sonarrDocker
+    bazarrDocker
+    readarrDocker
