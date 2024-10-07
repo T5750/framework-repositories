@@ -22,3 +22,4 @@ Linux
     ubuntuDocker
     busyboxDocker
     alpineDocker
+    endlesshDocker
