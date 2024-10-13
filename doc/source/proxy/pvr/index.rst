@@ -11,3 +11,4 @@ PVR
     sonarrDocker
     bazarrDocker
     readarrDocker
+    overseerrDocker
