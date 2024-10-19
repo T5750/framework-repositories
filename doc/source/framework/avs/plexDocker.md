@@ -38,6 +38,25 @@ plexinc/pms-docker
 - **PLEX_CLAIM** The claim token for the server to obtain a real server token.  If not provided, server will not be automatically logged in.  If server is already logged in, this parameter is ignored.  You can obtain a claim token to login your server to your plex account by visiting [https://www.plex.tv/claim](https://www.plex.tv/claim)
 - **ADVERTISE_IP** This variable defines the additional IPs on which the server may be found.  For example: `http://10.1.1.23:32400`.  This adds to the list where the server advertises that it can be found.  This is only needed in Bridge Networking.
 
+## linuxserver/plex
+```sh
+docker run -d \
+  --name=plex \
+  --net=host \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -e VERSION=docker \
+  -e PLEX_CLAIM= `#optional` \
+  -v /path/to/plex/library:/config \
+  -v /path/to/tvseries:/tv \
+  -v /path/to/movies:/movies \
+  --restart unless-stopped \
+  lscr.io/linuxserver/plex:latest
+docker run -d --name=plex -p 32400:32400 quay.io/linuxserver.io/plex
+```
+[http://localhost:32400/web](http://localhost:32400/web)
+
 ## Screenshots
 ![](https://www.plex.tv/wp-content/uploads/2022/04/image-avod-devices-lastknights.png)
 
@@ -45,3 +64,4 @@ plexinc/pms-docker
 - [Plex](https://www.plex.tv/)
 - [Plex GitHub](https://github.com/plexinc/pms-docker)
 - [Plex Docker](https://hub.docker.com/r/plexinc/pms-docker)
+- [linuxserver/plex Docker](https://docs.linuxserver.io/images/docker-plex/)
