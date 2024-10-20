@@ -30,3 +30,4 @@ Proxy
     neutrinoProxyDocker
     fabioDocker
     flareSolverrDocker
+    zncDocker
