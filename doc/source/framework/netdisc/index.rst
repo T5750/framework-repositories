@@ -21,3 +21,4 @@ Netdisc
     fileGatorDocker
     spacedriveDocker
     wpsOfficeDocker
+    projectsendDocker
