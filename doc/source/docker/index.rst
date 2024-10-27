@@ -46,4 +46,5 @@ Docker
     gimpDocker
     babybuddyDocker
     pylonDocker
+    lazylibrarianDocker
     kubernetes/index
