@@ -12,3 +12,4 @@ PVR
     bazarrDocker
     readarrDocker
     overseerrDocker
+    medusaDocker
