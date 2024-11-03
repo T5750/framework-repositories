@@ -18,9 +18,5 @@ AVS
     frigateDocker
     ispyDocker
     kerberosDocker
-    embyDocker
-    jellyfinDocker
-    plexDocker
-    ombiDocker
     cumulusclipsDocker
     janusDocker
