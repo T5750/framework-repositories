@@ -74,7 +74,30 @@ docker stop $(docker ps -aq)
 - quay.io: Red Hat 镜像仓库
 - ghcr.io: GitHub 镜像仓库
 
+### 修改默认存储路径
+```sh
+docker info
+#默认目录：Docker Root Dir: /var/lib/docker
+systemctl stop docker.service
+mkdir -p /home/docker/
+#使用 rsync 替代 cp 解决断点续传问题
+rsync -avz /var/lib/docker/* /home/docker/
+vi /etc/docker/daemon.json
+```
+```
+{
+"data-root": "/home/docker"
+}
+```
+```sh
+systemctl start docker
+docker info
+df -h
+rm -rf /var/lib/docker
+```
+
 ## References
 - [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
 - [CentOS Docker 安装](https://www.runoob.com/docker/centos-docker-install.html)
 - [Docker限制容器日志大小](https://www.cnblogs.com/angel-devil/p/12558908.html)
+- [修改Docker默认存储路径，解决系统盘占用90%+问题(修改docker root dir)](https://cloud.tencent.com/developer/article/2452495)
