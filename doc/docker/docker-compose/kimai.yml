@@ -1,0 +1,37 @@
+---
+services:
+  kimai:
+    image: quay.io/linuxserver.io/kimai:latest
+    container_name: kimai
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - DATABASE_URL=mysql://kimai:123456@mariadb:3306/kimai?charset=utf8mb4&serverVersion=10.11.10-MariaDB-log
+    #volumes:
+      #- /path/to/kimai/config:/config
+    ports:
+      - 8001:80
+      - 443:443
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+
+# This container requires an external application to be run separately.
+# MariaDB
+  mariadb:
+    image: quay.io/linuxserver.io/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=kimai #optional
+      - MYSQL_USER=kimai #optional
+      - MYSQL_PASSWORD=123456 #optional
+    #volumes:
+      #- path_to_data:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
