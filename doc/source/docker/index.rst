@@ -24,6 +24,7 @@ Docker
     dockerUtilities
     ouroborosDocker
     watchtowerDocker
+    diunDocker
     docklyDocker
     dozzleDocker
     portainerDocker
