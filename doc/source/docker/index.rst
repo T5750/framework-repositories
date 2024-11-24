@@ -49,4 +49,5 @@ Docker
     pylonDocker
     lazylibrarianDocker
     kimaiDocker
+    jetbrainsLicenseServerDocker
     kubernetes/index
