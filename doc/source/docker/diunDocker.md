@@ -40,7 +40,6 @@ services:
     labels:
       - "diun.enable=true"
     restart: always
-
 ```
 
 ## Command Line

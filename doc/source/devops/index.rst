@@ -76,6 +76,7 @@ DevOps
     pwpushDocker
     messagePusherDocker
     messageNestDocker
+    gotifyDocker
     dashyDocker
     plankaDocker
     flowDocker
