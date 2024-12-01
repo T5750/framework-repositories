@@ -63,6 +63,7 @@ DevOps
     baotaDocker
     iredmailDocker
     uptimeKumaDocker
+    gatusDocker
     umamiDocker
     safelineDocker
     domainAdminDocker
