@@ -6,6 +6,7 @@ Open Source
     :numbered: 0
 
     books/index
+    onlineTools
     openSourceLicenses
     gitHubSecurity
     gitHubGitLab
