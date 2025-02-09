@@ -38,6 +38,26 @@ Qwen 1.5 is a series of large language models by Alibaba
 docker exec -it ollama ollama run qwen:0.5b
 ```
 
+### DeepSeek
+DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen.
+```sh
+docker exec -it ollama ollama run deepseek-r1:1.5b
+```
+
+测试功能
+1. 智能客服，例如：如何学习人工智能？
+2. 内容创作，例如：请为我撰写一篇介绍沙县小吃的宣传文案
+3. 编程辅助，例如：用Python绘制一个柱状图
+4. 教育辅助，例如：解释牛顿第二定律
+
+导出模型
+```sh
+ollama list
+ollama show --modelfile deepseek-r1:1.5b
+# FROM /root/.ollama/models/blobs/sha256-aabd4debf0c8f08881923f2c25fc0fdeed24435271c2b3e92c4af36704040dbc
+docker cp ollama:/root/.ollama/models/blobs/sha256-aabd4debf0c8f08881923f2c25fc0fdeed24435271c2b3e92c4af36704040dbc ./deepseek-r1-1.5b.gguf
+```
+
 ## Customize a model
 ### Import from GGUF
 1. Create a file named `Modelfile`, with a `FROM` instruction with the local filepath to the model you want to import.
