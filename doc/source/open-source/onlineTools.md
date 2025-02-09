@@ -11,6 +11,7 @@
 ## 转换类
 - [依奇在线超级转换工具](https://www.wdku.net/)
 - [图片转文字在线](https://web.baimiaoapp.com/)
+- [单位换算器](https://cn.unitconverter.cc/)
 - [在线单位转换](https://www.convertworld.com/zh-hans/)
 
 ## 开发类
@@ -19,6 +20,7 @@
 - [菜鸟工具](https://www.jyshare.com/)：不止于工具，[AI 代码转换工具](https://www.jyshare.com/front-end/9580/)
 - [OSCHINA在线工具](https://tool.oschina.net/)：[编码转换](https://tool.oschina.net/encode?type=4)，[正则表达式](https://tool.oschina.net/regex)，[TCP/UDP端口](https://tool.oschina.net/commons?type=7)
 - [在线工具 Fx](https://tool.fiaox.com/)
+- [在线工具大全](https://www.lddgo.net/index)：[单位换算](https://www.lddgo.net/convert/unitconvert)
 
 ### 网络
 - [在线网络计算器](https://www.sojson.com/convert/subnetmask.html)
