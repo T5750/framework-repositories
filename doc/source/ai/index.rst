@@ -27,6 +27,7 @@ AI
     bigAGIDocker
     localaiDocker
     gpt4all
+    fastgptDocker
     stableDiffusion
     comfyUI
     comflowyNote

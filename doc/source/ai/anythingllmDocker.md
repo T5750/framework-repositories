@@ -33,5 +33,5 @@ mintplexlabs/anythingllm
 ## References
 - [AnythingLLM](https://useanything.com/)
 - [AnythingLLM GitHub](https://github.com/Mintplex-Labs/anything-llm)
-- [AnythingLLM Docker](https://docs.useanything.com/installation/self-hosted/local-docker)
-- [AnythingLLM Installation Overview](https://docs.useanything.com/installation/overview)
+- [AnythingLLM Docker](https://docs.useanything.com/installation-docker/local-docker)
+- [AnythingLLM Installation Overview](https://docs.useanything.com/installation-docker/overview)
