@@ -58,6 +58,62 @@ ollama show --modelfile deepseek-r1:1.5b
 docker cp ollama:/root/.ollama/models/blobs/sha256-aabd4debf0c8f08881923f2c25fc0fdeed24435271c2b3e92c4af36704040dbc ./deepseek-r1-1.5b.gguf
 ```
 
+### nomic-embed-text
+A high-performing open embedding model with a large token context window.
+```sh
+ollama pull nomic-embed-text
+```
+REST API
+```sh
+curl http://localhost:11434/api/embeddings -d '{
+  "model": "nomic-embed-text",
+  "prompt": "The sky is blue because of Rayleigh scattering"
+}'
+```
+Python library
+```sh
+ollama.embeddings(model='nomic-embed-text', prompt='The sky is blue because of rayleigh scattering')
+```
+Javascript library
+```sh
+ollama.embeddings({ model: 'nomic-embed-text', prompt: 'The sky is blue because of rayleigh scattering' })
+```
+
+## REST API
+### Generate a completion
+```
+POST /api/generate
+# Examples
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt": "Why is the sky blue?"
+}'
+```
+
+### Generate a chat completion
+```
+POST /api/chat
+```
+
+### List Local Models
+```
+GET /api/tags
+# Examples
+curl http://localhost:11434/api/tags
+```
+
+### Generate Embeddings
+```
+POST /api/embed
+```
+
+### Version
+```
+GET /api/version
+# Examples
+curl http://localhost:11434/api/version
+```
+
 ## Customize a model
 ### Import from GGUF
 1. Create a file named `Modelfile`, with a `FROM` instruction with the local filepath to the model you want to import.
@@ -112,5 +168,6 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Ollama](https://ollama.com/)
 - [Ollama GitHub](https://github.com/ollama/ollama)
 - [Ollama Docker](https://hub.docker.com/r/ollama/ollama)
+- [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
 - [Qwen Ollama](https://qwen.readthedocs.io/zh-cn/latest/run_locally/ollama.html)
 - [Qwen1.5 GitHub](https://github.com/QwenLM/Qwen1.5)
