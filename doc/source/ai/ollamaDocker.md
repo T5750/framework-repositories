@@ -36,12 +36,15 @@ More models can be found on the [Ollama library](https://ollama.com/library).
 Qwen 1.5 is a series of large language models by Alibaba
 ```sh
 docker exec -it ollama ollama run qwen:0.5b
+ollama pull qwen:0.5b-chat
+ollama pull qwen2.5:0.5b
 ```
 
 ### DeepSeek
 DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen.
 ```sh
 docker exec -it ollama ollama run deepseek-r1:1.5b
+ollama pull deepseek-r1:32b
 ```
 
 测试功能

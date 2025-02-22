@@ -74,7 +74,7 @@ curl --location --request POST 'http://localhost:3000/api/v1/chat/completions' \
 ```
 
 ## Runtime Environment
-- [Python 3.10.x](https://www.python.org/downloads/)
+- [Node.js](https://nodejs.org/en/download)
 - [TypeScript](https://www.typescriptlang.org/)
 
 ## 知识库核心流程图
