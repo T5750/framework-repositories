@@ -30,6 +30,7 @@ AI
     fastgptDocker
     oneApiDocker
     difyDocker
+    langchain
     stableDiffusion
     comfyUI
     comflowyNote
