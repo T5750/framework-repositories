@@ -41,6 +41,9 @@ docker compose up -d
 - [Python 3.12.x](https://www.python.org/downloads/)
 - [TypeScript](https://www.typescriptlang.org/)
 
+## Architecture
+[下载架构图](https://assets.dify.ai/files/dify_llms_app_stack_cn.pdf)
+
 ## Screenshots
 ![](https://framerusercontent.com/images/WY0mSS5ACIDg7Vrq3NVKndOs5KM.png)
 

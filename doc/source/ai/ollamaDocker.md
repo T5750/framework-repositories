@@ -82,6 +82,15 @@ Javascript library
 ollama.embeddings({ model: 'nomic-embed-text', prompt: 'The sky is blue because of rayleigh scattering' })
 ```
 
+### Hugging Face
+```sh
+ollama run hf.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
+#或者
+ollama run huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
+#国内
+ollama run hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF:q2_k
+```
+
 ## REST API
 ### Generate a completion
 ```
@@ -174,3 +183,4 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
 - [Qwen Ollama](https://qwen.readthedocs.io/zh-cn/latest/run_locally/ollama.html)
 - [Qwen1.5 GitHub](https://github.com/QwenLM/Qwen1.5)
+- [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF)
