@@ -20,6 +20,7 @@ AI
     chatGPTNextWebDocker
     iopaintDocker
     ollamaDocker
+    vllmDocker
     openWebuiDocker
     chatbotOllamaDocker
     maxKBDocker
