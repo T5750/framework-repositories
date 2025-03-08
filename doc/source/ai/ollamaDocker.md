@@ -91,6 +91,41 @@ ollama run huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
 ollama run hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF:q2_k
 ```
 
+## CLI Reference
+```sh
+ollama -h
+ollama -v
+```
+
+### Multiline input
+For multiline input, you can wrap text with `"""`:
+```
+>>> """Hello,
+... world!
+... """
+I'm a basic program that prints the famous "Hello, world!" message to the console.
+```
+
+### Multimodal models
+```sh
+ollama run llava "What's in this image? /Users/jmorgan/Desktop/smile.png"
+```
+
+### Pass the prompt as an argument
+```sh
+ollama run deepseek-r1:32b "Summarize this file: $(cat README.md)"
+```
+
+### List which models are currently loaded
+```sh
+ollama ps
+```
+
+### Stop a model which is currently running
+```sh
+ollama stop deepseek-r1:32b
+```
+
 ## REST API
 ### Generate a completion
 ```
