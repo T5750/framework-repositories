@@ -37,6 +37,12 @@ docker compose up -d
 ```
 完整的环境变量集合可以在 `docker/.env.example` 中找到。
 
+## 单独启动前端 Docker 容器
+当单独开发后端时，可能只需要源码启动后端服务，而不需要本地构建前端代码并启动
+```sh
+docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_URL=http://127.0.0.1:5001 langgenius/dify-web:latest
+```
+
 ## Runtime Environment
 - [Python 3.12.x](https://www.python.org/downloads/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -55,3 +61,6 @@ docker compose up -d
 - [Dify](https://dify.ai/zh)
 - [Dify GitHub](https://github.com/langgenius/dify)
 - [Dify Docker Compose 部署](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/docker-compose)
+- [Dify 单独启动前端 Docker 容器](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/start-the-frontend-docker-container)
+- [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
+- [Dify Marketplace](https://marketplace.dify.ai/)
