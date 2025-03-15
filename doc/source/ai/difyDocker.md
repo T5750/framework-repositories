@@ -43,6 +43,16 @@ docker compose up -d
 docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_URL=http://127.0.0.1:5001 langgenius/dify-web:latest
 ```
 
+## Tips
+### 环境变量配置
+`vi .env`
+```
+PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+### 备份
+需要备份数据库、配置的存储以及向量数据库数据，若为 docker compose 方式部署，可直接备份 `dify/docker/volumes` 目录下所有数据内容。
+
 ## Runtime Environment
 - [Python 3.12.x](https://www.python.org/downloads/)
 - [TypeScript](https://www.typescriptlang.org/)

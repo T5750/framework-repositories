@@ -40,6 +40,12 @@ ollama pull qwen:0.5b-chat
 ollama pull qwen2.5:0.5b
 ```
 
+### QwQ
+QwQ is the reasoning model of the Qwen series.
+```sh
+ollama run qwq
+```
+
 ### DeepSeek
 DeepSeek's first-generation of reasoning models with comparable performance to OpenAI-o1, including six dense models distilled from DeepSeek-R1 based on Llama and Qwen.
 ```sh
@@ -66,20 +72,90 @@ A high-performing open embedding model with a large token context window.
 ```sh
 ollama pull nomic-embed-text
 ```
-REST API
+
+#### REST API
 ```sh
 curl http://localhost:11434/api/embeddings -d '{
   "model": "nomic-embed-text",
   "prompt": "The sky is blue because of Rayleigh scattering"
 }'
 ```
-Python library
+
+#### Python library
 ```sh
 ollama.embeddings(model='nomic-embed-text', prompt='The sky is blue because of rayleigh scattering')
 ```
-Javascript library
+
+#### Javascript library
 ```sh
 ollama.embeddings({ model: 'nomic-embed-text', prompt: 'The sky is blue because of rayleigh scattering' })
+```
+
+### LLaVA
+Large Language and Vision Assistant
+```sh
+ollama run llava
+```
+```
+What's in this image? /Users/jmorgan/Desktop/smile.png
+```
+
+### Llama 3.2 Vision
+Llama 3.2 Vision is a collection of instruction-tuned image reasoning generative models in 11B and 90B sizes.
+```sh
+ollama pull llama3.2-vision
+```
+
+#### Python Library
+```sh
+import ollama
+
+response = ollama.chat(
+    model='llama3.2-vision',
+    messages=[{
+        'role': 'user',
+        'content': 'What is in this image?',
+        'images': ['image.jpg']
+    }]
+)
+
+print(response)
+```
+
+#### JavaScript Library
+```sh
+import ollama from 'ollama'
+
+const response = await ollama.chat({
+  model: 'llama3.2-vision',
+  messages: [{
+    role: 'user',
+    content: 'What is in this image?',
+    images: ['image.jpg']
+  }]
+})
+
+console.log(response)
+```
+
+#### cURL
+```sh
+curl http://localhost:11434/api/chat -d '{
+  "model": "llama3.2-vision",
+  "messages": [
+    {
+      "role": "user",
+      "content": "what is in this image?",
+      "images": ["<base64-encoded image data>"]
+    }
+  ]
+}'
+```
+
+### Gemma3
+The current strongest model that fits on a single GPU.
+```sh
+ollama run gemma3
 ```
 
 ### Hugging Face
@@ -89,6 +165,8 @@ ollama run hf.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
 ollama run huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
 #国内
 ollama run hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF:q2_k
+ollama pull hf-mirror.com/bartowski/Qwen2-VL-7B-Instruct-GGUF:f16
+ollama pull modelscope.cn/IAILabs/Qwen2.5-VL-7B-Instruct-GGUF:f16
 ```
 
 ## CLI Reference
@@ -147,6 +225,13 @@ POST /api/chat
 GET /api/tags
 # Examples
 curl http://localhost:11434/api/tags
+```
+
+### List Running Models
+```
+GET /api/ps
+# Examples
+curl http://localhost:11434/api/ps
 ```
 
 ### Generate Embeddings
@@ -218,4 +303,9 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
 - [Qwen Ollama](https://qwen.readthedocs.io/zh-cn/latest/run_locally/ollama.html)
 - [Qwen1.5 GitHub](https://github.com/QwenLM/Qwen1.5)
+- [Qwen2.5 GitHub](https://github.com/QwenLM/Qwen2.5)
+- [Qwen2.5-VL GitHub](https://github.com/QwenLM/Qwen2.5-VL)
 - [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF)
+- [LLaVA GitHub](https://github.com/haotian-liu/LLaVA)
+- [Llama Models GitHub](https://github.com/meta-llama/llama-models)
+- [Gemma3 Ollama](https://ollama.com/library/gemma3)
