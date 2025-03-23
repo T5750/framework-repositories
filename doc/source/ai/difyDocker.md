@@ -47,6 +47,7 @@ docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_
 ### 环境变量配置
 `vi .env`
 ```
+UPLOAD_FILE_SIZE_LIMIT=500
 PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 

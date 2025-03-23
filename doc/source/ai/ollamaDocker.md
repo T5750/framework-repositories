@@ -194,6 +194,11 @@ ollama run llava "What's in this image? /Users/jmorgan/Desktop/smile.png"
 ollama run deepseek-r1:32b "Summarize this file: $(cat README.md)"
 ```
 
+### Show model information
+```sh
+ollama show deepseek-r1:32b
+```
+
 ### List which models are currently loaded
 ```sh
 ollama ps
@@ -203,6 +208,9 @@ ollama ps
 ```sh
 ollama stop deepseek-r1:32b
 ```
+
+### Start Ollama
+`ollama serve` is used when you want to start ollama without running the desktop application.
 
 ## REST API
 ### Generate a completion
