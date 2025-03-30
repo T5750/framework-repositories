@@ -19,9 +19,17 @@ docker-compose up -d
 
 ## 更新 Dify
 ```sh
+# 1. Back up your customized docker-compose YAML file (optional)
 cd dify/docker
-docker compose down
+cp docker-compose.yaml docker-compose.yaml.$(date +%s).bak
+# 2. Get the latest code from the main branch
+git checkout main
 git pull origin main
+# 3. Stop the service, Command, please execute in the docker directory
+docker compose down
+# 4. Back up data
+tar -cvf volumes-$(date +%s).tgz volumes
+# 5. Upgrade services
 docker compose pull
 docker compose up -d
 ```
@@ -54,6 +62,12 @@ PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ### 备份
 需要备份数据库、配置的存储以及向量数据库数据，若为 docker compose 方式部署，可直接备份 `dify/docker/volumes` 目录下所有数据内容。
 
+### dify-sandbox config error
+```sh
+cd volumes/sandbox/conf
+wget https://github.com/langgenius/dify/blob/main/docker/volumes/sandbox/conf/config.yaml
+```
+
 ## Runtime Environment
 - [Python 3.12.x](https://www.python.org/downloads/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -75,3 +89,4 @@ PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 - [Dify 单独启动前端 Docker 容器](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/start-the-frontend-docker-container)
 - [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
 - [Dify Marketplace](https://marketplace.dify.ai/)
+- [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
