@@ -314,6 +314,7 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Qwen2.5 GitHub](https://github.com/QwenLM/Qwen2.5)
 - [Qwen2.5-VL GitHub](https://github.com/QwenLM/Qwen2.5-VL)
 - [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF)
+- [DeepSeek-R1 GitHub](https://github.com/deepseek-ai/DeepSeek-R1)
 - [LLaVA GitHub](https://github.com/haotian-liu/LLaVA)
 - [Llama Models GitHub](https://github.com/meta-llama/llama-models)
 - [Gemma3 Ollama](https://ollama.com/library/gemma3)
