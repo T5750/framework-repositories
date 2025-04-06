@@ -55,6 +55,7 @@ docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_
 ### 环境变量配置
 `vi .env`
 ```
+NGINX_CLIENT_MAX_BODY_SIZE=500M
 UPLOAD_FILE_SIZE_LIMIT=500
 PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ```
@@ -66,6 +67,11 @@ PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ```sh
 cd volumes/sandbox/conf
 wget https://github.com/langgenius/dify/blob/main/docker/volumes/sandbox/conf/config.yaml
+```
+
+### weaviate组件缺失问题
+```sh
+docker-compose up weaviate -d
 ```
 
 ## Runtime Environment
@@ -90,3 +96,4 @@ wget https://github.com/langgenius/dify/blob/main/docker/volumes/sandbox/conf/co
 - [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
 - [Dify Marketplace](https://marketplace.dify.ai/)
 - [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
+- [weaviate组件缺失问题](https://github.com/langgenius/dify/issues/12872)
