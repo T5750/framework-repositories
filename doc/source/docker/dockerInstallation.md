@@ -56,7 +56,8 @@ sudo vi /etc/docker/daemon.json
 {
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"],
   "log-driver": "json-file",
-  "log-opts": {"max-size":"500m", "max-file":"3"}
+  "log-opts": {"max-size":"500m", "max-file":"3"},
+  "dns": ["8.8.8.8","114.114.114.114"]
 }
 sudo systemctl daemon-reload
 sudo systemctl restart docker

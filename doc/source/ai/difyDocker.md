@@ -69,6 +69,12 @@ cd volumes/sandbox/conf
 wget https://github.com/langgenius/dify/blob/main/docker/volumes/sandbox/conf/config.yaml
 ```
 
+### dify-sandbox ModuleNotFoundError
+```sh
+cd volumes/sandbox/dependencies
+vi python-requirements.txt
+```
+
 ### weaviate组件缺失问题
 ```sh
 docker-compose up weaviate -d
@@ -95,5 +101,6 @@ docker-compose up weaviate -d
 - [Dify 单独启动前端 Docker 容器](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/start-the-frontend-docker-container)
 - [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
 - [Dify Marketplace](https://marketplace.dify.ai/)
+- [Dify-Sandbox GitHub](https://github.com/langgenius/dify-sandbox)
 - [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
 - [weaviate组件缺失问题](https://github.com/langgenius/dify/issues/12872)
