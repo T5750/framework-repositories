@@ -5,18 +5,12 @@ AI
     :maxdepth: 3
     :numbered: 0
     
+    baidu/index
     pytorchDocker
     tensorflowDocker
     labelStudioDocker
     makesenseDocker
     faceRecognitionDocker
-    paddlepaddleDocker
-    paddleOCR
-    paddleDetectionDocker
-    paddleLiteDocker
-    fastDeploy
-    visualdlDocker
-    paddleX
     chatGPTNextWebDocker
     iopaintDocker
     ollamaDocker
@@ -36,4 +30,3 @@ AI
     comfyUI
     comflowyNote
     invokeAIDocker
-    baiduComate
