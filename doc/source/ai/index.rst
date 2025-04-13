@@ -30,3 +30,4 @@ AI
     comfyUI
     comflowyNote
     invokeAIDocker
+    searxngDocker
