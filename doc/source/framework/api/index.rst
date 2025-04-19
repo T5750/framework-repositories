@@ -31,7 +31,6 @@ API
     hugoDocker
     docsyDocker
     wikiDocker
-    jupyterDocker
     jsonheroDocker
     discuzqDocker
     kkFileViewDocker

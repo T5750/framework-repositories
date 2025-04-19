@@ -8,6 +8,7 @@ AI
     baidu/index
     pytorchDocker
     tensorflowDocker
+    jupyterDocker
     labelStudioDocker
     makesenseDocker
     faceRecognitionDocker
