@@ -91,6 +91,12 @@ ollama.embeddings(model='nomic-embed-text', prompt='The sky is blue because of r
 ollama.embeddings({ model: 'nomic-embed-text', prompt: 'The sky is blue because of rayleigh scattering' })
 ```
 
+### BGE-M3
+BGE-M3 is a new model from BAAI distinguished for its versatility in Multi-Functionality, Multi-Linguality, and Multi-Granularity.
+```sh
+ollama pull bge-m3
+```
+
 ### LLaVA
 Large Language and Vision Assistant
 ```sh
@@ -312,9 +318,11 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Qwen Ollama](https://qwen.readthedocs.io/zh-cn/latest/run_locally/ollama.html)
 - [Qwen1.5 GitHub](https://github.com/QwenLM/Qwen1.5)
 - [Qwen2.5 GitHub](https://github.com/QwenLM/Qwen2.5)
+- [QwQ GitHub](https://github.com/QwenLM/QwQ)
 - [Qwen2.5-VL GitHub](https://github.com/QwenLM/Qwen2.5-VL)
 - [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF)
 - [DeepSeek-R1 GitHub](https://github.com/deepseek-ai/DeepSeek-R1)
 - [LLaVA GitHub](https://github.com/haotian-liu/LLaVA)
 - [Llama Models GitHub](https://github.com/meta-llama/llama-models)
 - [Gemma3 Ollama](https://ollama.com/library/gemma3)
+- [BGE-M3](https://bge-model.com/bge/bge_m3.html)

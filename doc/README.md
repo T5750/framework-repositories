@@ -8,7 +8,7 @@ Read the Docs for Framework Repositories
 - Source: https://github.com/T5750/framework-repositories
 
 ## Runtime Environment
-- [Python 3.9.x](https://www.python.org/downloads/)
+- [Python 3.10.x](https://www.python.org/downloads/)
 - [pip 22.0.x](https://github.com/pypa/pip)
 - [Sphinx 2.2.x](http://www.sphinx-doc.org/en/master/usage/installation.html)
 - [recommonmark](https://github.com/readthedocs/recommonmark)

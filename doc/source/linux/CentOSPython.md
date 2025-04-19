@@ -43,16 +43,16 @@ python3 setup.py build
 python3 setup.py install
 ```
 
-## Python 3.9.x
+## Python 3.10.x
 ```
 sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel xz-devel libffi-devel
 #No match for argument: db4-devel
 #No match for argument: libpcap-devel
 sudo yum -y install gcc-c++ make
-wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tgz
+wget https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tgz
 mkdir python && sudo mv python /usr/local/
-tar -zxvf Python-3.9.12.tgz
-cd Python-3.9.12
+tar -zxvf Python-3.10.6.tgz
+cd Python-3.10.6
 ./configure --enable-optimizations --prefix=/usr/local/python
 make && make install
 vi ~/.bashrc
@@ -68,7 +68,7 @@ pip -V
 
 ## Runtime Environment
 - [CentOS 8](https://www.centos.org/download/)
-- [Python 3.9.x](https://www.python.org/downloads/)
+- [Python 3.10.x](https://www.python.org/downloads/)
 - [pip 22.x](https://pypi.python.org/pypi/pip#downloads)
 - [setuptools 58.x](https://pypi.python.org/pypi/setuptools#downloads)
 

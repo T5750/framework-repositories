@@ -51,6 +51,9 @@ docker compose up -d
 docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_URL=http://127.0.0.1:5001 langgenius/dify-web:latest
 ```
 
+## MCP
+MCP 为 LLM 与外部应用之间构建了双向通信通道，就像是 AI 的“USB-C”接口，帮助模型发现、理解并安全调用各种外部工具或 API
+
 ## Tips
 ### 环境变量配置
 `vi .env`
@@ -87,6 +90,8 @@ docker-compose up weaviate -d
 ## Architecture
 [下载架构图](https://assets.dify.ai/files/dify_llms_app_stack_cn.pdf)
 
+![MCP](https://mmecoa.qpic.cn/mmecoa_png/ftnoqhiaHUy8f94noxxab794HsRlhWpyCT25WePXzy1LIvoXgCFYrkRnc6XKosV95GAcMOydMVr1kwibMiaiajbctQ/640?wx_fmt=png&tp=webp&wxfrom=10005&wx_lazy=1&wx_co=1)
+
 ## Screenshots
 ![](https://framerusercontent.com/images/WY0mSS5ACIDg7Vrq3NVKndOs5KM.png)
 
@@ -104,3 +109,4 @@ docker-compose up weaviate -d
 - [Dify-Sandbox GitHub](https://github.com/langgenius/dify-sandbox)
 - [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
 - [weaviate组件缺失问题](https://github.com/langgenius/dify/issues/12872)
+- [Dify MCP 插件指南：一键连接 Zapier，轻松调用 7000+ App 工具](https://mp.weixin.qq.com/s/CDhqmLO1JXSB__aUMqoGoQ)
