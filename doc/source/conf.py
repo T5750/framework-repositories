@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Framework Repositories'
-copyright = u'2024, T5750'
+copyright = u'2025, T5750'
 author = u'T5750'
 
 # The short X.Y version
