@@ -13,6 +13,9 @@
 - [图片转文字在线](https://web.baimiaoapp.com/)
 - [单位换算器](https://cn.unitconverter.cc/)
 - [在线单位转换](https://www.convertworld.com/zh-hans/)
+- [Optimizilla图片优化](https://imagecompressor.com/)
+- [TinyPNG压缩图片](https://tinypng.com/)
+- [TinyPNG压缩图片](https://tinify.cn/)
 
 ## 开发类
 - [IToolkit](https://itoolkit.co/zh)
@@ -22,8 +25,19 @@
 - [在线工具 Fx](https://tool.fiaox.com/)
 - [在线工具大全](https://www.lddgo.net/index)：[单位换算](https://www.lddgo.net/convert/unitconvert)
 
+### JSON
+- [生成JSON Schema](https://www.lddgo.net/string/generate-json-schema)
+- [JSON Schema 生成器](https://products.aspose.app/cells/zh/tools/json-to-schema)
+- [JSON转JSON Schema](https://edgeone.ai/zh/tools/json-to-schema)
+- [JSON转字符串](https://edgeone.ai/zh/tools/json-to-string)
+
+### 文本
+- [多行文本连接成一行](https://www.lddgo.net/string/line-reduce)
+- [在线文本比较](https://www.lddgo.net/string/text-compare)
+
 ### 网络
 - [在线网络计算器](https://www.sojson.com/convert/subnetmask.html)
+- [WEBSOCKET在线测试](https://www.lddgo.net/network/websocket)
 
 ### Markdown
 - [markdown](https://markdown.com.cn/editor/)
