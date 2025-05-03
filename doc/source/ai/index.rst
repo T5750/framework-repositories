@@ -32,3 +32,4 @@ AI
     comflowyNote
     invokeAIDocker
     searxngDocker
+    aiClients
