@@ -18,3 +18,4 @@ Databases
     postgresql/index
     redis/index
     sqlite/index
+    vector/index
