@@ -6,3 +6,4 @@ Vector
     :numbered: 0
     
     chromaDocker
+    weaviateDocker
