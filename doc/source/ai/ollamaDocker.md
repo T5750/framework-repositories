@@ -38,6 +38,7 @@ Qwen 1.5 is a series of large language models by Alibaba
 docker exec -it ollama ollama run qwen:0.5b
 ollama pull qwen:0.5b-chat
 ollama pull qwen2.5:0.5b
+ollama pull qwen3:0.6b
 ```
 
 ### QwQ
@@ -318,6 +319,7 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Qwen Ollama](https://qwen.readthedocs.io/zh-cn/latest/run_locally/ollama.html)
 - [Qwen1.5 GitHub](https://github.com/QwenLM/Qwen1.5)
 - [Qwen2.5 GitHub](https://github.com/QwenLM/Qwen2.5)
+- [Qwen3 GitHub](https://github.com/QwenLM/Qwen3)
 - [QwQ GitHub](https://github.com/QwenLM/QwQ)
 - [Qwen2.5-VL GitHub](https://github.com/QwenLM/Qwen2.5-VL)
 - [Qwen/Qwen2.5-1.5B-Instruct-GGUF](https://hf-mirror.com/Qwen/Qwen2.5-1.5B-Instruct-GGUF)

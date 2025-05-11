@@ -43,3 +43,16 @@ Cherry Studio是一个支持多平台的AI客户端，致力于让更多人能�
 ![](https://chatboxai.app/_next/image?url=https%3A%2F%2Fdownload.chatboxai.app%2Fstatic%2Fsnapshot_file.gif&w=1920&q=75)
 
 ![](https://chatboxai.app/_next/image?url=https%3A%2F%2Fdownload.chatboxai.app%2Fstatic%2Fweb_browsing.gif&w=1920&q=75)
+
+## LibreChat
+LibreChat is the ultimate open-source app for all your AI conversations, fully customizable and compatible with any AI provider — all in one sleek interface
+- [LibreChat](https://www.librechat.ai/)
+- [LibreChat GitHub](https://github.com/danny-avila/LibreChat)
+- [LibreChat Demo](https://chat.librechat.ai/)
+- [LibreChat Docker](https://www.librechat.ai/docs/local/docker)
+
+### Runtime Environment
+- [TypeScript](https://www.typescriptlang.org/)
+
+### Screenshots
+![](https://www.librechat.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdemo_light.83def6ac.png&w=3840&q=75)
