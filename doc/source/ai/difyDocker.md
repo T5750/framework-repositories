@@ -60,6 +60,7 @@ MCP 为 LLM 与外部应用之间构建了双向通信通道，就像是 AI 的�
 ```
 NGINX_CLIENT_MAX_BODY_SIZE=500M
 UPLOAD_FILE_SIZE_LIMIT=500
+TOP_K_MAX_VALUE=20
 PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
