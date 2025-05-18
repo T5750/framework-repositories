@@ -33,3 +33,4 @@ AI
     invokeAIDocker
     searxngDocker
     aiClients
+    mcpInspectorDocker
