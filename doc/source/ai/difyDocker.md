@@ -54,6 +54,22 @@ docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_
 ## MCP
 MCP 为 LLM 与外部应用之间构建了双向通信通道，就像是 AI 的“USB-C”接口，帮助模型发现、理解并安全调用各种外部工具或 API
 
+## Plugins
+### hjlarry/database
+可以用来连接现有数据库，并执行SQL语句和自然语言转SQL
+Usage
+```
+mysql+pymysql://root:123456@localhost:3306/test
+postgresql+psycopg2://postgres:123456@localhost:5432/test
+sqlite:///test.db
+mssql+pymssql://<username>:<password>@<freetds_name>/?charset=utf8
+oracle+oracledb://user:pass@hostname:port[/dbname][?service_name=<service>[&key=value&key=value...]]
+```
+密码中有 `@` 怎么办？`@` 是URL中的保留字符，需要使用 `%40` 代替，例如 `123%40456`
+
+### bowenliang123/md_exporter
+导出 Markdown 为 DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex 文件, 并将代码块导出为各类脚本文件(Python, JS, Bash等)
+
 ## Tips
 ### 环境变量配置
 `vi .env`
@@ -111,3 +127,6 @@ docker-compose up weaviate -d
 - [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
 - [weaviate组件缺失问题](https://github.com/langgenius/dify/issues/12872)
 - [Dify MCP 插件指南：一键连接 Zapier，轻松调用 7000+ App 工具](https://mp.weixin.qq.com/s/CDhqmLO1JXSB__aUMqoGoQ)
+- [hjlarry/database](https://marketplace.dify.ai/plugins/hjlarry/database)
+- [hjlarry/database FAQ](https://github.com/hjlarry/dify-plugin-database/blob/main/FAQ.md)
+- [bowenliang123/md_exporter](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)

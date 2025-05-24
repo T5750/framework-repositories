@@ -165,6 +165,12 @@ The current strongest model that fits on a single GPU.
 ollama run gemma3
 ```
 
+### SQLCoder
+SQLCoder is a code completion model fined-tuned on StarCoder for SQL generation tasks
+```sh
+ollama run sqlcoder
+```
+
 ### Hugging Face
 ```sh
 ollama run hf.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF:latest
@@ -328,3 +334,4 @@ For more examples, see the [examples](https://github.com/ollama/ollama/blob/main
 - [Llama Models GitHub](https://github.com/meta-llama/llama-models)
 - [Gemma3 Ollama](https://ollama.com/library/gemma3)
 - [BGE-M3](https://bge-model.com/bge/bge_m3.html)
+- [SQLCoder GitHub](https://github.com/defog-ai/sqlcoder)
