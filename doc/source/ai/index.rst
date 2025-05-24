@@ -34,3 +34,4 @@ AI
     searxngDocker
     aiClients
     mcpInspectorDocker
+    pollinations
