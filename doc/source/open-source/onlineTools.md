@@ -43,3 +43,12 @@
 - [markdown](https://markdown.com.cn/editor/)
 - [Dillinger](https://dillinger.io/)
 - [马克飞象](https://maxiang.io/)
+
+### SQL
+- [Excel 转换为 insert SQL](https://tableconvert.com/zh-cn/excel-to-sql)
+
+### Python
+- [python3 在线工具](https://www.w3cschool.cn/tryrun/runcode?lang=python3)
+- [Python在线编辑器](https://lwebapp.com/zh/python-playground)
+- [Python在线运行(3.8.1)](https://www.bejson.com/runcode/python3/)
+- [海龟编辑器](https://turtle.codemao.cn/editor/python_web/)
