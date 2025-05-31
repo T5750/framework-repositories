@@ -55,6 +55,21 @@ docker run -it -p 3000:3000 -e CONSOLE_API_URL=http://127.0.0.1:5001 -e APP_API_
 MCP 为 LLM 与外部应用之间构建了双向通信通道，就像是 AI 的“USB-C”接口，帮助模型发现、理解并安全调用各种外部工具或 API
 
 ## Plugins
+### 安装 Dify 插件开发脚手架 (CLI)
+下载: 访问 [Dify Plugin CLI Releases](https://github.com/langgenius/dify-plugin-daemon/releases)
+
+### 本地运行与调试
+```sh
+cp .env.example .env
+python -m main
+```
+
+### 打包插件
+```
+dify plugin package ./your_plugin_project
+dify-plugin-windows-amd64.exe plugin package ./your_plugin_project
+```
+
 ### hjlarry/database
 可以用来连接现有数据库，并执行SQL语句和自然语言转SQL
 Usage
@@ -69,6 +84,13 @@ oracle+oracledb://user:pass@hostname:port[/dbname][?service_name=<service>[&key=
 
 ### bowenliang123/md_exporter
 导出 Markdown 为 DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex 文件, 并将代码块导出为各类脚本文件(Python, JS, Bash等)
+```sh
+git clone https://github.com/bowenliang123/md_exporter.git
+pip install -r requirements.txt
+```
+
+### stvlynn/DOC-Dify-Plugin
+Markdown to DOCX Converter
 
 ## Tips
 ### 环境变量配置
@@ -77,6 +99,7 @@ oracle+oracledb://user:pass@hostname:port[/dbname][?service_name=<service>[&key=
 NGINX_CLIENT_MAX_BODY_SIZE=500M
 UPLOAD_FILE_SIZE_LIMIT=500
 TOP_K_MAX_VALUE=20
+FORCE_VERIFYING_SIGNATURE=true
 PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
@@ -123,6 +146,7 @@ docker-compose up weaviate -d
 - [Dify 单独启动前端 Docker 容器](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/start-the-frontend-docker-container)
 - [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
 - [Dify Marketplace](https://marketplace.dify.ai/)
+- [Dify 插件开发：Hello World 指南](https://docs.dify.ai/plugin-dev-zh/0211-getting-started-dify-tool)
 - [Dify-Sandbox GitHub](https://github.com/langgenius/dify-sandbox)
 - [dify-sandbox:0.2.10](https://github.com/langgenius/dify/issues/15675)
 - [weaviate组件缺失问题](https://github.com/langgenius/dify/issues/12872)
@@ -130,3 +154,4 @@ docker-compose up weaviate -d
 - [hjlarry/database](https://marketplace.dify.ai/plugins/hjlarry/database)
 - [hjlarry/database FAQ](https://github.com/hjlarry/dify-plugin-database/blob/main/FAQ.md)
 - [bowenliang123/md_exporter](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
+- [stvlynn/DOC-Dify-Plugin](https://marketplace.dify.ai/plugins/stvlynn/doc)
