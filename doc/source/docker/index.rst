@@ -50,4 +50,5 @@ Docker
     lazylibrarianDocker
     kimaiDocker
     jetbrainsLicenseServerDocker
+    pairdropDocker
     kubernetes/index
