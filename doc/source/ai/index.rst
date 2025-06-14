@@ -27,6 +27,7 @@ AI
     oneApiDocker
     difyDocker
     langchain
+    n8nDocker
     stableDiffusion
     comfyUI
     comflowyNote
