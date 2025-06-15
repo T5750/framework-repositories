@@ -37,3 +37,4 @@ AI
     mcpInspectorDocker
     mcpServers
     pollinations
+    promptOptimizerDocker
