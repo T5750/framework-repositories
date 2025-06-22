@@ -38,3 +38,4 @@ AI
     mcpServers
     pollinations
     promptOptimizerDocker
+    PDFMathTranslateDocker
