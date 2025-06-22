@@ -30,6 +30,8 @@
 - [JSON Schema 生成器](https://products.aspose.app/cells/zh/tools/json-to-schema)
 - [JSON转JSON Schema](https://edgeone.ai/zh/tools/json-to-schema)
 - [JSON转字符串](https://edgeone.ai/zh/tools/json-to-string)
+- [JSON压缩转义](https://www.json.cn/jsonzip/)
+- [JSON在线转字符串](https://www.jsongj.com/json/stringify)
 
 ### 文本
 - [多行文本连接成一行](https://www.lddgo.net/string/line-reduce)
@@ -46,6 +48,7 @@
 
 ### SQL
 - [Excel 转换为 insert SQL](https://tableconvert.com/zh-cn/excel-to-sql)
+- [下划线&驼峰转换](https://uutool.cn/camel/)
 
 ### Python
 - [python3 在线工具](https://www.w3cschool.cn/tryrun/runcode?lang=python3)
