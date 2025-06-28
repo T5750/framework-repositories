@@ -31,6 +31,8 @@ Generate ERD (Beta)
 ![](https://www.pgadmin.org/static/COMPILED/assets/img/screenshots/pgadmin4-explain.png)
 
 ## References
+- [pgAdmin](https://www.pgadmin.org/)
 - [Container Deployment](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)
 - [ERD Tool](https://www.pgadmin.org/docs/pgadmin4/5.7/erd_tool.html)
 - [pgAdmin Docker](https://hub.docker.com/r/dpage/pgadmin4/)
+- [pgAdmin Download](https://www.pgadmin.org/download/)
