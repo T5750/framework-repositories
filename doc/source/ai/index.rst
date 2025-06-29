@@ -39,3 +39,4 @@ AI
     pollinations
     promptOptimizerDocker
     PDFMathTranslateDocker
+    trWebOCRDocker
