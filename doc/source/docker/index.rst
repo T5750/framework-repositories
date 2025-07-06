@@ -51,4 +51,5 @@ Docker
     kimaiDocker
     jetbrainsLicenseServerDocker
     pairdropDocker
+    wgerDocker
     kubernetes/index
