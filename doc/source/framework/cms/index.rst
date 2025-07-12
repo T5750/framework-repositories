@@ -16,3 +16,4 @@ Content Management System (CMS)
     memosDocker
     moodleDocker
     cockpitDocker
+    directusDocker
