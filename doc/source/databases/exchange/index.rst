@@ -19,3 +19,4 @@ Exchange
     camelKaravanDocker
     kaotoDocker
     tdengineDocker
+    nocodbDocker
