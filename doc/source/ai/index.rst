@@ -40,3 +40,4 @@ AI
     promptOptimizerDocker
     PDFMathTranslateDocker
     trWebOCRDocker
+    neo4jDocker
