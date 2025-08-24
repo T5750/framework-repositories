@@ -51,6 +51,12 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip install ping3 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+### Reinstall pip
+```sh
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py --force-reinstall
+```
+
 ## Conda
 ```sh
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
