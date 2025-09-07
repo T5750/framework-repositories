@@ -6,6 +6,41 @@ PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力�
 - [PP-OCR mobile](https://www.paddlepaddle.org.cn/hub/scene/ocr)
 - [移动端demo](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)
 
+## PaddleOCR 3.x
+### 安装飞桨框架
+```sh
+# 对于 cpu 用户:
+docker run --name paddleocr -v $PWD:/paddle --shm-size=8G --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0 /bin/bash
+
+# 对于 gpu 用户:
+# GPU 版本，需显卡驱动程序版本 ≥450.80.02（Linux）或 ≥452.39（Windows）
+docker run --gpus all --name paddleocr -v $PWD:/paddle --shm-size=8G --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0-gpu-cuda11.8-cudnn8.9-trt8.6 /bin/bash
+
+# GPU 版本，需显卡驱动程序版本 ≥545.23.06（Linux）或 ≥545.84（Windows）
+docker run --gpus all --name paddleocr -v $PWD:/paddle  --shm-size=8G --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0-gpu-cuda12.6-cudnn9.5-trt10.5 /bin/bash
+```
+安装完成后，使用以下命令可以验证 PaddlePaddle 是否安装成功：
+```sh
+python -c "import paddle; print(paddle.__version__)"
+```
+
+### 安装 PaddleOCR
+```sh
+# 只希望使用基础文字识别功能（返回文字位置坐标和文本内容）
+python -m pip install paddleocr
+# 希望使用文档解析、文档理解、文档翻译、关键信息抽取等全部功能
+# python -m pip install "paddleocr[all]"
+```
+
+### Run inference by CLI
+```sh
+# Run PP-OCRv5 inference
+paddleocr ocr -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False
+
+# Run PP-StructureV3 inference
+paddleocr pp_structurev3 -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png --use_doc_orientation_classify False --use_doc_unwarping False
+```
+
 ## PP-OCR文本检测识别
 ### 安装
 #### 安装PaddlePaddle
@@ -82,6 +117,7 @@ docker run --name ppocr --runtime=nvidia -v $PWD:/mnt -p 8888:8888 -it --shm-siz
 
 ## References
 - [PaddleOCR GitHub](https://github.com/PaddlePaddle/PaddleOCR)
+- [PaddleOCR 安装](https://www.paddleocr.ai/main/version3.x/installation.html)
 - [PaddleOCR 快速开始](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/quickstart.md)
 - [PP-Structure 快速开始](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/ppstructure/docs/quickstart.md)
 - [PaddleOCR Docker](https://hub.docker.com/r/paddlecloud/paddleocr)
