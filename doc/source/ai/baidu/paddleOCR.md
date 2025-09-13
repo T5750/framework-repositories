@@ -8,9 +8,11 @@ PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力�
 
 ## PaddleOCR 3.x
 ### 安装飞桨框架
+#### 基于 Docker 安装飞桨
 ```sh
 # 对于 cpu 用户:
 docker run --name paddleocr -v $PWD:/paddle --shm-size=8G --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0 /bin/bash
+docker run -d -p 8080:8080 --name paddleocr --shm-size=8G -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0 /bin/bash
 
 # 对于 gpu 用户:
 # GPU 版本，需显卡驱动程序版本 ≥450.80.02（Linux）或 ≥452.39（Windows）
@@ -18,6 +20,18 @@ docker run --gpus all --name paddleocr -v $PWD:/paddle --shm-size=8G --network=h
 
 # GPU 版本，需显卡驱动程序版本 ≥545.23.06（Linux）或 ≥545.84（Windows）
 docker run --gpus all --name paddleocr -v $PWD:/paddle  --shm-size=8G --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddle:3.0.0-gpu-cuda12.6-cudnn9.5-trt10.5 /bin/bash
+```
+
+#### 基于 pip 安装飞桨
+```sh
+# CPU 版本
+python -m pip install paddlepaddle==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
+
+# GPU 版本，需显卡驱动程序版本 ≥450.80.02（Linux）或 ≥452.39（Windows）
+python -m pip install paddlepaddle-gpu==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu118/
+
+# GPU 版本，需显卡驱动程序版本 ≥550.54.14（Linux）或 ≥550.54.14（Windows）
+ python -m pip install paddlepaddle-gpu==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
 ```
 安装完成后，使用以下命令可以验证 PaddlePaddle 是否安装成功：
 ```sh
@@ -39,7 +53,37 @@ paddleocr ocr -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_im
 
 # Run PP-StructureV3 inference
 paddleocr pp_structurev3 -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png --use_doc_orientation_classify False --use_doc_unwarping False
+
+# Get the Qianfan API Key at first, and then run PP-ChatOCRv4 inference
+paddleocr pp_chatocrv4_doc -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png -k 驾驶室准乘人数 --qianfan_api_key your_api_key --use_doc_orientation_classify False --use_doc_unwarping False
+
+# Get more information about "paddleocr ocr"
+paddleocr ocr --help
 ```
+
+## 推理部署
+### 服务化部署
+```sh
+paddlex --install serving
+paddlex --serve --pipeline {PaddleX 产线注册名或产线配置文件路径} [{其他命令行选项}]
+paddlex --serve --pipeline OCR
+python -m pip install "paddleocr[doc-parser]"
+paddlex --serve --pipeline PP-StructureV3
+```
+
+### PaddleOCR 与 PaddleX 产线对应关系
+
+| PaddleOCR 产线       | PaddleX 产线注册名   |
+|----------------------|----------------------|
+| 通用 OCR             | `OCR`                  |
+| PP-StructureV3       | `PP-StructureV3`       |
+| PP-ChatOCRv4         | `PP-ChatOCRv4-doc`     |
+| 通用表格识别 v2      | `table_recognition_v2` |
+| 公式识别             | `formula_recognition`  |
+| 印章文本识别         | `seal_recognition`     |
+| 文档图像预处理       | `doc_preprocessor`     |
+| 文档理解             | `doc_understanding`    |
+| PP-DocTranslation    | `PP-DocTranslation`    |
 
 ## PP-OCR文本检测识别
 ### 安装
@@ -115,9 +159,15 @@ docker run --name ppocr --runtime=nvidia -v $PWD:/mnt -p 8888:8888 -it --shm-siz
 ## 特性
 ![](https://user-images.githubusercontent.com/25809855/186170862-b8f80f6c-fee7-4b26-badc-de9c327c76ce.png)
 
+## Architecture
+![](https://raw.githubusercontent.com/cuicheng01/PaddleX_doc_images/main/images/paddleocr/README/Arch_cn.jpg)
+
 ## References
+- [PaddleOCR](https://www.paddleocr.ai/)
 - [PaddleOCR GitHub](https://github.com/PaddlePaddle/PaddleOCR)
 - [PaddleOCR 安装](https://www.paddleocr.ai/main/version3.x/installation.html)
+- [PaddleOCR 服务化部署](https://www.paddleocr.ai/main/version3.x/deployment/serving.html)
+- [PaddleOCR 与 PaddleX](https://www.paddleocr.ai/main/version3.x/paddleocr_and_paddlex.html)
 - [PaddleOCR 快速开始](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/doc/doc_ch/quickstart.md)
 - [PP-Structure 快速开始](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.6/ppstructure/docs/quickstart.md)
 - [PaddleOCR Docker](https://hub.docker.com/r/paddlecloud/paddleocr)
