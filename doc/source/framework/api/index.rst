@@ -7,6 +7,7 @@ API
     
     rap2delosDocker
     yapiDocker
+    yaadeDocker
     kongDocker
     kongDashboardDocker
     kongaDocker
