@@ -81,6 +81,7 @@ DevOps
     dashyDocker
     plankaDocker
     flowDocker
+    ocrmypdfDocker
     stirlingPdfDocker
     teableDocker
     healthchecksDocker
