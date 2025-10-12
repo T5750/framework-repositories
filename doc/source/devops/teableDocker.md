@@ -201,13 +201,18 @@ BACKEND_CACHE_PROVIDER=redis
 BACKEND_CACHE_REDIS_URI=redis://default:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}/${REDIS_DB}
 ```
 
+## 许可证
+Teable 社区版本在 AGPL-3.0 协议下开源
+- `registry.cn-shenzhen.aliyuncs.com/teable/teable:latest` 镜像包含企业版和社区版所有功能，并可免费使用。
+- 如果需要单独使用社区版，可选择 `registry.cn-shenzhen.aliyuncs.com/teable/teable-community:latest` 镜像
+
 ## Runtime Environment
 - [TypeScript](https://www.typescriptlang.org/)
 
 ## Architecture
-![](https://help.teable.cn/~gitbook/image?url=https%3A%2F%2F2932697955-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F3UAxYOALe4vISZRKICva%252Fuploads%252F8nsAIToscmFfr4rXVloy%252Fimg_v3_02dh_056f254e-37ea-4e8f-94ee-b9fa941be57g.png%3Falt%3Dmedia%26token%3D41a9e4fa-c6e8-4365-87c8-fa4701e00358&width=400&dpr=3&quality=100&sign=6317875f&sv=1)
+![](https://mintcdn.com/teablecn/MGUqMJ8iafwbPo_j/images/si-you-hua-bu-shu/77a397abbfab3574.png?w=840&fit=max&auto=format&n=MGUqMJ8iafwbPo_j&q=85&s=47e5d55ff0093a4a49e90f2fa1186882)
 
-![](https://help.teable.cn/~gitbook/image?url=https%3A%2F%2F2932697955-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F3UAxYOALe4vISZRKICva%252Fuploads%252Fz2BvTAuExzXa8vfX2t7I%252Fimg_v3_02dh_bfaed8d7-618f-4496-98e9-8f0e6d2c6edg.png%3Falt%3Dmedia%26token%3D620a04e3-bbee-4ec2-9443-95dc042ca776&width=400&dpr=3&quality=100&sign=87795fea&sv=1)
+![](https://mintcdn.com/teablecn/MGUqMJ8iafwbPo_j/images/si-you-hua-bu-shu/a7eb9716b365ddaf.png?w=840&fit=max&auto=format&n=MGUqMJ8iafwbPo_j&q=85&s=1ddb573161d966d6eed97a3d094a4b06)
 
 ## Screenshots
 ![](https://framerusercontent.com/images/lAAbFOWOTkdl2ZZl0aVNPSDsc.png?scale-down-to=2048)
@@ -217,5 +222,6 @@ BACKEND_CACHE_REDIS_URI=redis://default:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_
 ## References
 - [Teable](https://teable.cn/)
 - [Teable GitHub](https://github.com/teableio/teable)
-- [Teable Docker](https://help.teable.cn/si-you-hua-bu-shu/kai-shi-bu-shu)
-- [Teable 技术架构](https://help.teable.cn/si-you-hua-bu-shu/ji-shu-jia-gou)
+- [Teable Docker](https://help.teable.cn/zh/deploy/docker)
+- [Teable 技术架构](https://help.teable.cn/zh/deploy/architecture)
+- [Teable API文档](https://help.teable.cn/zh/api-doc/token)
