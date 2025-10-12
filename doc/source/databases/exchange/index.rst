@@ -20,5 +20,4 @@ Exchange
     hawtioDocker
     kaotoDocker
     tdengineDocker
-    nocodbDocker
     drawdbDocker

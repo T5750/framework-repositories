@@ -22,4 +22,5 @@ Framework
     python/index
     softSkills
     sso/index
+    table/index
     tests/index

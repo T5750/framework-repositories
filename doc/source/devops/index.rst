@@ -83,5 +83,4 @@ DevOps
     flowDocker
     ocrmypdfDocker
     stirlingPdfDocker
-    teableDocker
     healthchecksDocker
