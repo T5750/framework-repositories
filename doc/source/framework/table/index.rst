@@ -6,6 +6,7 @@ Table
     :maxdepth: 3
     :numbered: 0
     
+    baserowDocker
     nocodbDocker
     teableDocker
     undbDocker
