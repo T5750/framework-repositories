@@ -22,10 +22,22 @@ docker run -d \
 ## Docker Compose
 `nextcloud.yml`
 
+## Update to a newer version
+```sh
+docker pull nextcloud
+docker stop nextcloud
+docker rm nextcloud
+docker run -d --name=nextcloud -p 8080:80 nextcloud
+```
+```sh
+docker compose pull
+docker compose up -d
+```
+
 ## Runtime Environment
 - [PHP](https://www.php.net/downloads)
 - [MySQL 5.x](http://www.mysql.com/)
-- [Nextcloud 29.x](https://nextcloud.com/install/#instructions-server)
+- [Nextcloud](https://nextcloud.com/install/#instructions-server)
 
 ## Screenshots
 ![](https://docs.nextcloud.com/server/latest/user_manual/_images/users-files.png)
@@ -40,6 +52,7 @@ docker run -d \
 - [Nextcloud](https://nextcloud.com/)
 - [Nextcloud Docker](https://hub.docker.com/_/nextcloud)
 - [Nextcloud GitHub](https://github.com/nextcloud)
+- [Nextcloud Docker GitHub](https://github.com/nextcloud/docker)
 - [Nextcloud All-in-One GitHub](https://github.com/nextcloud/all-in-one)
 - [Nextcloud User manual](https://docs.nextcloud.com/server/latest/user_manual/zh_CN/contents.html)
 - [Office Installation example with Docker](https://docs.nextcloud.com/server/latest/admin_manual/office/example-docker.html)
