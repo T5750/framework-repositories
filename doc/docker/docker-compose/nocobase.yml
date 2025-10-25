@@ -1,0 +1,53 @@
+version: '3'
+
+networks:
+  nocobase:
+    driver: bridge
+
+services:
+  app:
+    image: nocobase/nocobase
+    restart: always
+    networks:
+      - nocobase
+    depends_on:
+      - postgres
+    environment:
+      # 应用的密钥，用于生成用户 token 等
+      # 如果 APP_KEY 修改了，旧的 token 也会随之失效
+      # 可以是任意随机字符串，并确保不对外泄露
+      - APP_KEY=your-secret-key
+      # 数据库类型，支持 postgres, mysql, mariadb
+      - DB_DIALECT=postgres
+      # 数据库主机，可以替换为已有的数据库服务器 IP
+      - DB_HOST=postgres
+      # Database port
+      - DB_PORT=5432
+      # 数据库名
+      - DB_DATABASE=nocobase
+      # 数据库用户
+      - DB_USER=nocobase
+      # 数据库密码
+      - DB_PASSWORD=nocobase
+      # 时区
+      - TZ=Asia/Shanghai
+
+    volumes:
+      - ./storage:/app/nocobase/storage
+    ports:
+      - '13000:80'
+    # init: true
+
+  # 如果使用已有数据库服务，可以不启动 postgres
+  postgres:
+    image: postgres:15-alpine
+    restart: always
+    command: postgres -c wal_level=logical
+    environment:
+      POSTGRES_USER: nocobase
+      POSTGRES_DB: nocobase
+      POSTGRES_PASSWORD: nocobase
+    volumes:
+      - ./storage/db/postgres:/var/lib/postgresql/data
+    networks:
+      - nocobase

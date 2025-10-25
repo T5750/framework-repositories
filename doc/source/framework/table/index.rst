@@ -8,6 +8,7 @@ Table
     
     apitableDocker
     baserowDocker
+    nocobaseDocker
     nocodbDocker
     teableDocker
     undbDocker
