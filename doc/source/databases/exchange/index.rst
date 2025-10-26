@@ -11,6 +11,7 @@ Exchange
     cloudbeaverDocker
     slashbase
     greptimedbDocker
+    dorisDocker
     clickhouseDocker
     questdbDocker
     dataXDocker

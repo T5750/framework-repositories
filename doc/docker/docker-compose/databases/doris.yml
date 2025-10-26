@@ -1,0 +1,63 @@
+services:
+  fe:
+    image: apache/doris:fe-ubuntu-2.1.7
+    container_name: doris-fe
+    hostname: fe
+    environment:
+      - FE_SERVERS=fe1:172.30.0.2:9010
+      - MASTER_FE_IP=172.30.0.2
+      - FE_ID=1
+    ports:
+      - "8030:8030"   # FE HTTP端口
+      - "9020:9020"   # FE BRPC端口
+      - "9030:9030"   # MySQL协议端口
+      - "9010:9010"   # FE thrift端口
+    volumes:
+      - ./fe-data:/opt/apache-doris/fe/doris-meta  # 元数据持久化
+      - ./fe-log:/opt/apache-doris/fe/log          # 日志持久化
+    networks:
+      doris-net:
+        ipv4_address: 172.30.0.2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8030/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  be:
+    image: apache/doris:be-ubuntu-2.1.7
+    container_name: doris-be
+    hostname: be
+    environment:
+      - FE_SERVERS=fe1:172.30.0.2:9010
+      - MASTER_FE_IP=172.30.0.2
+      - BE_ADDR=172.30.0.3:9050
+      - BE_HEARTBEAT_PORT=9050
+      - CURRENT_BE_IP=172.30.0.3
+      - CURRENT_BE_PORT=9050
+    ports:
+      - "8040:8040"   # 心跳服务端口
+      - "9050:9050"   # BE thrift端口
+      - "9060:9060"   # BE BRPC端口
+      - "8060:8060"   # BE HTTP端口
+    volumes:
+      - ./be-data:/opt/apache-doris/be/storage    # 数据存储持久化
+      - ./be-log:/opt/apache-doris/be/log         # 日志持久化
+    networks:
+      doris-net:
+        ipv4_address: 172.30.0.3
+    depends_on:
+      fe:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8060/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  doris-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
