@@ -12,6 +12,7 @@ Exchange
     slashbase
     greptimedbDocker
     dorisDocker
+    dorisFlinkCDC
     clickhouseDocker
     questdbDocker
     dataXDocker
