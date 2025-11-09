@@ -2,6 +2,8 @@
 
 Stateful Computations over Data Streams
 
+Apache Flink 是一个在有界数据流和无界数据流上进行有状态计算分布式处理引擎和框架。
+
 ![](https://flink.apache.org/img/flink-home-graphic.png)
 
 ## Docker
@@ -141,6 +143,11 @@ docker-compose run sql-client
 SQL 客户端 的目的是提供一种简单的方式来编写、调试和提交表程序到 Flink 集群上，而无需写一行 Java 或 Scala 代码
 ```sh
 ./bin/sql-client.sh
+```
+
+## Examples
+```sh
+docker cp jobmanager:/opt/flink/examples/streaming/WordCount.jar .
 ```
 
 ## Runtime Environment
