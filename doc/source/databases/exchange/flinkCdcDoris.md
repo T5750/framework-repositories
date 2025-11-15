@@ -1,4 +1,4 @@
-# Doris Flink CDC
+# Flink CDC Doris
 Flink Doris Connector / Flink CDC
 
 ## Docker
@@ -45,6 +45,32 @@ bin/flink run \
     --sink-conf fenodes=127.0.0.1:8030 \
     --sink-conf username=root \
     --sink-conf password=123456 \
+    --sink-conf jdbc-url=jdbc:mysql://127.0.0.1:9030 \
+    --sink-conf sink.label-prefix=label \
+    --table-conf replication_num=1
+```
+
+### Oracle 整库同步
+```sh
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-oracle-cdc/3.5.0/flink-sql-connector-oracle-cdc-3.5.0.jar
+wget https://repo1.maven.org/maven2/com/oracle/ojdbc/ojdbc8/19.3.0.0/ojdbc8-19.3.0.0.jar
+bin/flink run \
+    -Dexecution.checkpointing.interval=10s \
+    -Dparallelism.default=1 \
+    -c org.apache.doris.flink.tools.cdc.CdcTools \
+    ./lib/flink-doris-connector-1.20-24.0.1.jar \
+    oracle-sync-database \
+    --database test_db \
+    --oracle-conf hostname=127.0.0.1 \
+    --oracle-conf port=1521 \
+    --oracle-conf username=admin \
+    --oracle-conf password="password" \
+    --oracle-conf database-name=XE \
+    --oracle-conf schema-name=ADMIN \
+    --including-tables "tbl1|tbl2" \
+    --sink-conf fenodes=127.0.0.1:8030 \
+    --sink-conf username=root \
+    --sink-conf password=\
     --sink-conf jdbc-url=jdbc:mysql://127.0.0.1:9030 \
     --sink-conf sink.label-prefix=label \
     --table-conf replication_num=1

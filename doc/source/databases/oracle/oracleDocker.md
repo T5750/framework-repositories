@@ -41,7 +41,7 @@ Password for SYS & SYSTEM
 oracle
 ```
 
-## Tests
+### Tests
 ```sh
 docker exec -it oracle bash
 sqlplus system/oracle
@@ -50,9 +50,59 @@ select * from v$version;
 select name from v$database;
 ```
 
-## Tips
+### Tips
 - ORACLE_HOME: /u01/app/oracle/product/11.2.0/xe
 - Oracle ORADATA: /u01/app/oracle/oradata
 
+## helowin/oracle_11g
+```sh
+docker run -d -p 1521:1521 \
+--restart=always \
+--name oracle_11g \
+-v /opt/oracle_data:/home/oracle/app/oracle/oradata/mydata \
+registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g
+```
+
+### 修改配置
+```sh
+#1.进入容器
+docker exec -it oracle_11g bash
+
+#2.切换root用户
+su - root
+#密码：helowin
+
+#3.修改环境变量
+vi /etc/profile
+
+export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2
+export ORACLE_SID=helowin
+export PATH=$ORACLE_HOME/bin:$PATH
+
+#4.使生效
+source /etc/profile
+
+#5.建立软连接
+ln -s $ORACLE_HOME/bin/sqlplus /usr/bin
+
+#6.退出root用户
+exit
+```
+
+### 修改密码
+```sh
+#1.再次执行，使环境生效(因为oracle用户还没有生效)
+source /etc/profile
+
+#2.以dba身份连接
+sqlplus / as sysdba
+
+#3.修改密码
+alter user system identified by 123456;
+alter user sys identified by 123456;
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+```
+
 ## References
 - [wnameless/docker-oracle-xe-11g GitHub](https://github.com/wnameless/docker-oracle-xe-11g)
+- [Docker安装Oracle11g](https://juejin.cn/post/7286088186848739388)
