@@ -13,6 +13,7 @@ Exchange
     greptimedbDocker
     dorisDocker
     flinkCdcDoris
+    flinkCdcOracleDoris
     clickhouseDocker
     questdbDocker
     dataXDocker
