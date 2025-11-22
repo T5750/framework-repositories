@@ -15,6 +15,7 @@ Exchange
     flinkCdcDoris
     flinkCdcOracleDoris
     clickhouseDocker
+    trinoDocker
     questdbDocker
     dataXDocker
     chat2dbDocker
