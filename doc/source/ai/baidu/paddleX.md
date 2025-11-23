@@ -1,8 +1,8 @@
 # PaddleX
 
-PaddlePaddle End-to-End Development Toolkit（『飞桨』深度学习全流程开发工具）
+PaddleX 3.0 是基于飞桨框架构建的低代码开发工具，它集成了众多**开箱即用的预训练模型**，可以实现模型从训练到推理的**全流程开发**，支持国内外**多款主流硬件**，助力AI 开发者进行产业实践。
 
-## 安装
+## 安装 PaddleX 3.x
 ### 安装 PaddlePaddle
 ```sh
 # CPU版本
@@ -20,14 +20,17 @@ pip install "paddlex[ocr]"
 ### 基于Docker获取PaddleX
 ```sh
 # 对于 CPU 用户
-docker run --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.1.2-paddlepaddle3.0.0-cpu /bin/bash
+docker run --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-cpu /bin/bash
 
 # 对于 GPU 用户
 # GPU 版本，需显卡驱动程序版本 ≥450.80.02（Linux）或 ≥452.39（Windows）
-docker run --gpus all --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.1.2-paddlepaddle3.0.0-gpu-cuda11.8-cudnn8.9-trt8.6 /bin/bash
+docker run --gpus all --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-gpu-cuda11.8-cudnn8.9-trt8.6 /bin/bash
 
 # GPU 版本，需显卡驱动程序版本 ≥545.23.06（Linux）或 ≥545.84（Windows）
-docker run --gpus all --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.1.2-paddlepaddle3.0.0-gpu-cuda12.6-cudnn9.5-trt10.5 /bin/bash
+docker run --gpus all --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-gpu-cuda12.6-cudnn9.5 /bin/bash
+
+# GPU 版本，需显卡驱动程序版本 ≥550.xx
+docker run --gpus all --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-gpu-cuda12.9-cudnn9.9 /bin/bash
 ```
 
 ## 命令行使用
@@ -93,7 +96,7 @@ for res in output:
     res.save_to_json("./output/")
 ```
 
-## 安装与快速体验
+## 安装 PaddleX 2.x
 PaddleX提供了图像化开发界面、本地API、Restful-API三种开发模式。用户可根据自己的需求选择任意一种开始体验
 - [PadldeX GUI开发模式](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/docs/quick_start_GUI.md)
 - [PaddleX Python API开发模式](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/docs/quick_start_API.md)
@@ -108,6 +111,10 @@ PaddleX提供了图像化开发界面、本地API、Restful-API三种开发模�
     - [安全帽检测](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/examples/helmet_detection)
 - 工业视觉
     - [表计读数](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/examples/meter_reader)  |  [钢筋计数](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/examples/rebar_count)  |  [视觉辅助定位抓取](https://github.com/PaddlePaddle/PaddleX/blob/release/2.1/examples/robot_grab)
+
+## Runtime Environment
+- [PaddlePaddle 3.x](https://pypi.org/project/paddlepaddle/)
+- [PaddleX 3.x](https://pypi.org/project/paddlex/)
 
 ## Architecture
 ![](https://raw.githubusercontent.com/cuicheng01/PaddleX_doc_images/main/images/PaddleX_ch.png)
