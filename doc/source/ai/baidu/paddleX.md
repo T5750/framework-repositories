@@ -21,6 +21,7 @@ pip install "paddlex[ocr]"
 ```sh
 # 对于 CPU 用户
 docker run --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-cpu /bin/bash
+docker run -d --name paddlex -v $PWD:/paddle --shm-size=8g --network=host -it -e TZ=Asia/Shanghai ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlex/paddlex:paddlex3.3.4-paddlepaddle3.2.0-cpu /bin/bash
 
 # 对于 GPU 用户
 # GPU 版本，需显卡驱动程序版本 ≥450.80.02（Linux）或 ≥452.39（Windows）
@@ -57,6 +58,10 @@ paddlex --pipeline OCR \
 ```sh
 # 通用图像分类
 paddlex --pipeline image_classification --input https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_image_classification_001.jpg --device cpu
+# 通用目标检测
+paddlex --pipeline object_detection --input https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_object_detection_002.png --threshold 0.5 --save_path ./output/ --device cpu
+# 通用实例分割
+paddlex --pipeline instance_segmentation --input https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_instance_segmentation_004.png --threshold 0.5 --save_path ./output --device cpu
 ```
 
 ### 时序分析相关产线
