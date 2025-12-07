@@ -9,6 +9,8 @@ AI
     pytorchDocker
     tensorflowDocker
     jupyterDocker
+    yoloPython
+    labelTools
     labelStudioDocker
     makesenseDocker
     faceRecognitionDocker
