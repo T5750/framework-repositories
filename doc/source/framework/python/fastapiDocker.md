@@ -73,6 +73,25 @@ pip install "uvicorn[standard]"
 uvicorn main:app --reload
 ```
 
+## fastapi_production_template
+FastAPI Template with Docker, Postgres
+
+### Local Development
+```sh
+git clone https://github.com/zhanymkanov/fastapi_production_template.git
+# Windows
+winget install --id Casey.Just --exact
+pip install --upgrade build
+pip install poetry
+cp .env.example .env
+just run
+```
+
+### Deployment
+```sh
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
 ## Tips
 ### Swagger UI加载缓慢
 `vi api/main.py`放置在`app = FastAPI()`代码之前
@@ -102,3 +121,6 @@ applications.get_swagger_ui_html = swagger_monkey_patch
 - [FastAPI GitHub](https://github.com/fastapi/fastapi)
 - [FastAPI Docker](https://fastapi.tiangolo.com/zh/deployment/docker/)
 - [Fastapi中Swagger UI加载缓慢的解决方案](https://www.cnblogs.com/bokemoqi/p/18080637)
+- [zhanymkanov/fastapi-best-practices](https://github.com/zhanymkanov/fastapi-best-practices)
+- [zhanymkanov/fastapi_production_template](https://github.com/zhanymkanov/fastapi_production_template)
+- [just GitHub](https://github.com/casey/just)

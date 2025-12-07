@@ -11,6 +11,8 @@ A Next-Generation Notebook Interface
 ```sh
 pip install jupyterlab
 jupyter-lab
+# 启动服务器而不打开 Web 浏览器
+jupyter-lab --no-browser &
 ```
 
 ### Upgrade
