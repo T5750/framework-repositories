@@ -9,8 +9,11 @@ docker run --gpus all --rm -ti --ipc=host pytorch/pytorch
 
 ### jupyter/pytorch-notebook
 ```sh
+# CPU
 docker run -d --name pytorch-notebook -p 8888:8888 -v $PWD/pytorch-notebook:/home/jovyan/work quay.io/jupyter/pytorch-notebook
-pip show torch
+# GPU
+docker run -d --name pytorch-notebook -p 8888:8888 -v $PWD/pytorch-notebook:/home/jovyan/work quay.io/jupyter/pytorch-notebook:cuda12-latest
+docker exec -it pytorch-notebook pip show torch
 ```
 - [http://localhost:8888/](http://localhost:8888/)
 - [Quay.io image tags](https://quay.io/repository/jupyter/pytorch-notebook?tab=tags)

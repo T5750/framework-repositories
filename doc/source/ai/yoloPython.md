@@ -129,6 +129,41 @@ from ultralytics.utils.benchmarks import benchmark
 benchmark(model="yolo11n.pt", data="coco8.yaml", imgsz=640, half=False, device=0)
 ```
 
+## TensorBoard
+### 用法
+默认情况下，TensorBoard 日志记录处于禁用状态
+```sh
+# Enable TensorBoard logging
+yolo settings tensorboard=True
+
+# Disable TensorBoard logging
+yolo settings tensorboard=False
+```
+
+## 性能指标
+- **P (精确率)**：帮助识别并最大限度地减少假阳性
+- **R (召回率)**：确保检测到所有相关对象
+- **mAP (平均精度)**：提供整体性能快照，指导总体改进
+- **IoU (交并比)**：帮助微调目标定位精度
+
+## Docker
+### 仅使用 CPU
+```sh
+docker run -it --ipc=host ultralytics/ultralytics
+```
+
+### 使用 GPU
+```sh
+# Set image name as a variable
+t=ultralytics/ultralytics:latest
+
+# Run with all GPUs
+sudo docker run -it --ipc=host --runtime=nvidia --gpus all $t
+
+# Run specifying which GPUs to use
+sudo docker run -it --ipc=host --runtime=nvidia --gpus '"device=2,3"' $t
+```
+
 ## Runtime Environment
 - [Python 3.10.x](https://www.python.org/downloads/)
 
@@ -144,3 +179,6 @@ benchmark(model="yolo11n.pt", data="coco8.yaml", imgsz=640, half=False, device=0
 - [Ultralytics YOLOv8](https://docs.ultralytics.com/zh/models/yolov8/)
 - [Ultralytics YOLO11](https://docs.ultralytics.com/zh/models/yolo11/)
 - [Ultralytics 命令行界面 (CLI)](https://docs.ultralytics.com/zh/usage/cli/)
+- [YOLO11 与 TensorBoard 的集成](https://docs.ultralytics.com/zh/integrations/tensorboard/)
+- [Ultralytics 性能指标深度解析](https://docs.ultralytics.com/zh/guides/yolo-performance-metrics/)
+- [Ultralytics Docker 快速入门指南](https://docs.ultralytics.com/zh/guides/docker-quickstart/)
