@@ -122,11 +122,61 @@ results = model.track(source="https://youtu.be/LNwODJXcvt4", show=True, tracker=
 
 ## 基准测试
 基准测试模式 用于分析 YOLO 各种导出格式的速度和准确性
+
+支持的导出格式
+- **ONNX**： 实现最佳 CPU 性能
+- **TensorRT**： 实现最大 GPU 效率
+- **OpenVINO**： 针对 Intel 硬件优化
+
+### Python
 ```sh
 from ultralytics.utils.benchmarks import benchmark
 
 # Benchmark
 benchmark(model="yolo11n.pt", data="coco8.yaml", imgsz=640, half=False, device=0)
+```
+
+### CLI
+```sh
+yolo benchmark model=yolo11n.pt data='coco8.yaml' imgsz=640 half=False device=0
+
+# Benchmark specific export format
+yolo benchmark model=yolo11n.pt data='coco8.yaml' imgsz=640 format=onnx
+```
+
+## 任务
+### 检测
+- 目标检测的输出是一组边界框，这些边界框包围了图像中的目标，以及每个框的类别标签和置信度分数
+- 识别目标的位置和类别
+
+### 分割
+- 实例分割的输出是一组掩码或轮廓，它们勾勒出图像中每个对象，以及每个对象的类别标签和置信度分数
+- 了解对象的精确形状
+
+```sh
+yolo segment predict model=yolo11n-seg.pt source='https://ultralytics.com/images/bus.jpg'
+```
+
+### 分类
+- 图像分类的输出是单个类别标签和一个置信度分数
+- 专为高效图像分类而设计
+
+```sh
+yolo classify predict model=yolo11n-cls.pt source='https://ultralytics.com/images/bus.jpg'
+```
+
+### 姿势估计
+姿势估计的输出是一组点，这些点代表图像中对象上的关键点，通常还包括每个点的置信度分数
+
+```sh
+yolo pose predict model=yolo11n-pose.pt source='https://ultralytics.com/images/bus.jpg'
+```
+
+### OBB
+旋转边界框目标检测的输出是一组旋转的边界框，这些边界框精确地包围了图像中的目标，以及每个框的类别标签和置信度分数
+
+```sh
+yolo obb predict model=yolo11n-obb.pt source='https://ultralytics.com/images/boats.jpg'
 ```
 
 ## TensorBoard
@@ -182,3 +232,4 @@ sudo docker run -it --ipc=host --runtime=nvidia --gpus '"device=2,3"' $t
 - [YOLO11 与 TensorBoard 的集成](https://docs.ultralytics.com/zh/integrations/tensorboard/)
 - [Ultralytics 性能指标深度解析](https://docs.ultralytics.com/zh/guides/yolo-performance-metrics/)
 - [Ultralytics Docker 快速入门指南](https://docs.ultralytics.com/zh/guides/docker-quickstart/)
+- [Ultralytics 数据集](https://docs.ultralytics.com/zh/datasets/)

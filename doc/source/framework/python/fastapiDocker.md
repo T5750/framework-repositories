@@ -73,6 +73,15 @@ pip install "uvicorn[standard]"
 uvicorn main:app --reload
 ```
 
+## Uvicorn
+An ASGI web server, for Python.
+```
+# Command Line
+uvicorn main:app --host 0.0.0.0 --port 8000
+# Programmatic
+uvicorn.run("main:app", host="0.0.0.0", port=8000)
+```
+
 ## fastapi_production_template
 FastAPI Template with Docker, Postgres
 
@@ -110,6 +119,7 @@ applications.get_swagger_ui_html = swagger_monkey_patch
 ## Runtime Environment
 - [Python 3.12.x](https://www.python.org/downloads/)
 - [FastAPI](https://pypi.org/project/fastapi/)
+- [Uvicorn](https://pypi.org/project/uvicorn/)
 
 ## Screenshots
 ![](https://fastapi.tiangolo.com/img/index/index-01-swagger-ui-simple.png)
@@ -124,3 +134,5 @@ applications.get_swagger_ui_html = swagger_monkey_patch
 - [zhanymkanov/fastapi-best-practices](https://github.com/zhanymkanov/fastapi-best-practices)
 - [zhanymkanov/fastapi_production_template](https://github.com/zhanymkanov/fastapi_production_template)
 - [just GitHub](https://github.com/casey/just)
+- [Uvicorn](https://uvicorn.dev/)
+- [Uvicorn GitHub](https://www.github.com/Kludex/uvicorn)

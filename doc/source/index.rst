@@ -9,7 +9,7 @@ Framework Repositories
 
 .. note::
    - This is my technical note, I hope this can help you.
-   - Wonderful list: CAS, ComfyUI, HertzBeat, Home Assistant, JumpServer, Ollama, Superset, ThingsBoard, Wiki.js
+   - Wonderful list: CAS, ComfyUI, HertzBeat, Home Assistant, JumpServer, Ollama, PyTorch, Superset, ThingsBoard, Wiki.js, YOLO
 
 .. tip::
    - Docs:

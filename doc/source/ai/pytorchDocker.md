@@ -36,11 +36,12 @@ priority = "supplemental"
 ```
 ```sh
 poetry add torch==2.6.0+cpu torchvision==0.21.0+cpu torchaudio==2.6.0+cpu
-# poetry add ultralytics fastapi pydantic uvicorn requests
+# poetry add ultralytics fastapi pydantic uvicorn requests onnxruntime
 # 安装插件
 poetry self add poetry-plugin-shell
 poetry shell
 python -c "import torch; print(f'PyTorch: {torch.__version__}, GPU: {torch.cuda.is_available()}')"
+# python -c "import onnxruntime"
 ```
 
 ## TensorBoard
@@ -77,6 +78,11 @@ train_model(10)
 writer.flush()
 writer.close()
 ```
+
+## Tips
+DLL load failed while importing onnxruntime_pybind11_state: 动态链接库(DLL)初始化例程失败。
+1. 下载并安装 [Visual Studio 2017–2026](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170) 运行库
+2. 安装后重启电脑，再测试推理代码
 
 ## Runtime Environment
 - [PyTorch 2.x](https://pytorch.org/)
