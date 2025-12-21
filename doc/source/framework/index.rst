@@ -19,7 +19,6 @@ Framework
     iot/index
     netdisc/index
     pm/index
-    python/index
     softSkills
     sso/index
     table/index

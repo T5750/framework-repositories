@@ -32,6 +32,7 @@ Framework Repositories
    network/index
    open-source/index
    proxy/index
+   python/index
    rest/index
    rpc/index
    spring/index
