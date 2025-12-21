@@ -103,6 +103,23 @@ nbdime mergetool
 ### Screenshots
 ![](https://nbdime.readthedocs.io/en/latest/_images/nbdiff-web.png)
 
+## nbconvert
+Convert Notebooks to other formats
+
+### Installation
+```sh
+pip install nbconvert
+```
+
+### Usage
+```sh
+jupyter nbconvert --to FORMAT notebook.ipynb
+# Convert a notebook to HTML
+jupyter nbconvert --to html notebook.ipynb
+# .ipynb 转换为 .py
+jupyter nbconvert --to script --no-prompt notebook.ipynb
+```
+
 ## References
 - [Jupyter](https://jupyter.org/)
 - [Jupyter Docker Stacks GitHub](https://github.com/jupyter/docker-stacks)
@@ -113,3 +130,5 @@ nbdime mergetool
 - [使用Docker安装配置Jupyter](https://www.voidking.com/dev-docker-jupyter/)
 - [nbdime GitHub](https://github.com/jupyter/nbdime)
 - [nbdime Documentation](https://nbdime.readthedocs.io/)
+- [nbconvert](https://nbconvert.readthedocs.io/)
+- [nbconvert GitHub](https://github.com/jupyter/nbconvert)

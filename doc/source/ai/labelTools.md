@@ -60,6 +60,27 @@ Create your image dataset for vision AI.
 ### Runtime Environment
 - [Python 3.9.x](https://www.python.org/downloads/)
 
+## CVAT
+Computer Vision Annotation Tool (CVAT)：提供多种标注格式和可定制的工作流程，使其适用于复杂的项目。
+
+### Runtime Environment
+- [Python 3.10.x](https://www.python.org/downloads/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## VIA
+VGG Image Annotator (VIA)：基于网页的轻量级注释工具
+
+### Version 2
+image annotator
+- [via.html](https://www.robots.ox.ac.uk/~vgg/software/via/via.html)
+
+### Version 3
+audio and video annotator
+- [via_image_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_image_annotator.html)
+- [via_video_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_video_annotator.html)
+- [via_audio_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_audio_annotator.html)
+- [via_subtitle_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_subtitle_annotator.html)
+
 ## References
 - [X-AnyLabeling GitHub](https://github.com/CVHub520/X-AnyLabeling)
 - [X-AnyLabeling 用户手册](https://github.com/CVHub520/X-AnyLabeling/blob/main/docs/zh_cn/user_guide.md)
@@ -67,3 +88,9 @@ Create your image dataset for vision AI.
 - [LabelImg GitHub](https://github.com/HumanSignal/labelImg)
 - [Labelme](https://labelme.io/)
 - [Labelme GitHub](https://github.com/wkentaro/labelme)
+- [CVAT](https://www.cvat.ai/)
+- [CVAT GitHub](https://github.com/cvat-ai/cvat)
+- [CVAT Self-hosted Installation Guide](https://docs.cvat.ai/docs/administration/community/basics/installation/)
+- [CVAT API](https://docs.cvat.ai/docs/api_sdk/api/)
+- [VIA](https://www.robots.ox.ac.uk/~vgg/software/via/)
+- [VIA GitHub](https://github.com/ox-vgg/via)
