@@ -6,7 +6,7 @@
 
 ## pip
 ```sh
-python -m pip install paddlepaddle==2.4.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+python -m pip install paddlepaddle==2.6.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install jupyterlab
 jupyter-lab
 ```

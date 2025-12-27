@@ -81,6 +81,27 @@ audio and video annotator
 - [via_audio_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_audio_annotator.html)
 - [via_subtitle_annotator.html](https://www.robots.ox.ac.uk/~vgg/software/via/app/via_subtitle_annotator.html)
 
+## PPOCRLabel
+PPOCRLabelv3是一款适用于OCR领域的半自动化图形标注工具
+
+### 安装
+```sh
+pip install paddlepaddle -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
+pip install PPOCRLabel
+```
+
+### 运行
+```sh
+PPOCRLabel --lang ch  # 启动【普通模式】，用于打【检测+识别】场景的标签
+PPOCRLabel --lang ch --kie True  # 启动 【KIE 模式】，用于打【检测+识别+关键字提取】场景的标签
+```
+
+### Runtime Environment
+- [Python 3.9.x](https://www.python.org/downloads/)
+- [PaddlePaddle 3.x](https://pypi.org/project/paddlepaddle/)
+- [PaddleOCR 3.x](https://pypi.org/project/paddleocr/)
+- [PPOCRLabel 3.x](https://pypi.org/project/PPOCRLabel/)
+
 ## References
 - [X-AnyLabeling GitHub](https://github.com/CVHub520/X-AnyLabeling)
 - [X-AnyLabeling 用户手册](https://github.com/CVHub520/X-AnyLabeling/blob/main/docs/zh_cn/user_guide.md)
@@ -94,3 +115,4 @@ audio and video annotator
 - [CVAT API](https://docs.cvat.ai/docs/api_sdk/api/)
 - [VIA](https://www.robots.ox.ac.uk/~vgg/software/via/)
 - [VIA GitHub](https://github.com/ox-vgg/via)
+- [PPOCRLabel GitHub](https://github.com/PFCCLab/PPOCRLabel)
