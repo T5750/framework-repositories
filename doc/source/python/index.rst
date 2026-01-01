@@ -6,6 +6,7 @@ Python
     :numbered: 0
     
     pythonDocker
+    pythonLibrary
     fastapiDocker
     portiaDocker
     mealieDocker
