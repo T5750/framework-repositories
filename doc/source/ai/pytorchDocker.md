@@ -18,6 +18,12 @@ docker exec -it pytorch-notebook pip show torch
 - [http://localhost:8888/](http://localhost:8888/)
 - [Quay.io image tags](https://quay.io/repository/jupyter/pytorch-notebook?tab=tags)
 
+## pip
+```sh
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+python -c "import torch; print(torch.rand(3,3))"
+```
+
 ## Poetry
 Poetry 是一个用于 Python 中 **依赖项管理** 和 **打包** 的工具
 ```sh
