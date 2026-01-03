@@ -75,11 +75,20 @@ uvicorn main:app --reload
 
 ## Uvicorn
 An ASGI web server, for Python.
-```
-# Command Line
+
+1.Command Line
+```sh
 uvicorn main:app --host 0.0.0.0 --port 8000
-# Programmatic
+```
+2.Programmatic
+```
 uvicorn.run("main:app", host="0.0.0.0", port=8000)
+```
+3.Environment Variables
+```sh
+export UVICORN_HOST="0.0.0.0"
+export UVICORN_PORT="8000"
+uvicorn main:app
 ```
 
 ## fastapi_production_template
@@ -136,3 +145,4 @@ applications.get_swagger_ui_html = swagger_monkey_patch
 - [just GitHub](https://github.com/casey/just)
 - [Uvicorn](https://uvicorn.dev/)
 - [Uvicorn GitHub](https://www.github.com/Kludex/uvicorn)
+- [Uvicorn Settings](https://uvicorn.dev/settings/)
