@@ -8,6 +8,7 @@ Python
     pythonDocker
     pythonLibrary
     fastapiDocker
+    minicondaDocker
     portiaDocker
     mealieDocker
     searxDocker
