@@ -9,6 +9,7 @@ AI
     pytorchDocker
     tensorflowDocker
     jupyterDocker
+    mlflowDocker
     yoloPython
     labelTools
     labelStudioDocker
