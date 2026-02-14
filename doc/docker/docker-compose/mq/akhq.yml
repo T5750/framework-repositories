@@ -1,0 +1,14 @@
+services:
+  akhq:
+    image: tchiotludo/akhq
+    container_name: akhq
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      AKHQ_CONFIGURATION: |
+        akhq:
+          connections:
+            docker-kafka-server:
+              properties:
+                bootstrap.servers: "kafka:9092"
