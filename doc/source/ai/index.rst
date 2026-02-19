@@ -31,6 +31,7 @@ AI
     difyDocker
     langchain
     n8nDocker
+    flowiseDocker
     stableDiffusion
     comfyUI
     comflowyNote
