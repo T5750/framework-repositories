@@ -179,6 +179,11 @@ yolo pose predict model=yolo11n-pose.pt source='https://ultralytics.com/images/b
 yolo obb predict model=yolo11n-obb.pt source='https://ultralytics.com/images/boats.jpg'
 ```
 
+## 模型
+- YOLO26：专为边缘和低功耗设备而设计
+- YOLO11：专为多功能性和生态系统集成而设计
+- YOLOv8：通用性与易用性的行业标杆
+
 ## TensorBoard
 ### 用法
 默认情况下，TensorBoard 日志记录处于禁用状态
@@ -233,3 +238,4 @@ sudo docker run -it --ipc=host --runtime=nvidia --gpus '"device=2,3"' $t
 - [Ultralytics 性能指标深度解析](https://docs.ultralytics.com/zh/guides/yolo-performance-metrics/)
 - [Ultralytics Docker 快速入门指南](https://docs.ultralytics.com/zh/guides/docker-quickstart/)
 - [Ultralytics 数据集](https://docs.ultralytics.com/zh/datasets/)
+- [Ultralytics 简单实用工具](https://docs.ultralytics.com/zh/usage/simple-utilities/)

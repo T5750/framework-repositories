@@ -96,6 +96,7 @@ Markdown to DOCX Converter
 ### 环境变量配置
 `vi .env`
 ```
+LOG_TZ=Asia/Shanghai
 FILES_ACCESS_TIMEOUT=300
 NGINX_CLIENT_MAX_BODY_SIZE=500M
 UPLOAD_FILE_SIZE_LIMIT=500
