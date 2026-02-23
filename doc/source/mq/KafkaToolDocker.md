@@ -79,6 +79,12 @@ Kafka GUI for Apache Kafka ® to manage topics, topics data, consumers group, sc
 ### Screenshots
 ![](https://akhq.io/assets/images/preview.jpg)
 
+## Offset Explorer
+The Ultimate UI Tool for Kafka
+
+### Screenshots
+![](https://offsetexplorer.com/images/sshots/browser.jpg)
+
 ## References
 - [CMAK GitHub](https://github.com/yahoo/CMAK)
 - [hlebalbau/kafka-manager Docker](https://hub.docker.com/r/hlebalbau/kafka-manager)
@@ -86,3 +92,4 @@ Kafka GUI for Apache Kafka ® to manage topics, topics data, consumers group, sc
 - [provectus/kafka-ui GitHub](https://github.com/provectus/kafka-ui)
 - [AKHQ](https://akhq.io/)
 - [AKHQ GitHub](https://github.com/tchiotludo/akhq)
+- [Offset Explorer](https://offsetexplorer.com/)
