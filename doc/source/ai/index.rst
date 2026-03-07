@@ -30,6 +30,7 @@ AI
     oneApiDocker
     difyDocker
     langchain
+    langflowDocker
     n8nDocker
     flowiseDocker
     stableDiffusion
