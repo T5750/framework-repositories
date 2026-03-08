@@ -33,6 +33,7 @@ AI
     langflowDocker
     n8nDocker
     flowiseDocker
+    openclawDocker
     stableDiffusion
     comfyUI
     comflowyNote
