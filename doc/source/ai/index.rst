@@ -47,3 +47,4 @@ AI
     PDFMathTranslateDocker
     trWebOCRDocker
     neo4jDocker
+    gptLoadDocker
