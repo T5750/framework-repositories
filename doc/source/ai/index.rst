@@ -15,6 +15,7 @@ AI
     labelStudioDocker
     makesenseDocker
     faceRecognitionDocker
+    insightface
     chatGPTNextWebDocker
     iopaintDocker
     ollamaDocker
