@@ -49,3 +49,4 @@ AI
     trWebOCRDocker
     neo4jDocker
     gptLoadDocker
+    langbotDocker
