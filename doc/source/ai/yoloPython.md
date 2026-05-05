@@ -180,9 +180,22 @@ yolo obb predict model=yolo11n-obb.pt source='https://ultralytics.com/images/boa
 ```
 
 ## 模型
-- YOLO26：专为边缘和低功耗设备而设计
-- YOLO11：专为多功能性和生态系统集成而设计
-- YOLOv8：通用性与易用性的行业标杆
+- YOLO26：2026年发布，专为边缘和低功耗设备而设计
+- YOLO11：2024年发布，专为多功能性和生态系统集成而设计
+- YOLOv8：2023年发布，通用性与易用性的行业标杆
+
+## 数据集
+- [COCO](https://docs.ultralytics.com/zh/datasets/detect/coco/): 一个大规模数据集，用于目标 detect、segmentation 和图像描述
+    * COCO8: 仅包含 8 张图像（4 张训练，4 张验证）——适用于快速测试和调试
+    * [COCO128](https://docs.ultralytics.com/zh/datasets/detect/coco128/): 包含 128 张图像——在大小和多样性之间取得平衡，[coco128.yaml](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco128.yaml)
+    * 完整 COCO: 包含11.8万+训练图像——全面但资源密集
+- [ImageNet](https://docs.ultralytics.com/zh/datasets/classify/imagenet/): 一个大规模数据库，使用 WordNet 词集进行分类
+    * ImageNet10: 仅包含 20 张图像（每个类别 2 张），适用于 CI 测试和快速健全性检查
+    * [ImageNette](https://docs.ultralytics.com/zh/datasets/classify/imagenette/): 包含数千张图像，10 个类别，适合实际模型训练和开发
+- [DOTAv2](https://docs.ultralytics.com/zh/datasets/obb/dota-v2/): 一个专门的数据集，强调航空图像中的目标检测，OBB
+    * DOTA8: 仅包含 8 张图像（4 张训练，4 张验证）——适合快速测试和调试
+    * [DOTA128](https://docs.ultralytics.com/zh/datasets/obb/dota128/): 包含 128 张图像——在大小和多样性之间取得平衡，[dota128.yaml](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/dota128.yaml)
+    * 完整 DOTA-v1: 包含 1,869 张图像——全面但资源密集
 
 ## TensorBoard
 ### 用法
@@ -233,9 +246,11 @@ sudo docker run -it --ipc=host --runtime=nvidia --gpus '"device=2,3"' $t
 - [安装 Ultralytics](https://docs.ultralytics.com/zh/quickstart/)
 - [Ultralytics YOLOv8](https://docs.ultralytics.com/zh/models/yolov8/)
 - [Ultralytics YOLO11](https://docs.ultralytics.com/zh/models/yolo11/)
+- [Ultralytics YOLO26](https://docs.ultralytics.com/zh/models/yolo26/)
 - [Ultralytics 命令行界面 (CLI)](https://docs.ultralytics.com/zh/usage/cli/)
 - [YOLO11 与 TensorBoard 的集成](https://docs.ultralytics.com/zh/integrations/tensorboard/)
 - [Ultralytics 性能指标深度解析](https://docs.ultralytics.com/zh/guides/yolo-performance-metrics/)
 - [Ultralytics Docker 快速入门指南](https://docs.ultralytics.com/zh/guides/docker-quickstart/)
 - [Ultralytics 数据集](https://docs.ultralytics.com/zh/datasets/)
 - [Ultralytics 简单实用工具](https://docs.ultralytics.com/zh/usage/simple-utilities/)
+- [Ultralytics 在自定义数据上训练 YOLOv5](https://docs.ultralytics.com/zh/yolov5/tutorials/train_custom_data/)
