@@ -39,3 +39,4 @@ API
     triliumDocker
     flatnotesDocker
     jsoncrackDocker
+    doocsMdDocker
