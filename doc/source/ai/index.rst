@@ -50,3 +50,4 @@ AI
     neo4jDocker
     gptLoadDocker
     langbotDocker
+    hivisionIDPhotosDocker
