@@ -3,8 +3,7 @@
 PaddleOCR旨在打造一套丰富、领先、且实用的OCR工具库，助力开发者训练出更好的模型，并应用落地。
 
 ## Demo
-- [PP-OCR mobile](https://www.paddlepaddle.org.cn/hub/scene/ocr)
-- [移动端demo](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)
+- [PaddleOCR](https://aistudio.baidu.com/paddleocr)
 
 ## PaddleOCR 3.x
 ### 安装飞桨框架
