@@ -26,3 +26,4 @@ Exchange
     kaotoDocker
     tdengineDocker
     drawdbDocker
+    dbxDocker
