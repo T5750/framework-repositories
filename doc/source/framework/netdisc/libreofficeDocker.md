@@ -26,6 +26,43 @@ docker run -d --name=libreoffice -p 3000:3000 -e username=admin -e password=1234
 ```
 <http://localhost:3000/>
 
+## libreofficedocker/libreoffice-unoserver Docker
+A packaged unoserver with REST APIs using Libreoffice in Docker
+```sh
+docker run -d --name=libreoffice -p 2004:2004 libreofficedocker/libreoffice-unoserver:3.23
+```
+
+### API
+There is only one POST `/request` API.
+
+**Default payload**
+```sh
+curl -s -v \
+   --request POST \
+   --url http://127.0.0.1:2004/request \
+   --header 'Content-Type: multipart/form-data' \
+   --form "file=@/path/to/your/file.xlsx" \
+   --form 'convert-to=pdf' \
+   --output 'file.pdf'
+```
+- `file`: Type of `File`, required
+- `convert-to`: Type of `String`, required
+
+**Advance payload**
+```sh
+curl -s -v \
+   --request POST \
+   --url http://127.0.0.1:2004/request \
+   --header 'Content-Type: multipart/form-data' \
+   --form "file=@/path/to/your/file.xlsx" \
+   --form 'convert-to=pdf' \
+   --form 'opts[]=--landscape' \
+   --output 'file.pdf'
+```
+- `file`: Type of `File`, required
+- `convert-to`: Type of `String`, required
+- `opts`: Type of `String[]`
+
 ## Screenshots
 ![](https://zh-cn.libreoffice.org/assets/Uploads/zh-cn/screenshots/writer/writer-main-sidebar.png)
 
@@ -36,3 +73,5 @@ docker run -d --name=libreoffice -p 3000:3000 -e username=admin -e password=1234
 - [Nextcloud with LibreOffice Online](https://github.com/smehrbrodt/nextcloud-libreoffice-online)
 - [LibreOffice 软件截图](https://zh-cn.libreoffice.org/discover/page-826/)
 - [linuxserver/libreoffice Docker](https://docs.linuxserver.io/images/docker-libreoffice/)
+- [libreofficedocker/libreoffice-unoserver Docker](https://github.com/libreofficedocker/libreoffice-unoserver)
+- [libreofficedocker/unoserver-rest-api GitHub](https://github.com/libreofficedocker/unoserver-rest-api)
