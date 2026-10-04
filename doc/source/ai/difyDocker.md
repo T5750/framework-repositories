@@ -34,6 +34,15 @@ docker compose pull
 docker compose up -d
 ```
 
+### 备份
+需要备份数据库、配置的存储以及向量数据库数据，若为 docker compose 方式部署，可直接备份 `dify/docker/volumes` 目录下所有数据内容。
+```sh
+# 备份配置
+cp .env .env.$(date +%s).bak
+# 备份 PostgreSQL
+docker compose exec db pg_dump -U postgres dify > dify_db_$(date +%Y%m%d_%H%M%S).sql
+```
+
 ### 同步环境变量配置 (重要！)
 如果 `.env.example` 文件有更新，请务必同步修改你本地的 `.env` 文件。
 
@@ -44,6 +53,20 @@ docker compose down
 docker compose up -d
 ```
 完整的环境变量集合可以在 `docker/.env.example` 中找到。
+
+### 环境变量配置
+`vi .env`
+```
+LOG_TZ=Asia/Shanghai
+FILES_ACCESS_TIMEOUT=300
+NGINX_CLIENT_MAX_BODY_SIZE=500M
+UPLOAD_FILE_SIZE_LIMIT=500
+TOP_K_MAX_VALUE=20
+FORCE_VERIFYING_SIGNATURE=true
+PLUGIN_MAX_EXECUTION_TIMEOUT=2400
+PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+SECRET_KEY=
+```
 
 ## 单独启动前端 Docker 容器
 当单独开发后端时，可能只需要源码启动后端服务，而不需要本地构建前端代码并启动
@@ -93,22 +116,6 @@ pip install -r requirements.txt
 Markdown to DOCX Converter
 
 ## Tips
-### 环境变量配置
-`vi .env`
-```
-LOG_TZ=Asia/Shanghai
-FILES_ACCESS_TIMEOUT=300
-NGINX_CLIENT_MAX_BODY_SIZE=500M
-UPLOAD_FILE_SIZE_LIMIT=500
-TOP_K_MAX_VALUE=20
-FORCE_VERIFYING_SIGNATURE=true
-PLUGIN_MAX_EXECUTION_TIMEOUT=2400
-PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-### 备份
-需要备份数据库、配置的存储以及向量数据库数据，若为 docker compose 方式部署，可直接备份 `dify/docker/volumes` 目录下所有数据内容。
-
 ### dify-sandbox config error
 ```sh
 cd volumes/sandbox/conf
@@ -124,6 +131,17 @@ vi python-requirements.txt
 ### weaviate组件缺失问题
 ```sh
 docker-compose up weaviate -d
+```
+
+### SSRF 代理 403 Forbidden
+`vi dify/docker/ssrf_proxy/squid.conf.template`
+```
+acl allowed_domains dstdomain .marketplace.dify.ai
+http_access allow allowed_domains
+http_access deny to_private_networks
+```
+```sh
+docker compose restart ssrf_proxy
 ```
 
 ## Runtime Environment
@@ -147,7 +165,7 @@ docker-compose up weaviate -d
 - [Dify GitHub](https://github.com/langgenius/dify)
 - [Dify Docker Compose 部署](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/docker-compose)
 - [Dify 单独启动前端 Docker 容器](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/start-the-frontend-docker-container)
-- [Dify 环境变量说明](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted/environments)
+- [Dify 环境变量](https://docs.dify.ai/zh/self-host/deploy/configuration/environments)
 - [Dify Marketplace](https://marketplace.dify.ai/)
 - [Dify 插件开发：Hello World 指南](https://docs.dify.ai/plugin-dev-zh/0211-getting-started-dify-tool)
 - [Dify-Sandbox GitHub](https://github.com/langgenius/dify-sandbox)
@@ -158,3 +176,4 @@ docker-compose up weaviate -d
 - [hjlarry/database FAQ](https://github.com/hjlarry/dify-plugin-database/blob/main/FAQ.md)
 - [bowenliang123/md_exporter](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
 - [stvlynn/DOC-Dify-Plugin](https://marketplace.dify.ai/plugins/stvlynn/doc)
+- [Dify SSRF 代理](https://docs.dify.ai/zh/self-host/deploy/troubleshooting/docker-issues#ssrf-%E4%BB%A3%E7%90%86)
