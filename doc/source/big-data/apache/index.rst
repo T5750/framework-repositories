@@ -8,3 +8,4 @@ Apache
     zeppelinDocker
     flinkDocker
     dolphinschedulerDocker
+    nifiDocker
